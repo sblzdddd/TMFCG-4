@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dlcqvrgbxufh1"]
+
+[ext_resource type="FontFile" uid="uid://dy3x2wp2dbgwx" path="res://assets/fonts/Gloock-Regular.ttf" id="1_ot7ae"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_ot7ae")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)

@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bbatydw07l4n3"]
+
+[ext_resource type="FontFile" uid="uid://gpjc63stsulg" path="res://assets/fonts/Itim-Regular.ttf" id="1_fc6ft"]
+
+[resource]
+font = ExtResource("1_fc6ft")
+font_size = 54
+font_color = Color(0.28627452, 0.15294118, 0.07058824, 1)
+outline_size = 12
+outline_color = Color(0.827451, 0.7647059, 0.6313726, 1)
+shadow_size = 0
