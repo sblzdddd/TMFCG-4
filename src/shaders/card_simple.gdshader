@@ -85,10 +85,10 @@ vec4 SuitTint(float matCol) {
 	float aa = max(fwidth(matCol), 0.002);
 	return vec4(
 		mix(
-			mix(tint1, tint2, smoothstep(0.25 - aa, 0.62 + aa, matCol)),
+			mix(tint1, tint2, smoothstep(0.2 - aa, 0.62 + aa, matCol)),
 			tint3, smoothstep(0.625 - aa, 1.0 + aa, matCol)
 		),
-		smoothstep(-aa, 0.25 + aa, matCol)
+		smoothstep(-aa, 0.1 + aa, matCol)
 	);
 }
 
@@ -114,10 +114,10 @@ void fragment() {
 	vec3 bottomUVA = RatioCorrectUV(UV, BOTTOM_POS, PARTS_SIZE, BOTTOM_CROP + ivec4(0, BOTTOM_CROP.w, 0, 0), true, true);
 	vec4 bottomA = sampleSuitTex(partsTex, bottomUVA);
 
-	vec3 iconUV = RatioCorrectUV(UV, vec3(-0.364, -0.366, 0.045), PARTS_SIZE, ivec4(896,896,128,128), true, false);
+	vec3 iconUV = RatioCorrectUV(UV, vec3(-0.364, -0.366, 0.045), PARTS_SIZE, ivec4(960,960,64,64), true, false);
 	vec4 icon = sampleSuitTex(partsTex, iconUV);
 	
-	vec3 iconUV2 = RatioCorrectUV(UV, vec3(0.364, 0.366, -0.045), PARTS_SIZE, ivec4(896,896,128,128), true, false);
+	vec3 iconUV2 = RatioCorrectUV(UV, vec3(0.364, 0.366, -0.045), PARTS_SIZE, ivec4(960,960,64,64), true, false);
 	icon += sampleSuitTex(partsTex, iconUV2);
 	
 	vec4 combinedSuit = SuitTint(max(max(top, bottom), icon - vec4(0.6)).r);

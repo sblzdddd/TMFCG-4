@@ -27,7 +27,6 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={}
 directories/dtl_directory={
-"curved_text": "res://src/ui/curved_text.dtl",
 "example": "res://src/dialogues/example.dtl"
 }
 layout/style_directory={}
