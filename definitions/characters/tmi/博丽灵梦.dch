@@ -1,0 +1,149 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "22",
+&"color": Color(0.744, 0.216, 0.266, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方红魔乡
+description=博丽神社巫女",
+&"display_name": "博丽灵梦",
+&"mirror": false,
+&"nicknames": ["红白", "赤色杀人魔"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"低沉": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 低沉.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"傲娇": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 傲娇.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"哭": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 哭.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"喊": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 喊.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"喝茶": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 喝茶.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"喝茶闭眼": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 喝茶闭眼.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"思考": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 思考.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"普通张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 普通张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"说教": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 说教.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"闭眼笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 闭眼笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"震惊": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/灵梦 震惊.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

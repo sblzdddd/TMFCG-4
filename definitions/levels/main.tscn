@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://cruf4r2hiqeyi"]
+
+[ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="1_ugala"]
+[ext_resource type="Material" uid="uid://db74r6pn7xdhh" path="res://definitions/materials/mat_card_default.tres" id="2_rr0j0"]
+[ext_resource type="LabelSettings" uid="uid://dlcqvrgbxufh1" path="res://definitions/fonts/font_card_value.tres" id="3_6nsyj"]
+[ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/curved_text.gd" id="4_78jd5"]
+[ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
+
+[sub_resource type="Curve2D" id="Curve2D_76muk"]
+_data = {
+"points": PackedVector2Array(-32.653065, 9.83103, 0, 0, 250, 285, -75, 0, 75, 0, 450, 248.305, 0, 0, 0, 0, 650, 285)
+}
+point_count = 3
+
+[node name="Main" type="Node2D" unique_id=1372351550]
+
+[node name="CloseUpNaturalTexture" type="Sprite2D" parent="." unique_id=304415346]
+position = Vector2(960, 480)
+scale = Vector2(0.41, 0.41)
+texture = ExtResource("1_ugala")
+offset = Vector2(0, 34.14624)
+
+[node name="Card" type="Control" parent="." unique_id=1572695618]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 450.0
+offset_bottom = 600.0
+pivot_offset = Vector2(225, 300)
+
+[node name="CardBase" type="ColorRect" parent="Card" unique_id=2071212288]
+material = ExtResource("2_rr0j0")
+layout_mode = 0
+offset_right = 450.0
+offset_bottom = 600.0
+pivot_offset = Vector2(225, 600)
+
+[node name="ValueLabel" type="Label" parent="Card/CardBase" unique_id=90094314]
+layout_mode = 1
+offset_left = 35.96754
+offset_top = 19.101124
+offset_right = 85.967545
+offset_bottom = 79.60112
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 1
+text = "A"
+label_settings = ExtResource("3_6nsyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+clip_text = true
+
+[node name="ValueLabel2" type="Label" parent="Card/CardBase" unique_id=1658481521]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -36.0
+offset_top = -20.0
+offset_right = 14.0
+offset_bottom = 40.5
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 3.1415927
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+theme_override_constants/outline_size = 0
+theme_override_font_sizes/font_size = 1
+text = "A"
+label_settings = ExtResource("3_6nsyj")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_trim_flags = 0
+clip_text = true
+
+[node name="CharacterNameLabel" type="Path2D" parent="Card/CardBase" unique_id=895058224]
+position = Vector2(-1.1111112, -15.969998)
+scale = Vector2(0.49999994, 0.49999994)
+curve = SubResource("Curve2D_76muk")
+script = ExtResource("4_78jd5")
+label_settings = ExtResource("5_w2akv")
+
+[node name="GraphEdit" type="GraphEdit" parent="." unique_id=1829042089]
+offset_left = 485.0
+offset_top = 92.0
+offset_right = 1778.0
+offset_bottom = 1078.0
+grid_pattern = 1
+show_zoom_label = true
+show_minimap_button = false
+
+[node name="GraphNode" type="GraphNode" parent="GraphEdit" unique_id=1432539052]
+layout_mode = 0
+offset_right = 294.0
+offset_bottom = 293.0
+mouse_filter = 1
+resizable = true
+title = "q1111"

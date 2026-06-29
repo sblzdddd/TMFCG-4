@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://sdilbrpq08q3"
+
+[deps]
+
+files=["res://definitions/translations/dialogic_character_translations.zh.translation", "res://definitions/translations/dialogic_character_translations.en.translation", "res://definitions/translations/dialogic_character_translations.ja.translation"]
+
+source_file="res://definitions/translations/dialogic_character_translations.csv"
+dest_files=["res://definitions/translations/dialogic_character_translations.zh.translation", "res://definitions/translations/dialogic_character_translations.en.translation", "res://definitions/translations/dialogic_character_translations.ja.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

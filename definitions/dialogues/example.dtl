@@ -1,0 +1,8 @@
+join 豪德寺三花 left [animation="Bounce In"]
+豪德寺三花 (微笑): Hello #id:11
+Test #id:12
+Test test test #id:13
+- Choice 1 #id:14
+	Choice 1 #id:15
+- Choice 2 #id:16
+	Choice 2 #id:17

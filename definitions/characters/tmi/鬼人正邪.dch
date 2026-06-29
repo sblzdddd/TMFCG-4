@@ -1,0 +1,131 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "67",
+&"color": Color(0.744, 0.216, 0.317, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方辉针城
+description=逆袭的天邪鬼",
+&"display_name": "鬼人正邪",
+&"mirror": false,
+&"nicknames": ["邪正人鬼"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"不甘": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 不甘.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"原表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 原表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"拽": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 拽.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"生气": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 生气.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"痞笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 痞笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 认真.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 认真张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"阴暗": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/正邪 阴暗.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

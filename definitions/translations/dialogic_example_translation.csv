@@ -1,0 +1,10 @@
+keys,zh
+Text/11/text,Hello
+Text/12/text,Test
+Text/13/text,Test test test
+Choice/14/text,Choice 1
+Choice/14/disabled_text,
+Text/15/text,Choice 1
+Choice/16/text,Choice 2
+Choice/16/disabled_text,
+Text/17/text,Choice 2

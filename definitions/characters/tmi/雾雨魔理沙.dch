@@ -1,0 +1,95 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "60",
+&"color": Color(0.744, 0.451, 0.216, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "无表情",
+&"description": "origin=东方红魔乡
+description=普通的魔法使",
+&"display_name": "雾雨魔理沙",
+&"mirror": false,
+&"nicknames": ["黑白", "东洋魔女", "黑白老鼠"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"不耐烦": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 不耐烦.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"惊讶": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 惊讶.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"撇嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 撇嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"苦笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 苦笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"苦笑汗": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/魔理沙 苦笑汗.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

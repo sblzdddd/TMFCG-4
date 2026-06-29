@@ -2,7 +2,7 @@
 extends Path2D
 
 
-@export var text: String:
+@export var text: String = "Kasodani Kyouko":
 	set(value):
 		if text != value:
 			text = value
@@ -28,28 +28,28 @@ extends Path2D
 
 
 @export_group("Autosize")
-@export var autosize_enabled: bool = false:
+@export var autosize_enabled: bool = true:
 	set(value):
 		if autosize_enabled != value:
 			autosize_enabled = value
 			queue_redraw()
 
 
-@export var autosize_base_size: int = 16:
+@export var autosize_base_size: int = 60:
 	set(value):
 		if autosize_base_size != value:
 			autosize_base_size = value
 			queue_redraw()
 
 
-@export var autosize_multiplier: float = 1.0:
+@export var autosize_multiplier: float = 2.17:
 	set(value):
 		if autosize_multiplier != value:
 			autosize_multiplier = value
 			queue_redraw()
 
 
-@export var autosize_threshold_length: int = 5:
+@export var autosize_threshold_length: int = 13:
 	set(value):
 		if autosize_threshold_length != value:
 			autosize_threshold_length = value
@@ -63,7 +63,7 @@ extends Path2D
 			queue_redraw()
 
 
-@export var autosize_y_ratio: float = 0.0:
+@export var autosize_y_ratio: float = -0.265:
 	set(value):
 		if autosize_y_ratio != value:
 			autosize_y_ratio = value

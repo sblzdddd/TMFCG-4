@@ -1,12 +1,15 @@
 shader_type canvas_item;
 render_mode unshaded;
-uniform sampler2D cardTex : hint_default_black;
-uniform sampler2D cardMasks : hint_default_black;
+uniform sampler2D cardTex : hint_default_black, filter_linear_mipmap, repeat_disable;
+uniform sampler2D cardMasks : hint_default_black, filter_linear_mipmap, repeat_disable;
 uniform sampler2D partsTex : hint_default_black, filter_linear_mipmap, repeat_disable;
 uniform sampler2D characterTex : hint_default_transparent, filter_nearest, repeat_disable;
+uniform sampler2D JQKTex : hint_default_transparent, filter_linear_mipmap, repeat_disable;
 uniform vec3 characterTransform = vec3(0, 0, 1);
 uniform float charOutlineWidth : hint_range(0, 1.5) = 0.8;
 uniform vec4 charOutlineColor : source_color = vec4(vec3(.9),1);
+uniform int suit: hint_enum("Club", "Diamond", "Heart", "Spade") = 0;
+uniform int value: hint_enum("-", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K") = 1;
 
 uniform float cardRadius : hint_range(0.0, 0.2) = 0.08;
 uniform float outlineWidth : hint_range(0.0, 0.02) = 0.015;
@@ -15,71 +18,23 @@ uniform vec4 outlineColor : source_color = vec4(1., 0.694, 0.045, 1.);
 const ivec2 PARTS_SIZE = ivec2(1024);
 const float CARD_RATIO = 3./4.;
 const vec3 TOP_POS = vec3(0, -0.404, 0.5);
-const vec3 BOTTOM_POS = vec3(0, 0.34, 0.76);
+const vec3 BOTTOM_POS = vec3(0, 0.335, 0.75);
 const ivec4 TOP_CROP = ivec4(0, 0, 375, 183);
 const ivec4 BOTTOM_CROP = ivec4(1, 366, 560, 377);
+const ivec4 TOP_CROPA = ivec4(0, 183, 375, 183);
+const ivec4 BOTTOM_CROPA = ivec4(1, 366+377, 560, 377);
+const ivec4 ICON_CROP = ivec4(992, 992, 32, 32);
+const vec3 ICON_POS = vec3(-0.364, -0.366, 0.045);
+const ivec4 BG_TILE_CROP = ivec4(1024-71*2-35, 0, 142, 311);
+const ivec4 LASER_CROP = ivec4(1024-379, 512-189, 380, 378);
 
 uniform vec3 tint1 : source_color = vec3(0.5921569, 0.2705882, 0.2);
 uniform vec3 tint2 : source_color = vec3(0.7176471, 0.345098, 0.2196078);
 uniform vec3 tint3 : source_color = vec3(1, 1, 1);
-	
-float Rounded(vec2 uv, vec2 Size, float Radius)
-{
-    float R = min(abs(Radius), min(Size.x, Size.y));
-    vec2 P = abs(uv - 0.5) * 2.0;
-    vec2 q = abs(P) - Size + R;
-    float dist = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - R;
-    float px = length(vec2(dFdx(dist), dFdy(dist)));
-	dist -= 0.5 * px;
-    return smoothstep(px, -px, dist);
-}
+uniform vec4 laserParams = vec4(0, 0, 1, 0);
+uniform vec3 bgTileParams = vec3(0.5, 0.5, 0.3);
 
-float RoundedMask(vec2 uv, float radius, float size) {
-	vec2 t_uv = uv * vec2(CARD_RATIO, 1) + vec2((1. - CARD_RATIO) / 2., 0);
-	vec2 r_size = vec2(CARD_RATIO - (1.-size), size);
-	return Rounded(t_uv, r_size, radius);
-}
-
-vec3 RatioCorrectUV(vec2 uv, vec3 transform, ivec2 texSize, ivec4 crop, bool soft, bool reflect) {
-	vec2 tex_size = vec2(texSize);
-	bool use_full_tex = crop.z == 0 && crop.w == 0;
-	vec2 crop_origin = use_full_tex ? vec2(0.0) : vec2(crop.xy);
-	vec2 crop_size = use_full_tex ? tex_size : vec2(crop.zw);
-	vec2 display_size = reflect ? vec2(crop_size.x * 2.0, crop_size.y) : crop_size;
-	float tex_ratio = display_size.x / display_size.y;
-	vec2 scale;
-	if (tex_ratio > CARD_RATIO) {
-		scale = vec2(1, tex_ratio / CARD_RATIO);
-	} else {
-		scale = vec2(CARD_RATIO / tex_ratio, 1);
-	}
-	vec2 scaled = uv - (0.5 + transform.xy);
-	scaled *= 2. / transform.z;
-	scaled *= 0.5 * scale;
-	scaled += 0.5;
-	float aa = soft ? max(length(fwidth(scaled)), 0.0005) : 0.0;
-	vec2 edge = smoothstep(vec2(0.0), vec2(aa), scaled)
-			* smoothstep(vec2(1.0), vec2(1.0 - aa), scaled);
-	float r = edge.x * edge.y;
-	if (reflect) {
-		scaled.x = abs(scaled.x * 2.0 - 1.0);
-	}
-	scaled = crop_origin / tex_size + scaled * (crop_size / tex_size);
-	return vec3(scaled, r);
-}
-
-vec4 sampleSuitTex(sampler2D tex, vec3 uvm) {
-	vec2 uv = uvm.xy;
-	vec4 col = textureGrad(tex, uv, dFdx(uv), dFdy(uv));
-	return col * uvm.z;
-}
-
-float SimpleOutline(vec2 uv, sampler2D tex, float width) {
-	return max(
-		max(texture(tex, vec2(uv.x + width, uv.y)).a, texture(tex, vec2(uv.x - width, uv.y)).a),
-		max(texture(tex, vec2(uv.x, uv.y + width)).a, texture(tex, vec2(uv.x, uv.y - width)).a)
-	);
-}
+#include "res://src/shaders/card_utils.gdshaderinc"
 
 vec4 SuitTint(float matCol) {
 	float aa = max(fwidth(matCol), 0.002);
@@ -95,39 +50,82 @@ vec4 SuitTint(float matCol) {
 void fragment() {
 	vec3 albedo = texture(cardTex, UV).xyz;
 	vec3 masks = texture(cardMasks, UV).rgb;
+	vec3 uvr = vec3(UV, CARD_RATIO);
+	
+	RatioUVResult bgTileUV = RatioCorrectUV(uvr, bgTileParams * vec3(vec2(TIME*.1),1), PARTS_SIZE, BG_TILE_CROP, vec4(1, 0, 1, 3.1415926/6.));
+	vec4 bgTile = sampleSuitTex(partsTex, bgTileUV);
+	albedo = mix(albedo, bgTile.rgb, bgTile.a * masks.b);
 
-	vec3 charTransform = vec3(characterTransform.x, characterTransform.y + 0.1, characterTransform.z * 0.85);
-	vec2 charUV = RatioCorrectUV(UV, charTransform, textureSize(characterTex, 0), ivec4(0), false, false).xy;
+	RatioUVResult topUVM = RatioCorrectUV(uvr, TOP_POS, PARTS_SIZE, TOP_CROP, vec4(1, 1, 0, 0));
+	vec4 top = sampleSuitTex(partsTex, topUVM);
+	RatioUVResult topUVA = RatioCorrectUV(uvr, TOP_POS, PARTS_SIZE, TOP_CROPA, vec4(1, 1, 0, 0));
+	vec4 topA = sampleSuitTex(partsTex, topUVA);
+
+	RatioUVResult bottomUVM = RatioCorrectUV(uvr, BOTTOM_POS, PARTS_SIZE, BOTTOM_CROP, vec4(1, 1, 0, 0));
+	vec4 bottom = sampleSuitTex(partsTex, bottomUVM);
+	RatioUVResult bottomUVA = RatioCorrectUV(uvr, BOTTOM_POS, PARTS_SIZE, BOTTOM_CROPA, vec4(1, 1, 0, 0));
+	vec4 bottomA = sampleSuitTex(partsTex, bottomUVA);
+
+	RatioUVResult iconUV = RatioCorrectUV(uvr, ICON_POS, PARTS_SIZE, ICON_CROP, vec4(1, 0, 0, 0));
+	vec4 icon = sampleSuitTex(partsTex, iconUV);
+	
+	RatioUVResult iconUV2 = RatioCorrectUV(uvr, ICON_POS * vec3(-1), PARTS_SIZE, ICON_CROP, vec4(1, 0, 0, 0));
+	icon += sampleSuitTex(partsTex, iconUV2);
+
+	vec4 suits = bottom;
+	if (value == 1) {
+		suits += top;
+	} else if (value != 0) {
+		vec2 cuv = abs(UV - vec2(0.5));
+		if (value > 4) {
+			float bx011 = step(cuv.x, 0.11);
+			if (value <= 7) {
+				suits = mix(bottom, bottomA, step(cuv.x, 0.275) - bx011);
+			} else if (value <= 10) {
+				suits = bx011 * bottom + bottomA;
+			} else {
+				suits = bx011 * bottom;
+			}
+		}
+		if (value >= 2 && value <= 10) {
+			float tx005 = step(cuv.x, 0.05);
+			float tx165 = step(cuv.x, 0.165);
+			float topMix = 1.0;
+			if (value == 2) {
+				topMix = tx005;
+			} else if (value == 3 || value == 5) {
+				topMix = tx165 - tx005;
+			} else if (value == 4 || value == 6 || value == 8) {
+				topMix = tx165;
+			} else if (value == 7 || value == 9) {
+				topMix = 1.0 - tx005;
+			}
+			suits += mix(top, topA, topMix);
+		}
+	}
+	
+	vec4 combinedSuit = mix(SuitTint(suits[suit]), icon[suit] * vec4(tint1, 1.), icon[suit]);
+	albedo = mix(albedo, combinedSuit.rgb, combinedSuit.a);
+	
+	int JQKIndex = clamp(value-11, -1, 2);
+	RatioUVResult JQKUV = RatioCorrectUV(uvr, vec3(0,-0.04,0.91), textureSize(JQKTex, 0), ivec4(JQKIndex*561,0,561,907), vec4(1,0,0,0));
+	vec4 JQK = sampleSuitTex(JQKTex, JQKUV);
+	albedo = mix(albedo, JQK.rgb, JQK.a * step(0.0, float(JQKIndex)));
+	
+	RatioUVResult laserUV = RatioCorrectUV(uvr, laserParams.xyz, PARTS_SIZE, LASER_CROP, vec4(1, 0, 1, 0));
+	vec4 laser = sampleSuitTex(partsTex, laserUV);
+	float laserMask = masks.g + step(0.1, suits[suit]) - bgTile.a * masks.b;
+
+	albedo = mix(albedo, albedo + color_burn(albedo, laser.rgb) * 0.75, clamp(laserMask, 0.0, 1.0) * laserParams.w);
+	
+	vec3 charTransform = characterTransform * vec3(0,0,.86) + vec3(0, .12, 0);
+	vec2 charUV = RatioCorrectUV(uvr, charTransform, textureSize(characterTex, 0), ivec4(0), vec4(0)).uv;
 	vec4 characterCol = texture(characterTex, charUV);
-	float charOutlineMask = SimpleOutline(charUV, characterTex, charOutlineWidth * 0.01);
+	float charOutlineMask = SimpleOutline(charUV, characterTex, charOutlineWidth * 0.02);
 	charOutlineMask = clamp(charOutlineMask - characterCol.a, 0.0, 1.0) * charOutlineColor.a;
 	albedo = mix(albedo, characterCol.rgb, characterCol.a * masks.r);
 	albedo = mix(albedo, charOutlineColor.rgb, charOutlineMask * masks.r);
 
-	vec3 topUVM = RatioCorrectUV(UV, TOP_POS, PARTS_SIZE, TOP_CROP, true, true);
-	vec4 top = sampleSuitTex(partsTex, topUVM);
-	vec3 topUVA = RatioCorrectUV(UV, TOP_POS, PARTS_SIZE, TOP_CROP + ivec4(0, TOP_CROP.w, 0, 0), true, true);
-	vec4 topA = sampleSuitTex(partsTex, topUVA);
-
-	vec3 bottomUVM = RatioCorrectUV(UV, BOTTOM_POS, PARTS_SIZE, BOTTOM_CROP, true, true);
-	vec4 bottom = sampleSuitTex(partsTex, bottomUVM);
-	vec3 bottomUVA = RatioCorrectUV(UV, BOTTOM_POS, PARTS_SIZE, BOTTOM_CROP + ivec4(0, BOTTOM_CROP.w, 0, 0), true, true);
-	vec4 bottomA = sampleSuitTex(partsTex, bottomUVA);
-
-	vec3 iconUV = RatioCorrectUV(UV, vec3(-0.364, -0.366, 0.045), PARTS_SIZE, ivec4(960,960,64,64), true, false);
-	vec4 icon = sampleSuitTex(partsTex, iconUV);
-	
-	vec3 iconUV2 = RatioCorrectUV(UV, vec3(0.364, 0.366, -0.045), PARTS_SIZE, ivec4(960,960,64,64), true, false);
-	icon += sampleSuitTex(partsTex, iconUV2);
-	
-	vec4 combinedSuit = SuitTint(max(max(top, bottom), icon - vec4(0.6)).r);
-	albedo = mix(albedo, combinedSuit.rgb, combinedSuit.a);
-
-    COLOR.a = RoundedMask(UV, cardRadius, 1.);
+    COLOR.a = RoundedMask(uvr, cardRadius, 1.);
 	COLOR.xyz = albedo.xyz;
 }
-
-//void light() {
-//	// Called for every pixel for every light affecting the material.
-//	// Uncomment to replace the default light processing function with this one.
-//}

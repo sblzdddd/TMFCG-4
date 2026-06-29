@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b7p38nckq010m"]
+
+[ext_resource type="Resource" uid="uid://djn7xebnd6jgb" path="res://definitions/characters/tmi/th-141.dch" id="1_mt758"]
+[ext_resource type="Script" uid="uid://csawlfv3dd48f" path="res://src/dsl/CardData.gd" id="1_uirs1"]
+[ext_resource type="Texture2D" uid="uid://bg58vkikopmhl" path="res://assets/textures/characters/三花 微笑.png" id="1_ym7tu"]
+[ext_resource type="Texture2D" uid="uid://bnct6wugusv1y" path="res://assets/textures/characters/三花 微笑张嘴.png" id="2_mt758"]
+[ext_resource type="Texture2D" uid="uid://bb466tshdn2ru" path="res://assets/textures/characters/三花 无表情.png" id="3_cwd7f"]
+[ext_resource type="Texture2D" uid="uid://duxsf6a4pyp5e" path="res://assets/textures/characters/三花 无表情张嘴.png" id="4_nfi8y"]
+[ext_resource type="Script" path="res://src/dsl/CharacterData.gd" id="5_dp3ml"]
+
+[sub_resource type="Resource" id="Resource_hy6uu"]
+script = ExtResource("5_dp3ml")
+dch_resource = ExtResource("1_mt758")
+images = Array[Texture2D]([ExtResource("1_ym7tu"), ExtResource("2_mt758"), ExtResource("3_cwd7f"), ExtResource("4_nfi8y")])
+metadata/_custom_type_script = "uid://b80n0oljuver4"
+
+[resource]
+script = ExtResource("1_uirs1")
+character = SubResource("Resource_hy6uu")
+rank = 1
+metadata/_custom_type_script = "uid://csawlfv3dd48f"

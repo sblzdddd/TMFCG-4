@@ -1,0 +1,12 @@
+[project]
+name = "convert-characters"
+version = "0.1.0"
+description = "Convert Characters.json to Dialogic .dch files"
+requires-python = ">=3.11"
+dependencies = [
+    "coloraide>=8.0.0",
+    "pillow>=11.0.0",
+]
+
+[project.scripts]
+convert-characters = "convert_characters:main"
