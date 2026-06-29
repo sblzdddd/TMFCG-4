@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cn65fqbk2jfgi"
 path.bptc="res://.godot/imported/魔理沙 苦笑汗.png-ebd1d599aca179373ab2847330925796.bptc.ctex"
+path.astc="res://.godot/imported/魔理沙 苦笑汗.png-ebd1d599aca179373ab2847330925796.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/魔理沙 苦笑汗.png"
-dest_files=["res://.godot/imported/魔理沙 苦笑汗.png-ebd1d599aca179373ab2847330925796.bptc.ctex"]
+dest_files=["res://.godot/imported/魔理沙 苦笑汗.png-ebd1d599aca179373ab2847330925796.bptc.ctex", "res://.godot/imported/魔理沙 苦笑汗.png-ebd1d599aca179373ab2847330925796.astc.ctex"]
 
 [params]
 

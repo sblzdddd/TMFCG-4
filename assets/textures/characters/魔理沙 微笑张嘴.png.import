@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci5qkyfpjptrq"
 path.bptc="res://.godot/imported/魔理沙 微笑张嘴.png-7622527ad1e7279f99c271a2c05bbd3b.bptc.ctex"
+path.astc="res://.godot/imported/魔理沙 微笑张嘴.png-7622527ad1e7279f99c271a2c05bbd3b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/魔理沙 微笑张嘴.png"
-dest_files=["res://.godot/imported/魔理沙 微笑张嘴.png-7622527ad1e7279f99c271a2c05bbd3b.bptc.ctex"]
+dest_files=["res://.godot/imported/魔理沙 微笑张嘴.png-7622527ad1e7279f99c271a2c05bbd3b.bptc.ctex", "res://.godot/imported/魔理沙 微笑张嘴.png-7622527ad1e7279f99c271a2c05bbd3b.astc.ctex"]
 
 [params]
 

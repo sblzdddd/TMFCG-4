@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw43582xqn77u"
 path.bptc="res://.godot/imported/橙喵 叹气.png-c15a7b003208a4b4fa00ce67f7f9ea75.bptc.ctex"
+path.astc="res://.godot/imported/橙喵 叹气.png-c15a7b003208a4b4fa00ce67f7f9ea75.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/橙喵 叹气.png"
-dest_files=["res://.godot/imported/橙喵 叹气.png-c15a7b003208a4b4fa00ce67f7f9ea75.bptc.ctex"]
+dest_files=["res://.godot/imported/橙喵 叹气.png-c15a7b003208a4b4fa00ce67f7f9ea75.bptc.ctex", "res://.godot/imported/橙喵 叹气.png-c15a7b003208a4b4fa00ce67f7f9ea75.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bn47dwpcdomc6"
 path.bptc="res://.godot/imported/青娥 无表情张嘴.png-4cff838505b497bf6d2d62d9f49836d4.bptc.ctex"
+path.astc="res://.godot/imported/青娥 无表情张嘴.png-4cff838505b497bf6d2d62d9f49836d4.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/青娥 无表情张嘴.png"
-dest_files=["res://.godot/imported/青娥 无表情张嘴.png-4cff838505b497bf6d2d62d9f49836d4.bptc.ctex"]
+dest_files=["res://.godot/imported/青娥 无表情张嘴.png-4cff838505b497bf6d2d62d9f49836d4.bptc.ctex", "res://.godot/imported/青娥 无表情张嘴.png-4cff838505b497bf6d2d62d9f49836d4.astc.ctex"]
 
 [params]
 

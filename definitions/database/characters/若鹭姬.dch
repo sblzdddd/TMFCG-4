@@ -1,0 +1,77 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "a6",
+&"color": Color(0.216, 0.609, 0.744, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方辉针城
+description=栖息于淡水的人鱼",
+&"display_name": "若鹭姬",
+&"mirror": false,
+&"nicknames": ["人鱼"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/若鹭姬 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/若鹭姬 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/若鹭姬 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/若鹭姬 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"苦恼": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/若鹭姬 苦恼.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"苦恼张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/若鹭姬 苦恼张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

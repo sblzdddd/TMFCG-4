@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0tnf5c3kchec"
 path.bptc="res://.godot/imported/屠自古 疑惑2.png-7987bcc9de72e37bc9a2e7fba22bd1c4.bptc.ctex"
+path.astc="res://.godot/imported/屠自古 疑惑2.png-7987bcc9de72e37bc9a2e7fba22bd1c4.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/屠自古 疑惑2.png"
-dest_files=["res://.godot/imported/屠自古 疑惑2.png-7987bcc9de72e37bc9a2e7fba22bd1c4.bptc.ctex"]
+dest_files=["res://.godot/imported/屠自古 疑惑2.png-7987bcc9de72e37bc9a2e7fba22bd1c4.bptc.ctex", "res://.godot/imported/屠自古 疑惑2.png-7987bcc9de72e37bc9a2e7fba22bd1c4.astc.ctex"]
 
 [params]
 

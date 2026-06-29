@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://7n4ro2dq5k5d"
 path.bptc="res://.godot/imported/依姬 无表情张嘴.png-3e33146071847266933fe9a9682e26ed.bptc.ctex"
+path.astc="res://.godot/imported/依姬 无表情张嘴.png-3e33146071847266933fe9a9682e26ed.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/依姬 无表情张嘴.png"
-dest_files=["res://.godot/imported/依姬 无表情张嘴.png-3e33146071847266933fe9a9682e26ed.bptc.ctex"]
+dest_files=["res://.godot/imported/依姬 无表情张嘴.png-3e33146071847266933fe9a9682e26ed.bptc.ctex", "res://.godot/imported/依姬 无表情张嘴.png-3e33146071847266933fe9a9682e26ed.astc.ctex"]
 
 [params]
 

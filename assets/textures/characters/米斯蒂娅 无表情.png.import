@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://nvo3waii1s3p"
 path.bptc="res://.godot/imported/米斯蒂娅 无表情.png-660893e1c90006a0665d88a5539b998e.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 无表情.png-660893e1c90006a0665d88a5539b998e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 无表情.png"
-dest_files=["res://.godot/imported/米斯蒂娅 无表情.png-660893e1c90006a0665d88a5539b998e.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 无表情.png-660893e1c90006a0665d88a5539b998e.bptc.ctex", "res://.godot/imported/米斯蒂娅 无表情.png-660893e1c90006a0665d88a5539b998e.astc.ctex"]
 
 [params]
 

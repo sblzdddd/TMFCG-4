@@ -1,0 +1,113 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "8c",
+&"color": Color(0.744, 0.216, 0.238, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "无表情",
+&"description": "origin=东方花映塚
+description=有害健康的人偶",
+&"display_name": "梅蒂欣·梅兰可莉",
+&"mirror": false,
+&"nicknames": ["毒人偶"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"吐槽": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 吐槽.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"得意": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 得意.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"灿笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 灿笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疑惑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 疑惑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疑惑2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 疑惑2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 认真.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/梅蒂欣 认真张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

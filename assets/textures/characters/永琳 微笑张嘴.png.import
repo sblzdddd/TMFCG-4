@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dl8ypnbypnntq"
 path.bptc="res://.godot/imported/永琳 微笑张嘴.png-d06e0e961172ea3fd307d8aae73859ed.bptc.ctex"
+path.astc="res://.godot/imported/永琳 微笑张嘴.png-d06e0e961172ea3fd307d8aae73859ed.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/永琳 微笑张嘴.png"
-dest_files=["res://.godot/imported/永琳 微笑张嘴.png-d06e0e961172ea3fd307d8aae73859ed.bptc.ctex"]
+dest_files=["res://.godot/imported/永琳 微笑张嘴.png-d06e0e961172ea3fd307d8aae73859ed.bptc.ctex", "res://.godot/imported/永琳 微笑张嘴.png-d06e0e961172ea3fd307d8aae73859ed.astc.ctex"]
 
 [params]
 

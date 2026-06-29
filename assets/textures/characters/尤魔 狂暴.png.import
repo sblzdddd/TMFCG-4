@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b2hc1ggr7eq0t"
 path.bptc="res://.godot/imported/尤魔 狂暴.png-a87f54f809646fc41b83b9a81609e9f2.bptc.ctex"
+path.astc="res://.godot/imported/尤魔 狂暴.png-a87f54f809646fc41b83b9a81609e9f2.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/尤魔 狂暴.png"
-dest_files=["res://.godot/imported/尤魔 狂暴.png-a87f54f809646fc41b83b9a81609e9f2.bptc.ctex"]
+dest_files=["res://.godot/imported/尤魔 狂暴.png-a87f54f809646fc41b83b9a81609e9f2.bptc.ctex", "res://.godot/imported/尤魔 狂暴.png-a87f54f809646fc41b83b9a81609e9f2.astc.ctex"]
 
 [params]
 

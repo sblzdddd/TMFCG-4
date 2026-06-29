@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cctvk70um0hn"
 path.bptc="res://.godot/imported/依姬 疑问.png-e53903a2236a59f6b43ddb0661d33bba.bptc.ctex"
+path.astc="res://.godot/imported/依姬 疑问.png-e53903a2236a59f6b43ddb0661d33bba.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/依姬 疑问.png"
-dest_files=["res://.godot/imported/依姬 疑问.png-e53903a2236a59f6b43ddb0661d33bba.bptc.ctex"]
+dest_files=["res://.godot/imported/依姬 疑问.png-e53903a2236a59f6b43ddb0661d33bba.bptc.ctex", "res://.godot/imported/依姬 疑问.png-e53903a2236a59f6b43ddb0661d33bba.astc.ctex"]
 
 [params]
 

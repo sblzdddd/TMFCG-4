@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn17ue4vc4c8b"
 path.bptc="res://.godot/imported/米斯蒂娅 吐槽 (2).png-83d5fa867cd31a60668a3aa0082de770.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 吐槽 (2).png-83d5fa867cd31a60668a3aa0082de770.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 吐槽 (2).png"
-dest_files=["res://.godot/imported/米斯蒂娅 吐槽 (2).png-83d5fa867cd31a60668a3aa0082de770.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 吐槽 (2).png-83d5fa867cd31a60668a3aa0082de770.bptc.ctex", "res://.godot/imported/米斯蒂娅 吐槽 (2).png-83d5fa867cd31a60668a3aa0082de770.astc.ctex"]
 
 [params]
 

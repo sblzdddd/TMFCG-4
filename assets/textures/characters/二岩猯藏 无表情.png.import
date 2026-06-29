@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbjcyxo8lxhap"
 path.bptc="res://.godot/imported/二岩猯藏 无表情.png-373d0d110db350d705b57424bd3e2435.bptc.ctex"
+path.astc="res://.godot/imported/二岩猯藏 无表情.png-373d0d110db350d705b57424bd3e2435.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/二岩猯藏 无表情.png"
-dest_files=["res://.godot/imported/二岩猯藏 无表情.png-373d0d110db350d705b57424bd3e2435.bptc.ctex"]
+dest_files=["res://.godot/imported/二岩猯藏 无表情.png-373d0d110db350d705b57424bd3e2435.bptc.ctex", "res://.godot/imported/二岩猯藏 无表情.png-373d0d110db350d705b57424bd3e2435.astc.ctex"]
 
 [params]
 

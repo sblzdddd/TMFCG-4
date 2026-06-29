@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5dol2q2wjn2l"
 path.bptc="res://.godot/imported/西瓜 高兴.png-b41e0adc62af86547bcd6d5a041a1e76.bptc.ctex"
+path.astc="res://.godot/imported/西瓜 高兴.png-b41e0adc62af86547bcd6d5a041a1e76.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/西瓜 高兴.png"
-dest_files=["res://.godot/imported/西瓜 高兴.png-b41e0adc62af86547bcd6d5a041a1e76.bptc.ctex"]
+dest_files=["res://.godot/imported/西瓜 高兴.png-b41e0adc62af86547bcd6d5a041a1e76.bptc.ctex", "res://.godot/imported/西瓜 高兴.png-b41e0adc62af86547bcd6d5a041a1e76.astc.ctex"]
 
 [params]
 

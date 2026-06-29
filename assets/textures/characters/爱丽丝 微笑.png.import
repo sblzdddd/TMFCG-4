@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://vgmm037848p3"
 path.bptc="res://.godot/imported/爱丽丝 微笑.png-4f3fdef73a95c94d91d1cc823c06f1ec.bptc.ctex"
+path.astc="res://.godot/imported/爱丽丝 微笑.png-4f3fdef73a95c94d91d1cc823c06f1ec.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/爱丽丝 微笑.png"
-dest_files=["res://.godot/imported/爱丽丝 微笑.png-4f3fdef73a95c94d91d1cc823c06f1ec.bptc.ctex"]
+dest_files=["res://.godot/imported/爱丽丝 微笑.png-4f3fdef73a95c94d91d1cc823c06f1ec.bptc.ctex", "res://.godot/imported/爱丽丝 微笑.png-4f3fdef73a95c94d91d1cc823c06f1ec.astc.ctex"]
 
 [params]
 

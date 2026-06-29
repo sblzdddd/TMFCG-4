@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dromgqq1h4du6"
 path.bptc="res://.godot/imported/天子 得意.png-7cbc5eb0a4639652b6c522ba60cc4049.bptc.ctex"
+path.astc="res://.godot/imported/天子 得意.png-7cbc5eb0a4639652b6c522ba60cc4049.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/天子 得意.png"
-dest_files=["res://.godot/imported/天子 得意.png-7cbc5eb0a4639652b6c522ba60cc4049.bptc.ctex"]
+dest_files=["res://.godot/imported/天子 得意.png-7cbc5eb0a4639652b6c522ba60cc4049.bptc.ctex", "res://.godot/imported/天子 得意.png-7cbc5eb0a4639652b6c522ba60cc4049.astc.ctex"]
 
 [params]
 

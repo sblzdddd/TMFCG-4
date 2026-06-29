@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg6uvc54bjiuv"
 path.bptc="res://.godot/imported/米斯蒂娅 承太郎装.png-4fe63be42765062de2c697438b71f09c.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 承太郎装.png-4fe63be42765062de2c697438b71f09c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 承太郎装.png"
-dest_files=["res://.godot/imported/米斯蒂娅 承太郎装.png-4fe63be42765062de2c697438b71f09c.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 承太郎装.png-4fe63be42765062de2c697438b71f09c.bptc.ctex", "res://.godot/imported/米斯蒂娅 承太郎装.png-4fe63be42765062de2c697438b71f09c.astc.ctex"]
 
 [params]
 

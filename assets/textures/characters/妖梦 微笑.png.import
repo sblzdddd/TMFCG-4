@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cay588novw0rh"
 path.bptc="res://.godot/imported/妖梦 微笑.png-86f76b996abae297a9d8567ab330a2c7.bptc.ctex"
+path.astc="res://.godot/imported/妖梦 微笑.png-86f76b996abae297a9d8567ab330a2c7.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/妖梦 微笑.png"
-dest_files=["res://.godot/imported/妖梦 微笑.png-86f76b996abae297a9d8567ab330a2c7.bptc.ctex"]
+dest_files=["res://.godot/imported/妖梦 微笑.png-86f76b996abae297a9d8567ab330a2c7.bptc.ctex", "res://.godot/imported/妖梦 微笑.png-86f76b996abae297a9d8567ab330a2c7.astc.ctex"]
 
 [params]
 

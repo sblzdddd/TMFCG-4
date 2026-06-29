@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxfvq1hc3swfj"
 path.bptc="res://.godot/imported/美铃 无表情张嘴.png-a2d1ce57811af9c0d3b45aaee984f80e.bptc.ctex"
+path.astc="res://.godot/imported/美铃 无表情张嘴.png-a2d1ce57811af9c0d3b45aaee984f80e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/美铃 无表情张嘴.png"
-dest_files=["res://.godot/imported/美铃 无表情张嘴.png-a2d1ce57811af9c0d3b45aaee984f80e.bptc.ctex"]
+dest_files=["res://.godot/imported/美铃 无表情张嘴.png-a2d1ce57811af9c0d3b45aaee984f80e.bptc.ctex", "res://.godot/imported/美铃 无表情张嘴.png-a2d1ce57811af9c0d3b45aaee984f80e.astc.ctex"]
 
 [params]
 

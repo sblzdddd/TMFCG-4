@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://upnrayob4hws"
 path.bptc="res://.godot/imported/阿吽 认真.png-bbd59b53229aa90d0f5f1d6addf5be3e.bptc.ctex"
+path.astc="res://.godot/imported/阿吽 认真.png-bbd59b53229aa90d0f5f1d6addf5be3e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿吽 认真.png"
-dest_files=["res://.godot/imported/阿吽 认真.png-bbd59b53229aa90d0f5f1d6addf5be3e.bptc.ctex"]
+dest_files=["res://.godot/imported/阿吽 认真.png-bbd59b53229aa90d0f5f1d6addf5be3e.bptc.ctex", "res://.godot/imported/阿吽 认真.png-bbd59b53229aa90d0f5f1d6addf5be3e.astc.ctex"]
 
 [params]
 

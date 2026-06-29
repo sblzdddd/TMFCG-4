@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dntr8jra166lu"
 path.bptc="res://.godot/imported/村纱 思考.png-7391a641ec735b0a23e87c50cf90b0b1.bptc.ctex"
+path.astc="res://.godot/imported/村纱 思考.png-7391a641ec735b0a23e87c50cf90b0b1.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/村纱 思考.png"
-dest_files=["res://.godot/imported/村纱 思考.png-7391a641ec735b0a23e87c50cf90b0b1.bptc.ctex"]
+dest_files=["res://.godot/imported/村纱 思考.png-7391a641ec735b0a23e87c50cf90b0b1.bptc.ctex", "res://.godot/imported/村纱 思考.png-7391a641ec735b0a23e87c50cf90b0b1.astc.ctex"]
 
 [params]
 

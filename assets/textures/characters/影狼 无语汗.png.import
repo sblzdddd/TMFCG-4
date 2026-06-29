@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cu00m2sh6iyr7"
 path.bptc="res://.godot/imported/影狼 无语汗.png-639f8d6590f8f8cf1fbd21e4bf893e60.bptc.ctex"
+path.astc="res://.godot/imported/影狼 无语汗.png-639f8d6590f8f8cf1fbd21e4bf893e60.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/影狼 无语汗.png"
-dest_files=["res://.godot/imported/影狼 无语汗.png-639f8d6590f8f8cf1fbd21e4bf893e60.bptc.ctex"]
+dest_files=["res://.godot/imported/影狼 无语汗.png-639f8d6590f8f8cf1fbd21e4bf893e60.bptc.ctex", "res://.godot/imported/影狼 无语汗.png-639f8d6590f8f8cf1fbd21e4bf893e60.astc.ctex"]
 
 [params]
 

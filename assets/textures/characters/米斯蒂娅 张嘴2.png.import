@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bb6v8geul8tcf"
 path.bptc="res://.godot/imported/米斯蒂娅 张嘴2.png-6703a5c4430136587ab7b639ba03e573.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 张嘴2.png-6703a5c4430136587ab7b639ba03e573.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 张嘴2.png"
-dest_files=["res://.godot/imported/米斯蒂娅 张嘴2.png-6703a5c4430136587ab7b639ba03e573.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 张嘴2.png-6703a5c4430136587ab7b639ba03e573.bptc.ctex", "res://.godot/imported/米斯蒂娅 张嘴2.png-6703a5c4430136587ab7b639ba03e573.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://r00b61uh0nnr"
 path.bptc="res://.godot/imported/觉 疲劳痴迷.png-2f140c01f7ba24d223a82da3ff030e2c.bptc.ctex"
+path.astc="res://.godot/imported/觉 疲劳痴迷.png-2f140c01f7ba24d223a82da3ff030e2c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/觉 疲劳痴迷.png"
-dest_files=["res://.godot/imported/觉 疲劳痴迷.png-2f140c01f7ba24d223a82da3ff030e2c.bptc.ctex"]
+dest_files=["res://.godot/imported/觉 疲劳痴迷.png-2f140c01f7ba24d223a82da3ff030e2c.bptc.ctex", "res://.godot/imported/觉 疲劳痴迷.png-2f140c01f7ba24d223a82da3ff030e2c.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5pu6ytgyulp8"
 path.bptc="res://.godot/imported/爱莲 撇嘴.png-2d06eb4829a8b5b7d0d63ee97e7d5b55.bptc.ctex"
+path.astc="res://.godot/imported/爱莲 撇嘴.png-2d06eb4829a8b5b7d0d63ee97e7d5b55.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/爱莲 撇嘴.png"
-dest_files=["res://.godot/imported/爱莲 撇嘴.png-2d06eb4829a8b5b7d0d63ee97e7d5b55.bptc.ctex"]
+dest_files=["res://.godot/imported/爱莲 撇嘴.png-2d06eb4829a8b5b7d0d63ee97e7d5b55.bptc.ctex", "res://.godot/imported/爱莲 撇嘴.png-2d06eb4829a8b5b7d0d63ee97e7d5b55.astc.ctex"]
 
 [params]
 

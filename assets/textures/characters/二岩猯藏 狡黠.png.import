@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://uy5vd0s35uts"
 path.bptc="res://.godot/imported/二岩猯藏 狡黠.png-258738817e45ddbe2548e2508a98b23c.bptc.ctex"
+path.astc="res://.godot/imported/二岩猯藏 狡黠.png-258738817e45ddbe2548e2508a98b23c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/二岩猯藏 狡黠.png"
-dest_files=["res://.godot/imported/二岩猯藏 狡黠.png-258738817e45ddbe2548e2508a98b23c.bptc.ctex"]
+dest_files=["res://.godot/imported/二岩猯藏 狡黠.png-258738817e45ddbe2548e2508a98b23c.bptc.ctex", "res://.godot/imported/二岩猯藏 狡黠.png-258738817e45ddbe2548e2508a98b23c.astc.ctex"]
 
 [params]
 

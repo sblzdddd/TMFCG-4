@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://biknos1wkkg3l"
 path.bptc="res://.godot/imported/魔理沙 无表情.png-4094e15cd8ccf6da5ccbc209f60c08a0.bptc.ctex"
+path.astc="res://.godot/imported/魔理沙 无表情.png-4094e15cd8ccf6da5ccbc209f60c08a0.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/魔理沙 无表情.png"
-dest_files=["res://.godot/imported/魔理沙 无表情.png-4094e15cd8ccf6da5ccbc209f60c08a0.bptc.ctex"]
+dest_files=["res://.godot/imported/魔理沙 无表情.png-4094e15cd8ccf6da5ccbc209f60c08a0.bptc.ctex", "res://.godot/imported/魔理沙 无表情.png-4094e15cd8ccf6da5ccbc209f60c08a0.astc.ctex"]
 
 [params]
 

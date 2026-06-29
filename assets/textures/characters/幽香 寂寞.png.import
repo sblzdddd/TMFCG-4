@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxr4ol0mjjila"
 path.bptc="res://.godot/imported/幽香 寂寞.png-6a8f6aae7f10bd45e205531a3ce4ac2e.bptc.ctex"
+path.astc="res://.godot/imported/幽香 寂寞.png-6a8f6aae7f10bd45e205531a3ce4ac2e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/幽香 寂寞.png"
-dest_files=["res://.godot/imported/幽香 寂寞.png-6a8f6aae7f10bd45e205531a3ce4ac2e.bptc.ctex"]
+dest_files=["res://.godot/imported/幽香 寂寞.png-6a8f6aae7f10bd45e205531a3ce4ac2e.bptc.ctex", "res://.godot/imported/幽香 寂寞.png-6a8f6aae7f10bd45e205531a3ce4ac2e.astc.ctex"]
 
 [params]
 

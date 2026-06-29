@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpv8ihfvb6ohp"
 path.bptc="res://.godot/imported/村纱 微笑.png-ab128d1af7b2fcc638c78b89f39ccf9b.bptc.ctex"
+path.astc="res://.godot/imported/村纱 微笑.png-ab128d1af7b2fcc638c78b89f39ccf9b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/村纱 微笑.png"
-dest_files=["res://.godot/imported/村纱 微笑.png-ab128d1af7b2fcc638c78b89f39ccf9b.bptc.ctex"]
+dest_files=["res://.godot/imported/村纱 微笑.png-ab128d1af7b2fcc638c78b89f39ccf9b.bptc.ctex", "res://.godot/imported/村纱 微笑.png-ab128d1af7b2fcc638c78b89f39ccf9b.astc.ctex"]
 
 [params]
 

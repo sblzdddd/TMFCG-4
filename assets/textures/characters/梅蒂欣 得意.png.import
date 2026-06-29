@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ci8fpvbomicym"
 path.bptc="res://.godot/imported/梅蒂欣 得意.png-e7f0811c9970118719c80fbba13ecdb2.bptc.ctex"
+path.astc="res://.godot/imported/梅蒂欣 得意.png-e7f0811c9970118719c80fbba13ecdb2.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/梅蒂欣 得意.png"
-dest_files=["res://.godot/imported/梅蒂欣 得意.png-e7f0811c9970118719c80fbba13ecdb2.bptc.ctex"]
+dest_files=["res://.godot/imported/梅蒂欣 得意.png-e7f0811c9970118719c80fbba13ecdb2.bptc.ctex", "res://.godot/imported/梅蒂欣 得意.png-e7f0811c9970118719c80fbba13ecdb2.astc.ctex"]
 
 [params]
 

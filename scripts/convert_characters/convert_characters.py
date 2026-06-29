@@ -16,7 +16,7 @@ TARGET_HSL_LIGHTNESS = 0.48
 GRAY_SATURATION_THRESHOLD = 0.08
 CHARACTERS_JSON = REPO_ROOT / "Characters.json"
 PORTRAITS_DIR = REPO_ROOT / "assets" / "textures" / "characters"
-OUTPUT_DIR = REPO_ROOT / "definitions" / "characters" / "tmi"
+OUTPUT_DIR = REPO_ROOT / "definitions" / "database" / "characters"
 PROJECT_GODOT = REPO_ROOT / "project.godot"
 
 DCH_HEADER = """{{

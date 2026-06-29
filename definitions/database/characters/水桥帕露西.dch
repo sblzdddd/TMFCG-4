@@ -1,0 +1,140 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "91",
+&"color": Color(0.744, 0.337, 0.216, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方地灵殿
+description=地壳下的嫉妒心",
+&"display_name": "水桥帕露西",
+&"mirror": false,
+&"nicknames": ["桥姬"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"咬手帕": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 咬手帕.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"咬手帕愤怒": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 咬手帕愤怒.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"惊讶": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 惊讶.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"惊讶2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 惊讶2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"愤怒": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 愤怒.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"纠结": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 纠结.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"黑化咬手帕": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 黑化咬手帕.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"黑化无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 黑化无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"黑化无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/帕露西 黑化无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

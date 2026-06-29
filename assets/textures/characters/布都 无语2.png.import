@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyftf2u46gyf6"
 path.bptc="res://.godot/imported/布都 无语2.png-847f907042cc921280fe1e2c17cca085.bptc.ctex"
+path.astc="res://.godot/imported/布都 无语2.png-847f907042cc921280fe1e2c17cca085.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/布都 无语2.png"
-dest_files=["res://.godot/imported/布都 无语2.png-847f907042cc921280fe1e2c17cca085.bptc.ctex"]
+dest_files=["res://.godot/imported/布都 无语2.png-847f907042cc921280fe1e2c17cca085.bptc.ctex", "res://.godot/imported/布都 无语2.png-847f907042cc921280fe1e2c17cca085.astc.ctex"]
 
 [params]
 

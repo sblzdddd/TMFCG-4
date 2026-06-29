@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cejmiloyw52vh"
 path.bptc="res://.godot/imported/星熊勇仪 疑问.png-73cb23ec3d8f4d2a2c833831a6c94db9.bptc.ctex"
+path.astc="res://.godot/imported/星熊勇仪 疑问.png-73cb23ec3d8f4d2a2c833831a6c94db9.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/星熊勇仪 疑问.png"
-dest_files=["res://.godot/imported/星熊勇仪 疑问.png-73cb23ec3d8f4d2a2c833831a6c94db9.bptc.ctex"]
+dest_files=["res://.godot/imported/星熊勇仪 疑问.png-73cb23ec3d8f4d2a2c833831a6c94db9.bptc.ctex", "res://.godot/imported/星熊勇仪 疑问.png-73cb23ec3d8f4d2a2c833831a6c94db9.astc.ctex"]
 
 [params]
 

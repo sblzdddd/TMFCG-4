@@ -1,0 +1,77 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "6d",
+&"color": Color(0.216, 0.24, 0.744, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方风神录
+description=奇迹的现人神",
+&"display_name": "东风谷早苗",
+&"mirror": false,
+&"nicknames": ["苗爷"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/早苗 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/早苗 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"星星眼": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/早苗 星星眼.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"热血": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/早苗 热血.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/早苗 认真.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"难过": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/早苗 难过.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

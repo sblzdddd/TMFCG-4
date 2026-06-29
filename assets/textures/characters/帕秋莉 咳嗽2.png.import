@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://leoyag14cv0i"
 path.bptc="res://.godot/imported/帕秋莉 咳嗽2.png-9896d5065dbb19101bdd138b3c6f8e2b.bptc.ctex"
+path.astc="res://.godot/imported/帕秋莉 咳嗽2.png-9896d5065dbb19101bdd138b3c6f8e2b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帕秋莉 咳嗽2.png"
-dest_files=["res://.godot/imported/帕秋莉 咳嗽2.png-9896d5065dbb19101bdd138b3c6f8e2b.bptc.ctex"]
+dest_files=["res://.godot/imported/帕秋莉 咳嗽2.png-9896d5065dbb19101bdd138b3c6f8e2b.bptc.ctex", "res://.godot/imported/帕秋莉 咳嗽2.png-9896d5065dbb19101bdd138b3c6f8e2b.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cy3d1tx1ahka7"
 path.bptc="res://.godot/imported/咲夜 无表情.png-0787d425b3cfc7ba67fb537e68d75ef1.bptc.ctex"
+path.astc="res://.godot/imported/咲夜 无表情.png-0787d425b3cfc7ba67fb537e68d75ef1.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/咲夜 无表情.png"
-dest_files=["res://.godot/imported/咲夜 无表情.png-0787d425b3cfc7ba67fb537e68d75ef1.bptc.ctex"]
+dest_files=["res://.godot/imported/咲夜 无表情.png-0787d425b3cfc7ba67fb537e68d75ef1.bptc.ctex", "res://.godot/imported/咲夜 无表情.png-0787d425b3cfc7ba67fb537e68d75ef1.astc.ctex"]
 
 [params]
 

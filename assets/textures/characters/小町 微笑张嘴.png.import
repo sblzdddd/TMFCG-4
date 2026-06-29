@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://k2xg2m2wgft5"
 path.bptc="res://.godot/imported/小町 微笑张嘴.png-c51c31742c8e34a2804c6ee19ae77e4a.bptc.ctex"
+path.astc="res://.godot/imported/小町 微笑张嘴.png-c51c31742c8e34a2804c6ee19ae77e4a.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/小町 微笑张嘴.png"
-dest_files=["res://.godot/imported/小町 微笑张嘴.png-c51c31742c8e34a2804c6ee19ae77e4a.bptc.ctex"]
+dest_files=["res://.godot/imported/小町 微笑张嘴.png-c51c31742c8e34a2804c6ee19ae77e4a.bptc.ctex", "res://.godot/imported/小町 微笑张嘴.png-c51c31742c8e34a2804c6ee19ae77e4a.astc.ctex"]
 
 [params]
 

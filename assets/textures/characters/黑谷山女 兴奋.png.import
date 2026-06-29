@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd5mg5883kfbu"
 path.bptc="res://.godot/imported/黑谷山女 兴奋.png-f59999cb1c44355e638f0af72a4f8bac.bptc.ctex"
+path.astc="res://.godot/imported/黑谷山女 兴奋.png-f59999cb1c44355e638f0af72a4f8bac.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/黑谷山女 兴奋.png"
-dest_files=["res://.godot/imported/黑谷山女 兴奋.png-f59999cb1c44355e638f0af72a4f8bac.bptc.ctex"]
+dest_files=["res://.godot/imported/黑谷山女 兴奋.png-f59999cb1c44355e638f0af72a4f8bac.bptc.ctex", "res://.godot/imported/黑谷山女 兴奋.png-f59999cb1c44355e638f0af72a4f8bac.astc.ctex"]
 
 [params]
 

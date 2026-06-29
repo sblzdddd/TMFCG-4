@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gc4ebqjud5jy"
 path.bptc="res://.godot/imported/妖梦 无表情.png-0bd8fc6bebd7c2cd8ae47d7da17606bc.bptc.ctex"
+path.astc="res://.godot/imported/妖梦 无表情.png-0bd8fc6bebd7c2cd8ae47d7da17606bc.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/妖梦 无表情.png"
-dest_files=["res://.godot/imported/妖梦 无表情.png-0bd8fc6bebd7c2cd8ae47d7da17606bc.bptc.ctex"]
+dest_files=["res://.godot/imported/妖梦 无表情.png-0bd8fc6bebd7c2cd8ae47d7da17606bc.bptc.ctex", "res://.godot/imported/妖梦 无表情.png-0bd8fc6bebd7c2cd8ae47d7da17606bc.astc.ctex"]
 
 [params]
 

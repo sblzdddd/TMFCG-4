@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw3aw30ht4oqc"
 path.bptc="res://.godot/imported/依姬 远眺.png-9bb2de038187b544e11c6db194c2ae8d.bptc.ctex"
+path.astc="res://.godot/imported/依姬 远眺.png-9bb2de038187b544e11c6db194c2ae8d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/依姬 远眺.png"
-dest_files=["res://.godot/imported/依姬 远眺.png-9bb2de038187b544e11c6db194c2ae8d.bptc.ctex"]
+dest_files=["res://.godot/imported/依姬 远眺.png-9bb2de038187b544e11c6db194c2ae8d.bptc.ctex", "res://.godot/imported/依姬 远眺.png-9bb2de038187b544e11c6db194c2ae8d.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cm3tk8ivvnp5d"
 path.bptc="res://.godot/imported/神子 无表情.png-5dc8922e1e05480b678eb89f94635c7e.bptc.ctex"
+path.astc="res://.godot/imported/神子 无表情.png-5dc8922e1e05480b678eb89f94635c7e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/神子 无表情.png"
-dest_files=["res://.godot/imported/神子 无表情.png-5dc8922e1e05480b678eb89f94635c7e.bptc.ctex"]
+dest_files=["res://.godot/imported/神子 无表情.png-5dc8922e1e05480b678eb89f94635c7e.bptc.ctex", "res://.godot/imported/神子 无表情.png-5dc8922e1e05480b678eb89f94635c7e.astc.ctex"]
 
 [params]
 

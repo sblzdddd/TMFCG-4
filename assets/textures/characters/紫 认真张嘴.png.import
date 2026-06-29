@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c18c0ijrfsol6"
 path.bptc="res://.godot/imported/紫 认真张嘴.png-7ed7aff57fe38562850e4e8329f9e9d3.bptc.ctex"
+path.astc="res://.godot/imported/紫 认真张嘴.png-7ed7aff57fe38562850e4e8329f9e9d3.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/紫 认真张嘴.png"
-dest_files=["res://.godot/imported/紫 认真张嘴.png-7ed7aff57fe38562850e4e8329f9e9d3.bptc.ctex"]
+dest_files=["res://.godot/imported/紫 认真张嘴.png-7ed7aff57fe38562850e4e8329f9e9d3.bptc.ctex", "res://.godot/imported/紫 认真张嘴.png-7ed7aff57fe38562850e4e8329f9e9d3.astc.ctex"]
 
 [params]
 

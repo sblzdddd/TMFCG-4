@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi1kmhne22erd"
 path.bptc="res://.godot/imported/针妙丸 微笑.png-b02f3ac86d27ea5d033d35ec7c5a0817.bptc.ctex"
+path.astc="res://.godot/imported/针妙丸 微笑.png-b02f3ac86d27ea5d033d35ec7c5a0817.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/针妙丸 微笑.png"
-dest_files=["res://.godot/imported/针妙丸 微笑.png-b02f3ac86d27ea5d033d35ec7c5a0817.bptc.ctex"]
+dest_files=["res://.godot/imported/针妙丸 微笑.png-b02f3ac86d27ea5d033d35ec7c5a0817.bptc.ctex", "res://.godot/imported/针妙丸 微笑.png-b02f3ac86d27ea5d033d35ec7c5a0817.astc.ctex"]
 
 [params]
 

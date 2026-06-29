@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cfdquocp72wxd"
 path.bptc="res://.godot/imported/露米娅小撇嘴.png-7e087f14aa8dbde7f123e0e94cb14dd5.bptc.ctex"
+path.astc="res://.godot/imported/露米娅小撇嘴.png-7e087f14aa8dbde7f123e0e94cb14dd5.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/露米娅小撇嘴.png"
-dest_files=["res://.godot/imported/露米娅小撇嘴.png-7e087f14aa8dbde7f123e0e94cb14dd5.bptc.ctex"]
+dest_files=["res://.godot/imported/露米娅小撇嘴.png-7e087f14aa8dbde7f123e0e94cb14dd5.bptc.ctex", "res://.godot/imported/露米娅小撇嘴.png-7e087f14aa8dbde7f123e0e94cb14dd5.astc.ctex"]
 
 [params]
 

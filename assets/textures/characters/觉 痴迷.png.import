@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bow10i8t1dd8d"
 path.bptc="res://.godot/imported/觉 痴迷.png-b8af956beb958e6a9f150de8bce7f6e9.bptc.ctex"
+path.astc="res://.godot/imported/觉 痴迷.png-b8af956beb958e6a9f150de8bce7f6e9.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/觉 痴迷.png"
-dest_files=["res://.godot/imported/觉 痴迷.png-b8af956beb958e6a9f150de8bce7f6e9.bptc.ctex"]
+dest_files=["res://.godot/imported/觉 痴迷.png-b8af956beb958e6a9f150de8bce7f6e9.bptc.ctex", "res://.godot/imported/觉 痴迷.png-b8af956beb958e6a9f150de8bce7f6e9.astc.ctex"]
 
 [params]
 

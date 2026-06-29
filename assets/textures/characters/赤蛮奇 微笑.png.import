@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6dmwu6xaeftb"
 path.bptc="res://.godot/imported/赤蛮奇 微笑.png-a483609ecaca95a7cd4cd5cc23663b7e.bptc.ctex"
+path.astc="res://.godot/imported/赤蛮奇 微笑.png-a483609ecaca95a7cd4cd5cc23663b7e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/赤蛮奇 微笑.png"
-dest_files=["res://.godot/imported/赤蛮奇 微笑.png-a483609ecaca95a7cd4cd5cc23663b7e.bptc.ctex"]
+dest_files=["res://.godot/imported/赤蛮奇 微笑.png-a483609ecaca95a7cd4cd5cc23663b7e.bptc.ctex", "res://.godot/imported/赤蛮奇 微笑.png-a483609ecaca95a7cd4cd5cc23663b7e.astc.ctex"]
 
 [params]
 

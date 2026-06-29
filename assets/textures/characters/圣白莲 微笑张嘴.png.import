@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://djfwd0rspq0k0"
 path.bptc="res://.godot/imported/圣白莲 微笑张嘴.png-eea900cbaf801ceefc2faffb527d5718.bptc.ctex"
+path.astc="res://.godot/imported/圣白莲 微笑张嘴.png-eea900cbaf801ceefc2faffb527d5718.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/圣白莲 微笑张嘴.png"
-dest_files=["res://.godot/imported/圣白莲 微笑张嘴.png-eea900cbaf801ceefc2faffb527d5718.bptc.ctex"]
+dest_files=["res://.godot/imported/圣白莲 微笑张嘴.png-eea900cbaf801ceefc2faffb527d5718.bptc.ctex", "res://.godot/imported/圣白莲 微笑张嘴.png-eea900cbaf801ceefc2faffb527d5718.astc.ctex"]
 
 [params]
 

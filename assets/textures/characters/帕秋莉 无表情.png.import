@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ca4lf2d87itar"
 path.bptc="res://.godot/imported/帕秋莉 无表情.png-1abb4e5a122cc75aec21148699f6dc3b.bptc.ctex"
+path.astc="res://.godot/imported/帕秋莉 无表情.png-1abb4e5a122cc75aec21148699f6dc3b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帕秋莉 无表情.png"
-dest_files=["res://.godot/imported/帕秋莉 无表情.png-1abb4e5a122cc75aec21148699f6dc3b.bptc.ctex"]
+dest_files=["res://.godot/imported/帕秋莉 无表情.png-1abb4e5a122cc75aec21148699f6dc3b.bptc.ctex", "res://.godot/imported/帕秋莉 无表情.png-1abb4e5a122cc75aec21148699f6dc3b.astc.ctex"]
 
 [params]
 

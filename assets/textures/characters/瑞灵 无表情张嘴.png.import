@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8fjl5moux8lh"
 path.bptc="res://.godot/imported/瑞灵 无表情张嘴.png-3e20c520b772b8a2bff483183433b199.bptc.ctex"
+path.astc="res://.godot/imported/瑞灵 无表情张嘴.png-3e20c520b772b8a2bff483183433b199.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/瑞灵 无表情张嘴.png"
-dest_files=["res://.godot/imported/瑞灵 无表情张嘴.png-3e20c520b772b8a2bff483183433b199.bptc.ctex"]
+dest_files=["res://.godot/imported/瑞灵 无表情张嘴.png-3e20c520b772b8a2bff483183433b199.bptc.ctex", "res://.godot/imported/瑞灵 无表情张嘴.png-3e20c520b772b8a2bff483183433b199.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx0tc0glsglgs"
 path.bptc="res://.godot/imported/娜兹玲 无表情.png-291f0ac46e08459c8a175d81bc9db65f.bptc.ctex"
+path.astc="res://.godot/imported/娜兹玲 无表情.png-291f0ac46e08459c8a175d81bc9db65f.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/娜兹玲 无表情.png"
-dest_files=["res://.godot/imported/娜兹玲 无表情.png-291f0ac46e08459c8a175d81bc9db65f.bptc.ctex"]
+dest_files=["res://.godot/imported/娜兹玲 无表情.png-291f0ac46e08459c8a175d81bc9db65f.bptc.ctex", "res://.godot/imported/娜兹玲 无表情.png-291f0ac46e08459c8a175d81bc9db65f.astc.ctex"]
 
 [params]
 

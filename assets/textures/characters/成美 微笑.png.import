@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6hshxy61a7yp"
 path.bptc="res://.godot/imported/成美 微笑.png-03d10d50ae203d207a98afe1f3101c38.bptc.ctex"
+path.astc="res://.godot/imported/成美 微笑.png-03d10d50ae203d207a98afe1f3101c38.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/成美 微笑.png"
-dest_files=["res://.godot/imported/成美 微笑.png-03d10d50ae203d207a98afe1f3101c38.bptc.ctex"]
+dest_files=["res://.godot/imported/成美 微笑.png-03d10d50ae203d207a98afe1f3101c38.bptc.ctex", "res://.godot/imported/成美 微笑.png-03d10d50ae203d207a98afe1f3101c38.astc.ctex"]
 
 [params]
 

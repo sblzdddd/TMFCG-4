@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dw6u8g1h6tal5"
 path.bptc="res://.godot/imported/阿求 吐血.png-36e77e11e35c8c93e48cadfde8458e5c.bptc.ctex"
+path.astc="res://.godot/imported/阿求 吐血.png-36e77e11e35c8c93e48cadfde8458e5c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿求 吐血.png"
-dest_files=["res://.godot/imported/阿求 吐血.png-36e77e11e35c8c93e48cadfde8458e5c.bptc.ctex"]
+dest_files=["res://.godot/imported/阿求 吐血.png-36e77e11e35c8c93e48cadfde8458e5c.bptc.ctex", "res://.godot/imported/阿求 吐血.png-36e77e11e35c8c93e48cadfde8458e5c.astc.ctex"]
 
 [params]
 

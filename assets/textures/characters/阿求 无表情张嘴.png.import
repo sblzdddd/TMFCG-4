@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cct7kdhp0qrt6"
 path.bptc="res://.godot/imported/阿求 无表情张嘴.png-7ad5647d561a756b45e4bcea843b4a83.bptc.ctex"
+path.astc="res://.godot/imported/阿求 无表情张嘴.png-7ad5647d561a756b45e4bcea843b4a83.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿求 无表情张嘴.png"
-dest_files=["res://.godot/imported/阿求 无表情张嘴.png-7ad5647d561a756b45e4bcea843b4a83.bptc.ctex"]
+dest_files=["res://.godot/imported/阿求 无表情张嘴.png-7ad5647d561a756b45e4bcea843b4a83.bptc.ctex", "res://.godot/imported/阿求 无表情张嘴.png-7ad5647d561a756b45e4bcea843b4a83.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d24qlcp8n82w7"
 path.bptc="res://.godot/imported/二岩猯藏 帅气.png-c6f5bd73fe5373c48357cf3af70019e5.bptc.ctex"
+path.astc="res://.godot/imported/二岩猯藏 帅气.png-c6f5bd73fe5373c48357cf3af70019e5.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/二岩猯藏 帅气.png"
-dest_files=["res://.godot/imported/二岩猯藏 帅气.png-c6f5bd73fe5373c48357cf3af70019e5.bptc.ctex"]
+dest_files=["res://.godot/imported/二岩猯藏 帅气.png-c6f5bd73fe5373c48357cf3af70019e5.bptc.ctex", "res://.godot/imported/二岩猯藏 帅气.png-c6f5bd73fe5373c48357cf3af70019e5.astc.ctex"]
 
 [params]
 

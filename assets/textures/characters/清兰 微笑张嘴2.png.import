@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b14hv03qxpxkd"
 path.bptc="res://.godot/imported/清兰 微笑张嘴2.png-4407453d30c6ad580a3d7cb6e717ad54.bptc.ctex"
+path.astc="res://.godot/imported/清兰 微笑张嘴2.png-4407453d30c6ad580a3d7cb6e717ad54.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/清兰 微笑张嘴2.png"
-dest_files=["res://.godot/imported/清兰 微笑张嘴2.png-4407453d30c6ad580a3d7cb6e717ad54.bptc.ctex"]
+dest_files=["res://.godot/imported/清兰 微笑张嘴2.png-4407453d30c6ad580a3d7cb6e717ad54.bptc.ctex", "res://.godot/imported/清兰 微笑张嘴2.png-4407453d30c6ad580a3d7cb6e717ad54.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cphahkpi23cf3"
 path.bptc="res://.godot/imported/萨拉 无表情张嘴.png-cd5b7db0e535af0c8017974cc8a1d8a8.bptc.ctex"
+path.astc="res://.godot/imported/萨拉 无表情张嘴.png-cd5b7db0e535af0c8017974cc8a1d8a8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/萨拉 无表情张嘴.png"
-dest_files=["res://.godot/imported/萨拉 无表情张嘴.png-cd5b7db0e535af0c8017974cc8a1d8a8.bptc.ctex"]
+dest_files=["res://.godot/imported/萨拉 无表情张嘴.png-cd5b7db0e535af0c8017974cc8a1d8a8.bptc.ctex", "res://.godot/imported/萨拉 无表情张嘴.png-cd5b7db0e535af0c8017974cc8a1d8a8.astc.ctex"]
 
 [params]
 

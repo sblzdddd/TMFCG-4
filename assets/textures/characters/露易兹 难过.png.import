@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3enuq11p1ooe"
 path.bptc="res://.godot/imported/露易兹 难过.png-9e51941a10a47b26b34ba7ab43ce5f1d.bptc.ctex"
+path.astc="res://.godot/imported/露易兹 难过.png-9e51941a10a47b26b34ba7ab43ce5f1d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/露易兹 难过.png"
-dest_files=["res://.godot/imported/露易兹 难过.png-9e51941a10a47b26b34ba7ab43ce5f1d.bptc.ctex"]
+dest_files=["res://.godot/imported/露易兹 难过.png-9e51941a10a47b26b34ba7ab43ce5f1d.bptc.ctex", "res://.godot/imported/露易兹 难过.png-9e51941a10a47b26b34ba7ab43ce5f1d.astc.ctex"]
 
 [params]
 

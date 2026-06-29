@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bme78y6kjompq"
 path.bptc="res://.godot/imported/响子 难过.png-94a4513aa117e96cd1c57c1fe1c0c773.bptc.ctex"
+path.astc="res://.godot/imported/响子 难过.png-94a4513aa117e96cd1c57c1fe1c0c773.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/响子 难过.png"
-dest_files=["res://.godot/imported/响子 难过.png-94a4513aa117e96cd1c57c1fe1c0c773.bptc.ctex"]
+dest_files=["res://.godot/imported/响子 难过.png-94a4513aa117e96cd1c57c1fe1c0c773.bptc.ctex", "res://.godot/imported/响子 难过.png-94a4513aa117e96cd1c57c1fe1c0c773.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b02eh8eaki0i"
 path.bptc="res://.godot/imported/芳香 吐舌.png-eb0a5bee280c37d87693c1718b05381b.bptc.ctex"
+path.astc="res://.godot/imported/芳香 吐舌.png-eb0a5bee280c37d87693c1718b05381b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/芳香 吐舌.png"
-dest_files=["res://.godot/imported/芳香 吐舌.png-eb0a5bee280c37d87693c1718b05381b.bptc.ctex"]
+dest_files=["res://.godot/imported/芳香 吐舌.png-eb0a5bee280c37d87693c1718b05381b.bptc.ctex", "res://.godot/imported/芳香 吐舌.png-eb0a5bee280c37d87693c1718b05381b.astc.ctex"]
 
 [params]
 

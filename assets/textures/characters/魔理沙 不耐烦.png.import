@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://0prjlk5wp4oc"
 path.bptc="res://.godot/imported/魔理沙 不耐烦.png-45ad86caa1428cb35462caf6ca9a0583.bptc.ctex"
+path.astc="res://.godot/imported/魔理沙 不耐烦.png-45ad86caa1428cb35462caf6ca9a0583.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/魔理沙 不耐烦.png"
-dest_files=["res://.godot/imported/魔理沙 不耐烦.png-45ad86caa1428cb35462caf6ca9a0583.bptc.ctex"]
+dest_files=["res://.godot/imported/魔理沙 不耐烦.png-45ad86caa1428cb35462caf6ca9a0583.bptc.ctex", "res://.godot/imported/魔理沙 不耐烦.png-45ad86caa1428cb35462caf6ca9a0583.astc.ctex"]
 
 [params]
 

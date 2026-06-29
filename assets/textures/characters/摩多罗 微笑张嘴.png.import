@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr7jkjxun0k14"
 path.bptc="res://.godot/imported/摩多罗 微笑张嘴.png-f241b9b75dff500f29135ba4392625f8.bptc.ctex"
+path.astc="res://.godot/imported/摩多罗 微笑张嘴.png-f241b9b75dff500f29135ba4392625f8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/摩多罗 微笑张嘴.png"
-dest_files=["res://.godot/imported/摩多罗 微笑张嘴.png-f241b9b75dff500f29135ba4392625f8.bptc.ctex"]
+dest_files=["res://.godot/imported/摩多罗 微笑张嘴.png-f241b9b75dff500f29135ba4392625f8.bptc.ctex", "res://.godot/imported/摩多罗 微笑张嘴.png-f241b9b75dff500f29135ba4392625f8.astc.ctex"]
 
 [params]
 

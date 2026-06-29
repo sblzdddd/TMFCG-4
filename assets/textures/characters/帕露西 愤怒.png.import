@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bgnmc1jg0ah2d"
 path.bptc="res://.godot/imported/帕露西 愤怒.png-75b917e02f50a1495c88008a1a99467c.bptc.ctex"
+path.astc="res://.godot/imported/帕露西 愤怒.png-75b917e02f50a1495c88008a1a99467c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帕露西 愤怒.png"
-dest_files=["res://.godot/imported/帕露西 愤怒.png-75b917e02f50a1495c88008a1a99467c.bptc.ctex"]
+dest_files=["res://.godot/imported/帕露西 愤怒.png-75b917e02f50a1495c88008a1a99467c.bptc.ctex", "res://.godot/imported/帕露西 愤怒.png-75b917e02f50a1495c88008a1a99467c.astc.ctex"]
 
 [params]
 

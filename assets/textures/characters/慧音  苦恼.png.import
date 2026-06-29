@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://v2ia6dqtowj1"
 path.bptc="res://.godot/imported/慧音  苦恼.png-2d696d8b5396a12de6be56cac9ee319a.bptc.ctex"
+path.astc="res://.godot/imported/慧音  苦恼.png-2d696d8b5396a12de6be56cac9ee319a.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/慧音  苦恼.png"
-dest_files=["res://.godot/imported/慧音  苦恼.png-2d696d8b5396a12de6be56cac9ee319a.bptc.ctex"]
+dest_files=["res://.godot/imported/慧音  苦恼.png-2d696d8b5396a12de6be56cac9ee319a.bptc.ctex", "res://.godot/imported/慧音  苦恼.png-2d696d8b5396a12de6be56cac9ee319a.astc.ctex"]
 
 [params]
 

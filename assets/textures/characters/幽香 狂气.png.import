@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bx20xqlnysy50"
 path.bptc="res://.godot/imported/幽香 狂气.png-2d3ccb4628b39eb63cb6b8ffc546ccb2.bptc.ctex"
+path.astc="res://.godot/imported/幽香 狂气.png-2d3ccb4628b39eb63cb6b8ffc546ccb2.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/幽香 狂气.png"
-dest_files=["res://.godot/imported/幽香 狂气.png-2d3ccb4628b39eb63cb6b8ffc546ccb2.bptc.ctex"]
+dest_files=["res://.godot/imported/幽香 狂气.png-2d3ccb4628b39eb63cb6b8ffc546ccb2.bptc.ctex", "res://.godot/imported/幽香 狂气.png-2d3ccb4628b39eb63cb6b8ffc546ccb2.astc.ctex"]
 
 [params]
 

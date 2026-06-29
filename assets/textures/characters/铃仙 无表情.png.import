@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dm8n5e8chdqd6"
 path.bptc="res://.godot/imported/铃仙 无表情.png-3d4703c05f2a1a1bfa85a7cf215998ec.bptc.ctex"
+path.astc="res://.godot/imported/铃仙 无表情.png-3d4703c05f2a1a1bfa85a7cf215998ec.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/铃仙 无表情.png"
-dest_files=["res://.godot/imported/铃仙 无表情.png-3d4703c05f2a1a1bfa85a7cf215998ec.bptc.ctex"]
+dest_files=["res://.godot/imported/铃仙 无表情.png-3d4703c05f2a1a1bfa85a7cf215998ec.bptc.ctex", "res://.godot/imported/铃仙 无表情.png-3d4703c05f2a1a1bfa85a7cf215998ec.astc.ctex"]
 
 [params]
 

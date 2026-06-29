@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvn0572ki26k4"
 path.bptc="res://.godot/imported/恋恋 无表情张嘴.png-f61a20694be16efaf4ca410631f0dce7.bptc.ctex"
+path.astc="res://.godot/imported/恋恋 无表情张嘴.png-f61a20694be16efaf4ca410631f0dce7.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/恋恋 无表情张嘴.png"
-dest_files=["res://.godot/imported/恋恋 无表情张嘴.png-f61a20694be16efaf4ca410631f0dce7.bptc.ctex"]
+dest_files=["res://.godot/imported/恋恋 无表情张嘴.png-f61a20694be16efaf4ca410631f0dce7.bptc.ctex", "res://.godot/imported/恋恋 无表情张嘴.png-f61a20694be16efaf4ca410631f0dce7.astc.ctex"]
 
 [params]
 

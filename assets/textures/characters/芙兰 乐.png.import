@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwvhp28kyov38"
 path.bptc="res://.godot/imported/芙兰 乐.png-94f10d7c3276e5308f775d5f7db89477.bptc.ctex"
+path.astc="res://.godot/imported/芙兰 乐.png-94f10d7c3276e5308f775d5f7db89477.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/芙兰 乐.png"
-dest_files=["res://.godot/imported/芙兰 乐.png-94f10d7c3276e5308f775d5f7db89477.bptc.ctex"]
+dest_files=["res://.godot/imported/芙兰 乐.png-94f10d7c3276e5308f775d5f7db89477.bptc.ctex", "res://.godot/imported/芙兰 乐.png-94f10d7c3276e5308f775d5f7db89477.astc.ctex"]
 
 [params]
 

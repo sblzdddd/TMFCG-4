@@ -147,6 +147,78 @@ func get_portrait_info(portrait_name:String) -> Dictionary:
 	return portraits.get(portrait_name, portraits.get(default_portrait, {}))
 
 
+## Returns the image resource path for [param portrait_name].
+## Uses [member default_portrait] when empty; falls back to the first portrait.
+func get_portrait_image_path(portrait_name: String = "") -> String:
+	var portrait_key := portrait_name if not portrait_name.is_empty() else default_portrait
+	if portrait_key.is_empty() and not portraits.is_empty():
+		portrait_key = portraits.keys()[0]
+	if portrait_key.is_empty():
+		return ""
+	return _extract_image_path_from_portrait_info(get_portrait_info(portrait_key))
+
+
+## Loads the default portrait image as a texture, if available.
+func get_default_portrait_preview_texture() -> Texture2D:
+	var image_path := get_portrait_image_path()
+	if image_path.is_empty() or not ResourceLoader.exists(image_path):
+		return null
+	return ResourceLoader.load(image_path) as Texture2D
+
+
+## Loads the default portrait at native resolution for editor preview.
+func generate_editor_preview() -> Texture2D:
+	var image_path := get_portrait_image_path()
+	if not image_path.is_empty() and ResourceLoader.exists(image_path):
+		var image := Image.new()
+		if image.load(image_path) == OK and not image.is_empty():
+			return _image_to_texture(image)
+
+	var texture := get_default_portrait_preview_texture()
+	if texture == null:
+		return null
+
+	var image := texture.get_image()
+	if image.is_empty():
+		return texture
+	return _image_to_texture(image)
+
+
+static func _extract_image_path_from_portrait_info(info: Dictionary) -> String:
+	if info.is_empty():
+		return ""
+
+	if info.has("export_overrides"):
+		var overrides: Dictionary = info.export_overrides
+		if overrides.has("image"):
+			return _parse_resource_path_string(overrides["image"])
+
+	if info.has("image"):
+		return _parse_resource_path_string(info["image"])
+
+	return ""
+
+
+static func _parse_resource_path_string(value: Variant) -> String:
+	if typeof(value) != TYPE_STRING:
+		return ""
+
+	var parsed: Variant = str_to_var(value)
+	if typeof(parsed) == TYPE_STRING and not parsed.is_empty():
+		return parsed
+
+	if "://" in value:
+		return value.trim_prefix('"').trim_suffix('"')
+
+	return value
+
+
+static func _image_to_texture(image: Image) -> Texture2D:
+	if image.is_compressed():
+		image.decompress()
+	return ImageTexture.create_from_image(image)
+
+
 ## Helper method intended for a simplified creation of portraits at runtime.
 ## For more complex needs, manually writing to the portraits dict is recommended.
 func add_portrait(name:String, image:String, scene:= "") -> void:

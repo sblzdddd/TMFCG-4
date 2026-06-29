@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://brh6d0s0lktfw"
 path.bptc="res://.godot/imported/米斯蒂娅 偶像服.png-69c3e4c27a02caf4cce5d1cb3ee2846c.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 偶像服.png-69c3e4c27a02caf4cce5d1cb3ee2846c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 偶像服.png"
-dest_files=["res://.godot/imported/米斯蒂娅 偶像服.png-69c3e4c27a02caf4cce5d1cb3ee2846c.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 偶像服.png-69c3e4c27a02caf4cce5d1cb3ee2846c.bptc.ctex", "res://.godot/imported/米斯蒂娅 偶像服.png-69c3e4c27a02caf4cce5d1cb3ee2846c.astc.ctex"]
 
 [params]
 

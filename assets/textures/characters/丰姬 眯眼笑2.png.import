@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnm0tdo54vjql"
 path.bptc="res://.godot/imported/丰姬 眯眼笑2.png-0d45dc3b3c6157d8c3f5abf89b773463.bptc.ctex"
+path.astc="res://.godot/imported/丰姬 眯眼笑2.png-0d45dc3b3c6157d8c3f5abf89b773463.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/丰姬 眯眼笑2.png"
-dest_files=["res://.godot/imported/丰姬 眯眼笑2.png-0d45dc3b3c6157d8c3f5abf89b773463.bptc.ctex"]
+dest_files=["res://.godot/imported/丰姬 眯眼笑2.png-0d45dc3b3c6157d8c3f5abf89b773463.bptc.ctex", "res://.godot/imported/丰姬 眯眼笑2.png-0d45dc3b3c6157d8c3f5abf89b773463.astc.ctex"]
 
 [params]
 

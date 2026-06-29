@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cd6q6jy3qqwej"
 path.bptc="res://.godot/imported/米斯蒂娅 哭.png-dd725335e98e9553c594844cf7fd407a.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 哭.png-dd725335e98e9553c594844cf7fd407a.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 哭.png"
-dest_files=["res://.godot/imported/米斯蒂娅 哭.png-dd725335e98e9553c594844cf7fd407a.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 哭.png-dd725335e98e9553c594844cf7fd407a.bptc.ctex", "res://.godot/imported/米斯蒂娅 哭.png-dd725335e98e9553c594844cf7fd407a.astc.ctex"]
 
 [params]
 

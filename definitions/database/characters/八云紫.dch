@@ -1,0 +1,104 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "72",
+&"color": Color(0.744, 0.258, 0.216, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "无表情",
+&"description": "origin=东方妖妖梦
+description=界线的妖怪",
+&"display_name": "八云紫",
+&"mirror": false,
+&"nicknames": ["BBA", "紫妈", "老太婆"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"不满": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 不满.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"惊讶": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 惊讶.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"眯眼笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 眯眼笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"被逗笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 被逗笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 认真.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/紫 认真张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

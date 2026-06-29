@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2xybhhghmlif"
 path.bptc="res://.godot/imported/紫 眯眼笑.png-355991d1bc4966478124b378ea458500.bptc.ctex"
+path.astc="res://.godot/imported/紫 眯眼笑.png-355991d1bc4966478124b378ea458500.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/紫 眯眼笑.png"
-dest_files=["res://.godot/imported/紫 眯眼笑.png-355991d1bc4966478124b378ea458500.bptc.ctex"]
+dest_files=["res://.godot/imported/紫 眯眼笑.png-355991d1bc4966478124b378ea458500.bptc.ctex", "res://.godot/imported/紫 眯眼笑.png-355991d1bc4966478124b378ea458500.astc.ctex"]
 
 [params]
 

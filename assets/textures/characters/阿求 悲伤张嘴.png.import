@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://jae878b8oh5y"
 path.bptc="res://.godot/imported/阿求 悲伤张嘴.png-747c7ad8833905cd372e36d396eac83b.bptc.ctex"
+path.astc="res://.godot/imported/阿求 悲伤张嘴.png-747c7ad8833905cd372e36d396eac83b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿求 悲伤张嘴.png"
-dest_files=["res://.godot/imported/阿求 悲伤张嘴.png-747c7ad8833905cd372e36d396eac83b.bptc.ctex"]
+dest_files=["res://.godot/imported/阿求 悲伤张嘴.png-747c7ad8833905cd372e36d396eac83b.bptc.ctex", "res://.godot/imported/阿求 悲伤张嘴.png-747c7ad8833905cd372e36d396eac83b.astc.ctex"]
 
 [params]
 

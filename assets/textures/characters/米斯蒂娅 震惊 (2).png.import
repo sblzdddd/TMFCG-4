@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://drqklkt4stolv"
 path.bptc="res://.godot/imported/米斯蒂娅 震惊 (2).png-ce6398d1a8538145ed0c7337a0c99d7d.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 震惊 (2).png-ce6398d1a8538145ed0c7337a0c99d7d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 震惊 (2).png"
-dest_files=["res://.godot/imported/米斯蒂娅 震惊 (2).png-ce6398d1a8538145ed0c7337a0c99d7d.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 震惊 (2).png-ce6398d1a8538145ed0c7337a0c99d7d.bptc.ctex", "res://.godot/imported/米斯蒂娅 震惊 (2).png-ce6398d1a8538145ed0c7337a0c99d7d.astc.ctex"]
 
 [params]
 

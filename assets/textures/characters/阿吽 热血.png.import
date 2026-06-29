@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctskhtnrtew17"
 path.bptc="res://.godot/imported/阿吽 热血.png-c28c6551663fc768893c7865861fe686.bptc.ctex"
+path.astc="res://.godot/imported/阿吽 热血.png-c28c6551663fc768893c7865861fe686.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿吽 热血.png"
-dest_files=["res://.godot/imported/阿吽 热血.png-c28c6551663fc768893c7865861fe686.bptc.ctex"]
+dest_files=["res://.godot/imported/阿吽 热血.png-c28c6551663fc768893c7865861fe686.bptc.ctex", "res://.godot/imported/阿吽 热血.png-c28c6551663fc768893c7865861fe686.astc.ctex"]
 
 [params]
 

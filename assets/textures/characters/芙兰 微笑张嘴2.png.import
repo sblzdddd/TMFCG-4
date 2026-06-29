@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c145slev23bpu"
 path.bptc="res://.godot/imported/芙兰 微笑张嘴2.png-3160af96162ee1bda545706f42a8844d.bptc.ctex"
+path.astc="res://.godot/imported/芙兰 微笑张嘴2.png-3160af96162ee1bda545706f42a8844d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/芙兰 微笑张嘴2.png"
-dest_files=["res://.godot/imported/芙兰 微笑张嘴2.png-3160af96162ee1bda545706f42a8844d.bptc.ctex"]
+dest_files=["res://.godot/imported/芙兰 微笑张嘴2.png-3160af96162ee1bda545706f42a8844d.bptc.ctex", "res://.godot/imported/芙兰 微笑张嘴2.png-3160af96162ee1bda545706f42a8844d.astc.ctex"]
 
 [params]
 

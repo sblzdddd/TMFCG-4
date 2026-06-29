@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6xq178qb4i68"
 path.bptc="res://.godot/imported/觉 疲劳微笑张嘴.png-d5c575a63ea1d17411aeccccd13e3972.bptc.ctex"
+path.astc="res://.godot/imported/觉 疲劳微笑张嘴.png-d5c575a63ea1d17411aeccccd13e3972.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/觉 疲劳微笑张嘴.png"
-dest_files=["res://.godot/imported/觉 疲劳微笑张嘴.png-d5c575a63ea1d17411aeccccd13e3972.bptc.ctex"]
+dest_files=["res://.godot/imported/觉 疲劳微笑张嘴.png-d5c575a63ea1d17411aeccccd13e3972.bptc.ctex", "res://.godot/imported/觉 疲劳微笑张嘴.png-d5c575a63ea1d17411aeccccd13e3972.astc.ctex"]
 
 [params]
 

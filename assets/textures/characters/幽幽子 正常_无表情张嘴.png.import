@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6kwslts76vf6"
 path.bptc="res://.godot/imported/幽幽子 正常_无表情张嘴.png-0e43755f0b8bcab1de0957d2cd98628f.bptc.ctex"
+path.astc="res://.godot/imported/幽幽子 正常_无表情张嘴.png-0e43755f0b8bcab1de0957d2cd98628f.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/幽幽子 正常_无表情张嘴.png"
-dest_files=["res://.godot/imported/幽幽子 正常_无表情张嘴.png-0e43755f0b8bcab1de0957d2cd98628f.bptc.ctex"]
+dest_files=["res://.godot/imported/幽幽子 正常_无表情张嘴.png-0e43755f0b8bcab1de0957d2cd98628f.bptc.ctex", "res://.godot/imported/幽幽子 正常_无表情张嘴.png-0e43755f0b8bcab1de0957d2cd98628f.astc.ctex"]
 
 [params]
 

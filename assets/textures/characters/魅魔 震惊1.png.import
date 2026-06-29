@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dssdlj6h3nqg4"
 path.bptc="res://.godot/imported/魅魔 震惊1.png-07da50559e495dab87dc9028a114d3ec.bptc.ctex"
+path.astc="res://.godot/imported/魅魔 震惊1.png-07da50559e495dab87dc9028a114d3ec.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/魅魔 震惊1.png"
-dest_files=["res://.godot/imported/魅魔 震惊1.png-07da50559e495dab87dc9028a114d3ec.bptc.ctex"]
+dest_files=["res://.godot/imported/魅魔 震惊1.png-07da50559e495dab87dc9028a114d3ec.bptc.ctex", "res://.godot/imported/魅魔 震惊1.png-07da50559e495dab87dc9028a114d3ec.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dd6b21qf8cco2"
 path.bptc="res://.godot/imported/Fallback.png-f8602844b3530abe132e24bb7019eb3d.bptc.ctex"
+path.astc="res://.godot/imported/Fallback.png-f8602844b3530abe132e24bb7019eb3d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/Fallback.png"
-dest_files=["res://.godot/imported/Fallback.png-f8602844b3530abe132e24bb7019eb3d.bptc.ctex"]
+dest_files=["res://.godot/imported/Fallback.png-f8602844b3530abe132e24bb7019eb3d.bptc.ctex", "res://.godot/imported/Fallback.png-f8602844b3530abe132e24bb7019eb3d.astc.ctex"]
 
 [params]
 

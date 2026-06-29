@@ -1,0 +1,77 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "ac",
+&"color": Color(0.744, 0.216, 0.394, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "无表情",
+&"description": "origin=东方永夜抄
+description=不老不死的竹林引路人",
+&"display_name": "藤原妹红",
+&"mirror": false,
+&"nicknames": ["爷们红", "不死鸟", "蘑菇炭", "蘑菇汤"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/妹红 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/妹红 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/妹红 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"汗": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/妹红 汗.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"痛苦": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/妹红 痛苦.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/妹红 笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

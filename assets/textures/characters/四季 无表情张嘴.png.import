@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://chd3j37lv0g7d"
 path.bptc="res://.godot/imported/四季 无表情张嘴.png-d04330000535d4f6ad920e09cad99b6d.bptc.ctex"
+path.astc="res://.godot/imported/四季 无表情张嘴.png-d04330000535d4f6ad920e09cad99b6d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/四季 无表情张嘴.png"
-dest_files=["res://.godot/imported/四季 无表情张嘴.png-d04330000535d4f6ad920e09cad99b6d.bptc.ctex"]
+dest_files=["res://.godot/imported/四季 无表情张嘴.png-d04330000535d4f6ad920e09cad99b6d.bptc.ctex", "res://.godot/imported/四季 无表情张嘴.png-d04330000535d4f6ad920e09cad99b6d.astc.ctex"]
 
 [params]
 

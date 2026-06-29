@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7l55quhdvtn3"
 path.bptc="res://.godot/imported/帝 无表情.png-4e6de7b40dd1c00345ce771daa685a3b.bptc.ctex"
+path.astc="res://.godot/imported/帝 无表情.png-4e6de7b40dd1c00345ce771daa685a3b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帝 无表情.png"
-dest_files=["res://.godot/imported/帝 无表情.png-4e6de7b40dd1c00345ce771daa685a3b.bptc.ctex"]
+dest_files=["res://.godot/imported/帝 无表情.png-4e6de7b40dd1c00345ce771daa685a3b.bptc.ctex", "res://.godot/imported/帝 无表情.png-4e6de7b40dd1c00345ce771daa685a3b.astc.ctex"]
 
 [params]
 

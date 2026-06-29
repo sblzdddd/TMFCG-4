@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c6dw4bomvcwh7"
 path.bptc="res://.godot/imported/芳香 听不懂.png-751942e9bf436c33e2a3cd72fd15a30b.bptc.ctex"
+path.astc="res://.godot/imported/芳香 听不懂.png-751942e9bf436c33e2a3cd72fd15a30b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/芳香 听不懂.png"
-dest_files=["res://.godot/imported/芳香 听不懂.png-751942e9bf436c33e2a3cd72fd15a30b.bptc.ctex"]
+dest_files=["res://.godot/imported/芳香 听不懂.png-751942e9bf436c33e2a3cd72fd15a30b.bptc.ctex", "res://.godot/imported/芳香 听不懂.png-751942e9bf436c33e2a3cd72fd15a30b.astc.ctex"]
 
 [params]
 

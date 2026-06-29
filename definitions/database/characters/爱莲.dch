@@ -1,0 +1,50 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "97",
+&"color": Color(0.744, 0.357, 0.216, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑2",
+&"description": "origin=东方梦时空
+description=勤奋工作并梦想着恋爱的魔女",
+&"display_name": "爱莲",
+&"mirror": false,
+&"nicknames": ["恋爱魔女", "艾伦", "蓬松头"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"微笑2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/爱莲 微笑2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"撇嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/爱莲 撇嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"笑_苏格拉底高兴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/爱莲 笑_苏格拉底高兴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

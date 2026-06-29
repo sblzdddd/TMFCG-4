@@ -1,0 +1,194 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "a4",
+&"color": Color(0.744, 0.216, 0.22, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方红魔乡
+description=吸血鬼的破坏性妹妹",
+&"display_name": "芙兰朵露·斯卡蕾特",
+&"mirror": false,
+&"nicknames": ["二小姐", "芙兰", "二妹", "破坏之神", "吸血鬼姐妹"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"boss乐": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 boss乐.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"boss哀": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 boss哀.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"boss喜": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 boss喜.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"boss怒": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 boss怒.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"乐": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 乐.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"哀": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 哀.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"嘲讽": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 嘲讽.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 微笑张嘴2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"怒": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 怒.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"怒2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 怒2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"怒3": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 怒3.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"暴虐": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 暴虐.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疯狂": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 疯狂.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"装可爱": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/芙兰 装可爱.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

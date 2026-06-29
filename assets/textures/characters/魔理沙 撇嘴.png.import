@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3yfi1slwyddu"
 path.bptc="res://.godot/imported/魔理沙 撇嘴.png-08c45bc9e472a97a851ce740ce8e7691.bptc.ctex"
+path.astc="res://.godot/imported/魔理沙 撇嘴.png-08c45bc9e472a97a851ce740ce8e7691.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/魔理沙 撇嘴.png"
-dest_files=["res://.godot/imported/魔理沙 撇嘴.png-08c45bc9e472a97a851ce740ce8e7691.bptc.ctex"]
+dest_files=["res://.godot/imported/魔理沙 撇嘴.png-08c45bc9e472a97a851ce740ce8e7691.bptc.ctex", "res://.godot/imported/魔理沙 撇嘴.png-08c45bc9e472a97a851ce740ce8e7691.astc.ctex"]
 
 [params]
 

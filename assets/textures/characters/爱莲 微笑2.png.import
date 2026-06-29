@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg0tvpqwj6kpq"
 path.bptc="res://.godot/imported/爱莲 微笑2.png-31c009d3d84bada33516952bcebcc6e5.bptc.ctex"
+path.astc="res://.godot/imported/爱莲 微笑2.png-31c009d3d84bada33516952bcebcc6e5.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/爱莲 微笑2.png"
-dest_files=["res://.godot/imported/爱莲 微笑2.png-31c009d3d84bada33516952bcebcc6e5.bptc.ctex"]
+dest_files=["res://.godot/imported/爱莲 微笑2.png-31c009d3d84bada33516952bcebcc6e5.bptc.ctex", "res://.godot/imported/爱莲 微笑2.png-31c009d3d84bada33516952bcebcc6e5.astc.ctex"]
 
 [params]
 

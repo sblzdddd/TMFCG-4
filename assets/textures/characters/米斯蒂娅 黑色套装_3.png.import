@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccuyvokc0ytoa"
 path.bptc="res://.godot/imported/米斯蒂娅 黑色套装_3.png-896c45d65c7919ba26e1cd7bc14b150c.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 黑色套装_3.png-896c45d65c7919ba26e1cd7bc14b150c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 黑色套装_3.png"
-dest_files=["res://.godot/imported/米斯蒂娅 黑色套装_3.png-896c45d65c7919ba26e1cd7bc14b150c.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 黑色套装_3.png-896c45d65c7919ba26e1cd7bc14b150c.bptc.ctex", "res://.godot/imported/米斯蒂娅 黑色套装_3.png-896c45d65c7919ba26e1cd7bc14b150c.astc.ctex"]
 
 [params]
 

@@ -1,0 +1,77 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "7f",
+&"color": Color(0.307, 0.216, 0.744, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "无表情",
+&"description": "origin=东方智灵奇传
+description=反狱王",
+&"display_name": "宫出口瑞灵",
+&"mirror": false,
+&"nicknames": ["反狱王"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"不满": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/瑞灵 不满.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"嚣张大笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/瑞灵 嚣张大笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/瑞灵 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/瑞灵 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"气愤": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/瑞灵 气愤.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疯狂": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/瑞灵 疯狂.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

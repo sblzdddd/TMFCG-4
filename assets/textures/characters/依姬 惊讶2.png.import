@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://diw2lu3lkvxug"
 path.bptc="res://.godot/imported/依姬 惊讶2.png-8fdbaf972a0cc4e09b66a0a6d68aedf0.bptc.ctex"
+path.astc="res://.godot/imported/依姬 惊讶2.png-8fdbaf972a0cc4e09b66a0a6d68aedf0.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/依姬 惊讶2.png"
-dest_files=["res://.godot/imported/依姬 惊讶2.png-8fdbaf972a0cc4e09b66a0a6d68aedf0.bptc.ctex"]
+dest_files=["res://.godot/imported/依姬 惊讶2.png-8fdbaf972a0cc4e09b66a0a6d68aedf0.bptc.ctex", "res://.godot/imported/依姬 惊讶2.png-8fdbaf972a0cc4e09b66a0a6d68aedf0.astc.ctex"]
 
 [params]
 

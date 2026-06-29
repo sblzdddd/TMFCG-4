@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4bmg7v3f34w7"
 path.bptc="res://.godot/imported/恋恋 笑2.png-a5c120d9bdb4b4827917e5e51cb30a80.bptc.ctex"
+path.astc="res://.godot/imported/恋恋 笑2.png-a5c120d9bdb4b4827917e5e51cb30a80.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/恋恋 笑2.png"
-dest_files=["res://.godot/imported/恋恋 笑2.png-a5c120d9bdb4b4827917e5e51cb30a80.bptc.ctex"]
+dest_files=["res://.godot/imported/恋恋 笑2.png-a5c120d9bdb4b4827917e5e51cb30a80.bptc.ctex", "res://.godot/imported/恋恋 笑2.png-a5c120d9bdb4b4827917e5e51cb30a80.astc.ctex"]
 
 [params]
 

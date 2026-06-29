@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dvswfpbwf46kb"
 path.bptc="res://.godot/imported/帕露西 惊讶.png-86a35ef3e5eee2d501603240c95b6d01.bptc.ctex"
+path.astc="res://.godot/imported/帕露西 惊讶.png-86a35ef3e5eee2d501603240c95b6d01.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帕露西 惊讶.png"
-dest_files=["res://.godot/imported/帕露西 惊讶.png-86a35ef3e5eee2d501603240c95b6d01.bptc.ctex"]
+dest_files=["res://.godot/imported/帕露西 惊讶.png-86a35ef3e5eee2d501603240c95b6d01.bptc.ctex", "res://.godot/imported/帕露西 惊讶.png-86a35ef3e5eee2d501603240c95b6d01.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bkx3rrts1ucsn"
 path.bptc="res://.godot/imported/天子 吃瘪.png-0387356484c7607fa7067cd65b4fe541.bptc.ctex"
+path.astc="res://.godot/imported/天子 吃瘪.png-0387356484c7607fa7067cd65b4fe541.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/天子 吃瘪.png"
-dest_files=["res://.godot/imported/天子 吃瘪.png-0387356484c7607fa7067cd65b4fe541.bptc.ctex"]
+dest_files=["res://.godot/imported/天子 吃瘪.png-0387356484c7607fa7067cd65b4fe541.bptc.ctex", "res://.godot/imported/天子 吃瘪.png-0387356484c7607fa7067cd65b4fe541.astc.ctex"]
 
 [params]
 

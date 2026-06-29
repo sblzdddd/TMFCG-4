@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://f4qkmq3j835j"
 path.bptc="res://.godot/imported/辉夜 无表情.png-a30cb2a8c6878183bd8fbf2237810edc.bptc.ctex"
+path.astc="res://.godot/imported/辉夜 无表情.png-a30cb2a8c6878183bd8fbf2237810edc.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/辉夜 无表情.png"
-dest_files=["res://.godot/imported/辉夜 无表情.png-a30cb2a8c6878183bd8fbf2237810edc.bptc.ctex"]
+dest_files=["res://.godot/imported/辉夜 无表情.png-a30cb2a8c6878183bd8fbf2237810edc.bptc.ctex", "res://.godot/imported/辉夜 无表情.png-a30cb2a8c6878183bd8fbf2237810edc.astc.ctex"]
 
 [params]
 

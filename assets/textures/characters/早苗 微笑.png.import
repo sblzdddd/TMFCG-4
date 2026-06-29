@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ccms1mmjhdc7l"
 path.bptc="res://.godot/imported/早苗 微笑.png-39616283c4e3586e983ad4237a1d109c.bptc.ctex"
+path.astc="res://.godot/imported/早苗 微笑.png-39616283c4e3586e983ad4237a1d109c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/早苗 微笑.png"
-dest_files=["res://.godot/imported/早苗 微笑.png-39616283c4e3586e983ad4237a1d109c.bptc.ctex"]
+dest_files=["res://.godot/imported/早苗 微笑.png-39616283c4e3586e983ad4237a1d109c.bptc.ctex", "res://.godot/imported/早苗 微笑.png-39616283c4e3586e983ad4237a1d109c.astc.ctex"]
 
 [params]
 

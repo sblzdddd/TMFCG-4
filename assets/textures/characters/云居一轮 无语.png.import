@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbg0iyhjja8q8"
 path.bptc="res://.godot/imported/云居一轮 无语.png-06a816a8573fde45207359266f482f1a.bptc.ctex"
+path.astc="res://.godot/imported/云居一轮 无语.png-06a816a8573fde45207359266f482f1a.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/云居一轮 无语.png"
-dest_files=["res://.godot/imported/云居一轮 无语.png-06a816a8573fde45207359266f482f1a.bptc.ctex"]
+dest_files=["res://.godot/imported/云居一轮 无语.png-06a816a8573fde45207359266f482f1a.bptc.ctex", "res://.godot/imported/云居一轮 无语.png-06a816a8573fde45207359266f482f1a.astc.ctex"]
 
 [params]
 

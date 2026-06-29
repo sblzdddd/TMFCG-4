@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvsbkjabfcg4n"
 path.bptc="res://.godot/imported/华扇 苦笑.png-e8855279b92ddc3cf945654cb8500d8f.bptc.ctex"
+path.astc="res://.godot/imported/华扇 苦笑.png-e8855279b92ddc3cf945654cb8500d8f.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/华扇 苦笑.png"
-dest_files=["res://.godot/imported/华扇 苦笑.png-e8855279b92ddc3cf945654cb8500d8f.bptc.ctex"]
+dest_files=["res://.godot/imported/华扇 苦笑.png-e8855279b92ddc3cf945654cb8500d8f.bptc.ctex", "res://.godot/imported/华扇 苦笑.png-e8855279b92ddc3cf945654cb8500d8f.astc.ctex"]
 
 [params]
 

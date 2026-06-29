@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c76oyr7c8ashb"
 path.bptc="res://.godot/imported/米斯蒂娅 害怕.png-ed38f7c16f811e381e3401b4ed711ddf.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 害怕.png-ed38f7c16f811e381e3401b4ed711ddf.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 害怕.png"
-dest_files=["res://.godot/imported/米斯蒂娅 害怕.png-ed38f7c16f811e381e3401b4ed711ddf.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 害怕.png-ed38f7c16f811e381e3401b4ed711ddf.bptc.ctex", "res://.godot/imported/米斯蒂娅 害怕.png-ed38f7c16f811e381e3401b4ed711ddf.astc.ctex"]
 
 [params]
 

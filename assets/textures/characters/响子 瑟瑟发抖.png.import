@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1hbfbcsuyas6"
 path.bptc="res://.godot/imported/响子 瑟瑟发抖.png-5f8ba6c181029dfe6a5b5a6e1c2dcc9a.bptc.ctex"
+path.astc="res://.godot/imported/响子 瑟瑟发抖.png-5f8ba6c181029dfe6a5b5a6e1c2dcc9a.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/响子 瑟瑟发抖.png"
-dest_files=["res://.godot/imported/响子 瑟瑟发抖.png-5f8ba6c181029dfe6a5b5a6e1c2dcc9a.bptc.ctex"]
+dest_files=["res://.godot/imported/响子 瑟瑟发抖.png-5f8ba6c181029dfe6a5b5a6e1c2dcc9a.bptc.ctex", "res://.godot/imported/响子 瑟瑟发抖.png-5f8ba6c181029dfe6a5b5a6e1c2dcc9a.astc.ctex"]
 
 [params]
 

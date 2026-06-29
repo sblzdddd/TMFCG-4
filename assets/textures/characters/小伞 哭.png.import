@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://de8qbcpybjpwq"
 path.bptc="res://.godot/imported/小伞 哭.png-c4e2ca5adb6103ec339b1891bb5d4da9.bptc.ctex"
+path.astc="res://.godot/imported/小伞 哭.png-c4e2ca5adb6103ec339b1891bb5d4da9.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/小伞 哭.png"
-dest_files=["res://.godot/imported/小伞 哭.png-c4e2ca5adb6103ec339b1891bb5d4da9.bptc.ctex"]
+dest_files=["res://.godot/imported/小伞 哭.png-c4e2ca5adb6103ec339b1891bb5d4da9.bptc.ctex", "res://.godot/imported/小伞 哭.png-c4e2ca5adb6103ec339b1891bb5d4da9.astc.ctex"]
 
 [params]
 

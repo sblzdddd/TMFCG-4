@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://j5jf4oe02fsa"
 path.bptc="res://.godot/imported/米斯蒂娅 花魁和服.png-e9125829d8fe19f9a129fc03609efdc6.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 花魁和服.png-e9125829d8fe19f9a129fc03609efdc6.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 花魁和服.png"
-dest_files=["res://.godot/imported/米斯蒂娅 花魁和服.png-e9125829d8fe19f9a129fc03609efdc6.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 花魁和服.png-e9125829d8fe19f9a129fc03609efdc6.bptc.ctex", "res://.godot/imported/米斯蒂娅 花魁和服.png-e9125829d8fe19f9a129fc03609efdc6.astc.ctex"]
 
 [params]
 

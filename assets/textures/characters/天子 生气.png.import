@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://br2juxj3tiva0"
 path.bptc="res://.godot/imported/天子 生气.png-af3c6161af2a3a0d2d8c711f16df372d.bptc.ctex"
+path.astc="res://.godot/imported/天子 生气.png-af3c6161af2a3a0d2d8c711f16df372d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/天子 生气.png"
-dest_files=["res://.godot/imported/天子 生气.png-af3c6161af2a3a0d2d8c711f16df372d.bptc.ctex"]
+dest_files=["res://.godot/imported/天子 生气.png-af3c6161af2a3a0d2d8c711f16df372d.bptc.ctex", "res://.godot/imported/天子 生气.png-af3c6161af2a3a0d2d8c711f16df372d.astc.ctex"]
 
 [params]
 

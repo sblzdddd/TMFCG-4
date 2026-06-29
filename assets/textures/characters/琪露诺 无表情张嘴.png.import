@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://3eauc7ak8xir"
 path.bptc="res://.godot/imported/琪露诺 无表情张嘴.png-b4dbd5ffca5f26c4aa42ec9749e34bab.bptc.ctex"
+path.astc="res://.godot/imported/琪露诺 无表情张嘴.png-b4dbd5ffca5f26c4aa42ec9749e34bab.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/琪露诺 无表情张嘴.png"
-dest_files=["res://.godot/imported/琪露诺 无表情张嘴.png-b4dbd5ffca5f26c4aa42ec9749e34bab.bptc.ctex"]
+dest_files=["res://.godot/imported/琪露诺 无表情张嘴.png-b4dbd5ffca5f26c4aa42ec9749e34bab.bptc.ctex", "res://.godot/imported/琪露诺 无表情张嘴.png-b4dbd5ffca5f26c4aa42ec9749e34bab.astc.ctex"]
 
 [params]
 

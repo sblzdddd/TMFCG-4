@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7rbiebx8hdv7"
 path.bptc="res://.godot/imported/云居一轮 微笑张嘴.png-3b795fe59802715d12bd845ac26b0150.bptc.ctex"
+path.astc="res://.godot/imported/云居一轮 微笑张嘴.png-3b795fe59802715d12bd845ac26b0150.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/云居一轮 微笑张嘴.png"
-dest_files=["res://.godot/imported/云居一轮 微笑张嘴.png-3b795fe59802715d12bd845ac26b0150.bptc.ctex"]
+dest_files=["res://.godot/imported/云居一轮 微笑张嘴.png-3b795fe59802715d12bd845ac26b0150.bptc.ctex", "res://.godot/imported/云居一轮 微笑张嘴.png-3b795fe59802715d12bd845ac26b0150.astc.ctex"]
 
 [params]
 

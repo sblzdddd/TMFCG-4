@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxi0tcc5j4vlr"
 path.bptc="res://.godot/imported/针妙丸 无表情.png-89401215dccff38436316d80e3c44966.bptc.ctex"
+path.astc="res://.godot/imported/针妙丸 无表情.png-89401215dccff38436316d80e3c44966.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/针妙丸 无表情.png"
-dest_files=["res://.godot/imported/针妙丸 无表情.png-89401215dccff38436316d80e3c44966.bptc.ctex"]
+dest_files=["res://.godot/imported/针妙丸 无表情.png-89401215dccff38436316d80e3c44966.bptc.ctex", "res://.godot/imported/针妙丸 无表情.png-89401215dccff38436316d80e3c44966.astc.ctex"]
 
 [params]
 

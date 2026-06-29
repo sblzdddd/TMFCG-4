@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://6q8pg7jhy6ws"
 path.bptc="res://.godot/imported/蕾米 无表情张嘴.png-83e08842294d7a697cd71ef26ef3b4fb.bptc.ctex"
+path.astc="res://.godot/imported/蕾米 无表情张嘴.png-83e08842294d7a697cd71ef26ef3b4fb.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/蕾米 无表情张嘴.png"
-dest_files=["res://.godot/imported/蕾米 无表情张嘴.png-83e08842294d7a697cd71ef26ef3b4fb.bptc.ctex"]
+dest_files=["res://.godot/imported/蕾米 无表情张嘴.png-83e08842294d7a697cd71ef26ef3b4fb.bptc.ctex", "res://.godot/imported/蕾米 无表情张嘴.png-83e08842294d7a697cd71ef26ef3b4fb.astc.ctex"]
 
 [params]
 

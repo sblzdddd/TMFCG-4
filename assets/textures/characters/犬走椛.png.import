@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://tmuus3753jkx"
 path.bptc="res://.godot/imported/犬走椛.png-ce61d29957d530d3c0828c0cf428a928.bptc.ctex"
+path.astc="res://.godot/imported/犬走椛.png-ce61d29957d530d3c0828c0cf428a928.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/犬走椛.png"
-dest_files=["res://.godot/imported/犬走椛.png-ce61d29957d530d3c0828c0cf428a928.bptc.ctex"]
+dest_files=["res://.godot/imported/犬走椛.png-ce61d29957d530d3c0828c0cf428a928.bptc.ctex", "res://.godot/imported/犬走椛.png-ce61d29957d530d3c0828c0cf428a928.astc.ctex"]
 
 [params]
 

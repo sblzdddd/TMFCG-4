@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d03087nqjya2j"
 path.bptc="res://.godot/imported/妹红 无表情张嘴.png-a56876188e3c88b42ce7364a4be4fece.bptc.ctex"
+path.astc="res://.godot/imported/妹红 无表情张嘴.png-a56876188e3c88b42ce7364a4be4fece.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/妹红 无表情张嘴.png"
-dest_files=["res://.godot/imported/妹红 无表情张嘴.png-a56876188e3c88b42ce7364a4be4fece.bptc.ctex"]
+dest_files=["res://.godot/imported/妹红 无表情张嘴.png-a56876188e3c88b42ce7364a4be4fece.bptc.ctex", "res://.godot/imported/妹红 无表情张嘴.png-a56876188e3c88b42ce7364a4be4fece.astc.ctex"]
 
 [params]
 

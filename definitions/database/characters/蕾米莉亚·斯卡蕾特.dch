@@ -1,0 +1,50 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "ab",
+&"color": Color(0.744, 0.216, 0.335, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "无表情",
+&"description": "origin=东方红魔乡
+description=鲜红的恶魔",
+&"display_name": "蕾米莉亚·斯卡蕾特",
+&"mirror": false,
+&"nicknames": ["大小姐", "蕾咪", "大妹", "威严", "抱头蹲防", "吸血鬼姐妹"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/蕾米 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/蕾米 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/蕾米 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

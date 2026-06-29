@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddo1fh7r5q4ob"
 path.bptc="res://.godot/imported/村纱 无表情张嘴.png-126f7c64d830e4c333986c7321b93dcd.bptc.ctex"
+path.astc="res://.godot/imported/村纱 无表情张嘴.png-126f7c64d830e4c333986c7321b93dcd.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/村纱 无表情张嘴.png"
-dest_files=["res://.godot/imported/村纱 无表情张嘴.png-126f7c64d830e4c333986c7321b93dcd.bptc.ctex"]
+dest_files=["res://.godot/imported/村纱 无表情张嘴.png-126f7c64d830e4c333986c7321b93dcd.bptc.ctex", "res://.godot/imported/村纱 无表情张嘴.png-126f7c64d830e4c333986c7321b93dcd.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsqv7xtv3jg6"
 path.bptc="res://.godot/imported/村纱 生气.png-014cfe33dd5dbe0a394fa3a310f8f0d5.bptc.ctex"
+path.astc="res://.godot/imported/村纱 生气.png-014cfe33dd5dbe0a394fa3a310f8f0d5.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/村纱 生气.png"
-dest_files=["res://.godot/imported/村纱 生气.png-014cfe33dd5dbe0a394fa3a310f8f0d5.bptc.ctex"]
+dest_files=["res://.godot/imported/村纱 生气.png-014cfe33dd5dbe0a394fa3a310f8f0d5.bptc.ctex", "res://.godot/imported/村纱 生气.png-014cfe33dd5dbe0a394fa3a310f8f0d5.astc.ctex"]
 
 [params]
 

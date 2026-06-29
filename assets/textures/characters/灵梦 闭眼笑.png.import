@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmhkexk1d7e77"
 path.bptc="res://.godot/imported/灵梦 闭眼笑.png-ebdcbcb05295f4b9996d62f15edf5485.bptc.ctex"
+path.astc="res://.godot/imported/灵梦 闭眼笑.png-ebdcbcb05295f4b9996d62f15edf5485.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/灵梦 闭眼笑.png"
-dest_files=["res://.godot/imported/灵梦 闭眼笑.png-ebdcbcb05295f4b9996d62f15edf5485.bptc.ctex"]
+dest_files=["res://.godot/imported/灵梦 闭眼笑.png-ebdcbcb05295f4b9996d62f15edf5485.bptc.ctex", "res://.godot/imported/灵梦 闭眼笑.png-ebdcbcb05295f4b9996d62f15edf5485.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://01j45384lpy8"
 path.bptc="res://.godot/imported/紫 无表情张嘴.png-885d2d464d3ba554243d74f89cb0a3f2.bptc.ctex"
+path.astc="res://.godot/imported/紫 无表情张嘴.png-885d2d464d3ba554243d74f89cb0a3f2.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/紫 无表情张嘴.png"
-dest_files=["res://.godot/imported/紫 无表情张嘴.png-885d2d464d3ba554243d74f89cb0a3f2.bptc.ctex"]
+dest_files=["res://.godot/imported/紫 无表情张嘴.png-885d2d464d3ba554243d74f89cb0a3f2.bptc.ctex", "res://.godot/imported/紫 无表情张嘴.png-885d2d464d3ba554243d74f89cb0a3f2.astc.ctex"]
 
 [params]
 

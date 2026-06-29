@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hsgroamwyn8f"
 path.bptc="res://.godot/imported/正邪 微笑.png-747e2df5d4e7bd8c1d3b05186164182b.bptc.ctex"
+path.astc="res://.godot/imported/正邪 微笑.png-747e2df5d4e7bd8c1d3b05186164182b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/正邪 微笑.png"
-dest_files=["res://.godot/imported/正邪 微笑.png-747e2df5d4e7bd8c1d3b05186164182b.bptc.ctex"]
+dest_files=["res://.godot/imported/正邪 微笑.png-747e2df5d4e7bd8c1d3b05186164182b.bptc.ctex", "res://.godot/imported/正邪 微笑.png-747e2df5d4e7bd8c1d3b05186164182b.astc.ctex"]
 
 [params]
 

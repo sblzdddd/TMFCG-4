@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ll2twt7pioqb"
 path.bptc="res://.godot/imported/灵梦 喝茶.png-2ca8b1367abdc23c25d9750eac2bb6bb.bptc.ctex"
+path.astc="res://.godot/imported/灵梦 喝茶.png-2ca8b1367abdc23c25d9750eac2bb6bb.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/灵梦 喝茶.png"
-dest_files=["res://.godot/imported/灵梦 喝茶.png-2ca8b1367abdc23c25d9750eac2bb6bb.bptc.ctex"]
+dest_files=["res://.godot/imported/灵梦 喝茶.png-2ca8b1367abdc23c25d9750eac2bb6bb.bptc.ctex", "res://.godot/imported/灵梦 喝茶.png-2ca8b1367abdc23c25d9750eac2bb6bb.astc.ctex"]
 
 [params]
 

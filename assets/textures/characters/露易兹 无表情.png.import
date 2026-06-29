@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://chbnjkgxhvj7w"
 path.bptc="res://.godot/imported/露易兹 无表情.png-435f850390bba623c0388b29160deb83.bptc.ctex"
+path.astc="res://.godot/imported/露易兹 无表情.png-435f850390bba623c0388b29160deb83.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/露易兹 无表情.png"
-dest_files=["res://.godot/imported/露易兹 无表情.png-435f850390bba623c0388b29160deb83.bptc.ctex"]
+dest_files=["res://.godot/imported/露易兹 无表情.png-435f850390bba623c0388b29160deb83.bptc.ctex", "res://.godot/imported/露易兹 无表情.png-435f850390bba623c0388b29160deb83.astc.ctex"]
 
 [params]
 

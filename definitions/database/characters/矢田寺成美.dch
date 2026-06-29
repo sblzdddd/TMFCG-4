@@ -1,0 +1,95 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "9c",
+&"color": Color(0.744, 0.216, 0.305, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方天空璋
+description=垂迹于森林的魔法地藏",
+&"display_name": "矢田寺成美",
+&"mirror": false,
+&"nicknames": ["地藏"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"懒惰": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 懒惰.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疑问": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 疑问.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疑问2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 疑问2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"苦恼": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/成美 苦恼.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

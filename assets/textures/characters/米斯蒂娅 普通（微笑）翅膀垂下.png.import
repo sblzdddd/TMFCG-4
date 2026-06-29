@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://quiia6im5kll"
 path.bptc="res://.godot/imported/米斯蒂娅 普通（微笑）翅膀垂下.png-6823dd03ac472cb8c1644bd616eee429.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 普通（微笑）翅膀垂下.png-6823dd03ac472cb8c1644bd616eee429.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 普通（微笑）翅膀垂下.png"
-dest_files=["res://.godot/imported/米斯蒂娅 普通（微笑）翅膀垂下.png-6823dd03ac472cb8c1644bd616eee429.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 普通（微笑）翅膀垂下.png-6823dd03ac472cb8c1644bd616eee429.bptc.ctex", "res://.godot/imported/米斯蒂娅 普通（微笑）翅膀垂下.png-6823dd03ac472cb8c1644bd616eee429.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cq8v2ojgue7co"
 path.bptc="res://.godot/imported/米斯蒂娅 花之礼裙.png-286780b9210b4bb273d48b55fd06e4da.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 花之礼裙.png-286780b9210b4bb273d48b55fd06e4da.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 花之礼裙.png"
-dest_files=["res://.godot/imported/米斯蒂娅 花之礼裙.png-286780b9210b4bb273d48b55fd06e4da.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 花之礼裙.png-286780b9210b4bb273d48b55fd06e4da.bptc.ctex", "res://.godot/imported/米斯蒂娅 花之礼裙.png-286780b9210b4bb273d48b55fd06e4da.astc.ctex"]
 
 [params]
 

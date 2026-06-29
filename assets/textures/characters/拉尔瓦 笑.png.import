@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xp4p2esumnis"
 path.bptc="res://.godot/imported/拉尔瓦 笑.png-833b4de6cde5ba1d3fe8fadbdd598e89.bptc.ctex"
+path.astc="res://.godot/imported/拉尔瓦 笑.png-833b4de6cde5ba1d3fe8fadbdd598e89.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/拉尔瓦 笑.png"
-dest_files=["res://.godot/imported/拉尔瓦 笑.png-833b4de6cde5ba1d3fe8fadbdd598e89.bptc.ctex"]
+dest_files=["res://.godot/imported/拉尔瓦 笑.png-833b4de6cde5ba1d3fe8fadbdd598e89.bptc.ctex", "res://.godot/imported/拉尔瓦 笑.png-833b4de6cde5ba1d3fe8fadbdd598e89.astc.ctex"]
 
 [params]
 

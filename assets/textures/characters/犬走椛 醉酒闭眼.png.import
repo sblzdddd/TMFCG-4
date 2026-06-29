@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsc6id7gv2b5m"
 path.bptc="res://.godot/imported/犬走椛 醉酒闭眼.png-6e58e0acb4a51a57feb2350b7900fb07.bptc.ctex"
+path.astc="res://.godot/imported/犬走椛 醉酒闭眼.png-6e58e0acb4a51a57feb2350b7900fb07.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/犬走椛 醉酒闭眼.png"
-dest_files=["res://.godot/imported/犬走椛 醉酒闭眼.png-6e58e0acb4a51a57feb2350b7900fb07.bptc.ctex"]
+dest_files=["res://.godot/imported/犬走椛 醉酒闭眼.png-6e58e0acb4a51a57feb2350b7900fb07.bptc.ctex", "res://.godot/imported/犬走椛 醉酒闭眼.png-6e58e0acb4a51a57feb2350b7900fb07.astc.ctex"]
 
 [params]
 

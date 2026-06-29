@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4k0x2ej0y7dv"
 path.bptc="res://.godot/imported/村纱 坏笑.png-35a25e274d99ed0a7dc0aac234e05c02.bptc.ctex"
+path.astc="res://.godot/imported/村纱 坏笑.png-35a25e274d99ed0a7dc0aac234e05c02.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/村纱 坏笑.png"
-dest_files=["res://.godot/imported/村纱 坏笑.png-35a25e274d99ed0a7dc0aac234e05c02.bptc.ctex"]
+dest_files=["res://.godot/imported/村纱 坏笑.png-35a25e274d99ed0a7dc0aac234e05c02.bptc.ctex", "res://.godot/imported/村纱 坏笑.png-35a25e274d99ed0a7dc0aac234e05c02.astc.ctex"]
 
 [params]
 

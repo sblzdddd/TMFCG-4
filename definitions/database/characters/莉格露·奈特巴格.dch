@@ -1,0 +1,77 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "a8",
+&"color": Color(0.744, 0.216, 0.333, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方永夜抄
+description=暗中蠢动的光虫",
+&"display_name": "莉格露·奈特巴格",
+&"mirror": false,
+&"nicknames": ["虫子"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/莉格露 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"普通张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/莉格露 普通张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"生气": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/莉格露 生气.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"自满": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/莉格露 自满.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"自满张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/莉格露 自满张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"震惊": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/莉格露 震惊.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

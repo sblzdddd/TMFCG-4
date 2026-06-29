@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgt65konwo12n"
 path.bptc="res://.godot/imported/阿空 笑.png-140c74ffb7966f6ba60e3c7c39e87a9c.bptc.ctex"
+path.astc="res://.godot/imported/阿空 笑.png-140c74ffb7966f6ba60e3c7c39e87a9c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿空 笑.png"
-dest_files=["res://.godot/imported/阿空 笑.png-140c74ffb7966f6ba60e3c7c39e87a9c.bptc.ctex"]
+dest_files=["res://.godot/imported/阿空 笑.png-140c74ffb7966f6ba60e3c7c39e87a9c.bptc.ctex", "res://.godot/imported/阿空 笑.png-140c74ffb7966f6ba60e3c7c39e87a9c.astc.ctex"]
 
 [params]
 

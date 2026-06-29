@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dse513h7s17f1"
 path.bptc="res://.godot/imported/幽香 注视.png-51eb20fbd8e1a46e239b3ae2de8093aa.bptc.ctex"
+path.astc="res://.godot/imported/幽香 注视.png-51eb20fbd8e1a46e239b3ae2de8093aa.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/幽香 注视.png"
-dest_files=["res://.godot/imported/幽香 注视.png-51eb20fbd8e1a46e239b3ae2de8093aa.bptc.ctex"]
+dest_files=["res://.godot/imported/幽香 注视.png-51eb20fbd8e1a46e239b3ae2de8093aa.bptc.ctex", "res://.godot/imported/幽香 注视.png-51eb20fbd8e1a46e239b3ae2de8093aa.astc.ctex"]
 
 [params]
 

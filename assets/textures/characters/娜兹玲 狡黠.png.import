@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://n8skrdst0qt6"
 path.bptc="res://.godot/imported/娜兹玲 狡黠.png-d8e8d746fad7f25f001393813ed58eaa.bptc.ctex"
+path.astc="res://.godot/imported/娜兹玲 狡黠.png-d8e8d746fad7f25f001393813ed58eaa.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/娜兹玲 狡黠.png"
-dest_files=["res://.godot/imported/娜兹玲 狡黠.png-d8e8d746fad7f25f001393813ed58eaa.bptc.ctex"]
+dest_files=["res://.godot/imported/娜兹玲 狡黠.png-d8e8d746fad7f25f001393813ed58eaa.bptc.ctex", "res://.godot/imported/娜兹玲 狡黠.png-d8e8d746fad7f25f001393813ed58eaa.astc.ctex"]
 
 [params]
 

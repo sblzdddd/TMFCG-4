@@ -1,0 +1,140 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "a2",
+&"color": Color(0.744, 0.274, 0.216, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方儚月抄 ～ Cage in Lunatic Runagate.
+description=连接海与山的月之公主",
+&"display_name": "绵月丰姬",
+&"mirror": false,
+&"nicknames": ["绵月姐妹"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"假装热血": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 假装热血.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"嘟嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 嘟嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"惊讶": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 惊讶.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"惊讶2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 惊讶2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疑问": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 疑问.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"疑问2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 疑问2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"眯眼笑1": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 眯眼笑1.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"眯眼笑2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 眯眼笑2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"苦笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/丰姬 苦笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

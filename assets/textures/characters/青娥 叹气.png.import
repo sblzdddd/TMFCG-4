@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5ecqjan3vy2g"
 path.bptc="res://.godot/imported/青娥 叹气.png-c7dda69a29452bdfc530c4557e6e6143.bptc.ctex"
+path.astc="res://.godot/imported/青娥 叹气.png-c7dda69a29452bdfc530c4557e6e6143.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/青娥 叹气.png"
-dest_files=["res://.godot/imported/青娥 叹气.png-c7dda69a29452bdfc530c4557e6e6143.bptc.ctex"]
+dest_files=["res://.godot/imported/青娥 叹气.png-c7dda69a29452bdfc530c4557e6e6143.bptc.ctex", "res://.godot/imported/青娥 叹气.png-c7dda69a29452bdfc530c4557e6e6143.astc.ctex"]
 
 [params]
 

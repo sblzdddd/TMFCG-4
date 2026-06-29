@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3jpfxft6uwbj"
 path.bptc="res://.godot/imported/影狼 吐槽.png-cc014fbecd4bf24ded85cb4eb2790fae.bptc.ctex"
+path.astc="res://.godot/imported/影狼 吐槽.png-cc014fbecd4bf24ded85cb4eb2790fae.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/影狼 吐槽.png"
-dest_files=["res://.godot/imported/影狼 吐槽.png-cc014fbecd4bf24ded85cb4eb2790fae.bptc.ctex"]
+dest_files=["res://.godot/imported/影狼 吐槽.png-cc014fbecd4bf24ded85cb4eb2790fae.bptc.ctex", "res://.godot/imported/影狼 吐槽.png-cc014fbecd4bf24ded85cb4eb2790fae.astc.ctex"]
 
 [params]
 

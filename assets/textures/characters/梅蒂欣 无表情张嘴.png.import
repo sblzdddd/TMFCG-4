@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdj6ktv4uskyr"
 path.bptc="res://.godot/imported/梅蒂欣 无表情张嘴.png-a7ac3ba484b5e70c948f7dddbf760a2d.bptc.ctex"
+path.astc="res://.godot/imported/梅蒂欣 无表情张嘴.png-a7ac3ba484b5e70c948f7dddbf760a2d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/梅蒂欣 无表情张嘴.png"
-dest_files=["res://.godot/imported/梅蒂欣 无表情张嘴.png-a7ac3ba484b5e70c948f7dddbf760a2d.bptc.ctex"]
+dest_files=["res://.godot/imported/梅蒂欣 无表情张嘴.png-a7ac3ba484b5e70c948f7dddbf760a2d.bptc.ctex", "res://.godot/imported/梅蒂欣 无表情张嘴.png-a7ac3ba484b5e70c948f7dddbf760a2d.astc.ctex"]
 
 [params]
 

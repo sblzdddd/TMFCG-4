@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b3gxys8gmd27b"
 path.bptc="res://.godot/imported/幽幽子 大吃_无表情张嘴.png-b00be32f7dc9dda206a2a2ac77aba549.bptc.ctex"
+path.astc="res://.godot/imported/幽幽子 大吃_无表情张嘴.png-b00be32f7dc9dda206a2a2ac77aba549.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/幽幽子 大吃_无表情张嘴.png"
-dest_files=["res://.godot/imported/幽幽子 大吃_无表情张嘴.png-b00be32f7dc9dda206a2a2ac77aba549.bptc.ctex"]
+dest_files=["res://.godot/imported/幽幽子 大吃_无表情张嘴.png-b00be32f7dc9dda206a2a2ac77aba549.bptc.ctex", "res://.godot/imported/幽幽子 大吃_无表情张嘴.png-b00be32f7dc9dda206a2a2ac77aba549.astc.ctex"]
 
 [params]
 

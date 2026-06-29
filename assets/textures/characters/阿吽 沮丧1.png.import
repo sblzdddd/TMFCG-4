@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cddhu43xniyvg"
 path.bptc="res://.godot/imported/阿吽 沮丧1.png-1da4e2374babe3c2bbbdb4ac6e16796f.bptc.ctex"
+path.astc="res://.godot/imported/阿吽 沮丧1.png-1da4e2374babe3c2bbbdb4ac6e16796f.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿吽 沮丧1.png"
-dest_files=["res://.godot/imported/阿吽 沮丧1.png-1da4e2374babe3c2bbbdb4ac6e16796f.bptc.ctex"]
+dest_files=["res://.godot/imported/阿吽 沮丧1.png-1da4e2374babe3c2bbbdb4ac6e16796f.bptc.ctex", "res://.godot/imported/阿吽 沮丧1.png-1da4e2374babe3c2bbbdb4ac6e16796f.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvax0tw3tswmw"
 path.bptc="res://.godot/imported/米斯蒂娅 海盗.png-07f7f6067afb94eef23f1a655b2f4e6f.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 海盗.png-07f7f6067afb94eef23f1a655b2f4e6f.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 海盗.png"
-dest_files=["res://.godot/imported/米斯蒂娅 海盗.png-07f7f6067afb94eef23f1a655b2f4e6f.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 海盗.png-07f7f6067afb94eef23f1a655b2f4e6f.bptc.ctex", "res://.godot/imported/米斯蒂娅 海盗.png-07f7f6067afb94eef23f1a655b2f4e6f.astc.ctex"]
 
 [params]
 

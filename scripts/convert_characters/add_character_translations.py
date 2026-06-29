@@ -9,7 +9,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 CHARACTERS_JSON = REPO_ROOT / "Characters.json"
-CSV_PATH = REPO_ROOT / "definitions" / "translations" / "dialogic_character_translations.csv"
+CSV_PATH = REPO_ROOT / "definitions" / "database" / "translations" / "dialogic_character_translations.csv"
 CSV_IMPORT_PATH = CSV_PATH.with_suffix(".csv.import")
 PROJECT_GODOT = REPO_ROOT / "project.godot"
 ORIGINAL_LOCALE = "zh"
@@ -98,7 +98,7 @@ def update_csv(name_translations: dict[str, dict[str, str]]) -> tuple[int, int]:
 
 def update_csv_import() -> None:
     translation_paths = [
-        f"res://definitions/translations/dialogic_character_translations.{locale}.translation"
+        f"res://definitions/database/translations/dialogic_character_translations.{locale}.translation"
         for locale in (ORIGINAL_LOCALE, *TARGET_LOCALES)
     ]
     files_block = ", ".join(f'"{path}"' for path in translation_paths)
@@ -121,10 +121,10 @@ def update_csv_import() -> None:
 def update_project_godot() -> None:
     text = PROJECT_GODOT.read_text(encoding="utf-8")
     translation_paths = [
-        f"res://definitions/translations/dialogic_character_translations.{locale}.translation"
+        f"res://definitions/database/translations/dialogic_character_translations.{locale}.translation"
         for locale in (ORIGINAL_LOCALE, *TARGET_LOCALES)
     ]
-    example_path = "res://definitions/translations/dialogic_example_translation.zh.translation"
+    example_path = "res://definitions/database/translations/dialogic_example_translation.zh.translation"
     all_paths = translation_paths + [example_path]
     translations_block = "PackedStringArray(\n" + ",\n".join(f'"{path}"' for path in all_paths) + "\n)"
     locales_block = "[" + ", ".join(f'"{locale}"' for locale in TARGET_LOCALES) + "]"

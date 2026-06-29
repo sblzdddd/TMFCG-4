@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://vo31v3er6ieu"
 path.bptc="res://.godot/imported/小伞 无表情张嘴.png-63003af3ae5cd8c7dbb1ac83148dbf08.bptc.ctex"
+path.astc="res://.godot/imported/小伞 无表情张嘴.png-63003af3ae5cd8c7dbb1ac83148dbf08.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/小伞 无表情张嘴.png"
-dest_files=["res://.godot/imported/小伞 无表情张嘴.png-63003af3ae5cd8c7dbb1ac83148dbf08.bptc.ctex"]
+dest_files=["res://.godot/imported/小伞 无表情张嘴.png-63003af3ae5cd8c7dbb1ac83148dbf08.bptc.ctex", "res://.godot/imported/小伞 无表情张嘴.png-63003af3ae5cd8c7dbb1ac83148dbf08.astc.ctex"]
 
 [params]
 

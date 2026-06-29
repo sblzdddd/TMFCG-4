@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://edpocjfkxbay"
 path.bptc="res://.godot/imported/娜兹玲 燃起来.png-d9bb749063d9e306f23bbd4c659a57d7.bptc.ctex"
+path.astc="res://.godot/imported/娜兹玲 燃起来.png-d9bb749063d9e306f23bbd4c659a57d7.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/娜兹玲 燃起来.png"
-dest_files=["res://.godot/imported/娜兹玲 燃起来.png-d9bb749063d9e306f23bbd4c659a57d7.bptc.ctex"]
+dest_files=["res://.godot/imported/娜兹玲 燃起来.png-d9bb749063d9e306f23bbd4c659a57d7.bptc.ctex", "res://.godot/imported/娜兹玲 燃起来.png-d9bb749063d9e306f23bbd4c659a57d7.astc.ctex"]
 
 [params]
 

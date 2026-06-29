@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://w5ij0xl2hvjh"
 path.bptc="res://.godot/imported/魅魔 思考闭眼.png-cf96930e6b8d36c9f73c10d1a4cb5907.bptc.ctex"
+path.astc="res://.godot/imported/魅魔 思考闭眼.png-cf96930e6b8d36c9f73c10d1a4cb5907.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/魅魔 思考闭眼.png"
-dest_files=["res://.godot/imported/魅魔 思考闭眼.png-cf96930e6b8d36c9f73c10d1a4cb5907.bptc.ctex"]
+dest_files=["res://.godot/imported/魅魔 思考闭眼.png-cf96930e6b8d36c9f73c10d1a4cb5907.bptc.ctex", "res://.godot/imported/魅魔 思考闭眼.png-cf96930e6b8d36c9f73c10d1a4cb5907.astc.ctex"]
 
 [params]
 

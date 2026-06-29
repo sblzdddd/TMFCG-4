@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhn2qsilc3brc"
 path.bptc="res://.godot/imported/尤魔 嚣张.png-1232641c2cf0d50d9f8197c78452ab2c.bptc.ctex"
+path.astc="res://.godot/imported/尤魔 嚣张.png-1232641c2cf0d50d9f8197c78452ab2c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/尤魔 嚣张.png"
-dest_files=["res://.godot/imported/尤魔 嚣张.png-1232641c2cf0d50d9f8197c78452ab2c.bptc.ctex"]
+dest_files=["res://.godot/imported/尤魔 嚣张.png-1232641c2cf0d50d9f8197c78452ab2c.bptc.ctex", "res://.godot/imported/尤魔 嚣张.png-1232641c2cf0d50d9f8197c78452ab2c.astc.ctex"]
 
 [params]
 

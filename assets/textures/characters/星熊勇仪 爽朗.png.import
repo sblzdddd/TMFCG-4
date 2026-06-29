@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://buminalmfetc5"
 path.bptc="res://.godot/imported/星熊勇仪 爽朗.png-049df485bc08544e48dba99290a0ac31.bptc.ctex"
+path.astc="res://.godot/imported/星熊勇仪 爽朗.png-049df485bc08544e48dba99290a0ac31.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/星熊勇仪 爽朗.png"
-dest_files=["res://.godot/imported/星熊勇仪 爽朗.png-049df485bc08544e48dba99290a0ac31.bptc.ctex"]
+dest_files=["res://.godot/imported/星熊勇仪 爽朗.png-049df485bc08544e48dba99290a0ac31.bptc.ctex", "res://.godot/imported/星熊勇仪 爽朗.png-049df485bc08544e48dba99290a0ac31.astc.ctex"]
 
 [params]
 

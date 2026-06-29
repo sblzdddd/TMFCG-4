@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bd3l6d5wll7gd"
 path.bptc="res://.godot/imported/封兽鵺 被逗笑.png-fb1394b1bc33997c63bd720b3c0980bc.bptc.ctex"
+path.astc="res://.godot/imported/封兽鵺 被逗笑.png-fb1394b1bc33997c63bd720b3c0980bc.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/封兽鵺 被逗笑.png"
-dest_files=["res://.godot/imported/封兽鵺 被逗笑.png-fb1394b1bc33997c63bd720b3c0980bc.bptc.ctex"]
+dest_files=["res://.godot/imported/封兽鵺 被逗笑.png-fb1394b1bc33997c63bd720b3c0980bc.bptc.ctex", "res://.godot/imported/封兽鵺 被逗笑.png-fb1394b1bc33997c63bd720b3c0980bc.astc.ctex"]
 
 [params]
 

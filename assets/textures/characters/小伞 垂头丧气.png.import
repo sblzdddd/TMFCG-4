@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://2t7b6ymf43ut"
 path.bptc="res://.godot/imported/小伞 垂头丧气.png-f342250355b66c7a87cf8ad9f473eae8.bptc.ctex"
+path.astc="res://.godot/imported/小伞 垂头丧气.png-f342250355b66c7a87cf8ad9f473eae8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/小伞 垂头丧气.png"
-dest_files=["res://.godot/imported/小伞 垂头丧气.png-f342250355b66c7a87cf8ad9f473eae8.bptc.ctex"]
+dest_files=["res://.godot/imported/小伞 垂头丧气.png-f342250355b66c7a87cf8ad9f473eae8.bptc.ctex", "res://.godot/imported/小伞 垂头丧气.png-f342250355b66c7a87cf8ad9f473eae8.astc.ctex"]
 
 [params]
 

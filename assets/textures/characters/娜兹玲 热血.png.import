@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dlo7d8cgoyyu3"
 path.bptc="res://.godot/imported/娜兹玲 热血.png-707670090ef8b34434bfac5c57ced02b.bptc.ctex"
+path.astc="res://.godot/imported/娜兹玲 热血.png-707670090ef8b34434bfac5c57ced02b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/娜兹玲 热血.png"
-dest_files=["res://.godot/imported/娜兹玲 热血.png-707670090ef8b34434bfac5c57ced02b.bptc.ctex"]
+dest_files=["res://.godot/imported/娜兹玲 热血.png-707670090ef8b34434bfac5c57ced02b.bptc.ctex", "res://.godot/imported/娜兹玲 热血.png-707670090ef8b34434bfac5c57ced02b.astc.ctex"]
 
 [params]
 

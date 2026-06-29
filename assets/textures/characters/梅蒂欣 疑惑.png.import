@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ma3jcasdipf6"
 path.bptc="res://.godot/imported/梅蒂欣 疑惑.png-7f1fbedaae28683852e56a3059ecfd0c.bptc.ctex"
+path.astc="res://.godot/imported/梅蒂欣 疑惑.png-7f1fbedaae28683852e56a3059ecfd0c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/梅蒂欣 疑惑.png"
-dest_files=["res://.godot/imported/梅蒂欣 疑惑.png-7f1fbedaae28683852e56a3059ecfd0c.bptc.ctex"]
+dest_files=["res://.godot/imported/梅蒂欣 疑惑.png-7f1fbedaae28683852e56a3059ecfd0c.bptc.ctex", "res://.godot/imported/梅蒂欣 疑惑.png-7f1fbedaae28683852e56a3059ecfd0c.astc.ctex"]
 
 [params]
 

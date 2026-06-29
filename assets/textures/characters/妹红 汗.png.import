@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ptn1mgxbsrgm"
 path.bptc="res://.godot/imported/妹红 汗.png-cef95cd93f28ee21707d9fe39e6cafcf.bptc.ctex"
+path.astc="res://.godot/imported/妹红 汗.png-cef95cd93f28ee21707d9fe39e6cafcf.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/妹红 汗.png"
-dest_files=["res://.godot/imported/妹红 汗.png-cef95cd93f28ee21707d9fe39e6cafcf.bptc.ctex"]
+dest_files=["res://.godot/imported/妹红 汗.png-cef95cd93f28ee21707d9fe39e6cafcf.bptc.ctex", "res://.godot/imported/妹红 汗.png-cef95cd93f28ee21707d9fe39e6cafcf.astc.ctex"]
 
 [params]
 

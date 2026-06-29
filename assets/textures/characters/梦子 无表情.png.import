@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmtenyikbkrva"
 path.bptc="res://.godot/imported/梦子 无表情.png-eca7b8e0d0372242774152f7d6f70782.bptc.ctex"
+path.astc="res://.godot/imported/梦子 无表情.png-eca7b8e0d0372242774152f7d6f70782.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/梦子 无表情.png"
-dest_files=["res://.godot/imported/梦子 无表情.png-eca7b8e0d0372242774152f7d6f70782.bptc.ctex"]
+dest_files=["res://.godot/imported/梦子 无表情.png-eca7b8e0d0372242774152f7d6f70782.bptc.ctex", "res://.godot/imported/梦子 无表情.png-eca7b8e0d0372242774152f7d6f70782.astc.ctex"]
 
 [params]
 

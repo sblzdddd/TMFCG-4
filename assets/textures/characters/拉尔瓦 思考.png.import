@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dchekljj11bpf"
 path.bptc="res://.godot/imported/拉尔瓦 思考.png-7bbdf298bbfdf2d39bb9e9f5f9397eb5.bptc.ctex"
+path.astc="res://.godot/imported/拉尔瓦 思考.png-7bbdf298bbfdf2d39bb9e9f5f9397eb5.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/拉尔瓦 思考.png"
-dest_files=["res://.godot/imported/拉尔瓦 思考.png-7bbdf298bbfdf2d39bb9e9f5f9397eb5.bptc.ctex"]
+dest_files=["res://.godot/imported/拉尔瓦 思考.png-7bbdf298bbfdf2d39bb9e9f5f9397eb5.bptc.ctex", "res://.godot/imported/拉尔瓦 思考.png-7bbdf298bbfdf2d39bb9e9f5f9397eb5.astc.ctex"]
 
 [params]
 

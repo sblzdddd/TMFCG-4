@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dat286r7qa54q"
 path.bptc="res://.godot/imported/正邪 不甘.png-c5eb2aafe4a1a5f00fb652c51d09b338.bptc.ctex"
+path.astc="res://.godot/imported/正邪 不甘.png-c5eb2aafe4a1a5f00fb652c51d09b338.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/正邪 不甘.png"
-dest_files=["res://.godot/imported/正邪 不甘.png-c5eb2aafe4a1a5f00fb652c51d09b338.bptc.ctex"]
+dest_files=["res://.godot/imported/正邪 不甘.png-c5eb2aafe4a1a5f00fb652c51d09b338.bptc.ctex", "res://.godot/imported/正邪 不甘.png-c5eb2aafe4a1a5f00fb652c51d09b338.astc.ctex"]
 
 [params]
 

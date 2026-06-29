@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj1tj5h62yimf"
 path.bptc="res://.godot/imported/妹红 痛苦.png-ec0bd4560ed27c5c9b53abdb493bc200.bptc.ctex"
+path.astc="res://.godot/imported/妹红 痛苦.png-ec0bd4560ed27c5c9b53abdb493bc200.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/妹红 痛苦.png"
-dest_files=["res://.godot/imported/妹红 痛苦.png-ec0bd4560ed27c5c9b53abdb493bc200.bptc.ctex"]
+dest_files=["res://.godot/imported/妹红 痛苦.png-ec0bd4560ed27c5c9b53abdb493bc200.bptc.ctex", "res://.godot/imported/妹红 痛苦.png-ec0bd4560ed27c5c9b53abdb493bc200.astc.ctex"]
 
 [params]
 

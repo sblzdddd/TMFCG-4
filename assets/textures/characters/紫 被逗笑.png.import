@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dv5y8h6xdyafr"
 path.bptc="res://.godot/imported/紫 被逗笑.png-721a3cfe7c0d4a0c1b89bcfbb7e001de.bptc.ctex"
+path.astc="res://.godot/imported/紫 被逗笑.png-721a3cfe7c0d4a0c1b89bcfbb7e001de.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/紫 被逗笑.png"
-dest_files=["res://.godot/imported/紫 被逗笑.png-721a3cfe7c0d4a0c1b89bcfbb7e001de.bptc.ctex"]
+dest_files=["res://.godot/imported/紫 被逗笑.png-721a3cfe7c0d4a0c1b89bcfbb7e001de.bptc.ctex", "res://.godot/imported/紫 被逗笑.png-721a3cfe7c0d4a0c1b89bcfbb7e001de.astc.ctex"]
 
 [params]
 

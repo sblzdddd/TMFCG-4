@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmy2kwii3vt3w"
 path.bptc="res://.godot/imported/米斯蒂娅 披风_18.png-1439d5b72b4a157052f997c8e0722053.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 披风_18.png-1439d5b72b4a157052f997c8e0722053.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 披风_18.png"
-dest_files=["res://.godot/imported/米斯蒂娅 披风_18.png-1439d5b72b4a157052f997c8e0722053.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 披风_18.png-1439d5b72b4a157052f997c8e0722053.bptc.ctex", "res://.godot/imported/米斯蒂娅 披风_18.png-1439d5b72b4a157052f997c8e0722053.astc.ctex"]
 
 [params]
 

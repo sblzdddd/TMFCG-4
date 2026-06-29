@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://beye67p5y1wq7"
 path.bptc="res://.godot/imported/阿燐 无表情.png-c887c85c044f719aa4bcb8999b05a9dc.bptc.ctex"
+path.astc="res://.godot/imported/阿燐 无表情.png-c887c85c044f719aa4bcb8999b05a9dc.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿燐 无表情.png"
-dest_files=["res://.godot/imported/阿燐 无表情.png-c887c85c044f719aa4bcb8999b05a9dc.bptc.ctex"]
+dest_files=["res://.godot/imported/阿燐 无表情.png-c887c85c044f719aa4bcb8999b05a9dc.bptc.ctex", "res://.godot/imported/阿燐 无表情.png-c887c85c044f719aa4bcb8999b05a9dc.astc.ctex"]
 
 [params]
 

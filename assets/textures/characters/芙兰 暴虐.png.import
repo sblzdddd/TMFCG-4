@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxxn3iihay58o"
 path.bptc="res://.godot/imported/芙兰 暴虐.png-7a125303427c773d8c6fdf17478a3c05.bptc.ctex"
+path.astc="res://.godot/imported/芙兰 暴虐.png-7a125303427c773d8c6fdf17478a3c05.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/芙兰 暴虐.png"
-dest_files=["res://.godot/imported/芙兰 暴虐.png-7a125303427c773d8c6fdf17478a3c05.bptc.ctex"]
+dest_files=["res://.godot/imported/芙兰 暴虐.png-7a125303427c773d8c6fdf17478a3c05.bptc.ctex", "res://.godot/imported/芙兰 暴虐.png-7a125303427c773d8c6fdf17478a3c05.astc.ctex"]
 
 [params]
 

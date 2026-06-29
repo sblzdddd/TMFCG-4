@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xihoaqokkgx5"
 path.bptc="res://.godot/imported/布都 认真2.png-1dd646689c4342dda76497ac08673349.bptc.ctex"
+path.astc="res://.godot/imported/布都 认真2.png-1dd646689c4342dda76497ac08673349.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/布都 认真2.png"
-dest_files=["res://.godot/imported/布都 认真2.png-1dd646689c4342dda76497ac08673349.bptc.ctex"]
+dest_files=["res://.godot/imported/布都 认真2.png-1dd646689c4342dda76497ac08673349.bptc.ctex", "res://.godot/imported/布都 认真2.png-1dd646689c4342dda76497ac08673349.astc.ctex"]
 
 [params]
 

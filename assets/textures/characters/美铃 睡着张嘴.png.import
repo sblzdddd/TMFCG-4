@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b74hgvjbcjo7w"
 path.bptc="res://.godot/imported/美铃 睡着张嘴.png-d2b56c1be10feadabbe9d82a8b2f9951.bptc.ctex"
+path.astc="res://.godot/imported/美铃 睡着张嘴.png-d2b56c1be10feadabbe9d82a8b2f9951.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/美铃 睡着张嘴.png"
-dest_files=["res://.godot/imported/美铃 睡着张嘴.png-d2b56c1be10feadabbe9d82a8b2f9951.bptc.ctex"]
+dest_files=["res://.godot/imported/美铃 睡着张嘴.png-d2b56c1be10feadabbe9d82a8b2f9951.bptc.ctex", "res://.godot/imported/美铃 睡着张嘴.png-d2b56c1be10feadabbe9d82a8b2f9951.astc.ctex"]
 
 [params]
 

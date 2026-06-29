@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxlv1wjsjgypm"
 path.bptc="res://.godot/imported/铃仙二号 苦笑张嘴.png-a05f16670227d90585a860d68dff05c3.bptc.ctex"
+path.astc="res://.godot/imported/铃仙二号 苦笑张嘴.png-a05f16670227d90585a860d68dff05c3.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/铃仙二号 苦笑张嘴.png"
-dest_files=["res://.godot/imported/铃仙二号 苦笑张嘴.png-a05f16670227d90585a860d68dff05c3.bptc.ctex"]
+dest_files=["res://.godot/imported/铃仙二号 苦笑张嘴.png-a05f16670227d90585a860d68dff05c3.bptc.ctex", "res://.godot/imported/铃仙二号 苦笑张嘴.png-a05f16670227d90585a860d68dff05c3.astc.ctex"]
 
 [params]
 

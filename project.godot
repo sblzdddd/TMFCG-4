@@ -22,96 +22,97 @@ config/icon="res://assets/textures/icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+UiScale="*res://src/ui/ui_scale.gd"
 
 [dialogic]
 
 directories/dch_directory={
-"Reisen": "res://definitions/characters/tmi/Reisen.dch",
-"上白泽慧音": "res://definitions/characters/tmi/上白泽慧音.dch",
-"东风谷早苗": "res://definitions/characters/tmi/东风谷早苗.dch",
-"丰聪耳神子": "res://definitions/characters/tmi/丰聪耳神子.dch",
-"二岩猯藏": "res://definitions/characters/tmi/二岩猯藏.dch",
-"今泉影狼": "res://definitions/characters/tmi/今泉影狼.dch",
-"伊吹萃香": "res://definitions/characters/tmi/伊吹萃香.dch",
-"八云紫": "res://definitions/characters/tmi/八云紫.dch",
-"八意永琳": "res://definitions/characters/tmi/八意永琳.dch",
-"十六夜咲夜": "res://definitions/characters/tmi/十六夜咲夜.dch",
-"博丽灵梦": "res://definitions/characters/tmi/博丽灵梦.dch",
-"古明地恋": "res://definitions/characters/tmi/古明地恋.dch",
-"古明地觉": "res://definitions/characters/tmi/古明地觉.dch",
-"哆来咪·苏伊特": "res://definitions/characters/tmi/哆来咪·苏伊特.dch",
-"四季映姬·夜摩仙那度": "res://definitions/characters/tmi/四季映姬·夜摩仙那度.dch",
-"因幡天为": "res://definitions/characters/tmi/因幡天为.dch",
-"圣白莲": "res://definitions/characters/tmi/圣白莲.dch",
-"多多良小伞": "res://definitions/characters/tmi/多多良小伞.dch",
-"大妖精": "res://definitions/characters/tmi/大妖精.dch",
-"娜兹玲": "res://definitions/characters/tmi/娜兹玲.dch",
-"宫出口瑞灵": "res://definitions/characters/tmi/宫出口瑞灵.dch",
-"宫古芳香": "res://definitions/characters/tmi/宫古芳香.dch",
-"寅丸星": "res://definitions/characters/tmi/寅丸星.dch",
-"封兽鵺": "res://definitions/characters/tmi/封兽鵺.dch",
-"射命丸文": "res://definitions/characters/tmi/射命丸文.dch",
-"小恶魔": "res://definitions/characters/tmi/小恶魔.dch",
-"小野塚小町": "res://definitions/characters/tmi/小野塚小町.dch",
-"少名针妙丸": "res://definitions/characters/tmi/少名针妙丸.dch",
-"帕秋莉·诺蕾姬": "res://definitions/characters/tmi/帕秋莉·诺蕾姬.dch",
-"幽谷响子": "res://definitions/characters/tmi/幽谷响子.dch",
-"摩多罗隐岐奈": "res://definitions/characters/tmi/摩多罗隐岐奈.dch",
-"星熊勇仪": "res://definitions/characters/tmi/星熊勇仪.dch",
-"村纱水蜜": "res://definitions/characters/tmi/村纱水蜜.dch",
-"梅蒂欣·梅兰可莉": "res://definitions/characters/tmi/梅蒂欣·梅兰可莉.dch",
-"梦子": "res://definitions/characters/tmi/梦子.dch",
-"森近霖之助": "res://definitions/characters/tmi/森近霖之助.dch",
-"橙": "res://definitions/characters/tmi/橙.dch",
-"比那名居天子": "res://definitions/characters/tmi/比那名居天子.dch",
-"水桥帕露西": "res://definitions/characters/tmi/水桥帕露西.dch",
-"河城荷取": "res://definitions/characters/tmi/河城荷取.dch",
-"清兰": "res://definitions/characters/tmi/清兰.dch",
-"火焰猫燐": "res://definitions/characters/tmi/火焰猫燐.dch",
-"灵乌路空": "res://definitions/characters/tmi/灵乌路空.dch",
-"爱塔妮缇拉尔瓦": "res://definitions/characters/tmi/爱塔妮缇拉尔瓦.dch",
-"爱莲": "res://definitions/characters/tmi/爱莲.dch",
-"物部布都": "res://definitions/characters/tmi/物部布都.dch",
-"犬走椛": "res://definitions/characters/tmi/犬走椛.dch",
-"琪斯美": "res://definitions/characters/tmi/琪斯美.dch",
-"琪露诺": "res://definitions/characters/tmi/琪露诺.dch",
-"矢田寺成美": "res://definitions/characters/tmi/矢田寺成美.dch",
-"神绮": "res://definitions/characters/tmi/神绮.dch",
-"稀神探女": "res://definitions/characters/tmi/稀神探女.dch",
-"稗田阿求": "res://definitions/characters/tmi/稗田阿求.dch",
-"米斯蒂娅·萝蕾拉": "res://definitions/characters/tmi/米斯蒂娅·萝蕾拉.dch",
-"红美铃": "res://definitions/characters/tmi/红美铃.dch",
-"绵月丰姬": "res://definitions/characters/tmi/绵月丰姬.dch",
-"绵月依姬": "res://definitions/characters/tmi/绵月依姬.dch",
-"芙兰朵露·斯卡蕾特": "res://definitions/characters/tmi/芙兰朵露·斯卡蕾特.dch",
-"苏我屠自古": "res://definitions/characters/tmi/苏我屠自古.dch",
-"若鹭姬": "res://definitions/characters/tmi/若鹭姬.dch",
-"茨木华扇": "res://definitions/characters/tmi/茨木华扇.dch",
-"莉格露·奈特巴格": "res://definitions/characters/tmi/莉格露·奈特巴格.dch",
-"萨拉": "res://definitions/characters/tmi/萨拉.dch",
-"蓬莱山辉夜": "res://definitions/characters/tmi/蓬莱山辉夜.dch",
-"蕾米莉亚·斯卡蕾特": "res://definitions/characters/tmi/蕾米莉亚·斯卡蕾特.dch",
-"藤原妹红": "res://definitions/characters/tmi/藤原妹红.dch",
-"西行寺幽幽子": "res://definitions/characters/tmi/西行寺幽幽子.dch",
-"豪德寺三花": "res://definitions/characters/tmi/豪德寺三花.dch",
-"赤蛮奇": "res://definitions/characters/tmi/赤蛮奇.dch",
-"铃仙·优昙华院·因幡": "res://definitions/characters/tmi/铃仙·优昙华院·因幡.dch",
-"铃瑚": "res://definitions/characters/tmi/铃瑚.dch",
-"键山雏": "res://definitions/characters/tmi/键山雏.dch",
-"雾雨魔理沙": "res://definitions/characters/tmi/雾雨魔理沙.dch",
-"霍青娥": "res://definitions/characters/tmi/霍青娥.dch",
-"露易兹": "res://definitions/characters/tmi/露易兹.dch",
-"露米娅": "res://definitions/characters/tmi/露米娅.dch",
-"风见幽香": "res://definitions/characters/tmi/风见幽香.dch",
-"饕餮尤魔": "res://definitions/characters/tmi/饕餮尤魔.dch",
-"高丽野阿吽": "res://definitions/characters/tmi/高丽野阿吽.dch",
-"鬼人正邪": "res://definitions/characters/tmi/鬼人正邪.dch",
-"魂魄妖梦": "res://definitions/characters/tmi/魂魄妖梦.dch",
-"魅魔": "res://definitions/characters/tmi/魅魔.dch",
-"黑谷山女": "res://definitions/characters/tmi/黑谷山女.dch"
+"Reisen": "res://definitions/database/characters/Reisen.dch",
+"characters/豪德寺三花": "res://definitions/database/characters/豪德寺三花.dch",
+"上白泽慧音": "res://definitions/database/characters/上白泽慧音.dch",
+"东风谷早苗": "res://definitions/database/characters/东风谷早苗.dch",
+"丰聪耳神子": "res://definitions/database/characters/丰聪耳神子.dch",
+"二岩猯藏": "res://definitions/database/characters/二岩猯藏.dch",
+"今泉影狼": "res://definitions/database/characters/今泉影狼.dch",
+"伊吹萃香": "res://definitions/database/characters/伊吹萃香.dch",
+"八云紫": "res://definitions/database/characters/八云紫.dch",
+"八意永琳": "res://definitions/database/characters/八意永琳.dch",
+"十六夜咲夜": "res://definitions/database/characters/十六夜咲夜.dch",
+"博丽灵梦": "res://definitions/database/characters/博丽灵梦.dch",
+"古明地恋": "res://definitions/database/characters/古明地恋.dch",
+"古明地觉": "res://definitions/database/characters/古明地觉.dch",
+"哆来咪·苏伊特": "res://definitions/database/characters/哆来咪·苏伊特.dch",
+"四季映姬·夜摩仙那度": "res://definitions/database/characters/四季映姬·夜摩仙那度.dch",
+"因幡天为": "res://definitions/database/characters/因幡天为.dch",
+"圣白莲": "res://definitions/database/characters/圣白莲.dch",
+"多多良小伞": "res://definitions/database/characters/多多良小伞.dch",
+"大妖精": "res://definitions/database/characters/大妖精.dch",
+"娜兹玲": "res://definitions/database/characters/娜兹玲.dch",
+"宫出口瑞灵": "res://definitions/database/characters/宫出口瑞灵.dch",
+"宫古芳香": "res://definitions/database/characters/宫古芳香.dch",
+"寅丸星": "res://definitions/database/characters/寅丸星.dch",
+"封兽鵺": "res://definitions/database/characters/封兽鵺.dch",
+"射命丸文": "res://definitions/database/characters/射命丸文.dch",
+"小恶魔": "res://definitions/database/characters/小恶魔.dch",
+"小野塚小町": "res://definitions/database/characters/小野塚小町.dch",
+"少名针妙丸": "res://definitions/database/characters/少名针妙丸.dch",
+"帕秋莉·诺蕾姬": "res://definitions/database/characters/帕秋莉·诺蕾姬.dch",
+"幽谷响子": "res://definitions/database/characters/幽谷响子.dch",
+"摩多罗隐岐奈": "res://definitions/database/characters/摩多罗隐岐奈.dch",
+"星熊勇仪": "res://definitions/database/characters/星熊勇仪.dch",
+"村纱水蜜": "res://definitions/database/characters/村纱水蜜.dch",
+"梅蒂欣·梅兰可莉": "res://definitions/database/characters/梅蒂欣·梅兰可莉.dch",
+"梦子": "res://definitions/database/characters/梦子.dch",
+"森近霖之助": "res://definitions/database/characters/森近霖之助.dch",
+"橙": "res://definitions/database/characters/橙.dch",
+"比那名居天子": "res://definitions/database/characters/比那名居天子.dch",
+"水桥帕露西": "res://definitions/database/characters/水桥帕露西.dch",
+"河城荷取": "res://definitions/database/characters/河城荷取.dch",
+"清兰": "res://definitions/database/characters/清兰.dch",
+"火焰猫燐": "res://definitions/database/characters/火焰猫燐.dch",
+"灵乌路空": "res://definitions/database/characters/灵乌路空.dch",
+"爱塔妮缇拉尔瓦": "res://definitions/database/characters/爱塔妮缇拉尔瓦.dch",
+"爱莲": "res://definitions/database/characters/爱莲.dch",
+"物部布都": "res://definitions/database/characters/物部布都.dch",
+"犬走椛": "res://definitions/database/characters/犬走椛.dch",
+"琪斯美": "res://definitions/database/characters/琪斯美.dch",
+"琪露诺": "res://definitions/database/characters/琪露诺.dch",
+"矢田寺成美": "res://definitions/database/characters/矢田寺成美.dch",
+"神绮": "res://definitions/database/characters/神绮.dch",
+"稀神探女": "res://definitions/database/characters/稀神探女.dch",
+"稗田阿求": "res://definitions/database/characters/稗田阿求.dch",
+"米斯蒂娅·萝蕾拉": "res://definitions/database/characters/米斯蒂娅·萝蕾拉.dch",
+"红美铃": "res://definitions/database/characters/红美铃.dch",
+"绵月丰姬": "res://definitions/database/characters/绵月丰姬.dch",
+"绵月依姬": "res://definitions/database/characters/绵月依姬.dch",
+"芙兰朵露·斯卡蕾特": "res://definitions/database/characters/芙兰朵露·斯卡蕾特.dch",
+"苏我屠自古": "res://definitions/database/characters/苏我屠自古.dch",
+"若鹭姬": "res://definitions/database/characters/若鹭姬.dch",
+"茨木华扇": "res://definitions/database/characters/茨木华扇.dch",
+"莉格露·奈特巴格": "res://definitions/database/characters/莉格露·奈特巴格.dch",
+"萨拉": "res://definitions/database/characters/萨拉.dch",
+"蓬莱山辉夜": "res://definitions/database/characters/蓬莱山辉夜.dch",
+"蕾米莉亚·斯卡蕾特": "res://definitions/database/characters/蕾米莉亚·斯卡蕾特.dch",
+"藤原妹红": "res://definitions/database/characters/藤原妹红.dch",
+"西行寺幽幽子": "res://definitions/database/characters/西行寺幽幽子.dch",
+"赤蛮奇": "res://definitions/database/characters/赤蛮奇.dch",
+"铃仙·优昙华院·因幡": "res://definitions/database/characters/铃仙·优昙华院·因幡.dch",
+"铃瑚": "res://definitions/database/characters/铃瑚.dch",
+"键山雏": "res://definitions/database/characters/键山雏.dch",
+"雾雨魔理沙": "res://definitions/database/characters/雾雨魔理沙.dch",
+"霍青娥": "res://definitions/database/characters/霍青娥.dch",
+"露易兹": "res://definitions/database/characters/露易兹.dch",
+"露米娅": "res://definitions/database/characters/露米娅.dch",
+"风见幽香": "res://definitions/database/characters/风见幽香.dch",
+"饕餮尤魔": "res://definitions/database/characters/饕餮尤魔.dch",
+"高丽野阿吽": "res://definitions/database/characters/高丽野阿吽.dch",
+"鬼人正邪": "res://definitions/database/characters/鬼人正邪.dch",
+"魂魄妖梦": "res://definitions/database/characters/魂魄妖梦.dch",
+"魅魔": "res://definitions/database/characters/魅魔.dch",
+"黑谷山女": "res://definitions/database/characters/黑谷山女.dch"
 }
 directories/dtl_directory={
-"example": "res://definitions/dialogues/example.dtl"
+"example": "res://definitions/database/dialogues/example.dtl"
 }
 layout/style_directory={}
 glossary/default_case_sensitive=true
@@ -154,10 +155,10 @@ audio/channel_defaults={
 translation/enabled=true
 translation/original_locale="zh"
 translation/file_mode=1
-translation/translation_folder="res://definitions/translations"
+translation/translation_folder="res://definitions/database/translations"
 translation/save_mode=0
 translation/add_separator=false
-translation/id_counter=106
+translation/id_counter=189
 translation/locales=["en", "ja"]
 portraits/default_portrait="res://definitions/prefabs/pre_tmi_portraits.tscn"
 animations/leave_default="Fade Out Down"
@@ -165,14 +166,14 @@ history/simple_history_enabled=true
 history/full_history_enabled=false
 translation/intern/save_mode=0
 translation/intern/file_mode=1
-translation/intern/translation_folder="res://definitions/translations"
+translation/intern/translation_folder="res://definitions/database/translations"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
 
 [dotnet]
 
@@ -181,6 +182,22 @@ project/assembly_name="TMFCG-4"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://assets/fonts/": "orange",
+"res://assets/textures/": "yellow",
+"res://definitions/": "teal",
+"res://definitions/database/dialogues/": "green",
+"res://definitions/database/translations/": "gray",
+"res://definitions/fonts/": "orange",
+"res://definitions/levels/": "blue",
+"res://definitions/materials/": "purple",
+"res://definitions/prefabs/": "blue",
+"res://scripts/": "gray"
+}
 
 [input]
 
@@ -196,11 +213,12 @@ dialogic_default_action={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://definitions/translations/dialogic_character_translations.zh.translation", "res://definitions/translations/dialogic_character_translations.en.translation", "res://definitions/translations/dialogic_character_translations.ja.translation", "res://definitions/translations/dialogic_example_translation.zh.translation")
+locale/translations=PackedStringArray("res://definitions/database/translations/dialogic_character_translations.zh.translation", "res://definitions/database/translations/dialogic_character_translations.en.translation", "res://definitions/database/translations/dialogic_character_translations.ja.translation", "res://definitions/database/translations/dialogic_example_translation.zh.translation", "res://definitions/database/translations/dialogic_character_translations.en.translation", "res://definitions/database/translations/dialogic_character_translations.ja.translation", "res://definitions/database/translations/dialogic_character_translations.zh.translation", "res://definitions/database/translations/dialogic_example_translation.zh.translation")
 locale/test="en"
 
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true
 viewport/hdr_2d=true

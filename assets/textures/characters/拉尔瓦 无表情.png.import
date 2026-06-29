@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8e1axwj1cmk8"
 path.bptc="res://.godot/imported/拉尔瓦 无表情.png-ba9eea1532ad70c7df2f295987d93bc9.bptc.ctex"
+path.astc="res://.godot/imported/拉尔瓦 无表情.png-ba9eea1532ad70c7df2f295987d93bc9.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/拉尔瓦 无表情.png"
-dest_files=["res://.godot/imported/拉尔瓦 无表情.png-ba9eea1532ad70c7df2f295987d93bc9.bptc.ctex"]
+dest_files=["res://.godot/imported/拉尔瓦 无表情.png-ba9eea1532ad70c7df2f295987d93bc9.bptc.ctex", "res://.godot/imported/拉尔瓦 无表情.png-ba9eea1532ad70c7df2f295987d93bc9.astc.ctex"]
 
 [params]
 

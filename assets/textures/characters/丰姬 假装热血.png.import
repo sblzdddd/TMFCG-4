@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://wyq1kn64chxd"
 path.bptc="res://.godot/imported/丰姬 假装热血.png-ebd69fdc5f85803d0eff09ae1e24c764.bptc.ctex"
+path.astc="res://.godot/imported/丰姬 假装热血.png-ebd69fdc5f85803d0eff09ae1e24c764.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/丰姬 假装热血.png"
-dest_files=["res://.godot/imported/丰姬 假装热血.png-ebd69fdc5f85803d0eff09ae1e24c764.bptc.ctex"]
+dest_files=["res://.godot/imported/丰姬 假装热血.png-ebd69fdc5f85803d0eff09ae1e24c764.bptc.ctex", "res://.godot/imported/丰姬 假装热血.png-ebd69fdc5f85803d0eff09ae1e24c764.astc.ctex"]
 
 [params]
 

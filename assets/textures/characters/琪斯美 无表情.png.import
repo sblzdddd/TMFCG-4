@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1jjumswgl7hu"
 path.bptc="res://.godot/imported/琪斯美 无表情.png-e17ccef5fce8512c73076ca575611c3b.bptc.ctex"
+path.astc="res://.godot/imported/琪斯美 无表情.png-e17ccef5fce8512c73076ca575611c3b.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/琪斯美 无表情.png"
-dest_files=["res://.godot/imported/琪斯美 无表情.png-e17ccef5fce8512c73076ca575611c3b.bptc.ctex"]
+dest_files=["res://.godot/imported/琪斯美 无表情.png-e17ccef5fce8512c73076ca575611c3b.bptc.ctex", "res://.godot/imported/琪斯美 无表情.png-e17ccef5fce8512c73076ca575611c3b.astc.ctex"]
 
 [params]
 

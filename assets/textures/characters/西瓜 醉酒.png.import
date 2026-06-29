@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdimuwkyltyyl"
 path.bptc="res://.godot/imported/西瓜 醉酒.png-eb67e3b9c676c0bafa434d14c1175548.bptc.ctex"
+path.astc="res://.godot/imported/西瓜 醉酒.png-eb67e3b9c676c0bafa434d14c1175548.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/西瓜 醉酒.png"
-dest_files=["res://.godot/imported/西瓜 醉酒.png-eb67e3b9c676c0bafa434d14c1175548.bptc.ctex"]
+dest_files=["res://.godot/imported/西瓜 醉酒.png-eb67e3b9c676c0bafa434d14c1175548.bptc.ctex", "res://.godot/imported/西瓜 醉酒.png-eb67e3b9c676c0bafa434d14c1175548.astc.ctex"]
 
 [params]
 

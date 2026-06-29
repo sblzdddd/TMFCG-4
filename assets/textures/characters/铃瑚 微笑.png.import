@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://mc7b78d2c3r3"
 path.bptc="res://.godot/imported/铃瑚 微笑.png-1309b21e2ee925fc6fa6e167d92a0fde.bptc.ctex"
+path.astc="res://.godot/imported/铃瑚 微笑.png-1309b21e2ee925fc6fa6e167d92a0fde.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/铃瑚 微笑.png"
-dest_files=["res://.godot/imported/铃瑚 微笑.png-1309b21e2ee925fc6fa6e167d92a0fde.bptc.ctex"]
+dest_files=["res://.godot/imported/铃瑚 微笑.png-1309b21e2ee925fc6fa6e167d92a0fde.bptc.ctex", "res://.godot/imported/铃瑚 微笑.png-1309b21e2ee925fc6fa6e167d92a0fde.astc.ctex"]
 
 [params]
 

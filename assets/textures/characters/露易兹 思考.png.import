@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf376588175q0"
 path.bptc="res://.godot/imported/露易兹 思考.png-964de9a9239a5f2b58909ef9083a3862.bptc.ctex"
+path.astc="res://.godot/imported/露易兹 思考.png-964de9a9239a5f2b58909ef9083a3862.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/露易兹 思考.png"
-dest_files=["res://.godot/imported/露易兹 思考.png-964de9a9239a5f2b58909ef9083a3862.bptc.ctex"]
+dest_files=["res://.godot/imported/露易兹 思考.png-964de9a9239a5f2b58909ef9083a3862.bptc.ctex", "res://.godot/imported/露易兹 思考.png-964de9a9239a5f2b58909ef9083a3862.astc.ctex"]
 
 [params]
 

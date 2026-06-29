@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cqmj644qukpt8"
 path.bptc="res://.godot/imported/文文 吐槽.png-21e9e4a52c0ffee06c0a7ceab1e4cfd6.bptc.ctex"
+path.astc="res://.godot/imported/文文 吐槽.png-21e9e4a52c0ffee06c0a7ceab1e4cfd6.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/文文 吐槽.png"
-dest_files=["res://.godot/imported/文文 吐槽.png-21e9e4a52c0ffee06c0a7ceab1e4cfd6.bptc.ctex"]
+dest_files=["res://.godot/imported/文文 吐槽.png-21e9e4a52c0ffee06c0a7ceab1e4cfd6.bptc.ctex", "res://.godot/imported/文文 吐槽.png-21e9e4a52c0ffee06c0a7ceab1e4cfd6.astc.ctex"]
 
 [params]
 

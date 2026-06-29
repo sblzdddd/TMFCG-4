@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b534m5vsoima6"
 path.bptc="res://.godot/imported/响子 笑.png-aa61803db2090263ac7658377fe985bd.bptc.ctex"
+path.astc="res://.godot/imported/响子 笑.png-aa61803db2090263ac7658377fe985bd.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/响子 笑.png"
-dest_files=["res://.godot/imported/响子 笑.png-aa61803db2090263ac7658377fe985bd.bptc.ctex"]
+dest_files=["res://.godot/imported/响子 笑.png-aa61803db2090263ac7658377fe985bd.bptc.ctex", "res://.godot/imported/响子 笑.png-aa61803db2090263ac7658377fe985bd.astc.ctex"]
 
 [params]
 

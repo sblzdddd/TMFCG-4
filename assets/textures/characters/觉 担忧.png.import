@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://n5s8bld7ojoi"
 path.bptc="res://.godot/imported/觉 担忧.png-f3149165bd4161a440a5ab5f9c0f9ea8.bptc.ctex"
+path.astc="res://.godot/imported/觉 担忧.png-f3149165bd4161a440a5ab5f9c0f9ea8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/觉 担忧.png"
-dest_files=["res://.godot/imported/觉 担忧.png-f3149165bd4161a440a5ab5f9c0f9ea8.bptc.ctex"]
+dest_files=["res://.godot/imported/觉 担忧.png-f3149165bd4161a440a5ab5f9c0f9ea8.bptc.ctex", "res://.godot/imported/觉 担忧.png-f3149165bd4161a440a5ab5f9c0f9ea8.astc.ctex"]
 
 [params]
 

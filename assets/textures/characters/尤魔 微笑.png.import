@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhe1v762p1wk4"
 path.bptc="res://.godot/imported/尤魔 微笑.png-8e8eafbcf9d38e53a579a4c33f89e6b7.bptc.ctex"
+path.astc="res://.godot/imported/尤魔 微笑.png-8e8eafbcf9d38e53a579a4c33f89e6b7.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/尤魔 微笑.png"
-dest_files=["res://.godot/imported/尤魔 微笑.png-8e8eafbcf9d38e53a579a4c33f89e6b7.bptc.ctex"]
+dest_files=["res://.godot/imported/尤魔 微笑.png-8e8eafbcf9d38e53a579a4c33f89e6b7.bptc.ctex", "res://.godot/imported/尤魔 微笑.png-8e8eafbcf9d38e53a579a4c33f89e6b7.astc.ctex"]
 
 [params]
 

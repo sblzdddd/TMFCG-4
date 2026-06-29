@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dh74g0617pal2"
 path.bptc="res://.godot/imported/四季 认真.png-e378737e9aaae4a4ca549d2adc198934.bptc.ctex"
+path.astc="res://.godot/imported/四季 认真.png-e378737e9aaae4a4ca549d2adc198934.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/四季 认真.png"
-dest_files=["res://.godot/imported/四季 认真.png-e378737e9aaae4a4ca549d2adc198934.bptc.ctex"]
+dest_files=["res://.godot/imported/四季 认真.png-e378737e9aaae4a4ca549d2adc198934.bptc.ctex", "res://.godot/imported/四季 认真.png-e378737e9aaae4a4ca549d2adc198934.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2h6xxvxdoi1i"
 path.bptc="res://.godot/imported/成美 苦恼.png-63785d6578bd43f4d0feccc09fcd1fba.bptc.ctex"
+path.astc="res://.godot/imported/成美 苦恼.png-63785d6578bd43f4d0feccc09fcd1fba.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/成美 苦恼.png"
-dest_files=["res://.godot/imported/成美 苦恼.png-63785d6578bd43f4d0feccc09fcd1fba.bptc.ctex"]
+dest_files=["res://.godot/imported/成美 苦恼.png-63785d6578bd43f4d0feccc09fcd1fba.bptc.ctex", "res://.godot/imported/成美 苦恼.png-63785d6578bd43f4d0feccc09fcd1fba.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsbp4qkopt4uu"
 path.bptc="res://.godot/imported/蓬莱山辉夜_Default.png-2ad8050aefa654454e18f75d9f7ba398.bptc.ctex"
+path.astc="res://.godot/imported/蓬莱山辉夜_Default.png-2ad8050aefa654454e18f75d9f7ba398.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/蓬莱山辉夜_Default.png"
-dest_files=["res://.godot/imported/蓬莱山辉夜_Default.png-2ad8050aefa654454e18f75d9f7ba398.bptc.ctex"]
+dest_files=["res://.godot/imported/蓬莱山辉夜_Default.png-2ad8050aefa654454e18f75d9f7ba398.bptc.ctex", "res://.godot/imported/蓬莱山辉夜_Default.png-2ad8050aefa654454e18f75d9f7ba398.astc.ctex"]
 
 [params]
 

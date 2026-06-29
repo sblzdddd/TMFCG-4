@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmw71ybkk6qum"
 path.bptc="res://.godot/imported/青娥 虚伪笑.png-880faf9e04c54551934783603dc8645d.bptc.ctex"
+path.astc="res://.godot/imported/青娥 虚伪笑.png-880faf9e04c54551934783603dc8645d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/青娥 虚伪笑.png"
-dest_files=["res://.godot/imported/青娥 虚伪笑.png-880faf9e04c54551934783603dc8645d.bptc.ctex"]
+dest_files=["res://.godot/imported/青娥 虚伪笑.png-880faf9e04c54551934783603dc8645d.bptc.ctex", "res://.godot/imported/青娥 虚伪笑.png-880faf9e04c54551934783603dc8645d.astc.ctex"]
 
 [params]
 

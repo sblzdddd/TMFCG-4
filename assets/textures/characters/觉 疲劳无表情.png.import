@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cyuky63j5chgl"
 path.bptc="res://.godot/imported/觉 疲劳无表情.png-fa4044ae3e2748a6430dde3f198b7194.bptc.ctex"
+path.astc="res://.godot/imported/觉 疲劳无表情.png-fa4044ae3e2748a6430dde3f198b7194.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/觉 疲劳无表情.png"
-dest_files=["res://.godot/imported/觉 疲劳无表情.png-fa4044ae3e2748a6430dde3f198b7194.bptc.ctex"]
+dest_files=["res://.godot/imported/觉 疲劳无表情.png-fa4044ae3e2748a6430dde3f198b7194.bptc.ctex", "res://.godot/imported/觉 疲劳无表情.png-fa4044ae3e2748a6430dde3f198b7194.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bhjxadqe1ixy5"
 path.bptc="res://.godot/imported/赤蛮奇 高冷.png-0ad7bbd05f193cc9b64288a29c71cd31.bptc.ctex"
+path.astc="res://.godot/imported/赤蛮奇 高冷.png-0ad7bbd05f193cc9b64288a29c71cd31.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/赤蛮奇 高冷.png"
-dest_files=["res://.godot/imported/赤蛮奇 高冷.png-0ad7bbd05f193cc9b64288a29c71cd31.bptc.ctex"]
+dest_files=["res://.godot/imported/赤蛮奇 高冷.png-0ad7bbd05f193cc9b64288a29c71cd31.bptc.ctex", "res://.godot/imported/赤蛮奇 高冷.png-0ad7bbd05f193cc9b64288a29c71cd31.astc.ctex"]
 
 [params]
 

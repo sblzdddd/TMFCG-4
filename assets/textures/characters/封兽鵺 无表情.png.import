@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjsqs51euw204"
 path.bptc="res://.godot/imported/封兽鵺 无表情.png-2454c93e50503f7fbf180c8cb2d57ed2.bptc.ctex"
+path.astc="res://.godot/imported/封兽鵺 无表情.png-2454c93e50503f7fbf180c8cb2d57ed2.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/封兽鵺 无表情.png"
-dest_files=["res://.godot/imported/封兽鵺 无表情.png-2454c93e50503f7fbf180c8cb2d57ed2.bptc.ctex"]
+dest_files=["res://.godot/imported/封兽鵺 无表情.png-2454c93e50503f7fbf180c8cb2d57ed2.bptc.ctex", "res://.godot/imported/封兽鵺 无表情.png-2454c93e50503f7fbf180c8cb2d57ed2.astc.ctex"]
 
 [params]
 

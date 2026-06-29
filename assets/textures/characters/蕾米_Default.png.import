@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://d1u0j0bkkbp02"
 path.bptc="res://.godot/imported/蕾米_Default.png-28c343acadcfa649efd69971f0a2c09e.bptc.ctex"
+path.astc="res://.godot/imported/蕾米_Default.png-28c343acadcfa649efd69971f0a2c09e.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/蕾米_Default.png"
-dest_files=["res://.godot/imported/蕾米_Default.png-28c343acadcfa649efd69971f0a2c09e.bptc.ctex"]
+dest_files=["res://.godot/imported/蕾米_Default.png-28c343acadcfa649efd69971f0a2c09e.bptc.ctex", "res://.godot/imported/蕾米_Default.png-28c343acadcfa649efd69971f0a2c09e.astc.ctex"]
 
 [params]
 

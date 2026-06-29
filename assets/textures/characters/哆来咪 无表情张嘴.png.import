@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://chjr1f58h43qt"
 path.bptc="res://.godot/imported/哆来咪 无表情张嘴.png-8833097171748318c01b1c29cd0349fb.bptc.ctex"
+path.astc="res://.godot/imported/哆来咪 无表情张嘴.png-8833097171748318c01b1c29cd0349fb.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/哆来咪 无表情张嘴.png"
-dest_files=["res://.godot/imported/哆来咪 无表情张嘴.png-8833097171748318c01b1c29cd0349fb.bptc.ctex"]
+dest_files=["res://.godot/imported/哆来咪 无表情张嘴.png-8833097171748318c01b1c29cd0349fb.bptc.ctex", "res://.godot/imported/哆来咪 无表情张嘴.png-8833097171748318c01b1c29cd0349fb.astc.ctex"]
 
 [params]
 

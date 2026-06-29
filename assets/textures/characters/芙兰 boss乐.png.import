@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://xc5k7kip4xhd"
 path.bptc="res://.godot/imported/芙兰 boss乐.png-11d96a385f2e56009b803e071b52ff2d.bptc.ctex"
+path.astc="res://.godot/imported/芙兰 boss乐.png-11d96a385f2e56009b803e071b52ff2d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/芙兰 boss乐.png"
-dest_files=["res://.godot/imported/芙兰 boss乐.png-11d96a385f2e56009b803e071b52ff2d.bptc.ctex"]
+dest_files=["res://.godot/imported/芙兰 boss乐.png-11d96a385f2e56009b803e071b52ff2d.bptc.ctex", "res://.godot/imported/芙兰 boss乐.png-11d96a385f2e56009b803e071b52ff2d.astc.ctex"]
 
 [params]
 

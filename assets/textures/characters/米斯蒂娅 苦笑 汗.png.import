@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://lc3hqgbkivix"
 path.bptc="res://.godot/imported/米斯蒂娅 苦笑 汗.png-39445b522f8996bf96e4666fc4c10b0c.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 苦笑 汗.png-39445b522f8996bf96e4666fc4c10b0c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 苦笑 汗.png"
-dest_files=["res://.godot/imported/米斯蒂娅 苦笑 汗.png-39445b522f8996bf96e4666fc4c10b0c.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 苦笑 汗.png-39445b522f8996bf96e4666fc4c10b0c.bptc.ctex", "res://.godot/imported/米斯蒂娅 苦笑 汗.png-39445b522f8996bf96e4666fc4c10b0c.astc.ctex"]
 
 [params]
 

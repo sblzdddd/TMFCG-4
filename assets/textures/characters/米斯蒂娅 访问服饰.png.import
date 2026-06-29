@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5npbewg2tcf1"
 path.bptc="res://.godot/imported/米斯蒂娅 访问服饰.png-3c79bbc0462effaaa276e10656a37112.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 访问服饰.png-3c79bbc0462effaaa276e10656a37112.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 访问服饰.png"
-dest_files=["res://.godot/imported/米斯蒂娅 访问服饰.png-3c79bbc0462effaaa276e10656a37112.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 访问服饰.png-3c79bbc0462effaaa276e10656a37112.bptc.ctex", "res://.godot/imported/米斯蒂娅 访问服饰.png-3c79bbc0462effaaa276e10656a37112.astc.ctex"]
 
 [params]
 

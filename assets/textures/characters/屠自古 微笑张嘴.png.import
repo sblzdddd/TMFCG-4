@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdwuwmkbl6dit"
 path.bptc="res://.godot/imported/屠自古 微笑张嘴.png-3a3e877f914d9d8fecfac60007a56fed.bptc.ctex"
+path.astc="res://.godot/imported/屠自古 微笑张嘴.png-3a3e877f914d9d8fecfac60007a56fed.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/屠自古 微笑张嘴.png"
-dest_files=["res://.godot/imported/屠自古 微笑张嘴.png-3a3e877f914d9d8fecfac60007a56fed.bptc.ctex"]
+dest_files=["res://.godot/imported/屠自古 微笑张嘴.png-3a3e877f914d9d8fecfac60007a56fed.bptc.ctex", "res://.godot/imported/屠自古 微笑张嘴.png-3a3e877f914d9d8fecfac60007a56fed.astc.ctex"]
 
 [params]
 

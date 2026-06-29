@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://pjrcm8ntvu72"
 path.bptc="res://.godot/imported/布都 无表情张嘴.png-1c0a97c43a6e704edf9882e23fc8110d.bptc.ctex"
+path.astc="res://.godot/imported/布都 无表情张嘴.png-1c0a97c43a6e704edf9882e23fc8110d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/布都 无表情张嘴.png"
-dest_files=["res://.godot/imported/布都 无表情张嘴.png-1c0a97c43a6e704edf9882e23fc8110d.bptc.ctex"]
+dest_files=["res://.godot/imported/布都 无表情张嘴.png-1c0a97c43a6e704edf9882e23fc8110d.bptc.ctex", "res://.godot/imported/布都 无表情张嘴.png-1c0a97c43a6e704edf9882e23fc8110d.astc.ctex"]
 
 [params]
 

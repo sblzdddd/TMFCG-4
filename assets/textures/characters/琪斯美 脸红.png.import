@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cg3f2gq4oh461"
 path.bptc="res://.godot/imported/琪斯美 脸红.png-85d38f3879222261871aea29eab27daf.bptc.ctex"
+path.astc="res://.godot/imported/琪斯美 脸红.png-85d38f3879222261871aea29eab27daf.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/琪斯美 脸红.png"
-dest_files=["res://.godot/imported/琪斯美 脸红.png-85d38f3879222261871aea29eab27daf.bptc.ctex"]
+dest_files=["res://.godot/imported/琪斯美 脸红.png-85d38f3879222261871aea29eab27daf.bptc.ctex", "res://.godot/imported/琪斯美 脸红.png-85d38f3879222261871aea29eab27daf.astc.ctex"]
 
 [params]
 

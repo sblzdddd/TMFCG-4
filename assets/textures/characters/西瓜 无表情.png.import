@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdrx6n6mhgsn"
 path.bptc="res://.godot/imported/西瓜 无表情.png-eefed1c5ccc8f7d58bfa236241c2eb46.bptc.ctex"
+path.astc="res://.godot/imported/西瓜 无表情.png-eefed1c5ccc8f7d58bfa236241c2eb46.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/西瓜 无表情.png"
-dest_files=["res://.godot/imported/西瓜 无表情.png-eefed1c5ccc8f7d58bfa236241c2eb46.bptc.ctex"]
+dest_files=["res://.godot/imported/西瓜 无表情.png-eefed1c5ccc8f7d58bfa236241c2eb46.bptc.ctex", "res://.godot/imported/西瓜 无表情.png-eefed1c5ccc8f7d58bfa236241c2eb46.astc.ctex"]
 
 [params]
 

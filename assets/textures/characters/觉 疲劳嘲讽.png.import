@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba2sjwnop2w7w"
 path.bptc="res://.godot/imported/觉 疲劳嘲讽.png-6304be446954a3a4e797fff81435ea6c.bptc.ctex"
+path.astc="res://.godot/imported/觉 疲劳嘲讽.png-6304be446954a3a4e797fff81435ea6c.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/觉 疲劳嘲讽.png"
-dest_files=["res://.godot/imported/觉 疲劳嘲讽.png-6304be446954a3a4e797fff81435ea6c.bptc.ctex"]
+dest_files=["res://.godot/imported/觉 疲劳嘲讽.png-6304be446954a3a4e797fff81435ea6c.bptc.ctex", "res://.godot/imported/觉 疲劳嘲讽.png-6304be446954a3a4e797fff81435ea6c.astc.ctex"]
 
 [params]
 

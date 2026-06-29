@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cnb7pf0dvcc2x"
 path.bptc="res://.godot/imported/帝 狡黠.png-554b71d06184569eedfec0a8342c3ddb.bptc.ctex"
+path.astc="res://.godot/imported/帝 狡黠.png-554b71d06184569eedfec0a8342c3ddb.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帝 狡黠.png"
-dest_files=["res://.godot/imported/帝 狡黠.png-554b71d06184569eedfec0a8342c3ddb.bptc.ctex"]
+dest_files=["res://.godot/imported/帝 狡黠.png-554b71d06184569eedfec0a8342c3ddb.bptc.ctex", "res://.godot/imported/帝 狡黠.png-554b71d06184569eedfec0a8342c3ddb.astc.ctex"]
 
 [params]
 

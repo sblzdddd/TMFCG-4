@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bdtxikwjq2uo8"
 path.bptc="res://.godot/imported/爱丽丝 疑问2.png-47d3820301e6361843ccf6c5153660e3.bptc.ctex"
+path.astc="res://.godot/imported/爱丽丝 疑问2.png-47d3820301e6361843ccf6c5153660e3.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/爱丽丝 疑问2.png"
-dest_files=["res://.godot/imported/爱丽丝 疑问2.png-47d3820301e6361843ccf6c5153660e3.bptc.ctex"]
+dest_files=["res://.godot/imported/爱丽丝 疑问2.png-47d3820301e6361843ccf6c5153660e3.bptc.ctex", "res://.godot/imported/爱丽丝 疑问2.png-47d3820301e6361843ccf6c5153660e3.astc.ctex"]
 
 [params]
 

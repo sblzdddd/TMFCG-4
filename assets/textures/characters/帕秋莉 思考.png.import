@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5pqj6i7eb5hx"
 path.bptc="res://.godot/imported/帕秋莉 思考.png-08d4052c1138a0e6c41c1bad5ae5012f.bptc.ctex"
+path.astc="res://.godot/imported/帕秋莉 思考.png-08d4052c1138a0e6c41c1bad5ae5012f.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帕秋莉 思考.png"
-dest_files=["res://.godot/imported/帕秋莉 思考.png-08d4052c1138a0e6c41c1bad5ae5012f.bptc.ctex"]
+dest_files=["res://.godot/imported/帕秋莉 思考.png-08d4052c1138a0e6c41c1bad5ae5012f.bptc.ctex", "res://.godot/imported/帕秋莉 思考.png-08d4052c1138a0e6c41c1bad5ae5012f.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf10oghk42t3b"
 path.bptc="res://.godot/imported/爱丽丝 思考.png-d675027f261c06701411baded5d8a9bd.bptc.ctex"
+path.astc="res://.godot/imported/爱丽丝 思考.png-d675027f261c06701411baded5d8a9bd.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/爱丽丝 思考.png"
-dest_files=["res://.godot/imported/爱丽丝 思考.png-d675027f261c06701411baded5d8a9bd.bptc.ctex"]
+dest_files=["res://.godot/imported/爱丽丝 思考.png-d675027f261c06701411baded5d8a9bd.bptc.ctex", "res://.godot/imported/爱丽丝 思考.png-d675027f261c06701411baded5d8a9bd.astc.ctex"]
 
 [params]
 

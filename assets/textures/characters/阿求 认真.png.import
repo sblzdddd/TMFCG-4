@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://sv38l2xqqyx4"
 path.bptc="res://.godot/imported/阿求 认真.png-314af239a3d7bbd859d8e63e829c76ed.bptc.ctex"
+path.astc="res://.godot/imported/阿求 认真.png-314af239a3d7bbd859d8e63e829c76ed.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/阿求 认真.png"
-dest_files=["res://.godot/imported/阿求 认真.png-314af239a3d7bbd859d8e63e829c76ed.bptc.ctex"]
+dest_files=["res://.godot/imported/阿求 认真.png-314af239a3d7bbd859d8e63e829c76ed.bptc.ctex", "res://.godot/imported/阿求 认真.png-314af239a3d7bbd859d8e63e829c76ed.astc.ctex"]
 
 [params]
 

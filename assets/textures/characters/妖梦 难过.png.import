@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://hdht5wm2boah"
 path.bptc="res://.godot/imported/妖梦 难过.png-e44f2e1862b5466818de206d274dffea.bptc.ctex"
+path.astc="res://.godot/imported/妖梦 难过.png-e44f2e1862b5466818de206d274dffea.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/妖梦 难过.png"
-dest_files=["res://.godot/imported/妖梦 难过.png-e44f2e1862b5466818de206d274dffea.bptc.ctex"]
+dest_files=["res://.godot/imported/妖梦 难过.png-e44f2e1862b5466818de206d274dffea.bptc.ctex", "res://.godot/imported/妖梦 难过.png-e44f2e1862b5466818de206d274dffea.astc.ctex"]
 
 [params]
 

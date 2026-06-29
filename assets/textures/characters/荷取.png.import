@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxk8ep3wlquqi"
 path.bptc="res://.godot/imported/荷取.png-d57367ee7dc15a3fd2e613e65a7a23ba.bptc.ctex"
+path.astc="res://.godot/imported/荷取.png-d57367ee7dc15a3fd2e613e65a7a23ba.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/荷取.png"
-dest_files=["res://.godot/imported/荷取.png-d57367ee7dc15a3fd2e613e65a7a23ba.bptc.ctex"]
+dest_files=["res://.godot/imported/荷取.png-d57367ee7dc15a3fd2e613e65a7a23ba.bptc.ctex", "res://.godot/imported/荷取.png-d57367ee7dc15a3fd2e613e65a7a23ba.astc.ctex"]
 
 [params]
 

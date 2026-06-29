@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://i1mmukni1iyj"
 path.bptc="res://.godot/imported/犬走椛 微笑张嘴.png-d1335712a3c7a0009b354404a6afbf74.bptc.ctex"
+path.astc="res://.godot/imported/犬走椛 微笑张嘴.png-d1335712a3c7a0009b354404a6afbf74.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/犬走椛 微笑张嘴.png"
-dest_files=["res://.godot/imported/犬走椛 微笑张嘴.png-d1335712a3c7a0009b354404a6afbf74.bptc.ctex"]
+dest_files=["res://.godot/imported/犬走椛 微笑张嘴.png-d1335712a3c7a0009b354404a6afbf74.bptc.ctex", "res://.godot/imported/犬走椛 微笑张嘴.png-d1335712a3c7a0009b354404a6afbf74.astc.ctex"]
 
 [params]
 

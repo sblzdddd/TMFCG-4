@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2umeufvpwcmo"
 path.bptc="res://.godot/imported/清兰 可怜.png-3691fc4151c60f0a9be3e7026f554e03.bptc.ctex"
+path.astc="res://.godot/imported/清兰 可怜.png-3691fc4151c60f0a9be3e7026f554e03.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/清兰 可怜.png"
-dest_files=["res://.godot/imported/清兰 可怜.png-3691fc4151c60f0a9be3e7026f554e03.bptc.ctex"]
+dest_files=["res://.godot/imported/清兰 可怜.png-3691fc4151c60f0a9be3e7026f554e03.bptc.ctex", "res://.godot/imported/清兰 可怜.png-3691fc4151c60f0a9be3e7026f554e03.astc.ctex"]
 
 [params]
 

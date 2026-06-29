@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dn5ufleg0adio"
 path.bptc="res://.godot/imported/二岩猯藏 微笑张嘴.png-22b90205abcfb291869e05f62703af08.bptc.ctex"
+path.astc="res://.godot/imported/二岩猯藏 微笑张嘴.png-22b90205abcfb291869e05f62703af08.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/二岩猯藏 微笑张嘴.png"
-dest_files=["res://.godot/imported/二岩猯藏 微笑张嘴.png-22b90205abcfb291869e05f62703af08.bptc.ctex"]
+dest_files=["res://.godot/imported/二岩猯藏 微笑张嘴.png-22b90205abcfb291869e05f62703af08.bptc.ctex", "res://.godot/imported/二岩猯藏 微笑张嘴.png-22b90205abcfb291869e05f62703af08.astc.ctex"]
 
 [params]
 

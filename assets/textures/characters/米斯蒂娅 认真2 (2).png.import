@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://jmglq7ix4diw"
 path.bptc="res://.godot/imported/米斯蒂娅 认真2 (2).png-dc8262a78b92c07d8749627f0e9693c4.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 认真2 (2).png-dc8262a78b92c07d8749627f0e9693c4.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 认真2 (2).png"
-dest_files=["res://.godot/imported/米斯蒂娅 认真2 (2).png-dc8262a78b92c07d8749627f0e9693c4.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 认真2 (2).png-dc8262a78b92c07d8749627f0e9693c4.bptc.ctex", "res://.godot/imported/米斯蒂娅 认真2 (2).png-dc8262a78b92c07d8749627f0e9693c4.astc.ctex"]
 
 [params]
 

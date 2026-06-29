@@ -1,0 +1,122 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+&"_translation_id": "70",
+&"color": Color(0.744, 0.216, 0.354, 1),
+&"custom_info": {
+"prefix": "",
+"sound_mood_default": "",
+"sound_moods": {},
+"style": "",
+"suffix": ""
+},
+&"default_portrait": "微笑",
+&"description": "origin=东方辉针城
+description=竹林的人狼",
+&"display_name": "今泉影狼",
+&"mirror": false,
+&"nicknames": ["马斯克", "埃隆马斯克", "猫娘"],
+&"offset": Vector2(0, 0),
+&"portraits": {
+"吐槽": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 吐槽.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"哭": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 哭.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"喊": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 喊.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 微笑.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 微笑张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"微笑张嘴2": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 微笑张嘴2.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 无表情.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无表情张嘴": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 无表情张嘴.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无语": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 无语.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"无语汗": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 无语汗.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+},
+"认真": {
+"export_overrides": {
+"image": "\"res://assets/textures/characters/影狼 认真.png\""
+},
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 1,
+"scene": ""
+}
+},
+&"scale": 1.0
+}

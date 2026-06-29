@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://cslm4dti70w2d"
 path.bptc="res://.godot/imported/丰姬 苦笑.png-06565186693f64ba43f566c5f6ac3cab.bptc.ctex"
+path.astc="res://.godot/imported/丰姬 苦笑.png-06565186693f64ba43f566c5f6ac3cab.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/丰姬 苦笑.png"
-dest_files=["res://.godot/imported/丰姬 苦笑.png-06565186693f64ba43f566c5f6ac3cab.bptc.ctex"]
+dest_files=["res://.godot/imported/丰姬 苦笑.png-06565186693f64ba43f566c5f6ac3cab.bptc.ctex", "res://.godot/imported/丰姬 苦笑.png-06565186693f64ba43f566c5f6ac3cab.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bse1bfrs8m0ya"
 path.bptc="res://.godot/imported/慧音 白泽_无表情张嘴.png-c9541f57d1901d60092d50faf3abfee0.bptc.ctex"
+path.astc="res://.godot/imported/慧音 白泽_无表情张嘴.png-c9541f57d1901d60092d50faf3abfee0.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/慧音 白泽_无表情张嘴.png"
-dest_files=["res://.godot/imported/慧音 白泽_无表情张嘴.png-c9541f57d1901d60092d50faf3abfee0.bptc.ctex"]
+dest_files=["res://.godot/imported/慧音 白泽_无表情张嘴.png-c9541f57d1901d60092d50faf3abfee0.bptc.ctex", "res://.godot/imported/慧音 白泽_无表情张嘴.png-c9541f57d1901d60092d50faf3abfee0.astc.ctex"]
 
 [params]
 

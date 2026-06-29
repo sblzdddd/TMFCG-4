@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://fu6inhmoi5pa"
 path.bptc="res://.godot/imported/键山雏 无表情.png-afa0c1ed6d12aeaa291fdc99f2e5f8df.bptc.ctex"
+path.astc="res://.godot/imported/键山雏 无表情.png-afa0c1ed6d12aeaa291fdc99f2e5f8df.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/键山雏 无表情.png"
-dest_files=["res://.godot/imported/键山雏 无表情.png-afa0c1ed6d12aeaa291fdc99f2e5f8df.bptc.ctex"]
+dest_files=["res://.godot/imported/键山雏 无表情.png-afa0c1ed6d12aeaa291fdc99f2e5f8df.bptc.ctex", "res://.godot/imported/键山雏 无表情.png-afa0c1ed6d12aeaa291fdc99f2e5f8df.astc.ctex"]
 
 [params]
 

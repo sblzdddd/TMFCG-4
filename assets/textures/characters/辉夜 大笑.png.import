@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbcb8hlsl174s"
 path.bptc="res://.godot/imported/辉夜 大笑.png-c2532e2b3c8cceb5e71861aaecac09af.bptc.ctex"
+path.astc="res://.godot/imported/辉夜 大笑.png-c2532e2b3c8cceb5e71861aaecac09af.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/辉夜 大笑.png"
-dest_files=["res://.godot/imported/辉夜 大笑.png-c2532e2b3c8cceb5e71861aaecac09af.bptc.ctex"]
+dest_files=["res://.godot/imported/辉夜 大笑.png-c2532e2b3c8cceb5e71861aaecac09af.bptc.ctex", "res://.godot/imported/辉夜 大笑.png-c2532e2b3c8cceb5e71861aaecac09af.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bbcm1hiu45svo"
 path.bptc="res://.godot/imported/大妖精.png-b1c0d2e6efb4c5b46087d548210783bf.bptc.ctex"
+path.astc="res://.godot/imported/大妖精.png-b1c0d2e6efb4c5b46087d548210783bf.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/大妖精.png"
-dest_files=["res://.godot/imported/大妖精.png-b1c0d2e6efb4c5b46087d548210783bf.bptc.ctex"]
+dest_files=["res://.godot/imported/大妖精.png-b1c0d2e6efb4c5b46087d548210783bf.bptc.ctex", "res://.godot/imported/大妖精.png-b1c0d2e6efb4c5b46087d548210783bf.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dgbl0mqugg7al"
 path.bptc="res://.godot/imported/黑谷山女 爽朗.png-d630eb42b93fbb83fe6750171003b9d1.bptc.ctex"
+path.astc="res://.godot/imported/黑谷山女 爽朗.png-d630eb42b93fbb83fe6750171003b9d1.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/黑谷山女 爽朗.png"
-dest_files=["res://.godot/imported/黑谷山女 爽朗.png-d630eb42b93fbb83fe6750171003b9d1.bptc.ctex"]
+dest_files=["res://.godot/imported/黑谷山女 爽朗.png-d630eb42b93fbb83fe6750171003b9d1.bptc.ctex", "res://.godot/imported/黑谷山女 爽朗.png-d630eb42b93fbb83fe6750171003b9d1.astc.ctex"]
 
 [params]
 

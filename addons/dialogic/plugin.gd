@@ -7,10 +7,12 @@ const PLUGIN_NAME := "Dialogic"
 const PLUGIN_HANDLER_PATH := "res://addons/dialogic/Core/DialogicGameHandler.gd"
 const PLUGIN_ICON_PATH := "uid://dybg3l5pwetne"
 const PLUGIN_INSPECTOR_PATH := "uid://bok1je25mskp7"
+const CHARACTER_PREVIEW_GENERATOR_PATH := "res://addons/dialogic/Resources/character_preview_generator.gd"
 
 ## References used by various other scripts to quickly reference these things
 var editor_view: Control  # the root of the dialogic editor
 var inspector_plugin: EditorInspectorPlugin = null
+var character_preview_generator: EditorResourcePreviewGenerator = null
 
 
 ## Initialization
@@ -41,6 +43,9 @@ func _enter_tree() -> void:
 	inspector_plugin = load(PLUGIN_INSPECTOR_PATH).new()
 	add_inspector_plugin(inspector_plugin)
 
+	character_preview_generator = load(CHARACTER_PREVIEW_GENERATOR_PATH).new()
+	EditorInterface.get_resource_previewer().add_preview_generator(character_preview_generator)
+
 
 func _exit_tree() -> void:
 	if editor_view:
@@ -48,6 +53,10 @@ func _exit_tree() -> void:
 
 	if inspector_plugin:
 		remove_inspector_plugin(inspector_plugin)
+
+	if character_preview_generator:
+		EditorInterface.get_resource_previewer().remove_preview_generator(character_preview_generator)
+		character_preview_generator = null
 
 #endregion
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b0gutg6senfkm"
 path.bptc="res://.godot/imported/梅蒂欣 认真.png-bbdff96860ce19fc4862dc59b7251e8d.bptc.ctex"
+path.astc="res://.godot/imported/梅蒂欣 认真.png-bbdff96860ce19fc4862dc59b7251e8d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/梅蒂欣 认真.png"
-dest_files=["res://.godot/imported/梅蒂欣 认真.png-bbdff96860ce19fc4862dc59b7251e8d.bptc.ctex"]
+dest_files=["res://.godot/imported/梅蒂欣 认真.png-bbdff96860ce19fc4862dc59b7251e8d.bptc.ctex", "res://.godot/imported/梅蒂欣 认真.png-bbdff96860ce19fc4862dc59b7251e8d.astc.ctex"]
 
 [params]
 

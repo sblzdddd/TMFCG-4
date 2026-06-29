@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://boy6fmb7dxtpf"
 path.bptc="res://.godot/imported/针妙丸 热血.png-772471bba41d6edfbdd6c5a792573c3a.bptc.ctex"
+path.astc="res://.godot/imported/针妙丸 热血.png-772471bba41d6edfbdd6c5a792573c3a.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/针妙丸 热血.png"
-dest_files=["res://.godot/imported/针妙丸 热血.png-772471bba41d6edfbdd6c5a792573c3a.bptc.ctex"]
+dest_files=["res://.godot/imported/针妙丸 热血.png-772471bba41d6edfbdd6c5a792573c3a.bptc.ctex", "res://.godot/imported/针妙丸 热血.png-772471bba41d6edfbdd6c5a792573c3a.astc.ctex"]
 
 [params]
 

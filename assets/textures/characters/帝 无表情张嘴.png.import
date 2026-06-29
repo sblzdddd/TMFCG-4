@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bequdro54pp4m"
 path.bptc="res://.godot/imported/帝 无表情张嘴.png-4f8d238bf06d581a005dee24dd287455.bptc.ctex"
+path.astc="res://.godot/imported/帝 无表情张嘴.png-4f8d238bf06d581a005dee24dd287455.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帝 无表情张嘴.png"
-dest_files=["res://.godot/imported/帝 无表情张嘴.png-4f8d238bf06d581a005dee24dd287455.bptc.ctex"]
+dest_files=["res://.godot/imported/帝 无表情张嘴.png-4f8d238bf06d581a005dee24dd287455.bptc.ctex", "res://.godot/imported/帝 无表情张嘴.png-4f8d238bf06d581a005dee24dd287455.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bv22cnfm1hvtp"
 path.bptc="res://.godot/imported/帝 狗腿.png-ce8b4eb88223ff4a7d333159feabeab8.bptc.ctex"
+path.astc="res://.godot/imported/帝 狗腿.png-ce8b4eb88223ff4a7d333159feabeab8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/帝 狗腿.png"
-dest_files=["res://.godot/imported/帝 狗腿.png-ce8b4eb88223ff4a7d333159feabeab8.bptc.ctex"]
+dest_files=["res://.godot/imported/帝 狗腿.png-ce8b4eb88223ff4a7d333159feabeab8.bptc.ctex", "res://.godot/imported/帝 狗腿.png-ce8b4eb88223ff4a7d333159feabeab8.astc.ctex"]
 
 [params]
 

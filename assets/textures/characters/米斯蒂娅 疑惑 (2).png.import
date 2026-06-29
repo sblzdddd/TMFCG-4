@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://be64weje8mybn"
 path.bptc="res://.godot/imported/米斯蒂娅 疑惑 (2).png-779f3ba239895bca57d5476b5a7df23d.bptc.ctex"
+path.astc="res://.godot/imported/米斯蒂娅 疑惑 (2).png-779f3ba239895bca57d5476b5a7df23d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/米斯蒂娅 疑惑 (2).png"
-dest_files=["res://.godot/imported/米斯蒂娅 疑惑 (2).png-779f3ba239895bca57d5476b5a7df23d.bptc.ctex"]
+dest_files=["res://.godot/imported/米斯蒂娅 疑惑 (2).png-779f3ba239895bca57d5476b5a7df23d.bptc.ctex", "res://.godot/imported/米斯蒂娅 疑惑 (2).png-779f3ba239895bca57d5476b5a7df23d.astc.ctex"]
 
 [params]
 

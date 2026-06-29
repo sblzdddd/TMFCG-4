@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3cwu4sybyep4"
 path.bptc="res://.godot/imported/大妖精 无表情张嘴.png-033727809614bad5862f83a1d65dab88.bptc.ctex"
+path.astc="res://.godot/imported/大妖精 无表情张嘴.png-033727809614bad5862f83a1d65dab88.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/大妖精 无表情张嘴.png"
-dest_files=["res://.godot/imported/大妖精 无表情张嘴.png-033727809614bad5862f83a1d65dab88.bptc.ctex"]
+dest_files=["res://.godot/imported/大妖精 无表情张嘴.png-033727809614bad5862f83a1d65dab88.bptc.ctex", "res://.godot/imported/大妖精 无表情张嘴.png-033727809614bad5862f83a1d65dab88.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c86qir4nnt3dt"
 path.bptc="res://.godot/imported/灵梦 喊.png-dfb6351bdd51c89bb65df60d3aac96ad.bptc.ctex"
+path.astc="res://.godot/imported/灵梦 喊.png-dfb6351bdd51c89bb65df60d3aac96ad.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/灵梦 喊.png"
-dest_files=["res://.godot/imported/灵梦 喊.png-dfb6351bdd51c89bb65df60d3aac96ad.bptc.ctex"]
+dest_files=["res://.godot/imported/灵梦 喊.png-dfb6351bdd51c89bb65df60d3aac96ad.bptc.ctex", "res://.godot/imported/灵梦 喊.png-dfb6351bdd51c89bb65df60d3aac96ad.astc.ctex"]
 
 [params]
 

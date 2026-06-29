@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://gj2ai562agb3"
 path.bptc="res://.godot/imported/露易兹 惊讶.png-8ce9f8f0d8e4de334f26d3750675c959.bptc.ctex"
+path.astc="res://.godot/imported/露易兹 惊讶.png-8ce9f8f0d8e4de334f26d3750675c959.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/露易兹 惊讶.png"
-dest_files=["res://.godot/imported/露易兹 惊讶.png-8ce9f8f0d8e4de334f26d3750675c959.bptc.ctex"]
+dest_files=["res://.godot/imported/露易兹 惊讶.png-8ce9f8f0d8e4de334f26d3750675c959.bptc.ctex", "res://.godot/imported/露易兹 惊讶.png-8ce9f8f0d8e4de334f26d3750675c959.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://di8nbst5anu30"
 path.bptc="res://.godot/imported/琪露诺 笑.png-8e3f855c54ea1752815ce78904b35f05.bptc.ctex"
+path.astc="res://.godot/imported/琪露诺 笑.png-8e3f855c54ea1752815ce78904b35f05.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/琪露诺 笑.png"
-dest_files=["res://.godot/imported/琪露诺 笑.png-8e3f855c54ea1752815ce78904b35f05.bptc.ctex"]
+dest_files=["res://.godot/imported/琪露诺 笑.png-8e3f855c54ea1752815ce78904b35f05.bptc.ctex", "res://.godot/imported/琪露诺 笑.png-8e3f855c54ea1752815ce78904b35f05.astc.ctex"]
 
 [params]
 

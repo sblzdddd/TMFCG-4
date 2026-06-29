@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://tk5x636qiie2"
 path.bptc="res://.godot/imported/辉夜 忧愁.png-7eb30289ea0040e9a08cc2d59a700a1d.bptc.ctex"
+path.astc="res://.godot/imported/辉夜 忧愁.png-7eb30289ea0040e9a08cc2d59a700a1d.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/辉夜 忧愁.png"
-dest_files=["res://.godot/imported/辉夜 忧愁.png-7eb30289ea0040e9a08cc2d59a700a1d.bptc.ctex"]
+dest_files=["res://.godot/imported/辉夜 忧愁.png-7eb30289ea0040e9a08cc2d59a700a1d.bptc.ctex", "res://.godot/imported/辉夜 忧愁.png-7eb30289ea0040e9a08cc2d59a700a1d.astc.ctex"]
 
 [params]
 

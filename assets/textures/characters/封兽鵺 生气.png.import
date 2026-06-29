@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck0cf44u6tti6"
 path.bptc="res://.godot/imported/封兽鵺 生气.png-77dca16d6ab40bb40767164919706690.bptc.ctex"
+path.astc="res://.godot/imported/封兽鵺 生气.png-77dca16d6ab40bb40767164919706690.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/封兽鵺 生气.png"
-dest_files=["res://.godot/imported/封兽鵺 生气.png-77dca16d6ab40bb40767164919706690.bptc.ctex"]
+dest_files=["res://.godot/imported/封兽鵺 生气.png-77dca16d6ab40bb40767164919706690.bptc.ctex", "res://.godot/imported/封兽鵺 生气.png-77dca16d6ab40bb40767164919706690.astc.ctex"]
 
 [params]
 

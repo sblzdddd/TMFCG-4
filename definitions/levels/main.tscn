@@ -1,10 +1,30 @@
 [gd_scene format=3 uid="uid://cruf4r2hiqeyi"]
 
 [ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="1_ugala"]
+[ext_resource type="Texture2D" uid="uid://bymlbr4o2m3jc" path="res://addons/dialogic/Editor/Images/Toolbar/add-timeline.svg" id="2_ddp17"]
 [ext_resource type="Material" uid="uid://db74r6pn7xdhh" path="res://definitions/materials/mat_card_default.tres" id="2_rr0j0"]
 [ext_resource type="LabelSettings" uid="uid://dlcqvrgbxufh1" path="res://definitions/fonts/font_card_value.tres" id="3_6nsyj"]
+[ext_resource type="Texture2D" uid="uid://my600mb32ydt" path="res://addons/dialogic/Editor/Images/Toolbar/add-character.svg" id="3_ku0qb"]
 [ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/curved_text.gd" id="4_78jd5"]
+[ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/Remove.svg" id="4_ku0qb"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
+[ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/viewport_fit_container.gd" id="6_vfit"]
+[ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="7_6nsyj"]
+[ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="8_78jd5"]
+[ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
+[ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
+[ext_resource type="Script" uid="uid://3h0qaec14lsx" path="res://src/ui/card_editor.gd" id="11_cedit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nsyj"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 5.0
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
 
 [sub_resource type="Curve2D" id="Curve2D_76muk"]
 _data = {
@@ -12,29 +32,151 @@ _data = {
 }
 point_count = 3
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jixuk"]
+content_margin_left = 16.0
+content_margin_top = 24.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="LabelSettings" id="LabelSettings_rr0j0"]
+font = ExtResource("7_6nsyj")
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_6nsyj"]
+font = ExtResource("7_6nsyj")
+font_size = 20
+
+[sub_resource type="LabelSettings" id="LabelSettings_w2akv"]
+font = ExtResource("7_6nsyj")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0aqhm"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.09985284, 0.09985284, 0.09985284, 0)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="Main" type="Node2D" unique_id=1372351550]
 
 [node name="CloseUpNaturalTexture" type="Sprite2D" parent="." unique_id=304415346]
+visible = false
 position = Vector2(960, 480)
 scale = Vector2(0.41, 0.41)
 texture = ExtResource("1_ugala")
 offset = Vector2(0, 34.14624)
 
-[node name="Card" type="Control" parent="." unique_id=1572695618]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 450.0
-offset_bottom = 600.0
-pivot_offset = Vector2(225, 300)
+[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713]
+script = ExtResource("11_cedit")
 
-[node name="CardBase" type="ColorRect" parent="Card" unique_id=2071212288]
+[node name="Background" type="ColorRect" parent="CardEditor" unique_id=1066079664]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.078431375, 0.078431375, 0.078431375, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CardEditor" unique_id=960774251]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CharacterPicker" type="FileDialog" parent="CardEditor/Control" unique_id=946364589]
+title = "Open a File"
+file_mode = 0
+root_subfolder = "res://definitions/database/characters"
+filters = PackedStringArray("*.dch ; Character Definition")
+
+[node name="MarginContainer" type="MarginContainer" parent="CardEditor" unique_id=1181385786]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CardEditor/MarginContainer" unique_id=762217452]
+layout_mode = 2
+split_offsets = PackedInt32Array(355, 1354)
+split_offset = 355
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer" unique_id=980845409]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer" unique_id=1113897241]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=1725565134]
+layout_mode = 2
+icon = ExtResource("2_ddp17")
+
+[node name="Button2" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=2131441249]
+layout_mode = 2
+icon = ExtResource("3_ku0qb")
+
+[node name="Control" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=719944225]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=390359013]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+icon = ExtResource("4_ku0qb")
+icon_alignment = 1
+
+[node name="Tree" type="Tree" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer" unique_id=913368672]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GraphEdit" type="GraphEdit" parent="CardEditor/MarginContainer/HSplitContainer" unique_id=1829042089]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6nsyj")
+grid_pattern = 1
+show_zoom_label = true
+show_minimap_button = false
+metadata/_edit_use_anchors_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="CardEditor/MarginContainer/HSplitContainer" unique_id=1600976675]
+layout_mode = 2
+split_offsets = PackedInt32Array(360)
+split_offset = 360
+
+[node name="Container" type="Container" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer" unique_id=937863629]
+clip_contents = true
+layout_mode = 2
+script = ExtResource("6_vfit")
+
+[node name="Card" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container" unique_id=1572695618]
+layout_mode = 2
+
+[node name="CardBase" type="ColorRect" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card" unique_id=2071212288]
 material = ExtResource("2_rr0j0")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
 pivot_offset = Vector2(225, 600)
 
-[node name="ValueLabel" type="Label" parent="Card/CardBase" unique_id=90094314]
+[node name="ValueLabel" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card/CardBase" unique_id=90094314]
 layout_mode = 1
 offset_left = 35.96754
 offset_top = 19.101124
@@ -51,7 +193,7 @@ vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="ValueLabel2" type="Label" parent="Card/CardBase" unique_id=1658481521]
+[node name="ValueLabel2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card/CardBase" unique_id=1658481521]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -76,26 +218,227 @@ vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="CharacterNameLabel" type="Path2D" parent="Card/CardBase" unique_id=895058224]
+[node name="CharacterNameLabel" type="Path2D" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card/CardBase" unique_id=895058224]
 position = Vector2(-1.1111112, -15.969998)
 scale = Vector2(0.49999994, 0.49999994)
 curve = SubResource("Curve2D_76muk")
 script = ExtResource("4_78jd5")
 label_settings = ExtResource("5_w2akv")
 
-[node name="GraphEdit" type="GraphEdit" parent="." unique_id=1829042089]
-offset_left = 485.0
-offset_top = 92.0
-offset_right = 1778.0
-offset_bottom = 1078.0
-grid_pattern = 1
-show_zoom_label = true
-show_minimap_button = false
+[node name="ScrollContainer" type="ScrollContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer" unique_id=964327149]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_jixuk")
+metadata/_edit_use_anchors_ = true
 
-[node name="GraphNode" type="GraphNode" parent="GraphEdit" unique_id=1432539052]
+[node name="VBoxContainer" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer" unique_id=1632879287]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 18
+
+[node name="Title" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1565518294]
+layout_mode = 2
+text = "角色"
+label_settings = SubResource("LabelSettings_rr0j0")
+
+[node name="GridContainer" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1686584196]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="Control" type="Panel" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=958392358]
+custom_minimum_size = Vector2(0, 86)
+clip_contents = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/Control" unique_id=806184926]
 layout_mode = 0
-offset_right = 294.0
-offset_bottom = 293.0
-mouse_filter = 1
-resizable = true
-title = "q1111"
+offset_top = -5.655
+offset_right = 86.0
+offset_bottom = 181.345
+scale = Vector2(1.785, 1.785)
+pivot_offset = Vector2(39.19, 0)
+texture = ExtResource("8_78jd5")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CharacterInfo" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1771178153]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=1734397367]
+layout_mode = 2
+text = "【无角色】"
+label_settings = SubResource("LabelSettings_6nsyj")
+
+[node name="Label2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=381465159]
+layout_mode = 2
+size_flags_vertical = 3
+text = "【无角色描述】"
+label_settings = SubResource("LabelSettings_w2akv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=216866798]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="OptionButton" type="OptionButton" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=1782044937]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("7_6nsyj")
+selected = 0
+item_count = 1
+popup/item_0/text = "选择差分"
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_0/separator = true
+
+[node name="Button" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=877853711]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/icon_max_width = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
+icon = ExtResource("9_0aqhm")
+
+[node name="Button2" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=1273386422]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/icon_max_width = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
+icon = ExtResource("10_naion")
+
+[node name="CharacterSelectButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=766963589]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_6nsyj")
+text = "选择..."
+
+[node name="Title2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=8797364]
+layout_mode = 2
+text = "角色X偏移"
+label_settings = SubResource("LabelSettings_6nsyj")
+
+[node name="HSlider" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=764535382]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="SpinBox" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=146532288]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="Title3" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=547948497]
+layout_mode = 2
+text = "角色Y偏移"
+label_settings = SubResource("LabelSettings_6nsyj")
+
+[node name="HSlider2" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1421739937]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="SpinBox2" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=625357888]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="Title4" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1389948659]
+layout_mode = 2
+text = "角色缩放"
+label_settings = SubResource("LabelSettings_6nsyj")
+
+[node name="HSlider3" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=293288481]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="SpinBox3" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=429017347]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.1
+
+[node name="CharacterEditButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=841064636]
+custom_minimum_size = Vector2(86.5, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = "编辑角色"
+
+[node name="GridContainer2" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1150694495]
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="Title5" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1402714964]
+layout_mode = 2
+text = "技能"
+label_settings = SubResource("LabelSettings_rr0j0")
+
+[node name="Spacer8" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=548142165]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Enable" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=388723546]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+
+[node name="CheckButton" type="CheckBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2/Enable" unique_id=1848032715]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.055223666
+anchor_top = -0.102127075
+anchor_right = 1.1497763
+anchor_bottom = 1.102873
+offset_left = 4.749235
+offset_top = 3.1659393
+offset_right = -12.880768
+offset_bottom = -3.1890602
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.205, 1.205)
+pivot_offset = Vector2(23.166992, 15.4436035)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("7_6nsyj")
+text = "启用   "
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Title4" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1687860648]
+custom_minimum_size = Vector2(93, 0)
+layout_mode = 2
+text = "优先级"
+label_settings = SubResource("LabelSettings_6nsyj")
+
+[node name="HSlider3" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1599654357]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = -1.0
+max_value = 1.0
+step = 0.01
+
+[node name="SpinBox3" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1007654255]
+layout_mode = 2
+min_value = -1.0
+max_value = 1.0
+step = 0.1

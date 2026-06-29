@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://4nib0ega2a76"
 path.bptc="res://.godot/imported/若鹭姬 无表情.png-10ba30909692a311b44722d75c6e52f8.bptc.ctex"
+path.astc="res://.godot/imported/若鹭姬 无表情.png-10ba30909692a311b44722d75c6e52f8.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/若鹭姬 无表情.png"
-dest_files=["res://.godot/imported/若鹭姬 无表情.png-10ba30909692a311b44722d75c6e52f8.bptc.ctex"]
+dest_files=["res://.godot/imported/若鹭姬 无表情.png-10ba30909692a311b44722d75c6e52f8.bptc.ctex", "res://.godot/imported/若鹭姬 无表情.png-10ba30909692a311b44722d75c6e52f8.astc.ctex"]
 
 [params]
 

@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://c1wq48kk71te7"
 path.bptc="res://.godot/imported/西瓜 喊.png-63c4443a4ba8559cb7c0557a4715e287.bptc.ctex"
+path.astc="res://.godot/imported/西瓜 喊.png-63c4443a4ba8559cb7c0557a4715e287.astc.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://assets/textures/characters/西瓜 喊.png"
-dest_files=["res://.godot/imported/西瓜 喊.png-63c4443a4ba8559cb7c0557a4715e287.bptc.ctex"]
+dest_files=["res://.godot/imported/西瓜 喊.png-63c4443a4ba8559cb7c0557a4715e287.bptc.ctex", "res://.godot/imported/西瓜 喊.png-63c4443a4ba8559cb7c0557a4715e287.astc.ctex"]
 
 [params]
 
