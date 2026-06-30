@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
 [ext_resource type="Script" uid="uid://3h0qaec14lsx" path="res://src/ui/card_editor.gd" id="11_cedit"]
+[ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_value_edit.tscn" id="12_vedit"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nsyj"]
 content_margin_left = 4.0
@@ -231,30 +232,27 @@ size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jixuk")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer" unique_id=1632879287]
+[node name="VBoxContainer" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer" unique_id=738772903]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 18
 
-[node name="Title" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1565518294]
+[node name="Title" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=2035645420]
 layout_mode = 2
 text = "角色"
 label_settings = SubResource("LabelSettings_rr0j0")
 
-[node name="GridContainer" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1686584196]
+[node name="GridContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=514010673]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
-theme_override_constants/h_separation = 16
-theme_override_constants/v_separation = 12
-columns = 3
 
-[node name="Control" type="Panel" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=958392358]
+[node name="Control" type="Panel" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=899291338]
 custom_minimum_size = Vector2(0, 86)
 clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/Control" unique_id=806184926]
+[node name="TextureRect" type="TextureRect" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/Control" unique_id=1425070589]
 layout_mode = 0
 offset_top = -5.655
 offset_right = 86.0
@@ -265,26 +263,26 @@ texture = ExtResource("8_78jd5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="CharacterInfo" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1771178153]
+[node name="CharacterInfo" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=619171250]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=1734397367]
+[node name="Label" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=743919923]
 layout_mode = 2
 text = "【无角色】"
 label_settings = SubResource("LabelSettings_6nsyj")
 
-[node name="Label2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=381465159]
+[node name="Label2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=351365160]
 layout_mode = 2
 size_flags_vertical = 3
 text = "【无角色描述】"
 label_settings = SubResource("LabelSettings_w2akv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=216866798]
+[node name="HBoxContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=1731253689]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="OptionButton" type="OptionButton" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=1782044937]
+[node name="OptionButton" type="OptionButton" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=175221568]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -297,7 +295,7 @@ popup/item_0/id = 0
 popup/item_0/disabled = true
 popup/item_0/separator = true
 
-[node name="Button" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=877853711]
+[node name="Button" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=2110805750]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
@@ -305,7 +303,7 @@ theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
 icon = ExtResource("9_0aqhm")
 
-[node name="Button2" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=1273386422]
+[node name="Button2" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=1136764872]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
@@ -313,105 +311,70 @@ theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
 icon = ExtResource("10_naion")
 
-[node name="CharacterSelectButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=766963589]
+[node name="CharacterSelectButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1369866751]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_6nsyj")
 text = "选择..."
 
-[node name="Title2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=8797364]
-layout_mode = 2
+[node name="CharacterOffsetX" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=224716145 instance=ExtResource("12_vedit")]
 text = "角色X偏移"
 label_settings = SubResource("LabelSettings_6nsyj")
-
-[node name="HSlider" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=764535382]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
 min_value = -1.0
-max_value = 1.0
-step = 0.01
 
-[node name="SpinBox" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=146532288]
-layout_mode = 2
-min_value = -1.0
-max_value = 1.0
-step = 0.1
-
-[node name="Title3" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=547948497]
-layout_mode = 2
+[node name="CharacterOffsetY" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=4476501 instance=ExtResource("12_vedit")]
 text = "角色Y偏移"
 label_settings = SubResource("LabelSettings_6nsyj")
-
-[node name="HSlider2" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1421739937]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
 min_value = -1.0
-max_value = 1.0
-step = 0.01
 
-[node name="SpinBox2" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=625357888]
-layout_mode = 2
-min_value = -1.0
-max_value = 1.0
-step = 0.1
-
-[node name="Title4" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1389948659]
-layout_mode = 2
+[node name="CharacterScale" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=464163771 instance=ExtResource("12_vedit")]
 text = "角色缩放"
 label_settings = SubResource("LabelSettings_6nsyj")
+min_value = 0.01
+max_value = 2.0
+value = 0.01
 
-[node name="HSlider3" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=293288481]
+[node name="CharacterButtonGrid" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=587338278]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-min_value = 0.01
-max_value = 2.0
-step = 0.01
-value = 1.0
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 12
+columns = 3
 
-[node name="SpinBox3" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=429017347]
-layout_mode = 2
-min_value = 0.01
-max_value = 2.0
-step = 0.1
-value = 1.01
-
-[node name="CharacterEditButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=841064636]
+[node name="CharacterEditButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/CharacterButtonGrid" unique_id=1482695527]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
 text = "编辑角色..."
 
-[node name="Control2" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=189808198]
+[node name="Control2" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/CharacterButtonGrid" unique_id=127559397]
 layout_mode = 2
 
-[node name="CharacterResetButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1087806426]
+[node name="CharacterResetButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/CharacterButtonGrid" unique_id=1733696815]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "重置"
 
-[node name="GridContainer2" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1150694495]
+[node name="GridContainer2" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=913005428]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 12
 columns = 3
 
-[node name="Title5" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1402714964]
+[node name="Title5" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=637649242]
 layout_mode = 2
 text = "技能"
 label_settings = SubResource("LabelSettings_rr0j0")
 
-[node name="Spacer8" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=548142165]
+[node name="Spacer8" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=921691821]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Enable" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=388723546]
+[node name="Enable" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1128089259]
 custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
 
-[node name="CheckButton" type="CheckBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2/Enable" unique_id=1848032715]
+[node name="CheckButton" type="CheckBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2/Enable" unique_id=952735715]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.055223666
@@ -433,22 +396,9 @@ text = "启用   "
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Title4" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1687860648]
-custom_minimum_size = Vector2(93, 0)
-layout_mode = 2
+[node name="SkillPriority" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1967379039 instance=ExtResource("12_vedit")]
 text = "优先级"
 label_settings = SubResource("LabelSettings_6nsyj")
-
-[node name="HSlider3" type="HSlider" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1599654357]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-min_value = -10.0
-max_value = 10.0
-rounded = true
-
-[node name="SpinBox3" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1007654255]
-layout_mode = 2
 min_value = -10.0
 max_value = 10.0
 rounded = true

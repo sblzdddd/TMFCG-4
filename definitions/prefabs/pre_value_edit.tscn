@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://yaqyiwy870jf"]
+
+[ext_resource type="Script" uid="uid://duh0mikmqowvv" path="res://src/ui/value_edit.gd" id="1_value"]
+[ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="2_font"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_label"]
+font = ExtResource("2_font")
+font_size = 20
+
+[node name="ValueEdit" type="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+script = ExtResource("1_value")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_label")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.01
+
+[node name="SpinBox" type="SpinBox" parent="."]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
