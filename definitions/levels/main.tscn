@@ -365,21 +365,31 @@ label_settings = SubResource("LabelSettings_6nsyj")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-min_value = -1.0
-max_value = 1.0
+min_value = 0.01
+max_value = 2.0
 step = 0.01
+value = 1.0
 
 [node name="SpinBox3" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=429017347]
 layout_mode = 2
-min_value = -1.0
-max_value = 1.0
+min_value = 0.01
+max_value = 2.0
 step = 0.1
+value = 1.01
 
-[node name="CharacterEditButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=841064636]
+[node name="CharacterEditButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=841064636]
+custom_minimum_size = Vector2(86.5, 0)
+layout_mode = 2
+text = "编辑角色..."
+
+[node name="Control2" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=189808198]
+layout_mode = 2
+
+[node name="CharacterResetButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1087806426]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-text = "编辑角色"
+text = "重置"
 
 [node name="GridContainer2" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1150694495]
 layout_mode = 2
@@ -433,12 +443,12 @@ label_settings = SubResource("LabelSettings_6nsyj")
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
-min_value = -1.0
-max_value = 1.0
-step = 0.01
+min_value = -10.0
+max_value = 10.0
+rounded = true
 
 [node name="SpinBox3" type="SpinBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1007654255]
 layout_mode = 2
-min_value = -1.0
-max_value = 1.0
-step = 0.1
+min_value = -10.0
+max_value = 10.0
+rounded = true

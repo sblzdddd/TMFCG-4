@@ -22,7 +22,6 @@ config/icon="res://assets/textures/icon.svg"
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
-UiScale="*res://src/ui/ui_scale.gd"
 
 [dialogic]
 
@@ -173,7 +172,7 @@ translation/intern/translation_folder="res://definitions/database/translations"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
-window/stretch/aspect="keep_height"
+window/stretch/aspect="expand"
 
 [dotnet]
 
@@ -198,6 +197,10 @@ folder_colors={
 "res://definitions/prefabs/": "blue",
 "res://scripts/": "gray"
 }
+
+[gui]
+
+theme/custom_font="uid://dirgna8a4nfot"
 
 [input]
 

@@ -168,20 +168,7 @@ func get_default_portrait_preview_texture() -> Texture2D:
 
 ## Loads the default portrait at native resolution for editor preview.
 func generate_editor_preview() -> Texture2D:
-	var image_path := get_portrait_image_path()
-	if not image_path.is_empty() and ResourceLoader.exists(image_path):
-		var image := Image.new()
-		if image.load(image_path) == OK and not image.is_empty():
-			return _image_to_texture(image)
-
-	var texture := get_default_portrait_preview_texture()
-	if texture == null:
-		return null
-
-	var image := texture.get_image()
-	if image.is_empty():
-		return texture
-	return _image_to_texture(image)
+	return get_default_portrait_preview_texture()
 
 
 static func _extract_image_path_from_portrait_info(info: Dictionary) -> String:
@@ -211,12 +198,6 @@ static func _parse_resource_path_string(value: Variant) -> String:
 		return value.trim_prefix('"').trim_suffix('"')
 
 	return value
-
-
-static func _image_to_texture(image: Image) -> Texture2D:
-	if image.is_compressed():
-		image.decompress()
-	return ImageTexture.create_from_image(image)
 
 
 ## Helper method intended for a simplified creation of portraits at runtime.
