@@ -5,12 +5,12 @@ const CharacterUtilsLib = preload("res://src/dsl/character_utils.gd")
 
 static var _thumbnail_cache: Dictionary = {}
 
-@onready var _character_picker: FileDialog = $Control/CharacterPicker
-@onready var _character_select_button: Button = $MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterSelectButton
-@onready var _character_name_label: Path2D = $MarginContainer/HSplitContainer/VSplitContainer/Container/Card/CardBase/CharacterNameLabel
-@onready var _character_name_info: Label = $MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/Label
-@onready var _character_description_label: Label = $MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/Label2
-@onready var _character_portrait: TextureRect = $MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/Control/TextureRect
+@export var _character_picker: FileDialog
+@export var _character_select_button: Button
+@export var _character_name_label: Path2D
+@export var _character_name_info: Label
+@export var _character_description_label: Label
+@export var _character_portrait: TextureRect
 
 var selected_character: DialogicCharacter = null
 

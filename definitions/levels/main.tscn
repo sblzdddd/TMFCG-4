@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://cruf4r2hiqeyi"]
 
-[ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="1_ugala"]
 [ext_resource type="Texture2D" uid="uid://bymlbr4o2m3jc" path="res://addons/dialogic/Editor/Images/Toolbar/add-timeline.svg" id="2_ddp17"]
 [ext_resource type="Material" uid="uid://db74r6pn7xdhh" path="res://definitions/materials/mat_card_default.tres" id="2_rr0j0"]
 [ext_resource type="LabelSettings" uid="uid://dlcqvrgbxufh1" path="res://definitions/fonts/font_card_value.tres" id="3_6nsyj"]
@@ -10,11 +9,24 @@
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
 [ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/viewport_fit_container.gd" id="6_vfit"]
 [ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="7_6nsyj"]
+[ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/gameplay/card_visual.gd" id="7_6v3qa"]
 [ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="8_78jd5"]
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
 [ext_resource type="Script" uid="uid://3h0qaec14lsx" path="res://src/ui/card_editor.gd" id="11_cedit"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_value_edit.tscn" id="12_vedit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v3qa"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 5.0
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nsyj"]
 content_margin_left = 4.0
@@ -69,15 +81,14 @@ corner_detail = 5
 
 [node name="Main" type="Node2D" unique_id=1372351550]
 
-[node name="CloseUpNaturalTexture" type="Sprite2D" parent="." unique_id=304415346]
-visible = false
-position = Vector2(960, 480)
-scale = Vector2(0.41, 0.41)
-texture = ExtResource("1_ugala")
-offset = Vector2(0, 34.14624)
-
-[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713]
+[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713 node_paths=PackedStringArray("_character_picker", "_character_select_button", "_character_name_label", "_character_name_info", "_character_description_label", "_character_portrait")]
 script = ExtResource("11_cedit")
+_character_picker = NodePath("CharacterPicker")
+_character_select_button = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterSelectButton")
+_character_name_label = NodePath("EditorMargin/EditorLayout/VSplitContainer/Container/Card/CardVisual/CharacterNameLabel")
+_character_name_info = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterName")
+_character_description_label = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterDesc")
+_character_portrait = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterPreview/TextureRect")
 
 [node name="Background" type="ColorRect" parent="CardEditor" unique_id=1066079664]
 anchors_preset = 15
@@ -88,21 +99,14 @@ grow_vertical = 2
 color = Color(0.078431375, 0.078431375, 0.078431375, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="CardEditor" unique_id=960774251]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CharacterPicker" type="FileDialog" parent="CardEditor/Control" unique_id=946364589]
+[node name="CharacterPicker" type="FileDialog" parent="CardEditor" unique_id=946364589]
+oversampling_override = 1.0
 title = "Open a File"
 file_mode = 0
 root_subfolder = "res://definitions/database/characters"
 filters = PackedStringArray("*.dch ; Character Definition")
 
-[node name="MarginContainer" type="MarginContainer" parent="CardEditor" unique_id=1181385786]
+[node name="EditorMargin" type="MarginContainer" parent="CardEditor" unique_id=1181385786]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -115,41 +119,42 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="HSplitContainer" type="HSplitContainer" parent="CardEditor/MarginContainer" unique_id=762217452]
+[node name="EditorLayout" type="HSplitContainer" parent="CardEditor/EditorMargin" unique_id=762217452]
 layout_mode = 2
 split_offsets = PackedInt32Array(355, 1354)
 split_offset = 355
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer" unique_id=980845409]
+[node name="VBoxContainer" type="VBoxContainer" parent="CardEditor/EditorMargin/EditorLayout" unique_id=980845409]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer" unique_id=1113897241]
+[node name="HBoxContainer" type="HBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer" unique_id=1113897241]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=1725565134]
+[node name="AddDeckButton" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer/HBoxContainer" unique_id=1725565134]
 layout_mode = 2
 icon = ExtResource("2_ddp17")
 
-[node name="Button2" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=2131441249]
+[node name="AddCharacterButton" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer/HBoxContainer" unique_id=2131441249]
 layout_mode = 2
 icon = ExtResource("3_ku0qb")
 
-[node name="Control" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=719944225]
+[node name="Spacer" type="Control" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer/HBoxContainer" unique_id=719944225]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button3" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer/HBoxContainer" unique_id=390359013]
+[node name="DeleteButton" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer/HBoxContainer" unique_id=390359013]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("4_ku0qb")
 icon_alignment = 1
 
-[node name="Tree" type="Tree" parent="CardEditor/MarginContainer/HSplitContainer/VBoxContainer" unique_id=913368672]
+[node name="EditorFileTree" type="Tree" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer" unique_id=913368672]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_6v3qa")
 
-[node name="GraphEdit" type="GraphEdit" parent="CardEditor/MarginContainer/HSplitContainer" unique_id=1829042089]
+[node name="SkillGraph" type="GraphEdit" parent="CardEditor/EditorMargin/EditorLayout" unique_id=1829042089]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6nsyj")
 grid_pattern = 1
@@ -157,27 +162,28 @@ show_zoom_label = true
 show_minimap_button = false
 metadata/_edit_use_anchors_ = true
 
-[node name="VSplitContainer" type="VSplitContainer" parent="CardEditor/MarginContainer/HSplitContainer" unique_id=1600976675]
+[node name="VSplitContainer" type="VSplitContainer" parent="CardEditor/EditorMargin/EditorLayout" unique_id=1600976675]
 layout_mode = 2
 split_offsets = PackedInt32Array(360)
 split_offset = 360
 
-[node name="Container" type="Container" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer" unique_id=937863629]
+[node name="Container" type="Container" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer" unique_id=937863629]
 clip_contents = true
 layout_mode = 2
 script = ExtResource("6_vfit")
 
-[node name="Card" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container" unique_id=1572695618]
+[node name="Card" type="Control" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container" unique_id=1572695618]
 layout_mode = 2
 
-[node name="CardBase" type="ColorRect" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card" unique_id=2071212288]
+[node name="CardVisual" type="ColorRect" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card" unique_id=2071212288]
 material = ExtResource("2_rr0j0")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
 pivot_offset = Vector2(225, 600)
+script = ExtResource("7_6v3qa")
 
-[node name="ValueLabel" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card/CardBase" unique_id=90094314]
+[node name="ValueLabel" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card/CardVisual" unique_id=90094314]
 layout_mode = 1
 offset_left = 35.96754
 offset_top = 19.101124
@@ -194,7 +200,7 @@ vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="ValueLabel2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card/CardBase" unique_id=1658481521]
+[node name="ValueLabel2" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card/CardVisual" unique_id=1658481521]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -219,40 +225,42 @@ vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="CharacterNameLabel" type="Path2D" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/Container/Card/CardBase" unique_id=895058224]
+[node name="CharacterNameLabel" type="Path2D" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card/CardVisual" unique_id=895058224]
 position = Vector2(-1.1111112, -15.969998)
 scale = Vector2(0.49999994, 0.49999994)
 curve = SubResource("Curve2D_76muk")
 script = ExtResource("4_78jd5")
+text = "-"
 label_settings = ExtResource("5_w2akv")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer" unique_id=964327149]
+[node name="CardEditPanel" type="ScrollContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer" unique_id=964327149]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jixuk")
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer" unique_id=738772903]
+[node name="CardEditLayout" type="VBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel" unique_id=738772903]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 18
 
-[node name="Title" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=2035645420]
+[node name="CharacterTitleLabel" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=2035645420]
 layout_mode = 2
 text = "角色"
 label_settings = SubResource("LabelSettings_rr0j0")
 
-[node name="GridContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=514010673]
+[node name="CharacterInfoPreview" type="HBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=514010673]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
+theme_override_constants/separation = 16
 
-[node name="Control" type="Panel" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=899291338]
-custom_minimum_size = Vector2(0, 86)
+[node name="CharacterPreview" type="Panel" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview" unique_id=899291338]
+custom_minimum_size = Vector2(86, 86)
 clip_contents = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/Control" unique_id=1425070589]
+[node name="TextureRect" type="TextureRect" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterPreview" unique_id=1425070589]
 layout_mode = 0
 offset_top = -5.655
 offset_right = 86.0
@@ -263,26 +271,27 @@ texture = ExtResource("8_78jd5")
 expand_mode = 1
 stretch_mode = 4
 
-[node name="CharacterInfo" type="VBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=619171250]
+[node name="CharacterInfo" type="VBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview" unique_id=619171250]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=743919923]
+[node name="CharacterName" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=743919923]
 layout_mode = 2
 text = "【无角色】"
 label_settings = SubResource("LabelSettings_6nsyj")
 
-[node name="Label2" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=351365160]
+[node name="CharacterDesc" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=351365160]
 layout_mode = 2
 size_flags_vertical = 3
 text = "【无角色描述】"
 label_settings = SubResource("LabelSettings_w2akv")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo" unique_id=1731253689]
+[node name="CharacterVariant" type="HBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=1731253689]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="OptionButton" type="OptionButton" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=175221568]
+[node name="CharacterVariantSelection" type="OptionButton" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=175221568]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -295,7 +304,7 @@ popup/item_0/id = 0
 popup/item_0/disabled = true
 popup/item_0/separator = true
 
-[node name="Button" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=2110805750]
+[node name="CharacterVariantPrev" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=2110805750]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
@@ -303,7 +312,7 @@ theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
 icon = ExtResource("9_0aqhm")
 
-[node name="Button2" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer/CharacterInfo/HBoxContainer" unique_id=1136764872]
+[node name="CharacterVariantNext" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=1136764872]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
@@ -311,70 +320,72 @@ theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
 icon = ExtResource("10_naion")
 
-[node name="CharacterSelectButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer" unique_id=1369866751]
+[node name="CharacterSelectButton" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview" unique_id=1369866751]
+custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("7_6nsyj")
 text = "选择..."
 
-[node name="CharacterOffsetX" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=224716145 instance=ExtResource("12_vedit")]
+[node name="CharacterOffsetX" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=224716145 instance=ExtResource("12_vedit")]
 text = "角色X偏移"
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = -1.0
 
-[node name="CharacterOffsetY" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=4476501 instance=ExtResource("12_vedit")]
+[node name="CharacterOffsetY" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=4476501 instance=ExtResource("12_vedit")]
 text = "角色Y偏移"
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = -1.0
 
-[node name="CharacterScale" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=464163771 instance=ExtResource("12_vedit")]
-text = "角色缩放"
+[node name="CharacterScale" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=464163771 instance=ExtResource("12_vedit")]
+text = "角色缩放 "
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = 0.01
 max_value = 2.0
-value = 0.01
+value = 1.0
 
-[node name="CharacterButtonGrid" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=587338278]
+[node name="CharacterButtonGrid" type="GridContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=587338278]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 12
 columns = 3
 
-[node name="CharacterEditButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/CharacterButtonGrid" unique_id=1482695527]
+[node name="CharacterEditButton" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterButtonGrid" unique_id=1482695527]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
 text = "编辑角色..."
 
-[node name="Control2" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/CharacterButtonGrid" unique_id=127559397]
+[node name="Spacer" type="Control" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterButtonGrid" unique_id=127559397]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="CharacterResetButton" type="Button" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/CharacterButtonGrid" unique_id=1733696815]
-custom_minimum_size = Vector2(86.5, 0)
+[node name="CharacterResetButton" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterButtonGrid" unique_id=1733696815]
+custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "重置"
 
-[node name="GridContainer2" type="GridContainer" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=913005428]
+[node name="SkillSection" type="GridContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=913005428]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 12
 columns = 3
 
-[node name="Title5" type="Label" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=637649242]
+[node name="SkillTitleLabel" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/SkillSection" unique_id=637649242]
 layout_mode = 2
 text = "技能"
 label_settings = SubResource("LabelSettings_rr0j0")
 
-[node name="Spacer8" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=921691821]
+[node name="SkillSpacer" type="Control" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/SkillSection" unique_id=921691821]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Enable" type="Control" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2" unique_id=1128089259]
+[node name="EnableSkillRoot" type="Control" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/SkillSection" unique_id=1128089259]
 custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
 
-[node name="CheckButton" type="CheckBox" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer/GridContainer2/Enable" unique_id=952735715]
+[node name="EnableSkill" type="CheckBox" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/SkillSection/EnableSkillRoot" unique_id=952735715]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.055223666
@@ -396,7 +407,7 @@ text = "启用   "
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillPriority" parent="CardEditor/MarginContainer/HSplitContainer/VSplitContainer/ScrollContainer/VBoxContainer" unique_id=1967379039 instance=ExtResource("12_vedit")]
+[node name="SkillPriority" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=1967379039 instance=ExtResource("12_vedit")]
 text = "优先级"
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = -10.0

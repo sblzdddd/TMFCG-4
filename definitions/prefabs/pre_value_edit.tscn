@@ -7,24 +7,26 @@
 font = ExtResource("2_font")
 font_size = 20
 
-[node name="ValueEdit" type="HBoxContainer"]
-layout_mode = 2
+[node name="ValueEdit" type="HBoxContainer" unique_id=1267618321]
+offset_right = 276.0
+offset_bottom = 25.0
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 script = ExtResource("1_value")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=244225280]
 layout_mode = 2
+text = "Label"
 label_settings = SubResource("LabelSettings_label")
 
-[node name="HSlider" type="HSlider" parent="."]
+[node name="HSlider" type="HSlider" parent="." unique_id=1976464980]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 max_value = 1.0
 step = 0.01
 
-[node name="SpinBox" type="SpinBox" parent="."]
+[node name="SpinBox" type="SpinBox" parent="." unique_id=1102975947]
 layout_mode = 2
 max_value = 1.0
 step = 0.1
