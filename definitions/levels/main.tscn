@@ -255,7 +255,7 @@ layout_mode = 2
 text = "角色"
 label_settings = SubResource("LabelSettings_rr0j0")
 
-[node name="CharacterInfoPreview" type="HBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_name_info", "_description_label", "_portrait", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_character_editor_button")]
+[node name="CharacterInfoPreview" type="HBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_portrait", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_character_editor_button")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -263,6 +263,9 @@ theme_override_constants/separation = 16
 script = ExtResource("14_n7o2g")
 _picker_dialog = NodePath("../CharacterPicker")
 _select_button = NodePath("CharacterSelectButton")
+_variant_selection = NodePath("CharacterInfo/CharacterVariant/CharacterVariantSelection")
+_variant_prev = NodePath("CharacterInfo/CharacterVariant/CharacterVariantPrev")
+_variant_next = NodePath("CharacterInfo/CharacterVariant/CharacterVariantNext")
 _name_info = NodePath("CharacterInfo/CharacterName")
 _description_label = NodePath("CharacterInfo/CharacterDesc")
 _portrait = NodePath("CharacterPreview/TextureRect")
