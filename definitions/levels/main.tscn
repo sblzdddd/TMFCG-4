@@ -13,8 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="8_78jd5"]
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
-[ext_resource type="Script" uid="uid://3h0qaec14lsx" path="res://src/ui/card_editor.gd" id="11_cedit"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_value_edit.tscn" id="12_vedit"]
+[ext_resource type="Script" uid="uid://c0wetakut8mtj" path="res://src/editor/card/card_editor.gd" id="13_cedit"]
+[ext_resource type="Script" uid="uid://2ly7vd4brlkk" path="res://src/editor/card/card_inspector.gd" id="14_cinsp"]
+[ext_resource type="Script" uid="uid://bttb0u1cv5ay4" path="res://src/editor/card/card_character_configurator.gd" id="15_cconf"]
+[ext_resource type="Script" uid="uid://c7kpm2x8nwr4h" path="res://src/editor/card/character_picker_dialog.gd" id="16_cpick"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v3qa"]
 content_margin_left = 4.0
@@ -81,14 +84,9 @@ corner_detail = 5
 
 [node name="Main" type="Node2D" unique_id=1372351550]
 
-[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713 node_paths=PackedStringArray("_character_picker", "_character_select_button", "_character_name_label", "_character_name_info", "_character_description_label", "_character_portrait")]
-script = ExtResource("11_cedit")
-_character_picker = NodePath("CharacterPicker")
-_character_select_button = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterSelectButton")
-_character_name_label = NodePath("EditorMargin/EditorLayout/VSplitContainer/Container/Card/CardVisual/CharacterNameLabel")
-_character_name_info = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterName")
-_character_description_label = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterDesc")
-_character_portrait = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterPreview/TextureRect")
+[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713 node_paths=PackedStringArray("_inspector")]
+script = ExtResource("13_cedit")
+_inspector = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel")
 
 [node name="Background" type="ColorRect" parent="CardEditor" unique_id=1066079664]
 anchors_preset = 15
@@ -98,13 +96,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.078431375, 0.078431375, 0.078431375, 1)
 metadata/_edit_use_anchors_ = true
-
-[node name="CharacterPicker" type="FileDialog" parent="CardEditor" unique_id=946364589]
-oversampling_override = 1.0
-title = "Open a File"
-file_mode = 0
-root_subfolder = "res://definitions/database/characters"
-filters = PackedStringArray("*.dch ; Character Definition")
 
 [node name="EditorMargin" type="MarginContainer" parent="CardEditor" unique_id=1181385786]
 anchors_preset = 15
@@ -175,13 +166,15 @@ script = ExtResource("6_vfit")
 [node name="Card" type="Control" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container" unique_id=1572695618]
 layout_mode = 2
 
-[node name="CardVisual" type="ColorRect" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card" unique_id=2071212288]
+[node name="CardVisual" type="ColorRect" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
 material = ExtResource("2_rr0j0")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
 pivot_offset = Vector2(225, 600)
 script = ExtResource("7_6v3qa")
+valueLabels = [NodePath("ValueLabel"), NodePath("ValueLabel2")]
+_name_label = NodePath("CharacterNameLabel")
 
 [node name="ValueLabel" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card/CardVisual" unique_id=90094314]
 layout_mode = 1
@@ -233,10 +226,13 @@ script = ExtResource("4_78jd5")
 text = "-"
 label_settings = ExtResource("5_w2akv")
 
-[node name="CardEditPanel" type="ScrollContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer" unique_id=964327149]
+[node name="CardEditPanel" type="ScrollContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer" unique_id=964327149 node_paths=PackedStringArray("_preview", "_character_configurator")]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_jixuk")
+script = ExtResource("14_cinsp")
+_preview = NodePath("../Container/Card/CardVisual")
+_character_configurator = NodePath("CardEditLayout/CharacterInfoPreview")
 metadata/_edit_use_anchors_ = true
 
 [node name="CardEditLayout" type="VBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel" unique_id=738772903]
@@ -244,16 +240,31 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 18
 
+[node name="CharacterPicker" type="FileDialog" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=946364589]
+oversampling_override = 1.0
+script = ExtResource("16_cpick")
+
 [node name="CharacterTitleLabel" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=2035645420]
 layout_mode = 2
 text = "角色"
 label_settings = SubResource("LabelSettings_rr0j0")
 
-[node name="CharacterInfoPreview" type="HBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=514010673]
+[node name="CharacterInfoPreview" type="HBoxContainer" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_name_info", "_description_label", "_portrait", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_character_editor_button")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 theme_override_constants/separation = 16
+script = ExtResource("15_cconf")
+_picker_dialog = NodePath("../CharacterPicker")
+_select_button = NodePath("CharacterSelectButton")
+_name_info = NodePath("CharacterInfo/CharacterName")
+_description_label = NodePath("CharacterInfo/CharacterDesc")
+_portrait = NodePath("CharacterPreview/TextureRect")
+_x_edit = NodePath("../CharacterOffsetX")
+_y_edit = NodePath("../CharacterOffsetY")
+_scale_edit = NodePath("../CharacterScale")
+_reset_button = NodePath("../CharacterButtonGrid/CharacterResetButton")
+_character_editor_button = NodePath("../CharacterButtonGrid/CharacterEditButton")
 
 [node name="CharacterPreview" type="Panel" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview" unique_id=899291338]
 custom_minimum_size = Vector2(86, 86)
@@ -327,16 +338,19 @@ theme_override_fonts/font = ExtResource("7_6nsyj")
 text = "选择..."
 
 [node name="CharacterOffsetX" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=224716145 instance=ExtResource("12_vedit")]
+layout_mode = 2
 text = "角色X偏移"
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = -1.0
 
 [node name="CharacterOffsetY" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=4476501 instance=ExtResource("12_vedit")]
+layout_mode = 2
 text = "角色Y偏移"
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = -1.0
 
 [node name="CharacterScale" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=464163771 instance=ExtResource("12_vedit")]
+layout_mode = 2
 text = "角色缩放 "
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = 0.01
@@ -408,6 +422,7 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="SkillPriority" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=1967379039 instance=ExtResource("12_vedit")]
+layout_mode = 2
 text = "优先级"
 label_settings = SubResource("LabelSettings_6nsyj")
 min_value = -10.0

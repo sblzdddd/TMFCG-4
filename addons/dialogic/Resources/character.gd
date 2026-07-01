@@ -158,19 +158,6 @@ func get_portrait_image_path(portrait_name: String = "") -> String:
 	return _extract_image_path_from_portrait_info(get_portrait_info(portrait_key))
 
 
-## Loads the default portrait image as a texture, if available.
-func get_default_portrait_preview_texture() -> Texture2D:
-	var image_path := get_portrait_image_path()
-	if image_path.is_empty() or not ResourceLoader.exists(image_path):
-		return null
-	return ResourceLoader.load(image_path) as Texture2D
-
-
-## Loads the default portrait at native resolution for editor preview.
-func generate_editor_preview() -> Texture2D:
-	return get_default_portrait_preview_texture()
-
-
 static func _extract_image_path_from_portrait_info(info: Dictionary) -> String:
 	if info.is_empty():
 		return ""

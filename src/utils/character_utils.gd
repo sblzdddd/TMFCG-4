@@ -1,7 +1,36 @@
 extends RefCounted
+class_name CharacterUtils
 
 const DESCRIPTION_PREFIX := "description="
 
+static var _portrait_texture_cache: Dictionary = {}
+
+
+static func load_portrait_texture(
+	character: DialogicCharacter,
+	portrait_name: String = ""
+) -> Texture2D:
+	if character == null:
+		return null
+
+	var image_path := character.get_portrait_image_path(portrait_name)
+	if image_path.is_empty() or not ResourceLoader.exists(image_path):
+		return null
+
+	if _portrait_texture_cache.has(image_path):
+		return _portrait_texture_cache[image_path]
+
+	var texture := ResourceLoader.load(image_path) as Texture2D
+	if texture != null:
+		_portrait_texture_cache[image_path] = texture
+	return texture
+
+## Loads the default portrait image as a texture, if available.
+static func get_preview_texture(character: DialogicCharacter) -> Texture2D:
+	var image_path := character.get_portrait_image_path()
+	if image_path.is_empty() or not ResourceLoader.exists(image_path):
+		return null
+	return ResourceLoader.load(image_path) as Texture2D
 
 static func get_card_description(character: DialogicCharacter) -> String:
 	return parse_structured_description(character.description)

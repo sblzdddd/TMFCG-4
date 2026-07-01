@@ -118,7 +118,7 @@ void fragment() {
 
 	albedo = mix(albedo, albedo + color_burn(albedo, laser.rgb) * 0.75, clamp(laserMask, 0.0, 1.0) * laserParams.w);
 	
-	vec3 charTransform = characterTransform * vec3(0,0,.86) + vec3(0, .12, 0);
+	vec3 charTransform = characterTransform * vec3(.2,.2,.86) + vec3(0, .12, 0);
 	vec2 charUV = RatioCorrectUV(uvr, charTransform, textureSize(characterTex, 0), ivec4(0), vec4(0)).uv;
 	vec4 characterCol = texture(characterTex, charUV);
 	float charOutlineMask = SimpleOutline(charUV, characterTex, charOutlineWidth * 0.02);

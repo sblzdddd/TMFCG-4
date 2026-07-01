@@ -1,5 +1,6 @@
 @tool
 extends Path2D
+class_name CurvedText
 
 
 @export var text: String = "Kasodani Kyouko":

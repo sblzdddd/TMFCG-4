@@ -1,5 +1,6 @@
 @tool
 extends HBoxContainer
+class_name ValueEdit
 
 signal value_changed(new_value: float)
 
