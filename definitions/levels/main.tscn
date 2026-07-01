@@ -242,6 +242,12 @@ theme_override_constants/separation = 18
 
 [node name="CharacterPicker" type="FileDialog" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=946364589]
 oversampling_override = 1.0
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+deleting_enabled = false
 script = ExtResource("16_cpick")
 
 [node name="CharacterTitleLabel" type="Label" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=2035645420]
@@ -331,11 +337,20 @@ theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
 icon = ExtResource("10_naion")
 
-[node name="CharacterSelectButton" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview" unique_id=1369866751]
+[node name="CharacterSelectButton" type="OptionButton" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview" unique_id=1369866751]
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
-theme_override_fonts/font = ExtResource("7_6nsyj")
-text = "选择..."
+theme_override_constants/h_separation = 0
+selected = 0
+fit_to_longest_item = false
+item_count = 3
+popup/item_0/text = "选择..."
+popup/item_0/id = 0
+popup/item_0/disabled = true
+popup/item_1/text = "预设角色"
+popup/item_1/id = 1
+popup/item_2/text = "自定义角色"
+popup/item_2/id = 2
 
 [node name="CharacterOffsetX" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=224716145 instance=ExtResource("12_vedit")]
 layout_mode = 2

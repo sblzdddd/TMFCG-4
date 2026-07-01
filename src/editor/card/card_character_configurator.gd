@@ -4,7 +4,7 @@ class_name CardCharacterConfigurator
 signal character_data_changed(data: CardCharacterData)
 
 @export var _picker_dialog: CharacterPickerDialog
-@export var _select_button: Button
+@export var _select_button: OptionButton
 @export var _name_info: Label
 @export var _description_label: Label
 @export var _portrait: TextureRect
@@ -20,12 +20,24 @@ var selected_character: CardCharacterData = null
 func _ready() -> void:
 	TranslationServer.set_locale("zh")
 	_portrait.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	_select_button.pressed.connect(_picker_dialog.popup_picker)
+	_select_button.item_selected.connect(_on_select_item_selected)
 	_picker_dialog.character_selected.connect(_on_character_selected)
 	_x_edit.value_changed.connect(_on_transform_changed)
 	_y_edit.value_changed.connect(_on_transform_changed)
 	_scale_edit.value_changed.connect(_on_transform_changed)
 	_reset_button.pressed.connect(_on_reset_pressed)
+
+
+func _on_select_item_selected(index: int) -> void:
+	var item_id := _select_button.get_item_id(index)
+	if item_id == 0:
+		return
+	match item_id:
+		1:
+			_picker_dialog.popup_preset_picker()
+		2:
+			_picker_dialog.popup_user_picker()
+	_select_button.select(0)
 
 
 func _on_character_selected(character: DialogicCharacter) -> void:
