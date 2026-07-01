@@ -1,4 +1,4 @@
-class_name CardCharacterData
+class_name CardVisualData
 extends Resource
 
 @export var character: DialogicCharacter = null

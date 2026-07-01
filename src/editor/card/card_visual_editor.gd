@@ -1,7 +1,7 @@
 extends Container
-class_name CardCharacterConfigurator
+class_name CardVisualEditor
 
-signal character_data_changed(data: CardCharacterData)
+signal character_data_changed(data: CardVisualData)
 
 @export var _picker_dialog: CharacterPickerDialog
 @export var _select_button: OptionButton
@@ -14,7 +14,7 @@ signal character_data_changed(data: CardCharacterData)
 @export var _reset_button: Button
 @export var _character_editor_button: Button   # TODO
 
-var selected_character: CardCharacterData = null
+var selected_character: CardVisualData = null
 
 
 func _ready() -> void:
@@ -42,7 +42,7 @@ func _on_select_item_selected(index: int) -> void:
 
 func _on_character_selected(character: DialogicCharacter) -> void:
 	if selected_character == null:
-		selected_character = CardCharacterData.new()
+		selected_character = CardVisualData.new()
 	selected_character.character = character
 	_sync_transform_from_edits()
 	_apply_character(character)

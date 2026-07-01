@@ -6,16 +6,16 @@ const FALLBACK_PORTRAIT := preload("res://assets/textures/characters/Fallback.pn
 @export var valueLabels: Array[Label] = []
 @export var _name_label: CurvedText
 
-var _character_data: CardCharacterData = null
+var _character_data: CardVisualData = null
 var _portrait_texture: Texture2D = null
 
-@export var character: CardCharacterData:
+@export var character: CardVisualData:
 	set(value):
 		_character_data = value
 		if is_node_ready():
 			_update_visual(value)
 
-func _update_visual(data: CardCharacterData) -> void:
+func _update_visual(data: CardVisualData) -> void:
 	if data == null or data.character == null:
 		_name_label.text = "-"
 		_set_character_texture(null)

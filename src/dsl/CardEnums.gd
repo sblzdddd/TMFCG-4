@@ -1,3 +1,5 @@
+class_name CardEnums
+
 enum Suit {
 	CLUBS,
 	DIAMONDS,

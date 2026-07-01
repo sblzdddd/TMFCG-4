@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_value_edit.tscn" id="12_vedit"]
 [ext_resource type="Script" uid="uid://c0wetakut8mtj" path="res://src/editor/card/card_editor.gd" id="13_cedit"]
 [ext_resource type="Script" uid="uid://2ly7vd4brlkk" path="res://src/editor/card/card_inspector.gd" id="14_cinsp"]
-[ext_resource type="Script" uid="uid://bttb0u1cv5ay4" path="res://src/editor/card/card_character_configurator.gd" id="15_cconf"]
+[ext_resource type="Script" uid="uid://ni1wj3cfn8df" path="res://src/editor/card/card_visual_editor.gd" id="14_n7o2g"]
 [ext_resource type="Script" uid="uid://c7kpm2x8nwr4h" path="res://src/editor/card/character_picker_dialog.gd" id="16_cpick"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v3qa"]
@@ -260,7 +260,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
 theme_override_constants/separation = 16
-script = ExtResource("15_cconf")
+script = ExtResource("14_n7o2g")
 _picker_dialog = NodePath("../CharacterPicker")
 _select_button = NodePath("CharacterSelectButton")
 _name_info = NodePath("CharacterInfo/CharacterName")
