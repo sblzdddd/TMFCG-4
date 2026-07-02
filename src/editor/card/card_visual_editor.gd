@@ -1,3 +1,4 @@
+@tool
 extends Container
 class_name CardVisualEditor
 
@@ -191,3 +192,4 @@ func _on_reset_pressed() -> void:
 	_x_edit.value = 0.0
 	_y_edit.value = 0.0
 	_scale_edit.value = 1.0
+	_on_transform_changed()

@@ -1,3 +1,4 @@
+@tool
 extends ColorRect
 class_name CardVisual
 

@@ -180,7 +180,7 @@ project/assembly_name="TMFCG-4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/tmfcg_editor/plugin.cfg")
 
 [file_customization]
 

@@ -1,5 +1,5 @@
-extends CanvasLayer
-
+@tool
+extends Control
 
 @export var _inspector: CardInspector
 @export var _file_tree: EditorFileTree

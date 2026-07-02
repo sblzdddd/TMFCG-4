@@ -195,3 +195,11 @@ func add_portrait(name:String, image:String, scene:= "") -> void:
 		"export_overrides": {
 			"image": image}
 		}
+
+
+## Returns a thumbnail texture for editor resource previews.
+func generate_editor_preview() -> Texture2D:
+	var image_path := get_portrait_image_path()
+	if image_path.is_empty() or not ResourceLoader.exists(image_path):
+		return null
+	return ResourceLoader.load(image_path) as Texture2D

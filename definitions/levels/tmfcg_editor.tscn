@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://cruf4r2hiqeyi"]
 
 [ext_resource type="Texture2D" uid="uid://bymlbr4o2m3jc" path="res://addons/dialogic/Editor/Images/Toolbar/add-timeline.svg" id="2_ddp17"]
-[ext_resource type="Material" uid="uid://db74r6pn7xdhh" path="res://definitions/materials/mat_card_default.tres" id="2_rr0j0"]
-[ext_resource type="LabelSettings" uid="uid://dlcqvrgbxufh1" path="res://definitions/fonts/font_card_value.tres" id="3_6nsyj"]
 [ext_resource type="Texture2D" uid="uid://my600mb32ydt" path="res://addons/dialogic/Editor/Images/Toolbar/add-character.svg" id="3_ku0qb"]
 [ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/curved_text.gd" id="4_78jd5"]
 [ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/Remove.svg" id="4_ku0qb"]
@@ -10,16 +8,21 @@
 [ext_resource type="Texture2D" uid="uid://ds03fekh734pw" path="res://assets/textures/icons/GuiTabMenuHl.svg" id="5_nut5s"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
 [ext_resource type="Texture2D" uid="uid://cp0qqkttlqmur" path="res://assets/textures/icons/Folder.svg" id="6_1od3q"]
+[ext_resource type="Shader" uid="uid://dnd6tkba6tv0y" path="res://src/shaders/card_simple.gdshader" id="6_vch8h"]
 [ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/viewport_fit_container.gd" id="6_vfit"]
 [ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="7_6nsyj"]
-[ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/Gameplay/card_visual.gd" id="7_6v3qa"]
+[ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/gameplay/card_visual.gd" id="7_6v3qa"]
+[ext_resource type="Texture2D" uid="uid://dy71fyoy027lb" path="res://assets/textures/cards/tex_card_jqk.png" id="7_dv6ku"]
 [ext_resource type="Texture2D" uid="uid://j7ym07anlusi" path="res://addons/dialogic/Editor/Images/Resources/timeline.svg" id="7_mb6sx"]
+[ext_resource type="Texture2D" uid="uid://c3uo848dypwja" path="res://assets/textures/cards/tex_card_masks.png" id="8_37gsh"]
 [ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="8_78jd5"]
 [ext_resource type="Texture2D" uid="uid://bbea0efx0ybu7" path="res://addons/dialogic/Editor/Images/Resources/character.svg" id="8_nut5s"]
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
+[ext_resource type="Texture2D" uid="uid://bhesbg4yvm2pg" path="res://assets/textures/cards/tex_card_base.png" id="9_13gcn"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
+[ext_resource type="Texture2D" uid="uid://tine0msp3p1o" path="res://assets/textures/cards/tex_card_parts.png" id="11_e62nb"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_value_edit.tscn" id="12_vedit"]
-[ext_resource type="Script" uid="uid://c0wetakut8mtj" path="res://src/editor/card/card_editor.gd" id="13_cedit"]
+[ext_resource type="FontFile" uid="uid://dy3x2wp2dbgwx" path="res://assets/fonts/Gloock-Regular.ttf" id="13_gc6aj"]
 [ext_resource type="Script" uid="uid://2ly7vd4brlkk" path="res://src/editor/card/card_inspector.gd" id="14_cinsp"]
 [ext_resource type="Script" uid="uid://ni1wj3cfn8df" path="res://src/editor/card/card_visual_editor.gd" id="14_n7o2g"]
 [ext_resource type="Script" uid="uid://c7kpm2x8nwr4h" path="res://src/editor/card/character_picker_dialog.gd" id="16_cpick"]
@@ -50,6 +53,43 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk3tq"]
+shader = ExtResource("6_vch8h")
+shader_parameter/cardTex = ExtResource("9_13gcn")
+shader_parameter/cardMasks = ExtResource("8_37gsh")
+shader_parameter/partsTex = ExtResource("11_e62nb")
+shader_parameter/characterTex = ExtResource("8_78jd5")
+shader_parameter/JQKTex = ExtResource("7_dv6ku")
+shader_parameter/characterTransform = Vector3(0, 0, 1)
+shader_parameter/charOutlineWidth = 0.8
+shader_parameter/charOutlineColor = Color(0.9, 0.9, 0.9, 1)
+shader_parameter/suit = 0
+shader_parameter/value = 1
+shader_parameter/cardRadius = 0.08
+shader_parameter/outlineWidth = 0.015
+shader_parameter/outlineColor = Color(1, 0.694, 0.045, 1)
+shader_parameter/tint1 = Color(0.5921569, 0.2705882, 0.2, 1)
+shader_parameter/tint2 = Color(0.7176471, 0.345098, 0.2196078, 1)
+shader_parameter/tint3 = Color(1, 1, 1, 1)
+shader_parameter/laserParams = Vector4(0, 0, 1, 0)
+shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yln7k"]
+line_spacing = 0.0
+font = ExtResource("13_gc6aj")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jmc66"]
+line_spacing = 0.0
+font = ExtResource("13_gc6aj")
+font_size = 42
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Curve2D" id="Curve2D_76muk"]
 _data = {
@@ -93,14 +133,7 @@ corner_detail = 5
 
 [node name="Main" type="Node2D" unique_id=1372351550]
 
-[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713 node_paths=PackedStringArray("_inspector", "_file_tree", "_add_deck_button", "_add_character_button", "_create_deck_dialog", "_create_character_dialog")]
-script = ExtResource("13_cedit")
-_inspector = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel")
-_file_tree = NodePath("EditorMargin/EditorLayout/VBoxContainer/EditorFileTree")
-_add_deck_button = NodePath("EditorMargin/EditorLayout/VBoxContainer/HBoxContainer/AddDeckButton")
-_add_character_button = NodePath("EditorMargin/EditorLayout/VBoxContainer/HBoxContainer/AddCharacterButton")
-_create_deck_dialog = NodePath("CreateDeckDialog")
-_create_character_dialog = NodePath("CreateCharacterDialog")
+[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713]
 
 [node name="Background" type="ColorRect" parent="CardEditor" unique_id=1066079664]
 anchors_preset = 15
@@ -194,7 +227,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/Container/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = ExtResource("2_rr0j0")
+material = SubResource("ShaderMaterial_wk3tq")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -214,7 +247,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = ExtResource("3_6nsyj")
+label_settings = SubResource("LabelSettings_yln7k")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -239,7 +272,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = ExtResource("3_6nsyj")
+label_settings = SubResource("LabelSettings_jmc66")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -269,6 +302,10 @@ theme_override_constants/separation = 18
 
 [node name="CharacterPicker" type="FileDialog" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout" unique_id=946364589]
 oversampling_override = 1.0
+title = "选择预设角色"
+file_mode = 0
+root_subfolder = "res://definitions/database/characters/"
+filters = PackedStringArray("*.dch ; Character Definition")
 hidden_files_toggle_enabled = false
 file_filter_toggle_enabled = false
 folder_creation_enabled = false
@@ -308,6 +345,7 @@ clip_contents = true
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterPreview" unique_id=1425070589]
+texture_filter = 1
 layout_mode = 0
 offset_top = -5.655
 offset_right = 86.0
@@ -349,7 +387,6 @@ item_count = 1
 popup/item_0/text = "选择差分"
 popup/item_0/id = 0
 popup/item_0/disabled = true
-popup/item_0/separator = true
 
 [node name="CharacterVariantPrev" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=2110805750]
 custom_minimum_size = Vector2(0, 32)
@@ -357,6 +394,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
+disabled = true
 icon = ExtResource("9_0aqhm")
 
 [node name="CharacterVariantNext" type="Button" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=1136764872]
@@ -365,6 +403,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/icon_max_width = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_0aqhm")
+disabled = true
 icon = ExtResource("10_naion")
 
 [node name="CharacterSelectButton" type="OptionButton" parent="CardEditor/EditorMargin/EditorLayout/VSplitContainer/CardEditPanel/CardEditLayout/CharacterInfoPreview" unique_id=1369866751]
