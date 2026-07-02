@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DeckData" format=3 uid="uid://bpx7x0aw6vfde"]
+
+[ext_resource type="Script" uid="uid://csawlfv3dd48f" path="res://src/dsl/CardData.gd" id="1_m3cck"]
+[ext_resource type="Script" uid="uid://d0mqcmiky7bpb" path="res://src/dsl/DeckData.gd" id="2_87obh"]
+
+[resource]
+script = ExtResource("2_87obh")
+id = "deck-1782975232"
+name = "111"
+author = "2222"
+date_created = 1782975232.187568
+date_modified = 1782975232.187568
+description = "21312414124124"

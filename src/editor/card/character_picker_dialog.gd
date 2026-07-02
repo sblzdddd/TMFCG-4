@@ -8,7 +8,7 @@ enum CharacterLibrary {
 	USER,
 }
 
-const PRESET_CHARACTERS_DIR := "res://definitions/database/characters"
+const PRESET_CHARACTERS_DIR := "res://definitions/database/characters/"
 const USER_CHARACTERS_DIR := "user://tmfcg/characters/"
 
 static var _thumbnail_cache: Dictionary = {}
@@ -51,6 +51,8 @@ func _hide_path_bar_recursive(node: Node, filename_edit: LineEdit) -> void:
 static func ensure_user_characters_dir() -> void:
 	if not DirAccess.dir_exists_absolute(USER_CHARACTERS_DIR):
 		DirAccess.make_dir_recursive_absolute(USER_CHARACTERS_DIR)
+	if not DirAccess.dir_exists_absolute("user://tmfcg/textures/"):
+		DirAccess.make_dir_recursive_absolute("user://tmfcg/textures/")
 
 
 static func is_allowed_character_path(path: String) -> bool:

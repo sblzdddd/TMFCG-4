@@ -7,12 +7,15 @@
 [ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/curved_text.gd" id="4_78jd5"]
 [ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/Remove.svg" id="4_ku0qb"]
 [ext_resource type="Script" uid="uid://hkpiu6q3bflg" path="res://src/editor/editor_file_tree.gd" id="5_g7un2"]
+[ext_resource type="Texture2D" uid="uid://ds03fekh734pw" path="res://assets/textures/icons/GuiTabMenuHl.svg" id="5_nut5s"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
 [ext_resource type="Texture2D" uid="uid://cp0qqkttlqmur" path="res://assets/textures/icons/Folder.svg" id="6_1od3q"]
 [ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/viewport_fit_container.gd" id="6_vfit"]
 [ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="7_6nsyj"]
 [ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/Gameplay/card_visual.gd" id="7_6v3qa"]
+[ext_resource type="Texture2D" uid="uid://j7ym07anlusi" path="res://addons/dialogic/Editor/Images/Resources/timeline.svg" id="7_mb6sx"]
 [ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="8_78jd5"]
+[ext_resource type="Texture2D" uid="uid://bbea0efx0ybu7" path="res://addons/dialogic/Editor/Images/Resources/character.svg" id="8_nut5s"]
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_value_edit.tscn" id="12_vedit"]
@@ -20,6 +23,10 @@
 [ext_resource type="Script" uid="uid://2ly7vd4brlkk" path="res://src/editor/card/card_inspector.gd" id="14_cinsp"]
 [ext_resource type="Script" uid="uid://ni1wj3cfn8df" path="res://src/editor/card/card_visual_editor.gd" id="14_n7o2g"]
 [ext_resource type="Script" uid="uid://c7kpm2x8nwr4h" path="res://src/editor/card/character_picker_dialog.gd" id="16_cpick"]
+[ext_resource type="Script" uid="uid://dxobtkgxrgf5y" path="res://src/editor/create_character_dialog.gd" id="17_ccdlg"]
+[ext_resource type="Script" uid="uid://b5ywpae6kb0ws" path="res://src/editor/create_deck_dialog.gd" id="18_cddlg"]
+[ext_resource type="Script" uid="uid://dpiakke5cej1o" path="res://src/editor/editor_builtin_checkbox.gd" id="19_ebchk"]
+[ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/editor_more_options.gd" id="20_mopts"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6v3qa"]
 content_margin_left = 4.0
@@ -86,9 +93,14 @@ corner_detail = 5
 
 [node name="Main" type="Node2D" unique_id=1372351550]
 
-[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713 node_paths=PackedStringArray("_inspector")]
+[node name="CardEditor" type="CanvasLayer" parent="." unique_id=445136713 node_paths=PackedStringArray("_inspector", "_file_tree", "_add_deck_button", "_add_character_button", "_create_deck_dialog", "_create_character_dialog")]
 script = ExtResource("13_cedit")
 _inspector = NodePath("EditorMargin/EditorLayout/VSplitContainer/CardEditPanel")
+_file_tree = NodePath("EditorMargin/EditorLayout/VBoxContainer/EditorFileTree")
+_add_deck_button = NodePath("EditorMargin/EditorLayout/VBoxContainer/HBoxContainer/AddDeckButton")
+_add_character_button = NodePath("EditorMargin/EditorLayout/VBoxContainer/HBoxContainer/AddCharacterButton")
+_create_deck_dialog = NodePath("CreateDeckDialog")
+_create_character_dialog = NodePath("CreateCharacterDialog")
 
 [node name="Background" type="ColorRect" parent="CardEditor" unique_id=1066079664]
 anchors_preset = 15
@@ -142,12 +154,23 @@ layout_mode = 2
 icon = ExtResource("4_ku0qb")
 icon_alignment = 1
 
+[node name="MoreOptions" type="MenuButton" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer/HBoxContainer" unique_id=432605624 node_paths=PackedStringArray("_file_tree")]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+icon = ExtResource("5_nut5s")
+icon_alignment = 1
+switch_on_hover = true
+script = ExtResource("20_mopts")
+_file_tree = NodePath("../../EditorFileTree")
+
 [node name="EditorFileTree" type="Tree" parent="CardEditor/EditorMargin/EditorLayout/VBoxContainer" unique_id=913368672]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6v3qa")
 script = ExtResource("5_g7un2")
 folder_icon = ExtResource("6_1od3q")
+deck_icon = ExtResource("7_mb6sx")
+character_icon = ExtResource("8_nut5s")
 
 [node name="SkillGraph" type="GraphEdit" parent="CardEditor/EditorMargin/EditorLayout" unique_id=1829042089]
 layout_mode = 2
@@ -450,3 +473,167 @@ label_settings = SubResource("LabelSettings_6nsyj")
 min_value = -10.0
 max_value = 10.0
 rounded = true
+
+[node name="CreateDeckDialog" type="ConfirmationDialog" parent="CardEditor" unique_id=1386554497 node_paths=PackedStringArray("_name_edit", "_author_edit", "_description_edit", "_thumbnail_label", "_upload_button", "_choose_button", "_builtin_checkbox")]
+oversampling_override = 1.0
+title = "创建牌组"
+initial_position = 2
+size = Vector2i(454, 225)
+script = ExtResource("18_cddlg")
+_name_edit = NodePath("CreateDeckForm/GridContainer/DeckName")
+_author_edit = NodePath("CreateDeckForm/GridContainer/AuthorName")
+_description_edit = NodePath("CreateDeckForm/GridContainer/Description")
+_thumbnail_label = NodePath("CreateDeckForm/GridContainer/ThunbnailControl/Label")
+_upload_button = NodePath("CreateDeckForm/GridContainer/ThunbnailControl/UploadButton")
+_choose_button = NodePath("CreateDeckForm/GridContainer/ThunbnailControl/ChooseButton")
+_builtin_checkbox = NodePath("CreateDeckForm/GridContainer/[Editor]Builtin")
+
+[node name="CreateDeckForm" type="ScrollContainer" parent="CardEditor/CreateDeckDialog" unique_id=2142984756]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 446.0
+offset_bottom = 182.0
+
+[node name="GridContainer" type="GridContainer" parent="CardEditor/CreateDeckDialog/CreateDeckForm" unique_id=1321608391]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Label" type="Label" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=2053590682]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+text = "名称:"
+
+[node name="DeckName" type="LineEdit" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=589862823]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=1894233572]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+text = "作者:"
+
+[node name="AuthorName" type="LineEdit" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=140583103]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=1251591209]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "描述:"
+
+[node name="Description" type="TextEdit" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=1496610524]
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label4" type="Label" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=1500096198]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+text = "缩略图:"
+
+[node name="ThunbnailControl" type="HBoxContainer" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=619948220]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer/ThunbnailControl" unique_id=2040989640]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(无)"
+
+[node name="UploadButton" type="Button" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer/ThunbnailControl" unique_id=1798265244]
+layout_mode = 2
+text = "上传..."
+
+[node name="ChooseButton" type="Button" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer/ThunbnailControl" unique_id=1100839450]
+layout_mode = 2
+text = "选择..."
+
+[node name="[Editor]Builtin" type="CheckBox" parent="CardEditor/CreateDeckDialog/CreateDeckForm/GridContainer" unique_id=790040375]
+layout_mode = 2
+text = "Builtin"
+script = ExtResource("19_ebchk")
+
+[node name="CreateCharacterDialog" type="ConfirmationDialog" parent="CardEditor" unique_id=798452239 node_paths=PackedStringArray("_name_edit", "_from_edit", "_description_edit", "_portrait_label", "_upload_button", "_choose_button", "_builtin_checkbox")]
+oversampling_override = 1.0
+title = "创建角色"
+initial_position = 2
+size = Vector2i(454, 225)
+script = ExtResource("17_ccdlg")
+_name_edit = NodePath("CreateCharacterForm/GridContainer/CharacterName")
+_from_edit = NodePath("CreateCharacterForm/GridContainer/FromEdit")
+_description_edit = NodePath("CreateCharacterForm/GridContainer/Description")
+_portrait_label = NodePath("CreateCharacterForm/GridContainer/PortraitControl/Label")
+_upload_button = NodePath("CreateCharacterForm/GridContainer/PortraitControl/UploadButton")
+_choose_button = NodePath("CreateCharacterForm/GridContainer/PortraitControl/ChooseButton")
+_builtin_checkbox = NodePath("CreateCharacterForm/GridContainer/[Editor]Builtin")
+
+[node name="CreateCharacterForm" type="ScrollContainer" parent="CardEditor/CreateCharacterDialog" unique_id=23885189]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 446.0
+offset_bottom = 182.0
+
+[node name="GridContainer" type="GridContainer" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm" unique_id=1230000525]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+
+[node name="Label" type="Label" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=1199626541]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+text = "名称:"
+
+[node name="CharacterName" type="LineEdit" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=542731267]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=480162740]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+text = "来源:"
+
+[node name="FromEdit" type="LineEdit" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=1044622939]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=342249646]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "描述:"
+
+[node name="Description" type="TextEdit" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=1438382773]
+custom_minimum_size = Vector2(0, 86)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label4" type="Label" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=1685030831]
+custom_minimum_size = Vector2(86, 0)
+layout_mode = 2
+text = "立绘:"
+
+[node name="PortraitControl" type="HBoxContainer" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=2137632477]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Label" type="Label" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer/PortraitControl" unique_id=1151668493]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "(无)"
+
+[node name="UploadButton" type="Button" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer/PortraitControl" unique_id=25801969]
+layout_mode = 2
+text = "上传..."
+
+[node name="ChooseButton" type="Button" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer/PortraitControl" unique_id=309374260]
+layout_mode = 2
+text = "选择..."
+
+[node name="[Editor]Builtin" type="CheckBox" parent="CardEditor/CreateCharacterDialog/CreateCharacterForm/GridContainer" unique_id=1516131684]
+layout_mode = 2
+text = "Builtin"
+script = ExtResource("19_ebchk")

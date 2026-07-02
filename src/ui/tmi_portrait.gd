@@ -1,13 +1,10 @@
 @tool
 extends DialogicPortrait
 
-@export_group("Main")
 @export_file var image := ""
-
-const SHADER_OPACITY := &"opacity"
-
 @onready var _portrait: Sprite2D = $Portrait
 
+const SHADER_OPACITY := &"opacity"
 var _opacity_sync_scheduled := false
 
 
@@ -30,15 +27,11 @@ func _update_portrait(passed_character: DialogicCharacter, passed_portrait: Stri
 	apply_character_and_portrait(passed_character, passed_portrait)
 	_ensure_unique_material()
 	apply_texture(_get_portrait_sprite(), image)
-	_sync_shader()
+	call_deferred("_deferred_sync_shader_opacity")
 
 
 func _deferred_sync_shader_opacity() -> void:
 	_opacity_sync_scheduled = false
-	_sync_shader_opacity()
-
-
-func _sync_shader() -> void:
 	_sync_shader_opacity()
 
 

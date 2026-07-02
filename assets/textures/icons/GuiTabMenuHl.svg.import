@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j7ym07anlusi"
-path="res://.godot/imported/timeline.svg-4b0b3233c6ce249f8277502cd9b13eaf.ctex"
+uid="uid://ds03fekh734pw"
+path="res://.godot/imported/GuiTabMenuHl.svg-3342d231d23e6e34434c076db2153beb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/dialogic/Editor/Images/Resources/timeline.svg"
-dest_files=["res://.godot/imported/timeline.svg-4b0b3233c6ce249f8277502cd9b13eaf.ctex"]
+source_file="res://assets/textures/icons/GuiTabMenuHl.svg"
+dest_files=["res://.godot/imported/GuiTabMenuHl.svg-3342d231d23e6e34434c076db2153beb.ctex"]
 
 [params]
 
@@ -38,6 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.5
+svg/scale=1.0
 editor/scale_with_editor_scale=false
 editor/convert_colors_with_editor_theme=false
