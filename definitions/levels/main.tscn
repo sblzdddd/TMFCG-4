@@ -6,10 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://my600mb32ydt" path="res://addons/dialogic/Editor/Images/Toolbar/add-character.svg" id="3_ku0qb"]
 [ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/curved_text.gd" id="4_78jd5"]
 [ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/Remove.svg" id="4_ku0qb"]
+[ext_resource type="Script" uid="uid://hkpiu6q3bflg" path="res://src/editor/editor_file_tree.gd" id="5_g7un2"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
+[ext_resource type="Texture2D" uid="uid://cp0qqkttlqmur" path="res://assets/textures/icons/Folder.svg" id="6_1od3q"]
 [ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/viewport_fit_container.gd" id="6_vfit"]
 [ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="7_6nsyj"]
-[ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/gameplay/card_visual.gd" id="7_6v3qa"]
+[ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/Gameplay/card_visual.gd" id="7_6v3qa"]
 [ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="8_78jd5"]
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
@@ -144,6 +146,8 @@ icon_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_6v3qa")
+script = ExtResource("5_g7un2")
+folder_icon = ExtResource("6_1od3q")
 
 [node name="SkillGraph" type="GraphEdit" parent="CardEditor/EditorMargin/EditorLayout" unique_id=1829042089]
 layout_mode = 2
