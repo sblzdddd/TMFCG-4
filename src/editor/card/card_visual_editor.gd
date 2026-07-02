@@ -123,6 +123,7 @@ func _refresh_variant_list() -> void:
 
 
 func _set_variant_buttons_enabled(enabled: bool) -> void:
+	_variant_selection.disabled = not enabled
 	_variant_prev.disabled = not enabled
 	_variant_next.disabled = not enabled
 

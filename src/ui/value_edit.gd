@@ -72,8 +72,8 @@ func _ensure_nodes() -> void:
 	if is_instance_valid(_slider):
 		return
 	_label = $Label
-	_slider = $HSlider
-	_spinbox = $SpinBox
+	_slider = $VBoxContainer/MarginContainer/HSlider
+	_spinbox = $VBoxContainer/SpinBox
 
 
 func _update_label() -> void:

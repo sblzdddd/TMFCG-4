@@ -1,5 +1,6 @@
 @tool
 extends Control
+class_name CardEditor
 
 @export var _inspector: CardInspector
 @export var _file_tree: EditorFileTree
