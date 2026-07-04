@@ -12,6 +12,7 @@ signal deck_created(deck: DeckData, path: String)
 @export var _upload_button: Button
 @export var _choose_button: Button
 @export var _builtin_checkbox: CheckBox
+@export var _image_picker: ImagePickerDialog
 
 var _thumbnail_path: String = ""
 
@@ -41,22 +42,21 @@ func _reset_form() -> void:
 
 
 func _on_upload_pressed() -> void:
-	ResourceFsUtils.pick_image_file(
-		self,
-		"上传缩略图",
-		_on_image_selected,
-		FileDialog.ACCESS_FILESYSTEM
+	_image_picker.pick(
+		ResConst.ImageKind.DECK_THUMBNAIL,
+		ResConst.ImagePickMode.UPLOAD,
+		false,
+		_on_image_selected
 	)
 
 
 func _on_choose_pressed() -> void:
 	var builtin := _builtin_checkbox.button_pressed if _builtin_checkbox else false
-	ResourceFsUtils.pick_image_file(
-		self,
-		"选择缩略图",
-		_on_image_selected,
-		FileDialog.ACCESS_FILESYSTEM if not builtin else FileDialog.ACCESS_RESOURCES,
-		ResourceFsUtils.get_deck_textures_dir(builtin)
+	_image_picker.pick(
+		ResConst.ImageKind.DECK_THUMBNAIL,
+		ResConst.ImagePickMode.CHOOSE,
+		builtin,
+		_on_image_selected
 	)
 
 
@@ -79,11 +79,7 @@ func _on_confirmed() -> void:
 		return
 
 	var filename := ResourceFsUtils.sanitize_filename(deck_name)
-	var deck_path := ResourceFsUtils.make_unique_path(
-		ResourceFsUtils.get_decks_dir(builtin),
-		filename,
-		"tres"
-	)
+	var deck_path := ResourceFsUtils.new_deck_path(deck_name, builtin)
 
 	var deck := DeckData.new()
 	deck.name = deck_name
@@ -94,7 +90,7 @@ func _on_confirmed() -> void:
 	deck.date_modified = deck.date_created
 
 	if not _thumbnail_path.is_empty():
-		var image_path := _resolve_thumbnail_path(filename, builtin)
+		var image_path := ResourceFsUtils.resolve_deck_thumbnail(_thumbnail_path, filename, builtin)
 		if not image_path.is_empty():
 			deck.thumbnail = ResourceFsUtils.load_texture(image_path)
 
@@ -105,20 +101,3 @@ func _on_confirmed() -> void:
 
 	deck_created.emit(deck, deck_path)
 	_reset_form()
-
-
-func _resolve_thumbnail_path(filename: String, builtin: bool) -> String:
-	if _thumbnail_path.begins_with("res://") or _thumbnail_path.begins_with("user://"):
-		if not builtin and _thumbnail_path.begins_with("res://"):
-			return ResourceFsUtils.import_image_file(
-				_thumbnail_path,
-				ResourceFsUtils.get_deck_textures_dir(false),
-				filename
-			)
-		return _thumbnail_path
-
-	return ResourceFsUtils.import_image_file(
-		_thumbnail_path,
-		ResourceFsUtils.get_deck_textures_dir(builtin),
-		filename
-	)

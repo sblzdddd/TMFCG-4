@@ -11,9 +11,9 @@ signal character_data_changed(data: CardVisualData)
 @export var _variant_next: Button
 @export var _name_info: Label
 @export var _description_label: Label
-@export var _x_edit: ValueEdit
-@export var _y_edit: ValueEdit
-@export var _scale_edit: ValueEdit
+@export var _x_edit: DraggerSpinBox
+@export var _y_edit: DraggerSpinBox
+@export var _scale_edit: DraggerSpinBox
 @export var _reset_button: Button
 @export var _character_editor_button: Button   # TODO
 

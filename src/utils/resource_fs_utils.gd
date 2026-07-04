@@ -2,15 +2,15 @@
 extends RefCounted
 class_name ResourceFsUtils
 
-const USER_ROOT := "user://"
-const USER_TEXTURES_DIR := USER_ROOT + "textures/"
-const USER_CHARACTERS_DIR := USER_ROOT + "characters/"
-const USER_DECKS_DIR := USER_ROOT + "decks/"
+enum ImagePickMode {
+	UPLOAD,
+	CHOOSE,
+}
 
-const PRESET_CHARACTERS_DIR := "res://definitions/database/characters/"
-const PRESET_DECKS_DIR := "res://definitions/database/decks/"
-const PRESET_CHARACTER_TEXTURES_DIR := "res://assets/textures/characters/"
-const PRESET_DECK_TEXTURES_DIR := "res://assets/textures/decks/"
+class ImagePickerConfig:
+	var title: String
+	var access: FileDialog.Access
+	var root_subfolder: String = ""
 
 static var IMAGE_FILTERS := PackedStringArray(["*.png, *.jpg, *.jpeg, *.webp ; Images"])
 
@@ -19,43 +19,14 @@ static func can_write_presets() -> bool:
 	return OS.has_feature("editor")
 
 
-static func ensure_user_dirs() -> void:
-	ensure_directory(USER_TEXTURES_DIR)
-	ensure_directory(USER_CHARACTERS_DIR)
-	ensure_directory(USER_DECKS_DIR)
-
-
-static func ensure_directory(path: String) -> void:
-	var global_path := ProjectSettings.globalize_path(path)
-	if not DirAccess.dir_exists_absolute(global_path):
-		DirAccess.make_dir_recursive_absolute(global_path)
-
-
-static func ensure_preset_dirs() -> void:
-	ensure_directory(PRESET_DECKS_DIR)
-	ensure_directory(PRESET_DECK_TEXTURES_DIR)
-
-
-static func get_characters_dir(builtin: bool) -> String:
-	return PRESET_CHARACTERS_DIR if builtin else USER_CHARACTERS_DIR
-
-
-static func get_decks_dir(builtin: bool) -> String:
-	if builtin:
-		ensure_preset_dirs()
-	return PRESET_DECKS_DIR if builtin else USER_DECKS_DIR
-
-
-static func get_textures_dir(builtin: bool) -> String:
-	if builtin:
-		ensure_preset_dirs()
-	return PRESET_CHARACTER_TEXTURES_DIR if builtin else USER_TEXTURES_DIR
-
-
-static func get_deck_textures_dir(builtin: bool) -> String:
-	if builtin:
-		ensure_preset_dirs()
-	return PRESET_DECK_TEXTURES_DIR if builtin else USER_TEXTURES_DIR
+static func ensure_directories() -> void:
+	var dirs := ResConst.USER_DIRS
+	if Engine.is_editor_hint():
+		dirs.append_array(ResConst.PRESET_DIRS)
+	for dir in dirs:
+		var global_path := ProjectSettings.globalize_path(dir)
+		if not DirAccess.dir_exists_absolute(global_path):
+			DirAccess.make_dir_recursive_absolute(global_path)
 
 
 static func sanitize_filename(name: String) -> String:
@@ -69,7 +40,7 @@ static func sanitize_filename(name: String) -> String:
 
 
 static func make_unique_path(dir: String, base_name: String, extension: String) -> String:
-	ensure_directory(dir)
+	ensure_directories()
 	var ext := extension.trim_prefix(".")
 	var candidate := dir.path_join("%s.%s" % [base_name, ext])
 	if not FileAccess.file_exists(candidate):
@@ -110,7 +81,7 @@ static func save_resource(resource: Resource, path: String) -> Error:
 	resource.resource_path = path
 	var err := ResourceSaver.save(resource, path)
 	if err == OK:
-		_notify_resource_created(path)
+		_on_resource_created(path)
 	return err
 
 
@@ -121,27 +92,32 @@ static func save_dialogic_character(character: DialogicCharacter, path: String, 
 	return err
 
 
-static func pick_image_file(
-	parent: Node,
-	title: String,
-	callback: Callable,
-	access: FileDialog.Access = FileDialog.ACCESS_FILESYSTEM,
-	root_subfolder: String = ""
-) -> void:
-	var dialog := FileDialog.new()
-	dialog.title = title
-	dialog.file_mode = FileDialog.FILE_MODE_OPEN_FILE
-	dialog.access = access
-	dialog.filters = IMAGE_FILTERS
-	if not root_subfolder.is_empty():
-		dialog.root_subfolder = root_subfolder
-	dialog.file_selected.connect(func(path: String) -> void:
-		callback.call(path)
-		dialog.queue_free()
-	)
-	dialog.canceled.connect(dialog.queue_free)
-	parent.add_child(dialog)
-	dialog.popup_centered_ratio(0.6)
+static func new_deck_path(deck_name: String, builtin: bool) -> String:
+	return make_unique_path(ResConst.decks_dir(builtin), sanitize_filename(deck_name), "tres")
+
+
+static func new_character_path(display_name: String, builtin: bool) -> String:
+	return make_unique_path(ResConst.characters_dir(builtin), sanitize_filename(display_name), "dch")
+
+
+static func resolve_deck_thumbnail(source_path: String, dest_basename: String, builtin: bool) -> String:
+	if source_path.is_empty():
+		return ""
+	if source_path.begins_with("res://") or source_path.begins_with("user://"):
+		if not builtin and source_path.begins_with("res://"):
+			return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.DECK_THUMBNAIL, false), dest_basename)
+		return source_path
+	return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.DECK_THUMBNAIL, builtin), dest_basename)
+
+
+static func resolve_character_portrait(source_path: String, dest_basename: String, builtin: bool) -> String:
+	if source_path.is_empty():
+		return ""
+	if source_path.begins_with("res://") or source_path.begins_with("user://"):
+		if not builtin and source_path.begins_with("res://"):
+			return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.CHARACTER_PORTRAIT, false), dest_basename)
+		return source_path
+	return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.CHARACTER_PORTRAIT, builtin), dest_basename)
 
 
 static func list_files(dir: String, extension: String) -> Array[String]:
@@ -181,5 +157,7 @@ static func _to_global_path(path: String) -> String:
 	return path
 
 
-static func _notify_resource_created(_path: String) -> void:
+
+
+static func _on_resource_created(_path: String) -> void:
 	pass

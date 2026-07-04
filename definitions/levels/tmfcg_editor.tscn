@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://my600mb32ydt" path="res://addons/dialogic/Editor/Images/Toolbar/add-character.svg" id="3_ku0qb"]
 [ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/curved_text.gd" id="4_78jd5"]
 [ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/Remove.svg" id="4_ku0qb"]
-[ext_resource type="Script" uid="uid://hkpiu6q3bflg" path="res://src/editor/editor_file_tree.gd" id="5_g7un2"]
+[ext_resource type="Script" uid="uid://hkpiu6q3bflg" path="res://src/editor/filetree/editor_file_tree.gd" id="5_g7un2"]
 [ext_resource type="Texture2D" uid="uid://ds03fekh734pw" path="res://assets/textures/icons/GuiTabMenuHl.svg" id="5_nut5s"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
 [ext_resource type="Texture2D" uid="uid://cp0qqkttlqmur" path="res://assets/textures/icons/Folder.svg" id="6_1od3q"]
@@ -23,18 +23,19 @@
 [ext_resource type="Texture2D" uid="uid://bhesbg4yvm2pg" path="res://assets/textures/cards/tex_card_base.png" id="9_13gcn"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
 [ext_resource type="Texture2D" uid="uid://tine0msp3p1o" path="res://assets/textures/cards/tex_card_parts.png" id="11_e62nb"]
-[ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_value_edit.tscn" id="12_vedit"]
+[ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="12_vedit"]
 [ext_resource type="FontFile" uid="uid://dy3x2wp2dbgwx" path="res://assets/fonts/Gloock-Regular.ttf" id="13_gc6aj"]
 [ext_resource type="Script" uid="uid://2ly7vd4brlkk" path="res://src/editor/card/card_inspector.gd" id="14_cinsp"]
 [ext_resource type="Script" uid="uid://ni1wj3cfn8df" path="res://src/editor/card/card_visual_editor.gd" id="14_n7o2g"]
 [ext_resource type="Script" uid="uid://c7kpm2x8nwr4h" path="res://src/editor/card/character_picker_dialog.gd" id="16_cpick"]
-[ext_resource type="Script" uid="uid://dxobtkgxrgf5y" path="res://src/editor/create_character_dialog.gd" id="17_ccdlg"]
-[ext_resource type="Script" uid="uid://b5ywpae6kb0ws" path="res://src/editor/create_deck_dialog.gd" id="18_cddlg"]
-[ext_resource type="Script" uid="uid://dpiakke5cej1o" path="res://src/editor/editor_builtin_checkbox.gd" id="19_ebchk"]
-[ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/editor_more_options.gd" id="20_mopts"]
+[ext_resource type="Script" uid="uid://dxobtkgxrgf5y" path="res://src/editor/filetree/create_character_dialog.gd" id="17_ccdlg"]
+[ext_resource type="Script" uid="uid://b5ywpae6kb0ws" path="res://src/editor/filetree/create_deck_dialog.gd" id="18_cddlg"]
+[ext_resource type="Script" uid="uid://dpiakke5cej1o" path="res://src/editor/filetree/editor_builtin_checkbox.gd" id="19_ebchk"]
+[ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/filetree/filetree_more_options.gd" id="20_mopts"]
 [ext_resource type="LabelSettings" uid="uid://ufpu6ss5nwf0" path="res://definitions/fonts/field_label.tres" id="25_jmc66"]
+[ext_resource type="Script" uid="uid://b8kpm3yanwr5i" path="res://src/editor/filetree/image_picker_dialog.gd" id="26_ipick"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecf3d"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7h14"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -55,7 +56,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_t7h14"]
+[sub_resource type="LabelSettings" id="LabelSettings_djvqn"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -63,7 +64,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_djvqn"]
+[sub_resource type="LabelSettings" id="LabelSettings_i3ajv"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -219,7 +220,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="EditorLayout/Panel/VSplitContainer/Container/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_ecf3d")
+material = SubResource("ShaderMaterial_t7h14")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -239,7 +240,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_t7h14")
+label_settings = SubResource("LabelSettings_djvqn")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -264,7 +265,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_djvqn")
+label_settings = SubResource("LabelSettings_i3ajv")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -292,22 +293,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="CharacterPicker" type="FileDialog" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=946364589]
-oversampling_override = 1.0
-title = "选择预设角色"
-file_mode = 0
-root_subfolder = "res://definitions/database/characters/"
-filters = PackedStringArray("*.dch ; Character Definition")
-hidden_files_toggle_enabled = false
-file_filter_toggle_enabled = false
-file_sort_options_enabled = false
-folder_creation_enabled = false
-favorites_enabled = false
-recent_list_enabled = false
-layout_toggle_enabled = false
-deleting_enabled = false
-script = ExtResource("16_cpick")
-
 [node name="CharacterTitleLabel" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=2035645420]
 layout_mode = 2
 text = "角色"
@@ -319,7 +304,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 2
 theme_override_constants/separation = 16
 script = ExtResource("14_n7o2g")
-_picker_dialog = NodePath("../CharacterPicker")
+_picker_dialog = NodePath("CharacterSelectButton/CharacterPicker")
 _select_button = NodePath("CharacterSelectButton")
 _variant_selection = NodePath("CharacterInfo/CharacterVariant/CharacterVariantSelection")
 _variant_prev = NodePath("CharacterInfo/CharacterVariant/CharacterVariantPrev")
@@ -396,6 +381,24 @@ popup/item_1/id = 1
 popup/item_2/text = "自定义角色"
 popup/item_2/id = 2
 
+[node name="CharacterPicker" type="FileDialog" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterSelectButton" unique_id=946364589]
+oversampling_override = 1.0
+title = "选择预设角色"
+initial_position = 2
+size = Vector2i(1080, 635)
+file_mode = 0
+root_subfolder = "res://definitions/database/characters/"
+filters = PackedStringArray("*.dch ; Character Definition")
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+deleting_enabled = false
+script = ExtResource("16_cpick")
+
 [node name="GridContainer" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=1404454077]
 layout_mode = 2
 columns = 2
@@ -412,7 +415,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
 min_value = -1.0
+step = 0.01
 alignment = 1
+custom_arrow_step = 0.1
 
 [node name="Label2" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=379700414]
 custom_minimum_size = Vector2(150, 0)
@@ -426,7 +431,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
 min_value = -1.0
+step = 0.01
 alignment = 1
+custom_arrow_step = 0.1
 
 [node name="Label3" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=1965587421]
 custom_minimum_size = Vector2(150, 0)
@@ -440,8 +447,10 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
 max_value = 2.0
+step = 0.01
 value = 1.0
 alignment = 1
+custom_arrow_step = 0.1
 
 [node name="CharacterButtonGrid" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=517559374]
 layout_mode = 2
@@ -454,7 +463,7 @@ layout_mode = 2
 shortcut = SubResource("Shortcut_t7h14")
 text = "编辑角色..."
 
-[node name="CharacterEditButton2" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=2059150735]
+[node name="CharacterSetDefaultButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=2059150735]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
 text = "设为角色默认变换"
@@ -507,11 +516,11 @@ text = "启用   "
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="GridContainer2" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=906267376]
+[node name="SkillSettings" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=906267376]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer2" unique_id=1678439412]
+[node name="Label" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSettings" unique_id=1678439412]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -519,15 +528,15 @@ text = "优先级："
 label_settings = ExtResource("25_jmc66")
 vertical_alignment = 1
 
-[node name="SkillPriority" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer2" unique_id=1967379039 instance=ExtResource("12_vedit")]
+[node name="SkillPriority" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSettings" unique_id=1967379039 instance=ExtResource("12_vedit")]
 layout_mode = 2
 min_value = -10.0
 max_value = 10.0
 step = 1.0
 rounded = true
-drag_step = 0.1
+alignment = 1
 
-[node name="CreateDeckDialog" type="ConfirmationDialog" parent="." unique_id=1386554497 node_paths=PackedStringArray("_name_edit", "_author_edit", "_description_edit", "_thumbnail_label", "_upload_button", "_choose_button", "_builtin_checkbox")]
+[node name="CreateDeckDialog" type="ConfirmationDialog" parent="." unique_id=1386554497 node_paths=PackedStringArray("_name_edit", "_author_edit", "_description_edit", "_thumbnail_label", "_upload_button", "_choose_button", "_builtin_checkbox", "_image_picker")]
 oversampling_override = 1.0
 title = "创建牌组"
 initial_position = 2
@@ -540,6 +549,7 @@ _thumbnail_label = NodePath("CreateDeckForm/GridContainer/ThunbnailControl/Label
 _upload_button = NodePath("CreateDeckForm/GridContainer/ThunbnailControl/UploadButton")
 _choose_button = NodePath("CreateDeckForm/GridContainer/ThunbnailControl/ChooseButton")
 _builtin_checkbox = NodePath("CreateDeckForm/GridContainer/[Editor]Builtin")
+_image_picker = NodePath("../ImagePicker")
 
 [node name="CreateDeckForm" type="ScrollContainer" parent="CreateDeckDialog" unique_id=2142984756]
 offset_left = 8.0
@@ -614,7 +624,7 @@ layout_mode = 2
 text = "Builtin"
 script = ExtResource("19_ebchk")
 
-[node name="CreateCharacterDialog" type="ConfirmationDialog" parent="." unique_id=798452239 node_paths=PackedStringArray("_name_edit", "_from_edit", "_description_edit", "_portrait_label", "_upload_button", "_choose_button", "_builtin_checkbox")]
+[node name="CreateCharacterDialog" type="ConfirmationDialog" parent="." unique_id=798452239 node_paths=PackedStringArray("_name_edit", "_from_edit", "_description_edit", "_portrait_label", "_upload_button", "_choose_button", "_builtin_checkbox", "_image_picker")]
 oversampling_override = 1.0
 title = "创建角色"
 initial_position = 2
@@ -627,6 +637,7 @@ _portrait_label = NodePath("CreateCharacterForm/GridContainer/PortraitControl/La
 _upload_button = NodePath("CreateCharacterForm/GridContainer/PortraitControl/UploadButton")
 _choose_button = NodePath("CreateCharacterForm/GridContainer/PortraitControl/ChooseButton")
 _builtin_checkbox = NodePath("CreateCharacterForm/GridContainer/[Editor]Builtin")
+_image_picker = NodePath("../ImagePicker")
 
 [node name="CreateCharacterForm" type="ScrollContainer" parent="CreateCharacterDialog" unique_id=23885189]
 offset_left = 8.0
@@ -700,3 +711,22 @@ text = "选择..."
 layout_mode = 2
 text = "Builtin"
 script = ExtResource("19_ebchk")
+
+[node name="ImagePicker" type="FileDialog" parent="." unique_id=1847293051]
+oversampling_override = 1.0
+title = "Open a File"
+initial_position = 2
+size = Vector2i(1080, 635)
+ok_button_text = "Open"
+dialog_hide_on_ok = true
+file_mode = 0
+filters = PackedStringArray("*.png, *.jpg, *.jpeg, *.webp ; Images")
+hidden_files_toggle_enabled = false
+file_filter_toggle_enabled = false
+file_sort_options_enabled = false
+folder_creation_enabled = false
+favorites_enabled = false
+recent_list_enabled = false
+layout_toggle_enabled = false
+deleting_enabled = false
+script = ExtResource("26_ipick")

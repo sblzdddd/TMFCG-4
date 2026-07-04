@@ -12,6 +12,7 @@ signal character_created(character: DialogicCharacter, path: String)
 @export var _upload_button: Button
 @export var _choose_button: Button
 @export var _builtin_checkbox: CheckBox
+@export var _image_picker: ImagePickerDialog
 
 var _portrait_path: String = ""
 
@@ -41,22 +42,21 @@ func _reset_form() -> void:
 
 
 func _on_upload_pressed() -> void:
-	ResourceFsUtils.pick_image_file(
-		self,
-		"上传立绘",
-		_on_image_selected,
-		FileDialog.ACCESS_FILESYSTEM
+	_image_picker.pick(
+		ResConst.ImageKind.CHARACTER_PORTRAIT,
+		ResConst.ImagePickMode.UPLOAD,
+		false,
+		_on_image_selected
 	)
 
 
 func _on_choose_pressed() -> void:
 	var builtin := _builtin_checkbox.button_pressed if _builtin_checkbox else false
-	ResourceFsUtils.pick_image_file(
-		self,
-		"选择立绘",
-		_on_image_selected,
-		FileDialog.ACCESS_FILESYSTEM if not builtin else FileDialog.ACCESS_RESOURCES,
-		ResourceFsUtils.get_textures_dir(builtin)
+	_image_picker.pick(
+		ResConst.ImageKind.CHARACTER_PORTRAIT,
+		ResConst.ImagePickMode.CHOOSE,
+		builtin,
+		_on_image_selected
 	)
 
 
@@ -83,28 +83,10 @@ func _on_confirmed() -> void:
 	character.description = _build_description()
 
 	var filename := ResourceFsUtils.sanitize_filename(display_name)
-	var character_path := ResourceFsUtils.make_unique_path(
-		ResourceFsUtils.get_characters_dir(builtin),
-		filename,
-		"dch"
-	)
+	var character_path := ResourceFsUtils.new_character_path(display_name, builtin)
 
 	if not _portrait_path.is_empty():
-		var image_path := _portrait_path
-		if _portrait_path.begins_with("res://") or _portrait_path.begins_with("user://"):
-			if not builtin and _portrait_path.begins_with("res://"):
-				image_path = ResourceFsUtils.import_image_file(
-					_portrait_path,
-					ResourceFsUtils.get_textures_dir(false),
-					filename
-				)
-		else:
-			image_path = ResourceFsUtils.import_image_file(
-				_portrait_path,
-				ResourceFsUtils.get_textures_dir(builtin),
-				filename
-			)
-
+		var image_path := ResourceFsUtils.resolve_character_portrait(_portrait_path, filename, builtin)
 		if not image_path.is_empty():
 			character.add_portrait("default", image_path)
 			character.default_portrait = "default"

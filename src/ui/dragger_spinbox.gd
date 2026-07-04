@@ -1,8 +1,8 @@
 @tool
 extends SpinBox
-class_name ValueEdit
+class_name DraggerSpinBox
 
-## Inspector-style value field: horizontal drag to adjust, tap/click to type.
+## Inspector-style spinbox with horizontal drag to adjust, tap/click to type.
 
 const _FLOAT_DRAG_SPEED := 0.3
 const _INTEGER_DRAG_SPEED := 0.1
@@ -11,16 +11,6 @@ const _DRAG_THRESHOLD_SCALE := 4.0
 
 enum _GrabInput { NONE, MOUSE, TOUCH }
 enum _ProgressState { IDLE, HOVER, DRAG }
-
-@export var drag_step: float = 0.01:
-	set(v):
-		drag_step = v
-		_apply_settings()
-
-@export var spinbox_step: float = 0.1:
-	set(v):
-		spinbox_step = v
-		_apply_settings()
 
 @export_group("Progress Styles")
 @export var progress_style_idle: StyleBoxFlat
@@ -38,7 +28,6 @@ var _grab_mouse_pos := Vector2i.ZERO
 var _grab_dist_cache := 0.0
 var _grab_input := _GrabInput.NONE
 var _grab_touch_index := -1
-var _saved_step: float = 0.0
 
 
 func _enter_tree() -> void:
@@ -48,7 +37,6 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	set_process_input(false)
-	_apply_settings()
 	call_deferred(&"_finalize_overlay")
 
 
@@ -61,10 +49,6 @@ func _finalize_overlay() -> void:
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_RESIZED:
 		_sync_overlay()
-
-
-func _apply_settings() -> void:
-	step = 1.0 if rounded else spinbox_step
 
 
 func _hook_overlay() -> void:
@@ -108,8 +92,8 @@ func _step_decimals(step_size: float) -> int:
 	return count
 
 
-func _drag_step() -> float:
-	var current_step := drag_step if drag_step > 0.0 else 1.0
+func _effective_step() -> float:
+	var current_step := step if step > 0.0 else 1.0
 	if rounded:
 		return current_step
 	return maxf(current_step, _MIN_FLOAT_STEP)
@@ -118,12 +102,12 @@ func _drag_step() -> float:
 func _quantize_value(v: float) -> float:
 	if rounded:
 		return round(v)
-	return snapped(v, _drag_step())
+	return snapped(v, _effective_step())
 
 
 func _format_display_value(v: float) -> String:
 	var quantized := _quantize_value(v)
-	var text := str(int(quantized)) if rounded else String.num(quantized, _step_decimals(_drag_step()))
+	var text := str(int(quantized)) if rounded else String.num(quantized, _step_decimals(_effective_step()))
 	if not prefix.is_empty():
 		text = prefix + " " + text
 	if not suffix.is_empty():
@@ -217,15 +201,6 @@ func _drag_speed() -> float:
 	return _INTEGER_DRAG_SPEED if rounded else _FLOAT_DRAG_SPEED
 
 
-func _begin_drag_snap_bypass() -> void:
-	_saved_step = step
-	step = _drag_step()
-
-
-func _end_drag_snap_bypass() -> void:
-	step = _saved_step
-
-
 func _grab_start(input: _GrabInput, touch_index: int = -1) -> void:
 	_grab_attempt = true
 	_grabbing = false
@@ -247,7 +222,6 @@ func _grab_end() -> void:
 		_grabbing = false
 		if _grab_input == _GrabInput.MOUSE:
 			_restore_mouse_pos()
-		_end_drag_snap_bypass()
 		_refresh_display()
 		_set_progress_state(_ProgressState.HOVER if _overlay.get_global_rect().has_point(get_global_mouse_position()) else _ProgressState.IDLE)
 	else:
@@ -283,14 +257,13 @@ func _apply_drag(relative_x: float, shift_pressed: bool, round_to_int: bool) -> 
 	if not _grabbing and absf(_grab_dist_cache) > threshold:
 		if _grab_input == _GrabInput.MOUSE:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		_begin_drag_snap_bypass()
 		_grabbing = true
 		_set_progress_state(_ProgressState.DRAG)
 
 	if not _grabbing:
 		return
 
-	var new_value := _quantize_value(_pre_grab_value + _drag_step() * _grab_dist_cache)
+	var new_value := _quantize_value(_pre_grab_value + _effective_step() * _grab_dist_cache)
 	if round_to_int and not rounded:
 		new_value = round(new_value)
 	set_value(clampf(new_value, min_value, max_value))

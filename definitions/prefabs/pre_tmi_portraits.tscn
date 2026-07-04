@@ -4,7 +4,7 @@
 [ext_resource type="Shader" uid="uid://dv6gxkcjf62gp" path="res://src/shaders/tmi_portraits.gdshader" id="2_ca8kl"]
 [ext_resource type="Texture2D" uid="uid://b534m5vsoima6" path="res://assets/textures/characters/响子 笑.png" id="3_gq4i2"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_07nvc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gq4i2"]
 shader = ExtResource("2_ca8kl")
 shader_parameter/shadow_color = Color(0, 0, 0, 0.3)
 shader_parameter/shadow_offset = Vector2(2, 2)
@@ -15,6 +15,7 @@ script = ExtResource("1_gq4i2")
 
 [node name="Portrait" type="Sprite2D" parent="." unique_id=1602098755]
 texture_filter = 1
-material = SubResource("ShaderMaterial_07nvc")
+material = SubResource("ShaderMaterial_gq4i2")
 texture = ExtResource("3_gq4i2")
 centered = false
+metadata/material_duplicated = true

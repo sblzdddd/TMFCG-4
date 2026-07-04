@@ -21,7 +21,7 @@ func create_folder(folder_name: String, parent: TreeItem) -> TreeItem:
 
 
 func _ready() -> void:
-	ResourceFsUtils.ensure_user_dirs()
+	ResourceFsUtils.ensure_directories()
 	_root = create_item()
 	hide_root = true
 	_deck_root = create_folder("牌组", _root)
@@ -35,22 +35,22 @@ func refresh() -> void:
 	hide_root = true
 
 	if show_builtin_decks:
-		for path in ResourceFsUtils.list_files(ResourceFsUtils.PRESET_DECKS_DIR, "tres"):
+		for path in ResourceFsUtils.list_files(ResConst.PRESET_DECKS_DIR, "tres"):
 			add_deck_item(load(path) as DeckData, path)
-	for path in ResourceFsUtils.list_files(ResourceFsUtils.USER_DECKS_DIR, "tres"):
+	for path in ResourceFsUtils.list_files(ResConst.USER_DECKS_DIR, "tres"):
 		add_deck_item(load(path) as DeckData, path)
 
 	if show_builtin_characters:
-		for path in ResourceFsUtils.list_files(ResourceFsUtils.PRESET_CHARACTERS_DIR, "dch"):
+		for path in ResourceFsUtils.list_files(ResConst.PRESET_CHARACTERS_DIR, "dch"):
 			add_character_item(load(path) as DialogicCharacter, path)
-	for path in ResourceFsUtils.list_files(ResourceFsUtils.USER_CHARACTERS_DIR, "dch"):
+	for path in ResourceFsUtils.list_files(ResConst.USER_CHARACTERS_DIR, "dch"):
 		add_character_item(load(path) as DialogicCharacter, path)
 
 
 func add_deck_item(deck: DeckData, path: String) -> TreeItem:
 	if deck == null:
 		return null
-	if path.begins_with(ResourceFsUtils.PRESET_DECKS_DIR) and not show_builtin_decks:
+	if path.begins_with(ResConst.PRESET_DECKS_DIR) and not show_builtin_decks:
 		return null
 
 	var item := create_item(_deck_root)
@@ -63,7 +63,7 @@ func add_deck_item(deck: DeckData, path: String) -> TreeItem:
 func add_character_item(character: DialogicCharacter, path: String) -> TreeItem:
 	if character == null:
 		return null
-	if path.begins_with(ResourceFsUtils.PRESET_CHARACTERS_DIR) and not show_builtin_characters:
+	if path.begins_with(ResConst.PRESET_CHARACTERS_DIR) and not show_builtin_characters:
 		return null
 
 	var label := character.display_name
