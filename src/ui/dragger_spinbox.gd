@@ -12,13 +12,32 @@ const _DRAG_THRESHOLD_SCALE := 4.0
 enum _GrabInput { NONE, MOUSE, TOUCH }
 enum _ProgressState { IDLE, HOVER, DRAG }
 
+@export var label_text: String = "Value":
+	set(value):
+		if label_text == value:
+			return
+		label_text = value
+		_sync_label()
+
+@export var label_settings: LabelSettings:
+	set(value):
+		if label_settings == value:
+			return
+		_disconnect_label_settings()
+		label_settings = value
+		_connect_label_settings()
+		_sync_label()
+
 @export_group("Progress Styles")
 @export var progress_style_idle: StyleBoxFlat
 @export var progress_style_hover: StyleBoxFlat
 @export var progress_style_drag: StyleBoxFlat
 
+const _LABEL_PADDING := 8.0
+
 @onready var _overlay: Control = $DragOverlay
 @onready var _progress_fill: Panel = $DragOverlay/ProgressFill
+@onready var _label: Label = $DragOverlay/Label
 
 var _progress_state := _ProgressState.IDLE
 var _grab_attempt := false
@@ -43,6 +62,7 @@ func _ready() -> void:
 func _finalize_overlay() -> void:
 	_hook_line_edit()
 	_hook_overlay()
+	_connect_label_settings()
 	_sync_overlay()
 
 
@@ -178,6 +198,35 @@ func _sync_progress_fill() -> void:
 	_progress_fill.add_theme_stylebox_override(&"panel", style)
 
 
+func _connect_label_settings() -> void:
+	if not is_instance_valid(label_settings) or not is_instance_valid(_label):
+		return
+	if not label_settings.changed.is_connected(_on_label_settings_changed):
+		label_settings.changed.connect(_on_label_settings_changed)
+
+
+func _disconnect_label_settings() -> void:
+	if not is_instance_valid(label_settings):
+		return
+	if label_settings.changed.is_connected(_on_label_settings_changed):
+		label_settings.changed.disconnect(_on_label_settings_changed)
+
+
+func _on_label_settings_changed() -> void:
+	_sync_label()
+
+
+func _sync_label() -> void:
+	if _label == null or _overlay == null:
+		return
+	_label.text = label_text
+	_label.visible = not label_text.is_empty()
+	if is_instance_valid(label_settings):
+		_label.label_settings = label_settings
+	_label.position = Vector2(_LABEL_PADDING, 0.0)
+	_label.size = Vector2(maxf(_overlay.size.x - _LABEL_PADDING * 2.0, 0.0), _overlay.size.y)
+
+
 func _sync_overlay() -> void:
 	if _overlay == null:
 		return
@@ -188,6 +237,7 @@ func _sync_overlay() -> void:
 	_overlay.set_size(line_edit.size)
 	_overlay.visible = editable
 	_overlay.move_to_front()
+	_sync_label()
 	_sync_progress_fill()
 
 

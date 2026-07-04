@@ -55,6 +55,68 @@ corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dm3lf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fclua"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+border_width_left = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.325, 0.325, 0.325, 0.6)
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.15100001)
+shadow_size = 24
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lvmsl"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+border_width_left = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.15100001)
+shadow_size = 24
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ggom7"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.29553175, 0.29553175, 0.29553175, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22bj7"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.22352941, 0.22352941, 0.22352941, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mkjss"]
 content_margin_left = 2.0
 content_margin_top = 2.0
@@ -613,6 +675,12 @@ CheckButton/styles/normal = SubResource("StyleBoxEmpty_t5r12")
 CheckButton/styles/pressed = SubResource("StyleBoxEmpty_dm3lf")
 FileDialog/constants/thumbnail_size = 140
 GraphEdit/styles/panel = ExtResource("7_mvglo")
+GraphNode/constants/separation = 6
+GraphNode/styles/panel = SubResource("StyleBoxFlat_fclua")
+GraphNode/styles/panel_focus = SubResource("StyleBoxFlat_lvmsl")
+GraphNode/styles/panel_selected = SubResource("StyleBoxFlat_lvmsl")
+GraphNode/styles/titlebar = SubResource("StyleBoxFlat_ggom7")
+GraphNode/styles/titlebar_selected = SubResource("StyleBoxFlat_22bj7")
 HScrollBar/styles/grabber = SubResource("StyleBoxFlat_mkjss")
 HScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_0vjcv")
 HScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_peqr6")
