@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bnct6wugusv1y" path="res://assets/textures/characters/三花 微笑张嘴.png" id="2_mt758"]
 [ext_resource type="Texture2D" uid="uid://bb466tshdn2ru" path="res://assets/textures/characters/三花 无表情.png" id="3_cwd7f"]
 [ext_resource type="Texture2D" uid="uid://duxsf6a4pyp5e" path="res://assets/textures/characters/三花 无表情张嘴.png" id="4_nfi8y"]
-[ext_resource type="Script" path="res://src/dsl/CharacterData.gd" id="5_dp3ml"]
+[ext_resource type="Script" path="res://src/dsl/CardVisualData.gd" id="5_dp3ml"]
 
 [sub_resource type="Resource" id="Resource_hy6uu"]
 script = ExtResource("5_dp3ml")

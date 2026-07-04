@@ -25,7 +25,7 @@ func _update_visual(data: CardVisualData) -> void:
 
 	_name_label.text = CharacterUtils.get_english_display_name(data.character)
 	_set_character_texture(
-		CharacterUtils.load_portrait_texture(data.character, data.selected_portrait)
+		CharacterUtils.load_portrait_texture(data.character, data.portrait)
 	)
 	_set_character_transform(data.transform)
 

@@ -2,10 +2,12 @@
 class_name CardData
 extends Resource
 
-const _card_enums := preload("res://src/dsl/CardEnums.gd")
+const Suit := CardEnums.Suit
+const Rank := CardEnums.Rank
+const Type := CardEnums.Type
 
 @export var cardId: String = "card-0"
 @export var visual: CardVisualData = null
-@export var suit: _card_enums.Suit = _card_enums.Suit.CLUBS
-@export var rank: _card_enums.Rank = _card_enums.Rank.NONE
-@export var type: _card_enums.Type = _card_enums.Type.NORMAL
+@export var suit: Suit = Suit.CLUBS
+@export var rank: Rank = Rank.NONE
+@export var type: Type = Type.NORMAL

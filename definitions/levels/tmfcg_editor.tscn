@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cruf4r2hiqeyi"]
 
+[ext_resource type="Theme" uid="uid://cmkxu7qxcs7w" path="res://definitions/ui/ui_theme.tres" id="1_ecf3d"]
 [ext_resource type="Script" uid="uid://c0wetakut8mtj" path="res://src/editor/card/card_editor.gd" id="1_yln7k"]
 [ext_resource type="Texture2D" uid="uid://bymlbr4o2m3jc" path="res://addons/dialogic/Editor/Images/Toolbar/add-timeline.svg" id="2_ddp17"]
 [ext_resource type="Texture2D" uid="uid://my600mb32ydt" path="res://addons/dialogic/Editor/Images/Toolbar/add-character.svg" id="3_ku0qb"]
@@ -33,7 +34,7 @@
 [ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/editor_more_options.gd" id="20_mopts"]
 [ext_resource type="LabelSettings" uid="uid://ufpu6ss5nwf0" path="res://definitions/fonts/field_label.tres" id="25_jmc66"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmc66"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecf3d"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -54,7 +55,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ecf3d"]
+[sub_resource type="LabelSettings" id="LabelSettings_t7h14"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -62,7 +63,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_t7h14"]
+[sub_resource type="LabelSettings" id="LabelSettings_djvqn"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -90,15 +91,15 @@ corner_radius_bottom_left = 16
 [sub_resource type="LabelSettings" id="LabelSettings_1wn3d"]
 font_size = 30
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yln7k"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
-corner_detail = 1
-
 [sub_resource type="LabelSettings" id="LabelSettings_w2akv"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ecf3d"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_t7h14"]
+events = [SubResource("InputEventKey_ecf3d")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rr0j0"]
 font_size = 30
@@ -111,6 +112,8 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = ExtResource("1_ecf3d")
+theme_type_variation = &"default"
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
@@ -163,57 +166,14 @@ layout_mode = 2
 icon = ExtResource("5_nut5s")
 icon_alignment = 1
 switch_on_hover = true
-item_count = 16
-popup/item_0/text = "Show builtin characters"
+item_count = 2
+popup/item_0/text = "显示内置牌组"
 popup/item_0/checkable = 1
 popup/item_0/checked = true
 popup/item_0/id = 0
-popup/item_1/text = "Show builtin decks"
+popup/item_1/text = "显示内置角色"
 popup/item_1/checkable = 1
-popup/item_1/checked = true
 popup/item_1/id = 1
-popup/item_2/text = "Show builtin characters"
-popup/item_2/checkable = 1
-popup/item_2/id = 0
-popup/item_3/text = "Show builtin decks"
-popup/item_3/checkable = 1
-popup/item_3/id = 1
-popup/item_4/text = "Show builtin characters"
-popup/item_4/checkable = 1
-popup/item_4/id = 0
-popup/item_5/text = "Show builtin decks"
-popup/item_5/checkable = 1
-popup/item_5/id = 1
-popup/item_6/text = "Show builtin characters"
-popup/item_6/checkable = 1
-popup/item_6/id = 0
-popup/item_7/text = "Show builtin decks"
-popup/item_7/checkable = 1
-popup/item_7/id = 1
-popup/item_8/text = "Show builtin characters"
-popup/item_8/checkable = 1
-popup/item_8/id = 0
-popup/item_9/text = "Show builtin decks"
-popup/item_9/checkable = 1
-popup/item_9/id = 1
-popup/item_10/text = "Show builtin characters"
-popup/item_10/checkable = 1
-popup/item_10/id = 0
-popup/item_11/text = "Show builtin decks"
-popup/item_11/checkable = 1
-popup/item_11/id = 1
-popup/item_12/text = "Show builtin characters"
-popup/item_12/checkable = 1
-popup/item_12/id = 0
-popup/item_13/text = "Show builtin decks"
-popup/item_13/checkable = 1
-popup/item_13/id = 1
-popup/item_14/text = "Show builtin characters"
-popup/item_14/checkable = 1
-popup/item_14/id = 0
-popup/item_15/text = "Show builtin decks"
-popup/item_15/checkable = 1
-popup/item_15/id = 1
 script = ExtResource("20_mopts")
 _file_tree = NodePath("../../EditorFileTree")
 
@@ -246,8 +206,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-split_offsets = PackedInt32Array(360)
-split_offset = 360
+split_offsets = PackedInt32Array(400)
+split_offset = 400
 metadata/_edit_use_anchors_ = true
 
 [node name="Container" type="Container" parent="EditorLayout/Panel/VSplitContainer" unique_id=937863629]
@@ -259,7 +219,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="EditorLayout/Panel/VSplitContainer/Container/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_jmc66")
+material = SubResource("ShaderMaterial_ecf3d")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -279,7 +239,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_ecf3d")
+label_settings = SubResource("LabelSettings_t7h14")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -304,7 +264,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_t7h14")
+label_settings = SubResource("LabelSettings_djvqn")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -353,7 +313,7 @@ layout_mode = 2
 text = "角色"
 label_settings = SubResource("LabelSettings_1wn3d")
 
-[node name="CharacterInfoPreview" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_portrait", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_character_editor_button")]
+[node name="CharacterInfoPreview" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_character_editor_button")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -366,34 +326,16 @@ _variant_prev = NodePath("CharacterInfo/CharacterVariant/CharacterVariantPrev")
 _variant_next = NodePath("CharacterInfo/CharacterVariant/CharacterVariantNext")
 _name_info = NodePath("CharacterInfo/CharacterName")
 _description_label = NodePath("CharacterInfo/CharacterDesc")
-_portrait = NodePath("CharacterPreview/TextureRect")
-_x_edit = NodePath("../CharacterOffsetX")
-_y_edit = NodePath("../CharacterOffsetY")
-_scale_edit = NodePath("../CharacterScale")
+_x_edit = NodePath("../GridContainer/CharacterOffsetX")
+_y_edit = NodePath("../GridContainer/CharacterOffsetY")
+_scale_edit = NodePath("../GridContainer/CharacterScale")
 _reset_button = NodePath("../CharacterButtonGrid/CharacterResetButton")
 _character_editor_button = NodePath("../CharacterButtonGrid/CharacterEditButton")
-
-[node name="CharacterPreview" type="Panel" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=899291338]
-custom_minimum_size = Vector2(86, 86)
-clip_contents = true
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_yln7k")
-
-[node name="TextureRect" type="TextureRect" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPreview" unique_id=1425070589]
-texture_filter = 1
-layout_mode = 0
-offset_top = -5.655
-offset_right = 86.0
-offset_bottom = 181.345
-scale = Vector2(1.785, 1.785)
-pivot_offset = Vector2(39.19, 0)
-texture = ExtResource("8_78jd5")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="CharacterInfo" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=619171250]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 6
 
 [node name="CharacterName" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=743919923]
 layout_mode = 2
@@ -440,12 +382,11 @@ theme_override_constants/icon_max_width = 18
 disabled = true
 icon = ExtResource("10_naion")
 
-[node name="CharacterSelectButton" type="OptionButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=1369866751]
+[node name="CharacterSelectButton" type="MenuButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=501151671]
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
-theme_override_constants/h_separation = 0
-selected = 0
-fit_to_longest_item = false
+text = "选择..."
+flat = false
 item_count = 3
 popup/item_0/text = "选择..."
 popup/item_0/id = 0
@@ -455,47 +396,74 @@ popup/item_1/id = 1
 popup/item_2/text = "自定义角色"
 popup/item_2/id = 2
 
-[node name="CharacterOffsetX" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=224716145 instance=ExtResource("12_vedit")]
+[node name="GridContainer" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=1404454077]
 layout_mode = 2
-text = "角色X偏移"
-label_settings = ExtResource("25_jmc66")
-min_value = -1.0
+columns = 2
 
-[node name="CharacterOffsetY" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=4476501 instance=ExtResource("12_vedit")]
+[node name="Label" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=78464776]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "角色Y偏移"
+size_flags_vertical = 1
+text = "角色X偏移："
 label_settings = ExtResource("25_jmc66")
-min_value = -1.0
+vertical_alignment = 1
 
-[node name="CharacterScale" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=464163771 instance=ExtResource("12_vedit")]
+[node name="CharacterOffsetX" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=224716145 instance=ExtResource("12_vedit")]
 layout_mode = 2
-text = "角色缩放 "
+size_flags_stretch_ratio = 4.0
+min_value = -1.0
+alignment = 1
+
+[node name="Label2" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=379700414]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "角色Y偏移："
 label_settings = ExtResource("25_jmc66")
-min_value = 0.01
+vertical_alignment = 1
+
+[node name="CharacterOffsetY" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=4476501 instance=ExtResource("12_vedit")]
+layout_mode = 2
+size_flags_stretch_ratio = 4.0
+min_value = -1.0
+alignment = 1
+
+[node name="Label3" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=1965587421]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "角色缩放："
+label_settings = ExtResource("25_jmc66")
+vertical_alignment = 1
+
+[node name="CharacterScale" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=464163771 instance=ExtResource("12_vedit")]
+layout_mode = 2
+size_flags_stretch_ratio = 4.0
 max_value = 2.0
 value = 1.0
+alignment = 1
 
-[node name="CharacterButtonGrid" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=587338278]
+[node name="CharacterButtonGrid" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=517559374]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/h_separation = 16
-theme_override_constants/v_separation = 12
-columns = 3
+alignment = 2
 
 [node name="CharacterEditButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=1482695527]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
+shortcut = SubResource("Shortcut_t7h14")
 text = "编辑角色..."
 
-[node name="Spacer" type="Control" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=127559397]
+[node name="CharacterEditButton2" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=2059150735]
+custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+text = "设为角色默认变换"
 
 [node name="CharacterResetButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=1733696815]
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-text = "重置"
+text = "重置变换"
 
 [node name="SkillSection" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=913005428]
 layout_mode = 2
@@ -539,19 +507,31 @@ text = "启用   "
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillPriority" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=1967379039 instance=ExtResource("12_vedit")]
+[node name="GridContainer2" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=906267376]
 layout_mode = 2
-text = "优先级"
+columns = 2
+
+[node name="Label" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer2" unique_id=1678439412]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 1
+text = "优先级："
 label_settings = ExtResource("25_jmc66")
+vertical_alignment = 1
+
+[node name="SkillPriority" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer2" unique_id=1967379039 instance=ExtResource("12_vedit")]
+layout_mode = 2
 min_value = -10.0
 max_value = 10.0
+step = 1.0
 rounded = true
+drag_step = 0.1
 
 [node name="CreateDeckDialog" type="ConfirmationDialog" parent="." unique_id=1386554497 node_paths=PackedStringArray("_name_edit", "_author_edit", "_description_edit", "_thumbnail_label", "_upload_button", "_choose_button", "_builtin_checkbox")]
 oversampling_override = 1.0
 title = "创建牌组"
 initial_position = 2
-size = Vector2i(454, 266)
+size = Vector2i(480, 290)
 script = ExtResource("18_cddlg")
 _name_edit = NodePath("CreateDeckForm/GridContainer/DeckName")
 _author_edit = NodePath("CreateDeckForm/GridContainer/AuthorName")
@@ -564,8 +544,8 @@ _builtin_checkbox = NodePath("CreateDeckForm/GridContainer/[Editor]Builtin")
 [node name="CreateDeckForm" type="ScrollContainer" parent="CreateDeckDialog" unique_id=2142984756]
 offset_left = 8.0
 offset_top = 12.0
-offset_right = 446.0
-offset_bottom = 215.0
+offset_right = 472.0
+offset_bottom = 247.0
 
 [node name="GridContainer" type="GridContainer" parent="CreateDeckDialog/CreateDeckForm" unique_id=1321608391]
 layout_mode = 2
@@ -638,7 +618,7 @@ script = ExtResource("19_ebchk")
 oversampling_override = 1.0
 title = "创建角色"
 initial_position = 2
-size = Vector2i(454, 225)
+size = Vector2i(480, 290)
 script = ExtResource("17_ccdlg")
 _name_edit = NodePath("CreateCharacterForm/GridContainer/CharacterName")
 _from_edit = NodePath("CreateCharacterForm/GridContainer/FromEdit")

@@ -9,10 +9,10 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dmg1w"]
 bg_color = Color(0.254902, 0.254902, 0.254902, 1)
 skew = Vector2(0.073, 0)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="TextboxWithSpeakerPortrait" type="Control"]
 layout_mode = 3

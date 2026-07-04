@@ -9,5 +9,5 @@ bg_color = Color( 0.180392, 0.180392, 0.180392, 0.219608 )
 draw_center = false
 border_width_bottom = 2
 border_color = Color( 0.8, 0.8, 0.8, 0.286275 )
-corner_radius_top_left = 4
-corner_radius_top_right = 4
+corner_radius_top_left = 6
+corner_radius_top_right = 6

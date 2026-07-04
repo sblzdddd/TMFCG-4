@@ -1,42 +1,44 @@
 [gd_scene format=3 uid="uid://yaqyiwy870jf"]
 
 [ext_resource type="Script" uid="uid://duh0mikmqowvv" path="res://src/ui/value_edit.gd" id="1_value"]
-[ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="2_font"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_label"]
-font = ExtResource("2_font")
-font_size = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idle"]
+bg_color = Color(1, 1, 1, 0.1)
+corner_radius_top_left = 6
+corner_radius_bottom_left = 6
 
-[node name="ValueEdit" type="HBoxContainer" unique_id=1267618321]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hover"]
+bg_color = Color(1, 1, 1, 0.18)
+corner_radius_top_left = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drag"]
+bg_color = Color(1, 1, 1, 0.28)
+corner_radius_top_left = 6
+corner_radius_bottom_left = 6
+
+[node name="ValueEdit" type="SpinBox" unique_id=1267618321]
 offset_right = 276.0
 offset_bottom = 25.0
 size_flags_horizontal = 3
-theme_override_constants/separation = 16
-script = ExtResource("1_value")
-
-[node name="Label" type="Label" parent="." unique_id=244225280]
-layout_mode = 2
-text = "Label"
-label_settings = SubResource("LabelSettings_label")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1256056093]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = -8
-
-[node name="SpinBox" type="SpinBox" parent="VBoxContainer" unique_id=1102975947]
-layout_mode = 2
 max_value = 1.0
 step = 0.1
+select_all_on_focus = true
+script = ExtResource("1_value")
+progress_style_idle = SubResource("StyleBoxFlat_idle")
+progress_style_hover = SubResource("StyleBoxFlat_hover")
+progress_style_drag = SubResource("StyleBoxFlat_drag")
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1535566794]
-layout_mode = 2
-theme_override_constants/margin_left = 9
-theme_override_constants/margin_right = 27
+[node name="DragOverlay" type="Control" parent="." unique_id=1983746502]
+clip_contents = true
+anchors_preset = 0
+offset_right = 254.0
+offset_bottom = 33.0
+mouse_default_cursor_shape = 10
 
-[node name="HSlider" type="HSlider" parent="VBoxContainer/MarginContainer" unique_id=1976464980]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 1
-max_value = 1.0
-step = 0.01
+[node name="ProgressFill" type="Panel" parent="DragOverlay" unique_id=1549283710]
+show_behind_parent = true
+layout_mode = 0
+offset_bottom = 33.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_idle")

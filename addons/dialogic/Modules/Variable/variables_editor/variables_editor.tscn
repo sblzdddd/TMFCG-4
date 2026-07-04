@@ -14,10 +14,10 @@ border_width_top = 2
 border_width_right = 2
 border_width_bottom = 2
 border_color = Color(0.337, 0.62, 1, 0.8)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 corner_detail = 4
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vn21i"]
@@ -41,10 +41,10 @@ pressed/styles/Button = SubResource("StyleBoxFlat_ffuxp")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ncgqs"]
 bg_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [node name="VariablesEditor" type="HSplitContainer" unique_id=1387896974]
 anchors_preset = 15

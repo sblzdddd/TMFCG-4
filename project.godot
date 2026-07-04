@@ -171,8 +171,7 @@ translation/intern/translation_folder="res://definitions/database/translations"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/stretch/scale=1.5
 
 [dotnet]
 
@@ -185,16 +184,12 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/tmfc
 [file_customization]
 
 folder_colors={
-"res://assets/": "red",
-"res://assets/fonts/": "orange",
-"res://assets/textures/": "yellow",
+"res://assets/": "yellow",
+"res://assets/textures/": "orange",
 "res://definitions/": "teal",
-"res://definitions/database/dialogues/": "green",
+"res://definitions/database/": "green",
 "res://definitions/database/translations/": "gray",
-"res://definitions/fonts/": "orange",
 "res://definitions/levels/": "blue",
-"res://definitions/materials/": "purple",
-"res://definitions/prefabs/": "blue",
 "res://scripts/": "gray"
 }
 

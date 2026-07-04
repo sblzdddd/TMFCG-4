@@ -32,6 +32,7 @@ func _ready() -> void:
 func refresh() -> void:
 	_clear_children(_deck_root)
 	_clear_children(_character_list_root)
+	hide_root = true
 
 	if show_builtin_decks:
 		for path in ResourceFsUtils.list_files(ResourceFsUtils.PRESET_DECKS_DIR, "tres"):

@@ -5,13 +5,12 @@ class_name CardVisualEditor
 signal character_data_changed(data: CardVisualData)
 
 @export var _picker_dialog: CharacterPickerDialog
-@export var _select_button: OptionButton
+@export var _select_button: MenuButton
 @export var _variant_selection: OptionButton
 @export var _variant_prev: Button
 @export var _variant_next: Button
 @export var _name_info: Label
 @export var _description_label: Label
-@export var _portrait: TextureRect
 @export var _x_edit: ValueEdit
 @export var _y_edit: ValueEdit
 @export var _scale_edit: ValueEdit
@@ -23,9 +22,7 @@ var _portrait_keys: Array[String] = []
 
 
 func _ready() -> void:
-	TranslationServer.set_locale("zh")
-	_portrait.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	_select_button.item_selected.connect(_on_select_item_selected)
+	_select_button.get_popup().id_pressed.connect(_on_select_item_selected)
 	_variant_selection.item_selected.connect(_on_variant_selected)
 	_variant_prev.pressed.connect(_on_variant_prev_pressed)
 	_variant_next.pressed.connect(_on_variant_next_pressed)
@@ -33,32 +30,29 @@ func _ready() -> void:
 	_x_edit.value_changed.connect(_on_transform_changed)
 	_y_edit.value_changed.connect(_on_transform_changed)
 	_scale_edit.value_changed.connect(_on_transform_changed)
-	_reset_button.pressed.connect(_on_reset_pressed)
+	_reset_button.pressed.connect(_apply_default_transform)
 	_refresh_variant_list()
 
 
-func _on_select_item_selected(index: int) -> void:
-	var item_id := _select_button.get_item_id(index)
-	if item_id == 0:
-		return
-	match item_id:
+func _on_select_item_selected(id: int) -> void:
+	match id:
 		1:
 			_picker_dialog.popup_preset_picker()
 		2:
 			_picker_dialog.popup_user_picker()
-	_select_button.select(0)
+	_select_button.get_popup().set_item_checked(0, false)
 
 
 func _on_character_selected(character: DialogicCharacter) -> void:
 	if selected_character == null:
 		selected_character = CardVisualData.new()
 	selected_character.character = character
-	selected_character.selected_portrait = character.default_portrait
-	if selected_character.selected_portrait.is_empty() and not character.portraits.is_empty():
+	selected_character.portrait = character.default_portrait
+	if selected_character.portrait.is_empty() and not character.portraits.is_empty():
 		var keys := character.portraits.keys()
 		keys.sort()
-		selected_character.selected_portrait = keys[0]
-	_sync_transform_from_edits()
+		selected_character.portrait = keys[0]
+	_apply_edit_transform()
 	_apply_character(character)
 	_refresh_variant_list()
 	character_data_changed.emit(selected_character)
@@ -75,13 +69,6 @@ func _apply_character(character: DialogicCharacter) -> void:
 		card_description if not card_description.is_empty() else "【无角色描述】"
 	)
 
-	var texture := CharacterUtils.load_portrait_texture(
-		character,
-		selected_character.selected_portrait if selected_character else ""
-	)
-	if texture != null:
-		_portrait.texture = texture
-
 
 func _refresh_variant_list() -> void:
 	_variant_selection.clear()
@@ -97,7 +84,7 @@ func _refresh_variant_list() -> void:
 	_portrait_keys.assign(character.portraits.keys())
 	_portrait_keys.sort()
 
-	var current_portrait := selected_character.selected_portrait
+	var current_portrait := selected_character.portrait
 	if current_portrait.is_empty():
 		current_portrait = character.default_portrait
 	if current_portrait.is_empty() and not _portrait_keys.is_empty():
@@ -118,7 +105,7 @@ func _refresh_variant_list() -> void:
 	_variant_selection.set_block_signals(true)
 	_variant_selection.select(selected_index)
 	_variant_selection.set_block_signals(false)
-	selected_character.selected_portrait = _portrait_keys[selected_index]
+	selected_character.portrait = _portrait_keys[selected_index]
 	_set_variant_buttons_enabled(_portrait_keys.size() > 1)
 
 
@@ -129,67 +116,49 @@ func _set_variant_buttons_enabled(enabled: bool) -> void:
 
 
 func _on_variant_selected(index: int) -> void:
-	_select_portrait_at_index(index)
+	_select_portrait(index)
 
 
 func _on_variant_prev_pressed() -> void:
-	if _portrait_keys.is_empty():
-		return
-	var index := (_variant_selection.selected - 1 + _portrait_keys.size()) % _portrait_keys.size()
-	_select_portrait_at_index(index)
+	if _portrait_keys.is_empty(): return
+	_select_portrait((_variant_selection.selected - 1 + _portrait_keys.size()) % _portrait_keys.size())
 
 
 func _on_variant_next_pressed() -> void:
-	if _portrait_keys.is_empty():
-		return
-	var index := (_variant_selection.selected + 1) % _portrait_keys.size()
-	_select_portrait_at_index(index)
+	if _portrait_keys.is_empty(): return
+	_select_portrait((_variant_selection.selected + 1) % _portrait_keys.size())
 
 
-func _select_portrait_at_index(index: int) -> void:
+func _select_portrait(index: int) -> void:
 	if selected_character == null or index < 0 or index >= _portrait_keys.size():
 		return
 
 	var portrait_key := _portrait_keys[index]
 	if (
-		selected_character.selected_portrait == portrait_key
+		selected_character.portrait == portrait_key
 		and _variant_selection.selected == index
-	):
-		return
+	): return
 
-	selected_character.selected_portrait = portrait_key
+	selected_character.portrait = portrait_key
 	if _variant_selection.selected != index:
 		_variant_selection.select(index)
-	_update_portrait_preview()
 	character_data_changed.emit(selected_character)
-
-
-func _update_portrait_preview() -> void:
-	if selected_character == null or selected_character.character == null:
-		return
-
-	var texture := CharacterUtils.load_portrait_texture(
-		selected_character.character,
-		selected_character.selected_portrait
-	)
-	if texture != null:
-		_portrait.texture = texture
 
 
 func _on_transform_changed(_new_value: float = 0.0) -> void:
 	if selected_character == null:
 		return
-	_sync_transform_from_edits()
+	_apply_edit_transform()
 	character_data_changed.emit(selected_character)
 
 
-func _sync_transform_from_edits() -> void:
+func _apply_edit_transform() -> void:
 	selected_character.transform.x = _x_edit.value
 	selected_character.transform.y = _y_edit.value
 	selected_character.transform.z = _scale_edit.value
 
 
-func _on_reset_pressed() -> void:
+func _apply_default_transform() -> void:
 	_x_edit.value = 0.0
 	_y_edit.value = 0.0
 	_scale_edit.value = 1.0

@@ -10,11 +10,11 @@ content_margin_bottom = 4.0
 bg_color = Color(0.1, 0.1, 0.1, 0.6)
 border_width_left = 3
 border_color = Color(0.231373, 0.545098, 0.94902, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n1o16"]
 content_margin_left = 4.0
@@ -24,11 +24,11 @@ content_margin_bottom = 4.0
 bg_color = Color(0.225, 0.225, 0.225, 0.6)
 border_width_left = 3
 border_color = Color(0.231373, 0.545098, 0.94902, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 8
 
 [node name="AddEventButton" type="Button"]
 custom_minimum_size = Vector2(44, 30)
