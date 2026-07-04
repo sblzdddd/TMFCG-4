@@ -4,7 +4,7 @@ class_name DraggerSpinBox
 
 ## Inspector-style spinbox with horizontal drag to adjust, tap/click to type.
 
-const _FLOAT_DRAG_SPEED := 0.3
+const _FLOAT_DRAG_SPEED := 0.5
 const _INTEGER_DRAG_SPEED := 0.1
 const _MIN_FLOAT_STEP := 0.001
 const _DRAG_THRESHOLD_SCALE := 4.0
@@ -24,7 +24,7 @@ var _progress_state := _ProgressState.IDLE
 var _grab_attempt := false
 var _grabbing := false
 var _pre_grab_value := 0.0
-var _grab_mouse_pos := Vector2i.ZERO
+var _grab_mouse_pos := Vector2.ZERO
 var _grab_dist_cache := 0.0
 var _grab_input := _GrabInput.NONE
 var _grab_touch_index := -1
@@ -209,7 +209,7 @@ func _grab_start(input: _GrabInput, touch_index: int = -1) -> void:
 	_grab_input = input
 	_grab_touch_index = touch_index
 	if input == _GrabInput.MOUSE:
-		_grab_mouse_pos = Vector2i(get_global_mouse_position())
+		_grab_mouse_pos = get_global_mouse_position()
 		set_process_input(true)
 
 
@@ -237,14 +237,9 @@ func _grab_end() -> void:
 
 
 func _restore_mouse_pos() -> void:
-	call_deferred(&"_deferred_warp_mouse")
-
-
-func _deferred_warp_mouse() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
-	Input.warp_mouse(_grab_mouse_pos)
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
+	await get_tree().create_timer(0.01).timeout
+	Input.warp_mouse(_grab_mouse_pos * get_window().content_scale_factor)
 
 func _apply_drag(relative_x: float, shift_pressed: bool, round_to_int: bool) -> void:
 	var speed := _drag_speed()

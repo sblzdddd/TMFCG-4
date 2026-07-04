@@ -19,17 +19,22 @@ func create_folder(folder_name: String, parent: TreeItem) -> TreeItem:
 	folder.set_text(0, folder_name)
 	return folder
 
-
-func _ready() -> void:
-	ResourceFsUtils.ensure_directories()
+func init_roots() -> void:
+	if _root != null or _deck_root != null or _character_list_root != null:
+		return
 	_root = create_item()
 	hide_root = true
 	_deck_root = create_folder("牌组", _root)
 	_character_list_root = create_folder("角色", _root)
+
+func _ready() -> void:
+	ResourceFsUtils.ensure_directories()
+	init_roots()
 	refresh()
 
 
 func refresh() -> void:
+	init_roots()
 	_clear_children(_deck_root)
 	_clear_children(_character_list_root)
 	hide_root = true

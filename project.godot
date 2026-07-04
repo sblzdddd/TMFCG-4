@@ -171,7 +171,6 @@ translation/intern/translation_folder="res://definitions/database/translations"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=2
 window/stretch/scale=1.5
 
 [dotnet]
