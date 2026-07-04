@@ -4,4 +4,4 @@ class_name EditorBuiltinCheckbox
 
 
 func _ready() -> void:
-	visible = OS.has_feature("editor")
+	visible = get_tree().edited_scene_root != null && get_tree().edited_scene_root in [self, owner]
