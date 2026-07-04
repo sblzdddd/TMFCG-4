@@ -11,6 +11,10 @@ class_name CardEditor
 
 
 func _ready() -> void:
+	if Engine.is_embedded_in_editor():
+		print("CardEditor is running inside the editor viewport.")
+		get_window().content_scale_factor = 1.15 
+
 	_add_deck_button.pressed.connect(_create_deck_dialog.popup_dialog)
 	_add_character_button.pressed.connect(_create_character_dialog.popup_dialog)
 	_create_deck_dialog.deck_created.connect(_on_deck_created)

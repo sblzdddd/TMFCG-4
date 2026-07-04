@@ -90,9 +90,10 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 
 [sub_resource type="LabelSettings" id="LabelSettings_1wn3d"]
-font_size = 30
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_w2akv"]
+font_size = 15
 
 [sub_resource type="InputEventKey" id="InputEventKey_ecf3d"]
 device = -1
@@ -103,7 +104,7 @@ unicode = 101
 events = [SubResource("InputEventKey_ecf3d")]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rr0j0"]
-font_size = 30
+font_size = 25
 
 [node name="CardEditorView" type="MarginContainer" unique_id=1670632272 node_paths=PackedStringArray("_inspector", "_file_tree", "_add_deck_button", "_add_character_button", "_create_deck_dialog", "_create_character_dialog")]
 anchors_preset = 15
