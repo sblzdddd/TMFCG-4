@@ -1,0 +1,2202 @@
+[
+  {
+	"name": "【无角色】",
+	"nickname": ["Fallback"],
+	"description": "Fallback",
+	"first": "Fallback",
+	"characterId": "FALLBACK",
+	"enName": ["Fallback"],
+	"jpName": "Fallback",
+	"variants": ["Fallback"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-0",
+	"name": "博丽灵梦",
+	"enName": ["Hakurei Reimu"],
+	"jpName": "博麗　霊夢",
+	"nickname": ["红白", "赤色杀人魔"],
+	"description": "博丽神社巫女",
+	"first": "东方红魔乡",
+	"variants": ["灵梦 微笑", "灵梦 低沉", "灵梦 傲娇", "灵梦 哭", "灵梦 喊", "灵梦 喝茶", "灵梦 喝茶闭眼", "灵梦 微笑张嘴", "灵梦 思考", "灵梦 普通张嘴", "灵梦 笑", "灵梦 说教", "灵梦 闭眼笑", "灵梦 震惊"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-1",
+	"name": "雾雨魔理沙",
+	"enName": ["Kirisame Marisa"],
+	"jpName": "霧雨　魔理沙",
+	"nickname": ["黑白", "东洋魔女", "黑白老鼠"],
+	"description": "普通的魔法使",
+	"first": "东方红魔乡",
+	"variants": ["魔理沙 无表情", "魔理沙 不耐烦", "魔理沙 张嘴", "魔理沙 微笑张嘴", "魔理沙 惊讶", "魔理沙 撇嘴", "魔理沙 苦笑", "魔理沙 苦笑汗"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-3",
+	"name": "神玉",
+	"enName": ["SinGyoku"],
+	"jpName": "しんぎょく",
+	"nickname": [""],
+	"description": "神社的守门人",
+	"first": "东方灵异传",
+	"variants": []
+  },
+  {
+	"characterId": "th-4",
+	"name": "魅魔",
+	"enName": ["Mima"],
+	"jpName": "魅魔",
+	"nickname": [""],
+	"description": "恶灵小姐",
+	"first": "东方灵异传",
+	"variants": ["魅魔 微笑", "魅魔 不爽", "魅魔 大笑", "魅魔 微笑张嘴", "魅魔 思考", "魅魔 思考闭眼", "魅魔 无表情", "魅魔 无表情张嘴", "魅魔 阴谋笑", "魅魔 震惊", "魅魔 震惊1", "魅魔 震惊2"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-5",
+	"name": "菊理",
+	"enName": ["Kikuri"],
+	"jpName": "きくり",
+	"nickname": [""],
+	"description": "地狱之月",
+	"first": "东方灵异传",
+	"variants": []
+  },
+  {
+	"characterId": "th-6",
+	"name": "矜羯罗",
+	"enName": ["Konngara"],
+	"jpName": "矜羯羅",
+	"nickname": [""],
+	"description": "星幽剑士",
+	"first": "东方灵异传",
+	"variants": []
+  },
+  {
+	"characterId": "th-7",
+	"name": "幽幻魔眼",
+	"enName": ["YuugenMagan"],
+	"jpName": "ゆうげんまがん",
+	"nickname": [""],
+	"description": "邪恶之眼",
+	"first": "东方灵异传",
+	"variants": []
+  },
+  {
+	"characterId": "th-8",
+	"name": "依莉斯",
+	"enName": ["Elis"],
+	"jpName": "エリス",
+	"nickname": [""],
+	"description": "天真的恶魔",
+	"first": "东方灵异传",
+	"variants": []
+  },
+  {
+	"characterId": "th-9",
+	"name": "萨丽爱尔",
+	"enName": ["Sariel"],
+	"jpName": "サリエル",
+	"nickname": ["大碎骨"],
+	"description": "死之天使",
+	"first": "东方灵异传",
+	"variants": []
+  },
+  {
+	"characterId": "th-10",
+	"name": "玄爷",
+	"enName": ["Genjii"],
+	"jpName": "玄爺",
+	"nickname": ["乌龟"],
+	"description": "神社的乌龟",
+	"first": "东方封魔录",
+	"variants": []
+  },
+  {
+	"characterId": "th-11",
+	"name": "里香",
+	"enName": ["Rika"],
+	"jpName": "里香",
+	"nickname": ["战车少女"],
+	"description": "天才工程师",
+	"first": "东方封魔录",
+	"variants": []
+  },
+  {
+	"characterId": "th-12",
+	"name": "明罗",
+	"enName": ["Meira"],
+	"jpName": "明羅",
+	"nickname": [""],
+	"description": "一位想取得博丽之力的武士",
+	"first": "东方封魔录",
+	"variants": []
+  },
+  {
+	"characterId": "th-14",
+	"name": "爱莲",
+	"enName": ["Ellen"],
+	"jpName": "エレン",
+	"nickname": ["恋爱魔女", "艾伦", "蓬松头"],
+	"description": "勤奋工作并梦想着恋爱的魔女",
+	"first": "东方梦时空",
+	"variants": ["爱莲 微笑2", "爱莲 撇嘴", "爱莲 笑_苏格拉底高兴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-15",
+	"name": "小兔姬",
+	"enName": ["Kotohime"],
+	"jpName": "小兎姫",
+	"nickname": ["警察"],
+	"description": "在弹幕中梦见美的公主",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-16",
+	"name": "卡娜·安娜贝拉尔",
+	"enName": ["Kana Anaberal"],
+	"jpName": "カナ・アナベラル",
+	"nickname": ["梦消失", "路牌女"],
+	"description": "失去梦的少女骚灵",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-17",
+	"name": "朝仓理香子",
+	"enName": ["Rikako Asakura"],
+	"jpName": "朝倉　理香子",
+	"nickname": [""],
+	"description": "寻找梦想的科学的魔法使",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-18",
+	"name": "北白河千百合",
+	"enName": ["Chiyuri Kitashirakawa"],
+	"jpName": "北白河　ちゆり",
+	"nickname": ["折凳狂魔"],
+	"description": "冈崎梦美的助理",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-19",
+	"name": "冈崎梦美",
+	"enName": ["Yumemi Okazaki"],
+	"jpName": "岡崎　夢美",
+	"nickname": ["教授", "草莓"],
+	"description": "天才物理教授",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-20",
+	"name": "咪咪号",
+	"enName": ["Mimichan"],
+	"jpName": "ミミちゃん",
+	"nickname": [""],
+	"description": "冈崎梦美送给魔理沙的导弹",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-21",
+	"name": "留琴",
+	"enName": ["Ru~koto"],
+	"jpName": "る～こと",
+	"nickname": ["核能女仆"],
+	"description": "冈崎梦美送给灵梦的万能机器人女仆",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-22",
+	"name": "玛○奇",
+	"enName": ["Ma maru chi"],
+	"jpName": "ま○ち",
+	"nickname": [""],
+	"description": "冈崎梦美送给灵梦的家务机器人",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-23",
+	"name": "苏格拉底",
+	"enName": ["Sokuratesu"],
+	"jpName": "ソクラテス",
+	"nickname": [""],
+	"description": "爱莲的宠物猫",
+	"first": "东方梦时空",
+	"variants": []
+  },
+  {
+	"characterId": "th-24",
+	"name": "奥莲姬",
+	"enName": ["Orange"],
+	"jpName": "オレンジ",
+	"nickname": ["orange", "橙子"],
+	"description": "“一般路过”的杂鱼",
+	"first": "东方幻想乡",
+	"variants": []
+  },
+  {
+	"characterId": "th-25",
+	"name": "胡桃",
+	"enName": ["Kurumi"],
+	"jpName": "くるみ",
+	"nickname": ["吸血鬼"],
+	"description": "吸血少女",
+	"first": "东方幻想乡",
+	"variants": []
+  },
+  {
+	"characterId": "th-26",
+	"name": "艾丽",
+	"enName": ["Elly"],
+	"jpName": "エリー",
+	"nickname": ["门卫"],
+	"description": "梦幻馆的守门人",
+	"first": "东方幻想乡",
+	"variants": []
+  },
+  {
+	"characterId": "th-27",
+	"name": "幽香",
+	"enName": ["Yuka"],
+	"jpName": "幽香",
+	"nickname": ["睡美人"],
+	"description": "梦幻馆的主人",
+	"first": "东方幻想乡",
+	"variants": []
+  },
+  {
+	"characterId": "th-28",
+	"name": "梦月",
+	"enName": ["Mugetsu"],
+	"jpName": "夢月",
+	"nickname": [""],
+	"description": "最凶最恶的Boss之妹",
+	"first": "东方幻想乡",
+	"variants": []
+  },
+  {
+	"characterId": "th-29",
+	"name": "幻月",
+	"enName": ["Gengetsu"],
+	"jpName": "幻月",
+	"nickname": [""],
+	"description": "最凶最恶的Boss之姐",
+	"first": "东方幻想乡",
+	"variants": []
+  },
+  {
+	"characterId": "th-30",
+	"name": "萨拉",
+	"enName": ["Sara"],
+	"jpName": "サラ",
+	"nickname": [""],
+	"description": "魔界的守门人",
+	"first": "东方怪绮谈",
+	"variants": ["萨拉 微笑", "萨拉 微笑张嘴", "萨拉 无表情", "萨拉 无表情张嘴", "萨拉 认真"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-31",
+	"name": "露易兹",
+	"enName": ["Louise", "Luize", "Luise"],
+	"jpName": "ルイズ",
+	"nickname": [""],
+	"description": "魔界一般路过魔界民",
+	"first": "东方怪绮谈",
+	"variants": ["露易兹 微笑", "露易兹 匆忙", "露易兹 微笑张嘴", "露易兹 思考", "露易兹 惊讶", "露易兹 惊讶2", "露易兹 无表情", "露易兹 无表情张嘴", "露易兹 调皮笑", "露易兹 难过", "露易兹 难过张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-32",
+	"name": "爱丽丝",
+	"enName": ["Alice"],
+	"jpName": "アリス",
+	"nickname": ["萝莉丝", "小小爱"],
+	"description": "死之少女",
+	"first": "东方怪绮谈",
+	"variants": []
+  },
+  {
+	"characterId": "th-33",
+	"name": "雪",
+	"enName": ["Yuki"],
+	"jpName": "ユキ",
+	"nickname": ["黑之魔法使"],
+	"description": "魔界的黑色魔法使",
+	"first": "东方怪绮谈",
+	"variants": []
+  },
+  {
+	"characterId": "th-34",
+	"name": "舞",
+	"enName": ["Mai"],
+	"jpName": "マイ",
+	"nickname": ["白之魔法使"],
+	"description": "魔界的白色魔法使",
+	"first": "东方怪绮谈",
+	"variants": []
+  },
+  {
+	"characterId": "th-35",
+	"name": "梦子",
+	"enName": ["Yumeko"],
+	"jpName": "夢子",
+	"nickname": ["魔界女仆"],
+	"description": "最强的魔界人，神绮的护卫（女仆）",
+	"first": "东方怪绮谈",
+	"variants": ["梦子 微笑", "梦子 微笑张嘴", "梦子 无表情", "梦子 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-36",
+	"name": "神绮",
+	"enName": ["Shinki"],
+	"jpName": "神綺",
+	"nickname": ["太太", "呆毛神", "女儿怪"],
+	"description": "魔界之神",
+	"first": "东方怪绮谈",
+	"variants": ["神绮 微笑", "神绮 微笑张嘴", "神绮 无表情", "神绮 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-37",
+	"name": "露米娅",
+	"enName": ["Rumia"],
+	"jpName": "ルーミア",
+	"nickname": ["⑩", "10"],
+	"description": "宵暗的妖怪",
+	"first": "东方红魔乡",
+	"variants": ["露米娅 是这样吗", "露米娅 生气", "露米娅 疑惑", "露米娅 笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-38",
+	"name": "大妖精",
+	"enName": ["Daiyousei"],
+	"jpName": "大妖精",
+	"nickname": ["大酱"],
+	"description": "较大的妖精",
+	"first": "东方红魔乡",
+	"variants": ["大妖精 无表情", "大妖精 低沉", "大妖精 微笑张嘴", "大妖精 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-39",
+	"name": "琪露诺",
+	"enName": ["Cirno"],
+	"jpName": "チルノ",
+	"nickname": ["笨蛋", "冰精", "⑨", "黑皮⑨", "9"],
+	"description": "冰之妖精",
+	"first": "东方红魔乡",
+	"variants": ["琪露诺 微笑", "琪露诺 思考", "琪露诺 无表情", "琪露诺 无表情张嘴", "琪露诺 生气", "琪露诺 笑", "琪露诺 老娘最强", "琪露诺 震惊"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-40",
+	"name": "红美铃",
+	"enName": ["Hoan Meirin / Hong Meirin"],
+	"jpName": "紅　美鈴",
+	"nickname": ["红师傅", "门卫"],
+	"description": "华人少女",
+	"first": "东方红魔乡",
+	"variants": ["美铃 微笑", "美铃 Default", "美铃 害羞", "美铃 微笑张嘴", "美铃 无表情张嘴", "美铃 睡着张嘴", "美铃 睡着闭嘴", "美铃 笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-41",
+	"name": "小恶魔",
+	"enName": ["Little Devil / Koakuma"],
+	"jpName": "小悪魔",
+	"nickname": ["图书管理员"],
+	"description": "略弱的恶魔",
+	"first": "东方红魔乡",
+	"variants": ["小恶魔 无表情", "小恶魔 微笑张嘴", "小恶魔 无表情张嘴", "小恶魔 笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-42",
+	"name": "帕秋莉·诺蕾姬",
+	"enName": ["Patchouli Knowledge"],
+	"jpName": "パチュリー・ノーレッジ",
+	"nickname": ["姆Q", "帕琪", "图书", "香草", "广藿香"],
+	"description": "知识与避世的少女",
+	"first": "东方红魔乡",
+	"variants": ["帕秋莉 无表情", "帕秋莉 咳嗽", "帕秋莉 咳嗽2", "帕秋莉 咳嗽3", "帕秋莉 微笑张嘴", "帕秋莉 思考", "帕秋莉 思考2", "帕秋莉 无表情张嘴", "帕秋莉 生气张嘴", "帕秋莉 皱眉不高兴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-43",
+	"name": "十六夜咲夜",
+	"enName": ["Izayoi Sakuya"],
+	"jpName": "十六夜　咲夜",
+	"nickname": ["PAD长", "女仆长", "16"],
+	"description": "完美潇洒的从者",
+	"first": "东方红魔乡",
+	"variants": ["咲夜 微笑", "咲夜 微笑张嘴", "咲夜 无表情", "咲夜 无表情张嘴", "咲夜 无表情闭眼", "咲夜 高冷"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-44",
+	"name": "蕾米莉亚·斯卡蕾特",
+	"enName": ["Remilia Scarlet"],
+	"jpName": "レミリア・スカーレット",
+	"nickname": ["大小姐", "蕾咪", "大妹", "威严", "抱头蹲防", "吸血鬼姐妹"],
+	"description": "鲜红的恶魔",
+	"first": "东方红魔乡",
+	"variants": ["蕾米 无表情", "蕾米 微笑张嘴", "蕾米 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-45",
+	"name": "芙兰朵露·斯卡蕾特",
+	"enName": ["Flandre Scarlet"],
+	"jpName": "フランドール・スカーレット",
+	"nickname": ["二小姐", "芙兰", "二妹", "破坏之神", "吸血鬼姐妹"],
+	"description": "吸血鬼的破坏性妹妹",
+	"first": "东方红魔乡",
+	"variants": ["芙兰 微笑", "芙兰 boss乐", "芙兰 boss哀", "芙兰 boss喜", "芙兰 boss怒", "芙兰 乐", "芙兰 哀", "芙兰 嘲讽", "芙兰 微笑张嘴", "芙兰 微笑张嘴2", "芙兰 怒", "芙兰 怒2", "芙兰 怒3", "芙兰 无表情", "芙兰 无表情张嘴", "芙兰 暴虐", "芙兰 疯狂", "芙兰 笑", "芙兰 装可爱"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-46",
+	"name": "冴月麟",
+	"enName": ["Satsuki Rin"],
+	"jpName": "冴月　麟",
+	"nickname": ["阿卡麟"],
+	"description": "《东方红魔乡》未实装角色",
+	"first": "东方红魔乡",
+	"variants": []
+  },
+  {
+	"characterId": "th-47",
+	"name": "蕾蒂·霍瓦特洛克",
+	"enName": ["Letty Whiterock"],
+	"jpName": "レティ・ホワイトロック",
+	"nickname": ["⑨妈"],
+	"description": "冬之妖怪",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-48",
+	"name": "橙",
+	"enName": ["Chen"],
+	"jpName": "橙",
+	"nickname": ["黑猫", "橙喵"],
+	"description": "凶兆之黑猫",
+	"first": "东方妖妖梦",
+	"variants": ["橙喵 微笑", "橙喵 叹气", "橙喵 喊", "橙喵 小张嘴", "橙喵 惊讶", "橙喵 无表情", "橙喵 生气", "橙喵 笑", "橙喵 难过"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-49",
+	"name": "爱丽丝·玛格特洛依德",
+	"enName": ["Alice Margatroid"],
+	"jpName": "アリス・マーガトロイド",
+	"nickname": ["小爱", "人偶师"],
+	"description": "七色的人偶师",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-50",
+	"name": "莉莉霍瓦特",
+	"enName": ["Lilywhite"],
+	"jpName": "リリーホワイト",
+	"nickname": ["莉莉白", "白莉莉", "莉莉", "莉莉黑"],
+	"description": "带来春天的妖精",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-51",
+	"name": "露娜萨·普莉兹姆利巴",
+	"enName": ["Lunasa Prismriver"],
+	"jpName": "ルナサ・プリズムリバー",
+	"nickname": ["骚灵大姐", "提琴手", "骚灵三姐妹"],
+	"description": "骚灵提琴手",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-52",
+	"name": "梅露兰·普莉兹姆利巴",
+	"enName": ["Merlin Prismriver"],
+	"jpName": "メルラン・プリズムリバー",
+	"nickname": ["骚灵二姐", "小号手", "骚灵三姐妹"],
+	"description": "骚灵小号手",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-53",
+	"name": "莉莉卡·普莉兹姆利巴",
+	"enName": ["Lyrica Prismriver"],
+	"jpName": "リリカ・プリズムリバー",
+	"nickname": ["骚灵三妹", "键盘手", "骚灵三姐妹"],
+	"description": "骚灵键盘手",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-54",
+	"name": "魂魄妖梦",
+	"enName": ["Konpaku Youmu"],
+	"jpName": "魂魄　妖夢",
+	"nickname": ["庭师", "Yo梦"],
+	"description": "半人半灵的园丁",
+	"first": "东方妖妖梦",
+	"variants": ["妖梦 微笑", "妖梦 哼", "妖梦 哼张嘴", "妖梦 喜极而泣", "妖梦 坚毅", "妖梦 微笑张嘴", "妖梦 无表情", "妖梦 生气", "妖梦 神秘", "妖梦 难过"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-55",
+	"name": "西行寺幽幽子",
+	"enName": ["Saigyouji Yuyuko", "Yuyuko Saigyouzi"],
+	"jpName": "西行寺　幽々子",
+	"nickname": ["UUZ", "吃货子"],
+	"description": "冥界的亡灵",
+	"first": "东方妖妖梦",
+	"variants": ["幽幽子 大吃_哭", "幽幽子 大吃_大哭", "幽幽子 大吃_无表情张嘴", "幽幽子 大吃_狂暴", "幽幽子 正常_微笑张嘴", "幽幽子 正常_无表情", "幽幽子 正常_无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-56",
+	"name": "八云蓝",
+	"enName": ["Yakumo Ran"],
+	"jpName": "八雲　藍",
+	"nickname": ["素果天狐", "蓝妈"],
+	"description": "间隙妖怪的式神",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-57",
+	"name": "八云紫",
+	"enName": ["Yakumo Yukari"],
+	"jpName": "八雲　紫",
+	"nickname": ["BBA", "紫妈", "老太婆"],
+	"description": "界线的妖怪",
+	"first": "东方妖妖梦",
+	"variants": ["紫 无表情", "紫 不满", "紫 微笑张嘴", "紫 惊讶", "紫 无表情张嘴", "紫 眯眼笑", "紫 被逗笑", "紫 认真", "紫 认真张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-58",
+	"name": "魂魄妖忌",
+	"enName": ["Konpaku Youki"],
+	"jpName": "魂魄　妖忌",
+	"nickname": ["老爷子"],
+	"description": "白玉楼前任园艺师",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-59",
+	"name": "蕾拉·普莉兹姆利巴",
+	"enName": ["Layla Prismriver"],
+	"jpName": "レイラ・プリズムリバー",
+	"nickname": [""],
+	"description": "普莉兹姆利巴家的四妹",
+	"first": "东方妖妖梦",
+	"variants": []
+  },
+  {
+	"characterId": "th-60",
+	"name": "伊吹萃香",
+	"enName": ["Ibuki Suika"],
+	"jpName": "伊吹　萃香",
+	"nickname": ["西瓜"],
+	"description": "酒瓢为枕的酒吞童子",
+	"first": "东方萃梦想",
+	"variants": ["西瓜 无表情", "西瓜 喊", "西瓜 喝酒", "西瓜 喝酒眨眼", "西瓜 微笑张嘴", "西瓜 无表情张嘴", "西瓜 洞悉", "西瓜 生气", "西瓜 被逗笑", "西瓜 醉酒", "西瓜 高兴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-61",
+	"name": "莉格露·奈特巴格",
+	"enName": ["Wriggle Nightbug"],
+	"jpName": "リグル・ナイトバグ",
+	"nickname": ["虫子"],
+	"description": "暗中蠢动的光虫",
+	"first": "东方永夜抄",
+	"variants": ["莉格露 微笑", "莉格露 普通张嘴", "莉格露 生气", "莉格露 自满", "莉格露 自满张嘴", "莉格露 震惊"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-62",
+	"name": "米斯蒂娅·萝蕾拉",
+	"enName": ["Mystia Lorelei"],
+	"jpName": "ミスティア・ローレライ",
+	"nickname": ["老板娘", "小碎骨", "米斯琪"],
+	"description": "歌唱的夜雀",
+	"first": "东方永夜抄",
+	"variants": ["米斯蒂娅 无表情", "米斯蒂娅 低沉", "米斯蒂娅 吐槽", "米斯蒂娅 哭", "米斯蒂娅 囧", "米斯蒂娅 坚毅", "米斯蒂娅 害怕", "米斯蒂娅 张嘴", "米斯蒂娅 张嘴2", "米斯蒂娅 晕", "米斯蒂娅 普通（微笑）", "米斯蒂娅 普通（微笑）翅膀垂下", "米斯蒂娅 疑惑", "米斯蒂娅 疑惑2", "米斯蒂娅 苦笑", "米斯蒂娅 认真", "米斯蒂娅 认真2", "米斯蒂娅 认真3", "米斯蒂娅 难过", "米斯蒂娅 难过2", "米斯蒂娅 震惊", "米斯蒂娅 高兴", "米斯蒂娅 万圣节服装", "米斯蒂娅 乐队", "米斯蒂娅 仙女", "米斯蒂娅 仪仗队", "米斯蒂娅 偶像服", "米斯蒂娅 圣诞节套装", "米斯蒂娅 巫女服", "米斯蒂娅 度假", "米斯蒂娅 情人节执事服", "米斯蒂娅 承太郎装", "米斯蒂娅 披风_0", "米斯蒂娅 新年服装", "米斯蒂娅 校服", "米斯蒂娅 水手服", "米斯蒂娅 水手服·冬", "米斯蒂娅 海盗", "米斯蒂娅 魔女", "米斯蒂娅 生日礼服", "米斯蒂娅 睡衣", "米斯蒂娅 花之礼裙", "米斯蒂娅 花魁和服", "米斯蒂娅 访问服饰", "米斯蒂娅 黑色套装_1"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-63",
+	"name": "上白泽慧音",
+	"enName": ["Kamishirasawa Keine"],
+	"jpName": "上白沢　慧音",
+	"nickname": ["老师"],
+	"description": "吞噬历史的半兽",
+	"first": "东方永夜抄",
+	"variants": ["慧音 白泽_微笑", "慧音 白泽_微笑张嘴", "慧音 白泽_无表情", "慧音 白泽_无表情张嘴", "慧音 微笑", "慧音 无表情", "慧音 无表情张嘴", "慧音 苦恼"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-64",
+	"name": "因幡天为",
+	"enName": ["Inaba Tewi", "Inaba Tei"],
+	"jpName": "因幡　てゐ",
+	"nickname": ["帝帝", "腹黑兔", "因幡帝", "小老帝"],
+	"description": "幸运的白兔",
+	"first": "东方永夜抄",
+	"variants": ["帝 无表情", "帝 大笑", "帝 嫌弃", "帝 微笑张嘴", "帝 无表情张嘴", "帝 狗腿", "帝 狡黠"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-65",
+	"name": "铃仙·优昙华院·因幡",
+	"enName": ["Reisen Udongein Inaba"],
+	"jpName": "鈴仙・優曇華院・イナバ",
+	"nickname": ["受兔", "大兔子"],
+	"description": "狂气的月兔",
+	"first": "东方永夜抄",
+	"variants": ["铃仙 无表情", "铃仙 叹气", "铃仙 微笑张嘴", "铃仙 无表情张嘴", "铃仙 汗"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-66",
+	"name": "八意永琳",
+	"enName": ["Yagokoro Eirin"],
+	"jpName": "八意　永琳",
+	"nickname": ["师匠"],
+	"description": "月之头脑",
+	"first": "东方永夜抄",
+	"variants": ["永琳 微笑", "永琳 微笑张嘴", "永琳 无表情", "永琳 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-67",
+	"name": "蓬莱山辉夜",
+	"enName": ["Houraisan Kaguya"],
+	"jpName": "蓬莱山　輝夜",
+	"nickname": ["NEET", "竹取姬", "公主大人"],
+	"description": "永远和须臾的罪人",
+	"first": "东方永夜抄",
+	"variants": ["辉夜 无表情", "辉夜 嘲笑", "辉夜 大笑", "辉夜 微笑张嘴", "辉夜 忧愁", "辉夜 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-68",
+	"name": "藤原妹红",
+	"enName": ["Huziwara no Mokou"],
+	"jpName": "藤原　妹紅",
+	"nickname": ["爷们红", "不死鸟", "蘑菇炭", "蘑菇汤"],
+	"description": "不老不死的竹林引路人",
+	"first": "东方永夜抄",
+	"variants": ["妹红 无表情", "妹红 微笑张嘴", "妹红 无表情张嘴", "妹红 汗", "妹红 痛苦", "妹红 笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-69",
+	"name": "梅蒂欣·梅兰可莉",
+	"enName": ["Medicine Melancholy"],
+	"jpName": "メディスン・メランコリー",
+	"nickname": ["毒人偶"],
+	"description": "有害健康的人偶",
+	"first": "东方花映塚",
+	"variants": ["梅蒂欣 无表情", "梅蒂欣 吐槽", "梅蒂欣 得意", "梅蒂欣 微笑张嘴", "梅蒂欣 无表情张嘴", "梅蒂欣 灿笑", "梅蒂欣 疑惑", "梅蒂欣 疑惑2", "梅蒂欣 认真", "梅蒂欣 认真张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-70",
+	"name": "风见幽香",
+	"enName": ["Kazami Yuka"],
+	"jpName": "風見　幽香",
+	"nickname": ["花妈"],
+	"description": "四季的鲜花之主",
+	"first": "东方花映塚",
+	"variants": ["幽香 微笑", "幽香 威严", "幽香 威严笑", "幽香 寂寞", "幽香 微笑张嘴", "幽香 惊讶", "幽香 无表情", "幽香 无表情张嘴", "幽香 无语", "幽香 无语汗", "幽香 注视", "幽香 狂气", "幽香 生气", "幽香 被逗笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-71",
+	"name": "小野塚小町",
+	"enName": ["Onozuka Komachi", "Komachi Onoduka"],
+	"jpName": "小野塚　小町",
+	"nickname": ["死神", "乳町"],
+	"description": "三途河的领航员",
+	"first": "东方花映塚",
+	"variants": ["小町 微笑", "小町 微笑张嘴", "小町 无表情", "小町 无表情张嘴", "小町 无语麻烦", "小町 附身", "小町 附身张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-72",
+	"name": "四季映姬·夜摩仙那度",
+	"enName": ["Shikieiki Yamaxanadu"],
+	"jpName": "四季映姫・ヤマザナドゥ",
+	"nickname": ["阎萝王"],
+	"description": "负责幻想乡的阎魔大人",
+	"first": "东方花映塚",
+	"variants": ["四季 微笑", "四季 原表情", "四季 微笑张嘴", "四季 无表情", "四季 无表情张嘴", "四季 认真", "四季 认真张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-73",
+	"name": "秋静叶",
+	"enName": ["Aki Sizuha"],
+	"jpName": "秋　静葉",
+	"nickname": ["秋姐妹"],
+	"description": "寂寞与终结的象征",
+	"first": "东方风神录",
+	"variants": []
+  },
+  {
+	"characterId": "th-74",
+	"name": "秋穰子",
+	"enName": ["Aki Minoriko"],
+	"jpName": "秋　穣子",
+	"nickname": ["秋姐妹", "烤红薯"],
+	"description": "丰裕与收成的象征",
+	"first": "东方风神录",
+	"variants": []
+  },
+  {
+	"characterId": "th-75",
+	"name": "键山雏",
+	"enName": ["Kagiyama Hina"],
+	"jpName": "鍵山　雛",
+	"nickname": ["转转", "不认识的孩子"],
+	"description": "秘神流雏",
+	"first": "东方风神录",
+	"variants": ["键山雏 微笑", "键山雏 微笑张嘴", "键山雏 无表情", "键山雏 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-76",
+	"name": "河城荷取",
+	"enName": ["Kawasiro Nitori"],
+	"jpName": "河城　にとり",
+	"nickname": ["河童"],
+	"description": "擅长买卖且守财如命的河童",
+	"first": "东方风神录",
+	"variants": ["荷取 微笑", "荷取 得意", "荷取 微笑张嘴", "荷取 惊讶", "荷取 惊讶2", "荷取 无表情", "荷取 无表情张嘴", "荷取 无语", "荷取 狡黠", "荷取 认真", "荷取 认真张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-77",
+	"name": "犬走椛",
+	"enName": ["Inubashiri Momizi"],
+	"jpName": "犬走　椛",
+	"nickname": ["椛椛"],
+	"description": "基层警卫天狗",
+	"first": "东方风神录",
+	"variants": ["犬走椛 微笑", "犬走椛 墨镜", "犬走椛 微笑张嘴", "犬走椛 无表情", "犬走椛 无表情张嘴", "犬走椛 疑问", "犬走椛 疑问2", "犬走椛 苦笑", "犬走椛 苦笑2", "犬走椛 醉酒张嘴", "犬走椛 醉酒无表情", "犬走椛 醉酒笑", "犬走椛 醉酒闭眼"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-78",
+	"name": "东风谷早苗",
+	"enName": ["Kotiya Sanae", "Kochiya Sanae"],
+	"jpName": "東風谷　早苗",
+	"nickname": ["苗爷"],
+	"description": "奇迹的现人神",
+	"first": "东方风神录",
+	"variants": ["早苗 微笑", "早苗 无表情", "早苗 星星眼", "早苗 热血", "早苗 认真", "早苗 难过"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-79",
+	"name": "八坂神奈子",
+	"enName": ["Yasaka Kanako"],
+	"jpName": "八坂　神奈子",
+	"nickname": ["神妈"],
+	"description": "山与湖的化身",
+	"first": "东方风神录",
+	"variants": []
+  },
+  {
+	"characterId": "th-80",
+	"name": "洩矢诹访子",
+	"enName": ["Moriya Suwako"],
+	"jpName": "洩矢　諏訪子",
+	"nickname": ["青蛙子"],
+	"description": "土著神的顶点",
+	"first": "东方风神录",
+	"variants": []
+  },
+  {
+	"characterId": "th-81",
+	"name": "永江衣玖",
+	"enName": ["Nagae Iku"],
+	"jpName": "永江　衣玖",
+	"nickname": ["19", "皇带鱼", "龙宫使者"],
+	"description": "美丽的绯之衣",
+	"first": "东方绯想天",
+	"variants": []
+  },
+  {
+	"characterId": "th-82",
+	"name": "比那名居天子",
+	"enName": ["Hinanawi Tenshi"],
+	"jpName": "比那名居　天子",
+	"nickname": ["统领娘", "M子", "天女"],
+	"description": "有顶天的大小姐",
+	"first": "东方绯想天",
+	"variants": ["天子 微笑", "天子 吃瘪", "天子 得意", "天子 微笑张嘴", "天子 心虚", "天子 无表情", "天子 无表情张嘴", "天子 生气", "天子 生气张嘴", "天子 闭眼笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-83",
+	"name": "大鲶鱼",
+	"enName": ["Oo-Namazu"],
+	"jpName": "大ナマズ",
+	"nickname": [""],
+	"description": "地震的源头",
+	"first": "东方绯想天",
+	"variants": []
+  },
+  {
+	"characterId": "th-84",
+	"name": "琪斯美",
+	"enName": ["Kisume"],
+	"jpName": "キスメ",
+	"nickname": ["小桶"],
+	"description": "可怕的水井妖怪",
+	"first": "东方地灵殿",
+	"variants": ["琪斯美 微笑", "琪斯美 微笑张嘴", "琪斯美 无表情", "琪斯美 无表情张嘴", "琪斯美 脸红"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-85",
+	"name": "黑谷山女",
+	"enName": ["Kurodani Yamame"],
+	"jpName": "黒谷　ヤマメ",
+	"nickname": ["蜘蛛"],
+	"description": "昏暗洞窟中明亮的网",
+	"first": "东方地灵殿",
+	"variants": ["黑谷山女 微笑", "黑谷山女 兴奋", "黑谷山女 微笑张嘴", "黑谷山女 担忧", "黑谷山女 担忧张嘴", "黑谷山女 无表情", "黑谷山女 无表情张嘴", "黑谷山女 爽朗", "黑谷山女 高兴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-86",
+	"name": "水桥帕露西",
+	"enName": ["Mizuhashi Parsee"],
+	"jpName": "水橋　パルスィ",
+	"nickname": ["桥姬"],
+	"description": "地壳下的嫉妒心",
+	"first": "东方地灵殿",
+	"variants": ["帕露西 微笑", "帕露西 咬手帕", "帕露西 咬手帕愤怒", "帕露西 微笑张嘴", "帕露西 惊讶", "帕露西 惊讶2", "帕露西 愤怒", "帕露西 无表情", "帕露西 无表情张嘴", "帕露西 纠结", "帕露西 黑化咬手帕", "帕露西 黑化无表情", "帕露西 黑化无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-87",
+	"name": "星熊勇仪",
+	"enName": ["Hoshiguma Yugi"],
+	"jpName": "星熊　勇儀",
+	"nickname": ["红有三"],
+	"description": "被谈论的怪力乱神",
+	"first": "东方地灵殿",
+	"variants": ["星熊勇仪 微笑", "星熊勇仪 大笑", "星熊勇仪 威严", "星熊勇仪 帅气", "星熊勇仪 微笑张嘴", "星熊勇仪 无表情", "星熊勇仪 无表情张嘴", "星熊勇仪 爽朗", "星熊勇仪 疑问", "星熊勇仪 疑问2", "星熊勇仪 痞笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-88",
+	"name": "古明地觉",
+	"enName": ["Komeiji Satori"],
+	"jpName": "古明地　さとり",
+	"nickname": ["小五", "⑤"],
+	"description": "怨灵也为之惧怯的少女",
+	"first": "东方地灵殿",
+	"variants": ["觉 微笑", "觉 嘲讽", "觉 微笑张嘴", "觉 担忧", "觉 无表情", "觉 无表情张嘴", "觉 疲劳嘲讽", "觉 疲劳微笑", "觉 疲劳微笑张嘴", "觉 疲劳担忧", "觉 疲劳无表情", "觉 疲劳无表情张嘴", "觉 疲劳痴迷", "觉 痴迷"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-89",
+	"name": "火焰猫燐",
+	"enName": ["Kaenbyou Rin"],
+	"jpName": "火焔猫　燐",
+	"nickname": ["阿燐", "猫车"],
+	"description": "地狱的车祸",
+	"first": "东方地灵殿",
+	"variants": ["阿燐 微笑", "阿燐 微笑张嘴", "阿燐 担心", "阿燐 无表情", "阿燐 无表情张嘴", "阿燐 热血", "阿燐 痴迷", "阿燐 笑", "阿燐 苦笑", "阿燐 苦笑汗"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-90",
+	"name": "灵乌路空",
+	"enName": ["Reiuji Utsuho", "Reiuzi Utuho"],
+	"jpName": "霊烏路　空",
+	"nickname": ["阿空", "高达", "⑥"],
+	"description": "地底的太阳",
+	"first": "东方地灵殿",
+	"variants": ["阿空 微笑", "阿空 微笑张嘴", "阿空 无表情", "阿空 无表情张嘴", "阿空 热血", "阿空 爽朗", "阿空 笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-91",
+	"name": "古明地恋",
+	"enName": ["Komeiji Koishi"],
+	"jpName": "古明地　こいし",
+	"nickname": ["恋恋", "小石头"],
+	"description": "并非有意却闭锁内心的觉",
+	"first": "东方地灵殿",
+	"variants": ["恋恋 微笑", "恋恋 wink", "恋恋 微笑张嘴", "恋恋 无表情", "恋恋 无表情张嘴", "恋恋 笑", "恋恋 笑2"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-92",
+	"name": "娜兹玲",
+	"enName": ["Nazrin"],
+	"jpName": "ナズーリン",
+	"nickname": ["老鼠"],
+	"description": "探宝的小小大将",
+	"first": "东方星莲船",
+	"variants": ["娜兹玲 微笑", "娜兹玲 微笑张嘴", "娜兹玲 无表情", "娜兹玲 无表情张嘴", "娜兹玲 热血", "娜兹玲 热血1", "娜兹玲 热血2", "娜兹玲 燃起来", "娜兹玲 狡黠"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-93",
+	"name": "多多良小伞",
+	"enName": ["Tatara Kogasa"],
+	"jpName": "多々良　小傘",
+	"nickname": [""],
+	"description": "愉快的遗忘之伞",
+	"first": "东方星莲船",
+	"variants": ["小伞 微笑", "小伞 吓人", "小伞 哭", "小伞 哭2", "小伞 喊", "小伞 喊2", "小伞 垂头丧气", "小伞 垂头丧气张嘴", "小伞 微笑吐舌", "小伞 微笑张嘴", "小伞 心虚", "小伞 无表情", "小伞 无表情张嘴", "小伞 笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-94",
+	"name": "云居一轮&云山",
+	"enName": ["Kumoi Ichirin & Unzan"],
+	"jpName": "雲居　一輪 & 雲山",
+	"nickname": [""],
+	"description": "守护与被守护的大轮",
+	"first": "东方星莲船",
+	"variants": []
+  },
+  {
+	"characterId": "th-95",
+	"name": "村纱水蜜",
+	"enName": ["Murasa Minamitu", "Captain Murasa Minamitsu"],
+	"jpName": "村紗　水蜜",
+	"nickname": ["船长"],
+	"description": "水难事故的念缚灵",
+	"first": "东方星莲船",
+	"variants": ["村纱 微笑", "村纱 坏笑", "村纱 微笑张嘴", "村纱 思考", "村纱 无表情", "村纱 无表情张嘴", "村纱 生气", "村纱 认真"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-96",
+	"name": "寅丸星",
+	"enName": ["Toramaru Shou"],
+	"jpName": "寅丸　星",
+	"nickname": ["大师兄"],
+	"description": "毘沙门天的弟子",
+	"first": "东方星莲船",
+	"variants": ["寅丸星 微笑", "寅丸星 微笑张嘴", "寅丸星 自信"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-97",
+	"name": "圣白莲",
+	"enName": ["Hiziri Byakuren", "Hijiri Byakuren"],
+	"jpName": "聖　白蓮",
+	"nickname": ["莲妈"],
+	"description": "妖怪寺的魔住持",
+	"first": "东方星莲船",
+	"variants": ["圣白莲 微笑", "圣白莲 微笑张嘴", "圣白莲 无表情", "圣白莲 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-98",
+	"name": "封兽鵺",
+	"enName": ["Houjuu Nue"],
+	"jpName": "封獣　ぬえ",
+	"nickname": [""],
+	"description": "未确认幻想飞行少女",
+	"first": "东方星莲船",
+	"variants": ["封兽鵺 微笑", "封兽鵺 不屑", "封兽鵺 得意", "封兽鵺 微笑张嘴", "封兽鵺 无表情", "封兽鵺 无表情张嘴", "封兽鵺 生气", "封兽鵺 被逗笑", "封兽鵺 认真", "封兽鵺 轻蔑笑", "封兽鵺 难过"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-99",
+	"name": "姬海棠果",
+	"enName": ["Himekaidou Hatate"],
+	"jpName": "姫海棠　はたて",
+	"nickname": ["羽立", "极", "姬海棠极", "姬海棠羽立", "果果"],
+	"description": "当代的念写记者",
+	"first": "东方文花帖DS",
+	"variants": []
+  },
+  {
+	"characterId": "th-100",
+	"name": "幽谷响子",
+	"enName": ["Kasodani Kyouko"],
+	"jpName": "幽谷　響子",
+	"nickname": [""],
+	"description": "诵经的山彦",
+	"first": "东方神灵庙",
+	"variants": ["响子 无表情", "响子 叹气", "响子 张嘴", "响子 思考", "响子 惊讶", "响子 汗", "响子 热血", "响子 瑟瑟发抖", "响子 生气", "响子 疑惑", "响子 笑", "响子 笑2", "响子 紧张", "响子 难过"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-101",
+	"name": "宫古芳香",
+	"enName": ["Miyako Yoshika"],
+	"jpName": "宮古　芳香",
+	"nickname": ["僵尸"],
+	"description": "忠诚的尸体",
+	"first": "东方神灵庙",
+	"variants": ["芳香 无表情", "芳香 吐舌", "芳香 听不懂", "芳香 微笑张嘴", "芳香 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-102",
+	"name": "霍青娥",
+	"enName": ["Kaku Seiga"],
+	"jpName": "霍　青娥",
+	"nickname": ["青娥娘娘", "娘娘"],
+	"description": "穿墙邪仙",
+	"first": "东方神灵庙",
+	"variants": ["青娥 微笑", "青娥 俏皮笑", "青娥 假笑", "青娥 叹气", "青娥 微笑张嘴", "青娥 无表情", "青娥 无表情张嘴", "青娥 笑", "青娥 虚伪笑", "青娥 闭眼笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-103",
+	"name": "苏我屠自古",
+	"enName": ["Soga no Toziko"],
+	"jpName": "蘇我　屠自古",
+	"nickname": ["大根"],
+	"description": "神明后裔的亡灵",
+	"first": "东方神灵庙",
+	"variants": ["屠自古 微笑", "屠自古 微笑张嘴", "屠自古 无表情", "屠自古 无表情张嘴", "屠自古 爽朗", "屠自古 生气", "屠自古 疑惑", "屠自古 疑惑2", "屠自古 认真"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-104",
+	"name": "物部布都",
+	"enName": ["Mononobe no Futo"],
+	"jpName": "物部　布都",
+	"nickname": ["布嘟嘟"],
+	"description": "古代日本的尸解仙",
+	"first": "东方神灵庙",
+	"variants": ["布都 微笑", "布都 帅气笑", "布都 得意", "布都 微笑张嘴", "布都 无表情", "布都 无表情张嘴", "布都 无语", "布都 无语2", "布都 疑惑", "布都 疑惑2", "布都 认真1", "布都 认真2"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-105",
+	"name": "丰聪耳神子",
+	"enName": ["Toyosatomimi no Miko"],
+	"jpName": "豊聡耳　神子",
+	"nickname": ["太子", "二婶子"],
+	"description": "圣德道士",
+	"first": "东方神灵庙",
+	"variants": ["神子 微笑", "神子 微笑张嘴", "神子 无表情", "神子 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-106",
+	"name": "二岩猯藏",
+	"enName": ["Hutatsuiwa Mamizou", "Futatsuiwa Mamizou", "Futatuiwa Mamizou"],
+	"jpName": "二ッ岩　マミゾウ",
+	"nickname": ["大狸子"],
+	"description": "佐渡之二岩",
+	"first": "东方神灵庙",
+	"variants": ["二岩猯藏 微笑", "二岩猯藏 大笑", "二岩猯藏 帅气", "二岩猯藏 微笑张嘴", "二岩猯藏 思考", "二岩猯藏 无表情", "二岩猯藏 无表情张嘴", "二岩猯藏 狡黠", "二岩猯藏 认真"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-107",
+	"name": "秦心",
+	"enName": ["Hata no Kokoro"],
+	"jpName": "秦　こころ",
+	"nickname": ["心心", "心酱"],
+	"description": "表情丰富的扑克脸",
+	"first": "东方心绮楼",
+	"variants": []
+  },
+  {
+	"characterId": "th-108",
+	"name": "若鹭姬",
+	"enName": ["Wakasagihime"],
+	"jpName": "わかさぎ姫",
+	"nickname": ["人鱼"],
+	"description": "栖息于淡水的人鱼",
+	"first": "东方辉针城",
+	"variants": ["若鹭姬 微笑", "若鹭姬 微笑张嘴", "若鹭姬 无表情", "若鹭姬 无表情张嘴", "若鹭姬 苦恼", "若鹭姬 苦恼张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-109",
+	"name": "赤蛮奇",
+	"enName": ["Sekibanki"],
+	"jpName": "赤蛮奇",
+	"nickname": ["⑦"],
+	"description": "辘轳首的怪奇",
+	"first": "东方辉针城",
+	"variants": ["赤蛮奇 微笑", "赤蛮奇 微笑张嘴", "赤蛮奇 无表情", "赤蛮奇 无表情张嘴", "赤蛮奇 高冷"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-110",
+	"name": "今泉影狼",
+	"enName": ["Imaizumi Kagerou"],
+	"jpName": "今泉　影狼",
+	"nickname": ["马斯克", "埃隆马斯克", "猫娘"],
+	"description": "竹林的人狼",
+	"first": "东方辉针城",
+	"variants": ["影狼 微笑", "影狼 吐槽", "影狼 哭", "影狼 喊", "影狼 微笑张嘴", "影狼 微笑张嘴2", "影狼 无表情", "影狼 无表情张嘴", "影狼 无语", "影狼 无语汗", "影狼 认真"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-111",
+	"name": "九十九弁弁",
+	"enName": ["Tsukumo Benben"],
+	"jpName": "九十九　弁々",
+	"nickname": ["九十九姐妹"],
+	"description": "古旧的琴的付丧神",
+	"first": "东方辉针城",
+	"variants": []
+  },
+  {
+	"characterId": "th-112",
+	"name": "九十九八桥",
+	"enName": ["Tsukumo Yatsuhashi"],
+	"jpName": "九十九　八橋",
+	"nickname": ["九十九姐妹"],
+	"description": "古旧琵琶的付丧神",
+	"first": "东方辉针城",
+	"variants": []
+  },
+  {
+	"characterId": "th-113",
+	"name": "鬼人正邪",
+	"enName": ["Kijin Seija"],
+	"jpName": "鬼人　正邪",
+	"nickname": ["邪正人鬼"],
+	"description": "逆袭的天邪鬼",
+	"first": "东方辉针城",
+	"variants": ["正邪 微笑", "正邪 不甘", "正邪 原表情", "正邪 微笑张嘴", "正邪 拽", "正邪 无表情", "正邪 无表情张嘴", "正邪 生气", "正邪 痞笑", "正邪 认真", "正邪 认真张嘴", "正邪 阴暗"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-114",
+	"name": "少名针妙丸",
+	"enName": ["Sukuna Shinmyoumaru"],
+	"jpName": "少名　針妙丸",
+	"nickname": ["小碗"],
+	"description": "小人的后裔",
+	"first": "东方辉针城",
+	"variants": ["针妙丸 微笑", "针妙丸 兴奋", "针妙丸 得意", "针妙丸 微笑张嘴", "针妙丸 惊讶", "针妙丸 无表情", "针妙丸 无表情张嘴", "针妙丸 热血", "针妙丸 认真", "针妙丸 认真张嘴", "针妙丸 难过"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-115",
+	"name": "堀川雷鼓",
+	"enName": ["Horikawa Raiko"],
+	"jpName": "堀川　雷鼓",
+	"nickname": ["鼓哥"],
+	"description": "梦幻的打击乐手",
+	"first": "东方辉针城",
+	"variants": []
+  },
+  {
+	"characterId": "th-116",
+	"name": "宇佐见堇子",
+	"enName": ["Usami Sumireko"],
+	"jpName": "宇佐見　菫子",
+	"nickname": [""],
+	"description": "秘封俱乐部初代部长",
+	"first": "东方深秘录",
+	"variants": []
+  },
+  {
+	"characterId": "th-117",
+	"name": "清兰",
+	"enName": ["Seiran"],
+	"jpName": "清蘭",
+	"nickname": [""],
+	"description": "浅葱色的Eagle Rabbit",
+	"first": "东方绀珠传",
+	"variants": ["清兰 微笑", "清兰 可怜", "清兰 微笑张嘴", "清兰 微笑张嘴2", "清兰 无表情", "清兰 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-118",
+	"name": "铃瑚",
+	"enName": ["Ringo"],
+	"jpName": "鈴瑚",
+	"nickname": [""],
+	"description": "橘色的Eagle Rabbit",
+	"first": "东方绀珠传",
+	"variants": ["铃瑚 微笑", "铃瑚 微笑张嘴", "铃瑚 无表情", "铃瑚 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-119",
+	"name": "哆来咪·苏伊特",
+	"enName": ["Doremy Sweet"],
+	"jpName": "ドレミー・スイート",
+	"nickname": ["123"],
+	"description": "梦之支配者",
+	"first": "东方绀珠传",
+	"variants": ["哆来咪 微笑", "哆来咪 嘲讽", "哆来咪 微笑张嘴", "哆来咪 无表情", "哆来咪 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-120",
+	"name": "稀神探女",
+	"enName": ["Kisin Sagume", "Kishin Sagume"],
+	"jpName": "稀神　サグメ",
+	"nickname": [""],
+	"description": "招来口舌之祸的女神",
+	"first": "东方绀珠传",
+	"variants": ["探女 无表情", "探女 皱眉"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-121",
+	"name": "克劳恩皮丝",
+	"enName": ["Clownpiece"],
+	"jpName": "クラウンピース",
+	"nickname": ["小妖精", "皮丝", "美国"],
+	"description": "地狱的妖精",
+	"first": "东方绀珠传",
+	"variants": []
+  },
+  {
+	"characterId": "th-122",
+	"name": "纯狐",
+	"enName": ["Junko"],
+	"jpName": "純狐",
+	"nickname": ["老佛爷", "纯妈"],
+	"description": "被怨恨纯化的灵",
+	"first": "东方绀珠传",
+	"variants": []
+  },
+  {
+	"characterId": "th-123",
+	"name": "赫卡提亚·拉碧斯拉祖利",
+	"enName": ["Hecatia Lapislazuli"],
+	"jpName": "ヘカーティア・ラピスラズリ",
+	"nickname": ["地狱的女神", "赫卡"],
+	"description": "地狱的女神",
+	"first": "东方绀珠传",
+	"variants": []
+  },
+  {
+	"characterId": "th-124",
+	"name": "依神女苑",
+	"enName": ["Yorigami Jyoon"],
+	"jpName": "依神 女苑",
+	"nickname": ["依神姐妹"],
+	"description": "最凶最恶的双子之妹",
+	"first": "东方凭依华",
+	"variants": []
+  },
+  {
+	"characterId": "th-125",
+	"name": "依神紫苑",
+	"enName": ["Yorigami Shion"],
+	"jpName": "依神 紫苑",
+	"nickname": ["依神姐妹"],
+	"description": "最凶最恶的双子之姐",
+	"first": "东方凭依华",
+	"variants": []
+  },
+  {
+	"characterId": "th-126",
+	"name": "爱塔妮缇拉尔瓦",
+	"enName": ["Eternity Larva"],
+	"jpName": "エタニティラルバ",
+	"nickname": ["大蛾子", "爱塔", "⑧"],
+	"description": "接近神的蝴蝶妖精",
+	"first": "东方天空璋",
+	"variants": ["拉尔瓦 微笑", "拉尔瓦 微笑张嘴", "拉尔瓦 思考", "拉尔瓦 无表情", "拉尔瓦 无表情张嘴", "拉尔瓦 笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-127",
+	"name": "坂田合欢",
+	"enName": ["Sakata Nemuno"],
+	"jpName": "坂田　ネムノ",
+	"nickname": ["欢姐"],
+	"description": "跨越浮世门关的山姥",
+	"first": "东方天空璋",
+	"variants": []
+  },
+  {
+	"characterId": "th-128",
+	"name": "高丽野阿吽",
+	"enName": ["Komano Aunn", "Komano Aun"],
+	"jpName": "高麗野　あうん",
+	"nickname": ["石狮"],
+	"description": "醉心神佛的守护神兽",
+	"first": "东方天空璋",
+	"variants": ["阿吽 张嘴", "阿吽 沮丧1", "阿吽 沮丧2", "阿吽 热血", "阿吽 认真"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-129",
+	"name": "矢田寺成美",
+	"enName": ["Yatadera Narumi"],
+	"jpName": "矢田寺　成美",
+	"nickname": ["地藏"],
+	"description": "垂迹于森林的魔法地藏",
+	"first": "东方天空璋",
+	"variants": ["成美 微笑", "成美 微笑张嘴", "成美 懒惰", "成美 无表情", "成美 无表情张嘴", "成美 疑问", "成美 疑问2", "成美 苦恼"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-130",
+	"name": "尔子田里乃",
+	"enName": ["Nishida Satono"],
+	"jpName": "爾子田　里乃",
+	"nickname": ["尬舞姐妹"],
+	"description": "过于危险的背景舞者",
+	"first": "东方天空璋",
+	"variants": []
+  },
+  {
+	"characterId": "th-131",
+	"name": "丁礼田舞",
+	"enName": ["Teireida Mai"],
+	"jpName": "丁礼田　舞",
+	"nickname": ["尬舞姐妹"],
+	"description": "过于危险的背景舞者",
+	"first": "东方天空璋",
+	"variants": []
+  },
+  {
+	"characterId": "th-132",
+	"name": "摩多罗隐岐奈",
+	"enName": ["Matara Okina"],
+	"jpName": "摩多羅　隠岐奈",
+	"nickname": ["轮椅战神", "秘神", "乐子神"],
+	"description": "究极的绝对秘神",
+	"first": "东方天空璋",
+	"variants": ["摩多罗 微笑", "摩多罗 微笑张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-133",
+	"name": "戎璎花",
+	"enName": ["Ebisu Eika / Ebisu Youka"],
+	"jpName": "戎　瓔花",
+	"nickname": ["水子"],
+	"description": "河原的水子偶像",
+	"first": "东方鬼形兽",
+	"variants": []
+  },
+  {
+	"characterId": "th-134",
+	"name": "牛崎润美",
+	"enName": ["Ushizaki Urumi"],
+	"jpName": "牛崎　潤美",
+	"nickname": ["牛妈"],
+	"description": "古代鱼的携子护卫",
+	"first": "东方鬼形兽",
+	"variants": []
+  },
+  {
+	"characterId": "th-135",
+	"name": "庭渡久侘歌",
+	"enName": ["Niwatari Kutaka"],
+	"jpName": "庭渡　久侘歌",
+	"nickname": ["鸡妹"],
+	"description": "地狱口岸的守护神",
+	"first": "东方鬼形兽",
+	"variants": []
+  },
+  {
+	"characterId": "th-136",
+	"name": "吉吊八千慧",
+	"enName": ["Kitcho Yachie", "Kitchou Yachie"],
+	"jpName": "吉弔　八千慧",
+	"nickname": [""],
+	"description": "鬼杰组组长",
+	"first": "东方鬼形兽",
+	"variants": []
+  },
+  {
+	"characterId": "th-137",
+	"name": "杖刀偶磨弓",
+	"enName": ["Joutougu Mayumi"],
+	"jpName": "杖刀偶　磨弓",
+	"nickname": ["埴轮"],
+	"description": "埴轮兵长",
+	"first": "东方鬼形兽",
+	"variants": []
+  },
+  {
+	"characterId": "th-138",
+	"name": "埴安神袿姬",
+	"enName": ["Haniyasushin Keiki"],
+	"jpName": "埴安神　袿姫",
+	"nickname": ["广西大妈", "硅基"],
+	"description": "孤立无援造就的造形神",
+	"first": "东方鬼形兽",
+	"variants": []
+  },
+  {
+	"characterId": "th-139",
+	"name": "骊驹早鬼",
+	"enName": ["Kurokoma Saki"],
+	"jpName": "驪駒　早鬼",
+	"nickname": ["天马"],
+	"description": "劲牙组组长",
+	"first": "东方鬼形兽",
+	"variants": []
+  },
+  {
+	"characterId": "th-140",
+	"name": "饕餮尤魔",
+	"enName": ["Toutetsu Yuma", "Toutetu Yuma"],
+	"jpName": "饕餮　尤魔",
+	"nickname": ["大角羊"],
+	"description": "刚欲同盟盟主",
+	"first": "东方刚欲异闻",
+	"variants": ["尤魔 微笑", "尤魔 嚣张", "尤魔 嚣张大笑", "尤魔 微笑张嘴", "尤魔 无表情", "尤魔 无表情张嘴", "尤魔 普通", "尤魔 狂暴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-141",
+	"name": "豪德寺三花",
+	"enName": ["Goutokuzi Mike"],
+	"jpName": "豪徳寺　ミケ",
+	"nickname": ["大吉猫咪"],
+	"description": "生意兴隆的吉祥物",
+	"first": "东方虹龙洞",
+	"variants": ["三花 微笑", "三花 微笑张嘴", "三花 无表情", "三花 无表情张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-142",
+	"name": "山城高岭",
+	"enName": ["Yamashiro Takane"],
+	"jpName": "山城　たかね",
+	"nickname": ["山童"],
+	"description": "深山的经商妖怪",
+	"first": "东方虹龙洞",
+	"variants": []
+  },
+  {
+	"characterId": "th-143",
+	"name": "驹草山如",
+	"enName": ["Komakusa Sannyo"],
+	"jpName": "駒草　山如",
+	"nickname": ["驹草大夫", "华子姐"],
+	"description": "栖息于高地的山女郎",
+	"first": "东方虹龙洞",
+	"variants": []
+  },
+  {
+	"characterId": "th-144",
+	"name": "玉造魅须丸",
+	"enName": ["Tamatsukuri Misumaru"],
+	"jpName": "玉造　魅須丸",
+	"nickname": ["玉造大妈"],
+	"description": "真正的勾玉匠人",
+	"first": "东方虹龙洞",
+	"variants": []
+  },
+  {
+	"characterId": "th-145",
+	"name": "菅牧典",
+	"enName": ["Kudamaki Tsukasa"],
+	"jpName": "菅牧　典",
+	"nickname": ["管狐", "阿典"],
+	"description": "耳边低语的邪恶白狐",
+	"first": "东方虹龙洞",
+	"variants": []
+  },
+  {
+	"characterId": "th-146",
+	"name": "饭纲丸龙",
+	"enName": ["Iizunamaru Megumu"],
+	"jpName": "飯綱丸 龍",
+	"nickname": ["大天狗", "阿龙", "龙龙"],
+	"description": "鸦天狗的首领",
+	"first": "东方虹龙洞",
+	"variants": []
+  },
+  {
+	"characterId": "th-147",
+	"name": "天弓千亦",
+	"enName": ["Tenkyu Chimata"],
+	"jpName": "天弓　千亦",
+	"nickname": [""],
+	"description": "无主物之神",
+	"first": "东方虹龙洞",
+	"variants": []
+  },
+  {
+	"characterId": "th-148",
+	"name": "姬虫百百世",
+	"enName": ["Himemushi Momoyo"],
+	"jpName": "姫虫　百々世",
+	"nickname": ["大蜈蚣"],
+	"description": "漆黑的噬龙者",
+	"first": "东方虹龙洞",
+	"variants": []
+  },
+  {
+	"characterId": "th-149",
+	"name": "孙美天",
+	"enName": ["Son Biten"],
+	"jpName": "孫　美天",
+	"nickname": ["猿神", "大圣"],
+	"description": "小小圣域的大圣",
+	"first": "东方兽王园",
+	"variants": []
+  },
+  {
+	"characterId": "th-150",
+	"name": "三头慧之子",
+	"enName": ["Mitsugashira Enoko"],
+	"jpName": "三頭 慧ノ子",
+	"nickname": [""],
+	"description": "死寂的刻耳柏洛斯",
+	"first": "东方兽王园",
+	"variants": []
+  },
+  {
+	"characterId": "th-151",
+	"name": "天火人血枪",
+	"enName": ["Tenkajin Chiyari"],
+	"jpName": "天火人 ちやり",
+	"nickname": [""],
+	"description": "污秽的有机怪物",
+	"first": "东方兽王园",
+	"variants": []
+  },
+  {
+	"characterId": "th-152",
+	"name": "豫母都日狭美",
+	"enName": ["Yomotsu Hisami"],
+	"jpName": "豫母都　日狭美",
+	"nickname": ["茄子精"],
+	"description": "地狱的美貌跟踪狂",
+	"first": "东方兽王园",
+	"variants": []
+  },
+  {
+	"characterId": "th-153",
+	"name": "日白残无",
+	"enName": ["Nippaku Zanmu"],
+	"jpName": "日白　残無",
+	"nickname": [""],
+	"description": "寂灭为乐之王",
+	"first": "东方兽王园",
+	"variants": []
+  },
+  {
+	"characterId": "th-154",
+	"name": "尘塚姥芽",
+	"enName": ["Chirizuka Ubame"],
+	"jpName": "塵塚　ウバメ",
+	"nickname": ["山姥长"],
+	"description": "圣域的山姥之长",
+	"first": "东方锦上京",
+	"variants": []
+  },
+  {
+	"characterId": "th-155",
+	"name": "封兽魑魅",
+	"enName": ["Houju Chimi"],
+	"jpName": "封獣　チミ",
+	"nickname": [""],
+	"description": "原形不明的反骨妖兽",
+	"first": "东方锦上京",
+	"variants": []
+  },
+  {
+	"characterId": "th-156",
+	"name": "道神驯子",
+	"enName": ["Michigami Nareko"],
+	"jpName": "道神　馴子",
+	"nickname": ["埃及"],
+	"description": "圣地的道祖神",
+	"first": "东方锦上京",
+	"variants": []
+  },
+  {
+	"characterId": "th-157",
+	"name": "维缦·浅间",
+	"enName": ["Yuiman Asama"],
+	"jpName": "ユイマン・浅間",
+	"nickname": [""],
+	"description": "维缦国的古神人",
+	"first": "东方锦上京",
+	"variants": []
+  },
+  {
+	"characterId": "th-158",
+	"name": "磐永阿梨夜",
+	"enName": ["Iwanaga Ariya"],
+	"jpName": "磐永 阿梨夜",
+	"nickname": [""],
+	"description": "恒久的石之女神",
+	"first": "东方锦上京",
+	"variants": []
+  },
+  {
+	"characterId": "th-159",
+	"name": "渡里贝子",
+	"enName": ["Watari Nina"],
+	"jpName": "渡里 ニナ",
+	"nickname": [""],
+	"description": "展现海市蜃楼之怪",
+	"first": "东方锦上京",
+	"variants": []
+  },
+  {
+	"characterId": "th-160",
+	"name": "森近霖之助",
+	"enName": ["Morichika Rinnosuke"],
+	"jpName": "森近　霖之助",
+	"nickname": ["乡长", "香霖"],
+	"description": "香霖堂店主",
+	"first": "东方香霖堂",
+	"variants": ["乡长 微笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-161",
+	"name": "无名的读书妖怪",
+	"enName": ["Unnamed Book-Reading Youkai"],
+	"jpName": "名無しの本読み妖怪",
+	"nickname": ["朱鹭子"],
+	"description": "无名的读书妖怪",
+	"first": "东方香霖堂",
+	"variants": []
+  },
+  {
+	"characterId": "th-162",
+	"name": "射命丸文",
+	"enName": ["Syameimaru Aya", "Shameimaru Aya"],
+	"jpName": "射命丸　文",
+	"nickname": ["文文", "狗仔文"],
+	"description": "鸦天狗新闻工作者",
+	"first": "东方文花帖（书籍）",
+	"variants": ["文文 微笑", "文文 假笑", "文文 兴奋", "文文 吐槽", "文文 微笑张嘴", "文文 思考", "文文 无表情", "文文 无表情张嘴", "文文 狡黠", "文文 认真", "文文 认真张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-163",
+	"name": "桑尼米尔克",
+	"enName": ["Sunny Milk"],
+	"jpName": "サニーミルク",
+	"nickname": ["光明牛奶", "三月精"],
+	"description": "顽皮的日光",
+	"first": "东方三月精 ～ Eastern and Little Nature Deity.",
+	"variants": []
+  },
+  {
+	"characterId": "th-164",
+	"name": "露娜切露德",
+	"enName": ["Luna Child", "Lunar Child"],
+	"jpName": "ルナチャイルド",
+	"nickname": ["三月精"],
+	"description": "静谧的月光",
+	"first": "东方三月精 ～ Eastern and Little Nature Deity.",
+	"variants": []
+  },
+  {
+	"characterId": "th-165",
+	"name": "斯塔萨菲雅",
+	"enName": ["Star Sapphire"],
+	"jpName": "スターサファイア",
+	"nickname": ["三月精"],
+	"description": "倾泻的星光",
+	"first": "东方三月精 ～ Eastern and Little Nature Deity.",
+	"variants": []
+  },
+  {
+	"characterId": "th-166",
+	"name": "绵月丰姬",
+	"enName": ["Watatsuki no Toyohime", "Watatsuki Toyohime"],
+	"jpName": "綿月　豊姫",
+	"nickname": ["绵月姐妹"],
+	"description": "连接海与山的月之公主",
+	"first": "东方儚月抄 ～ Cage in Lunatic Runagate.",
+	"variants": ["丰姬 微笑", "丰姬 假装热血", "丰姬 嘟嘴", "丰姬 微笑张嘴", "丰姬 惊讶", "丰姬 惊讶2", "丰姬 无表情", "丰姬 无表情张嘴", "丰姬 疑问", "丰姬 疑问2", "丰姬 眯眼笑1", "丰姬 眯眼笑2", "丰姬 苦笑"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-167",
+	"name": "绵月依姬",
+	"enName": ["Watatsuki no Yorihime"],
+	"jpName": "綿月　依姫",
+	"nickname": ["绵月姐妹"],
+	"description": "神灵附体的月之公主",
+	"first": "东方儚月抄 ～ Cage in Lunatic Runagate.",
+	"variants": ["依姬 微笑", "依姬 一点张扬笑", "依姬 原表情", "依姬 微笑张嘴", "依姬 惊讶", "依姬 惊讶2", "依姬 无表情", "依姬 无表情张嘴", "依姬 无语", "依姬 无语汗", "依姬 疑问", "依姬 疑问2", "依姬 苦笑", "依姬 认真", "依姬 认真张嘴", "依姬 远眺"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-168",
+	"name": "Reisen",
+	"enName": ["Reisen"],
+	"jpName": "レイセン",
+	"nickname": ["铃仙二号"],
+	"description": "继任的Reisen",
+	"first": "东方儚月抄 ～ Cage in Lunatic Runagate.",
+	"variants": ["铃仙二号 微笑", "铃仙二号 微笑张嘴", "铃仙二号 惊讶", "铃仙二号 惊讶2", "铃仙二号 无表情", "铃仙二号 无表情张嘴", "铃仙二号 笑", "铃仙二号 苦笑", "铃仙二号 苦笑张嘴", "铃仙二号 认真", "铃仙二号 认真张嘴"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-169",
+	"name": "嫦娥",
+	"enName": ["Chang'e"],
+	"jpName": "嫦娥",
+	"nickname": [""],
+	"description": "被囚禁的女神",
+	"first": "东方儚月抄 ～ Silent Sinner in Blue.",
+	"variants": []
+  },
+  {
+	"characterId": "th-170",
+	"name": "稗田阿求",
+	"enName": ["Hieda no Akyuu"],
+	"jpName": "稗田　阿求",
+	"nickname": [""],
+	"description": "幻想乡的记忆",
+	"first": "东方求闻史纪",
+	"variants": ["阿求 无表情", "阿求 吐血", "阿求 悲伤", "阿求 悲伤张嘴", "阿求 掩嘴不笑", "阿求 掩嘴笑", "阿求 无表情张嘴", "阿求 认真"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-171",
+	"name": "茨木华扇",
+	"enName": ["Ibaraki Kasen"],
+	"jpName": "茨木　華扇",
+	"nickname": ["仙人"],
+	"description": "独臂有角的仙人",
+	"first": "东方茨歌仙",
+	"variants": ["华扇 微笑", "华扇 心虚", "华扇 无表情", "华扇 无表情张嘴", "华扇 苦笑", "华扇 苦笑汗", "华扇 说教"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-172",
+	"name": "本居小铃",
+	"enName": ["Motoori Kosuzu"],
+	"jpName": "本居　小鈴",
+	"nickname": ["防撞桶", "作死铃"],
+	"description": "识文解意的爱书人",
+	"first": "东方铃奈庵",
+	"variants": []
+  },
+  {
+	"characterId": "th-173",
+	"name": "宫出口瑞灵",
+	"enName": ["Miyadeguchi Mizuchi"],
+	"jpName": "宮出口　瑞霊",
+	"nickname": ["反狱王"],
+	"description": "反狱王",
+	"first": "东方智灵奇传",
+	"variants": ["瑞灵 无表情", "瑞灵 不满", "瑞灵 嚣张大笑", "瑞灵 无表情张嘴", "瑞灵 气愤", "瑞灵 疯狂"],
+	"transform": {
+	  "x": 0.0,
+	  "y": 0.0,
+	  "z": 1.0
+	}
+  },
+  {
+	"characterId": "th-174",
+	"name": "奥野田美宵",
+	"enName": ["Okunoda Miyoi"],
+	"jpName": "奥野田　美宵",
+	"nickname": ["鲸鱼妹"],
+	"description": "鲵吞亭的店花",
+	"first": "东方醉蝶华",
+	"variants": []
+  },
+  {
+	"characterId": "th-175",
+	"name": "宇佐见莲子",
+	"enName": ["Usami Renko"],
+	"jpName": "宇佐見　蓮子",
+	"nickname": [""],
+	"description": "秘封俱乐部的成员之一，专攻超统一物理学的学生。与梅莉一起进行着在科学世纪探寻遍布四处的结界的活动。",
+	"first": "莲台野夜行",
+	"variants": []
+  },
+  {
+	"characterId": "th-176",
+	"name": "玛艾露贝莉·赫恩",
+	"enName": ["Maribel Hearn"],
+	"jpName": "マエリベリー・ハーン",
+	"nickname": ["梅莉"],
+	"description": "秘封俱乐部的成员之一，专攻相对性精神学的学生。与莲子一起进行着在科学世纪探寻遍布四处的结界的活动。",
+	"first": "莲台野夜行",
+	"variants": []
+  },
+  {
+	"characterId": "th-177",
+	"name": "C62蓬莱人形碟面角色",
+	"enName": [""],
+	"jpName": "",
+	"nickname": ["Label子"],
+	"description": "社群通称“碟面子”",
+	"first": "蓬莱人形",
+	"variants": []
+  },
+  {
+	"characterId": "th-178",
+	"name": "蓬莱人形封面角色",
+	"enName": [""],
+	"jpName": "",
+	"nickname": ["夹克子"],
+	"description": "社群通称“封套子”",
+	"first": "蓬莱人形",
+	"variants": []
+  }
+]

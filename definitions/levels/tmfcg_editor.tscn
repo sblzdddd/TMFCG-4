@@ -23,19 +23,715 @@
 [ext_resource type="Texture2D" uid="uid://bhesbg4yvm2pg" path="res://assets/textures/cards/tex_card_base.png" id="9_13gcn"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]
 [ext_resource type="Texture2D" uid="uid://tine0msp3p1o" path="res://assets/textures/cards/tex_card_parts.png" id="11_e62nb"]
+[ext_resource type="Script" uid="uid://bhnklexgsfhj" path="res://src/editor/skill/skill_graph.gd" id="12_skill_graph"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="12_vedit"]
+[ext_resource type="Texture2D" uid="uid://vqtdi6wg4s74" path="res://assets/textures/icons/skills/port_array.svg" id="13_5c4ri"]
 [ext_resource type="FontFile" uid="uid://dy3x2wp2dbgwx" path="res://assets/fonts/Gloock-Regular.ttf" id="13_gc6aj"]
+[ext_resource type="Script" uid="uid://ch17rbdjms6mp" path="res://src/editor/skill/nodes/freeze_node.gd" id="13_uhjod"]
 [ext_resource type="Script" uid="uid://2ly7vd4brlkk" path="res://src/editor/card/card_inspector.gd" id="14_cinsp"]
 [ext_resource type="Script" uid="uid://ni1wj3cfn8df" path="res://src/editor/card/card_visual_editor.gd" id="14_n7o2g"]
+[ext_resource type="Texture2D" uid="uid://bpnhefgtelrn8" path="res://assets/textures/icons/skills/freeze.svg" id="15_2sj4c"]
 [ext_resource type="Script" uid="uid://c7kpm2x8nwr4h" path="res://src/editor/card/character_picker_dialog.gd" id="16_cpick"]
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="16_y14vk"]
 [ext_resource type="Script" uid="uid://dxobtkgxrgf5y" path="res://src/editor/filetree/create_character_dialog.gd" id="17_ccdlg"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="17_xwyt0"]
+[ext_resource type="Script" uid="uid://bhdul5lf04xll" path="res://src/editor/skill/slots/input/skill_input_bool.gd" id="18_0h761"]
 [ext_resource type="Script" uid="uid://b5ywpae6kb0ws" path="res://src/editor/filetree/create_deck_dialog.gd" id="18_cddlg"]
+[ext_resource type="Script" uid="uid://bfo4bp7jimgbx" path="res://src/editor/skill/nodes/get_random_card_node.gd" id="19_0axoh"]
 [ext_resource type="Script" uid="uid://dpiakke5cej1o" path="res://src/editor/filetree/editor_builtin_checkbox.gd" id="19_ebchk"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="19_j4ydo"]
 [ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/filetree/filetree_more_options.gd" id="20_mopts"]
+[ext_resource type="Texture2D" uid="uid://c2k7ewvxqh1t4" path="res://assets/textures/icons/skills/random.svg" id="21_dp2x3"]
+[ext_resource type="Script" uid="uid://cd0p0sb0q6n3" path="res://src/editor/skill/nodes/move_player_position_node.gd" id="21_fbf1s"]
+[ext_resource type="Texture2D" uid="uid://d18rij8upcs7l" path="res://assets/textures/icons/skills/move_position.svg" id="23_d7w1s"]
+[ext_resource type="Script" uid="uid://b6shq6c7nabci" path="res://src/editor/skill/nodes/set_next_round_first_node.gd" id="23_h1b3f"]
+[ext_resource type="Script" uid="uid://fp8dgp0vq24" path="res://src/editor/skill/nodes/reverse_order_node.gd" id="24_mmwma"]
+[ext_resource type="Texture2D" uid="uid://u7hyme1dik6j" path="res://assets/textures/icons/skills/lightning.svg" id="25_3oc7n"]
 [ext_resource type="LabelSettings" uid="uid://ufpu6ss5nwf0" path="res://definitions/fonts/field_label.tres" id="25_jmc66"]
 [ext_resource type="Script" uid="uid://b8kpm3yanwr5i" path="res://src/editor/filetree/image_picker_dialog.gd" id="26_ipick"]
+[ext_resource type="Script" uid="uid://bsxm7owkws54r" path="res://src/editor/skill/nodes/transfer_card_node.gd" id="27_4q3s4"]
+[ext_resource type="Texture2D" uid="uid://dj0554dnpbvms" path="res://assets/textures/icons/skills/reverse.svg" id="27_d73ww"]
+[ext_resource type="Texture2D" uid="uid://cer2n17lvo0ua" path="res://assets/textures/icons/skills/move_card.svg" id="29_omidf"]
+[ext_resource type="Script" uid="uid://cbboexpgcgqv2" path="res://src/editor/skill/nodes/random_player_node.gd" id="29_random"]
+[ext_resource type="Script" uid="uid://dq6ddtglcn5av" path="res://src/editor/skill/nodes/offset_player_node.gd" id="30_offset"]
+[ext_resource type="Script" uid="uid://b1p5tfic0mdw8" path="res://src/editor/skill/nodes/offset_history_node.gd" id="31_history"]
+[ext_resource type="Script" uid="uid://u1wovj70tjvb" path="res://src/editor/skill/nodes/deck_node.gd" id="32_deck"]
+[ext_resource type="Texture2D" uid="uid://bvf6qvcdp1n57" path="res://assets/textures/icons/skills/order.svg" id="32_y14vk"]
+[ext_resource type="Texture2D" uid="uid://dw301qyq148mh" path="res://assets/textures/icons/skills/history.svg" id="33_2sj4c"]
+[ext_resource type="Script" uid="uid://dcdaxnfcosh34" path="res://src/editor/skill/nodes/discard_card_node.gd" id="33_discard"]
+[ext_resource type="Texture2D" uid="uid://ci25w2d5glnea" path="res://assets/textures/icons/skills/port.svg" id="34_h0iu7"]
+[ext_resource type="Script" uid="uid://cb72stxd8fp7x" path="res://src/editor/skill/nodes/play_card_node.gd" id="34_play"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t7h14"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgjck"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.64000005, 0.38235295, 0.38235295, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27j7b"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_0ojpr"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_r4lwf"]
+script = ExtResource("16_y14vk")
+type = -5
+label = "目标"
+
+[sub_resource type="Resource" id="Resource_ylag2"]
+script = ExtResource("17_xwyt0")
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_ajpjh"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_ylag2")
+type = 2
+label = "冻结轮数"
+
+[sub_resource type="Resource" id="Resource_4edsy"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_4cosb"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_4edsy")
+type = 3
+label = "无法主动出牌"
+
+[sub_resource type="Resource" id="Resource_0pi1g"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_ob6pn"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_0pi1g")
+type = 3
+label = "无法被动出牌"
+
+[sub_resource type="Resource" id="Resource_3h316"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_32snk"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_3h316")
+type = 3
+label = "无法无视场合出牌"
+
+[sub_resource type="Resource" id="Resource_o85b6"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvu2o"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5658824, 0.3364706, 0.52, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lib8"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_7m2xh"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_psebp"]
+script = ExtResource("16_y14vk")
+type = -5
+label = "目标"
+
+[sub_resource type="Resource" id="Resource_v3vbq"]
+script = ExtResource("17_xwyt0")
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_350d5"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_v3vbq")
+type = 2
+label = "获取张数"
+
+[sub_resource type="Resource" id="Resource_h2umv"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_44ahh"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_h2umv")
+type = 3
+label = "无视被动"
+
+[sub_resource type="Resource" id="Resource_g1c3m"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_3j4st"]
+script = ExtResource("19_j4ydo")
+type = -6
+label = "卡牌"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stfth"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.64000005, 0.38235295, 0.38235295, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slkxv"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_damnq"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_pxnif"]
+script = ExtResource("16_y14vk")
+type = -5
+label = "目标"
+
+[sub_resource type="Resource" id="Resource_oaxh2"]
+script = ExtResource("17_xwyt0")
+min_value = 1.0
+max_value = 10.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_5f1gl"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_oaxh2")
+type = 2
+label = "偏移量"
+
+[sub_resource type="Resource" id="Resource_jsgua"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_q5vwm"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_jsgua")
+type = 3
+label = "无视被动"
+
+[sub_resource type="Resource" id="Resource_ki48t"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4rfc"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.64000005, 0.38235295, 0.38235295, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxbu7"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_hrbxi"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_cfwbs"]
+script = ExtResource("16_y14vk")
+type = 5
+label = "目标"
+
+[sub_resource type="Resource" id="Resource_htxy3"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_qr1gw"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_htxy3")
+type = 3
+label = "无视被动"
+
+[sub_resource type="Resource" id="Resource_in3hq"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8i6i"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.64000005, 0.38235295, 0.38235295, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnrn3"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_egehh"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_vvmft"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_ohmgt"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_vvmft")
+type = 3
+label = "无视被动"
+
+[sub_resource type="Resource" id="Resource_2le36"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shhv1"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5658824, 0.3364706, 0.52, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve7jx"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_det3u"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_xv1fi"]
+script = ExtResource("16_y14vk")
+type = -5
+label = "目标"
+
+[sub_resource type="Resource" id="Resource_6mt0w"]
+script = ExtResource("16_y14vk")
+type = -6
+label = "卡牌"
+
+[sub_resource type="Resource" id="Resource_3w788"]
+script = ExtResource("17_xwyt0")
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_j6qcl"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_3w788")
+type = 2
+label = "分配张数"
+
+[sub_resource type="Resource" id="Resource_k2lmi"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_ll0wj"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_k2lmi")
+type = 3
+label = "无视被动"
+
+[sub_resource type="Resource" id="Resource_gpoeo"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y14vk"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwyt0"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_0h761"]
+script = ExtResource("16_y14vk")
+enable_port = false
+
+[sub_resource type="Resource" id="Resource_j4ydo"]
+script = ExtResource("17_xwyt0")
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_dp2x3"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_j4ydo")
+type = 2
+label = "随机数量"
+
+[sub_resource type="Resource" id="Resource_d7w1s"]
+script = ExtResource("18_0h761")
+
+[sub_resource type="Resource" id="Resource_3oc7n"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_d7w1s")
+type = 3
+label = "包含被冻结的玩家"
+
+[sub_resource type="Resource" id="Resource_d73ww"]
+script = ExtResource("19_j4ydo")
+type = -5
+label = "玩家"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h761"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4ydo"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_omidf"]
+script = ExtResource("16_y14vk")
+type = 5
+label = "当前玩家"
+
+[sub_resource type="Resource" id="Resource_h0iu7"]
+script = ExtResource("17_xwyt0")
+min_value = -5.0
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_lgjck"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_h0iu7")
+type = 2
+label = "偏移数量"
+
+[sub_resource type="Resource" id="Resource_27j7b"]
+script = ExtResource("19_j4ydo")
+type = -5
+label = "玩家"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ojpr"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4lwf"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_qvu2o"]
+script = ExtResource("16_y14vk")
+type = -5
+label = "当前玩家"
+
+[sub_resource type="Resource" id="Resource_2lib8"]
+script = ExtResource("17_xwyt0")
+min_value = -5.0
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_stfth"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_2lib8")
+type = 2
+label = "偏移数量"
+
+[sub_resource type="Resource" id="Resource_slkxv"]
+script = ExtResource("19_j4ydo")
+type = -5
+label = "玩家"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp2x3"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7w1s"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_imtk4"]
+script = ExtResource("19_j4ydo")
+type = 5
+label = "牌堆目标"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omidf"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5658824, 0.3364706, 0.52, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0iu7"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_6p3r3"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_mmqb3"]
+script = ExtResource("16_y14vk")
+type = -6
+label = "卡牌"
+
+[sub_resource type="Resource" id="Resource_b2adc"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oc7n"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5658824, 0.3364706, 0.52, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d73ww"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_w4rfc"]
+script = ExtResource("16_y14vk")
+label = "事件"
+
+[sub_resource type="Resource" id="Resource_wxbu7"]
+script = ExtResource("16_y14vk")
+type = -6
+label = "卡牌"
+
+[sub_resource type="Resource" id="Resource_e8i6i"]
+script = ExtResource("16_y14vk")
+type = -5
+label = "出牌目标"
+
+[sub_resource type="Resource" id="Resource_qnrn3"]
+script = ExtResource("17_xwyt0")
+min_value = 1.0
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_shhv1"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_qnrn3")
+type = 2
+label = "分配张数"
+
+[sub_resource type="Resource" id="Resource_ve7jx"]
+script = ExtResource("19_j4ydo")
+label = "事件"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k372w"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -56,7 +752,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_djvqn"]
+[sub_resource type="LabelSettings" id="LabelSettings_8548v"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -64,7 +760,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_i3ajv"]
+[sub_resource type="LabelSettings" id="LabelSettings_5d0sl"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -122,9 +818,9 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_yln7k")
 _inspector = NodePath("EditorLayout/Panel/VSplitContainer/CardInspector")
-_file_tree = NodePath("EditorLayout/VBoxContainer/EditorFileTree")
-_add_deck_button = NodePath("EditorLayout/VBoxContainer/HBoxContainer/AddDeckButton")
-_add_character_button = NodePath("EditorLayout/VBoxContainer/HBoxContainer/AddCharacterButton")
+_file_tree = NodePath("EditorLayout/TabContainer/Files/EditorFileTree")
+_add_deck_button = NodePath("EditorLayout/TabContainer/Files/HBoxContainer/AddDeckButton")
+_add_character_button = NodePath("EditorLayout/TabContainer/Files/HBoxContainer/AddCharacterButton")
 _create_deck_dialog = NodePath("CreateDeckDialog")
 _create_character_dialog = NodePath("CreateCharacterDialog")
 metadata/_edit_use_anchors_ = true
@@ -132,37 +828,49 @@ metadata/_edit_use_anchors_ = true
 [node name="EditorLayout" type="HSplitContainer" parent="." unique_id=762217452]
 layout_mode = 2
 theme_override_constants/separation = 12
-split_offsets = PackedInt32Array(0, 0)
+split_offsets = PackedInt32Array(-28, -56)
+split_offset = -28
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EditorLayout" unique_id=980845409]
+[node name="TabContainer" type="TabContainer" parent="EditorLayout" unique_id=596577939]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+current_tab = 0
+tab_0/title = "文件"
+tab_1/title = "节点"
+
+[node name="Files" type="VBoxContainer" parent="EditorLayout/TabContainer" unique_id=980845409]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 8
+metadata/_edit_use_anchors_ = true
+metadata/_tab_index = 0
+metadata/_tab_name = "文件"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/VBoxContainer" unique_id=1113897241]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/TabContainer/Files" unique_id=1113897241]
 layout_mode = 2
 
-[node name="AddDeckButton" type="Button" parent="EditorLayout/VBoxContainer/HBoxContainer" unique_id=1725565134]
+[node name="AddDeckButton" type="Button" parent="EditorLayout/TabContainer/Files/HBoxContainer" unique_id=1725565134]
 layout_mode = 2
 icon = ExtResource("2_ddp17")
 
-[node name="AddCharacterButton" type="Button" parent="EditorLayout/VBoxContainer/HBoxContainer" unique_id=2131441249]
+[node name="AddCharacterButton" type="Button" parent="EditorLayout/TabContainer/Files/HBoxContainer" unique_id=2131441249]
 layout_mode = 2
 icon = ExtResource("3_ku0qb")
 
-[node name="Spacer" type="Control" parent="EditorLayout/VBoxContainer/HBoxContainer" unique_id=719944225]
+[node name="Spacer" type="Control" parent="EditorLayout/TabContainer/Files/HBoxContainer" unique_id=719944225]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DeleteButton" type="Button" parent="EditorLayout/VBoxContainer/HBoxContainer" unique_id=390359013]
+[node name="DeleteButton" type="Button" parent="EditorLayout/TabContainer/Files/HBoxContainer" unique_id=390359013]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("4_ku0qb")
 icon_alignment = 1
 
-[node name="MoreOptions" type="MenuButton" parent="EditorLayout/VBoxContainer/HBoxContainer" unique_id=432605624 node_paths=PackedStringArray("_file_tree")]
+[node name="MoreOptions" type="MenuButton" parent="EditorLayout/TabContainer/Files/HBoxContainer" unique_id=432605624 node_paths=PackedStringArray("_file_tree")]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("5_nut5s")
@@ -179,7 +887,7 @@ popup/item_1/id = 1
 script = ExtResource("20_mopts")
 _file_tree = NodePath("../../EditorFileTree")
 
-[node name="EditorFileTree" type="Tree" parent="EditorLayout/VBoxContainer" unique_id=913368672]
+[node name="EditorFileTree" type="Tree" parent="EditorLayout/TabContainer/Files" unique_id=913368672]
 layout_mode = 2
 size_flags_vertical = 3
 hide_root = true
@@ -188,883 +896,633 @@ folder_icon = ExtResource("6_1od3q")
 deck_icon = ExtResource("7_mb6sx")
 character_icon = ExtResource("8_nut5s")
 
+[node name="Nodes" type="Tree" parent="EditorLayout/TabContainer" unique_id=929935129]
+visible = false
+layout_mode = 2
+hide_root = true
+metadata/_tab_index = 1
+metadata/_tab_name = "节点"
+
 [node name="SkillGraph" type="GraphEdit" parent="EditorLayout" unique_id=1829042089]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-grid_pattern = 1
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+scroll_offset = Vector2(-108, -92)
+right_disconnects = true
+type_names = {
+-6: "Card[]",
+-5: "CardHolder[]",
+-3: "Boolean[]",
+-2: "Number[]",
+-1: "Event[]",
+0: "Event[]",
+1: "Event",
+2: "Number",
+3: "Boolean",
+5: "CardHolder",
+6: "Card"
+}
+connection_lines_thickness = 0.0
 show_zoom_label = true
-show_minimap_button = false
+show_zoom_buttons = false
+show_grid_buttons = false
+script = ExtResource("12_skill_graph")
+use_new_type_names = true
 metadata/_edit_use_anchors_ = true
 
-[node name="FreezeNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=886473334]
+[node name="FreezeNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=409202303]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 22.0
-offset_top = 71.0
-offset_right = 279.0
-offset_bottom = 356.0
+offset_left = 288.0
+offset_top = 92.0
+offset_right = 488.0
+offset_bottom = 377.0
 mouse_filter = 1
-position_offset = Vector2(22, 71)
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_lgjck")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_27j7b")
+position_offset = Vector2(180, 0)
 resizable = true
 scaling_menus = true
 title = "冻结目标"
 slot/0/left_enabled = true
-slot/0/left_type = 0
+slot/0/left_type = 1
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
 slot/0/right_enabled = true
-slot/0/right_type = 0
+slot/0/right_type = 1
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = 3
+slot/1/left_type = -5
 slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/1/left_icon = null
+slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_color = Color(0, 0, 0, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
-slot/2/left_type = 1
-slot/2/left_color = Color(0.33725488, 1, 0.44821304, 1)
+slot/2/left_type = 2
+slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_color = Color(0, 0, 0, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
-slot/3/left_type = 2
+slot/3/left_type = 3
 slot/3/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_color = Color(0, 0, 0, 1)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
 slot/4/left_enabled = true
-slot/4/left_type = 0
+slot/4/left_type = 3
 slot/4/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/4/left_icon = null
 slot/4/right_enabled = false
 slot/4/right_type = 0
-slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_color = Color(0, 0, 0, 1)
 slot/4/right_icon = null
 slot/4/draw_stylebox = true
 slot/5/left_enabled = true
-slot/5/left_type = 2
+slot/5/left_type = 3
 slot/5/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/5/left_icon = null
 slot/5/right_enabled = false
 slot/5/right_type = 0
-slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_color = Color(0, 0, 0, 1)
 slot/5/right_icon = null
 slot/5/draw_stylebox = true
+script = ExtResource("13_uhjod")
+node_category = 3
+node_name = "冻结目标"
+icon = ExtResource("15_2sj4c")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_0ojpr"), SubResource("Resource_r4lwf"), SubResource("Resource_ajpjh"), SubResource("Resource_4cosb"), SubResource("Resource_ob6pn"), SubResource("Resource_32snk")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_o85b6")])
 
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/FreezeNode" unique_id=988636597]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/FreezeNode/EventPass" unique_id=1864731255]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/FreezeNode/EventPass" unique_id=609108750]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="EditorLayout/SkillGraph/FreezeNode" unique_id=691213629]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "目标（多个）"
-vertical_alignment = 1
-
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/FreezeNode" unique_id=1267618321 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = 1.0
-max_value = 10.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "冻结轮数"
-
-[node name="NoPlay" type="CheckBox" parent="EditorLayout/SkillGraph/FreezeNode" unique_id=796686612]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无法主动出牌"
-
-[node name="NoEffectPassive" type="CheckBox" parent="EditorLayout/SkillGraph/FreezeNode" unique_id=1105373083]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无法被动出牌"
-
-[node name="NoEffectPlay" type="CheckBox" parent="EditorLayout/SkillGraph/FreezeNode" unique_id=240984290]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无法无视场合出牌"
-
-[node name="TakeCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=564401565]
+[node name="GetRandomCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=564401565]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 298.0
-offset_top = 72.0
-offset_right = 555.0
-offset_bottom = 279.0
+offset_left = 508.0
+offset_top = 92.0
+offset_right = 708.0
+offset_bottom = 299.0
 mouse_filter = 1
-position_offset = Vector2(298, 72)
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_qvu2o")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_2lib8")
+position_offset = Vector2(400, 0)
 resizable = true
 scaling_menus = true
 title = "随机获取卡牌"
 slot/0/left_enabled = true
-slot/0/left_type = 0
+slot/0/left_type = 1
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
 slot/0/right_enabled = true
-slot/0/right_type = 0
+slot/0/right_type = 1
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = 3
-slot/1/left_color = Color(0.27843142, 0.7383317, 1, 1)
-slot/1/left_icon = null
+slot/1/left_type = -5
+slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = true
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
-slot/1/right_icon = null
+slot/1/right_type = -6
+slot/1/right_color = Color(1, 0.373, 0.922, 1)
+slot/1/right_icon = ExtResource("13_5c4ri")
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
-slot/2/left_type = 1
+slot/2/left_type = 2
 slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_color = Color(0, 0, 0, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
-slot/3/left_type = 2
+slot/3/left_type = 3
 slot/3/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_color = Color(0, 0, 0, 1)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
+script = ExtResource("19_0axoh")
+node_category = 1
+node_name = "随机获取卡牌"
+icon = ExtResource("21_dp2x3")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_7m2xh"), SubResource("Resource_psebp"), SubResource("Resource_350d5"), SubResource("Resource_44ahh")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_g1c3m"), SubResource("Resource_3j4st")])
 
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/TakeCardNode" unique_id=1593706834]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/TakeCardNode/EventPass" unique_id=1447197719]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/TakeCardNode/EventPass" unique_id=1387921520]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/SkillGraph/TakeCardNode" unique_id=959298371]
-layout_mode = 2
-
-[node name="Label3" type="Label" parent="EditorLayout/SkillGraph/TakeCardNode/HBoxContainer" unique_id=5696109]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "目标（多个）"
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/TakeCardNode/HBoxContainer" unique_id=1427224395]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "卡牌(多张)"
-vertical_alignment = 1
-
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/TakeCardNode" unique_id=146561972 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = 1.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "获取张数"
-
-[node name="NoPlay" type="CheckBox" parent="EditorLayout/SkillGraph/TakeCardNode" unique_id=953884150]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无视被动"
-
-[node name="MoveTargetOrder" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=505764575]
+[node name="MovePlayerPositionNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=505764575]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 296.0
-offset_top = 297.0
-offset_right = 553.0
-offset_bottom = 504.0
+offset_left = 288.0
+offset_top = 392.0
+offset_right = 488.0
+offset_bottom = 599.0
 mouse_filter = 1
-position_offset = Vector2(296, 297)
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_stfth")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_slkxv")
+position_offset = Vector2(180, 300)
 resizable = true
 scaling_menus = true
-title = "偏移目标行动顺序"
+title = "偏移行动顺序"
 slot/0/left_enabled = true
-slot/0/left_type = 0
+slot/0/left_type = 1
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
 slot/0/right_enabled = true
-slot/0/right_type = 0
+slot/0/right_type = 1
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = 3
-slot/1/left_color = Color(0.27843142, 0.7383317, 1, 1)
-slot/1/left_icon = null
+slot/1/left_type = -5
+slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = false
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
-slot/2/left_type = 1
+slot/2/left_type = 2
 slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_color = Color(0, 0, 0, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
-slot/3/left_type = 2
+slot/3/left_type = 3
 slot/3/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_color = Color(0, 0, 0, 1)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
+script = ExtResource("21_fbf1s")
+node_category = 3
+node_name = "偏移行动顺序"
+icon = ExtResource("23_d7w1s")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_damnq"), SubResource("Resource_pxnif"), SubResource("Resource_5f1gl"), SubResource("Resource_q5vwm")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_ki48t")])
 
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/MoveTargetOrder" unique_id=1716085334]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/MoveTargetOrder/EventPass" unique_id=1069085179]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/MoveTargetOrder/EventPass" unique_id=1274323978]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="EditorLayout/SkillGraph/MoveTargetOrder" unique_id=1592176395]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "目标（多个）"
-vertical_alignment = 1
-
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/MoveTargetOrder" unique_id=729621726 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = 1.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "偏移"
-
-[node name="NoPlay" type="CheckBox" parent="EditorLayout/SkillGraph/MoveTargetOrder" unique_id=849479466]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无视被动"
-
-[node name="SetNextRoundTargetNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=631939133]
+[node name="SetNextRoundFirstNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=631939133]
+custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 298.0
-offset_top = 519.0
-offset_right = 555.0
-offset_bottom = 687.0
+offset_left = 288.0
+offset_top = 752.0
+offset_right = 488.0
+offset_bottom = 920.0
 mouse_filter = 1
-position_offset = Vector2(298, 519)
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_w4rfc")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_wxbu7")
+position_offset = Vector2(180, 660)
 resizable = true
 scaling_menus = true
 title = "设置下局先手"
 slot/0/left_enabled = true
-slot/0/left_type = 0
+slot/0/left_type = 1
 slot/0/left_color = Color(1, 1, 1, 1)
 slot/0/left_icon = null
 slot/0/right_enabled = true
-slot/0/right_type = 0
+slot/0/right_type = 1
 slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = 3
-slot/1/left_color = Color(0.27843142, 0.7383317, 1, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-slot/2/left_enabled = true
-slot/2/left_type = 2
-slot/2/left_color = Color(1, 0.8392157, 0.3372549, 1)
-slot/2/left_icon = null
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
-slot/2/right_icon = null
-slot/2/draw_stylebox = true
-
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/SetNextRoundTargetNode" unique_id=1012157266]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/SetNextRoundTargetNode/EventPass" unique_id=239541665]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/SetNextRoundTargetNode/EventPass" unique_id=85570348]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="EditorLayout/SkillGraph/SetNextRoundTargetNode" unique_id=2116211812]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "目标"
-vertical_alignment = 1
-
-[node name="NoPlay" type="CheckBox" parent="EditorLayout/SkillGraph/SetNextRoundTargetNode" unique_id=175539975]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无视被动"
-
-[node name="ReverseOrder" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2082946900]
-layout_mode = 0
-offset_left = 575.0
-offset_top = 371.0
-offset_right = 832.0
-offset_bottom = 500.0
-mouse_filter = 1
-position_offset = Vector2(575, 371)
-resizable = true
-scaling_menus = true
-title = "反转全局顺序"
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 2
-slot/1/left_color = Color(1, 0.8392157, 0.3372549, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/ReverseOrder" unique_id=1183341505]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/ReverseOrder/EventPass" unique_id=1239943516]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/ReverseOrder/EventPass" unique_id=551395097]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
-
-[node name="NoPlay" type="CheckBox" parent="EditorLayout/SkillGraph/ReverseOrder" unique_id=886063640]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无视被动"
-
-[node name="MoveCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1423001017]
-layout_mode = 0
-offset_left = 574.0
-offset_top = 72.0
-offset_right = 831.0
-offset_bottom = 357.0
-mouse_filter = 1
-position_offset = Vector2(574, 72)
-resizable = true
-scaling_menus = true
-title = "转移卡牌"
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 3
-slot/1/left_color = Color(0.27843142, 0.7383317, 1, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-slot/2/left_enabled = true
-slot/2/left_type = 4
-slot/2/left_color = Color(1, 0.37254903, 0.92156863, 1)
-slot/2/left_icon = null
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
-slot/2/right_icon = null
-slot/2/draw_stylebox = true
-slot/3/left_enabled = true
-slot/3/left_type = 1
-slot/3/left_color = Color(0.3372549, 1, 0.44705883, 1)
-slot/3/left_icon = null
-slot/3/right_enabled = false
-slot/3/right_type = 0
-slot/3/right_color = Color(1, 1, 1, 1)
-slot/3/right_icon = null
-slot/3/draw_stylebox = true
-slot/4/left_enabled = true
-slot/4/left_type = 1
-slot/4/left_color = Color(0.3372549, 1, 0.44705883, 1)
-slot/4/left_icon = null
-slot/4/right_enabled = false
-slot/4/right_type = 0
-slot/4/right_color = Color(1, 1, 1, 1)
-slot/4/right_icon = null
-slot/4/draw_stylebox = true
-slot/5/left_enabled = true
-slot/5/left_type = 2
-slot/5/left_color = Color(1, 0.8392157, 0.3372549, 1)
-slot/5/left_icon = null
-slot/5/right_enabled = false
-slot/5/right_type = 0
-slot/5/right_color = Color(1, 1, 1, 1)
-slot/5/right_icon = null
-slot/5/draw_stylebox = true
-
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/MoveCardNode" unique_id=957136465]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/MoveCardNode/EventPass" unique_id=1426347099]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/MoveCardNode/EventPass" unique_id=1417829843]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label3" type="Label" parent="EditorLayout/SkillGraph/MoveCardNode" unique_id=1069222901]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "目标(多个)"
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/MoveCardNode" unique_id=9874152]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "卡牌(多张)"
-vertical_alignment = 1
-
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/MoveCardNode" unique_id=420848745 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = 1.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "每个目标分配张数"
-
-[node name="FreezeRounds2" parent="EditorLayout/SkillGraph/MoveCardNode" unique_id=1545533981 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = 1.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "转移位置"
-
-[node name="NoPlay" type="CheckBox" parent="EditorLayout/SkillGraph/MoveCardNode" unique_id=1327620280]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "无视被动"
-
-[node name="RandomPlayerNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1426681482]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 385.0
-offset_right = 278.0
-offset_bottom = 553.0
-mouse_filter = 1
-position_offset = Vector2(21, 385)
-resizable = true
-scaling_menus = true
-title = "随机玩家"
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 3
-slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 1
-slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-slot/2/left_enabled = true
-slot/2/left_type = 2
-slot/2/left_color = Color(1, 0.8392157, 0.3372549, 1)
-slot/2/left_icon = null
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
-slot/2/right_icon = null
-slot/2/draw_stylebox = true
-
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/RandomPlayerNode" unique_id=2026524340]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "玩家（多个）"
-vertical_alignment = 1
-
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/RandomPlayerNode" unique_id=1674109319 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = 1.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "随机数量"
-
-[node name="NoPlay" type="CheckBox" parent="EditorLayout/SkillGraph/RandomPlayerNode" unique_id=1831623137]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "包含被冻结的玩家"
-
-[node name="OffsetPlayerNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=402886164]
-layout_mode = 0
-offset_left = 22.0
-offset_top = 684.0
-offset_right = 279.0
-offset_bottom = 813.0
-mouse_filter = 1
-position_offset = Vector2(22, 684)
-resizable = true
-scaling_menus = true
-title = "按出牌顺序获取玩家"
-slot/0/left_enabled = true
-slot/0/left_type = 3
-slot/0/left_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 3
-slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 1
-slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/SkillGraph/OffsetPlayerNode" unique_id=790028874]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/OffsetPlayerNode/HBoxContainer" unique_id=1084542583]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "当前玩家"
-vertical_alignment = 1
-
-[node name="Label5" type="Label" parent="EditorLayout/SkillGraph/OffsetPlayerNode/HBoxContainer" unique_id=75561883]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "玩家（多个）"
-vertical_alignment = 1
-
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/OffsetPlayerNode" unique_id=766034691 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = -5.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "偏移数量"
-
-[node name="OffsetHistoryNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=356194337]
-layout_mode = 0
-offset_left = 299.0
-offset_top = 700.0
-offset_right = 556.0
-offset_bottom = 829.0
-mouse_filter = 1
-position_offset = Vector2(299, 700)
-resizable = true
-scaling_menus = true
-title = "按历史顺序获取玩家"
-slot/0/left_enabled = true
-slot/0/left_type = 3
-slot/0/left_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 3
-slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 1
-slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 4
-slot/1/right_color = Color(1, 0.37451136, 0.9216123, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/SkillGraph/OffsetHistoryNode" unique_id=1773573710]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/OffsetHistoryNode/HBoxContainer" unique_id=1209725984]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "当前玩家"
-vertical_alignment = 1
-
-[node name="Label5" type="Label" parent="EditorLayout/SkillGraph/OffsetHistoryNode/HBoxContainer" unique_id=1982275980]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "玩家（多个）"
-vertical_alignment = 1
-
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/OffsetHistoryNode" unique_id=574604341 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = -5.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "偏移数量"
-
-[node name="DeckNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2112762893]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 576.0
-offset_right = 278.0
-offset_bottom = 666.0
-mouse_filter = 1
-position_offset = Vector2(21, 576)
-resizable = true
-scaling_menus = true
-title = "牌堆目标"
-slot/0/left_enabled = false
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 3
-slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/DeckNode" unique_id=728608068]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 8
-text = "牌堆目标"
-vertical_alignment = 1
-
-[node name="DiscardCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=799760631]
-layout_mode = 0
-offset_left = 577.0
-offset_top = 517.0
-offset_right = 834.0
-offset_bottom = 646.0
-mouse_filter = 1
-position_offset = Vector2(577, 517)
-resizable = true
-scaling_menus = true
-title = "丢弃卡牌"
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 4
-slot/1/left_color = Color(1, 0.37254903, 0.92156863, 1)
+slot/1/left_type = 5
+slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/1/left_icon = null
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(1, 1, 1, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/DiscardCardNode" unique_id=796358521]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/DiscardCardNode/EventPass" unique_id=807340540]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/DiscardCardNode/EventPass" unique_id=610309811]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
-
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/DiscardCardNode" unique_id=1784988571]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 0
-text = "卡牌(多张)"
-vertical_alignment = 1
-
-[node name="打出卡牌" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1388264122]
-layout_mode = 0
-offset_left = 576.0
-offset_top = 658.0
-offset_right = 833.0
-offset_bottom = 865.0
-mouse_filter = 1
-position_offset = Vector2(576, 658)
-resizable = true
-scaling_menus = true
-title = "打出卡牌"
-slot/0/left_enabled = true
-slot/0/left_type = 0
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 0
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 4
-slot/1/left_color = Color(1, 0.37254903, 0.92156863, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_color = Color(0, 0, 0, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
 slot/2/left_type = 3
-slot/2/left_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/2/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+script = ExtResource("23_h1b3f")
+node_category = 3
+node_name = "设置下局先手"
+icon = ExtResource("25_3oc7n")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_hrbxi"), SubResource("Resource_cfwbs"), SubResource("Resource_qr1gw")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_in3hq")])
+
+[node name="ReverseOrderNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2082946900]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 288.0
+offset_top = 612.0
+offset_right = 488.0
+offset_bottom = 741.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_e8i6i")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_qnrn3")
+position_offset = Vector2(180, 520)
+resizable = true
+scaling_menus = true
+title = "反转全局顺序"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 3
+slot/1/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("24_mmwma")
+node_category = 3
+node_name = "反转全局顺序"
+icon = ExtResource("27_d73ww")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_egehh"), SubResource("Resource_ohmgt")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_2le36")])
+
+[node name="TransferCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1423001017]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 508.0
+offset_top = 312.0
+offset_right = 708.0
+offset_bottom = 558.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_shhv1")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_ve7jx")
+position_offset = Vector2(400, 220)
+resizable = true
+scaling_menus = true
+title = "转移卡牌"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = -5
+slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/1/left_icon = ExtResource("13_5c4ri")
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = -6
+slot/2/left_color = Color(1, 0.373, 0.922, 1)
+slot/2/left_icon = ExtResource("13_5c4ri")
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(0, 0, 0, 1)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
-slot/3/left_type = 1
+slot/3/left_type = 2
 slot/3/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_color = Color(0, 0, 0, 1)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
+slot/4/left_enabled = true
+slot/4/left_type = 3
+slot/4/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(0, 0, 0, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+script = ExtResource("27_4q3s4")
+node_category = 1
+node_name = "转移卡牌"
+icon = ExtResource("29_omidf")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_det3u"), SubResource("Resource_xv1fi"), SubResource("Resource_6mt0w"), SubResource("Resource_j6qcl"), SubResource("Resource_ll0wj")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_gpoeo")])
 
-[node name="EventPass" type="HBoxContainer" parent="EditorLayout/SkillGraph/打出卡牌" unique_id=1174954384]
-layout_mode = 2
+[node name="RandomPlayerNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1426681482]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 728.0
+offset_top = 92.0
+offset_right = 928.0
+offset_bottom = 260.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_y14vk")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_xwyt0")
+position_offset = Vector2(620, 0)
+resizable = true
+scaling_menus = true
+title = "随机玩家"
+slot/0/left_enabled = false
+slot/0/left_type = 1
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = -5
+slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 2
+slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 3
+slot/2/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+script = ExtResource("29_random")
+node_category = 2
+node_name = "随机玩家"
+icon = ExtResource("21_dp2x3")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_0h761"), SubResource("Resource_dp2x3"), SubResource("Resource_3oc7n")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_d73ww")])
 
-[node name="Label" type="Label" parent="EditorLayout/SkillGraph/打出卡牌/EventPass" unique_id=18045891]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "事件"
-vertical_alignment = 1
+[node name="OffsetPlayerNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=402886164]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 728.0
+offset_top = 272.0
+offset_right = 928.0
+offset_bottom = 401.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_0h761")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_j4ydo")
+position_offset = Vector2(620, 180)
+resizable = true
+scaling_menus = true
+title = "按出牌顺序获取玩家"
+slot/0/left_enabled = true
+slot/0/left_type = 5
+slot/0/left_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = -5
+slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 2
+slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("30_offset")
+node_category = 2
+node_name = "按出牌顺序获取玩家"
+icon = ExtResource("32_y14vk")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_omidf"), SubResource("Resource_lgjck")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_27j7b")])
 
-[node name="Label2" type="Label" parent="EditorLayout/SkillGraph/打出卡牌/EventPass" unique_id=637522459]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-text = "事件"
-vertical_alignment = 1
+[node name="OffsetHistoryNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=356194337]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 728.0
+offset_top = 412.0
+offset_right = 928.0
+offset_bottom = 541.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_0ojpr")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_r4lwf")
+position_offset = Vector2(620, 320)
+resizable = true
+scaling_menus = true
+title = "按历史顺序获取玩家"
+slot/0/left_enabled = true
+slot/0/left_type = -5
+slot/0/left_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/0/left_icon = ExtResource("13_5c4ri")
+slot/0/right_enabled = true
+slot/0/right_type = -5
+slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 2
+slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("31_history")
+node_category = 2
+node_name = "按历史顺序获取玩家"
+icon = ExtResource("33_2sj4c")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_qvu2o"), SubResource("Resource_stfth")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_slkxv")])
 
-[node name="Label4" type="Label" parent="EditorLayout/SkillGraph/打出卡牌" unique_id=1777946375]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 0
-text = "卡牌(多张)"
-vertical_alignment = 1
+[node name="DeckNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2112762893]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 728.0
+offset_top = 552.0
+offset_right = 928.0
+offset_bottom = 642.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_dp2x3")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_d7w1s")
+position_offset = Vector2(620, 460)
+resizable = true
+scaling_menus = true
+title = "牌堆"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(0, 0, 0, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 5
+slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("32_deck")
+node_category = 2
+node_name = "牌堆"
+icon = ExtResource("34_h0iu7")
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_imtk4")])
 
-[node name="Label5" type="Label" parent="EditorLayout/SkillGraph/打出卡牌" unique_id=1400192598]
-custom_minimum_size = Vector2(0, 33)
-layout_mode = 2
-size_flags_horizontal = 0
-text = "目标(多个)"
-vertical_alignment = 1
+[node name="DiscardCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=799760631]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 508.0
+offset_top = 572.0
+offset_right = 708.0
+offset_bottom = 701.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_omidf")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_h0iu7")
+position_offset = Vector2(400, 480)
+resizable = true
+scaling_menus = true
+title = "丢弃卡牌"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = -6
+slot/1/left_color = Color(1, 0.373, 0.922, 1)
+slot/1/left_icon = ExtResource("13_5c4ri")
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("33_discard")
+node_category = 1
+node_name = "丢弃卡牌"
+icon = ExtResource("29_omidf")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_6p3r3"), SubResource("Resource_mmqb3")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_b2adc")])
 
-[node name="FreezeRounds" parent="EditorLayout/SkillGraph/打出卡牌" unique_id=838999892 instance=ExtResource("12_vedit")]
-layout_mode = 2
-min_value = 1.0
-max_value = 5.0
-step = 1.0
-value = 1.0
-rounded = true
-label_text = "每个目标分配张数"
+[node name="PlayCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1388264122]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 508.0
+offset_top = 712.0
+offset_right = 708.0
+offset_bottom = 919.0
+mouse_filter = 1
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_3oc7n")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_d73ww")
+position_offset = Vector2(400, 620)
+resizable = true
+scaling_menus = true
+title = "打出卡牌"
+slot/0/left_enabled = true
+slot/0/left_type = 1
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 1
+slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = -6
+slot/1/left_color = Color(1, 0.373, 0.922, 1)
+slot/1/left_icon = ExtResource("13_5c4ri")
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = -5
+slot/2/left_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/2/left_icon = ExtResource("13_5c4ri")
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 2
+slot/3/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(0, 0, 0, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("34_play")
+node_category = 1
+node_name = "打出卡牌"
+icon = ExtResource("29_omidf")
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_w4rfc"), SubResource("Resource_wxbu7"), SubResource("Resource_e8i6i"), SubResource("Resource_shhv1")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_ve7jx")])
 
 [node name="Panel" type="Panel" parent="EditorLayout" unique_id=1748177973]
 custom_minimum_size = Vector2(380, 0)
@@ -1090,7 +1548,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_t7h14")
+material = SubResource("ShaderMaterial_k372w")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -1110,7 +1568,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_djvqn")
+label_settings = SubResource("LabelSettings_8548v")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -1135,7 +1593,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_i3ajv")
+label_settings = SubResource("LabelSettings_5d0sl")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -1487,9 +1945,9 @@ _image_picker = NodePath("../ImagePicker")
 
 [node name="CreateCharacterForm" type="ScrollContainer" parent="CreateCharacterDialog" unique_id=23885189]
 offset_left = 8.0
-offset_top = 8.0
-offset_right = 446.0
-offset_bottom = 182.0
+offset_top = 12.0
+offset_right = 472.0
+offset_bottom = 239.0
 
 [node name="GridContainer" type="GridContainer" parent="CreateCharacterDialog/CreateCharacterForm" unique_id=1230000525]
 layout_mode = 2
