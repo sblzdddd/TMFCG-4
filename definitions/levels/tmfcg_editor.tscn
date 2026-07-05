@@ -543,6 +543,18 @@ type = 2
 label = "偏移数量"
 
 [sub_resource type="Resource" id="Resource_27j7b"]
+script = ExtResource("17_xwyt0")
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_qvu2o"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_27j7b")
+type = 2
+label = "玩家数量"
+
+[sub_resource type="Resource" id="Resource_2lib8"]
 script = ExtResource("19_j4ydo")
 type = -5
 label = "玩家"
@@ -575,25 +587,37 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_qvu2o"]
+[sub_resource type="Resource" id="Resource_stfth"]
 script = ExtResource("16_y14vk")
-type = -5
+type = 5
 label = "当前玩家"
 
-[sub_resource type="Resource" id="Resource_2lib8"]
+[sub_resource type="Resource" id="Resource_slkxv"]
 script = ExtResource("17_xwyt0")
 min_value = -5.0
 max_value = 5.0
 value = 1.0
 rounded = true
 
-[sub_resource type="Resource" id="Resource_stfth"]
+[sub_resource type="Resource" id="Resource_1m5da"]
 script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_2lib8")
+inline_widget = SubResource("Resource_slkxv")
 type = 2
 label = "偏移数量"
 
-[sub_resource type="Resource" id="Resource_slkxv"]
+[sub_resource type="Resource" id="Resource_2wiwy"]
+script = ExtResource("17_xwyt0")
+max_value = 5.0
+value = 1.0
+rounded = true
+
+[sub_resource type="Resource" id="Resource_iwjrs"]
+script = ExtResource("16_y14vk")
+inline_widget = SubResource("Resource_2wiwy")
+type = 2
+label = "玩家数量"
+
+[sub_resource type="Resource" id="Resource_fr4jb"]
 script = ExtResource("19_j4ydo")
 type = -5
 label = "玩家"
@@ -1010,13 +1034,13 @@ output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_o85b6"
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
 offset_left = 508.0
-offset_top = 92.0
+offset_top = 94.0
 offset_right = 708.0
-offset_bottom = 299.0
+offset_bottom = 301.0
 mouse_filter = 1
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_qvu2o")
 theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_2lib8")
-position_offset = Vector2(400, 0)
+position_offset = Vector2(400, 2)
 resizable = true
 scaling_menus = true
 title = "随机获取卡牌"
@@ -1327,7 +1351,7 @@ layout_mode = 0
 offset_left = 728.0
 offset_top = 272.0
 offset_right = 928.0
-offset_bottom = 401.0
+offset_bottom = 440.0
 mouse_filter = 1
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_0h761")
 theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_j4ydo")
@@ -1353,31 +1377,40 @@ slot/1/right_type = 0
 slot/1/right_color = Color(0, 0, 0, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 2
+slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
 script = ExtResource("30_offset")
 node_category = 2
 node_name = "按出牌顺序获取玩家"
 icon = ExtResource("32_y14vk")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_omidf"), SubResource("Resource_lgjck")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_27j7b")])
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_omidf"), SubResource("Resource_lgjck"), SubResource("Resource_qvu2o")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_2lib8")])
 
 [node name="OffsetHistoryNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=356194337]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
 offset_left = 728.0
-offset_top = 412.0
+offset_top = 452.0
 offset_right = 928.0
-offset_bottom = 541.0
+offset_bottom = 620.0
 mouse_filter = 1
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_0ojpr")
 theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_r4lwf")
-position_offset = Vector2(620, 320)
+position_offset = Vector2(620, 360)
 resizable = true
 scaling_menus = true
 title = "按历史顺序获取玩家"
 slot/0/left_enabled = true
-slot/0/left_type = -5
+slot/0/left_type = 5
 slot/0/left_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/left_icon = ExtResource("13_5c4ri")
+slot/0/left_icon = null
 slot/0/right_enabled = true
 slot/0/right_type = -5
 slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
@@ -1392,24 +1425,33 @@ slot/1/right_type = 0
 slot/1/right_color = Color(0, 0, 0, 1)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 2
+slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
 script = ExtResource("31_history")
 node_category = 2
 node_name = "按历史顺序获取玩家"
 icon = ExtResource("33_2sj4c")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_qvu2o"), SubResource("Resource_stfth")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_slkxv")])
+input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_stfth"), SubResource("Resource_1m5da"), SubResource("Resource_iwjrs")])
+output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_fr4jb")])
 
 [node name="DeckNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2112762893]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
 offset_left = 728.0
-offset_top = 552.0
+offset_top = 632.0
 offset_right = 928.0
-offset_bottom = 642.0
+offset_bottom = 722.0
 mouse_filter = 1
 theme_override_styles/titlebar = SubResource("StyleBoxFlat_dp2x3")
 theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_d7w1s")
-position_offset = Vector2(620, 460)
+position_offset = Vector2(620, 540)
 resizable = true
 scaling_menus = true
 title = "牌堆"
