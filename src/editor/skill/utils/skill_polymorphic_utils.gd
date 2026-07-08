@@ -62,29 +62,41 @@ static func effective_type(spec: SkillSlotSpec, resolved_types: Dictionary) -> i
 
 static func _infer_group_type(node: BaseSkillNode, graph: GraphEdit, group: StringName) -> int:
 	var node_path := graph.get_path_to(node)
+	var fallback := PortType.ANY_ARRAY as int
 	for conn in graph.get_connection_list():
-		if NodePath(conn["to_node"]) == node_path:
-			var to_port: int = conn["to_port"]
-			var spec := node._get_input_spec(to_port)
-			if spec != null and spec.is_polymorphic() and spec.polymorphic_group == group:
-				var from := graph.get_node_or_null(NodePath(conn["from_node"]))
-				if from is BaseSkillNode:
-					var connected_type := (from as BaseSkillNode).output_type(conn["from_port"])
-					return _normalize_polymorphic_type(connected_type)
-		if NodePath(conn["from_node"]) == node_path:
-			var from_port: int = conn["from_port"]
-			var spec := node._get_output_spec(from_port)
-			if spec != null and spec.is_polymorphic() and spec.polymorphic_group == group:
-				var to := graph.get_node_or_null(NodePath(conn["to_node"]))
-				if to is BaseSkillNode:
-					var connected_type := (to as BaseSkillNode).input_type(conn["to_port"])
-					return _normalize_polymorphic_type(connected_type)
-	return PortType.ANY_ARRAY
+		if NodePath(conn["to_node"]) != node_path:
+			continue
+		var to_port: int = conn["to_port"]
+		var spec := node._get_input_spec(to_port)
+		if spec == null or not spec.is_polymorphic() or spec.polymorphic_group != group:
+			continue
+		var from := graph.get_node_or_null(NodePath(conn["from_node"]))
+		if from is BaseSkillNode:
+			var connected_type := _normalize_polymorphic_type(
+				(from as BaseSkillNode).output_type(conn["from_port"])
+			)
+			if not SkillNodeSlotConstants.is_any_type(connected_type):
+				return connected_type
+			fallback = connected_type
+	for conn in graph.get_connection_list():
+		if NodePath(conn["from_node"]) != node_path:
+			continue
+		var from_port: int = conn["from_port"]
+		var spec := node._get_output_spec(from_port)
+		if spec == null or not spec.is_polymorphic() or spec.polymorphic_group != group:
+			continue
+		var to := graph.get_node_or_null(NodePath(conn["to_node"]))
+		if to is BaseSkillNode:
+			var connected_type := _normalize_polymorphic_type(
+				(to as BaseSkillNode).input_type(conn["to_port"])
+			)
+			if not SkillNodeSlotConstants.is_any_type(connected_type):
+				return connected_type
+			fallback = connected_type
+	return fallback
 
 
 static func _normalize_polymorphic_type(type: int) -> int:
 	if SkillNodeSlotConstants.is_any_type(type):
-		return type
-	if SkillNodeSlotConstants.is_array_type(type):
 		return type
 	return SkillNodeSlotConstants.array_type(type)

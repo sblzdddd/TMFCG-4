@@ -34,6 +34,10 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 
+func record_undo() -> void:
+	_keyboard.record_undo()
+
+
 func _refresh_all_skill_nodes() -> void:
 	SkillPolymorphicUtils.refresh_all_polymorphic_types(self)
 	for child in get_children():
@@ -84,7 +88,10 @@ func _register_connection_types() -> void:
 func _on_connection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
 	if read_only:
 		return
-	_keyboard.record_undo()
+	# GraphEdit may commit the drag before emitting connection_request.
+	if is_node_connected(from_node, from_port, to_node, to_port):
+		disconnect_node(from_node, from_port, to_node, to_port)
+	record_undo()
 	var from := get_node_or_null(NodePath(from_node))
 	var to := get_node_or_null(NodePath(to_node))
 	if from is BaseSkillNode and to is BaseSkillNode:
@@ -100,7 +107,7 @@ func _on_connection_request(from_node: StringName, from_port: int, to_node: Stri
 func _on_disconnection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
 	if read_only:
 		return
-	_keyboard.record_undo()
+	record_undo()
 	var from := get_node_or_null(NodePath(from_node))
 	var to := get_node_or_null(NodePath(to_node))
 	disconnect_node(from_node, from_port, to_node, to_port)

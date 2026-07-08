@@ -34,6 +34,7 @@ static func serialize_graph(graph: SkillGraph) -> Dictionary:
 
 
 static func deserialize_graph(graph: SkillGraph, data: Dictionary) -> void:
+	graph.clear_connections()
 	_clear_skill_nodes(graph)
 	var nodes_data: Array = data.get("nodes", [])
 	var node_by_id: Dictionary = {}
