@@ -2,6 +2,8 @@
 extends GraphEdit
 class_name SkillGraph
 
+signal graph_changed()
+
 @export var read_only := false:
 	set(value):
 		read_only = value
@@ -25,6 +27,8 @@ func _ready() -> void:
 		connection_request.connect(_on_connection_request)
 	if not disconnection_request.is_connected(_on_disconnection_request):
 		disconnection_request.connect(_on_disconnection_request)
+	if not delete_nodes_request.is_connected(_on_delete_nodes_request):
+		delete_nodes_request.connect(_on_delete_nodes_request)
 	call_deferred("_refresh_all_skill_nodes")
 	_keyboard.bind(self)
 
@@ -36,6 +40,23 @@ func _unhandled_key_input(event: InputEvent) -> void:
 
 func record_undo() -> void:
 	_keyboard.record_undo()
+	_notify_graph_changed()
+
+
+func notify_content_changed() -> void:
+	_notify_graph_changed()
+
+
+func _notify_graph_changed() -> void:
+	if not _loading:
+		graph_changed.emit()
+
+
+func set_loading(value: bool) -> void:
+	_loading = value
+
+
+var _loading := false
 
 
 func _refresh_all_skill_nodes() -> void:
@@ -61,6 +82,7 @@ func spawn_node(
 	add_child(node)
 	node.owner = get_tree().edited_scene_root if Engine.is_editor_hint() else null
 	node.refresh_view()
+	_notify_graph_changed()
 	return node
 
 
@@ -100,8 +122,10 @@ func _on_connection_request(from_node: StringName, from_port: int, to_node: Stri
 			to_skill.clear_input_connections(self, to_port)
 			connect_node(from_node, from_port, to_node, to_port)
 			_refresh_all_skill_nodes()
+		_notify_graph_changed()
 		return
 	connect_node(from_node, from_port, to_node, to_port)
+	_notify_graph_changed()
 
 
 func _on_disconnection_request(from_node: StringName, from_port: int, to_node: StringName, to_port: int) -> void:
@@ -113,6 +137,14 @@ func _on_disconnection_request(from_node: StringName, from_port: int, to_node: S
 	disconnect_node(from_node, from_port, to_node, to_port)
 	if from is BaseSkillNode or to is BaseSkillNode:
 		_refresh_all_skill_nodes()
+	_notify_graph_changed()
+
+
+	_notify_graph_changed()
+
+
+func _on_delete_nodes_request(_node_names: Array[StringName]) -> void:
+	call_deferred("_notify_graph_changed")
 
 
 func _unique_node_name(node_id: String) -> String:

@@ -12,18 +12,18 @@ func get_linked_type() -> SkillNodeSlotConstants.PortType: return SkillNodeSlotC
 
 
 static func create(
-	min_value: float = 0.0,
-	max_value: float = 100.0,
-	step: float = 1.0,
-	value: float = 0.0,
-	rounded: bool = false
+	MinValue: float = 0.0,
+	MaxValue: float = 100.0,
+	Step: float = 1.0,
+	Value: float = 0.0,
+	Rounded: bool = false
 ) -> SkillInputNumber:
 	var widget := SkillInputNumber.new()
-	widget.min_value = min_value
-	widget.max_value = max_value
-	widget.step = step
-	widget.value = value
-	widget.rounded = rounded
+	widget.min_value = MinValue
+	widget.max_value = MaxValue
+	widget.step = Step
+	widget.value = Value
+	widget.rounded = Rounded
 	return widget
 
 

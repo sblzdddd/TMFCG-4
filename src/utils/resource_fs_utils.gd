@@ -159,5 +159,28 @@ static func _to_global_path(path: String) -> String:
 
 
 
+static func can_delete(path: String) -> bool:
+	if path.is_empty():
+		return false
+	if path.begins_with("user://"):
+		return true
+	if path.begins_with("res://"):
+		return can_write_presets()
+	return false
+
+
+static func delete_resource(path: String) -> Error:
+	if not can_delete(path):
+		return ERR_FILE_CANT_WRITE
+	var global_path := _to_global_path(path)
+	if not FileAccess.file_exists(global_path):
+		return ERR_FILE_NOT_FOUND
+	return DirAccess.remove_absolute(global_path)
+
+
+static func is_builtin_path(path: String) -> bool:
+	return path.begins_with(ResConst.PRESET_ROOT)
+
+
 static func _on_resource_created(_path: String) -> void:
 	pass

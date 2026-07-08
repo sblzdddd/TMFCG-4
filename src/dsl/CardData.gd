@@ -11,3 +11,5 @@ const Type := CardEnums.Type
 @export var suit: Suit = Suit.CLUBS
 @export var rank: Rank = Rank.NONE
 @export var type: Type = Type.NORMAL
+@export var skill_graph: Dictionary = {}
+@export var skill_priority: int = 0

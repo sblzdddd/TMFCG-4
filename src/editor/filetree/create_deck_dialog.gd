@@ -88,6 +88,7 @@ func _on_confirmed() -> void:
 	deck.id = "deck-%d" % Time.get_unix_time_from_system()
 	deck.date_created = Time.get_unix_time_from_system()
 	deck.date_modified = deck.date_created
+	deck.cards = CardUtils.create_default_deck_cards()
 
 	if not _thumbnail_path.is_empty():
 		var image_path := ResourceFsUtils.resolve_deck_thumbnail(_thumbnail_path, filename, builtin)

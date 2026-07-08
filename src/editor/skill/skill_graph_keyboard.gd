@@ -93,6 +93,8 @@ func undo() -> bool:
 	_undo_locked = true
 	SkillGraphSerializer.deserialize_graph(_graph, state)
 	_undo_locked = false
+	if _graph.has_method("notify_content_changed"):
+		_graph.notify_content_changed()
 	return true
 
 
@@ -104,6 +106,8 @@ func redo() -> bool:
 	_undo_locked = true
 	SkillGraphSerializer.deserialize_graph(_graph, state)
 	_undo_locked = false
+	if _graph.has_method("notify_content_changed"):
+		_graph.notify_content_changed()
 	return true
 
 

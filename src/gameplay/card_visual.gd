@@ -8,15 +8,22 @@ const FALLBACK_PORTRAIT := preload("res://assets/textures/characters/Fallback.pn
 @export var _name_label: CurvedText
 
 var _character_data: CardVisualData = null
+var _card_data: CardData = null
 var _portrait_texture: Texture2D = null
+
+@export var card: CardData:
+	set(value):
+		_card_data = value
+		if is_node_ready():
+			_update_card_face()
 
 @export var character: CardVisualData:
 	set(value):
 		_character_data = value
 		if is_node_ready():
-			_update_visual(value)
+			_update_character(value)
 
-func _update_visual(data: CardVisualData) -> void:
+func _update_character(data: CardVisualData) -> void:
 	if data == null or data.character == null:
 		_name_label.text = "-"
 		_set_character_texture(null)
@@ -28,6 +35,24 @@ func _update_visual(data: CardVisualData) -> void:
 		CharacterUtils.load_portrait_texture(data.character, data.portrait)
 	)
 	_set_character_transform(data.transform)
+
+func _update_card_face() -> void:
+	var rank_text := "-"
+	var suit_value := 0
+	var rank_value := 0
+	if _card_data != null:
+		rank_text = CardUtils.rank_display(_card_data.rank)
+		suit_value = CardUtils.suit_to_shader_value(_card_data.suit)
+		rank_value = CardUtils.rank_to_shader_value(_card_data.rank)
+
+	for label in valueLabels:
+		label.text = rank_text
+
+	var shader_material := material as ShaderMaterial
+	if shader_material == null:
+		return
+	shader_material.set_shader_parameter("suit", suit_value)
+	shader_material.set_shader_parameter("value", rank_value)
 
 func _set_character_texture(texture: Texture2D) -> void:
 	var resolved := texture if texture else FALLBACK_PORTRAIT
@@ -50,4 +75,5 @@ func _ready() -> void:
 	material = material.duplicate()
 	for label in valueLabels:
 		label.label_settings = valueLabels[0].label_settings.duplicate()
-	_update_visual(_character_data)
+	_update_card_face()
+	_update_character(_character_data)

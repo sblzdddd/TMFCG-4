@@ -17,8 +17,6 @@ label = "目标"
 [sub_resource type="Resource" id="Resource_0pi1g"]
 script = ExtResource("2_jjvom")
 min_value = 1.0
-max_value = 10.0
-rounded = true
 metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
 
 [sub_resource type="Resource" id="input_2"]

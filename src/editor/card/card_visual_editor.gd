@@ -19,6 +19,38 @@ signal character_data_changed(data: CardVisualData)
 
 var selected_character: CardVisualData = null
 var _portrait_keys: Array[String] = []
+var _loading := false
+
+
+func bind(data: CardVisualData) -> void:
+	_loading = true
+	selected_character = data
+	if data == null:
+		_name_info.text = ""
+		_description_label.text = ""
+		_x_edit.value = 0.0
+		_y_edit.value = 0.0
+		_scale_edit.value = 1.0
+		_refresh_variant_list()
+		_loading = false
+		return
+
+	_x_edit.set_block_signals(true)
+	_y_edit.set_block_signals(true)
+	_scale_edit.set_block_signals(true)
+	_x_edit.value = data.transform.x
+	_y_edit.value = data.transform.y
+	_scale_edit.value = data.transform.z
+	_x_edit.set_block_signals(false)
+	_y_edit.set_block_signals(false)
+	_scale_edit.set_block_signals(false)
+	if data.character != null:
+		_apply_character(data.character)
+	else:
+		_name_info.text = ""
+		_description_label.text = ""
+	_refresh_variant_list()
+	_loading = false
 
 
 func _ready() -> void:
@@ -44,6 +76,8 @@ func _on_select_item_selected(id: int) -> void:
 
 
 func _on_character_selected(character: DialogicCharacter) -> void:
+	if _loading:
+		return
 	if selected_character == null:
 		selected_character = CardVisualData.new()
 	selected_character.character = character
@@ -146,7 +180,7 @@ func _select_portrait(index: int) -> void:
 
 
 func _on_transform_changed(_new_value: float = 0.0) -> void:
-	if selected_character == null:
+	if _loading or selected_character == null:
 		return
 	_apply_edit_transform()
 	character_data_changed.emit(selected_character)
