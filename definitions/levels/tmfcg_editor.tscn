@@ -75,6 +75,10 @@
 [ext_resource type="Resource" uid="uid://cpdvluqhvmxs" path="res://src/editor/skill/definitions/CardHolder/graveyard_node.tres" id="52_damnq"]
 [ext_resource type="Resource" uid="uid://cxe5wtsasmcf5" path="res://src/editor/skill/definitions/CardHolder/all_players_node.tres" id="54_pxnif"]
 [ext_resource type="Resource" uid="uid://ch5l02j64aqrn" path="res://src/editor/skill/definitions/Card/play_card_node.tres" id="56_oaxh2"]
+[ext_resource type="Texture2D" uid="uid://bfbl323q7q3cg" path="res://assets/textures/icons/club.svg" id="65_ajpjh"]
+[ext_resource type="Texture2D" uid="uid://30jriskhlkd5" path="res://assets/textures/icons/diamond.svg" id="66_4cosb"]
+[ext_resource type="Texture2D" uid="uid://cbif1g5f3q7c6" path="res://assets/textures/icons/heart.svg" id="66_4edsy"]
+[ext_resource type="Texture2D" uid="uid://icl1ocakwctn" path="res://assets/textures/icons/spade.svg" id="68_0pi1g"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylag2"]
 content_margin_left = 10.0
@@ -775,9 +779,6 @@ corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
-
-[sub_resource type="LabelSettings" id="LabelSettings_1wn3d"]
-font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_w2akv"]
 font_size = 15
@@ -1864,10 +1865,68 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="CharacterTitleLabel" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=2035645420]
+[node name="CardBasicInfoEdit" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=1736368752]
 layout_mode = 2
-text = "角色"
-label_settings = SubResource("LabelSettings_1wn3d")
+
+[node name="SuitEdit" type="OptionButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CardBasicInfoEdit" unique_id=711496511]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+search_bar_enabled = true
+item_count = 5
+popup/item_0/text = "梅花"
+popup/item_0/icon = ExtResource("65_ajpjh")
+popup/item_0/id = 0
+popup/item_1/text = "方片"
+popup/item_1/icon = ExtResource("66_4cosb")
+popup/item_1/id = 1
+popup/item_2/text = "红心"
+popup/item_2/icon = ExtResource("66_4edsy")
+popup/item_2/id = 2
+popup/item_3/text = "黑桃"
+popup/item_3/icon = ExtResource("68_0pi1g")
+popup/item_3/id = 3
+popup/item_4/text = "大/小王"
+popup/item_4/id = 4
+
+[node name="ValueEdit" type="OptionButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CardBasicInfoEdit" unique_id=1487748303]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+search_bar_enabled = true
+item_count = 15
+popup/item_0/text = "A"
+popup/item_0/id = 14
+popup/item_1/text = "2"
+popup/item_1/id = 15
+popup/item_2/text = "3"
+popup/item_2/id = 3
+popup/item_3/text = "4"
+popup/item_3/id = 4
+popup/item_4/text = "5"
+popup/item_4/id = 5
+popup/item_5/text = "6"
+popup/item_5/id = 6
+popup/item_6/text = "7"
+popup/item_6/id = 7
+popup/item_7/text = "8"
+popup/item_7/id = 8
+popup/item_8/text = "9"
+popup/item_8/id = 9
+popup/item_9/text = "10"
+popup/item_9/id = 10
+popup/item_10/text = "J"
+popup/item_10/id = 11
+popup/item_11/text = "Q"
+popup/item_11/id = 12
+popup/item_12/text = "K"
+popup/item_12/id = 13
+popup/item_13/text = "大王"
+popup/item_13/id = 13
+popup/item_13/disabled = true
+popup/item_14/text = "小王"
+popup/item_14/id = 14
+popup/item_14/disabled = true
 
 [node name="CharacterInfoPreview" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_character_editor_button")]
 layout_mode = 2
@@ -1970,7 +2029,7 @@ layout_toggle_enabled = false
 deleting_enabled = false
 script = ExtResource("16_cpick")
 
-[node name="GridContainer" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=917741164]
+[node name="GridContainer" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=577969564]
 layout_mode = 2
 
 [node name="CharacterOffsetX" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=224716145 instance=ExtResource("12_vedit")]
