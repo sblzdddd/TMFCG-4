@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://du30ube83xlj7"]
+
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="definition"]
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
+
+[sub_resource type="Resource" id="input_0"]
+script = ExtResource("input_spec")
+type = 3
+label = "A"
+
+[sub_resource type="Resource" id="input_1"]
+script = ExtResource("input_spec")
+type = 3
+label = "B"
+
+[sub_resource type="Resource" id="output_2"]
+script = ExtResource("output_spec")
+type = 3
+label = "输出"
+
+[resource]
+script = ExtResource("definition")
+node_id = "boolean.or"
+display_name = "或"
+category = 5
+node_script_path = "res://src/editor/skill/nodes/Boolean/or_node.gd"
+input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1")])
+output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_2")])

@@ -35,6 +35,8 @@ static func apply_title_style(node: GraphNode, node_category: SkillNodeCategoryC
 		title_bar.add_child(icon_rect)
 		title_bar.move_child(icon_rect, 0)
 
+	var icon := SkillNodeCategoryConstants.get_icon(node_category)
+
 	if icon == null:
 		icon_rect.visible = false
 		return

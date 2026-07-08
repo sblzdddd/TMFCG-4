@@ -27,42 +27,56 @@
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="12_vedit"]
 [ext_resource type="Texture2D" uid="uid://vqtdi6wg4s74" path="res://assets/textures/icons/skills/port_array.svg" id="13_5c4ri"]
 [ext_resource type="FontFile" uid="uid://dy3x2wp2dbgwx" path="res://assets/fonts/Gloock-Regular.ttf" id="13_gc6aj"]
-[ext_resource type="Script" uid="uid://ch17rbdjms6mp" path="res://src/editor/skill/nodes/freeze_node.gd" id="13_uhjod"]
+[ext_resource type="Script" uid="uid://ch17rbdjms6mp" path="res://src/editor/skill/nodes/Modifier/freeze_node.gd" id="13_uhjod"]
 [ext_resource type="Script" uid="uid://2ly7vd4brlkk" path="res://src/editor/card/card_inspector.gd" id="14_cinsp"]
 [ext_resource type="Script" uid="uid://ni1wj3cfn8df" path="res://src/editor/card/card_visual_editor.gd" id="14_n7o2g"]
-[ext_resource type="Texture2D" uid="uid://bpnhefgtelrn8" path="res://assets/textures/icons/skills/freeze.svg" id="15_2sj4c"]
+[ext_resource type="Resource" uid="uid://cqejja7ix5m5c" path="res://src/editor/skill/definitions/Modifier/freeze_node.tres" id="15_0pi1g"]
 [ext_resource type="Script" uid="uid://c7kpm2x8nwr4h" path="res://src/editor/card/character_picker_dialog.gd" id="16_cpick"]
-[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="16_y14vk"]
+[ext_resource type="Script" uid="uid://ebtmsc45tx60" path="res://src/editor/skill/registry/skill_node_instance_state.gd" id="16_ob6pn"]
 [ext_resource type="Script" uid="uid://dxobtkgxrgf5y" path="res://src/editor/filetree/create_character_dialog.gd" id="17_ccdlg"]
-[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="17_xwyt0"]
-[ext_resource type="Script" uid="uid://bhdul5lf04xll" path="res://src/editor/skill/slots/input/skill_input_bool.gd" id="18_0h761"]
 [ext_resource type="Script" uid="uid://b5ywpae6kb0ws" path="res://src/editor/filetree/create_deck_dialog.gd" id="18_cddlg"]
-[ext_resource type="Script" uid="uid://bfo4bp7jimgbx" path="res://src/editor/skill/nodes/get_random_card_node.gd" id="19_0axoh"]
+[ext_resource type="Script" uid="uid://bfo4bp7jimgbx" path="res://src/editor/skill/nodes/Card/get_random_card_node.gd" id="19_0axoh"]
+[ext_resource type="Script" uid="uid://dcetvuguysh3t" path="res://src/editor/skill/nodes/Array/shuffle_node.gd" id="19_bfsrt"]
 [ext_resource type="Script" uid="uid://dpiakke5cej1o" path="res://src/editor/filetree/editor_builtin_checkbox.gd" id="19_ebchk"]
-[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="19_j4ydo"]
+[ext_resource type="Script" uid="uid://tu265syy863p" path="res://src/editor/skill/nodes/Array/reverse_node.gd" id="20_b6kko"]
 [ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/filetree/filetree_more_options.gd" id="20_mopts"]
-[ext_resource type="Texture2D" uid="uid://c2k7ewvxqh1t4" path="res://assets/textures/icons/skills/random.svg" id="21_dp2x3"]
-[ext_resource type="Script" uid="uid://cd0p0sb0q6n3" path="res://src/editor/skill/nodes/move_player_position_node.gd" id="21_fbf1s"]
-[ext_resource type="Texture2D" uid="uid://d18rij8upcs7l" path="res://assets/textures/icons/skills/move_position.svg" id="23_d7w1s"]
-[ext_resource type="Script" uid="uid://b6shq6c7nabci" path="res://src/editor/skill/nodes/set_next_round_first_node.gd" id="23_h1b3f"]
-[ext_resource type="Script" uid="uid://fp8dgp0vq24" path="res://src/editor/skill/nodes/reverse_order_node.gd" id="24_mmwma"]
-[ext_resource type="Texture2D" uid="uid://u7hyme1dik6j" path="res://assets/textures/icons/skills/lightning.svg" id="25_3oc7n"]
+[ext_resource type="Script" uid="uid://cd0p0sb0q6n3" path="res://src/editor/skill/nodes/Modifier/move_player_position_node.gd" id="21_fbf1s"]
+[ext_resource type="Script" uid="uid://byioahmydmkbj" path="res://src/editor/skill/nodes/Array/slice_node.gd" id="21_u72h3"]
+[ext_resource type="Resource" uid="uid://hqpt1qbyuwje" path="res://src/editor/skill/definitions/Array/shuffle_node.tres" id="22_3h316"]
+[ext_resource type="Script" uid="uid://17jobfrm7kxm" path="res://src/editor/skill/nodes/Array/join_node.gd" id="22_6fbw0"]
+[ext_resource type="Script" uid="uid://dbajwcyrd0ni8" path="res://src/editor/skill/nodes/Modifier/set_order_node.gd" id="22_bfsrt"]
+[ext_resource type="Script" uid="uid://cdahxoi6rulcr" path="res://src/editor/skill/nodes/Boolean/compare_node.gd" id="23_b6kko"]
+[ext_resource type="Script" uid="uid://dq6ddtglcn5av" path="res://src/editor/skill/nodes/CardHolder/get_offset_player_node.gd" id="24_4q3s4"]
+[ext_resource type="Resource" uid="uid://dudiyl2kep8w" path="res://src/editor/skill/definitions/Array/reverse_node.tres" id="24_32snk"]
+[ext_resource type="Script" uid="uid://dccutinss7wd2" path="res://src/editor/skill/nodes/Boolean/not_node.gd" id="24_88mq2"]
+[ext_resource type="Script" uid="uid://voncrwquk3ss" path="res://src/editor/skill/nodes/Boolean/or_node.gd" id="25_c0lsn"]
 [ext_resource type="LabelSettings" uid="uid://ufpu6ss5nwf0" path="res://definitions/fonts/field_label.tres" id="25_jmc66"]
+[ext_resource type="Script" uid="uid://cnvnou2gbfcyf" path="res://src/editor/skill/nodes/Boolean/and_node.gd" id="26_5c4ri"]
 [ext_resource type="Script" uid="uid://b8kpm3yanwr5i" path="res://src/editor/filetree/image_picker_dialog.gd" id="26_ipick"]
-[ext_resource type="Script" uid="uid://bsxm7owkws54r" path="res://src/editor/skill/nodes/transfer_card_node.gd" id="27_4q3s4"]
-[ext_resource type="Texture2D" uid="uid://dj0554dnpbvms" path="res://assets/textures/icons/skills/reverse.svg" id="27_d73ww"]
-[ext_resource type="Texture2D" uid="uid://cer2n17lvo0ua" path="res://assets/textures/icons/skills/move_card.svg" id="29_omidf"]
-[ext_resource type="Script" uid="uid://cbboexpgcgqv2" path="res://src/editor/skill/nodes/random_player_node.gd" id="29_random"]
-[ext_resource type="Script" uid="uid://dq6ddtglcn5av" path="res://src/editor/skill/nodes/offset_player_node.gd" id="30_offset"]
-[ext_resource type="Script" uid="uid://b1p5tfic0mdw8" path="res://src/editor/skill/nodes/offset_history_node.gd" id="31_history"]
-[ext_resource type="Script" uid="uid://u1wovj70tjvb" path="res://src/editor/skill/nodes/deck_node.gd" id="32_deck"]
-[ext_resource type="Texture2D" uid="uid://bvf6qvcdp1n57" path="res://assets/textures/icons/skills/order.svg" id="32_y14vk"]
-[ext_resource type="Texture2D" uid="uid://dw301qyq148mh" path="res://assets/textures/icons/skills/history.svg" id="33_2sj4c"]
-[ext_resource type="Script" uid="uid://dcdaxnfcosh34" path="res://src/editor/skill/nodes/discard_card_node.gd" id="33_discard"]
-[ext_resource type="Texture2D" uid="uid://ci25w2d5glnea" path="res://assets/textures/icons/skills/port.svg" id="34_h0iu7"]
-[ext_resource type="Script" uid="uid://cb72stxd8fp7x" path="res://src/editor/skill/nodes/play_card_node.gd" id="34_play"]
+[ext_resource type="Resource" uid="uid://cd1qj4t7k8dun" path="res://src/editor/skill/definitions/Array/slice_node.tres" id="26_o85b6"]
+[ext_resource type="Script" uid="uid://h0by3a5wo1bq" path="res://src/editor/skill/nodes/CardHolder/graveyard_node.gd" id="26_uf4ah"]
+[ext_resource type="Script" uid="uid://bsxm7owkws54r" path="res://src/editor/skill/nodes/Card/transfer_card_node.gd" id="27_4q3s4"]
+[ext_resource type="Script" uid="uid://dpnevdt165lg0" path="res://src/editor/skill/nodes/CardHolder/all_players_node.gd" id="27_uf4ah"]
+[ext_resource type="Resource" uid="uid://qv7b6svifm12" path="res://src/editor/skill/definitions/Array/join_node.tres" id="28_qvu2o"]
+[ext_resource type="Script" uid="uid://cbboexpgcgqv2" path="res://src/editor/skill/nodes/CardHolder/random_player_node.gd" id="29_random"]
+[ext_resource type="Resource" uid="uid://nd8optjuiv7s" path="res://src/editor/skill/definitions/Boolean/compare_node.tres" id="30_2lib8"]
+[ext_resource type="Resource" uid="uid://cnwbi58k5ktxe" path="res://src/editor/skill/definitions/Boolean/not_node.tres" id="32_7m2xh"]
+[ext_resource type="Script" uid="uid://u1wovj70tjvb" path="res://src/editor/skill/nodes/CardHolder/deck_node.gd" id="32_deck"]
+[ext_resource type="Script" uid="uid://cb72stxd8fp7x" path="res://src/editor/skill/nodes/Card/play_card_node.gd" id="34_play"]
+[ext_resource type="Resource" uid="uid://du30ube83xlj7" path="res://src/editor/skill/definitions/Boolean/or_node.tres" id="34_psebp"]
+[ext_resource type="Resource" uid="uid://cj04k0jw3eehh" path="res://src/editor/skill/definitions/Boolean/and_node.tres" id="36_v3vbq"]
+[ext_resource type="Resource" uid="uid://q2ul7pu0y6rn" path="res://src/editor/skill/definitions/Card/get_random_card_node.tres" id="38_350d5"]
+[ext_resource type="Resource" uid="uid://f7wvfvqywxr6" path="res://src/editor/skill/definitions/Modifier/move_player_position_node.tres" id="40_h2umv"]
+[ext_resource type="Resource" uid="uid://bumcc1bl8owpn" path="res://src/editor/skill/definitions/Modifier/set_order_node.tres" id="42_44ahh"]
+[ext_resource type="Resource" uid="uid://d1qbdubtji2k3" path="res://src/editor/skill/definitions/Card/transfer_card_node.tres" id="44_g1c3m"]
+[ext_resource type="Resource" uid="uid://s2xd1bsnrbhm" path="res://src/editor/skill/definitions/CardHolder/random_player_node.tres" id="46_3j4st"]
+[ext_resource type="Resource" uid="uid://dgq7tfrrfmxjc" path="res://src/editor/skill/definitions/CardHolder/get_offset_player_node.tres" id="48_stfth"]
+[ext_resource type="Resource" uid="uid://dwa61t21vtjro" path="res://src/editor/skill/definitions/CardHolder/deck_node.tres" id="50_slkxv"]
+[ext_resource type="Resource" uid="uid://cpdvluqhvmxs" path="res://src/editor/skill/definitions/CardHolder/graveyard_node.tres" id="52_damnq"]
+[ext_resource type="Resource" uid="uid://cxe5wtsasmcf5" path="res://src/editor/skill/definitions/CardHolder/all_players_node.tres" id="54_pxnif"]
+[ext_resource type="Resource" uid="uid://ch5l02j64aqrn" path="res://src/editor/skill/definitions/Card/play_card_node.tres" id="56_oaxh2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lgjck"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ylag2"]
 content_margin_left = 10.0
 content_margin_top = 8.0
 content_margin_right = 10.0
@@ -76,219 +90,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_27j7b"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_0ojpr"]
-script = ExtResource("16_y14vk")
-label = "事件"
-
-[sub_resource type="Resource" id="Resource_r4lwf"]
-script = ExtResource("16_y14vk")
-type = -5
-label = "目标"
-
-[sub_resource type="Resource" id="Resource_ylag2"]
-script = ExtResource("17_xwyt0")
-min_value = 1.0
-max_value = 10.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_ajpjh"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_ylag2")
-type = 2
-label = "冻结轮数"
-
-[sub_resource type="Resource" id="Resource_4edsy"]
-script = ExtResource("18_0h761")
-
-[sub_resource type="Resource" id="Resource_4cosb"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_4edsy")
-type = 3
-label = "无法主动出牌"
-
-[sub_resource type="Resource" id="Resource_0pi1g"]
-script = ExtResource("18_0h761")
-
-[sub_resource type="Resource" id="Resource_ob6pn"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_0pi1g")
-type = 3
-label = "无法被动出牌"
-
-[sub_resource type="Resource" id="Resource_3h316"]
-script = ExtResource("18_0h761")
-
-[sub_resource type="Resource" id="Resource_32snk"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_3h316")
-type = 3
-label = "无法无视场合出牌"
-
-[sub_resource type="Resource" id="Resource_o85b6"]
-script = ExtResource("19_j4ydo")
-label = "事件"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvu2o"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.5658824, 0.3364706, 0.52, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lib8"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_7m2xh"]
-script = ExtResource("16_y14vk")
-label = "事件"
-
-[sub_resource type="Resource" id="Resource_psebp"]
-script = ExtResource("16_y14vk")
-type = -5
-label = "目标"
-
-[sub_resource type="Resource" id="Resource_v3vbq"]
-script = ExtResource("17_xwyt0")
-min_value = 1.0
-max_value = 10.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_350d5"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_v3vbq")
-type = 2
-label = "获取张数"
-
-[sub_resource type="Resource" id="Resource_h2umv"]
-script = ExtResource("18_0h761")
-
-[sub_resource type="Resource" id="Resource_44ahh"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_h2umv")
-type = 3
-label = "无视被动"
-
-[sub_resource type="Resource" id="Resource_g1c3m"]
-script = ExtResource("19_j4ydo")
-label = "事件"
-
-[sub_resource type="Resource" id="Resource_3j4st"]
-script = ExtResource("19_j4ydo")
-type = -6
-label = "卡牌"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stfth"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.64000005, 0.38235295, 0.38235295, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slkxv"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_damnq"]
-script = ExtResource("16_y14vk")
-label = "事件"
-
-[sub_resource type="Resource" id="Resource_pxnif"]
-script = ExtResource("16_y14vk")
-type = -5
-label = "目标"
-
-[sub_resource type="Resource" id="Resource_oaxh2"]
-script = ExtResource("17_xwyt0")
-min_value = 1.0
-max_value = 10.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_5f1gl"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_oaxh2")
-type = 2
-label = "偏移量"
-
-[sub_resource type="Resource" id="Resource_jsgua"]
-script = ExtResource("18_0h761")
-
-[sub_resource type="Resource" id="Resource_q5vwm"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_jsgua")
-type = 3
-label = "无视被动"
-
-[sub_resource type="Resource" id="Resource_ki48t"]
-script = ExtResource("19_j4ydo")
-label = "事件"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4rfc"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.64000005, 0.38235295, 0.38235295, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxbu7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajpjh"]
 content_margin_left = 10.0
 content_margin_top = 8.0
 content_margin_right = 10.0
@@ -303,28 +105,318 @@ corner_radius_top_right = 8
 corner_detail = 5
 
 [sub_resource type="Resource" id="Resource_hrbxi"]
-script = ExtResource("16_y14vk")
-label = "事件"
+script = ExtResource("16_ob6pn")
+node_id = "modifier.freeze"
+graph_node_name = "FreezeNode"
+position = Vector2(260, 58)
 
-[sub_resource type="Resource" id="Resource_cfwbs"]
-script = ExtResource("16_y14vk")
-type = 5
-label = "目标"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h316"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.56235296, 0.6082353, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_htxy3"]
-script = ExtResource("18_0h761")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_32snk"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_qr1gw"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_htxy3")
-type = 3
-label = "无视被动"
+[sub_resource type="Resource" id="Resource_e8i6i"]
+script = ExtResource("16_ob6pn")
+node_id = "array.shuffle"
+graph_node_name = "ShuffleNode"
+position = Vector2(920, 60)
 
-[sub_resource type="Resource" id="Resource_in3hq"]
-script = ExtResource("19_j4ydo")
-label = "事件"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o85b6"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.56235296, 0.6082353, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8i6i"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qvu2o"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_ve7jx"]
+script = ExtResource("16_ob6pn")
+node_id = "array.reverse"
+graph_node_name = "ReverseNode"
+position = Vector2(920, 162)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2lib8"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.56235296, 0.6082353, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m2xh"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_ll0wj"]
+script = ExtResource("16_ob6pn")
+node_id = "array.slice"
+graph_node_name = "SliceNode"
+position = Vector2(920, 263)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_psebp"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.56235296, 0.6082353, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3vbq"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5137255, 0.5647059, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_iwjrs"]
+script = ExtResource("16_ob6pn")
+node_id = "array.join"
+graph_node_name = "JoinNode"
+position = Vector2(920, 481)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_350d5"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.6082353, 0.48117647, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h2umv"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_r8nug"]
+script = ExtResource("16_ob6pn")
+node_id = "boolean.compare"
+graph_node_name = "EqualNode"
+position = Vector2(920, 626)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44ahh"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.6082353, 0.48117647, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g1c3m"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_so5s5"]
+script = ExtResource("16_ob6pn")
+node_id = "boolean.not"
+graph_node_name = "EqualNode2"
+position = Vector2(920, 811)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3j4st"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.6082353, 0.48117647, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stfth"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_k372w"]
+script = ExtResource("16_ob6pn")
+node_id = "boolean.or"
+graph_node_name = "EqualNode3"
+position = Vector2(700, 766)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_slkxv"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.6082353, 0.48117647, 0.35411766, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_damnq"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5647059, 0.42352942, 0.28235295, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_pvd3p"]
+script = ExtResource("16_ob6pn")
+node_id = "boolean.and"
+graph_node_name = "EqualNode4"
+position = Vector2(700, 909)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0pi1g"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5658824, 0.3364706, 0.52, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ob6pn"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_x1jp2"]
+script = ExtResource("16_ob6pn")
+node_id = "card.get_random"
+graph_node_name = "GetRandomCardNode"
+position = Vector2(480, 60)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5f1gl"]
 content_margin_left = 10.0
 content_margin_top = 8.0
 content_margin_right = 10.0
@@ -338,7 +430,7 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnrn3"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsgua"]
 content_margin_left = 10.0
 content_margin_top = 8.0
 content_margin_right = 10.0
@@ -352,22 +444,263 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_egehh"]
-script = ExtResource("16_y14vk")
-label = "事件"
+[sub_resource type="Resource" id="Resource_06w12"]
+script = ExtResource("16_ob6pn")
+node_id = "modifier.move_player_position"
+graph_node_name = "MovePlayerPositionNode"
+position = Vector2(260, 358)
 
-[sub_resource type="Resource" id="Resource_vvmft"]
-script = ExtResource("18_0h761")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q5vwm"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.64000005, 0.38235295, 0.38235295, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_ohmgt"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_vvmft")
-type = 3
-label = "无视被动"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki48t"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.6, 0.3137255, 0.3137255, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_2le36"]
-script = ExtResource("19_j4ydo")
-label = "事件"
+[sub_resource type="Resource" id="Resource_rh0hg"]
+script = ExtResource("16_ob6pn")
+node_id = "modifier.set_order"
+graph_node_name = "SetNewOrderNode"
+position = Vector2(260, 618)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w4rfc"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5658824, 0.3364706, 0.52, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxbu7"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_sige1"]
+script = ExtResource("16_ob6pn")
+node_id = "card.transfer"
+graph_node_name = "TransferCardNode"
+position = Vector2(481, 456)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pxnif"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oaxh2"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_lcrkr"]
+script = ExtResource("16_ob6pn")
+node_id = "card_holder.random_player"
+graph_node_name = "RandomPlayerNode"
+position = Vector2(700, 58)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4edsy"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4cosb"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_mhv22"]
+script = ExtResource("16_ob6pn")
+node_id = "card_holder.get_offset_player"
+graph_node_name = "GetOffsetPlayerNode"
+position = Vector2(700, 238)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_in3hq"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8i6i"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_n1qwt"]
+script = ExtResource("16_ob6pn")
+node_id = "card_holder.deck"
+graph_node_name = "DeckNode"
+position = Vector2(700, 458)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qnrn3"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_egehh"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_jdo4a"]
+script = ExtResource("16_ob6pn")
+node_id = "card_holder.graveyard"
+graph_node_name = "GraveyardNode"
+position = Vector2(700, 558)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vvmft"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ohmgt"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
+
+[sub_resource type="Resource" id="Resource_f5eob"]
+script = ExtResource("16_ob6pn")
+node_id = "card_holder.all_players"
+graph_node_name = "AllPlayersNode"
+position = Vector2(697, 658)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2le36"]
+content_margin_left = 10.0
+content_margin_top = 8.0
+content_margin_right = 10.0
+content_margin_bottom = 8.0
+bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0.5658824, 0.3364706, 0.52, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shhv1"]
 content_margin_left = 10.0
@@ -375,20 +708,6 @@ content_margin_top = 8.0
 content_margin_right = 10.0
 content_margin_bottom = 8.0
 bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.5658824, 0.3364706, 0.52, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve7jx"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
 border_width_left = 2
 border_width_top = 2
 border_width_right = 2
@@ -397,365 +716,13 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_detail = 5
 
-[sub_resource type="Resource" id="Resource_det3u"]
-script = ExtResource("16_y14vk")
-label = "事件"
+[sub_resource type="Resource" id="Resource_sa0ca"]
+script = ExtResource("16_ob6pn")
+node_id = "card.play"
+graph_node_name = "PlayCardNode"
+position = Vector2(482, 753)
 
-[sub_resource type="Resource" id="Resource_xv1fi"]
-script = ExtResource("16_y14vk")
-type = -5
-label = "目标"
-
-[sub_resource type="Resource" id="Resource_6mt0w"]
-script = ExtResource("16_y14vk")
-type = -6
-label = "卡牌"
-
-[sub_resource type="Resource" id="Resource_3w788"]
-script = ExtResource("17_xwyt0")
-min_value = 1.0
-max_value = 5.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_j6qcl"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_3w788")
-type = 2
-label = "分配张数"
-
-[sub_resource type="Resource" id="Resource_k2lmi"]
-script = ExtResource("18_0h761")
-
-[sub_resource type="Resource" id="Resource_ll0wj"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_k2lmi")
-type = 3
-label = "无视被动"
-
-[sub_resource type="Resource" id="Resource_gpoeo"]
-script = ExtResource("19_j4ydo")
-label = "事件"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y14vk"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xwyt0"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_0h761"]
-script = ExtResource("16_y14vk")
-enable_port = false
-
-[sub_resource type="Resource" id="Resource_j4ydo"]
-script = ExtResource("17_xwyt0")
-min_value = 1.0
-max_value = 5.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_dp2x3"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_j4ydo")
-type = 2
-label = "随机数量"
-
-[sub_resource type="Resource" id="Resource_d7w1s"]
-script = ExtResource("18_0h761")
-
-[sub_resource type="Resource" id="Resource_3oc7n"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_d7w1s")
-type = 3
-label = "包含被冻结的玩家"
-
-[sub_resource type="Resource" id="Resource_d73ww"]
-script = ExtResource("19_j4ydo")
-type = -5
-label = "玩家"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h761"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j4ydo"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_omidf"]
-script = ExtResource("16_y14vk")
-type = 5
-label = "当前玩家"
-
-[sub_resource type="Resource" id="Resource_h0iu7"]
-script = ExtResource("17_xwyt0")
-min_value = -5.0
-max_value = 5.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_lgjck"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_h0iu7")
-type = 2
-label = "偏移数量"
-
-[sub_resource type="Resource" id="Resource_27j7b"]
-script = ExtResource("17_xwyt0")
-max_value = 5.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_qvu2o"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_27j7b")
-type = 2
-label = "玩家数量"
-
-[sub_resource type="Resource" id="Resource_2lib8"]
-script = ExtResource("19_j4ydo")
-type = -5
-label = "玩家"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ojpr"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r4lwf"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_stfth"]
-script = ExtResource("16_y14vk")
-type = 5
-label = "当前玩家"
-
-[sub_resource type="Resource" id="Resource_slkxv"]
-script = ExtResource("17_xwyt0")
-min_value = -5.0
-max_value = 5.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_1m5da"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_slkxv")
-type = 2
-label = "偏移数量"
-
-[sub_resource type="Resource" id="Resource_2wiwy"]
-script = ExtResource("17_xwyt0")
-max_value = 5.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_iwjrs"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_2wiwy")
-type = 2
-label = "玩家数量"
-
-[sub_resource type="Resource" id="Resource_fr4jb"]
-script = ExtResource("19_j4ydo")
-type = -5
-label = "玩家"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dp2x3"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.3329412, 0.47764707, 0.5729412, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7w1s"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.25882354, 0.41960785, 0.5254902, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_imtk4"]
-script = ExtResource("19_j4ydo")
-type = 5
-label = "牌堆目标"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_omidf"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.5658824, 0.3364706, 0.52, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0iu7"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_6p3r3"]
-script = ExtResource("16_y14vk")
-label = "事件"
-
-[sub_resource type="Resource" id="Resource_mmqb3"]
-script = ExtResource("16_y14vk")
-type = -6
-label = "卡牌"
-
-[sub_resource type="Resource" id="Resource_b2adc"]
-script = ExtResource("19_j4ydo")
-label = "事件"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3oc7n"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_color = Color(0.5658824, 0.3364706, 0.52, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d73ww"]
-content_margin_left = 10.0
-content_margin_top = 8.0
-content_margin_right = 10.0
-content_margin_bottom = 8.0
-bg_color = Color(0.5176471, 0.2627451, 0.46666667, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_color = Color(1, 1, 1, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 5
-
-[sub_resource type="Resource" id="Resource_w4rfc"]
-script = ExtResource("16_y14vk")
-label = "事件"
-
-[sub_resource type="Resource" id="Resource_wxbu7"]
-script = ExtResource("16_y14vk")
-type = -6
-label = "卡牌"
-
-[sub_resource type="Resource" id="Resource_e8i6i"]
-script = ExtResource("16_y14vk")
-type = -5
-label = "出牌目标"
-
-[sub_resource type="Resource" id="Resource_qnrn3"]
-script = ExtResource("17_xwyt0")
-min_value = 1.0
-max_value = 5.0
-value = 1.0
-rounded = true
-
-[sub_resource type="Resource" id="Resource_shhv1"]
-script = ExtResource("16_y14vk")
-inline_widget = SubResource("Resource_qnrn3")
-type = 2
-label = "分配张数"
-
-[sub_resource type="Resource" id="Resource_ve7jx"]
-script = ExtResource("19_j4ydo")
-label = "事件"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k372w"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ve7jx"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -776,7 +743,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_8548v"]
+[sub_resource type="LabelSettings" id="LabelSettings_det3u"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -784,7 +751,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5d0sl"]
+[sub_resource type="LabelSettings" id="LabelSettings_xv1fi"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -852,8 +819,7 @@ metadata/_edit_use_anchors_ = true
 [node name="EditorLayout" type="HSplitContainer" parent="." unique_id=762217452]
 layout_mode = 2
 theme_override_constants/separation = 12
-split_offsets = PackedInt32Array(-28, -56)
-split_offset = -28
+split_offsets = PackedInt32Array(0, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="TabContainer" type="TabContainer" parent="EditorLayout" unique_id=596577939]
@@ -932,40 +898,38 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
-scroll_offset = Vector2(-108, -92)
 right_disconnects = true
 type_names = {
+-1000: "Any[]",
 -6: "Card[]",
 -5: "CardHolder[]",
 -3: "Boolean[]",
 -2: "Number[]",
 -1: "Event[]",
-0: "Event[]",
+0: "Undefined[]",
 1: "Event",
 2: "Number",
 3: "Boolean",
 5: "CardHolder",
-6: "Card"
+6: "Card",
+1000: "Any"
 }
-connection_lines_thickness = 0.0
 show_zoom_label = true
-show_zoom_buttons = false
-show_grid_buttons = false
 script = ExtResource("12_skill_graph")
-use_new_type_names = true
 metadata/_edit_use_anchors_ = true
 
 [node name="FreezeNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=409202303]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 288.0
-offset_top = 92.0
-offset_right = 488.0
-offset_bottom = 377.0
+offset_left = 260.0
+offset_top = 58.0
+offset_right = 460.0
+offset_bottom = 343.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_lgjck")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_27j7b")
-position_offset = Vector2(180, 0)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_ylag2")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_ajpjh")
+position_offset = Vector2(260, 58)
 resizable = true
 scaling_menus = true
 title = "冻结目标"
@@ -979,12 +943,12 @@ slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = -5
+slot/1/left_type = 5
 slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_color = Color(0, 0, 0, 0)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
@@ -993,7 +957,7 @@ slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
@@ -1002,7 +966,7 @@ slot/3/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(0, 0, 0, 1)
+slot/3/right_color = Color(0, 0, 0, 0)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
 slot/4/left_enabled = true
@@ -1011,7 +975,7 @@ slot/4/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/4/left_icon = null
 slot/4/right_enabled = false
 slot/4/right_type = 0
-slot/4/right_color = Color(0, 0, 0, 1)
+slot/4/right_color = Color(0, 0, 0, 0)
 slot/4/right_icon = null
 slot/4/draw_stylebox = true
 slot/5/left_enabled = true
@@ -1020,27 +984,321 @@ slot/5/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/5/left_icon = null
 slot/5/right_enabled = false
 slot/5/right_type = 0
-slot/5/right_color = Color(0, 0, 0, 1)
+slot/5/right_color = Color(0, 0, 0, 0)
 slot/5/right_icon = null
 slot/5/draw_stylebox = true
 script = ExtResource("13_uhjod")
-node_category = 3
-node_name = "冻结目标"
-icon = ExtResource("15_2sj4c")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_0ojpr"), SubResource("Resource_r4lwf"), SubResource("Resource_ajpjh"), SubResource("Resource_4cosb"), SubResource("Resource_ob6pn"), SubResource("Resource_32snk")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_o85b6")])
+definition = ExtResource("15_0pi1g")
+instance_state = SubResource("Resource_hrbxi")
+
+[node name="ShuffleNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=518721975]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 920.0
+offset_top = 60.0
+offset_right = 1120.0
+offset_bottom = 150.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_3h316")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_32snk")
+position_offset = Vector2(920, 60)
+resizable = true
+scaling_menus = true
+title = "打乱"
+slot/0/left_enabled = true
+slot/0/left_type = 1000
+slot/0/left_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/left_icon = ExtResource("13_5c4ri")
+slot/0/right_enabled = true
+slot/0/right_type = 1000
+slot/0/right_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+script = ExtResource("19_bfsrt")
+definition = ExtResource("22_3h316")
+instance_state = SubResource("Resource_e8i6i")
+
+[node name="ReverseNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=79213217]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 920.0
+offset_top = 162.0
+offset_right = 1120.0
+offset_bottom = 252.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_o85b6")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_qvu2o")
+position_offset = Vector2(920, 162)
+resizable = true
+scaling_menus = true
+title = "反转"
+slot/0/left_enabled = true
+slot/0/left_type = 1000
+slot/0/left_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/left_icon = ExtResource("13_5c4ri")
+slot/0/right_enabled = true
+slot/0/right_type = 1000
+slot/0/right_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+script = ExtResource("20_b6kko")
+definition = ExtResource("24_32snk")
+instance_state = SubResource("Resource_ve7jx")
+
+[node name="SliceNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1256260071]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 920.0
+offset_top = 263.0
+offset_right = 1120.0
+offset_bottom = 470.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_2lib8")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_7m2xh")
+position_offset = Vector2(920, 263)
+resizable = true
+scaling_menus = true
+title = "切片"
+slot/0/left_enabled = true
+slot/0/left_type = 1000
+slot/0/left_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/left_icon = ExtResource("13_5c4ri")
+slot/0/right_enabled = true
+slot/0/right_type = 1000
+slot/0/right_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(0, 0, 0, 0)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 1000
+slot/1/right_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/1/right_icon = ExtResource("13_5c4ri")
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 2
+slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(0, 0, 0, 0)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = true
+slot/3/left_type = 2
+slot/3/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(0, 0, 0, 0)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("21_u72h3")
+definition = ExtResource("26_o85b6")
+instance_state = SubResource("Resource_ll0wj")
+
+[node name="JoinNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1500909722]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 920.0
+offset_top = 481.0
+offset_right = 1120.0
+offset_bottom = 610.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_psebp")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_v3vbq")
+position_offset = Vector2(920, 481)
+resizable = true
+scaling_menus = true
+title = "合并"
+slot/0/left_enabled = true
+slot/0/left_type = 1000
+slot/0/left_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/left_icon = ExtResource("13_5c4ri")
+slot/0/right_enabled = true
+slot/0/right_type = 1000
+slot/0/right_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 1000
+slot/1/left_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/1/left_icon = ExtResource("13_5c4ri")
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 0)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("22_6fbw0")
+definition = ExtResource("28_qvu2o")
+instance_state = SubResource("Resource_iwjrs")
+
+[node name="EqualNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1228342955]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 920.0
+offset_top = 626.0
+offset_right = 1120.0
+offset_bottom = 794.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_350d5")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_h2umv")
+position_offset = Vector2(920, 626)
+resizable = true
+scaling_menus = true
+title = "比较"
+slot/0/left_enabled = true
+slot/0/left_type = 1000
+slot/0/left_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/0/left_icon = ExtResource("13_5c4ri")
+slot/0/right_enabled = true
+slot/0/right_type = 3
+slot/0/right_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 1000
+slot/1/left_color = Color(0.38431373, 0.38431373, 0.38431373, 1)
+slot/1/left_icon = ExtResource("13_5c4ri")
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 0)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = true
+slot/2/left_type = 2
+slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(0, 0, 0, 0)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+script = ExtResource("23_b6kko")
+definition = ExtResource("30_2lib8")
+instance_state = SubResource("Resource_r8nug")
+
+[node name="EqualNode2" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1242892337]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 920.0
+offset_top = 811.0
+offset_right = 1120.0
+offset_bottom = 901.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_44ahh")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_g1c3m")
+position_offset = Vector2(920, 811)
+resizable = true
+scaling_menus = true
+title = "非"
+slot/0/left_enabled = true
+slot/0/left_type = 3
+slot/0/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 3
+slot/0/right_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("24_88mq2")
+definition = ExtResource("32_7m2xh")
+instance_state = SubResource("Resource_so5s5")
+
+[node name="EqualNode3" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=51393411]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 700.0
+offset_top = 766.0
+offset_right = 900.0
+offset_bottom = 895.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_3j4st")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_stfth")
+position_offset = Vector2(700, 766)
+resizable = true
+scaling_menus = true
+title = "或"
+slot/0/left_enabled = true
+slot/0/left_type = 3
+slot/0/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 3
+slot/0/right_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 3
+slot/1/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 0)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("25_c0lsn")
+definition = ExtResource("34_psebp")
+instance_state = SubResource("Resource_k372w")
+
+[node name="EqualNode4" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=852721512]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 700.0
+offset_top = 909.0
+offset_right = 900.0
+offset_bottom = 1038.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_slkxv")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_damnq")
+position_offset = Vector2(700, 909)
+resizable = true
+scaling_menus = true
+title = "与"
+slot/0/left_enabled = true
+slot/0/left_type = 3
+slot/0/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 3
+slot/0/right_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = true
+slot/1/left_type = 3
+slot/1/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(0, 0, 0, 0)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+script = ExtResource("26_5c4ri")
+definition = ExtResource("36_v3vbq")
+instance_state = SubResource("Resource_pvd3p")
 
 [node name="GetRandomCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=564401565]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 508.0
-offset_top = 94.0
-offset_right = 708.0
-offset_bottom = 301.0
+offset_left = 480.0
+offset_top = 60.0
+offset_right = 680.0
+offset_bottom = 228.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_qvu2o")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_2lib8")
-position_offset = Vector2(400, 2)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_0pi1g")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_ob6pn")
+position_offset = Vector2(480, 60)
 resizable = true
 scaling_menus = true
 title = "随机获取卡牌"
@@ -1054,11 +1312,11 @@ slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = -5
+slot/1/left_type = 5
 slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = true
-slot/1/right_type = -6
+slot/1/right_type = 6
 slot/1/right_color = Color(1, 0.373, 0.922, 1)
 slot/1/right_icon = ExtResource("13_5c4ri")
 slot/1/draw_stylebox = true
@@ -1068,36 +1326,25 @@ slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
-slot/3/left_enabled = true
-slot/3/left_type = 3
-slot/3/left_color = Color(1, 0.8392157, 0.3372549, 1)
-slot/3/left_icon = null
-slot/3/right_enabled = false
-slot/3/right_type = 0
-slot/3/right_color = Color(0, 0, 0, 1)
-slot/3/right_icon = null
-slot/3/draw_stylebox = true
 script = ExtResource("19_0axoh")
-node_category = 1
-node_name = "随机获取卡牌"
-icon = ExtResource("21_dp2x3")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_7m2xh"), SubResource("Resource_psebp"), SubResource("Resource_350d5"), SubResource("Resource_44ahh")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_g1c3m"), SubResource("Resource_3j4st")])
+definition = ExtResource("38_350d5")
+instance_state = SubResource("Resource_x1jp2")
 
 [node name="MovePlayerPositionNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=505764575]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 288.0
-offset_top = 392.0
-offset_right = 488.0
-offset_bottom = 599.0
+offset_left = 260.0
+offset_top = 358.0
+offset_right = 460.0
+offset_bottom = 604.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_stfth")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_slkxv")
-position_offset = Vector2(180, 300)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_5f1gl")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_jsgua")
+position_offset = Vector2(260, 358)
 resizable = true
 scaling_menus = true
 title = "偏移行动顺序"
@@ -1111,12 +1358,12 @@ slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = -5
+slot/1/left_type = 5
 slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_color = Color(0, 0, 0, 0)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
@@ -1125,7 +1372,7 @@ slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
@@ -1134,30 +1381,37 @@ slot/3/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(0, 0, 0, 1)
+slot/3/right_color = Color(0, 0, 0, 0)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
+slot/4/left_enabled = true
+slot/4/left_type = 3
+slot/4/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(0, 0, 0, 0)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
 script = ExtResource("21_fbf1s")
-node_category = 3
-node_name = "偏移行动顺序"
-icon = ExtResource("23_d7w1s")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_damnq"), SubResource("Resource_pxnif"), SubResource("Resource_5f1gl"), SubResource("Resource_q5vwm")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_ki48t")])
+definition = ExtResource("40_h2umv")
+instance_state = SubResource("Resource_06w12")
 
-[node name="SetNextRoundFirstNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=631939133]
+[node name="SetNewOrderNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2082946900]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 288.0
-offset_top = 752.0
-offset_right = 488.0
-offset_bottom = 920.0
+offset_left = 260.0
+offset_top = 618.0
+offset_right = 460.0
+offset_bottom = 786.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_w4rfc")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_wxbu7")
-position_offset = Vector2(180, 660)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_q5vwm")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_ki48t")
+position_offset = Vector2(260, 618)
 resizable = true
 scaling_menus = true
-title = "设置下局先手"
+title = "设置新顺序"
 slot/0/left_enabled = true
 slot/0/left_type = 1
 slot/0/left_color = Color(1, 1, 1, 1)
@@ -1170,10 +1424,10 @@ slot/0/draw_stylebox = true
 slot/1/left_enabled = true
 slot/1/left_type = 5
 slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/1/left_icon = null
+slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_color = Color(0, 0, 0, 0)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
@@ -1182,66 +1436,26 @@ slot/2/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
-script = ExtResource("23_h1b3f")
-node_category = 3
-node_name = "设置下局先手"
-icon = ExtResource("25_3oc7n")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_hrbxi"), SubResource("Resource_cfwbs"), SubResource("Resource_qr1gw")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_in3hq")])
-
-[node name="ReverseOrderNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2082946900]
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 0
-offset_left = 288.0
-offset_top = 612.0
-offset_right = 488.0
-offset_bottom = 741.0
-mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_e8i6i")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_qnrn3")
-position_offset = Vector2(180, 520)
-resizable = true
-scaling_menus = true
-title = "反转全局顺序"
-slot/0/left_enabled = true
-slot/0/left_type = 1
-slot/0/left_color = Color(1, 1, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = 1
-slot/0/right_color = Color(1, 1, 1, 1)
-slot/0/right_icon = null
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 3
-slot/1/left_color = Color(1, 0.8392157, 0.3372549, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-script = ExtResource("24_mmwma")
-node_category = 3
-node_name = "反转全局顺序"
-icon = ExtResource("27_d73ww")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_egehh"), SubResource("Resource_ohmgt")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_2le36")])
+script = ExtResource("22_bfsrt")
+definition = ExtResource("42_44ahh")
+instance_state = SubResource("Resource_rh0hg")
 
 [node name="TransferCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1423001017]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 508.0
-offset_top = 312.0
-offset_right = 708.0
-offset_bottom = 558.0
+offset_left = 481.0
+offset_top = 456.0
+offset_right = 681.0
+offset_bottom = 741.0
+focus_mode = 2
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_shhv1")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_ve7jx")
-position_offset = Vector2(400, 220)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_w4rfc")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_wxbu7")
+position_offset = Vector2(481, 456)
 resizable = true
 scaling_menus = true
 title = "转移卡牌"
@@ -1255,21 +1469,21 @@ slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = -5
+slot/1/left_type = 5
 slot/1/left_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_color = Color(0, 0, 0, 0)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
-slot/2/left_type = -6
+slot/2/left_type = 6
 slot/2/left_color = Color(1, 0.373, 0.922, 1)
 slot/2/left_icon = ExtResource("13_5c4ri")
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
@@ -1278,7 +1492,7 @@ slot/3/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(0, 0, 0, 1)
+slot/3/right_color = Color(0, 0, 0, 0)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
 slot/4/left_enabled = true
@@ -1287,36 +1501,43 @@ slot/4/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/4/left_icon = null
 slot/4/right_enabled = false
 slot/4/right_type = 0
-slot/4/right_color = Color(0, 0, 0, 1)
+slot/4/right_color = Color(0, 0, 0, 0)
 slot/4/right_icon = null
 slot/4/draw_stylebox = true
+slot/5/left_enabled = true
+slot/5/left_type = 3
+slot/5/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(0, 0, 0, 0)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
 script = ExtResource("27_4q3s4")
-node_category = 1
-node_name = "转移卡牌"
-icon = ExtResource("29_omidf")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_det3u"), SubResource("Resource_xv1fi"), SubResource("Resource_6mt0w"), SubResource("Resource_j6qcl"), SubResource("Resource_ll0wj")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_gpoeo")])
+definition = ExtResource("44_g1c3m")
+instance_state = SubResource("Resource_sige1")
 
 [node name="RandomPlayerNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1426681482]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 728.0
-offset_top = 92.0
-offset_right = 928.0
-offset_bottom = 260.0
+offset_left = 700.0
+offset_top = 58.0
+offset_right = 900.0
+offset_bottom = 226.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_y14vk")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_xwyt0")
-position_offset = Vector2(620, 0)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_pxnif")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_oaxh2")
+position_offset = Vector2(700, 58)
 resizable = true
 scaling_menus = true
 title = "随机玩家"
 slot/0/left_enabled = false
-slot/0/left_type = 1
-slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_type = 0
+slot/0/left_color = Color(0, 0, 0, 0)
 slot/0/left_icon = null
 slot/0/right_enabled = true
-slot/0/right_type = -5
+slot/0/right_type = 5
 slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/0/right_icon = ExtResource("13_5c4ri")
 slot/0/draw_stylebox = true
@@ -1326,7 +1547,7 @@ slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/1/left_icon = null
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_color = Color(0, 0, 0, 0)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
@@ -1335,36 +1556,34 @@ slot/2/left_color = Color(1, 0.8392157, 0.3372549, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 script = ExtResource("29_random")
-node_category = 2
-node_name = "随机玩家"
-icon = ExtResource("21_dp2x3")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_0h761"), SubResource("Resource_dp2x3"), SubResource("Resource_3oc7n")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_d73ww")])
+definition = ExtResource("46_3j4st")
+instance_state = SubResource("Resource_lcrkr")
 
-[node name="OffsetPlayerNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=402886164]
+[node name="GetOffsetPlayerNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=402886164]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 728.0
-offset_top = 272.0
-offset_right = 928.0
-offset_bottom = 440.0
+offset_left = 700.0
+offset_top = 238.0
+offset_right = 900.0
+offset_bottom = 445.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_0h761")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_j4ydo")
-position_offset = Vector2(620, 180)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_4edsy")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_4cosb")
+position_offset = Vector2(700, 238)
 resizable = true
 scaling_menus = true
-title = "按出牌顺序获取玩家"
+title = "获取相对位置玩家"
 slot/0/left_enabled = true
 slot/0/left_type = 5
 slot/0/left_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/left_icon = null
+slot/0/left_icon = ExtResource("13_5c4ri")
 slot/0/right_enabled = true
-slot/0/right_type = -5
+slot/0/right_type = 5
 slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/0/right_icon = ExtResource("13_5c4ri")
 slot/0/draw_stylebox = true
@@ -1374,7 +1593,7 @@ slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/1/left_icon = null
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_color = Color(0, 0, 0, 0)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
@@ -1383,81 +1602,40 @@ slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/2/left_icon = null
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
-script = ExtResource("30_offset")
-node_category = 2
-node_name = "按出牌顺序获取玩家"
-icon = ExtResource("32_y14vk")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_omidf"), SubResource("Resource_lgjck"), SubResource("Resource_qvu2o")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_2lib8")])
-
-[node name="OffsetHistoryNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=356194337]
-custom_minimum_size = Vector2(200, 50)
-layout_mode = 0
-offset_left = 728.0
-offset_top = 452.0
-offset_right = 928.0
-offset_bottom = 620.0
-mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_0ojpr")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_r4lwf")
-position_offset = Vector2(620, 360)
-resizable = true
-scaling_menus = true
-title = "按历史顺序获取玩家"
-slot/0/left_enabled = true
-slot/0/left_type = 5
-slot/0/left_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/left_icon = null
-slot/0/right_enabled = true
-slot/0/right_type = -5
-slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
-slot/0/right_icon = ExtResource("13_5c4ri")
-slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = 2
-slot/1/left_color = Color(0.3372549, 1, 0.44705883, 1)
-slot/1/left_icon = null
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-slot/2/left_enabled = true
-slot/2/left_type = 2
-slot/2/left_color = Color(0.3372549, 1, 0.44705883, 1)
-slot/2/left_icon = null
-slot/2/right_enabled = false
-slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
-slot/2/right_icon = null
-slot/2/draw_stylebox = true
-script = ExtResource("31_history")
-node_category = 2
-node_name = "按历史顺序获取玩家"
-icon = ExtResource("33_2sj4c")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_stfth"), SubResource("Resource_1m5da"), SubResource("Resource_iwjrs")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_fr4jb")])
+slot/3/left_enabled = true
+slot/3/left_type = 3
+slot/3/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(0, 0, 0, 0)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+script = ExtResource("24_4q3s4")
+definition = ExtResource("48_stfth")
+instance_state = SubResource("Resource_mhv22")
 
 [node name="DeckNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=2112762893]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 728.0
-offset_top = 632.0
-offset_right = 928.0
-offset_bottom = 722.0
+offset_left = 700.0
+offset_top = 458.0
+offset_right = 900.0
+offset_bottom = 548.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_dp2x3")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_d7w1s")
-position_offset = Vector2(620, 540)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_in3hq")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_e8i6i")
+position_offset = Vector2(700, 458)
 resizable = true
 scaling_menus = true
 title = "牌堆"
 slot/0/left_enabled = false
 slot/0/left_type = 0
-slot/0/left_color = Color(0, 0, 0, 1)
+slot/0/left_color = Color(0, 0, 0, 0)
 slot/0/left_icon = null
 slot/0/right_enabled = true
 slot/0/right_type = 5
@@ -1465,61 +1643,77 @@ slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 script = ExtResource("32_deck")
-node_category = 2
-node_name = "牌堆"
-icon = ExtResource("34_h0iu7")
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_imtk4")])
+definition = ExtResource("50_slkxv")
+instance_state = SubResource("Resource_n1qwt")
 
-[node name="DiscardCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=799760631]
+[node name="GraveyardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1429727583]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 508.0
-offset_top = 572.0
-offset_right = 708.0
-offset_bottom = 701.0
+offset_left = 700.0
+offset_top = 558.0
+offset_right = 900.0
+offset_bottom = 648.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_omidf")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_h0iu7")
-position_offset = Vector2(400, 480)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_qnrn3")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_egehh")
+position_offset = Vector2(700, 558)
 resizable = true
 scaling_menus = true
-title = "丢弃卡牌"
-slot/0/left_enabled = true
-slot/0/left_type = 1
-slot/0/left_color = Color(1, 1, 1, 1)
+title = "墓地"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(0, 0, 0, 0)
 slot/0/left_icon = null
 slot/0/right_enabled = true
-slot/0/right_type = 1
-slot/0/right_color = Color(1, 1, 1, 1)
+slot/0/right_type = 5
+slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
-slot/1/left_enabled = true
-slot/1/left_type = -6
-slot/1/left_color = Color(1, 0.373, 0.922, 1)
-slot/1/left_icon = ExtResource("13_5c4ri")
-slot/1/right_enabled = false
-slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
-slot/1/right_icon = null
-slot/1/draw_stylebox = true
-script = ExtResource("33_discard")
-node_category = 1
-node_name = "丢弃卡牌"
-icon = ExtResource("29_omidf")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_6p3r3"), SubResource("Resource_mmqb3")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_b2adc")])
+script = ExtResource("26_uf4ah")
+definition = ExtResource("52_damnq")
+instance_state = SubResource("Resource_jdo4a")
+
+[node name="AllPlayersNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1534238967]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 697.0
+offset_top = 658.0
+offset_right = 897.0
+offset_bottom = 748.0
+mouse_filter = 1
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_vvmft")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_ohmgt")
+position_offset = Vector2(697, 658)
+resizable = true
+scaling_menus = true
+title = "所有玩家"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(0, 0, 0, 0)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 5
+slot/0/right_color = Color(0.2784314, 0.7372549, 1, 1)
+slot/0/right_icon = ExtResource("13_5c4ri")
+slot/0/draw_stylebox = true
+script = ExtResource("27_uf4ah")
+definition = ExtResource("54_pxnif")
+instance_state = SubResource("Resource_f5eob")
 
 [node name="PlayCardNode" type="GraphNode" parent="EditorLayout/SkillGraph" unique_id=1388264122]
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 0
-offset_left = 508.0
-offset_top = 712.0
-offset_right = 708.0
-offset_bottom = 919.0
+offset_left = 482.0
+offset_top = 753.0
+offset_right = 682.0
+offset_bottom = 999.0
 mouse_filter = 1
-theme_override_styles/titlebar = SubResource("StyleBoxFlat_3oc7n")
-theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_d73ww")
-position_offset = Vector2(400, 620)
+mouse_behavior_recursive = 2
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_2le36")
+theme_override_styles/titlebar_selected = SubResource("StyleBoxFlat_shhv1")
+position_offset = Vector2(482, 753)
 resizable = true
 scaling_menus = true
 title = "打出卡牌"
@@ -1533,21 +1727,21 @@ slot/0/right_color = Color(1, 1, 1, 1)
 slot/0/right_icon = null
 slot/0/draw_stylebox = true
 slot/1/left_enabled = true
-slot/1/left_type = -6
+slot/1/left_type = 6
 slot/1/left_color = Color(1, 0.373, 0.922, 1)
 slot/1/left_icon = ExtResource("13_5c4ri")
 slot/1/right_enabled = false
 slot/1/right_type = 0
-slot/1/right_color = Color(0, 0, 0, 1)
+slot/1/right_color = Color(0, 0, 0, 0)
 slot/1/right_icon = null
 slot/1/draw_stylebox = true
 slot/2/left_enabled = true
-slot/2/left_type = -5
+slot/2/left_type = 5
 slot/2/left_color = Color(0.2784314, 0.7372549, 1, 1)
 slot/2/left_icon = ExtResource("13_5c4ri")
 slot/2/right_enabled = false
 slot/2/right_type = 0
-slot/2/right_color = Color(0, 0, 0, 1)
+slot/2/right_color = Color(0, 0, 0, 0)
 slot/2/right_icon = null
 slot/2/draw_stylebox = true
 slot/3/left_enabled = true
@@ -1556,15 +1750,21 @@ slot/3/left_color = Color(0.3372549, 1, 0.44705883, 1)
 slot/3/left_icon = null
 slot/3/right_enabled = false
 slot/3/right_type = 0
-slot/3/right_color = Color(0, 0, 0, 1)
+slot/3/right_color = Color(0, 0, 0, 0)
 slot/3/right_icon = null
 slot/3/draw_stylebox = true
+slot/4/left_enabled = true
+slot/4/left_type = 3
+slot/4/left_color = Color(1, 0.8392157, 0.3372549, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(0, 0, 0, 0)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
 script = ExtResource("34_play")
-node_category = 1
-node_name = "打出卡牌"
-icon = ExtResource("29_omidf")
-input_slot_specs = Array[ExtResource("16_y14vk")]([SubResource("Resource_w4rfc"), SubResource("Resource_wxbu7"), SubResource("Resource_e8i6i"), SubResource("Resource_shhv1")])
-output_slot_specs = Array[ExtResource("19_j4ydo")]([SubResource("Resource_ve7jx")])
+definition = ExtResource("56_oaxh2")
+instance_state = SubResource("Resource_sa0ca")
 
 [node name="Panel" type="Panel" parent="EditorLayout" unique_id=1748177973]
 custom_minimum_size = Vector2(380, 0)
@@ -1590,7 +1790,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_k372w")
+material = SubResource("ShaderMaterial_ve7jx")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -1610,7 +1810,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_8548v")
+label_settings = SubResource("LabelSettings_det3u")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -1635,7 +1835,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "A"
-label_settings = SubResource("LabelSettings_5d0sl")
+label_settings = SubResource("LabelSettings_xv1fi")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0

@@ -2,11 +2,14 @@
 class_name SkillSlotSpec
 extends Resource
 
-const PortType := SkillConstants.PortType
+const PortType := SkillNodeSlotConstants.PortType
+
+enum TypeMode { FIXED, POLYMORPHIC_ARRAY }
 
 @export var type: PortType = PortType.EVENT
 @export var label: String = ""
-@export var enable_port: bool = true
+@export var type_mode: TypeMode = TypeMode.FIXED
+@export var polymorphic_group: StringName = &"default"
 
 static func create(Type: PortType = PortType.EVENT, LabelText: String = "") -> SkillSlotSpec:
 	var spec := SkillSlotSpec.new()
@@ -14,10 +17,19 @@ static func create(Type: PortType = PortType.EVENT, LabelText: String = "") -> S
 	spec.label = LabelText
 	return spec
 
-static func spacer() -> SkillSlotSpec:
-	var spec := SkillSlotSpec.new()
-	spec.enable_port = false
+static func polymorphic_array(LabelText: String, Group: StringName = &"default") -> SkillSlotSpec:
+	var spec := create(SkillNodeSlotConstants.array_type(PortType.ANY), LabelText)
+	spec.type_mode = TypeMode.POLYMORPHIC_ARRAY
+	spec.polymorphic_group = Group
 	return spec
 
+func is_polymorphic() -> bool:
+	if type_mode == TypeMode.POLYMORPHIC_ARRAY:
+		return true
+	return SkillNodeSlotConstants.is_any_type(type)
+
 func build_widget() -> Control:
-	return SkillSlotUtils.make_label(label, Control.SIZE_SHRINK_END)
+	if label.is_empty():
+		return null
+	var label_widget := SkillSlotUtils.make_label(label, Control.SIZE_SHRINK_END)
+	return label_widget

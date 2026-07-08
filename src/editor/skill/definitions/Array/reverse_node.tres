@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://dudiyl2kep8w"]
+
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="definition"]
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
+
+[sub_resource type="Resource" id="input_0"]
+script = ExtResource("input_spec")
+type = -1000
+label = "输入数组"
+type_mode = 1
+
+[sub_resource type="Resource" id="output_1"]
+script = ExtResource("output_spec")
+type = -1000
+label = "输出数组"
+type_mode = 1
+
+[resource]
+script = ExtResource("definition")
+node_id = "array.reverse"
+display_name = "反转"
+category = 6
+node_script_path = "res://src/editor/skill/nodes/Array/reverse_node.gd"
+input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0")])
+output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_1")])

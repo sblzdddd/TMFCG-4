@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://dwa61t21vtjro"]
+
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="definition"]
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
+
+[sub_resource type="Resource" id="output_0"]
+script = ExtResource("output_spec")
+type = 5
+label = "牌堆目标"
+
+[resource]
+script = ExtResource("definition")
+node_id = "card_holder.deck"
+display_name = "牌堆"
+category = 2
+node_script_path = "res://src/editor/skill/nodes/CardHolder/deck_node.gd"
+output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_0")])

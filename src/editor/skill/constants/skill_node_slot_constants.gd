@@ -2,6 +2,7 @@ class_name SkillNodeSlotConstants
 extends RefCounted
 
 enum PortType {
+	ANY_ARRAY = -1000,
 	CARD_ARRAY = -6,
 	CARD_HOLDER_ARRAY = -5,
 	STRING_ARRAY = -4,
@@ -15,6 +16,7 @@ enum PortType {
 	STRING = 4,
 	CARD_HOLDER = 5,
 	CARD = 6,
+	ANY = 1000,
 }
 
 const PORT_ARRAY_ICON: Texture2D = preload("res://assets/textures/icons/skills/port_array.svg")
@@ -53,6 +55,11 @@ const TYPE_INFO: Dictionary = {
 		"color": Color(1.0, 0.373, 0.922, 1.0),
 		"icon": null,
 	},
+	PortType.ANY: {
+		"name": "Any",
+		"color": Color(0.38431373, 0.38431373, 0.38431373),
+		"icon": null,
+	}
 }
 
 
@@ -101,14 +108,49 @@ static func get_display_name(type: int) -> String:
 	return name
 
 
+static func effective_type(spec: SkillSlotSpec, instance_state: SkillNodeInstanceState) -> int:
+	if spec == null:
+		return PortType.UNDEFINED
+	var resolved := resolved_types(instance_state)
+	return SkillPolymorphicUtils.effective_type(spec, resolved)
+
+
+static func resolved_types(instance_state: SkillNodeInstanceState) -> Dictionary:
+	if instance_state == null:
+		return {}
+	return instance_state.polymorphic_types
+
+
+static func is_any_type(type: int) -> bool:
+	return type == PortType.ANY or type == PortType.ANY_ARRAY
+
+
 static func graph_port_type(type: int) -> int:
+	if is_any_type(type):
+		return PortType.ANY
 	return base_type(type)
 
 
 static func types_compatible(a: int, b: int) -> bool:
 	if a == PortType.UNDEFINED or b == PortType.UNDEFINED:
 		return false
+	if is_any_type(a) or is_any_type(b):
+		if is_any_type(a) and is_any_type(b):
+			return is_array_type(a) == is_array_type(b)
+		var any_side: int = a if is_any_type(a) else b
+		var concrete: int = b if is_any_type(a) else a
+		if any_side == PortType.ANY_ARRAY:
+			return _concrete_compatible_with_polymorphic_array(concrete)
+		return true
 	return base_type(a) == base_type(b)
+
+
+static func _concrete_compatible_with_polymorphic_array(concrete: int) -> bool:
+	if concrete == PortType.UNDEFINED:
+		return false
+	if concrete == PortType.EVENT or concrete == PortType.EVENT_ARRAY:
+		return false
+	return true
 
 
 static func build_type_names() -> Dictionary:

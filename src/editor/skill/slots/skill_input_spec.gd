@@ -19,14 +19,15 @@ static func from_widget(label_text: String, InlineWidget: SkillInputWidget) -> S
 	InlineWidget.label_text = label_text
 	return create(InlineWidget.get_linked_type(), label_text, InlineWidget)
 
-static func spacer() -> SkillInputSpec:
-	var spec := SkillInputSpec.new()
-	spec.enable_port = false
+static func polymorphic_array(LabelText: String, Group: StringName = &"default") -> SkillInputSpec:
+	var spec := create(SkillNodeSlotConstants.array_type(PortType.ANY), LabelText)
+	spec.type_mode = TypeMode.POLYMORPHIC_ARRAY
+	spec.polymorphic_group = Group
 	return spec
 
 func build_widget() -> Control:
-	if not enable_port and inline_widget == null and label.is_empty():
-		return null
+	if type == PortType.UNDEFINED and inline_widget == null and label.is_empty():
+		return SkillSlotUtils.make_row_filler()
 	if inline_widget == null:
 		return SkillSlotUtils.make_label(label, Control.SIZE_EXPAND_FILL)
 	inline_widget.label_text = label

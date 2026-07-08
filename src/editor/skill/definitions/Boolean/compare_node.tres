@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://nd8optjuiv7s"]
+
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="definition"]
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
+
+[sub_resource type="Resource" id="input_0"]
+script = ExtResource("input_spec")
+type = -1000
+label = "A"
+type_mode = 1
+
+[sub_resource type="Resource" id="input_1"]
+script = ExtResource("input_spec")
+type = -1000
+label = "B"
+type_mode = 1
+
+[sub_resource type="Resource" id="input_2"]
+script = ExtResource("input_spec")
+type = 2
+label = "模式"
+
+[sub_resource type="Resource" id="output_3"]
+script = ExtResource("output_spec")
+type = 3
+label = "输出"
+
+[resource]
+script = ExtResource("definition")
+node_id = "boolean.compare"
+display_name = "比较"
+category = 5
+node_script_path = "res://src/editor/skill/nodes/Boolean/compare_node.gd"
+input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2")])
+output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_3")])
