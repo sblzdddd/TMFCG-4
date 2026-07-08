@@ -1,4 +1,4 @@
-class_name SkillConstants
+class_name SkillNodeSlotConstants
 extends RefCounted
 
 enum PortType {
@@ -24,40 +24,34 @@ const ROW_MIN_HEIGHT := 33
 
 const TYPE_INFO: Dictionary = {
 	PortType.UNDEFINED: {
-		"name": "Event",
-		"color": Color(0.0, 0.0, 0.0, 1.0),
+		"name": "Undefined",
+		"color": Color(0.0, 0.0, 0.0, 0.0),
 		"icon": null,
-		"family": &"event",
 	},
 	PortType.EVENT: {
 		"name": "Event",
 		"color": Color(1.0, 1.0, 1.0, 1.0),
 		"icon": null,
-		"family": &"null",
 	},
 	PortType.NUMBER: {
 		"name": "Number",
 		"color": Color(0.3372549, 1.0, 0.44705883, 1.0),
 		"icon": null,
-		"family": &"number",
 	},
 	PortType.BOOLEAN: {
 		"name": "Boolean",
 		"color": Color(1.0, 0.8392157, 0.3372549, 1.0),
 		"icon": null,
-		"family": &"boolean",
 	},
 	PortType.CARD_HOLDER: {
 		"name": "CardHolder",
 		"color": Color(0.2784314, 0.7372549, 1.0, 1.0),
 		"icon": null,
-		"family": &"card_holder",
 	},
 	PortType.CARD: {
 		"name": "Card",
 		"color": Color(1.0, 0.373, 0.922, 1.0),
 		"icon": null,
-		"family": &"card",
 	},
 }
 
@@ -71,7 +65,7 @@ static func is_array_type(type: int) -> bool:
 
 
 static func array_type(single_type: int) -> int:
-	return -absi(single_type)
+	return -base_type(single_type)
 
 
 static func get_type_info(type: int) -> Dictionary:
@@ -107,14 +101,13 @@ static func get_display_name(type: int) -> String:
 	return name
 
 
-static func get_family(type: int) -> StringName:
-	var info := get_type_info(type)
-	if info.is_empty():
-		return &""
-	return info["family"]
+static func graph_port_type(type: int) -> int:
+	return base_type(type)
 
 
 static func types_compatible(a: int, b: int) -> bool:
+	if a == PortType.UNDEFINED or b == PortType.UNDEFINED:
+		return false
 	return base_type(a) == base_type(b)
 
 

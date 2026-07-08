@@ -1,4 +1,4 @@
-class_name SkillNodeCategory
+class_name SkillNodeCategoryConstants
 extends RefCounted
 
 enum Category {
