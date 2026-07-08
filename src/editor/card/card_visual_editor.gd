@@ -5,7 +5,7 @@ class_name CardVisualEditor
 signal character_data_changed(data: CardVisualData)
 
 @export var _picker_dialog: CharacterPickerDialog
-@export var _select_button: MenuButton
+@export var _select_button: Button
 @export var _variant_selection: OptionButton
 @export var _variant_prev: Button
 @export var _variant_next: Button
@@ -54,7 +54,7 @@ func bind(data: CardVisualData) -> void:
 
 
 func _ready() -> void:
-	_select_button.get_popup().id_pressed.connect(_on_select_item_selected)
+	_select_button.pressed.connect(_on_select_button_pressed)
 	_variant_selection.item_selected.connect(_on_variant_selected)
 	_variant_prev.pressed.connect(_on_variant_prev_pressed)
 	_variant_next.pressed.connect(_on_variant_next_pressed)
@@ -66,13 +66,8 @@ func _ready() -> void:
 	_refresh_variant_list()
 
 
-func _on_select_item_selected(id: int) -> void:
-	match id:
-		1:
-			_picker_dialog.popup_preset_picker()
-		2:
-			_picker_dialog.popup_user_picker()
-	_select_button.get_popup().set_item_checked(0, false)
+func _on_select_button_pressed() -> void:
+	_picker_dialog.popup_picker()
 
 
 func _on_character_selected(character: DialogicCharacter) -> void:

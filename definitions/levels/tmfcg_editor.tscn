@@ -36,10 +36,93 @@
 [ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/filetree/filetree_more_options.gd" id="20_mopts"]
 [ext_resource type="LabelSettings" uid="uid://ufpu6ss5nwf0" path="res://definitions/fonts/field_label.tres" id="25_jmc66"]
 [ext_resource type="Script" uid="uid://b8kpm3yanwr5i" path="res://src/editor/filetree/image_picker_dialog.gd" id="26_ipick"]
+[ext_resource type="Texture2D" uid="uid://ynsuhoqu7375" path="res://assets/textures/characters/铃仙二号 微笑.png" id="35_k2lmi"]
+[ext_resource type="Texture2D" uid="uid://bty61w22yj03d" path="res://assets/textures/characters/慧音 白泽_微笑.png" id="36_ll0wj"]
+[ext_resource type="Texture2D" uid="uid://ccms1mmjhdc7l" path="res://assets/textures/characters/早苗 微笑.png" id="37_gpoeo"]
+[ext_resource type="Texture2D" uid="uid://bvwghu013vxcy" path="res://assets/textures/characters/神子 微笑.png" id="38_6p3r3"]
+[ext_resource type="Texture2D" uid="uid://y61inkyopi74" path="res://assets/textures/characters/二岩猯藏 微笑.png" id="39_mmqb3"]
+[ext_resource type="Texture2D" uid="uid://ej7efn17snx5" path="res://assets/textures/characters/影狼 微笑.png" id="40_b2adc"]
+[ext_resource type="Texture2D" uid="uid://bdrx6n6mhgsn" path="res://assets/textures/characters/西瓜 无表情.png" id="41_imtk4"]
+[ext_resource type="Texture2D" uid="uid://db6sx57y23fhf" path="res://assets/textures/characters/紫 无表情.png" id="42_1m5da"]
+[ext_resource type="Texture2D" uid="uid://cvl7brab0qi5u" path="res://assets/textures/characters/永琳 微笑.png" id="43_2wiwy"]
+[ext_resource type="Texture2D" uid="uid://by1pelnin8wmh" path="res://assets/textures/characters/咲夜 微笑.png" id="44_iwjrs"]
+[ext_resource type="Texture2D" uid="uid://d1cs5vddyjd1o" path="res://assets/textures/characters/灵梦 微笑.png" id="45_fr4jb"]
+[ext_resource type="Texture2D" uid="uid://bu2wtvvcr0nbq" path="res://assets/textures/characters/恋恋 微笑.png" id="46_00scm"]
+[ext_resource type="Texture2D" uid="uid://dkiqe02vfyrdh" path="res://assets/textures/characters/觉 微笑.png" id="47_1gj75"]
+[ext_resource type="Texture2D" uid="uid://da5tjnp7sg45a" path="res://assets/textures/characters/哆来咪 微笑.png" id="48_y7gvk"]
+[ext_resource type="Texture2D" uid="uid://btthumosbbcqe" path="res://assets/textures/characters/四季 微笑.png" id="49_w0qg0"]
+[ext_resource type="Texture2D" uid="uid://c7l55quhdvtn3" path="res://assets/textures/characters/帝 无表情.png" id="50_yor2d"]
+[ext_resource type="Texture2D" uid="uid://ds3dcc6p06s8q" path="res://assets/textures/characters/圣白莲 微笑.png" id="51_0brhw"]
+[ext_resource type="Texture2D" uid="uid://j6bnk7271brn" path="res://assets/textures/characters/小伞 微笑.png" id="52_g0xku"]
+[ext_resource type="Texture2D" uid="uid://3xjhhm67c727" path="res://assets/textures/characters/大妖精 无表情.png" id="53_qbnxl"]
+[ext_resource type="Texture2D" uid="uid://b5v405ptic7hu" path="res://assets/textures/characters/娜兹玲 微笑.png" id="54_bbjlr"]
+[ext_resource type="Texture2D" uid="uid://bnktg370ot344" path="res://assets/textures/characters/瑞灵 无表情.png" id="55_r8nug"]
+[ext_resource type="Texture2D" uid="uid://dl8uau0f1dibg" path="res://assets/textures/characters/芳香 无表情.png" id="56_bswvg"]
+[ext_resource type="Texture2D" uid="uid://b73s3b0spbqfw" path="res://assets/textures/characters/寅丸星 微笑.png" id="57_56oiv"]
+[ext_resource type="Texture2D" uid="uid://d220nl6ck2mrm" path="res://assets/textures/characters/封兽鵺 微笑.png" id="58_u0s3x"]
+[ext_resource type="Texture2D" uid="uid://bmqkqet8nshm7" path="res://assets/textures/characters/文文 微笑.png" id="59_ivawj"]
+[ext_resource type="Texture2D" uid="uid://d05gyrsanh1fr" path="res://assets/textures/characters/小恶魔 无表情.png" id="60_ae7li"]
+[ext_resource type="Texture2D" uid="uid://o7s1redraftw" path="res://assets/textures/characters/小町 微笑.png" id="61_ew73g"]
+[ext_resource type="Texture2D" uid="uid://bi1kmhne22erd" path="res://assets/textures/characters/针妙丸 微笑.png" id="62_so5s5"]
+[ext_resource type="Texture2D" uid="uid://ca4lf2d87itar" path="res://assets/textures/characters/帕秋莉 无表情.png" id="63_dbums"]
+[ext_resource type="Texture2D" uid="uid://ddavdxgn06on5" path="res://assets/textures/characters/响子 无表情.png" id="64_pnn3x"]
 [ext_resource type="Texture2D" uid="uid://bfbl323q7q3cg" path="res://assets/textures/icons/club.svg" id="65_ajpjh"]
+[ext_resource type="Texture2D" uid="uid://cswa5k5qbtttk" path="res://assets/textures/characters/摩多罗 微笑.png" id="65_gxqc0"]
 [ext_resource type="Texture2D" uid="uid://30jriskhlkd5" path="res://assets/textures/icons/diamond.svg" id="66_4cosb"]
 [ext_resource type="Texture2D" uid="uid://cbif1g5f3q7c6" path="res://assets/textures/icons/heart.svg" id="66_4edsy"]
+[ext_resource type="Texture2D" uid="uid://gyi704j2k1or" path="res://assets/textures/characters/星熊勇仪 微笑.png" id="66_hd8jp"]
+[ext_resource type="Texture2D" uid="uid://bpv8ihfvb6ohp" path="res://assets/textures/characters/村纱 微笑.png" id="67_2qxvv"]
 [ext_resource type="Texture2D" uid="uid://icl1ocakwctn" path="res://assets/textures/icons/spade.svg" id="68_0pi1g"]
+[ext_resource type="Texture2D" uid="uid://cmb0xw1gawbv3" path="res://assets/textures/characters/梅蒂欣 无表情.png" id="68_8g1ao"]
+[ext_resource type="Texture2D" uid="uid://bomtqk85nrdha" path="res://assets/textures/characters/梦子 微笑.png" id="69_glq0q"]
+[ext_resource type="Texture2D" uid="uid://woxup8tkx6ut" path="res://assets/textures/characters/乡长 微笑.png" id="70_6njo2"]
+[ext_resource type="Texture2D" uid="uid://cjmr36ugrcmfo" path="res://assets/textures/characters/橙喵 微笑.png" id="71_qbmun"]
+[ext_resource type="Texture2D" uid="uid://sf03aoxfpsxu" path="res://assets/textures/characters/天子 微笑.png" id="72_1k7dc"]
+[ext_resource type="Texture2D" uid="uid://cndkfsc8dry4g" path="res://assets/textures/characters/帕露西 微笑.png" id="73_kstjk"]
+[ext_resource type="Texture2D" uid="uid://bues1uq3pccru" path="res://assets/textures/characters/荷取 微笑.png" id="74_k372w"]
+[ext_resource type="Texture2D" uid="uid://b3218pjlr67ho" path="res://assets/textures/characters/清兰 微笑.png" id="75_8548v"]
+[ext_resource type="Texture2D" uid="uid://cby78aa06wonc" path="res://assets/textures/characters/阿燐 微笑.png" id="76_5d0sl"]
+[ext_resource type="Texture2D" uid="uid://qqrxc5fo2610" path="res://assets/textures/characters/阿空 微笑.png" id="77_mv65l"]
+[ext_resource type="Texture2D" uid="uid://b1fs4ybjkvldf" path="res://assets/textures/characters/拉尔瓦 微笑.png" id="78_qk6b3"]
+[ext_resource type="Texture2D" uid="uid://cg0tvpqwj6kpq" path="res://assets/textures/characters/爱莲 微笑2.png" id="79_ynjel"]
+[ext_resource type="Texture2D" uid="uid://dj2v75on3jbsn" path="res://assets/textures/characters/布都 微笑.png" id="80_ivig4"]
+[ext_resource type="Texture2D" uid="uid://c32knpbcsys1" path="res://assets/textures/characters/犬走椛 微笑.png" id="81_3486p"]
+[ext_resource type="Texture2D" uid="uid://dk0h2dtlt7dug" path="res://assets/textures/characters/琪斯美 微笑.png" id="82_pvd3p"]
+[ext_resource type="Texture2D" uid="uid://b8u4iomcakhqe" path="res://assets/textures/characters/琪露诺 微笑.png" id="83_tnk4v"]
+[ext_resource type="Texture2D" uid="uid://c6hshxy61a7yp" path="res://assets/textures/characters/成美 微笑.png" id="84_1x1n5"]
+[ext_resource type="Texture2D" uid="uid://blm57kyhp4nfw" path="res://assets/textures/characters/神绮 微笑.png" id="85_gunc3"]
+[ext_resource type="Texture2D" uid="uid://bko5qlvuhnuft" path="res://assets/textures/characters/探女 无表情.png" id="86_1afhx"]
+[ext_resource type="Texture2D" uid="uid://daxhhroi0wyl4" path="res://assets/textures/characters/阿求 无表情.png" id="87_e78v8"]
+[ext_resource type="Texture2D" uid="uid://nvo3waii1s3p" path="res://assets/textures/characters/米斯蒂娅 无表情.png" id="88_8d8me"]
+[ext_resource type="Texture2D" uid="uid://ihevpyt4ryhd" path="res://assets/textures/characters/美铃 微笑.png" id="89_x0c4h"]
+[ext_resource type="Texture2D" uid="uid://lsq3du2vst1u" path="res://assets/textures/characters/丰姬 微笑.png" id="90_bl0mn"]
+[ext_resource type="Texture2D" uid="uid://llm12d6usrd6" path="res://assets/textures/characters/依姬 微笑.png" id="91_6dtm7"]
+[ext_resource type="Texture2D" uid="uid://dvv6hrpant3y7" path="res://assets/textures/characters/芙兰 微笑.png" id="92_x1jp2"]
+[ext_resource type="Texture2D" uid="uid://dsgvyfw2j4kpf" path="res://assets/textures/characters/屠自古 微笑.png" id="93_5ohc1"]
+[ext_resource type="Texture2D" uid="uid://cotvvcqogi857" path="res://assets/textures/characters/若鹭姬 微笑.png" id="94_n34it"]
+[ext_resource type="Texture2D" uid="uid://dtnwvvdtc4ryp" path="res://assets/textures/characters/华扇 微笑.png" id="95_06w12"]
+[ext_resource type="Texture2D" uid="uid://ddr0wuj56yihl" path="res://assets/textures/characters/莉格露 微笑.png" id="96_n7nqj"]
+[ext_resource type="Texture2D" uid="uid://dli1kjb48r74l" path="res://assets/textures/characters/萨拉 微笑.png" id="97_qisu6"]
+[ext_resource type="Texture2D" uid="uid://f4qkmq3j835j" path="res://assets/textures/characters/辉夜 无表情.png" id="98_rh0hg"]
+[ext_resource type="Texture2D" uid="uid://bfphux0elsahy" path="res://assets/textures/characters/蕾米 无表情.png" id="99_nk3dd"]
+[ext_resource type="Texture2D" uid="uid://blw2vrsj8kmpf" path="res://assets/textures/characters/妹红 无表情.png" id="100_ub4jg"]
+[ext_resource type="Texture2D" uid="uid://b3oyi1a8mdx5t" path="res://assets/textures/characters/幽幽子 大吃_哭.png" id="101_sige1"]
+[ext_resource type="Texture2D" uid="uid://bg58vkikopmhl" path="res://assets/textures/characters/三花 微笑.png" id="102_fbst5"]
+[ext_resource type="Texture2D" uid="uid://c6dmwu6xaeftb" path="res://assets/textures/characters/赤蛮奇 微笑.png" id="103_ko5qo"]
+[ext_resource type="Texture2D" uid="uid://dm8n5e8chdqd6" path="res://assets/textures/characters/铃仙 无表情.png" id="104_jpw4n"]
+[ext_resource type="Texture2D" uid="uid://mc7b78d2c3r3" path="res://assets/textures/characters/铃瑚 微笑.png" id="105_atekn"]
+[ext_resource type="Texture2D" uid="uid://cbxgq2ftycslf" path="res://assets/textures/characters/键山雏 微笑.png" id="106_543h7"]
+[ext_resource type="Texture2D" uid="uid://biknos1wkkg3l" path="res://assets/textures/characters/魔理沙 无表情.png" id="107_gl45d"]
+[ext_resource type="Texture2D" uid="uid://c3vhgtw3wyn1r" path="res://assets/textures/characters/青娥 微笑.png" id="108_q3apj"]
+[ext_resource type="Texture2D" uid="uid://fampeiv3j6fo" path="res://assets/textures/characters/露易兹 微笑.png" id="109_g5scg"]
+[ext_resource type="Texture2D" uid="uid://03jl6p24fe1u" path="res://assets/textures/characters/露米娅 是这样吗.png" id="110_62aja"]
+[ext_resource type="Texture2D" uid="uid://c7ktu6g5oope0" path="res://assets/textures/characters/幽香 微笑.png" id="111_lcrkr"]
+[ext_resource type="Texture2D" uid="uid://bhe1v762p1wk4" path="res://assets/textures/characters/尤魔 微笑.png" id="112_tr88c"]
+[ext_resource type="Texture2D" uid="uid://b4pt2segc0xdw" path="res://assets/textures/characters/阿吽 张嘴.png" id="113_0q0ow"]
+[ext_resource type="Texture2D" uid="uid://hsgroamwyn8f" path="res://assets/textures/characters/正邪 微笑.png" id="114_mhv22"]
+[ext_resource type="Texture2D" uid="uid://cay588novw0rh" path="res://assets/textures/characters/妖梦 微笑.png" id="115_mfmib"]
+[ext_resource type="Texture2D" uid="uid://bu4ch44yebwou" path="res://assets/textures/characters/魅魔 微笑.png" id="116_tyyw0"]
+[ext_resource type="Texture2D" uid="uid://cvq7cbhf4dvyj" path="res://assets/textures/characters/黑谷山女 微笑.png" id="117_n1qwt"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0yhb"]
 content_margin_left = 8.0
@@ -52,7 +135,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_n0yhb"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2lmi"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -73,7 +156,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_uhjod"]
+[sub_resource type="LabelSettings" id="LabelSettings_ll0wj"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -81,7 +164,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_1j1bb"]
+[sub_resource type="LabelSettings" id="LabelSettings_gpoeo"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -282,7 +365,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_n0yhb")
+material = SubResource("ShaderMaterial_k2lmi")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -302,7 +385,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_uhjod")
+label_settings = SubResource("LabelSettings_ll0wj")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -327,7 +410,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_1j1bb")
+label_settings = SubResource("LabelSettings_gpoeo")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -424,7 +507,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 2
 theme_override_constants/separation = 16
 script = ExtResource("14_n7o2g")
-_picker_dialog = NodePath("CharacterSelectButton/CharacterPicker")
+_picker_dialog = NodePath("CharacterPicker")
 _select_button = NodePath("CharacterSelectButton")
 _variant_selection = NodePath("CharacterInfo/CharacterVariant/CharacterVariantSelection")
 _variant_prev = NodePath("CharacterInfo/CharacterVariant/CharacterVariantPrev")
@@ -485,37 +568,223 @@ theme_override_constants/icon_max_width = 18
 disabled = true
 icon = ExtResource("10_naion")
 
-[node name="CharacterSelectButton" type="MenuButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=501151671]
+[node name="CharacterSelectButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=501151671]
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 text = "选择..."
-flat = false
-item_count = 3
-popup/item_0/text = "选择..."
-popup/item_0/id = 0
-popup/item_0/disabled = true
-popup/item_1/text = "预设角色"
-popup/item_1/id = 1
-popup/item_2/text = "自定义角色"
-popup/item_2/id = 2
 
-[node name="CharacterPicker" type="FileDialog" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterSelectButton" unique_id=946364589]
+[node name="CharacterPicker" type="Window" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=946364589 node_paths=PackedStringArray("_search", "_character_list")]
 oversampling_override = 1.0
-title = "选择预设角色"
-initial_position = 2
-size = Vector2i(1080, 635)
-file_mode = 0
-root_subfolder = "res://definitions/database/characters/"
-filters = PackedStringArray("*.dch ; Character Definition")
-hidden_files_toggle_enabled = false
-file_filter_toggle_enabled = false
-file_sort_options_enabled = false
-folder_creation_enabled = false
-favorites_enabled = false
-recent_list_enabled = false
-layout_toggle_enabled = false
-deleting_enabled = false
+title = "选择角色"
+initial_position = 1
+size = Vector2i(720, 560)
+visible = false
+exclusive = true
+min_size = Vector2i(480, 400)
 script = ExtResource("16_cpick")
+_search = NodePath("MarginContainer/VBoxContainer/SearchEdit")
+_character_list = NodePath("MarginContainer/VBoxContainer/CharacterList")
+
+[node name="MarginContainer" type="MarginContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker" unique_id=1847293051]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer" unique_id=1847293052]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="SearchEdit" type="LineEdit" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293053]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "搜索角色..."
+
+[node name="CharacterList" type="ItemList" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293054]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+allow_reselect = true
+max_text_lines = 2
+item_count = 83
+max_columns = 7
+same_column_width = true
+fixed_column_width = 96
+icon_mode = 0
+fixed_icon_size = Vector2i(72, 72)
+item_0/text = "Reisen"
+item_0/icon = ExtResource("35_k2lmi")
+item_1/text = "上白泽慧音"
+item_1/icon = ExtResource("36_ll0wj")
+item_2/text = "东风谷早苗"
+item_2/icon = ExtResource("37_gpoeo")
+item_3/text = "丰聪耳神子"
+item_3/icon = ExtResource("38_6p3r3")
+item_4/text = "二岩猯藏"
+item_4/icon = ExtResource("39_mmqb3")
+item_5/text = "今泉影狼"
+item_5/icon = ExtResource("40_b2adc")
+item_6/text = "伊吹萃香"
+item_6/icon = ExtResource("41_imtk4")
+item_7/text = "八云紫"
+item_7/icon = ExtResource("42_1m5da")
+item_8/text = "八意永琳"
+item_8/icon = ExtResource("43_2wiwy")
+item_9/text = "十六夜咲夜"
+item_9/icon = ExtResource("44_iwjrs")
+item_10/text = "博丽灵梦"
+item_10/icon = ExtResource("45_fr4jb")
+item_11/text = "古明地恋"
+item_11/icon = ExtResource("46_00scm")
+item_12/text = "古明地觉"
+item_12/icon = ExtResource("47_1gj75")
+item_13/text = "哆来咪·苏伊特"
+item_13/icon = ExtResource("48_y7gvk")
+item_14/text = "四季映姬·夜摩仙那度"
+item_14/icon = ExtResource("49_w0qg0")
+item_15/text = "因幡天为"
+item_15/icon = ExtResource("50_yor2d")
+item_16/text = "圣白莲"
+item_16/icon = ExtResource("51_0brhw")
+item_17/text = "多多良小伞"
+item_17/icon = ExtResource("52_g0xku")
+item_18/text = "大妖精"
+item_18/icon = ExtResource("53_qbnxl")
+item_19/text = "娜兹玲"
+item_19/icon = ExtResource("54_bbjlr")
+item_20/text = "宫出口瑞灵"
+item_20/icon = ExtResource("55_r8nug")
+item_21/text = "宫古芳香"
+item_21/icon = ExtResource("56_bswvg")
+item_22/text = "寅丸星"
+item_22/icon = ExtResource("57_56oiv")
+item_23/text = "封兽鵺"
+item_23/icon = ExtResource("58_u0s3x")
+item_24/text = "射命丸文"
+item_24/icon = ExtResource("59_ivawj")
+item_25/text = "小恶魔"
+item_25/icon = ExtResource("60_ae7li")
+item_26/text = "小野塚小町"
+item_26/icon = ExtResource("61_ew73g")
+item_27/text = "少名针妙丸"
+item_27/icon = ExtResource("62_so5s5")
+item_28/text = "帕秋莉·诺蕾姬"
+item_28/icon = ExtResource("63_dbums")
+item_29/text = "幽谷响子"
+item_29/icon = ExtResource("64_pnn3x")
+item_30/text = "摩多罗隐岐奈"
+item_30/icon = ExtResource("65_gxqc0")
+item_31/text = "星熊勇仪"
+item_31/icon = ExtResource("66_hd8jp")
+item_32/text = "村纱水蜜"
+item_32/icon = ExtResource("67_2qxvv")
+item_33/text = "梅蒂欣·梅兰可莉"
+item_33/icon = ExtResource("68_8g1ao")
+item_34/text = "梦子"
+item_34/icon = ExtResource("69_glq0q")
+item_35/text = "森近霖之助"
+item_35/icon = ExtResource("70_6njo2")
+item_36/text = "橙"
+item_36/icon = ExtResource("71_qbmun")
+item_37/text = "比那名居天子"
+item_37/icon = ExtResource("72_1k7dc")
+item_38/text = "水桥帕露西"
+item_38/icon = ExtResource("73_kstjk")
+item_39/text = "河城荷取"
+item_39/icon = ExtResource("74_k372w")
+item_40/text = "清兰"
+item_40/icon = ExtResource("75_8548v")
+item_41/text = "火焰猫燐"
+item_41/icon = ExtResource("76_5d0sl")
+item_42/text = "灵乌路空"
+item_42/icon = ExtResource("77_mv65l")
+item_43/text = "爱塔妮缇拉尔瓦"
+item_43/icon = ExtResource("78_qk6b3")
+item_44/text = "爱莲"
+item_44/icon = ExtResource("79_ynjel")
+item_45/text = "物部布都"
+item_45/icon = ExtResource("80_ivig4")
+item_46/text = "犬走椛"
+item_46/icon = ExtResource("81_3486p")
+item_47/text = "琪斯美"
+item_47/icon = ExtResource("82_pvd3p")
+item_48/text = "琪露诺"
+item_48/icon = ExtResource("83_tnk4v")
+item_49/text = "矢田寺成美"
+item_49/icon = ExtResource("84_1x1n5")
+item_50/text = "神绮"
+item_50/icon = ExtResource("85_gunc3")
+item_51/text = "稀神探女"
+item_51/icon = ExtResource("86_1afhx")
+item_52/text = "稗田阿求"
+item_52/icon = ExtResource("87_e78v8")
+item_53/text = "米斯蒂娅·萝蕾拉"
+item_53/icon = ExtResource("88_8d8me")
+item_54/text = "红美铃"
+item_54/icon = ExtResource("89_x0c4h")
+item_55/text = "绵月丰姬"
+item_55/icon = ExtResource("90_bl0mn")
+item_56/text = "绵月依姬"
+item_56/icon = ExtResource("91_6dtm7")
+item_57/text = "芙兰朵露·斯卡蕾特"
+item_57/icon = ExtResource("92_x1jp2")
+item_58/text = "苏我屠自古"
+item_58/icon = ExtResource("93_5ohc1")
+item_59/text = "若鹭姬"
+item_59/icon = ExtResource("94_n34it")
+item_60/text = "茨木华扇"
+item_60/icon = ExtResource("95_06w12")
+item_61/text = "莉格露·奈特巴格"
+item_61/icon = ExtResource("96_n7nqj")
+item_62/text = "萨拉"
+item_62/icon = ExtResource("97_qisu6")
+item_63/text = "蓬莱山辉夜"
+item_63/icon = ExtResource("98_rh0hg")
+item_64/text = "蕾米莉亚·斯卡蕾特"
+item_64/icon = ExtResource("99_nk3dd")
+item_65/text = "藤原妹红"
+item_65/icon = ExtResource("100_ub4jg")
+item_66/text = "西行寺幽幽子"
+item_66/icon = ExtResource("101_sige1")
+item_67/text = "豪德寺三花"
+item_67/icon = ExtResource("102_fbst5")
+item_68/text = "赤蛮奇"
+item_68/icon = ExtResource("103_ko5qo")
+item_69/text = "铃仙·优昙华院·因幡"
+item_69/icon = ExtResource("104_jpw4n")
+item_70/text = "铃瑚"
+item_70/icon = ExtResource("105_atekn")
+item_71/text = "键山雏"
+item_71/icon = ExtResource("106_543h7")
+item_72/text = "雾雨魔理沙"
+item_72/icon = ExtResource("107_gl45d")
+item_73/text = "霍青娥"
+item_73/icon = ExtResource("108_q3apj")
+item_74/text = "露易兹"
+item_74/icon = ExtResource("109_g5scg")
+item_75/text = "露米娅"
+item_75/icon = ExtResource("110_62aja")
+item_76/text = "风见幽香"
+item_76/icon = ExtResource("111_lcrkr")
+item_77/text = "饕餮尤魔"
+item_77/icon = ExtResource("112_tr88c")
+item_78/text = "高丽野阿吽"
+item_78/icon = ExtResource("113_0q0ow")
+item_79/text = "鬼人正邪"
+item_79/icon = ExtResource("114_mhv22")
+item_80/text = "魂魄妖梦"
+item_80/icon = ExtResource("115_mfmib")
+item_81/text = "魅魔"
+item_81/icon = ExtResource("116_tyyw0")
+item_82/text = "黑谷山女"
+item_82/icon = ExtResource("117_n1qwt")
 
 [node name="GridContainer" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=577969564]
 layout_mode = 2
@@ -882,7 +1151,7 @@ initial_position = 2
 size = Vector2i(320, 100)
 dialog_text = "确定删除所选资源？"
 
-[node name="ImagePicker" type="FileDialog" parent="." unique_id=1847293051]
+[node name="ImagePicker" type="FileDialog" parent="." unique_id=904027521]
 oversampling_override = 1.0
 title = "Open a File"
 initial_position = 2

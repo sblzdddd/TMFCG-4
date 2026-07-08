@@ -35,6 +35,9 @@ func handle_unhandled_key_input(event: InputEvent) -> bool:
 		return false
 	if _is_text_focused():
 		return false
+	if event.shift_pressed and event.keycode == KEY_A and not event.ctrl_pressed and not event.meta_pressed:
+		_graph.open_spawn_menu(_graph.get_mouse_screen_position(), _graph.get_mouse_graph_position())
+		return true
 	if not (event.ctrl_pressed or event.meta_pressed):
 		return false
 	match event.keycode:

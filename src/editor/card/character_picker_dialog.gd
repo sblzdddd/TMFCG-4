@@ -1,116 +1,171 @@
 @tool
-extends FileDialog
+extends Window
 class_name CharacterPickerDialog
 
 signal character_selected(character: DialogicCharacter)
 
-enum CharacterLibrary {
-	PRESET,
-	USER,
-}
-
-const PRESET_CHARACTERS_DIR := "res://definitions/database/characters/"
-const USER_CHARACTERS_DIR := "user://tmfcg/characters/"
+const TILE_WIDTH := 96
+const MENU_MARGIN := 8
+const FALLBACK_TEXTURE := preload("res://assets/textures/characters/Fallback.png")
 
 static var _thumbnail_cache: Dictionary = {}
 
+@export var _search: LineEdit
+@export var _character_list: ItemList
+
+var _all_entries: Array[Dictionary] = []
+
 
 func _ready() -> void:
-	ensure_user_characters_dir()
-	use_native_dialog = false
-	file_mode = FileDialog.FILE_MODE_OPEN_FILE
-	display_mode = FileDialog.DISPLAY_THUMBNAILS
-	filters = PackedStringArray(["*.dch ; Character Definition"])
-	file_selected.connect(_on_file_selected)
-	FileDialog.set_get_thumbnail_callback(_get_dch_thumbnail)
-	_configure_library(CharacterLibrary.PRESET)
-	about_to_popup.connect(_hide_path_bar)
-	_hide_path_bar()
+	close_requested.connect(hide)
+	size_changed.connect(_on_size_changed)
+	_search.text_changed.connect(_on_search_changed)
+	_search.gui_input.connect(_on_search_gui_input)
+	_character_list.icon_mode = ItemList.ICON_MODE_TOP
+	_character_list.max_text_lines = 2
+	_character_list.item_activated.connect(_on_item_activated)
+
+	ResourceFsUtils.ensure_directories()
+	_refresh_character_list()
 
 
-func _hide_path_bar() -> void:
-	var filename_edit := get_line_edit()
-	var vbox := get_vbox()
-	if filename_edit == null or vbox == null:
-		return
-
-	for child in vbox.get_children(true):
-		_hide_path_bar_recursive(child, filename_edit)
+func popup_picker() -> void:
+	_search.text = ""
+	_refresh_character_list()
+	popup_centered_ratio(0.6)
+	call_deferred("_focus_search")
+	call_deferred("_update_grid_layout")
 
 
-func _hide_path_bar_recursive(node: Node, filename_edit: LineEdit) -> void:
-	if node is LineEdit and node != filename_edit:
-		var row := node.get_parent()
-		if row:
-			row.visible = false
-		return
-
-	for child in node.get_children(true):
-		_hide_path_bar_recursive(child, filename_edit)
+func _on_size_changed() -> void:
+	call_deferred("_update_grid_layout")
 
 
-static func ensure_user_characters_dir() -> void:
-	if not DirAccess.dir_exists_absolute(USER_CHARACTERS_DIR):
-		DirAccess.make_dir_recursive_absolute(USER_CHARACTERS_DIR)
-	if not DirAccess.dir_exists_absolute("user://tmfcg/textures/"):
-		DirAccess.make_dir_recursive_absolute("user://tmfcg/textures/")
+func _focus_search() -> void:
+	_search.grab_focus()
+	_search.caret_column = _search.text.length()
 
 
 static func is_allowed_character_path(path: String) -> bool:
-	return path.begins_with(PRESET_CHARACTERS_DIR) or path.begins_with(USER_CHARACTERS_DIR)
+	return (
+		path.begins_with(ResConst.PRESET_CHARACTERS_DIR)
+		or path.begins_with(ResConst.USER_CHARACTERS_DIR)
+	)
 
 
-func popup_preset_picker() -> void:
-	_open_library(CharacterLibrary.PRESET)
+func _refresh_character_list() -> void:
+	_all_entries.clear()
+	for path in _collect_character_paths():
+		var character := load(path) as DialogicCharacter
+		if character == null:
+			continue
+		_all_entries.append({
+			"path": path,
+			"display_name": _get_display_name(character),
+			"character": character,
+		})
+	_all_entries.sort_custom(func(a: Dictionary, b: Dictionary) -> bool:
+		return a["display_name"] < b["display_name"]
+	)
+	_apply_filter(_search.text.strip_edges())
 
 
-func popup_user_picker() -> void:
-	_open_library(CharacterLibrary.USER)
+func _collect_character_paths() -> Array[String]:
+	var paths: Array[String] = []
+	paths.append_array(ResourceFsUtils.list_files(ResConst.PRESET_CHARACTERS_DIR, "dch"))
+	paths.append_array(ResourceFsUtils.list_files(ResConst.USER_CHARACTERS_DIR, "dch"))
+	return paths
 
 
-func _open_library(source: CharacterLibrary) -> void:
-	_configure_library(source)
-	popup_centered_ratio(0.6)
+static func _get_display_name(character: DialogicCharacter) -> String:
+	var display_name := character.get_display_name_translated()
+	if display_name.is_empty():
+		display_name = character.get_character_name()
+	if display_name.is_empty() and not character.resource_path.is_empty():
+		display_name = character.resource_path.get_file().get_basename()
+	return display_name
 
 
-func _configure_library(source: CharacterLibrary) -> void:
-	match source:
-		CharacterLibrary.PRESET:
-			access = FileDialog.ACCESS_RESOURCES
-			root_subfolder = PRESET_CHARACTERS_DIR
-			title = "选择预设角色"
-		CharacterLibrary.USER:
-			access = FileDialog.ACCESS_USERDATA
-			root_subfolder = USER_CHARACTERS_DIR
-			title = "选择自定义角色"
+func _apply_filter(query: String) -> void:
+	_character_list.clear()
+	var normalized_query := query.to_lower()
+
+	for entry: Dictionary in _all_entries:
+		if not normalized_query.is_empty():
+			var display_name: String = entry["display_name"]
+			if not display_name.to_lower().contains(normalized_query):
+				continue
+
+		var character: DialogicCharacter = entry["character"]
+		var index := _character_list.add_item(entry["display_name"])
+		_character_list.set_item_metadata(index, character)
+		_character_list.set_item_icon(index, _get_thumbnail(entry["path"], character))
+
+	_update_grid_layout()
 
 
-static func _get_dch_thumbnail(path: String) -> Texture2D:
-	if not path.to_lower().ends_with(".dch"):
-		return null
+func _update_grid_layout() -> void:
+	if _character_list == null:
+		return
+
+	var available_width := _character_list.size.x
+	if available_width <= 0.0:
+		available_width = float(size.x - MENU_MARGIN * 2)
+	var columns := maxi(1, int(floor(available_width / float(TILE_WIDTH))))
+	if _character_list.max_columns != columns:
+		_character_list.max_columns = columns
+	_character_list.force_update_list_size()
+
+
+static func _get_thumbnail(path: String, character: DialogicCharacter) -> Texture2D:
 	if _thumbnail_cache.has(path):
 		return _thumbnail_cache[path]
 
-	var character := load(path) as DialogicCharacter
-	if character == null:
-		return null
-
 	var texture := CharacterUtils.get_preview_texture(character)
-	if texture != null:
-		_thumbnail_cache[path] = texture
+	if texture == null:
+		texture = FALLBACK_TEXTURE
+	_thumbnail_cache[path] = texture
 	return texture
 
 
-func _on_file_selected(path: String) -> void:
-	if not path.to_lower().ends_with(".dch"):
-		return
-	if not is_allowed_character_path(path):
-		push_warning("Character path outside allowed directories: %s" % path)
+func _on_search_changed(text: String) -> void:
+	_apply_filter(text.strip_edges())
+
+
+func _on_search_gui_input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or event.echo:
 		return
 
-	var character := load(path) as DialogicCharacter
+	match event.keycode:
+		KEY_DOWN:
+			if _character_list.item_count > 0:
+				_character_list.grab_focus()
+				_character_list.select(0)
+				get_viewport().set_input_as_handled()
+		KEY_ESCAPE:
+			hide()
+			get_viewport().set_input_as_handled()
+		KEY_ENTER, KEY_KP_ENTER:
+			if _character_list.item_count > 0:
+				var index := (
+					_character_list.get_selected_items()[0]
+					if _character_list.is_anything_selected()
+					else 0
+				)
+				_select_character(_character_list.get_item_metadata(index))
+				get_viewport().set_input_as_handled()
+
+
+func _on_item_activated(index: int) -> void:
+	_select_character(_character_list.get_item_metadata(index))
+
+
+func _select_character(character: DialogicCharacter) -> void:
 	if character == null:
-		push_warning("Failed to load character: %s" % path)
+		return
+	if not character.resource_path.is_empty() and not is_allowed_character_path(character.resource_path):
+		push_warning("Character path outside allowed directories: %s" % character.resource_path)
 		return
 
 	character_selected.emit(character)
+	hide()

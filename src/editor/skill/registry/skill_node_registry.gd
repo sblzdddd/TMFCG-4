@@ -27,25 +27,49 @@ static func get_definitions_for_category(category: SkillNodeCategoryConstants.Ca
 	return _by_category.get(category, [])
 
 
+static func get_sorted_definitions_for_category(category: SkillNodeCategoryConstants.Category) -> Array:
+	return _sort_definitions(get_definitions_for_category(category))
+
+
+static func filter_definitions(query: String) -> Array:
+	initialize()
+	var normalized := query.strip_edges().to_lower()
+	if normalized.is_empty():
+		return []
+	var matches: Array = []
+	for definition: SkillNodeDefinition in _by_id.values():
+		if definition.display_name.to_lower().contains(normalized):
+			matches.append(definition)
+			continue
+		if definition.node_id.to_lower().contains(normalized):
+			matches.append(definition)
+	return _sort_definitions(matches)
+
+
 static func build_tree(tree: Tree) -> void:
 	initialize()
 	tree.clear()
 	var root := tree.create_item()
 	for category: SkillNodeCategoryConstants.Category in SkillNodeCategoryConstants.ALL:
-		var defs: Array = _by_category.get(category, [])
+		var defs: Array = get_sorted_definitions_for_category(category)
 		if defs.is_empty():
 			continue
 		var category_item := tree.create_item(root)
 		category_item.set_text(0, SkillNodeCategoryConstants.get_display_name(category))
 		category_item.set_icon(0, SkillNodeCategoryConstants.get_icon(category))
 		category_item.set_selectable(0, false)
-		defs.sort_custom(func(a: SkillNodeDefinition, b: SkillNodeDefinition) -> bool:
-			return a.display_name < b.display_name
-		)
 		for definition: SkillNodeDefinition in defs:
 			var item := tree.create_item(category_item)
 			item.set_text(0, definition.display_name)
 			item.set_metadata(0, definition.node_id)
+
+
+static func _sort_definitions(definitions: Array) -> Array:
+	var sorted: Array = definitions.duplicate()
+	sorted.sort_custom(func(a: SkillNodeDefinition, b: SkillNodeDefinition) -> bool:
+		return a.display_name < b.display_name
+	)
+	return sorted
 
 
 static func _scan_dir(path: String) -> void:
