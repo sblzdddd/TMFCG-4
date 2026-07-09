@@ -36,9 +36,9 @@ func _setup_native_uploader() -> void:
 	_js_input.addEventListener("change", _js_change_callback)
 
 
-func pick(kind: ResConst.ImageKind, mode: ResConst.ImagePickMode, builtin: bool, callback: Callable) -> void:
+func pick(kind: ResConst.ImageKind, pickMode: ResConst.ImagePickMode, builtin: bool, callback: Callable) -> void:
 	_pending_callback = callback
-	match mode:
+	match pickMode:
 		ResConst.ImagePickMode.UPLOAD:
 			if OS.has_feature("web") and _js_input:
 				_pending_upload_dir = ResConst.textures_dir(kind, false)

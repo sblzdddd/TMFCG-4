@@ -230,7 +230,7 @@ func _adjust_list_size(list: ItemList) -> void:
 		return
 	list.force_update_list_size()
 	var content_height := maxf(list.get_minimum_size().y, item_count * LIST_ROW_HEIGHT)
-	list.custom_minimum_size.y = mini(content_height, LIST_MAX_HEIGHT)
+	list.custom_minimum_size.y = mini(int(content_height), LIST_MAX_HEIGHT)
 
 
 func _rebuild_category_list() -> void:

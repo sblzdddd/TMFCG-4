@@ -44,15 +44,16 @@ func apply_to_control(control: Control) -> void:
 
 func bind_control(control: Control, on_edit_begin: Callable = Callable()) -> void:
 	if control is SpinBox:
-		var session_active := false
+		# Array so lambdas share mutable state (locals are captured by value).
+		var session_active := [false]
 		var begin_edit := func() -> void:
-			if session_active:
+			if session_active[0]:
 				return
-			session_active = true
+			session_active[0] = true
 			if on_edit_begin.is_valid():
 				on_edit_begin.call()
 		var end_edit := func() -> void:
-			session_active = false
+			session_active[0] = false
 		control.focus_entered.connect(begin_edit)
 		control.focus_exited.connect(end_edit)
 		if control is DraggerSpinBox:

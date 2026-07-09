@@ -13,7 +13,7 @@ signal graph_changed()
 				child.selectable = not read_only
 
 @export_tool_button("Print Serialized Graph")
-var _print_serialized_graph_button:
+var print_serialized_graph_button:
 	get: return _print_serialized_graph
 
 var _spawn_counter := 0
@@ -82,7 +82,7 @@ func _refresh_all_skill_nodes() -> void:
 
 func spawn_node(
 	definition: SkillNodeDefinition,
-	position: Vector2,
+	node_position: Vector2,
 	graph_node_name: String = ""
 ) -> BaseSkillNode:
 	var node_script := definition.get_node_script()
@@ -92,7 +92,7 @@ func spawn_node(
 	var node: BaseSkillNode = node_script.new()
 	node.definition = definition
 	node.name = graph_node_name if not graph_node_name.is_empty() else _unique_node_name(definition.node_id)
-	node.position_offset = position
+	node.position_offset = node_position
 	add_child(node)
 	node.owner = get_tree().edited_scene_root if Engine.is_editor_hint() else null
 	node.refresh_view()
