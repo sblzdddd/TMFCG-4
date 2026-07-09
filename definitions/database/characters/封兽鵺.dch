@@ -16,7 +16,7 @@ description=未确认幻想飞行少女",
 &"display_name": "封兽鵺",
 &"mirror": false,
 &"nicknames": [],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.32, -0.25),
 &"portraits": {
 "不屑": {
 "export_overrides": {
@@ -118,5 +118,5 @@ description=未确认幻想飞行少女",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.87
 }

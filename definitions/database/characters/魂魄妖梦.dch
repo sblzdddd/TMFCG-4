@@ -16,7 +16,7 @@ description=半人半灵的园丁",
 &"display_name": "魂魄妖梦",
 &"mirror": false,
 &"nicknames": ["庭师", "Yo梦"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.16, -0.04),
 &"portraits": {
 "哼": {
 "export_overrides": {
@@ -109,5 +109,5 @@ description=半人半灵的园丁",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.94
 }

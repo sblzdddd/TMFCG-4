@@ -27,11 +27,11 @@ Dialogic="*uid://ds2q0uclmolvu"
 
 directories/dch_directory={
 "Reisen": "res://definitions/database/characters/Reisen.dch",
-"characters/豪德寺三花": "res://definitions/database/characters/豪德寺三花.dch",
 "上白泽慧音": "res://definitions/database/characters/上白泽慧音.dch",
 "东风谷早苗": "res://definitions/database/characters/东风谷早苗.dch",
 "丰聪耳神子": "res://definitions/database/characters/丰聪耳神子.dch",
 "二岩猯藏": "res://definitions/database/characters/二岩猯藏.dch",
+"云居一轮": "res://definitions/database/characters/云居一轮.dch",
 "今泉影狼": "res://definitions/database/characters/今泉影狼.dch",
 "伊吹萃香": "res://definitions/database/characters/伊吹萃香.dch",
 "八云紫": "res://definitions/database/characters/八云紫.dch",
@@ -70,6 +70,7 @@ directories/dch_directory={
 "清兰": "res://definitions/database/characters/清兰.dch",
 "火焰猫燐": "res://definitions/database/characters/火焰猫燐.dch",
 "灵乌路空": "res://definitions/database/characters/灵乌路空.dch",
+"爱丽丝": "res://definitions/database/characters/爱丽丝.dch",
 "爱塔妮缇拉尔瓦": "res://definitions/database/characters/爱塔妮缇拉尔瓦.dch",
 "爱莲": "res://definitions/database/characters/爱莲.dch",
 "物部布都": "res://definitions/database/characters/物部布都.dch",
@@ -94,6 +95,7 @@ directories/dch_directory={
 "蕾米莉亚·斯卡蕾特": "res://definitions/database/characters/蕾米莉亚·斯卡蕾特.dch",
 "藤原妹红": "res://definitions/database/characters/藤原妹红.dch",
 "西行寺幽幽子": "res://definitions/database/characters/西行寺幽幽子.dch",
+"豪德寺三花": "res://definitions/database/characters/豪德寺三花.dch",
 "赤蛮奇": "res://definitions/database/characters/赤蛮奇.dch",
 "铃仙·优昙华院·因幡": "res://definitions/database/characters/铃仙·优昙华院·因幡.dch",
 "铃瑚": "res://definitions/database/characters/铃瑚.dch",
@@ -157,8 +159,8 @@ translation/file_mode=1
 translation/translation_folder="res://definitions/database/translations"
 translation/save_mode=0
 translation/add_separator=false
-translation/id_counter=189
-translation/locales=["en", "ja"]
+translation/id_counter=191
+translation/locales=["en", "ja", "zh"]
 portraits/default_portrait="res://definitions/prefabs/pre_tmi_portraits.tscn"
 animations/leave_default="Fade Out Down"
 history/simple_history_enabled=true

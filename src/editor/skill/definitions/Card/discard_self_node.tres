@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://6wgrtlejpx2t"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_7xbna"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_y4xsy"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_c3by5"]
+
+[sub_resource type="Resource" id="input_5"]
+script = ExtResource("1_7xbna")
+
+[sub_resource type="Resource" id="output_6"]
+script = ExtResource("2_y4xsy")
+label = "事件"
+
+[resource]
+script = ExtResource("3_c3by5")
+node_id = "card.discard_self"
+display_name = "丢弃此卡牌"
+category = 1
+input_slot_specs = Array[ExtResource("1_7xbna")]([SubResource("input_5")])
+output_slot_specs = Array[ExtResource("2_y4xsy")]([SubResource("output_6")])

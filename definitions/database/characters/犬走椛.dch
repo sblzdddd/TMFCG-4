@@ -16,7 +16,7 @@ description=基层警卫天狗",
 &"display_name": "犬走椛",
 &"mirror": false,
 &"nicknames": ["椛椛"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.03, -0.18),
 &"portraits": {
 "墨镜": {
 "export_overrides": {
@@ -136,5 +136,5 @@ description=基层警卫天狗",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.93
 }

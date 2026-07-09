@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://bkn1cu1chp1so"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_82y4f"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_awjg5"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_ea6qp"]
+
+[sub_resource type="Resource" id="Resource_tmclw"]
+script = ExtResource("1_82y4f")
+label = "事件"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_82y4f"]
+script = ExtResource("1_82y4f")
+type = 7
+label = "效果"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_ea6qp"]
+script = ExtResource("1_82y4f")
+type = -5
+label = "效果源"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_earts"]
+script = ExtResource("1_82y4f")
+type = -5
+label = "效果目标"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_6ovkp"]
+script = ExtResource("2_awjg5")
+label = "事件"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("3_ea6qp")
+node_id = "effect.play"
+display_name = "执行效果"
+category = 7
+input_slot_specs = Array[ExtResource("1_82y4f")]([SubResource("Resource_tmclw"), SubResource("Resource_82y4f"), SubResource("Resource_ea6qp"), SubResource("Resource_earts")])
+output_slot_specs = Array[ExtResource("2_awjg5")]([SubResource("Resource_6ovkp")])
+metadata/_custom_type_script = "uid://b77sc5ge5flg0"

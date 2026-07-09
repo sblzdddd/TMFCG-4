@@ -16,7 +16,7 @@ description=忠诚的尸体",
 &"display_name": "宫古芳香",
 &"mirror": false,
 &"nicknames": ["僵尸"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.07, 0),
 &"portraits": {
 "吐舌": {
 "export_overrides": {

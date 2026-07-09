@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://di2gq4cri1axs"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_hrj0e"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_ehj65"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_npqri"]
+
+[sub_resource type="Resource" id="output_0"]
+script = ExtResource("2_ehj65")
+type = 5
+label = "玩家目标"
+
+[resource]
+script = ExtResource("3_npqri")
+node_id = "card_holder.current_player"
+display_name = "当前玩家"
+category = 2
+output_slot_specs = Array[ExtResource("2_ehj65")]([SubResource("output_0")])

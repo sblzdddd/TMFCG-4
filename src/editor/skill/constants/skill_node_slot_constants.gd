@@ -3,6 +3,7 @@ extends RefCounted
 
 enum PortType {
 	ANY_ARRAY = -1000,
+	EFFECT_ARRAY = -7,
 	CARD_ARRAY = -6,
 	CARD_HOLDER_ARRAY = -5,
 	STRING_ARRAY = -4,
@@ -16,6 +17,7 @@ enum PortType {
 	STRING = 4,
 	CARD_HOLDER = 5,
 	CARD = 6,
+	EFFECT = 7,
 	ANY = 1000,
 }
 
@@ -58,6 +60,11 @@ const TYPE_INFO: Dictionary = {
 	PortType.ANY: {
 		"name": "Any",
 		"color": Color(0.38431373, 0.38431373, 0.38431373),
+		"icon": null,
+	},
+	PortType.EFFECT: {
+		"name": "Effect",
+		"color": Color(0.57254905, 0.36078432, 1.0),
 		"icon": null,
 	}
 }

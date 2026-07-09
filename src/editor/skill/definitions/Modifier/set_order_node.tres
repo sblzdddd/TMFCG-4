@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://bumcc1bl8owpn"]
 
+[ext_resource type="Script" uid="uid://bhdul5lf04xll" path="res://src/editor/skill/slots/input/skill_input_bool.gd" id="2_ii15d"]
 [ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="definition"]
 [ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
 [ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
@@ -13,8 +14,13 @@ script = ExtResource("input_spec")
 type = -5
 label = "玩家"
 
+[sub_resource type="Resource" id="Resource_vfn58"]
+script = ExtResource("2_ii15d")
+metadata/_custom_type_script = "uid://bhdul5lf04xll"
+
 [sub_resource type="Resource" id="input_2"]
 script = ExtResource("input_spec")
+inline_widget = SubResource("Resource_vfn58")
 type = 3
 label = "无视被动"
 
@@ -27,6 +33,5 @@ script = ExtResource("definition")
 node_id = "modifier.set_order"
 display_name = "设置新顺序"
 category = 3
-node_script_path = "res://src/editor/skill/nodes/Modifier/set_order_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_3")])

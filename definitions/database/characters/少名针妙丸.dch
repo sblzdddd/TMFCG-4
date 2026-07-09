@@ -16,7 +16,7 @@ description=小人的后裔",
 &"display_name": "少名针妙丸",
 &"mirror": false,
 &"nicknames": ["小碗"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.24, -0.21),
 &"portraits": {
 "兴奋": {
 "export_overrides": {
@@ -118,5 +118,5 @@ description=小人的后裔",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.86
 }

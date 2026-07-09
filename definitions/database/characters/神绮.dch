@@ -16,7 +16,7 @@ description=魔界之神",
 &"display_name": "神绮",
 &"mirror": false,
 &"nicknames": ["太太", "呆毛神", "女儿怪"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.13),
 &"portraits": {
 "微笑": {
 "export_overrides": {

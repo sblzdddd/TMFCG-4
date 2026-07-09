@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://bvwghu013vxcy" path="res://assets/textures/characters/神子 微笑.png" id="38_6p3r3"]
 [ext_resource type="Texture2D" uid="uid://y61inkyopi74" path="res://assets/textures/characters/二岩猯藏 微笑.png" id="39_mmqb3"]
 [ext_resource type="Texture2D" uid="uid://ej7efn17snx5" path="res://assets/textures/characters/影狼 微笑.png" id="40_b2adc"]
+[ext_resource type="Texture2D" uid="uid://s4we0lyg0dts" path="res://assets/textures/characters/云居一轮 微笑.png" id="40_gpoeo"]
 [ext_resource type="Texture2D" uid="uid://bdrx6n6mhgsn" path="res://assets/textures/characters/西瓜 无表情.png" id="41_imtk4"]
 [ext_resource type="Texture2D" uid="uid://db6sx57y23fhf" path="res://assets/textures/characters/紫 无表情.png" id="42_1m5da"]
 [ext_resource type="Texture2D" uid="uid://cvl7brab0qi5u" path="res://assets/textures/characters/永琳 微笑.png" id="43_2wiwy"]
@@ -84,6 +85,7 @@
 [ext_resource type="Texture2D" uid="uid://cby78aa06wonc" path="res://assets/textures/characters/阿燐 微笑.png" id="76_5d0sl"]
 [ext_resource type="Texture2D" uid="uid://qqrxc5fo2610" path="res://assets/textures/characters/阿空 微笑.png" id="77_mv65l"]
 [ext_resource type="Texture2D" uid="uid://b1fs4ybjkvldf" path="res://assets/textures/characters/拉尔瓦 微笑.png" id="78_qk6b3"]
+[ext_resource type="Texture2D" uid="uid://vgmm037848p3" path="res://assets/textures/characters/爱丽丝 微笑.png" id="79_6p3r3"]
 [ext_resource type="Texture2D" uid="uid://cg0tvpqwj6kpq" path="res://assets/textures/characters/爱莲 微笑2.png" id="79_ynjel"]
 [ext_resource type="Texture2D" uid="uid://dj2v75on3jbsn" path="res://assets/textures/characters/布都 微笑.png" id="80_ivig4"]
 [ext_resource type="Texture2D" uid="uid://c32knpbcsys1" path="res://assets/textures/characters/犬走椛 微笑.png" id="81_3486p"]
@@ -135,7 +137,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k2lmi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpoeo"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -156,7 +158,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_ll0wj"]
+[sub_resource type="LabelSettings" id="LabelSettings_6p3r3"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -164,7 +166,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_gpoeo"]
+[sub_resource type="LabelSettings" id="LabelSettings_mmqb3"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -323,6 +325,7 @@ size_flags_stretch_ratio = 4.0
 right_disconnects = true
 type_names = {
 -1000: "Any[]",
+-7: "Effect[]",
 -6: "Card[]",
 -5: "CardHolder[]",
 -3: "Boolean[]",
@@ -334,6 +337,7 @@ type_names = {
 3: "Boolean",
 5: "CardHolder",
 6: "Card",
+7: "Effect",
 1000: "Any"
 }
 show_zoom_label = true
@@ -365,7 +369,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_k2lmi")
+material = SubResource("ShaderMaterial_gpoeo")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -385,7 +389,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_ll0wj")
+label_settings = SubResource("LabelSettings_6p3r3")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -410,7 +414,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_gpoeo")
+label_settings = SubResource("LabelSettings_mmqb3")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -437,6 +441,10 @@ _value_edit = NodePath("CardEditLayout/CardBasicInfoEdit/ValueEdit")
 _enable_skill = NodePath("CardEditLayout/SkillSection/EnableSkillRoot/EnableSkill")
 _skill_settings = NodePath("CardEditLayout/SkillSettings")
 _skill_priority = NodePath("CardEditLayout/SkillSettings/SkillPriority")
+_club_icon = ExtResource("65_ajpjh")
+_diamond_icon = ExtResource("66_4cosb")
+_heart_icon = ExtResource("66_4edsy")
+_spade_icon = ExtResource("68_0pi1g")
 metadata/_edit_use_anchors_ = true
 
 [node name="CardEditLayout" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector" unique_id=738772903]
@@ -454,12 +462,16 @@ selected = 0
 search_bar_enabled = true
 item_count = 5
 popup/item_0/text = "梅花"
+popup/item_0/icon = ExtResource("65_ajpjh")
 popup/item_0/id = 0
 popup/item_1/text = "方片"
+popup/item_1/icon = ExtResource("66_4cosb")
 popup/item_1/id = 1
 popup/item_2/text = "红心"
+popup/item_2/icon = ExtResource("66_4edsy")
 popup/item_2/id = 2
 popup/item_3/text = "黑桃"
+popup/item_3/icon = ExtResource("68_0pi1g")
 popup/item_3/id = 3
 popup/item_4/text = "大/小王"
 popup/item_4/id = 4
@@ -501,7 +513,7 @@ popup/item_13/id = 30
 popup/item_14/text = "大王"
 popup/item_14/id = 40
 
-[node name="CharacterInfoPreview" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_character_editor_button")]
+[node name="CharacterInfoPreview" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_set_default_button", "_character_editor_button")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -518,6 +530,7 @@ _x_edit = NodePath("../GridContainer/CharacterOffsetX")
 _y_edit = NodePath("../GridContainer/CharacterOffsetY")
 _scale_edit = NodePath("../GridContainer/CharacterScale")
 _reset_button = NodePath("../CharacterButtonGrid/CharacterResetButton")
+_set_default_button = NodePath("../CharacterButtonGrid/CharacterSetDefaultButton")
 _character_editor_button = NodePath("../CharacterButtonGrid/CharacterEditButton")
 
 [node name="CharacterInfo" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=619171250]
@@ -613,7 +626,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 allow_reselect = true
 max_text_lines = 2
-item_count = 83
+item_count = 85
 max_columns = 7
 same_column_width = true
 fixed_column_width = 96
@@ -629,162 +642,166 @@ item_3/text = "丰聪耳神子"
 item_3/icon = ExtResource("38_6p3r3")
 item_4/text = "二岩猯藏"
 item_4/icon = ExtResource("39_mmqb3")
-item_5/text = "今泉影狼"
-item_5/icon = ExtResource("40_b2adc")
-item_6/text = "伊吹萃香"
-item_6/icon = ExtResource("41_imtk4")
-item_7/text = "八云紫"
-item_7/icon = ExtResource("42_1m5da")
-item_8/text = "八意永琳"
-item_8/icon = ExtResource("43_2wiwy")
-item_9/text = "十六夜咲夜"
-item_9/icon = ExtResource("44_iwjrs")
-item_10/text = "博丽灵梦"
-item_10/icon = ExtResource("45_fr4jb")
-item_11/text = "古明地恋"
-item_11/icon = ExtResource("46_00scm")
-item_12/text = "古明地觉"
-item_12/icon = ExtResource("47_1gj75")
-item_13/text = "哆来咪·苏伊特"
-item_13/icon = ExtResource("48_y7gvk")
-item_14/text = "四季映姬·夜摩仙那度"
-item_14/icon = ExtResource("49_w0qg0")
-item_15/text = "因幡天为"
-item_15/icon = ExtResource("50_yor2d")
-item_16/text = "圣白莲"
-item_16/icon = ExtResource("51_0brhw")
-item_17/text = "多多良小伞"
-item_17/icon = ExtResource("52_g0xku")
-item_18/text = "大妖精"
-item_18/icon = ExtResource("53_qbnxl")
-item_19/text = "娜兹玲"
-item_19/icon = ExtResource("54_bbjlr")
-item_20/text = "宫出口瑞灵"
-item_20/icon = ExtResource("55_r8nug")
-item_21/text = "宫古芳香"
-item_21/icon = ExtResource("56_bswvg")
-item_22/text = "寅丸星"
-item_22/icon = ExtResource("57_56oiv")
-item_23/text = "封兽鵺"
-item_23/icon = ExtResource("58_u0s3x")
-item_24/text = "射命丸文"
-item_24/icon = ExtResource("59_ivawj")
-item_25/text = "小恶魔"
-item_25/icon = ExtResource("60_ae7li")
-item_26/text = "小野塚小町"
-item_26/icon = ExtResource("61_ew73g")
-item_27/text = "少名针妙丸"
-item_27/icon = ExtResource("62_so5s5")
-item_28/text = "帕秋莉·诺蕾姬"
-item_28/icon = ExtResource("63_dbums")
-item_29/text = "幽谷响子"
-item_29/icon = ExtResource("64_pnn3x")
-item_30/text = "摩多罗隐岐奈"
-item_30/icon = ExtResource("65_gxqc0")
-item_31/text = "星熊勇仪"
-item_31/icon = ExtResource("66_hd8jp")
-item_32/text = "村纱水蜜"
-item_32/icon = ExtResource("67_2qxvv")
-item_33/text = "梅蒂欣·梅兰可莉"
-item_33/icon = ExtResource("68_8g1ao")
-item_34/text = "梦子"
-item_34/icon = ExtResource("69_glq0q")
-item_35/text = "森近霖之助"
-item_35/icon = ExtResource("70_6njo2")
-item_36/text = "橙"
-item_36/icon = ExtResource("71_qbmun")
-item_37/text = "比那名居天子"
-item_37/icon = ExtResource("72_1k7dc")
-item_38/text = "水桥帕露西"
-item_38/icon = ExtResource("73_kstjk")
-item_39/text = "河城荷取"
-item_39/icon = ExtResource("74_k372w")
-item_40/text = "清兰"
-item_40/icon = ExtResource("75_8548v")
-item_41/text = "火焰猫燐"
-item_41/icon = ExtResource("76_5d0sl")
-item_42/text = "灵乌路空"
-item_42/icon = ExtResource("77_mv65l")
-item_43/text = "爱塔妮缇拉尔瓦"
-item_43/icon = ExtResource("78_qk6b3")
-item_44/text = "爱莲"
-item_44/icon = ExtResource("79_ynjel")
-item_45/text = "物部布都"
-item_45/icon = ExtResource("80_ivig4")
-item_46/text = "犬走椛"
-item_46/icon = ExtResource("81_3486p")
-item_47/text = "琪斯美"
-item_47/icon = ExtResource("82_pvd3p")
-item_48/text = "琪露诺"
-item_48/icon = ExtResource("83_tnk4v")
-item_49/text = "矢田寺成美"
-item_49/icon = ExtResource("84_1x1n5")
-item_50/text = "神绮"
-item_50/icon = ExtResource("85_gunc3")
-item_51/text = "稀神探女"
-item_51/icon = ExtResource("86_1afhx")
-item_52/text = "稗田阿求"
-item_52/icon = ExtResource("87_e78v8")
-item_53/text = "米斯蒂娅·萝蕾拉"
-item_53/icon = ExtResource("88_8d8me")
-item_54/text = "红美铃"
-item_54/icon = ExtResource("89_x0c4h")
-item_55/text = "绵月丰姬"
-item_55/icon = ExtResource("90_bl0mn")
-item_56/text = "绵月依姬"
-item_56/icon = ExtResource("91_6dtm7")
-item_57/text = "芙兰朵露·斯卡蕾特"
-item_57/icon = ExtResource("92_x1jp2")
-item_58/text = "苏我屠自古"
-item_58/icon = ExtResource("93_5ohc1")
-item_59/text = "若鹭姬"
-item_59/icon = ExtResource("94_n34it")
-item_60/text = "茨木华扇"
-item_60/icon = ExtResource("95_06w12")
-item_61/text = "莉格露·奈特巴格"
-item_61/icon = ExtResource("96_n7nqj")
-item_62/text = "萨拉"
-item_62/icon = ExtResource("97_qisu6")
-item_63/text = "蓬莱山辉夜"
-item_63/icon = ExtResource("98_rh0hg")
-item_64/text = "蕾米莉亚·斯卡蕾特"
-item_64/icon = ExtResource("99_nk3dd")
-item_65/text = "藤原妹红"
-item_65/icon = ExtResource("100_ub4jg")
-item_66/text = "西行寺幽幽子"
-item_66/icon = ExtResource("101_sige1")
-item_67/text = "豪德寺三花"
-item_67/icon = ExtResource("102_fbst5")
-item_68/text = "赤蛮奇"
-item_68/icon = ExtResource("103_ko5qo")
-item_69/text = "铃仙·优昙华院·因幡"
-item_69/icon = ExtResource("104_jpw4n")
-item_70/text = "铃瑚"
-item_70/icon = ExtResource("105_atekn")
-item_71/text = "键山雏"
-item_71/icon = ExtResource("106_543h7")
-item_72/text = "雾雨魔理沙"
-item_72/icon = ExtResource("107_gl45d")
-item_73/text = "霍青娥"
-item_73/icon = ExtResource("108_q3apj")
-item_74/text = "露易兹"
-item_74/icon = ExtResource("109_g5scg")
-item_75/text = "露米娅"
-item_75/icon = ExtResource("110_62aja")
-item_76/text = "风见幽香"
-item_76/icon = ExtResource("111_lcrkr")
-item_77/text = "饕餮尤魔"
-item_77/icon = ExtResource("112_tr88c")
-item_78/text = "高丽野阿吽"
-item_78/icon = ExtResource("113_0q0ow")
-item_79/text = "鬼人正邪"
-item_79/icon = ExtResource("114_mhv22")
-item_80/text = "魂魄妖梦"
-item_80/icon = ExtResource("115_mfmib")
-item_81/text = "魅魔"
-item_81/icon = ExtResource("116_tyyw0")
-item_82/text = "黑谷山女"
-item_82/icon = ExtResource("117_n1qwt")
+item_5/text = "云居一轮"
+item_5/icon = ExtResource("40_gpoeo")
+item_6/text = "今泉影狼"
+item_6/icon = ExtResource("40_b2adc")
+item_7/text = "伊吹萃香"
+item_7/icon = ExtResource("41_imtk4")
+item_8/text = "八云紫"
+item_8/icon = ExtResource("42_1m5da")
+item_9/text = "八意永琳"
+item_9/icon = ExtResource("43_2wiwy")
+item_10/text = "十六夜咲夜"
+item_10/icon = ExtResource("44_iwjrs")
+item_11/text = "博丽灵梦"
+item_11/icon = ExtResource("45_fr4jb")
+item_12/text = "古明地恋"
+item_12/icon = ExtResource("46_00scm")
+item_13/text = "古明地觉"
+item_13/icon = ExtResource("47_1gj75")
+item_14/text = "哆来咪·苏伊特"
+item_14/icon = ExtResource("48_y7gvk")
+item_15/text = "四季映姬·夜摩仙那度"
+item_15/icon = ExtResource("49_w0qg0")
+item_16/text = "因幡天为"
+item_16/icon = ExtResource("50_yor2d")
+item_17/text = "圣白莲"
+item_17/icon = ExtResource("51_0brhw")
+item_18/text = "多多良小伞"
+item_18/icon = ExtResource("52_g0xku")
+item_19/text = "大妖精"
+item_19/icon = ExtResource("53_qbnxl")
+item_20/text = "娜兹玲"
+item_20/icon = ExtResource("54_bbjlr")
+item_21/text = "宫出口瑞灵"
+item_21/icon = ExtResource("55_r8nug")
+item_22/text = "宫古芳香"
+item_22/icon = ExtResource("56_bswvg")
+item_23/text = "寅丸星"
+item_23/icon = ExtResource("57_56oiv")
+item_24/text = "封兽鵺"
+item_24/icon = ExtResource("58_u0s3x")
+item_25/text = "射命丸文"
+item_25/icon = ExtResource("59_ivawj")
+item_26/text = "小恶魔"
+item_26/icon = ExtResource("60_ae7li")
+item_27/text = "小野塚小町"
+item_27/icon = ExtResource("61_ew73g")
+item_28/text = "少名针妙丸"
+item_28/icon = ExtResource("62_so5s5")
+item_29/text = "帕秋莉·诺蕾姬"
+item_29/icon = ExtResource("63_dbums")
+item_30/text = "幽谷响子"
+item_30/icon = ExtResource("64_pnn3x")
+item_31/text = "摩多罗隐岐奈"
+item_31/icon = ExtResource("65_gxqc0")
+item_32/text = "星熊勇仪"
+item_32/icon = ExtResource("66_hd8jp")
+item_33/text = "村纱水蜜"
+item_33/icon = ExtResource("67_2qxvv")
+item_34/text = "梅蒂欣·梅兰可莉"
+item_34/icon = ExtResource("68_8g1ao")
+item_35/text = "梦子"
+item_35/icon = ExtResource("69_glq0q")
+item_36/text = "森近霖之助"
+item_36/icon = ExtResource("70_6njo2")
+item_37/text = "橙"
+item_37/icon = ExtResource("71_qbmun")
+item_38/text = "比那名居天子"
+item_38/icon = ExtResource("72_1k7dc")
+item_39/text = "水桥帕露西"
+item_39/icon = ExtResource("73_kstjk")
+item_40/text = "河城荷取"
+item_40/icon = ExtResource("74_k372w")
+item_41/text = "清兰"
+item_41/icon = ExtResource("75_8548v")
+item_42/text = "火焰猫燐"
+item_42/icon = ExtResource("76_5d0sl")
+item_43/text = "灵乌路空"
+item_43/icon = ExtResource("77_mv65l")
+item_44/text = "爱丽丝·玛格特洛依德"
+item_44/icon = ExtResource("79_6p3r3")
+item_45/text = "爱塔妮缇拉尔瓦"
+item_45/icon = ExtResource("78_qk6b3")
+item_46/text = "爱莲"
+item_46/icon = ExtResource("79_ynjel")
+item_47/text = "物部布都"
+item_47/icon = ExtResource("80_ivig4")
+item_48/text = "犬走椛"
+item_48/icon = ExtResource("81_3486p")
+item_49/text = "琪斯美"
+item_49/icon = ExtResource("82_pvd3p")
+item_50/text = "琪露诺"
+item_50/icon = ExtResource("83_tnk4v")
+item_51/text = "矢田寺成美"
+item_51/icon = ExtResource("84_1x1n5")
+item_52/text = "神绮"
+item_52/icon = ExtResource("85_gunc3")
+item_53/text = "稀神探女"
+item_53/icon = ExtResource("86_1afhx")
+item_54/text = "稗田阿求"
+item_54/icon = ExtResource("87_e78v8")
+item_55/text = "米斯蒂娅·萝蕾拉"
+item_55/icon = ExtResource("88_8d8me")
+item_56/text = "红美铃"
+item_56/icon = ExtResource("89_x0c4h")
+item_57/text = "绵月丰姬"
+item_57/icon = ExtResource("90_bl0mn")
+item_58/text = "绵月依姬"
+item_58/icon = ExtResource("91_6dtm7")
+item_59/text = "芙兰朵露·斯卡蕾特"
+item_59/icon = ExtResource("92_x1jp2")
+item_60/text = "苏我屠自古"
+item_60/icon = ExtResource("93_5ohc1")
+item_61/text = "若鹭姬"
+item_61/icon = ExtResource("94_n34it")
+item_62/text = "茨木华扇"
+item_62/icon = ExtResource("95_06w12")
+item_63/text = "莉格露·奈特巴格"
+item_63/icon = ExtResource("96_n7nqj")
+item_64/text = "萨拉"
+item_64/icon = ExtResource("97_qisu6")
+item_65/text = "蓬莱山辉夜"
+item_65/icon = ExtResource("98_rh0hg")
+item_66/text = "蕾米莉亚·斯卡蕾特"
+item_66/icon = ExtResource("99_nk3dd")
+item_67/text = "藤原妹红"
+item_67/icon = ExtResource("100_ub4jg")
+item_68/text = "西行寺幽幽子"
+item_68/icon = ExtResource("101_sige1")
+item_69/text = "豪德寺三花"
+item_69/icon = ExtResource("102_fbst5")
+item_70/text = "赤蛮奇"
+item_70/icon = ExtResource("103_ko5qo")
+item_71/text = "铃仙·优昙华院·因幡"
+item_71/icon = ExtResource("104_jpw4n")
+item_72/text = "铃瑚"
+item_72/icon = ExtResource("105_atekn")
+item_73/text = "键山雏"
+item_73/icon = ExtResource("106_543h7")
+item_74/text = "雾雨魔理沙"
+item_74/icon = ExtResource("107_gl45d")
+item_75/text = "霍青娥"
+item_75/icon = ExtResource("108_q3apj")
+item_76/text = "露易兹"
+item_76/icon = ExtResource("109_g5scg")
+item_77/text = "露米娅"
+item_77/icon = ExtResource("110_62aja")
+item_78/text = "风见幽香"
+item_78/icon = ExtResource("111_lcrkr")
+item_79/text = "饕餮尤魔"
+item_79/icon = ExtResource("112_tr88c")
+item_80/text = "高丽野阿吽"
+item_80/icon = ExtResource("113_0q0ow")
+item_81/text = "鬼人正邪"
+item_81/icon = ExtResource("114_mhv22")
+item_82/text = "魂魄妖梦"
+item_82/icon = ExtResource("115_mfmib")
+item_83/text = "魅魔"
+item_83/icon = ExtResource("116_tyyw0")
+item_84/text = "黑谷山女"
+item_84/icon = ExtResource("117_n1qwt")
 
 [node name="GridContainer" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=577969564]
 layout_mode = 2

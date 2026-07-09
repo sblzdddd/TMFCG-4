@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://f7wvfvqywxr6"]
 
+[ext_resource type="Script" uid="uid://bhdul5lf04xll" path="res://src/editor/skill/slots/input/skill_input_bool.gd" id="2_2ytck"]
 [ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="definition"]
 [ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
 [ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
@@ -23,8 +24,13 @@ script = ExtResource("input_spec")
 type = 3
 label = "下一局"
 
+[sub_resource type="Resource" id="Resource_k2lmi"]
+script = ExtResource("2_2ytck")
+metadata/_custom_type_script = "uid://bhdul5lf04xll"
+
 [sub_resource type="Resource" id="input_4"]
 script = ExtResource("input_spec")
+inline_widget = SubResource("Resource_k2lmi")
 type = 3
 label = "无视被动"
 
@@ -37,6 +43,5 @@ script = ExtResource("definition")
 node_id = "modifier.move_player_position"
 display_name = "偏移行动顺序"
 category = 3
-node_script_path = "res://src/editor/skill/nodes/Modifier/move_player_position_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2"), SubResource("input_3"), SubResource("input_4")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_5")])

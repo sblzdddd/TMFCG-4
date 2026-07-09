@@ -16,7 +16,7 @@ description=不老不死的竹林引路人",
 &"display_name": "藤原妹红",
 &"mirror": false,
 &"nicknames": ["爷们红", "不死鸟", "蘑菇炭", "蘑菇汤"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.03, -0.19),
 &"portraits": {
 "微笑张嘴": {
 "export_overrides": {
@@ -73,5 +73,5 @@ description=不老不死的竹林引路人",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.91
 }

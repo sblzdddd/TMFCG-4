@@ -1,8 +1,6 @@
 class_name SkillNodeRegistry
 extends RefCounted
 
-const DEFINITIONS_ROOT := "res://src/editor/skill/definitions/"
-
 static var _by_id: Dictionary = {}
 static var _by_category: Dictionary = {}
 static var _initialized := false
@@ -13,7 +11,7 @@ static func initialize() -> void:
 		return
 	_by_id.clear()
 	_by_category.clear()
-	_scan_dir(DEFINITIONS_ROOT)
+	_scan_dir(SkillNodeDefinition.DEFINITIONS_ROOT)
 	_initialized = true
 
 
@@ -86,9 +84,15 @@ static func _scan_dir(path: String) -> void:
 			continue
 		if not entry_name.ends_with(".tres"):
 			continue
-		var definition := load(path.path_join(entry_name)) as SkillNodeDefinition
+		var definition_path := path.path_join(entry_name)
+		var definition := load(definition_path) as SkillNodeDefinition
 		if definition == null or definition.node_id.is_empty():
 			continue
+		if not definition.has_node_script():
+			push_warning(
+				"SkillNodeDefinition '%s' is missing node script at %s."
+				% [definition.node_id, definition.get_resolved_node_script_path()]
+			)
 		_by_id[definition.node_id] = definition
 		if not _by_category.has(definition.category):
 			_by_category[definition.category] = []

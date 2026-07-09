@@ -8,7 +8,8 @@ enum Category {
 	MODIFIER,
 	ALGEBRA,
 	BOOLEAN,
-	ARRAY
+	ARRAY,
+	EFFECT
 }
 
 const ALL: Array[Category] = [
@@ -19,6 +20,7 @@ const ALL: Array[Category] = [
 	Category.ALGEBRA,
 	Category.BOOLEAN,
 	Category.ARRAY,
+	Category.EFFECT
 ]
 
 const TITLEBAR_COLORS: Dictionary = {
@@ -29,16 +31,18 @@ const TITLEBAR_COLORS: Dictionary = {
 	Category.EVENT: Color(0.35686275, 0.35686275, 0.35686275),
 	Category.BOOLEAN: Color(0.5647059, 0.42352942, 0.28235295),
 	Category.ARRAY: Color(0.5137255, 0.5647059, 0.28235295),
+	Category.EFFECT: Color(0.38039216, 0.31764707, 0.6627451)
 }
 
 const ICONS: Dictionary = {
 	Category.ALGEBRA: preload("res://assets/textures/icons/skills/calc.svg"),
-	Category.MODIFIER: preload("res://assets/textures/icons/skills/lightning.svg"),
+	Category.MODIFIER: preload("res://assets/textures/icons/skills/modifier.svg"),
 	Category.CARD_HOLDER: preload("res://assets/textures/icons/skills/holder.svg"),
 	Category.CARD: preload("res://assets/textures/icons/skills/card.svg"),
 	Category.EVENT: preload("res://assets/textures/icons/skills/event.svg"),
 	Category.BOOLEAN: preload("res://assets/textures/icons/skills/boolean.svg"),
 	Category.ARRAY: preload("res://assets/textures/icons/skills/array.svg"),
+	Category.EFFECT: preload("res://assets/textures/icons/skills/effect.svg"),
 }
 
 const DISPLAY_NAMES: Dictionary = {
@@ -49,6 +53,7 @@ const DISPLAY_NAMES: Dictionary = {
 	Category.ALGEBRA: "运算",
 	Category.BOOLEAN: "布尔",
 	Category.ARRAY: "数组",
+	Category.EFFECT: "效果",
 }
 
 static func get_display_name(category: Category) -> String:

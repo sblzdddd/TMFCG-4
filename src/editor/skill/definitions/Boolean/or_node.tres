@@ -24,6 +24,5 @@ script = ExtResource("definition")
 node_id = "boolean.or"
 display_name = "或"
 category = 5
-node_script_path = "res://src/editor/skill/nodes/Boolean/or_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_2")])

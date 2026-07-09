@@ -16,7 +16,7 @@ description=地壳下的嫉妒心",
 &"display_name": "水桥帕露西",
 &"mirror": false,
 &"nicknames": ["桥姬"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.01, -0.32),
 &"portraits": {
 "咬手帕": {
 "export_overrides": {
@@ -136,5 +136,5 @@ description=地壳下的嫉妒心",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.83
 }

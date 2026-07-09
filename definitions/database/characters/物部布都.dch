@@ -16,7 +16,7 @@ description=古代日本的尸解仙",
 &"display_name": "物部布都",
 &"mirror": false,
 &"nicknames": ["布嘟嘟"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.02, -0.23),
 &"portraits": {
 "帅气笑": {
 "export_overrides": {
@@ -127,5 +127,5 @@ description=古代日本的尸解仙",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.88
 }

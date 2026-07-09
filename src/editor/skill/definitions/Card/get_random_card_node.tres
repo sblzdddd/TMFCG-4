@@ -7,7 +7,6 @@
 
 [sub_resource type="Resource" id="input_0"]
 script = ExtResource("input_spec")
-label = "事件"
 
 [sub_resource type="Resource" id="input_1"]
 script = ExtResource("input_spec")
@@ -27,7 +26,6 @@ label = "随机数量"
 
 [sub_resource type="Resource" id="output_3"]
 script = ExtResource("output_spec")
-label = "事件"
 
 [sub_resource type="Resource" id="output_4"]
 script = ExtResource("output_spec")
@@ -39,6 +37,5 @@ script = ExtResource("definition")
 node_id = "card.get_random"
 display_name = "随机获取卡牌"
 category = 1
-node_script_path = "res://src/editor/skill/nodes/Card/get_random_card_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_3"), SubResource("output_4")])

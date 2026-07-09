@@ -16,7 +16,7 @@ description=反狱王",
 &"display_name": "宫出口瑞灵",
 &"mirror": false,
 &"nicknames": ["反狱王"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.43),
 &"portraits": {
 "不满": {
 "export_overrides": {
@@ -73,5 +73,5 @@ description=反狱王",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.8
 }

@@ -14,5 +14,4 @@ script = ExtResource("definition")
 node_id = "card_holder.all_players"
 display_name = "所有玩家"
 category = 2
-node_script_path = "res://src/editor/skill/nodes/CardHolder/all_players_node.gd"
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_0")])

@@ -16,7 +16,7 @@ description=可怕的水井妖怪",
 &"display_name": "琪斯美",
 &"mirror": false,
 &"nicknames": ["小桶"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.13, -0.27),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -64,5 +64,5 @@ description=可怕的水井妖怪",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.86
 }

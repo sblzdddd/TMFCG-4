@@ -15,11 +15,14 @@ signal character_data_changed(data: CardVisualData)
 @export var _y_edit: DraggerSpinBox
 @export var _scale_edit: DraggerSpinBox
 @export var _reset_button: Button
+@export var _set_default_button: Button
 @export var _character_editor_button: Button   # TODO
 
 var selected_character: CardVisualData = null
 var _portrait_keys: Array[String] = []
 var _loading := false
+
+const _SET_DEFAULT_BUTTON_TEXT := "设为角色默认变换"
 
 
 func bind(data: CardVisualData) -> void:
@@ -32,6 +35,7 @@ func bind(data: CardVisualData) -> void:
 		_y_edit.value = 0.0
 		_scale_edit.value = 1.0
 		_refresh_variant_list()
+		_update_set_default_button_text()
 		_loading = false
 		return
 
@@ -50,6 +54,7 @@ func bind(data: CardVisualData) -> void:
 		_name_info.text = ""
 		_description_label.text = ""
 	_refresh_variant_list()
+	_update_set_default_button_text()
 	_loading = false
 
 
@@ -63,6 +68,8 @@ func _ready() -> void:
 	_y_edit.value_changed.connect(_on_transform_changed)
 	_scale_edit.value_changed.connect(_on_transform_changed)
 	_reset_button.pressed.connect(_apply_default_transform)
+	_set_default_button.pressed.connect(_on_set_default_button_pressed)
+	_set_default_button.text = _SET_DEFAULT_BUTTON_TEXT
 	_refresh_variant_list()
 
 
@@ -81,9 +88,11 @@ func _on_character_selected(character: DialogicCharacter) -> void:
 		var keys := character.portraits.keys()
 		keys.sort()
 		selected_character.portrait = keys[0]
+	_apply_character_default_transform(character)
 	_apply_edit_transform()
 	_apply_character(character)
 	_refresh_variant_list()
+	_update_set_default_button_text()
 	character_data_changed.emit(selected_character)
 
 
@@ -178,6 +187,7 @@ func _on_transform_changed(_new_value: float = 0.0) -> void:
 	if _loading or selected_character == null:
 		return
 	_apply_edit_transform()
+	_update_set_default_button_text()
 	character_data_changed.emit(selected_character)
 
 
@@ -192,3 +202,62 @@ func _apply_default_transform() -> void:
 	_y_edit.value = 0.0
 	_scale_edit.value = 1.0
 	_on_transform_changed()
+
+
+func _apply_character_default_transform(character: DialogicCharacter) -> void:
+	_x_edit.set_block_signals(true)
+	_y_edit.set_block_signals(true)
+	_scale_edit.set_block_signals(true)
+	_x_edit.value = character.offset.x
+	_y_edit.value = character.offset.y
+	_scale_edit.value = character.scale
+	_x_edit.set_block_signals(false)
+	_y_edit.set_block_signals(false)
+	_scale_edit.set_block_signals(false)
+
+
+func _on_set_default_button_pressed() -> void:
+	if selected_character == null or selected_character.character == null:
+		return
+
+	var character := selected_character.character
+	var path := character.resource_path
+	if path.is_empty():
+		push_warning("Cannot save default transform: character has no resource path.")
+		return
+
+	var builtin := ResourceFsUtils.is_builtin_path(path)
+	if builtin and not ResourceFsUtils.can_write_presets():
+		push_warning("Cannot save default transform to built-in character outside the editor.")
+		return
+
+	character.offset = Vector2(_x_edit.value, _y_edit.value)
+	character.scale = _scale_edit.value
+
+	var err := ResourceFsUtils.save_dialogic_character(character, path, builtin)
+	if err != OK:
+		push_warning("Failed to save character default transform: %s" % error_string(err))
+		return
+	_update_set_default_button_text()
+
+
+func _update_set_default_button_text() -> void:
+	if _set_default_button == null:
+		return
+	var text := _SET_DEFAULT_BUTTON_TEXT
+	if (
+		selected_character != null
+		and selected_character.character != null
+		and _transform_differs_from_character_default()
+	):
+		text += "*"
+	_set_default_button.text = text
+
+
+func _transform_differs_from_character_default() -> bool:
+	var character := selected_character.character
+	return (
+		not is_equal_approx(_x_edit.value, character.offset.x)
+		or not is_equal_approx(_y_edit.value, character.offset.y)
+		or not is_equal_approx(_scale_edit.value, character.scale)
+	)

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://bcl8v0rbsmb5m"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_hh875"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="3_gag5a"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="4_bx3gn"]
+
+[sub_resource type="Resource" id="Resource_g81ad"]
+script = ExtResource("1_hh875")
+label = "事件"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[resource]
+script = ExtResource("4_bx3gn")
+node_id = "event.mark_as_ineffective"
+display_name = "标记为不生效"
+input_slot_specs = Array[ExtResource("1_hh875")]([SubResource("Resource_g81ad")])
+metadata/_custom_type_script = "uid://b77sc5ge5flg0"

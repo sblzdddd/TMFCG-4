@@ -16,7 +16,7 @@ description=接近神的蝴蝶妖精",
 &"display_name": "爱塔妮缇拉尔瓦",
 &"mirror": false,
 &"nicknames": ["大蛾子", "爱塔", "⑧"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.04, -0.41),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -73,5 +73,5 @@ description=接近神的蝴蝶妖精",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.76
 }

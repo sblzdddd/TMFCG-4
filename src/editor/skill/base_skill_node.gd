@@ -95,9 +95,15 @@ func _resolve_definition() -> void:
 		return
 	if get_script() == null:
 		return
-	var constants := get_script().get_script_constant_map() as Dictionary
-	if constants.has("DEFINITION"):
-		definition = constants["DEFINITION"]
+	var script_path: String = get_script().resource_path
+	var definition_path := SkillNodeDefinition.resolve_definition_path(script_path)
+	if definition_path.is_empty():
+		push_warning("Cannot resolve skill definition path from script %s." % script_path)
+		return
+	if not ResourceLoader.exists(definition_path):
+		push_warning("Missing skill definition at %s for script %s." % [definition_path, script_path])
+		return
+	definition = load(definition_path) as SkillNodeDefinition
 
 func _rebuild_slots() -> void:
 	for child in get_children():

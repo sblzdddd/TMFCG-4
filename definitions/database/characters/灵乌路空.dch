@@ -16,7 +16,7 @@ description=地底的太阳",
 &"display_name": "灵乌路空",
 &"mirror": false,
 &"nicknames": ["阿空", "高达", "⑥"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.47),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -82,5 +82,5 @@ description=地底的太阳",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.82
 }

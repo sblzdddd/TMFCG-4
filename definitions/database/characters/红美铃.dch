@@ -16,7 +16,7 @@ description=华人少女",
 &"display_name": "红美铃",
 &"mirror": false,
 &"nicknames": ["红师傅", "门卫"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.1),
 &"portraits": {
 "Default": {
 "export_overrides": {
@@ -91,5 +91,5 @@ description=华人少女",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.99
 }

@@ -1,0 +1,2 @@
+@tool
+class_name BranchNode extends BaseSkillNode

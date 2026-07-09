@@ -16,7 +16,7 @@ description=魔界一般路过魔界民",
 &"display_name": "露易兹",
 &"mirror": false,
 &"nicknames": [],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.01, -0.31),
 &"portraits": {
 "匆忙": {
 "export_overrides": {
@@ -118,5 +118,5 @@ description=魔界一般路过魔界民",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.9
 }

@@ -16,7 +16,7 @@ description=秘神流雏",
 &"display_name": "键山雏",
 &"mirror": false,
 &"nicknames": ["转转", "不认识的孩子"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.18),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -55,5 +55,5 @@ description=秘神流雏",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.89
 }

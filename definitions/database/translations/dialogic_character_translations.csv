@@ -1,22 +1,6 @@
 keys,zh,en,ja
-Character/6b/name,Reisen,Reisen,レイセン
-Character/6b/nicknames,铃仙二号,,
-Character/6c/name,上白泽慧音,Kamishirasawa Keine,上白沢　慧音
-Character/6c/nicknames,老师,,
-Character/6d/name,东风谷早苗,Kotiya Sanae,東風谷　早苗
-Character/6d/nicknames,苗爷,,
-Character/6e/name,丰聪耳神子,Toyosatomimi no Miko,豊聡耳　神子
-Character/6e/nicknames,"太子,二婶子",,
-Character/6f/name,二岩猯藏,Hutatsuiwa Mamizou,二ッ岩　マミゾウ
-Character/6f/nicknames,大狸子,,
-Character/70/name,今泉影狼,Imaizumi Kagerou,今泉　影狼
-Character/70/nicknames,"马斯克,埃隆马斯克,猫娘",,
-Character/71/name,伊吹萃香,Ibuki Suika,伊吹　萃香
-Character/71/nicknames,西瓜,,
-Character/72/name,八云紫,Yakumo Yukari,八雲　紫
-Character/72/nicknames,"BBA,紫妈,老太婆",,
-Character/73/name,八意永琳,Yagokoro Eirin,八意　永琳
-Character/73/nicknames,师匠,,
+Character/be/name,爱丽丝·玛格特洛依德,Alice Margatroid,アリス・マーガトロイド
+Character/be/nicknames,"小爱,人偶师",,
 Character/74/name,十六夜咲夜,Izayoi Sakuya,十六夜　咲夜
 Character/74/nicknames,"PAD长,女仆长,16",,
 Character/75/name,博丽灵梦,Hakurei Reimu,博麗　霊夢
@@ -34,6 +18,86 @@ Character/7a/nicknames,"帝帝,腹黑兔,因幡帝,小老帝",,
 Character/7b/name,圣白莲,Hiziri Byakuren,聖　白蓮
 Character/7b/nicknames,莲妈,,
 Character/7c/name,多多良小伞,Tatara Kogasa,多々良　小傘
+Character/9b/name,琪露诺,Cirno,チルノ
+Character/9b/nicknames,"笨蛋,冰精,⑨,黑皮⑨,9",,
+Character/9c/name,矢田寺成美,Yatadera Narumi,矢田寺　成美
+Character/9c/nicknames,地藏,,
+Character/9d/name,神绮,Shinki,神綺
+Character/9d/nicknames,"太太,呆毛神,女儿怪",,
+Character/9e/name,稀神探女,Kishin Sagume,稀神　サグメ
+Character/9f/name,稗田阿求,Hieda no Akyuu,稗田　阿求
+Character/a0/name,米斯蒂娅·萝蕾拉,Mystia Lorelei,ミスティア・ローレライ
+Character/a0/nicknames,"老板娘,小碎骨,米斯琪",,
+Character/a1/name,红美铃,Hong Meirin,紅　美鈴
+Character/a1/nicknames,"红师傅,门卫",,
+Character/a2/name,绵月丰姬,Watatsuki no Toyohime,綿月　豊姫
+Character/a2/nicknames,绵月姐妹,,
+Character/a3/name,绵月依姬,Watatsuki no Yorihime,綿月　依姫
+Character/a3/nicknames,绵月姐妹,,
+Character/87/name,帕秋莉·诺蕾姬,Patchouli Knowledge,パチュリー・ノーレッジ
+Character/87/nicknames,"姆Q,帕琪,图书,香草,广藿香",,
+Character/88/name,幽谷响子,Kasodani Kyouko,幽谷　響子
+Character/89/name,摩多罗隐岐奈,Matara Okina,摩多羅　隠岐奈
+Character/89/nicknames,"轮椅战神,秘神,乐子神",,
+Character/8a/name,星熊勇仪,Hoshiguma Yugi,星熊　勇儀
+Character/8a/nicknames,红有三,,
+Character/8b/name,村纱水蜜,Murasa Minamitu,村紗　水蜜
+Character/8b/nicknames,船长,,
+Character/8c/name,梅蒂欣·梅兰可莉,Medicine Melancholy,メディスン・メランコリー
+Character/8c/nicknames,毒人偶,,
+Character/8d/name,梦子,Yumeko,夢子
+Character/8d/nicknames,魔界女仆,,
+Character/8e/name,森近霖之助,Morichika Rinnosuke,森近　霖之助
+Character/8e/nicknames,"乡长,香霖",,
+Character/8f/name,橙,Chen,橙
+Character/8f/nicknames,"黑猫,橙喵",,
+Character/6c/name,上白泽慧音,Kamishirasawa Keine,上白沢　慧音
+Character/6c/nicknames,老师,,
+Character/6d/name,东风谷早苗,Kotiya Sanae,東風谷　早苗
+Character/6d/nicknames,苗爷,,
+Character/6e/name,丰聪耳神子,Toyosatomimi no Miko,豊聡耳　神子
+Character/6e/nicknames,"太子,二婶子",,
+Character/6f/name,二岩猯藏,Hutatsuiwa Mamizou,二ッ岩　マミゾウ
+Character/6f/nicknames,大狸子,,
+Character/bf/name,云居一轮,Kumoi Ichirin,雲居　一輪
+Character/bf/nicknames,,,
+Character/70/name,今泉影狼,Imaizumi Kagerou,今泉　影狼
+Character/70/nicknames,"马斯克,埃隆马斯克,猫娘",,
+Character/71/name,伊吹萃香,Ibuki Suika,伊吹　萃香
+Character/71/nicknames,西瓜,,
+Character/72/name,八云紫,Yakumo Yukari,八雲　紫
+Character/72/nicknames,"BBA,紫妈,老太婆",,
+Character/73/name,八意永琳,Yagokoro Eirin,八意　永琳
+Character/73/nicknames,师匠,,
+Character/ae/name,豪德寺三花,Goutokuzi Mike,豪徳寺　ミケ
+Character/ae/nicknames,大吉猫咪,,
+Character/af/name,赤蛮奇,Sekibanki,赤蛮奇
+Character/af/nicknames,⑦,,
+Character/b0/name,铃仙·优昙华院·因幡,Reisen Udongein Inaba,鈴仙・優曇華院・イナバ
+Character/b0/nicknames,"受兔,大兔子",,
+Character/b1/name,铃瑚,Ringo,鈴瑚
+Character/b2/name,键山雏,Kagiyama Hina,鍵山　雛
+Character/b2/nicknames,"转转,不认识的孩子",,
+Character/b3/name,雾雨魔理沙,Kirisame Marisa,霧雨　魔理沙
+Character/b3/nicknames,"黑白,东洋魔女,黑白老鼠",,
+Character/b4/name,霍青娥,Kaku Seiga,霍　青娥
+Character/b4/nicknames,"青娥娘娘,娘娘",,
+Character/b5/name,露易兹,Luize,ルイズ
+Character/b6/name,露米娅,Rumia,ルーミア
+Character/b6/nicknames,"⑩,10",,
+Character/b7/name,风见幽香,Kazami Yuka,風見　幽香
+Character/b7/nicknames,花妈,,
+Character/b8/name,饕餮尤魔,Toutetsu Yuma,饕餮　尤魔
+Character/b8/nicknames,大角羊,,
+Character/b9/name,高丽野阿吽,Komano Aunn,高麗野　あうん
+Character/b9/nicknames,石狮,,
+Character/ba/name,鬼人正邪,Kijin Seija,鬼人　正邪
+Character/ba/nicknames,邪正人鬼,,
+Character/bb/name,魂魄妖梦,Konpaku Youmu,魂魄　妖夢
+Character/bb/nicknames,"庭师,Yo梦",,
+Character/bc/name,魅魔,Mima,魅魔
+Character/bd/name,黑谷山女,Kurodani Yamame,黒谷　ヤマメ
+Character/bd/nicknames,蜘蛛,,
 Character/7d/name,大妖精,Daiyousei,大妖精
 Character/7d/nicknames,大酱,,
 Character/7e/name,娜兹玲,Nazrin,ナズーリン
@@ -53,23 +117,6 @@ Character/85/name,小野塚小町,Onozuka Komachi,小野塚　小町
 Character/85/nicknames,"死神,乳町",,
 Character/86/name,少名针妙丸,Sukuna Shinmyoumaru,少名　針妙丸
 Character/86/nicknames,小碗,,
-Character/87/name,帕秋莉·诺蕾姬,Patchouli Knowledge,パチュリー・ノーレッジ
-Character/87/nicknames,"姆Q,帕琪,图书,香草,广藿香",,
-Character/88/name,幽谷响子,Kasodani Kyouko,幽谷　響子
-Character/89/name,摩多罗隐岐奈,Matara Okina,摩多羅　隠岐奈
-Character/89/nicknames,"轮椅战神,秘神,乐子神",,
-Character/8a/name,星熊勇仪,Hoshiguma Yugi,星熊　勇儀
-Character/8a/nicknames,红有三,,
-Character/8b/name,村纱水蜜,Murasa Minamitu,村紗　水蜜
-Character/8b/nicknames,船长,,
-Character/8c/name,梅蒂欣·梅兰可莉,Medicine Melancholy,メディスン・メランコリー
-Character/8c/nicknames,毒人偶,,
-Character/8d/name,梦子,Yumeko,夢子
-Character/8d/nicknames,魔界女仆,,
-Character/8e/name,森近霖之助,Morichika Rinnosuke,森近　霖之助
-Character/8e/nicknames,"乡长,香霖",,
-Character/8f/name,橙,Chen,橙
-Character/8f/nicknames,"黑猫,橙喵",,
 Character/90/name,比那名居天子,Hinanawi Tenshi,比那名居　天子
 Character/90/nicknames,"统领娘,M子,天女",,
 Character/91/name,水桥帕露西,Mizuhashi Parsee,水橋　パルスィ
@@ -91,22 +138,8 @@ Character/99/name,犬走椛,Inubashiri Momizi,犬走　椛
 Character/99/nicknames,椛椛,,
 Character/9a/name,琪斯美,Kisume,キスメ
 Character/9a/nicknames,小桶,,
-Character/9b/name,琪露诺,Cirno,チルノ
-Character/9b/nicknames,"笨蛋,冰精,⑨,黑皮⑨,9",,
-Character/9c/name,矢田寺成美,Yatadera Narumi,矢田寺　成美
-Character/9c/nicknames,地藏,,
-Character/9d/name,神绮,Shinki,神綺
-Character/9d/nicknames,"太太,呆毛神,女儿怪",,
-Character/9e/name,稀神探女,Kisin Sagume,稀神　サグメ
-Character/9f/name,稗田阿求,Hieda no Akyuu,稗田　阿求
-Character/a0/name,米斯蒂娅·萝蕾拉,Mystia Lorelei,ミスティア・ローレライ
-Character/a0/nicknames,"老板娘,小碎骨,米斯琪",,
-Character/a1/name,红美铃,Hoan Meirin / Hong Meirin,紅　美鈴
-Character/a1/nicknames,"红师傅,门卫",,
-Character/a2/name,绵月丰姬,Watatsuki no Toyohime,綿月　豊姫
-Character/a2/nicknames,绵月姐妹,,
-Character/a3/name,绵月依姬,Watatsuki no Yorihime,綿月　依姫
-Character/a3/nicknames,绵月姐妹,,
+Character/6b/name,Reisen,Reisen,レイセン
+Character/6b/nicknames,铃仙二号,,
 Character/a4/name,芙兰朵露·斯卡蕾特,Flandre Scarlet,フランドール・スカーレット
 Character/a4/nicknames,"二小姐,芙兰,二妹,破坏之神,吸血鬼姐妹",,
 Character/a5/name,苏我屠自古,Soga no Toziko,蘇我　屠自古
@@ -126,32 +159,3 @@ Character/ac/name,藤原妹红,Huziwara no Mokou,藤原　妹紅
 Character/ac/nicknames,"爷们红,不死鸟,蘑菇炭,蘑菇汤",,
 Character/ad/name,西行寺幽幽子,Saigyouji Yuyuko,西行寺　幽々子
 Character/ad/nicknames,"UUZ,吃货子",,
-Character/ae/name,豪德寺三花,Goutokuzi Mike,豪徳寺　ミケ
-Character/ae/nicknames,大吉猫咪,,
-Character/af/name,赤蛮奇,Sekibanki,赤蛮奇
-Character/af/nicknames,⑦,,
-Character/b0/name,铃仙·优昙华院·因幡,Reisen Udongein Inaba,鈴仙・優曇華院・イナバ
-Character/b0/nicknames,"受兔,大兔子",,
-Character/b1/name,铃瑚,Ringo,鈴瑚
-Character/b2/name,键山雏,Kagiyama Hina,鍵山　雛
-Character/b2/nicknames,"转转,不认识的孩子",,
-Character/b3/name,雾雨魔理沙,Kirisame Marisa,霧雨　魔理沙
-Character/b3/nicknames,"黑白,东洋魔女,黑白老鼠",,
-Character/b4/name,霍青娥,Kaku Seiga,霍　青娥
-Character/b4/nicknames,"青娥娘娘,娘娘",,
-Character/b5/name,露易兹,Louise,ルイズ
-Character/b6/name,露米娅,Rumia,ルーミア
-Character/b6/nicknames,"⑩,10",,
-Character/b7/name,风见幽香,Kazami Yuka,風見　幽香
-Character/b7/nicknames,花妈,,
-Character/b8/name,饕餮尤魔,Toutetsu Yuma,饕餮　尤魔
-Character/b8/nicknames,大角羊,,
-Character/b9/name,高丽野阿吽,Komano Aunn,高麗野　あうん
-Character/b9/nicknames,石狮,,
-Character/ba/name,鬼人正邪,Kijin Seija,鬼人　正邪
-Character/ba/nicknames,邪正人鬼,,
-Character/bb/name,魂魄妖梦,Konpaku Youmu,魂魄　妖夢
-Character/bb/nicknames,"庭师,Yo梦",,
-Character/bc/name,魅魔,Mima,魅魔
-Character/bd/name,黑谷山女,Kurodani Yamame,黒谷　ヤマメ
-Character/bd/nicknames,蜘蛛,,

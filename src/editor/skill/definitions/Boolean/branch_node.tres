@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://4dhgflmum3sa"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_xk65d"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_5inxs"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_jke83"]
+
+[sub_resource type="Resource" id="Resource_xk65d"]
+script = ExtResource("1_xk65d")
+type = 3
+label = "切换"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="input_0"]
+script = ExtResource("1_xk65d")
+type = -1000
+label = "真"
+type_mode = 1
+
+[sub_resource type="Resource" id="input_1"]
+script = ExtResource("1_xk65d")
+type = -1000
+label = "假"
+type_mode = 1
+
+[sub_resource type="Resource" id="output_2"]
+script = ExtResource("2_5inxs")
+type = -1000
+label = "输出"
+type_mode = 1
+
+[resource]
+script = ExtResource("3_jke83")
+node_id = "boolean.branch"
+display_name = "分支"
+category = 5
+input_slot_specs = Array[ExtResource("1_xk65d")]([SubResource("Resource_xk65d"), SubResource("input_0"), SubResource("input_1")])
+output_slot_specs = Array[ExtResource("2_5inxs")]([SubResource("output_2")])

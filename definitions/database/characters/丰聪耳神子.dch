@@ -16,7 +16,7 @@ description=圣德道士",
 &"display_name": "丰聪耳神子",
 &"mirror": false,
 &"nicknames": ["太子", "二婶子"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.13, -0.34),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -55,5 +55,5 @@ description=圣德道士",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.88
 }

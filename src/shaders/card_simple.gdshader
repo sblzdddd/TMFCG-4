@@ -37,13 +37,12 @@ uniform vec3 bgTileParams = vec3(0.5, 0.5, 0.3);
 #include "res://src/shaders/card_utils.gdshaderinc"
 
 vec4 SuitTint(float matCol) {
-	float aa = max(fwidth(matCol), 0.002);
 	return vec4(
 		mix(
-			mix(tint1, tint2, smoothstep(0.2 - aa, 0.62 + aa, matCol)),
-			tint3, smoothstep(0.625 - aa, 1.0 + aa, matCol)
+			mix(tint1, tint2, smoothstep(0.25, 0.6, matCol)),
+			tint3, smoothstep(0.62, 1.0, matCol)
 		),
-		smoothstep(-aa, 0.1 + aa, matCol)
+		smoothstep(0.0, 0.25, matCol)
 	);
 }
 
@@ -72,11 +71,11 @@ void fragment() {
 	RatioUVResult iconUV2 = RatioCorrectUV(uvr, ICON_POS * vec3(-1), PARTS_SIZE, ICON_CROP, vec4(1, 0, 0, 0));
 	icon += sampleSuitTex(partsTex, iconUV2);
 
+	vec2 cuv = abs(UV - vec2(0.5));
 	vec4 suits = bottom;
 	if (value == 1) {
 		suits += top;
 	} else if (value != 0) {
-		vec2 cuv = abs(UV - vec2(0.5));
 		if (value > 4) {
 			float bx011 = step(cuv.x, 0.11);
 			if (value <= 7) {
@@ -123,9 +122,10 @@ void fragment() {
 	vec4 characterCol = texture(characterTex, charUV);
 	float charOutlineMask = SimpleOutline(charUV, characterTex, charOutlineWidth * 0.02);
 	charOutlineMask = clamp(charOutlineMask - characterCol.a, 0.0, 1.0) * charOutlineColor.a;
-	albedo = mix(albedo, characterCol.rgb, characterCol.a * masks.r);
-	albedo = mix(albedo, charOutlineColor.rgb, charOutlineMask * masks.r);
+	float charMask = min(masks.r, clamp(smoothstep(0.649, 0.639, UV.y) + step(cuv.x, 0.3125), 0., 1.));
+	albedo = mix(albedo, characterCol.rgb, characterCol.a * charMask);
+	albedo = mix(albedo, charOutlineColor.rgb, charOutlineMask * charMask);
 
     COLOR.a = RoundedMask(uvr, cardRadius, 1.);
-	COLOR.xyz = albedo.xyz;
+	COLOR.xyz = vec3(albedo);
 }

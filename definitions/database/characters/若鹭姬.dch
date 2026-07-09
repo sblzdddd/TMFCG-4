@@ -16,7 +16,7 @@ description=栖息于淡水的人鱼",
 &"display_name": "若鹭姬",
 &"mirror": false,
 &"nicknames": ["人鱼"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.09, -0.22),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -73,5 +73,5 @@ description=栖息于淡水的人鱼",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.86
 }

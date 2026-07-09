@@ -27,6 +27,5 @@ script = ExtResource("definition")
 node_id = "array.join"
 display_name = "合并"
 category = 6
-node_script_path = "res://src/editor/skill/nodes/Array/join_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_2")])

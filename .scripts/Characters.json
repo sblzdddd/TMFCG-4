@@ -452,7 +452,7 @@
   {
 	"characterId": "th-40",
 	"name": "红美铃",
-	"enName": ["Hoan Meirin / Hong Meirin"],
+	"enName": ["Hong Meirin"],
 	"jpName": "紅　美鈴",
 	"nickname": ["红师傅", "门卫"],
 	"description": "华人少女",
@@ -467,7 +467,7 @@
   {
 	"characterId": "th-41",
 	"name": "小恶魔",
-	"enName": ["Little Devil / Koakuma"],
+	"enName": ["Koakuma"],
 	"jpName": "小悪魔",
 	"nickname": ["图书管理员"],
 	"description": "略弱的恶魔",
@@ -1181,13 +1181,13 @@
   },
   {
 	"characterId": "th-94",
-	"name": "云居一轮&云山",
-	"enName": ["Kumoi Ichirin & Unzan"],
-	"jpName": "雲居　一輪 & 雲山",
+	"name": "云居一轮",
+	"enName": ["Kumoi Ichirin"],
+	"jpName": "雲居　一輪",
 	"nickname": [""],
 	"description": "守护与被守护的大轮",
 	"first": "东方星莲船",
-	"variants": []
+	"variants": ["云居一轮 微笑"]
   },
   {
 	"characterId": "th-95",
@@ -1692,7 +1692,7 @@
   {
 	"characterId": "th-133",
 	"name": "戎璎花",
-	"enName": ["Ebisu Eika / Ebisu Youka"],
+	"enName": ["Ebisu Eika", "Ebisu Youka"],
 	"jpName": "戎　瓔花",
 	"nickname": ["水子"],
 	"description": "河原的水子偶像",

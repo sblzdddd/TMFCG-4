@@ -16,7 +16,7 @@ description=醉心神佛的守护神兽",
 &"display_name": "高丽野阿吽",
 &"mirror": false,
 &"nicknames": ["石狮"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.05, -0.27),
 &"portraits": {
 "张嘴": {
 "export_overrides": {
@@ -64,5 +64,5 @@ description=醉心神佛的守护神兽",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.9
 }

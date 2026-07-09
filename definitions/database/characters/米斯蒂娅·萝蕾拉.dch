@@ -16,7 +16,7 @@ description=歌唱的夜雀",
 &"display_name": "米斯蒂娅·萝蕾拉",
 &"mirror": false,
 &"nicknames": ["老板娘", "小碎骨", "米斯琪"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.06, -0.11),
 &"portraits": {
 "万圣节服装": {
 "export_overrides": {
@@ -424,5 +424,5 @@ description=歌唱的夜雀",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.95
 }

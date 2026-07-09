@@ -1,5 +1,6 @@
 [gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://cd1qj4t7k8dun"]
 
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="2_x230v"]
 [ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="definition"]
 [ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
 [ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
@@ -14,13 +15,25 @@ type_mode = 1
 script = ExtResource("input_spec")
 type = 0
 
+[sub_resource type="Resource" id="Resource_gpoeo"]
+script = ExtResource("2_x230v")
+value = 0.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
 [sub_resource type="Resource" id="input_2"]
 script = ExtResource("input_spec")
+inline_widget = SubResource("Resource_gpoeo")
 type = 2
 label = "起始"
 
+[sub_resource type="Resource" id="Resource_6p3r3"]
+script = ExtResource("2_x230v")
+min_value = 1.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
 [sub_resource type="Resource" id="input_3"]
 script = ExtResource("input_spec")
+inline_widget = SubResource("Resource_6p3r3")
 type = 2
 label = "延伸"
 
@@ -41,6 +54,5 @@ script = ExtResource("definition")
 node_id = "array.slice"
 display_name = "切片"
 category = 6
-node_script_path = "res://src/editor/skill/nodes/Array/slice_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2"), SubResource("input_3")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_4"), SubResource("output_5")])

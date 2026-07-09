@@ -14,5 +14,4 @@ script = ExtResource("definition")
 node_id = "card_holder.graveyard"
 display_name = "墓地"
 category = 2
-node_script_path = "res://src/editor/skill/nodes/CardHolder/graveyard_node.gd"
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_0")])

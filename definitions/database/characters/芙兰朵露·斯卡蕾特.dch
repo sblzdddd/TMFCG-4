@@ -16,7 +16,7 @@ description=吸血鬼的破坏性妹妹",
 &"display_name": "芙兰朵露·斯卡蕾特",
 &"mirror": false,
 &"nicknames": ["二小姐", "芙兰", "二妹", "破坏之神", "吸血鬼姐妹"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.08, -0.35),
 &"portraits": {
 "boss乐": {
 "export_overrides": {
@@ -190,5 +190,5 @@ description=吸血鬼的破坏性妹妹",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.88
 }

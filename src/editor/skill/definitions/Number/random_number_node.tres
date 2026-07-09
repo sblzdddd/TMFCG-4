@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://cy6arrtkrc6pd"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_d6fik"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="3_uyq7f"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="4_r2rnq"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="5_l1hjg"]
+
+[sub_resource type="Resource" id="Resource_8hgq8"]
+script = ExtResource("1_d6fik")
+type = 0
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_d6fik"]
+script = ExtResource("3_uyq7f")
+min_value = -10.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_op18g"]
+script = ExtResource("1_d6fik")
+inline_widget = SubResource("Resource_d6fik")
+type = 2
+label = "最小值"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_gwlvh"]
+script = ExtResource("3_uyq7f")
+min_value = -10.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_rrk6n"]
+script = ExtResource("1_d6fik")
+inline_widget = SubResource("Resource_gwlvh")
+type = 2
+label = "最大值"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_o7eq3"]
+script = ExtResource("4_r2rnq")
+type = 2
+label = "输出"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("5_l1hjg")
+node_id = "number.random"
+display_name = "随机数"
+category = 4
+input_slot_specs = Array[ExtResource("1_d6fik")]([SubResource("Resource_8hgq8"), SubResource("Resource_op18g"), SubResource("Resource_rrk6n")])
+output_slot_specs = Array[ExtResource("4_r2rnq")]([SubResource("Resource_o7eq3")])
+metadata/_custom_type_script = "uid://b77sc5ge5flg0"

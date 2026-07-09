@@ -16,7 +16,7 @@ description=擅长买卖且守财如命的河童",
 &"display_name": "河城荷取",
 &"mirror": false,
 &"nicknames": ["河童"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.1),
 &"portraits": {
 "得意": {
 "export_overrides": {
@@ -118,5 +118,5 @@ description=擅长买卖且守财如命的河童",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.9
 }

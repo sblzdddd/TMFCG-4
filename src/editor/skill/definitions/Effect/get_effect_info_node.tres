@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://cyf72lt2usmre"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_6ovkp"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_larwm"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_howo2"]
+
+[sub_resource type="Resource" id="Resource_82y4f"]
+script = ExtResource("1_6ovkp")
+type = 7
+label = "效果"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_56xcl"]
+script = ExtResource("2_larwm")
+type = 6
+label = "父卡牌"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[sub_resource type="Resource" id="Resource_6ovkp"]
+script = ExtResource("2_larwm")
+type = -5
+label = "效果源"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[sub_resource type="Resource" id="Resource_larwm"]
+script = ExtResource("2_larwm")
+type = -5
+label = "效果目标"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("3_howo2")
+node_id = "effect.get_effect_info"
+display_name = "获取效果信息"
+category = 7
+input_slot_specs = Array[ExtResource("1_6ovkp")]([SubResource("Resource_82y4f")])
+output_slot_specs = Array[ExtResource("2_larwm")]([SubResource("Resource_56xcl"), SubResource("Resource_6ovkp"), SubResource("Resource_larwm")])
+metadata/_custom_type_script = "uid://b77sc5ge5flg0"

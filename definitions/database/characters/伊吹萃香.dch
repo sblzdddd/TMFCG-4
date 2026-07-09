@@ -16,7 +16,7 @@ description=酒瓢为枕的酒吞童子",
 &"display_name": "伊吹萃香",
 &"mirror": false,
 &"nicknames": ["西瓜"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.04, -0.26),
 &"portraits": {
 "喊": {
 "export_overrides": {
@@ -118,5 +118,5 @@ description=酒瓢为枕的酒吞童子",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.86
 }

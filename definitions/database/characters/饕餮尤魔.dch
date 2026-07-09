@@ -16,7 +16,7 @@ description=刚欲同盟盟主",
 &"display_name": "饕餮尤魔",
 &"mirror": false,
 &"nicknames": ["大角羊"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.3),
 &"portraits": {
 "嚣张": {
 "export_overrides": {
@@ -91,5 +91,5 @@ description=刚欲同盟盟主",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.87
 }

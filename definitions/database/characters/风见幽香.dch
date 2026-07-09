@@ -16,7 +16,7 @@ description=四季的鲜花之主",
 &"display_name": "风见幽香",
 &"mirror": false,
 &"nicknames": ["花妈"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.19),
 &"portraits": {
 "威严": {
 "export_overrides": {
@@ -145,5 +145,5 @@ description=四季的鲜花之主",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.88
 }

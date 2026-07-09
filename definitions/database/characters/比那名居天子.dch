@@ -16,7 +16,7 @@ description=有顶天的大小姐",
 &"display_name": "比那名居天子",
 &"mirror": false,
 &"nicknames": ["统领娘", "M子", "天女"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0.08, -0.17),
 &"portraits": {
 "吃瘪": {
 "export_overrides": {
@@ -109,5 +109,5 @@ description=有顶天的大小姐",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.91
 }

@@ -19,6 +19,5 @@ script = ExtResource("definition")
 node_id = "boolean.not"
 display_name = "非"
 category = 5
-node_script_path = "res://src/editor/skill/nodes/Boolean/not_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_1")])

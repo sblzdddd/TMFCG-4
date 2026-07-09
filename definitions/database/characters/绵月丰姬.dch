@@ -16,7 +16,7 @@ description=连接海与山的月之公主",
 &"display_name": "绵月丰姬",
 &"mirror": false,
 &"nicknames": ["绵月姐妹"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.09, 0),
 &"portraits": {
 "假装热血": {
 "export_overrides": {
@@ -136,5 +136,5 @@ description=连接海与山的月之公主",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 1.1
 }

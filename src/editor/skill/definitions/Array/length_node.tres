@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://deaxewkxgt1qf"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_5divy"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_ey2kt"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_cikyq"]
+
+[sub_resource type="Resource" id="input_0"]
+script = ExtResource("1_5divy")
+type = -1000
+label = "输入数组"
+type_mode = 1
+
+[sub_resource type="Resource" id="output_5"]
+script = ExtResource("2_ey2kt")
+type = 2
+label = "长度"
+
+[resource]
+script = ExtResource("3_cikyq")
+node_id = "array.length"
+display_name = "数组长度"
+category = 6
+input_slot_specs = Array[ExtResource("1_5divy")]([SubResource("input_0")])
+output_slot_specs = Array[ExtResource("2_ey2kt")]([SubResource("output_5")])

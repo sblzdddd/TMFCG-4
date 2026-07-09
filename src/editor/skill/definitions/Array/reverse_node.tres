@@ -21,6 +21,5 @@ script = ExtResource("definition")
 node_id = "array.reverse"
 display_name = "反转"
 category = 6
-node_script_path = "res://src/editor/skill/nodes/Array/reverse_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_1")])

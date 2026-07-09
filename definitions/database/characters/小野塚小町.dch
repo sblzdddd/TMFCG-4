@@ -16,7 +16,7 @@ description=三途河的领航员",
 &"display_name": "小野塚小町",
 &"mirror": false,
 &"nicknames": ["死神", "乳町"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, -0.33),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -82,5 +82,5 @@ description=三途河的领航员",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.87
 }

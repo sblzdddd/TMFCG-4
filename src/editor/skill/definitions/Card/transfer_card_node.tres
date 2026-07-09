@@ -6,7 +6,6 @@
 
 [sub_resource type="Resource" id="input_0"]
 script = ExtResource("input_spec")
-label = "事件"
 
 [sub_resource type="Resource" id="input_1"]
 script = ExtResource("input_spec")
@@ -35,13 +34,11 @@ label = "无视被动"
 
 [sub_resource type="Resource" id="output_6"]
 script = ExtResource("output_spec")
-label = "事件"
 
 [resource]
 script = ExtResource("definition")
 node_id = "card.transfer"
 display_name = "转移卡牌"
 category = 1
-node_script_path = "res://src/editor/skill/nodes/Card/transfer_card_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2"), SubResource("input_3"), SubResource("input_4"), SubResource("input_5")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_6")])

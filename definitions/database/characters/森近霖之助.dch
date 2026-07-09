@@ -16,7 +16,7 @@ description=香霖堂店主",
 &"display_name": "森近霖之助",
 &"mirror": false,
 &"nicknames": ["乡长", "香霖"],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(0, 0.29),
 &"portraits": {
 "微笑": {
 "export_overrides": {
@@ -28,5 +28,5 @@ description=香霖堂店主",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 1.12
 }

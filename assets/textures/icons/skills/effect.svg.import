@@ -3,12 +3,12 @@
 importer="svg"
 type="DPITexture"
 uid="uid://u7hyme1dik6j"
-path="res://.godot/imported/lightning.svg-ecaf6875da1a78a6e50b607efbc6a071.dpitex"
+path="res://.godot/imported/effect.svg-4554b3442bbe21395bcd919df9eab264.dpitex"
 
 [deps]
 
-source_file="res://assets/textures/icons/skills/lightning.svg"
-dest_files=["res://.godot/imported/lightning.svg-ecaf6875da1a78a6e50b607efbc6a071.dpitex"]
+source_file="res://assets/textures/icons/skills/effect.svg"
+dest_files=["res://.godot/imported/effect.svg-4554b3442bbe21395bcd919df9eab264.dpitex"]
 
 [params]
 

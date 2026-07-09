@@ -16,7 +16,7 @@ description=愉快的遗忘之伞",
 &"display_name": "多多良小伞",
 &"mirror": false,
 &"nicknames": [],
-&"offset": Vector2(0, 0),
+&"offset": Vector2(-0.02, -0.1),
 &"portraits": {
 "吓人": {
 "export_overrides": {
@@ -145,5 +145,5 @@ description=愉快的遗忘之伞",
 "scene": ""
 }
 },
-&"scale": 1.0
+&"scale": 0.96
 }

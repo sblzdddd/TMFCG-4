@@ -36,6 +36,5 @@ script = ExtResource("definition")
 node_id = "card_holder.random_player"
 display_name = "随机玩家"
 category = 2
-node_script_path = "res://src/editor/skill/nodes/CardHolder/random_player_node.gd"
 input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2")])
 output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_3")])

@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://w1obqu7mf7by"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_vt4h0"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="2_iqpv8"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_o7eq3"]
+[ext_resource type="Script" uid="uid://b7epwx3wfb3lg" path="res://src/editor/skill/slots/input/skill_input_enum.gd" id="2_rrk6n"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_iqpv8"]
+
+[sub_resource type="Resource" id="Resource_8hgq8"]
+script = ExtResource("1_vt4h0")
+type = 0
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_7u2vl"]
+script = ExtResource("2_rrk6n")
+option_names = PackedStringArray("加", "减", "乘", "除", "整除", "次方", "绝对值")
+option_ids = PackedInt32Array(0, 1, 2, 3, 4, 5, 6)
+metadata/_custom_type_script = "uid://b7epwx3wfb3lg"
+
+[sub_resource type="Resource" id="Resource_op18g"]
+script = ExtResource("1_vt4h0")
+inline_widget = SubResource("Resource_7u2vl")
+type = 2
+label = "类型"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_gwlvh"]
+script = ExtResource("2_iqpv8")
+min_value = -10.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_rrk6n"]
+script = ExtResource("1_vt4h0")
+inline_widget = SubResource("Resource_gwlvh")
+type = 2
+label = "A"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_gpoeo"]
+script = ExtResource("2_iqpv8")
+min_value = -10.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_2bm1d"]
+script = ExtResource("1_vt4h0")
+inline_widget = SubResource("Resource_gpoeo")
+type = 2
+label = "B"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_o7eq3"]
+script = ExtResource("2_o7eq3")
+type = 2
+label = "输出"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("3_iqpv8")
+node_id = "number.algebra"
+display_name = "运算"
+category = 4
+input_slot_specs = Array[ExtResource("1_vt4h0")]([SubResource("Resource_8hgq8"), SubResource("Resource_op18g"), SubResource("Resource_rrk6n"), SubResource("Resource_2bm1d")])
+output_slot_specs = Array[ExtResource("2_o7eq3")]([SubResource("Resource_o7eq3")])
+metadata/_custom_type_script = "uid://b77sc5ge5flg0"
