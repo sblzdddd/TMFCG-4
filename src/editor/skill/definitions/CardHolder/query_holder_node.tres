@@ -1,0 +1,83 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://bqn4ugikbpewx"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_bv68g"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="2_5ss1n"]
+[ext_resource type="Script" uid="uid://bhdul5lf04xll" path="res://src/editor/skill/slots/input/skill_input_bool.gd" id="3_5ss1n"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="3_umust"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="4_wptkh"]
+
+[sub_resource type="Resource" id="input_0"]
+script = ExtResource("1_bv68g")
+
+[sub_resource type="Resource" id="Resource_ylag2"]
+script = ExtResource("2_5ss1n")
+min_value = 1.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="input_1"]
+script = ExtResource("1_bv68g")
+inline_widget = SubResource("Resource_ylag2")
+type = 2
+label = "最小数量"
+
+[sub_resource type="Resource" id="Resource_5ss1n"]
+script = ExtResource("2_5ss1n")
+min_value = 1.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_bv68g"]
+script = ExtResource("1_bv68g")
+inline_widget = SubResource("Resource_5ss1n")
+type = 2
+label = "最大数量"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_wptkh"]
+script = ExtResource("3_5ss1n")
+pressed = true
+metadata/_custom_type_script = "uid://bhdul5lf04xll"
+
+[sub_resource type="Resource" id="input_2"]
+script = ExtResource("1_bv68g")
+inline_widget = SubResource("Resource_wptkh")
+type = 3
+label = "包含玩家"
+
+[sub_resource type="Resource" id="Resource_gpoeo"]
+script = ExtResource("3_5ss1n")
+metadata/_custom_type_script = "uid://bhdul5lf04xll"
+
+[sub_resource type="Resource" id="Resource_w2hq8"]
+script = ExtResource("1_bv68g")
+inline_widget = SubResource("Resource_gpoeo")
+type = 3
+label = "包含牌堆"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_6p3r3"]
+script = ExtResource("3_5ss1n")
+metadata/_custom_type_script = "uid://bhdul5lf04xll"
+
+[sub_resource type="Resource" id="Resource_umust"]
+script = ExtResource("1_bv68g")
+inline_widget = SubResource("Resource_6p3r3")
+type = 3
+label = "包含墓地"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_3ywo8"]
+script = ExtResource("3_umust")
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[sub_resource type="Resource" id="output_3"]
+script = ExtResource("3_umust")
+type = -5
+label = "目标"
+
+[resource]
+script = ExtResource("4_wptkh")
+node_id = "card_holder.query_holder"
+display_name = "询问持卡目标"
+category = 2
+input_slot_specs = Array[ExtResource("1_bv68g")]([SubResource("input_0"), SubResource("input_1"), SubResource("Resource_bv68g"), SubResource("input_2"), SubResource("Resource_w2hq8"), SubResource("Resource_umust")])
+output_slot_specs = Array[ExtResource("3_umust")]([SubResource("Resource_3ywo8"), SubResource("output_3")])

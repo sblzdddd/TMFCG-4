@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://b8fht3vj638jq"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_ceqd4"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="3_kisue"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="4_p6dbl"]
+
+[sub_resource type="Resource" id="Resource_h70n7"]
+script = ExtResource("1_ceqd4")
+type = 8
+label = "输入"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_u2s41"]
+script = ExtResource("3_kisue")
+type = 3
+label = "黑色"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("4_p6dbl")
+node_id = "suit.is_black"
+display_name = "是黑色花色"
+category = 8
+input_slot_specs = Array[ExtResource("1_ceqd4")]([SubResource("Resource_h70n7")])
+output_slot_specs = Array[ExtResource("3_kisue")]([SubResource("Resource_u2s41")])

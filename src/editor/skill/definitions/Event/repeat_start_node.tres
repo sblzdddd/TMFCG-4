@@ -1,0 +1,53 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://bepm7u0asp2jn"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_cthek"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="3_2c6tt"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="3_jog6v"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="4_7fqdk"]
+
+[sub_resource type="Resource" id="Resource_cr1bk"]
+script = ExtResource("1_cthek")
+label = "事件"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_b2adc"]
+script = ExtResource("3_jog6v")
+min_value = -10.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_6p3r3"]
+script = ExtResource("1_cthek")
+inline_widget = SubResource("Resource_b2adc")
+type = 2
+label = "n开始"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_imtk4"]
+script = ExtResource("3_jog6v")
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_mmqb3"]
+script = ExtResource("1_cthek")
+inline_widget = SubResource("Resource_imtk4")
+type = 2
+label = "N递增"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_bdffr"]
+script = ExtResource("3_2c6tt")
+label = "事件"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[sub_resource type="Resource" id="Resource_gpoeo"]
+script = ExtResource("3_2c6tt")
+type = 2
+label = "n"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("4_7fqdk")
+node_id = "event.repeat_start"
+display_name = "重复执行开始"
+input_slot_specs = Array[ExtResource("1_cthek")]([SubResource("Resource_cr1bk"), SubResource("Resource_6p3r3"), SubResource("Resource_mmqb3")])
+output_slot_specs = Array[ExtResource("3_2c6tt")]([SubResource("Resource_bdffr"), SubResource("Resource_gpoeo")])
+metadata/_custom_type_script = "uid://b77sc5ge5flg0"

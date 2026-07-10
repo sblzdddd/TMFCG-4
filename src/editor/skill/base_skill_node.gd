@@ -47,16 +47,49 @@ func get_definition_id() -> String:
 		return instance_state.node_id
 	return ""
 
-func can_connect_to(from_node: BaseSkillNode, from_slot: int, to_slot: int) -> bool:
+func can_connect_to(from_node: BaseSkillNode, from_port: int, to_port: int) -> bool:
 	if self == from_node:
 		return false
 	return SkillNodeSlotConstants.types_compatible(
-		from_node.output_type(from_slot),
-		input_type(to_slot)
+		from_node.output_type(from_port),
+		input_type(to_port)
 	)
 
-func input_type(from_slot: int) -> int: return SkillNodeSlotConstants.effective_type(_get_input_spec(from_slot), instance_state)
-func output_type(from_slot: int) -> int: return SkillNodeSlotConstants.effective_type(_get_output_spec(from_slot), instance_state)
+func input_type(port: int) -> int:
+	return SkillNodeSlotConstants.effective_type(input_spec_for_port(port), instance_state)
+
+func output_type(port: int) -> int:
+	return SkillNodeSlotConstants.effective_type(output_spec_for_port(port), instance_state)
+
+func input_spec_for_port(port: int) -> SkillInputSpec:
+	var slot := _slot_for_input_port(port)
+	if slot < 0:
+		return null
+	return _get_input_spec(slot)
+
+func output_spec_for_port(port: int) -> SkillSlotSpec:
+	var slot := _slot_for_output_port(port)
+	if slot < 0:
+		return null
+	return _get_output_spec(slot)
+
+func _slot_for_input_port(port: int) -> int:
+	if port < 0:
+		return -1
+	if not is_inside_tree() or get_input_port_count() == 0:
+		return port
+	if port >= get_input_port_count():
+		return -1
+	return get_input_port_slot(port)
+
+func _slot_for_output_port(port: int) -> int:
+	if port < 0:
+		return -1
+	if not is_inside_tree() or get_output_port_count() == 0:
+		return port
+	if port >= get_output_port_count():
+		return -1
+	return get_output_port_slot(port)
 
 func clear_input_connections(graph: GraphEdit, to_slot: int) -> void:
 	var node_path := graph.get_path_to(self)

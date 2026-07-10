@@ -67,7 +67,7 @@ static func _infer_group_type(node: BaseSkillNode, graph: GraphEdit, group: Stri
 		if NodePath(conn["to_node"]) != node_path:
 			continue
 		var to_port: int = conn["to_port"]
-		var spec := node._get_input_spec(to_port)
+		var spec := (node as BaseSkillNode).input_spec_for_port(to_port)
 		if spec == null or not spec.is_polymorphic() or spec.polymorphic_group != group:
 			continue
 		var from := graph.get_node_or_null(NodePath(conn["from_node"]))
@@ -82,7 +82,7 @@ static func _infer_group_type(node: BaseSkillNode, graph: GraphEdit, group: Stri
 		if NodePath(conn["from_node"]) != node_path:
 			continue
 		var from_port: int = conn["from_port"]
-		var spec := node._get_output_spec(from_port)
+		var spec := (node as BaseSkillNode).output_spec_for_port(from_port)
 		if spec == null or not spec.is_polymorphic() or spec.polymorphic_group != group:
 			continue
 		var to := graph.get_node_or_null(NodePath(conn["to_node"]))

@@ -9,7 +9,8 @@ enum Category {
 	ALGEBRA,
 	BOOLEAN,
 	ARRAY,
-	EFFECT
+	EFFECT,
+	SUIT_VALUE
 }
 
 const ALL: Array[Category] = [
@@ -20,7 +21,8 @@ const ALL: Array[Category] = [
 	Category.ALGEBRA,
 	Category.BOOLEAN,
 	Category.ARRAY,
-	Category.EFFECT
+	Category.EFFECT,
+	Category.SUIT_VALUE
 ]
 
 const TITLEBAR_COLORS: Dictionary = {
@@ -31,7 +33,8 @@ const TITLEBAR_COLORS: Dictionary = {
 	Category.EVENT: Color(0.35686275, 0.35686275, 0.35686275),
 	Category.BOOLEAN: Color(0.5647059, 0.42352942, 0.28235295),
 	Category.ARRAY: Color(0.5137255, 0.5647059, 0.28235295),
-	Category.EFFECT: Color(0.38039216, 0.31764707, 0.6627451)
+	Category.EFFECT: Color(0.38039216, 0.31764707, 0.6627451),
+	Category.SUIT_VALUE: Color(0.27058825, 0.57254905, 0.5176471)
 }
 
 const ICONS: Dictionary = {
@@ -54,6 +57,7 @@ const DISPLAY_NAMES: Dictionary = {
 	Category.BOOLEAN: "布尔",
 	Category.ARRAY: "数组",
 	Category.EFFECT: "效果",
+	Category.SUIT_VALUE: "花色",
 }
 
 static func get_display_name(category: Category) -> String:

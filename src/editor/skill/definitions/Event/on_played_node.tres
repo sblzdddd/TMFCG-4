@@ -21,15 +21,32 @@ type = 3
 label = "无视场合"
 metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
 
+[sub_resource type="Resource" id="Resource_6p3r3"]
+script = ExtResource("2_muasq")
+metadata/_custom_type_script = "uid://bhdul5lf04xll"
+
+[sub_resource type="Resource" id="Resource_gpoeo"]
+script = ExtResource("1_da7sg")
+inline_widget = SubResource("Resource_6p3r3")
+type = 3
+label = "选择玩家"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
 [sub_resource type="Resource" id="Resource_bdffr"]
 script = ExtResource("2_bdffr")
 label = "事件"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[sub_resource type="Resource" id="Resource_mmqb3"]
+script = ExtResource("2_bdffr")
+type = 5
+label = "目标玩家"
 metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
 
 [resource]
 script = ExtResource("3_muasq")
 node_id = "event.on_played"
 display_name = "当被打出"
-input_slot_specs = Array[ExtResource("1_da7sg")]([SubResource("Resource_g81ad"), SubResource("Resource_cr1bk")])
-output_slot_specs = Array[ExtResource("2_bdffr")]([SubResource("Resource_bdffr")])
+input_slot_specs = Array[ExtResource("1_da7sg")]([SubResource("Resource_g81ad"), SubResource("Resource_cr1bk"), SubResource("Resource_gpoeo")])
+output_slot_specs = Array[ExtResource("2_bdffr")]([SubResource("Resource_bdffr"), SubResource("Resource_mmqb3")])
 metadata/_custom_type_script = "uid://b77sc5ge5flg0"

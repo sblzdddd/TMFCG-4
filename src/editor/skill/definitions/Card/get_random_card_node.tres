@@ -5,9 +5,6 @@
 [ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="input_spec"]
 [ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="output_spec"]
 
-[sub_resource type="Resource" id="input_0"]
-script = ExtResource("input_spec")
-
 [sub_resource type="Resource" id="input_1"]
 script = ExtResource("input_spec")
 type = -5
@@ -24,9 +21,6 @@ inline_widget = SubResource("Resource_3bbdh")
 type = 2
 label = "随机数量"
 
-[sub_resource type="Resource" id="output_3"]
-script = ExtResource("output_spec")
-
 [sub_resource type="Resource" id="output_4"]
 script = ExtResource("output_spec")
 type = -6
@@ -37,5 +31,5 @@ script = ExtResource("definition")
 node_id = "card.get_random"
 display_name = "随机获取卡牌"
 category = 1
-input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_0"), SubResource("input_1"), SubResource("input_2")])
-output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_3"), SubResource("output_4")])
+input_slot_specs = Array[ExtResource("input_spec")]([SubResource("input_1"), SubResource("input_2")])
+output_slot_specs = Array[ExtResource("output_spec")]([SubResource("output_4")])

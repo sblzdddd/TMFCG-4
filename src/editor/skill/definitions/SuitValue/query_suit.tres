@@ -1,0 +1,68 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://qnqp35skcfls"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_ms6p6"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="2_yi5r3"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="3_3hrd2"]
+[ext_resource type="Script" uid="uid://bhdul5lf04xll" path="res://src/editor/skill/slots/input/skill_input_bool.gd" id="3_yi5r3"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="4_toevf"]
+
+[sub_resource type="Resource" id="input_5"]
+script = ExtResource("1_ms6p6")
+
+[sub_resource type="Resource" id="Resource_h70n7"]
+script = ExtResource("1_ms6p6")
+type = 5
+label = "玩家"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_a5rhy"]
+script = ExtResource("2_yi5r3")
+max_value = 4.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_ydafr"]
+script = ExtResource("1_ms6p6")
+inline_widget = SubResource("Resource_a5rhy")
+type = 2
+label = "最少选择"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_sarna"]
+script = ExtResource("2_yi5r3")
+max_value = 4.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_ups0n"]
+script = ExtResource("1_ms6p6")
+inline_widget = SubResource("Resource_sarna")
+type = 2
+label = "最多选择"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_6p3r3"]
+script = ExtResource("3_yi5r3")
+metadata/_custom_type_script = "uid://bhdul5lf04xll"
+
+[sub_resource type="Resource" id="Resource_gpoeo"]
+script = ExtResource("1_ms6p6")
+inline_widget = SubResource("Resource_6p3r3")
+type = 3
+label = "仅询问颜色"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="output_6"]
+script = ExtResource("3_3hrd2")
+
+[sub_resource type="Resource" id="Resource_u2s41"]
+script = ExtResource("3_3hrd2")
+type = -8
+label = "选项"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("4_toevf")
+node_id = "suit.query_suit"
+display_name = "询问花色"
+category = 8
+input_slot_specs = Array[ExtResource("1_ms6p6")]([SubResource("input_5"), SubResource("Resource_h70n7"), SubResource("Resource_ydafr"), SubResource("Resource_ups0n"), SubResource("Resource_gpoeo")])
+output_slot_specs = Array[ExtResource("3_3hrd2")]([SubResource("output_6"), SubResource("Resource_u2s41")])

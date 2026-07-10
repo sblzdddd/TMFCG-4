@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://5c3whho5clpt"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_ydafr"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="2_sarna"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="2_ups0n"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="3_sarna"]
+
+[sub_resource type="Resource" id="input_5"]
+script = ExtResource("1_ydafr")
+
+[sub_resource type="Resource" id="Resource_h70n7"]
+script = ExtResource("1_ydafr")
+type = 5
+label = "玩家"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_rc6xw"]
+script = ExtResource("1_ydafr")
+type = -6
+label = "卡牌"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_a5rhy"]
+script = ExtResource("2_sarna")
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_ydafr"]
+script = ExtResource("1_ydafr")
+inline_widget = SubResource("Resource_a5rhy")
+type = 2
+label = "最少选择"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_sarna"]
+script = ExtResource("2_sarna")
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_ups0n"]
+script = ExtResource("1_ydafr")
+inline_widget = SubResource("Resource_sarna")
+type = 2
+label = "最多选择"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="output_6"]
+script = ExtResource("2_ups0n")
+
+[sub_resource type="Resource" id="Resource_u2s41"]
+script = ExtResource("2_ups0n")
+type = -6
+label = "选项"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("3_sarna")
+node_id = "card.query_selection"
+display_name = "询问玩家选择"
+category = 1
+input_slot_specs = Array[ExtResource("1_ydafr")]([SubResource("input_5"), SubResource("Resource_h70n7"), SubResource("Resource_rc6xw"), SubResource("Resource_ydafr"), SubResource("Resource_ups0n")])
+output_slot_specs = Array[ExtResource("2_ups0n")]([SubResource("output_6"), SubResource("Resource_u2s41")])

@@ -325,6 +325,7 @@ size_flags_stretch_ratio = 4.0
 right_disconnects = true
 type_names = {
 -1000: "Any[]",
+-8: "Suit[]",
 -7: "Effect[]",
 -6: "Card[]",
 -5: "CardHolder[]",
@@ -338,6 +339,7 @@ type_names = {
 5: "CardHolder",
 6: "Card",
 7: "Effect",
+8: "Suit",
 1000: "Any"
 }
 show_zoom_label = true

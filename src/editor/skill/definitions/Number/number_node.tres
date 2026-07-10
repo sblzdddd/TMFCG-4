@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://cmscmt07e6n66"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_djlmx"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="2_dgdp1"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="3_t1ku8"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="4_f1mnm"]
+
+[sub_resource type="Resource" id="Resource_gwlvh"]
+script = ExtResource("2_dgdp1")
+min_value = -10.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_rrk6n"]
+script = ExtResource("1_djlmx")
+inline_widget = SubResource("Resource_gwlvh")
+type = 2
+label = "数字"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="Resource_o7eq3"]
+script = ExtResource("3_t1ku8")
+type = 2
+label = "数字"
+metadata/_custom_type_script = "uid://dt7kn4p7m52ie"
+
+[resource]
+script = ExtResource("4_f1mnm")
+node_id = "number.primitive"
+display_name = "数字"
+category = 4
+input_slot_specs = Array[ExtResource("1_djlmx")]([SubResource("Resource_rrk6n")])
+output_slot_specs = Array[ExtResource("3_t1ku8")]([SubResource("Resource_o7eq3")])
+metadata/_custom_type_script = "uid://b77sc5ge5flg0"

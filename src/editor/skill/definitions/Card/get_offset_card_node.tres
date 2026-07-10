@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="SkillNodeDefinition" format=3 uid="uid://d0ccsplatoerp"]
+
+[ext_resource type="Script" uid="uid://dc2i6tsclsn6p" path="res://src/editor/skill/slots/skill_input_spec.gd" id="1_a1oil"]
+[ext_resource type="Script" uid="uid://bkp1kvpvpi3bd" path="res://src/editor/skill/slots/input/skill_input_number.gd" id="2_7dmd0"]
+[ext_resource type="Script" uid="uid://dt7kn4p7m52ie" path="res://src/editor/skill/slots/skill_slot_spec.gd" id="3_rgr7h"]
+[ext_resource type="Script" uid="uid://b77sc5ge5flg0" path="res://src/editor/skill/registry/skill_node_definition.gd" id="4_akb0f"]
+
+[sub_resource type="Resource" id="input_1"]
+script = ExtResource("1_a1oil")
+type = -5
+label = "目标"
+
+[sub_resource type="Resource" id="Resource_3bbdh"]
+script = ExtResource("2_7dmd0")
+min_value = -10.0
+value = 0.0
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="input_2"]
+script = ExtResource("1_a1oil")
+inline_widget = SubResource("Resource_3bbdh")
+type = 2
+label = "偏移"
+
+[sub_resource type="Resource" id="Resource_ktn77"]
+script = ExtResource("2_7dmd0")
+metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
+
+[sub_resource type="Resource" id="Resource_bq7vg"]
+script = ExtResource("1_a1oil")
+inline_widget = SubResource("Resource_ktn77")
+type = 2
+label = "数量"
+metadata/_custom_type_script = "uid://dc2i6tsclsn6p"
+
+[sub_resource type="Resource" id="output_4"]
+script = ExtResource("3_rgr7h")
+type = -6
+label = "卡牌"
+
+[resource]
+script = ExtResource("4_akb0f")
+node_id = "card.get_offset"
+display_name = "顺序获取卡牌"
+category = 1
+input_slot_specs = Array[ExtResource("1_a1oil")]([SubResource("input_1"), SubResource("input_2"), SubResource("Resource_bq7vg")])
+output_slot_specs = Array[ExtResource("3_rgr7h")]([SubResource("output_4")])
