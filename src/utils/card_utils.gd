@@ -27,7 +27,7 @@ const NORMAL_RANKS: Array[Rank] = [
 
 const JOKER_RANKS: Array[Rank] = [
 	Rank.SMALL_JOKER,
-	Rank.LARGE_JOKER,
+	Rank.BIG_JOKER,
 ]
 
 const NORMAL_SUITS: Array[Suit] = [
@@ -44,7 +44,7 @@ static func create_default_deck_cards() -> Array[CardData]:
 		for rank in NORMAL_RANKS:
 			cards.append(create_card(suit, rank))
 	cards.append(create_card(Suit.JOKERS, Rank.SMALL_JOKER))
-	cards.append(create_card(Suit.JOKERS, Rank.LARGE_JOKER))
+	cards.append(create_card(Suit.JOKERS, Rank.BIG_JOKER))
 	return cards
 
 
@@ -58,22 +58,9 @@ static func create_card(suit: Suit, rank: Rank) -> CardData:
 
 static func rank_display(rank: Rank) -> String:
 	match rank:
-		Rank.ACE: return "A"
-		Rank.TWO: return "2"
-		Rank.THREE: return "3"
-		Rank.FOUR: return "4"
-		Rank.FIVE: return "5"
-		Rank.SIX: return "6"
-		Rank.SEVEN: return "7"
-		Rank.EIGHT: return "8"
-		Rank.NINE: return "9"
-		Rank.TEN: return "10"
-		Rank.JACK: return "J"
-		Rank.QUEEN: return "Q"
-		Rank.KING: return "K"
 		Rank.SMALL_JOKER: return "小王"
-		Rank.LARGE_JOKER: return "大王"
-		_: return "-"
+		Rank.BIG_JOKER: return "大王"
+		_: return CardEnums.rank_display_name(rank)
 
 
 static func suit_icon(suit: Suit) -> Texture2D:

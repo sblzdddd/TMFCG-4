@@ -196,6 +196,10 @@ folder_colors={
 "res://src/": "purple"
 }
 
+[gdunit4]
+
+settings/test/test_lookup_folder="src/tests"
+
 [gui]
 
 theme/custom="uid://cmkxu7qxcs7w"
