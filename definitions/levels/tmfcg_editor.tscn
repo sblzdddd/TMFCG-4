@@ -4,14 +4,18 @@
 [ext_resource type="Script" uid="uid://c0wetakut8mtj" path="res://src/editor/card/card_editor.gd" id="1_yln7k"]
 [ext_resource type="Texture2D" uid="uid://bymlbr4o2m3jc" path="res://addons/dialogic/Editor/Images/Toolbar/add-timeline.svg" id="2_ddp17"]
 [ext_resource type="Texture2D" uid="uid://my600mb32ydt" path="res://addons/dialogic/Editor/Images/Toolbar/add-character.svg" id="3_ku0qb"]
-[ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/curved_text.gd" id="4_78jd5"]
-[ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/Remove.svg" id="4_ku0qb"]
+[ext_resource type="Texture2D" uid="uid://cybyv3trgi3ia" path="res://assets/textures/icons/editor/Exit.svg" id="3_mmqb3"]
+[ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/effects/curved_text.gd" id="4_78jd5"]
+[ext_resource type="Script" uid="uid://bpeqowqctvoqd" path="res://src/editor/editor_exit.gd" id="4_imtk4"]
+[ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/editor/Remove.svg" id="4_ku0qb"]
+[ext_resource type="Texture2D" uid="uid://btsj6sf15qqm7" path="res://assets/textures/icons/editor/TextEditorPlay.svg" id="4_mmqb3"]
+[ext_resource type="Texture2D" uid="uid://mjo7aexmn1ff" path="res://assets/textures/icons/editor/Debug.svg" id="5_b2adc"]
 [ext_resource type="Script" uid="uid://hkpiu6q3bflg" path="res://src/editor/filetree/editor_file_tree.gd" id="5_g7un2"]
-[ext_resource type="Texture2D" uid="uid://ds03fekh734pw" path="res://assets/textures/icons/GuiTabMenuHl.svg" id="5_nut5s"]
+[ext_resource type="Texture2D" uid="uid://ds03fekh734pw" path="res://assets/textures/icons/editor/GuiTabMenuHl.svg" id="5_nut5s"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
-[ext_resource type="Texture2D" uid="uid://cp0qqkttlqmur" path="res://assets/textures/icons/Folder.svg" id="6_1od3q"]
+[ext_resource type="Texture2D" uid="uid://cp0qqkttlqmur" path="res://assets/textures/icons/editor/Folder.svg" id="6_1od3q"]
 [ext_resource type="Shader" uid="uid://dnd6tkba6tv0y" path="res://src/shaders/card_simple.gdshader" id="6_vch8h"]
-[ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/viewport_fit_container.gd" id="6_vfit"]
+[ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/common/viewport_fit_container.gd" id="6_vfit"]
 [ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="7_6nsyj"]
 [ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/gameplay/card_visual.gd" id="7_6v3qa"]
 [ext_resource type="Texture2D" uid="uid://dy71fyoy027lb" path="res://assets/textures/cards/tex_card_jqk.png" id="7_dv6ku"]
@@ -67,13 +71,13 @@
 [ext_resource type="Texture2D" uid="uid://bi1kmhne22erd" path="res://assets/textures/characters/针妙丸 微笑.png" id="62_so5s5"]
 [ext_resource type="Texture2D" uid="uid://ca4lf2d87itar" path="res://assets/textures/characters/帕秋莉 无表情.png" id="63_dbums"]
 [ext_resource type="Texture2D" uid="uid://ddavdxgn06on5" path="res://assets/textures/characters/响子 无表情.png" id="64_pnn3x"]
-[ext_resource type="Texture2D" uid="uid://bfbl323q7q3cg" path="res://assets/textures/icons/club.svg" id="65_ajpjh"]
+[ext_resource type="Texture2D" uid="uid://bfbl323q7q3cg" path="res://assets/textures/icons/editor/club.svg" id="65_ajpjh"]
 [ext_resource type="Texture2D" uid="uid://cswa5k5qbtttk" path="res://assets/textures/characters/摩多罗 微笑.png" id="65_gxqc0"]
-[ext_resource type="Texture2D" uid="uid://30jriskhlkd5" path="res://assets/textures/icons/diamond.svg" id="66_4cosb"]
-[ext_resource type="Texture2D" uid="uid://cbif1g5f3q7c6" path="res://assets/textures/icons/heart.svg" id="66_4edsy"]
+[ext_resource type="Texture2D" uid="uid://30jriskhlkd5" path="res://assets/textures/icons/editor/diamond.svg" id="66_4cosb"]
+[ext_resource type="Texture2D" uid="uid://cbif1g5f3q7c6" path="res://assets/textures/icons/editor/heart.svg" id="66_4edsy"]
 [ext_resource type="Texture2D" uid="uid://gyi704j2k1or" path="res://assets/textures/characters/星熊勇仪 微笑.png" id="66_hd8jp"]
 [ext_resource type="Texture2D" uid="uid://bpv8ihfvb6ohp" path="res://assets/textures/characters/村纱 微笑.png" id="67_2qxvv"]
-[ext_resource type="Texture2D" uid="uid://icl1ocakwctn" path="res://assets/textures/icons/spade.svg" id="68_0pi1g"]
+[ext_resource type="Texture2D" uid="uid://icl1ocakwctn" path="res://assets/textures/icons/editor/spade.svg" id="68_0pi1g"]
 [ext_resource type="Texture2D" uid="uid://cmb0xw1gawbv3" path="res://assets/textures/characters/梅蒂欣 无表情.png" id="68_8g1ao"]
 [ext_resource type="Texture2D" uid="uid://bomtqk85nrdha" path="res://assets/textures/characters/梦子 微笑.png" id="69_glq0q"]
 [ext_resource type="Texture2D" uid="uid://woxup8tkx6ut" path="res://assets/textures/characters/乡长 微笑.png" id="70_6njo2"]
@@ -126,6 +130,18 @@
 [ext_resource type="Texture2D" uid="uid://bu4ch44yebwou" path="res://assets/textures/characters/魅魔 微笑.png" id="116_tyyw0"]
 [ext_resource type="Texture2D" uid="uid://cvq7cbhf4dvyj" path="res://assets/textures/characters/黑谷山女 微笑.png" id="117_n1qwt"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mmqb3"]
+bg_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.30500805, 0.30500805, 0.30500805, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0yhb"]
 content_margin_left = 8.0
 content_margin_top = 8.0
@@ -137,7 +153,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gpoeo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2adc"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -158,7 +174,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_6p3r3"]
+[sub_resource type="LabelSettings" id="LabelSettings_imtk4"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -166,7 +182,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_mmqb3"]
+[sub_resource type="LabelSettings" id="LabelSettings_1m5da"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -220,32 +236,145 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_yln7k")
-_inspector = NodePath("EditorLayout/Panel/VSplitContainer/CardInspector")
-_file_tree = NodePath("EditorLayout/FilesPanel/MarginContainer/Files/EditorFileTree")
-_skill_graph = NodePath("EditorLayout/SkillGraph")
-_add_deck_button = NodePath("EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer/AddDeckButton")
-_add_character_button = NodePath("EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer/AddCharacterButton")
-_delete_button = NodePath("EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer/DeleteButton")
+_inspector = NodePath("EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector")
+_file_tree = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/EditorFileTree")
+_skill_graph = NodePath("EditorLayout/EditorSplits/SkillGraph")
+_add_deck_button = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer/AddDeckButton")
+_add_character_button = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer/AddCharacterButton")
+_delete_button = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer/DeleteButton")
 _create_deck_dialog = NodePath("CreateDeckDialog")
 _create_character_dialog = NodePath("CreateCharacterDialog")
 _add_card_dialog = NodePath("AddCardDialog")
 _delete_confirm_dialog = NodePath("DeleteConfirmDialog")
 metadata/_edit_use_anchors_ = true
 
-[node name="EditorLayout" type="HSplitContainer" parent="." unique_id=762217452]
+[node name="EditorLayout" type="VBoxContainer" parent="." unique_id=211226850]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout" unique_id=2031431045]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="ExitButton" type="Button" parent="EditorLayout/HBoxContainer" unique_id=1603349444 node_paths=PackedStringArray("_exit_confirm_dialog")]
+modulate = Color(0.84227884, 0.84227884, 0.84227884, 1)
+layout_mode = 2
+theme_override_constants/icon_max_width = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+icon = ExtResource("3_mmqb3")
+flat = true
+script = ExtResource("4_imtk4")
+_exit_confirm_dialog = NodePath("../../../ExitConfirmDialog")
+
+[node name="Button2" type="Button" parent="EditorLayout/HBoxContainer" unique_id=641274860]
+layout_mode = 2
+theme_override_constants/icon_max_width = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+text = "File"
+flat = true
+
+[node name="Button3" type="Button" parent="EditorLayout/HBoxContainer" unique_id=1144018079]
+layout_mode = 2
+theme_override_constants/icon_max_width = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+text = "Edit"
+flat = true
+
+[node name="Button4" type="Button" parent="EditorLayout/HBoxContainer" unique_id=635471515]
+layout_mode = 2
+theme_override_constants/icon_max_width = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+text = "View"
+flat = true
+
+[node name="Button7" type="Button" parent="EditorLayout/HBoxContainer" unique_id=230717474]
+layout_mode = 2
+theme_override_constants/icon_max_width = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+text = "Run"
+flat = true
+
+[node name="Button6" type="Button" parent="EditorLayout/HBoxContainer" unique_id=2093494924]
+layout_mode = 2
+theme_override_constants/icon_max_width = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+text = "Settings"
+flat = true
+
+[node name="Button5" type="Button" parent="EditorLayout/HBoxContainer" unique_id=744664689]
+layout_mode = 2
+theme_override_constants/icon_max_width = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+text = "Help"
+flat = true
+
+[node name="Control" type="Control" parent="EditorLayout/HBoxContainer" unique_id=704289000]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button8" type="Button" parent="EditorLayout/HBoxContainer" unique_id=327553132]
+layout_mode = 2
+theme_override_constants/icon_max_width = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+icon = ExtResource("4_mmqb3")
+flat = true
+
+[node name="Button9" type="Button" parent="EditorLayout/HBoxContainer" unique_id=707708406]
+layout_mode = 2
+theme_override_constants/icon_max_width = 17
+theme_override_styles/normal = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_mmqb3")
+theme_override_styles/focus = SubResource("StyleBoxFlat_mmqb3")
+icon = ExtResource("5_b2adc")
+flat = true
+
+[node name="EditorSplits" type="HSplitContainer" parent="EditorLayout" unique_id=762217452]
+layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 12
-split_offsets = PackedInt32Array(-999, -100)
-split_offset = -999
+split_offsets = PackedInt32Array(0, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="FilesPanel" type="Panel" parent="EditorLayout" unique_id=1426220321]
+[node name="FilesPanel" type="Panel" parent="EditorLayout/EditorSplits" unique_id=1426220321]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_n0yhb")
 
-[node name="MarginContainer" type="MarginContainer" parent="EditorLayout/FilesPanel" unique_id=1360136461]
+[node name="MarginContainer" type="MarginContainer" parent="EditorLayout/EditorSplits/FilesPanel" unique_id=1360136461]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,35 +387,35 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="Files" type="VBoxContainer" parent="EditorLayout/FilesPanel/MarginContainer" unique_id=980845409]
+[node name="Files" type="VBoxContainer" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer" unique_id=980845409]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/FilesPanel/MarginContainer/Files" unique_id=1113897241]
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files" unique_id=1113897241]
 layout_mode = 2
 
-[node name="AddDeckButton" type="Button" parent="EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=1725565134]
+[node name="AddDeckButton" type="Button" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=1725565134]
 layout_mode = 2
 icon = ExtResource("2_ddp17")
 
-[node name="AddCharacterButton" type="Button" parent="EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=2131441249]
+[node name="AddCharacterButton" type="Button" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=2131441249]
 layout_mode = 2
 icon = ExtResource("3_ku0qb")
 
-[node name="Spacer" type="Control" parent="EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=719944225]
+[node name="Spacer" type="Control" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=719944225]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DeleteButton" type="Button" parent="EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=390359013]
+[node name="DeleteButton" type="Button" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=390359013]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("4_ku0qb")
 icon_alignment = 1
 
-[node name="MoreOptions" type="MenuButton" parent="EditorLayout/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=432605624 node_paths=PackedStringArray("_file_tree")]
+[node name="MoreOptions" type="MenuButton" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=432605624 node_paths=PackedStringArray("_file_tree")]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("5_nut5s")
@@ -303,7 +432,7 @@ popup/item_1/id = 1
 script = ExtResource("20_mopts")
 _file_tree = NodePath("../../EditorFileTree")
 
-[node name="EditorFileTree" type="Tree" parent="EditorLayout/FilesPanel/MarginContainer/Files" unique_id=913368672]
+[node name="EditorFileTree" type="Tree" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files" unique_id=913368672]
 layout_mode = 2
 size_flags_vertical = 3
 hide_root = true
@@ -317,7 +446,7 @@ diamond_icon = ExtResource("66_4cosb")
 heart_icon = ExtResource("66_4edsy")
 spade_icon = ExtResource("68_0pi1g")
 
-[node name="SkillGraph" type="GraphEdit" parent="EditorLayout" unique_id=1829042089]
+[node name="SkillGraph" type="GraphEdit" parent="EditorLayout/EditorSplits" unique_id=1829042089]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -347,12 +476,12 @@ script = ExtResource("12_skill_graph")
 read_only = true
 metadata/_edit_use_anchors_ = true
 
-[node name="Panel" type="Panel" parent="EditorLayout" unique_id=1748177973]
+[node name="Panel" type="Panel" parent="EditorLayout/EditorSplits" unique_id=1748177973]
 custom_minimum_size = Vector2(380, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VSplitContainer" type="VSplitContainer" parent="EditorLayout/Panel" unique_id=1600976675]
+[node name="VSplitContainer" type="VSplitContainer" parent="EditorLayout/EditorSplits/Panel" unique_id=1600976675]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -361,17 +490,17 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="CardPreview" type="Container" parent="EditorLayout/Panel/VSplitContainer" unique_id=937863629]
+[node name="CardPreview" type="Container" parent="EditorLayout/EditorSplits/Panel/VSplitContainer" unique_id=937863629]
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("6_vfit")
 
-[node name="Card" type="Control" parent="EditorLayout/Panel/VSplitContainer/CardPreview" unique_id=1572695618]
+[node name="Card" type="Control" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview" unique_id=1572695618]
 layout_mode = 2
 
-[node name="CardVisual" type="ColorRect" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_gpoeo")
+[node name="CardVisual" type="ColorRect" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
+material = SubResource("ShaderMaterial_b2adc")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -380,7 +509,7 @@ script = ExtResource("7_6v3qa")
 valueLabels = [NodePath("ValueLabel"), NodePath("ValueLabel2")]
 _name_label = NodePath("CharacterNameLabel")
 
-[node name="ValueLabel" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=90094314]
+[node name="ValueLabel" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=90094314]
 layout_mode = 1
 offset_left = 35.96754
 offset_top = 19.101124
@@ -391,13 +520,13 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_6p3r3")
+label_settings = SubResource("LabelSettings_imtk4")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="ValueLabel2" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=1658481521]
+[node name="ValueLabel2" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=1658481521]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -416,13 +545,13 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_mmqb3")
+label_settings = SubResource("LabelSettings_1m5da")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="CharacterNameLabel" type="Path2D" parent="EditorLayout/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=895058224]
+[node name="CharacterNameLabel" type="Path2D" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=895058224]
 position = Vector2(-1.1111112, -15.969998)
 scale = Vector2(0.49999994, 0.49999994)
 curve = SubResource("Curve2D_76muk")
@@ -430,7 +559,7 @@ script = ExtResource("4_78jd5")
 text = "-"
 label_settings = ExtResource("5_w2akv")
 
-[node name="CardInspector" type="ScrollContainer" parent="EditorLayout/Panel/VSplitContainer" unique_id=964327149 node_paths=PackedStringArray("_preview", "_character_configurator", "_suit_edit", "_value_edit", "_enable_skill", "_skill_settings", "_skill_priority")]
+[node name="CardInspector" type="ScrollContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer" unique_id=964327149 node_paths=PackedStringArray("_preview", "_character_configurator", "_suit_edit", "_value_edit", "_enable_skill", "_skill_settings", "_skill_priority")]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.66
@@ -449,15 +578,15 @@ _heart_icon = ExtResource("66_4edsy")
 _spade_icon = ExtResource("68_0pi1g")
 metadata/_edit_use_anchors_ = true
 
-[node name="CardEditLayout" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector" unique_id=738772903]
+[node name="CardEditLayout" type="VBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector" unique_id=738772903]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 16
 
-[node name="CardBasicInfoEdit" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=1736368752]
+[node name="CardBasicInfoEdit" type="HBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=1736368752]
 layout_mode = 2
 
-[node name="SuitEdit" type="OptionButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CardBasicInfoEdit" unique_id=711496511]
+[node name="SuitEdit" type="OptionButton" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CardBasicInfoEdit" unique_id=711496511]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
@@ -478,7 +607,7 @@ popup/item_3/id = 3
 popup/item_4/text = "大/小王"
 popup/item_4/id = 4
 
-[node name="ValueEdit" type="OptionButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CardBasicInfoEdit" unique_id=1487748303]
+[node name="ValueEdit" type="OptionButton" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CardBasicInfoEdit" unique_id=1487748303]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
@@ -515,7 +644,7 @@ popup/item_13/id = 30
 popup/item_14/text = "大王"
 popup/item_14/id = 40
 
-[node name="CharacterInfoPreview" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_set_default_button", "_character_editor_button")]
+[node name="CharacterInfoPreview" type="HBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=514010673 node_paths=PackedStringArray("_picker_dialog", "_select_button", "_variant_selection", "_variant_prev", "_variant_next", "_name_info", "_description_label", "_x_edit", "_y_edit", "_scale_edit", "_reset_button", "_set_default_button", "_character_editor_button")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -535,31 +664,30 @@ _reset_button = NodePath("../CharacterButtonGrid/CharacterResetButton")
 _set_default_button = NodePath("../CharacterButtonGrid/CharacterSetDefaultButton")
 _character_editor_button = NodePath("../CharacterButtonGrid/CharacterEditButton")
 
-[node name="CharacterInfo" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=619171250]
+[node name="CharacterInfo" type="VBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=619171250]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="CharacterName" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=743919923]
+[node name="CharacterName" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=743919923]
 layout_mode = 2
 label_settings = ExtResource("25_jmc66")
 
-[node name="CharacterDesc" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=351365160]
+[node name="CharacterDesc" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=351365160]
 layout_mode = 2
 size_flags_vertical = 3
 label_settings = SubResource("LabelSettings_w2akv")
 
-[node name="CharacterVariant" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=1731253689]
+[node name="CharacterVariant" type="HBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo" unique_id=1731253689]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="CharacterVariantSelection" type="OptionButton" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=175221568]
+[node name="CharacterVariantSelection" type="OptionButton" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=175221568]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 8
-theme_override_fonts/font = ExtResource("7_6nsyj")
 disabled = true
 selected = 0
 item_count = 1
@@ -567,7 +695,7 @@ popup/item_0/text = "选择差分"
 popup/item_0/id = 0
 popup/item_0/disabled = true
 
-[node name="CharacterVariantPrev" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=2110805750]
+[node name="CharacterVariantPrev" type="Button" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=2110805750]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
@@ -575,7 +703,7 @@ theme_override_constants/icon_max_width = 18
 disabled = true
 icon = ExtResource("9_0aqhm")
 
-[node name="CharacterVariantNext" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=1136764872]
+[node name="CharacterVariantNext" type="Button" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterInfo/CharacterVariant" unique_id=1136764872]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 8
@@ -583,12 +711,12 @@ theme_override_constants/icon_max_width = 18
 disabled = true
 icon = ExtResource("10_naion")
 
-[node name="CharacterSelectButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=501151671]
+[node name="CharacterSelectButton" type="Button" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=501151671]
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 text = "选择..."
 
-[node name="CharacterPicker" type="Window" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=946364589 node_paths=PackedStringArray("_search", "_character_list")]
+[node name="CharacterPicker" type="Window" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=946364589 node_paths=PackedStringArray("_search", "_character_list")]
 oversampling_override = 1.0
 title = "选择角色"
 initial_position = 1
@@ -600,7 +728,7 @@ script = ExtResource("16_cpick")
 _search = NodePath("MarginContainer/VBoxContainer/SearchEdit")
 _character_list = NodePath("MarginContainer/VBoxContainer/CharacterList")
 
-[node name="MarginContainer" type="MarginContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker" unique_id=1847293051]
+[node name="MarginContainer" type="MarginContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker" unique_id=1847293051]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -611,18 +739,18 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer" unique_id=1847293052]
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer" unique_id=1847293052]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="SearchEdit" type="LineEdit" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293053]
+[node name="SearchEdit" type="LineEdit" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293053]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "搜索角色..."
 
-[node name="CharacterList" type="ItemList" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293054]
+[node name="CharacterList" type="ItemList" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293054]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -805,10 +933,10 @@ item_83/icon = ExtResource("116_tyyw0")
 item_84/text = "黑谷山女"
 item_84/icon = ExtResource("117_n1qwt")
 
-[node name="GridContainer" type="VBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=577969564]
+[node name="GridContainer" type="VBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=577969564]
 layout_mode = 2
 
-[node name="CharacterOffsetX" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=224716145 instance=ExtResource("12_vedit")]
+[node name="CharacterOffsetX" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=224716145 instance=ExtResource("12_vedit")]
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
 min_value = -1.0
@@ -816,7 +944,7 @@ step = 0.01
 custom_arrow_step = 0.1
 label_text = "角色X偏移"
 
-[node name="CharacterOffsetY" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=4476501 instance=ExtResource("12_vedit")]
+[node name="CharacterOffsetY" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=4476501 instance=ExtResource("12_vedit")]
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
 min_value = -1.0
@@ -824,7 +952,7 @@ step = 0.01
 custom_arrow_step = 0.1
 label_text = "角色Y偏移"
 
-[node name="CharacterScale" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=464163771 instance=ExtResource("12_vedit")]
+[node name="CharacterScale" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/GridContainer" unique_id=464163771 instance=ExtResource("12_vedit")]
 layout_mode = 2
 size_flags_stretch_ratio = 4.0
 max_value = 2.0
@@ -833,49 +961,49 @@ value = 1.0
 custom_arrow_step = 0.1
 label_text = "角色缩放"
 
-[node name="CharacterButtonGrid" type="HBoxContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=517559374]
+[node name="CharacterButtonGrid" type="HBoxContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=517559374]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 2
 
-[node name="CharacterEditButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=1482695527]
+[node name="CharacterEditButton" type="Button" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=1482695527]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
 shortcut = SubResource("Shortcut_t7h14")
 text = "编辑角色..."
 
-[node name="CharacterSetDefaultButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=2059150735]
+[node name="CharacterSetDefaultButton" type="Button" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=2059150735]
 custom_minimum_size = Vector2(86.5, 0)
 layout_mode = 2
 text = "设为角色默认变换"
 
-[node name="CharacterResetButton" type="Button" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=1733696815]
+[node name="CharacterResetButton" type="Button" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterButtonGrid" unique_id=1733696815]
 custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = "重置变换"
 
-[node name="SkillSection" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=913005428]
+[node name="SkillSection" type="GridContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=913005428]
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 12
 columns = 3
 
-[node name="SkillTitleLabel" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection" unique_id=637649242]
+[node name="SkillTitleLabel" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection" unique_id=637649242]
 layout_mode = 2
 text = "技能"
 label_settings = SubResource("LabelSettings_rr0j0")
 
-[node name="SkillSpacer" type="Control" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection" unique_id=921691821]
+[node name="SkillSpacer" type="Control" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection" unique_id=921691821]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="EnableSkillRoot" type="Control" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection" unique_id=1128089259]
+[node name="EnableSkillRoot" type="Control" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection" unique_id=1128089259]
 custom_minimum_size = Vector2(84, 0)
 layout_mode = 2
 
-[node name="EnableSkill" type="CheckBox" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection/EnableSkillRoot" unique_id=952735715]
+[node name="EnableSkill" type="CheckBox" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSection/EnableSkillRoot" unique_id=952735715]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.055223666
@@ -897,11 +1025,11 @@ text = "启用   "
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="SkillSettings" type="GridContainer" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=906267376]
+[node name="SkillSettings" type="GridContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout" unique_id=906267376]
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSettings" unique_id=1678439412]
+[node name="Label" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSettings" unique_id=1678439412]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 1
@@ -909,7 +1037,7 @@ text = "优先级："
 label_settings = ExtResource("25_jmc66")
 vertical_alignment = 1
 
-[node name="SkillPriority" parent="EditorLayout/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSettings" unique_id=1967379039 instance=ExtResource("12_vedit")]
+[node name="SkillPriority" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/SkillSettings" unique_id=1967379039 instance=ExtResource("12_vedit")]
 layout_mode = 2
 min_value = -10.0
 max_value = 10.0
@@ -1169,6 +1297,13 @@ title = "确认删除"
 initial_position = 2
 size = Vector2i(320, 100)
 dialog_text = "确定删除所选资源？"
+
+[node name="ExitConfirmDialog" type="ConfirmationDialog" parent="." unique_id=1627125465]
+oversampling_override = 1.0
+title = "退出"
+initial_position = 2
+size = Vector2i(333, 100)
+dialog_text = "确认退出编辑器？所有未保存的更改将会丢失。"
 
 [node name="ImagePicker" type="FileDialog" parent="." unique_id=904027521]
 oversampling_override = 1.0

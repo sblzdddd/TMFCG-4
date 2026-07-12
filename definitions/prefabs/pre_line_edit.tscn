@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b436pl2hgau5e"]
+
+[ext_resource type="Script" uid="uid://bbawdpax2c1cx" path="res://src/ui/common/label_line_edit.gd" id="1_ync5s"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hww8r"]
+font_color = Color(0.8226375, 0.8226375, 0.8226375, 1)
+
+[node name="LineEdit" type="LineEdit" unique_id=1308272350]
+custom_minimum_size = Vector2(0, 33)
+offset_right = 290.0
+offset_bottom = 33.0
+script = ExtResource("1_ync5s")
+label_text = "Text Edit"
+
+[node name="LabelMargin" type="MarginContainer" parent="." unique_id=214814958]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+theme_override_constants/margin_left = 10
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LabelMargin" unique_id=98489648]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0, 0)
+text = "Field Label"
+label_settings = SubResource("LabelSettings_hww8r")
+vertical_alignment = 1

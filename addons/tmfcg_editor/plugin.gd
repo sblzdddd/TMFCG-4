@@ -2,7 +2,7 @@
 extends EditorPlugin
 
 const EDITOR_SCENE := preload("uid://cruf4r2hiqeyi")
-const PLUGIN_ICON_PATH := "res://assets/textures/icons/CanvasTexture.svg"
+const PLUGIN_ICON_PATH := "res://assets/textures/icons/editor/EditorIcon.svg"
 
 var _editor_panel: Control
 

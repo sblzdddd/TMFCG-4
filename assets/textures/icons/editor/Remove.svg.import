@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://du68wvy8t77kp"
+path="res://.godot/imported/Remove.svg-b4abc2752900ca6f8a86fd87a1ffcb76.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/icons/editor/Remove.svg"
+dest_files=["res://.godot/imported/Remove.svg-b4abc2752900ca6f8a86fd87a1ffcb76.dpitex"]
+
+[params]
+
+base_scale=1.25
+saturation=1.0
+color_map={
+Color(1, 1, 1, 1): Color(0.32941177, 0.11372549, 0.11372549, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

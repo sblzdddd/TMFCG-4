@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://yaqyiwy870jf"]
 
-[ext_resource type="Script" uid="uid://duh0mikmqowvv" path="res://src/ui/dragger_spinbox.gd" id="1_value"]
+[ext_resource type="Script" uid="uid://duh0mikmqowvv" path="res://src/ui/common/dragger_spinbox.gd" id="1_value"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idle"]
 bg_color = Color(1, 1, 1, 0.1)

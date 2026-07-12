@@ -4,10 +4,10 @@ class_name CardUtils
 const Suit := CardEnums.Suit
 const Rank := CardEnums.Rank
 
-const ICON_CLUB := preload("res://assets/textures/icons/club.svg")
-const ICON_DIAMOND := preload("res://assets/textures/icons/diamond.svg")
-const ICON_HEART := preload("res://assets/textures/icons/heart.svg")
-const ICON_SPADE := preload("res://assets/textures/icons/spade.svg")
+const ICON_CLUB := preload("res://assets/textures/icons/editor/club.svg")
+const ICON_DIAMOND := preload("res://assets/textures/icons/editor/diamond.svg")
+const ICON_HEART := preload("res://assets/textures/icons/editor/heart.svg")
+const ICON_SPADE := preload("res://assets/textures/icons/editor/spade.svg")
 
 const NORMAL_RANKS: Array[Rank] = [
 	Rank.ACE,

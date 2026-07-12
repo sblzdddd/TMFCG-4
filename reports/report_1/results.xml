@@ -1,89 +1,89 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites id="2026-07-10" name="report_1" tests="38" failures="0" skipped="0" flaky="0" time="0.000">
-	<testsuite id="0" name="card_serialization_test" package="src/tests/card" timestamp="2026-07-10T14:12:25" hostname="localhost" tests="2" failures="0" errors="0" skipped="0" flaky="0" time="0.027">
-		<testcase name="test_card_serialization" classname="card_serialization_test" time="0.006">
+<testsuites id="2026-07-11" name="report_1" tests="38" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="card_serialization_test" package="src/tests/card" timestamp="2026-07-11T15:36:55" hostname="localhost" tests="2" failures="0" errors="0" skipped="0" flaky="0" time="0.044">
+		<testcase name="test_card_serialization" classname="card_serialization_test" time="0.007">
 		</testcase>
-		<testcase name="test_card_deserialization" classname="card_serialization_test" time="0.006">
-		</testcase>
-	</testsuite>
-	<testsuite id="1" name="card_test" package="src/tests/card" timestamp="2026-07-10T14:12:25" hostname="localhost" tests="3" failures="0" errors="0" skipped="0" flaky="0" time="0.052">
-		<testcase name="test_card_comparison_works_correctly" classname="card_test" time="0.011">
-		</testcase>
-		<testcase name="test_card_comparison_ignores_suit" classname="card_test" time="0.008">
-		</testcase>
-		<testcase name="test_card_pretty_print" classname="card_test" time="0.007">
+		<testcase name="test_card_deserialization" classname="card_serialization_test" time="0.007">
 		</testcase>
 	</testsuite>
-	<testsuite id="2" name="card_combination_test" package="src/tests/combination" timestamp="2026-07-10T14:12:25" hostname="localhost" tests="6" failures="0" errors="0" skipped="0" flaky="0" time="0.079">
-		<testcase name="test_single_compares_by_power_when_same_type" classname="card_combination_test" time="0.006">
+	<testsuite id="1" name="card_test" package="src/tests/card" timestamp="2026-07-11T15:36:55" hostname="localhost" tests="3" failures="0" errors="0" skipped="0" flaky="0" time="0.028">
+		<testcase name="test_card_comparison_works_correctly" classname="card_test" time="0.003">
 		</testcase>
-		<testcase name="test_pair_with_same_power_compares_as_equal" classname="card_combination_test" time="0.007">
+		<testcase name="test_card_comparison_ignores_suit" classname="card_test" time="0.003">
 		</testcase>
-		<testcase name="test_different_non_bomb_combination_types_are_not_comparable" classname="card_combination_test" time="0.007">
-		</testcase>
-		<testcase name="test_bomb_beats_any_non_bomb_and_returns_bomb_power" classname="card_combination_test" time="0.007">
-		</testcase>
-		<testcase name="test_non_bomb_loses_to_bomb" classname="card_combination_test" time="0.008">
-		</testcase>
-		<testcase name="test_bomb_compares_by_power_against_another_bomb" classname="card_combination_test" time="0.009">
+		<testcase name="test_card_pretty_print" classname="card_test" time="0.003">
 		</testcase>
 	</testsuite>
-	<testsuite id="3" name="combination_detector_test" package="src/tests/combination" timestamp="2026-07-10T14:12:26" hostname="localhost" tests="22" failures="0" errors="0" skipped="0" flaky="0" time="0.319">
-		<testcase name="test_single_card" classname="combination_detector_test" time="0.009">
+	<testsuite id="2" name="card_combination_test" package="src/tests/combination" timestamp="2026-07-11T15:36:55" hostname="localhost" tests="6" failures="0" errors="0" skipped="0" flaky="0" time="0.048">
+		<testcase name="test_single_compares_by_power_when_same_type" classname="card_combination_test" time="0.004">
 		</testcase>
-		<testcase name="test_pair_of_same_rank_cards" classname="combination_detector_test" time="0.011">
+		<testcase name="test_pair_with_same_power_compares_as_equal" classname="card_combination_test" time="0.003">
 		</testcase>
-		<testcase name="test_one_plus_one_wild" classname="combination_detector_test" time="0.012">
+		<testcase name="test_different_non_bomb_combination_types_are_not_comparable" classname="card_combination_test" time="0.003">
 		</testcase>
-		<testcase name="test_two_wilds" classname="combination_detector_test" time="0.010">
+		<testcase name="test_bomb_beats_any_non_bomb_and_returns_bomb_power" classname="card_combination_test" time="0.002">
 		</testcase>
-		<testcase name="test_rocket_bomb" classname="combination_detector_test" time="0.009">
+		<testcase name="test_non_bomb_loses_to_bomb" classname="card_combination_test" time="0.004">
 		</testcase>
-		<testcase name="test_two_straight" classname="combination_detector_test" time="0.009">
-		</testcase>
-		<testcase name="test_two_straight_circular" classname="combination_detector_test" time="0.009">
-		</testcase>
-		<testcase name="test_two_card_invalid_non_consecutive" classname="combination_detector_test" time="0.008">
-		</testcase>
-		<testcase name="test_incomplete_rocket_joker_pairs" classname="combination_detector_test" time="0.008">
-		</testcase>
-		<testcase name="test_incomplete_two_card_straight" classname="combination_detector_test" time="0.008">
-		</testcase>
-		<testcase name="test_bomb_three_of_a_kind" classname="combination_detector_test" time="0.010">
-		</testcase>
-		<testcase name="test_wild_bomb" classname="combination_detector_test" time="0.012">
-		</testcase>
-		<testcase name="test_normal_straight" classname="combination_detector_test" time="0.012">
-		</testcase>
-		<testcase name="test_low_straight" classname="combination_detector_test" time="0.012">
-		</testcase>
-		<testcase name="test_high_straight" classname="combination_detector_test" time="0.011">
-		</testcase>
-		<testcase name="test_low_straight_with_wilds" classname="combination_detector_test" time="0.011">
-		</testcase>
-		<testcase name="test_high_straight_with_wilds" classname="combination_detector_test" time="0.010">
-		</testcase>
-		<testcase name="test_jokers_in_multi_card_combinations_are_invalid" classname="combination_detector_test" time="0.009">
-		</testcase>
-		<testcase name="test_incomplete_bomb" classname="combination_detector_test" time="0.008">
-		</testcase>
-		<testcase name="test_incomplete_high_straight" classname="combination_detector_test" time="0.008">
-		</testcase>
-		<testcase name="test_five_wild_seven_wild_straight" classname="combination_detector_test" time="0.007">
-		</testcase>
-		<testcase name="test_empty_list" classname="combination_detector_test" time="0.008">
+		<testcase name="test_bomb_compares_by_power_against_another_bomb" classname="card_combination_test" time="0.004">
 		</testcase>
 	</testsuite>
-	<testsuite id="4" name="deck_test" package="src/tests/deck" timestamp="2026-07-10T14:12:26" hostname="localhost" tests="5" failures="0" errors="0" skipped="0" flaky="0" time="0.102">
-		<testcase name="test_deck_creation_works_correctly" classname="deck_test" time="0.013">
+	<testsuite id="3" name="combination_detector_test" package="src/tests/combination" timestamp="2026-07-11T15:36:55" hostname="localhost" tests="22" failures="0" errors="0" skipped="0" flaky="0" time="0.120">
+		<testcase name="test_single_card" classname="combination_detector_test" time="0.004">
 		</testcase>
-		<testcase name="test_draw_reduces_deck_size" classname="deck_test" time="0.013">
+		<testcase name="test_pair_of_same_rank_cards" classname="combination_detector_test" time="0.003">
 		</testcase>
-		<testcase name="test_draw_returns_cards" classname="deck_test" time="0.012">
+		<testcase name="test_one_plus_one_wild" classname="combination_detector_test" time="0.003">
 		</testcase>
-		<testcase name="test_insert_card_at_desired_position" classname="deck_test" time="0.012">
+		<testcase name="test_two_wilds" classname="combination_detector_test" time="0.003">
 		</testcase>
-		<testcase name="test_get_cards_checks_boundary" classname="deck_test" time="0.014">
+		<testcase name="test_rocket_bomb" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_two_straight" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_two_straight_circular" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_two_card_invalid_non_consecutive" classname="combination_detector_test" time="0.002">
+		</testcase>
+		<testcase name="test_incomplete_rocket_joker_pairs" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_incomplete_two_card_straight" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_bomb_three_of_a_kind" classname="combination_detector_test" time="0.002">
+		</testcase>
+		<testcase name="test_wild_bomb" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_normal_straight" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_low_straight" classname="combination_detector_test" time="0.004">
+		</testcase>
+		<testcase name="test_high_straight" classname="combination_detector_test" time="0.005">
+		</testcase>
+		<testcase name="test_low_straight_with_wilds" classname="combination_detector_test" time="0.003">
+		</testcase>
+		<testcase name="test_high_straight_with_wilds" classname="combination_detector_test" time="0.004">
+		</testcase>
+		<testcase name="test_jokers_in_multi_card_combinations_are_invalid" classname="combination_detector_test" time="0.005">
+		</testcase>
+		<testcase name="test_incomplete_bomb" classname="combination_detector_test" time="0.004">
+		</testcase>
+		<testcase name="test_incomplete_high_straight" classname="combination_detector_test" time="0.004">
+		</testcase>
+		<testcase name="test_five_wild_seven_wild_straight" classname="combination_detector_test" time="0.004">
+		</testcase>
+		<testcase name="test_empty_list" classname="combination_detector_test" time="0.004">
+		</testcase>
+	</testsuite>
+	<testsuite id="4" name="deck_test" package="src/tests/deck" timestamp="2026-07-11T15:36:56" hostname="localhost" tests="5" failures="0" errors="0" skipped="0" flaky="0" time="0.038">
+		<testcase name="test_deck_creation_works_correctly" classname="deck_test" time="0.004">
+		</testcase>
+		<testcase name="test_draw_reduces_deck_size" classname="deck_test" time="0.006">
+		</testcase>
+		<testcase name="test_draw_returns_cards" classname="deck_test" time="0.004">
+		</testcase>
+		<testcase name="test_insert_card_at_desired_position" classname="deck_test" time="0.004">
+		</testcase>
+		<testcase name="test_get_cards_checks_boundary" classname="deck_test" time="0.003">
 		</testcase>
 	</testsuite>
 </testsuites>

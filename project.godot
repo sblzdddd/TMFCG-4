@@ -15,13 +15,18 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="TMFCG-4"
-run/main_scene="uid://cruf4r2hiqeyi"
+run/main_scene="uid://priy5ry3rwha"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/bg_color=Color(0.078431375, 0.078431375, 0.078431375, 1)
+boot_splash/show_image=false
+boot_splash/stretch_mode=4
 config/icon="res://assets/textures/icon.svg"
 
 [autoload]
 
 Dialogic="*uid://ds2q0uclmolvu"
+LoadingOverlay="*res://definitions/ui/loading_overlay.tscn"
+LevelLoader="*res://src/gameplay/level_loader.gd"
 
 [dialogic]
 
@@ -171,9 +176,8 @@ translation/intern/translation_folder="res://definitions/database/translations"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/stretch/scale=1.5
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 

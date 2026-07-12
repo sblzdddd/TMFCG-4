@@ -11,7 +11,6 @@ func test_card_serialization() -> void:
 		Rank.THREE,
 		Suit.HEARTS,
 		CardInstanceId.from_string("0fe19e96-6cc5-4c04-b7b3-84a507e65262"),
-		[Ability.new("11111")],
 	)
 	var json_dict := card.to_dict()
 	assert_dict(json_dict).is_equal({

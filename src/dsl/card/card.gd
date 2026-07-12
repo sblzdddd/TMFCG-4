@@ -7,19 +7,16 @@ const Rank := CardEnums.Rank
 var rank: Rank
 var suit: Suit
 var instance_id: CardInstanceId
-var abilities: Array = []
 
 
 func _init(
 	p_rank: Rank,
 	p_suit: Suit,
 	p_instance_id: CardInstanceId = null,
-	p_abilities: Array = [],
 ) -> void:
 	rank = p_rank
 	suit = p_suit
 	instance_id = p_instance_id if p_instance_id != null else CardInstanceId.new()
-	abilities = p_abilities.duplicate()
 
 
 func is_greater_than(other: Card) -> bool:
@@ -27,7 +24,7 @@ func is_greater_than(other: Card) -> bool:
 
 
 func duplicate_card() -> Card:
-	return Card.new(rank, suit, CardInstanceId.from_string(instance_id.value), abilities)
+	return Card.new(rank, suit, CardInstanceId.from_string(instance_id.value))
 
 
 func to_dict() -> Dictionary:

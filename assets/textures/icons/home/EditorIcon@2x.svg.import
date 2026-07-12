@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://dpmr81ptqw32i"
+path="res://.godot/imported/EditorIcon@2x.svg-f9d6a8da0f791b5d1c2c804c20cca643.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/icons/home/EditorIcon@2x.svg"
+dest_files=["res://.godot/imported/EditorIcon@2x.svg-f9d6a8da0f791b5d1c2c804c20cca643.dpitex"]
+
+[params]
+
+base_scale=4.0
+saturation=1.0
+color_map={
+Color(1, 1, 1, 1): Color(0.32941177, 0.11372549, 0.11372549, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

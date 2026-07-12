@@ -25,7 +25,7 @@ func _migrate_legacy_rank() -> void:
 
 func to_card() -> Card:
 	_migrate_legacy_rank()
-	return Card.new(rank, suit, CardInstanceId.new(), [])
+	return Card.new(rank, suit, CardInstanceId.new())
 
 
 func apply_from_card(card: Card) -> void:

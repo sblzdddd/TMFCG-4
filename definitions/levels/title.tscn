@@ -1,0 +1,777 @@
+[gd_scene format=3 uid="uid://priy5ry3rwha"]
+
+[ext_resource type="Script" uid="uid://gtlluqtfvjkr" path="res://src/gameplay/title_main.gd" id="1_40mti"]
+[ext_resource type="Script" uid="uid://dy7lffwjdfn3d" path="res://src/ui/home/horizontal_tabs.gd" id="2_mfmb0"]
+[ext_resource type="PackedScene" uid="uid://b436pl2hgau5e" path="res://definitions/prefabs/pre_line_edit.tscn" id="3_alfva"]
+[ext_resource type="Texture2D" uid="uid://vqtdi6wg4s74" path="res://assets/textures/icons/skills/port_array.svg" id="4_2652g"]
+[ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="5_6n0ph"]
+[ext_resource type="RichTextEffect" uid="uid://b7sb6658c8bpp" path="res://src/ui/effects/wave_breath_fx.tres" id="6_j0sst"]
+[ext_resource type="Script" uid="uid://i7iqi42bxaf5" path="res://src/ui/home/side_button.gd" id="7_5gwhe"]
+[ext_resource type="Texture2D" uid="uid://dpmr81ptqw32i" path="res://assets/textures/icons/home/EditorIcon@2x.svg" id="8_xqe6w"]
+[ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="9_k1jdg"]
+[ext_resource type="Texture2D" uid="uid://cmcbqqj8dc4sh" path="res://assets/textures/icons/home/Exit@2x.svg" id="10_4c1yj"]
+[ext_resource type="PackedScene" uid="uid://cruf4r2hiqeyi" path="res://definitions/levels/tmfcg_editor.tscn" id="11_editor"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_hcl06"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_bjyn3"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_cierw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_albar"]
+content_margin_left = 0.0
+content_margin_top = 28.0
+content_margin_right = 0.0
+content_margin_bottom = 28.0
+bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+expand_margin_left = 20.0
+shadow_color = Color(0, 0, 0, 0.15294118)
+shadow_size = 17
+
+[sub_resource type="LabelSettings" id="LabelSettings_tj7y3"]
+font_size = 26
+font_color = Color(1, 0.8091763, 0.8438715, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ankyg"]
+font_size = 24
+font_color = Color(0.8578549, 0.8578549, 0.8578549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bjyn3"]
+font_color = Color(1, 1, 1, 0.53333336)
+
+[sub_resource type="LabelSettings" id="LabelSettings_albar"]
+font_size = 100
+font_color = Color(1, 0.7367463, 0.78461057, 1)
+shadow_size = 11
+shadow_color = Color(1, 0.6117647, 0.68235296, 0.10980392)
+shadow_offset = Vector2(1.398, 3.099)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcl06"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.8362675, 0.18111001, 0.1334044, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_y1vyt"]
+font_size = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tj7y3"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.30500805, 0.30500805, 0.30500805, 1)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+expand_margin_right = 200.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjyn3"]
+content_margin_left = 12.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0.9073883, 0.9073883, 0.9073883, 1)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+expand_margin_right = 200.0
+shadow_color = Color(1, 1, 1, 0.13333334)
+shadow_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_cierw"]
+font = ExtResource("9_k1jdg")
+font_size = 100
+outline_size = 31
+
+[node name="Home" type="Control" unique_id=119031085]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContainer" type="HBoxContainer" parent="." unique_id=1796817533 node_paths=PackedStringArray("left_panel", "right_panel", "title_hint", "editor_button")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_40mti")
+reveal_duration = 0.65
+editor_scene = ExtResource("11_editor")
+left_panel = NodePath("LeftPanel")
+right_panel = NodePath("RightPanel")
+title_hint = NodePath("TitleRect/TitleHint")
+editor_button = NodePath("RightPanel/EditorButton")
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftPanel" type="HSplitContainer" parent="MainContainer" unique_id=831431225 node_paths=PackedStringArray("tab_buttons", "tabs")]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position = Vector2(-180, 0)
+offset_transform_visual_only = false
+theme_override_constants/separation = 0
+theme_override_icons/grabber = SubResource("ImageTexture_hcl06")
+theme_override_icons/h_grabber = SubResource("ImageTexture_bjyn3")
+theme_override_icons/v_grabber = SubResource("ImageTexture_cierw")
+split_offsets = PackedInt32Array(0, 0, 0)
+dragging_enabled = false
+dragger_visibility = 1
+script = ExtResource("2_mfmb0")
+tab_buttons = [NodePath("DeckPanel/VBoxContainer/Button"), NodePath("SettingsPanel/VBoxContainer/Button"), NodePath("JoinPanel/VBoxContainer/Button"), NodePath("StartPanel/VBoxContainer/Button")]
+tabs = [NodePath("DeckPanel/VBoxContainer/Control"), NodePath("SettingsPanel/VBoxContainer/Control"), NodePath("JoinPanel/VBoxContainer/Control"), NodePath("StartPanel/VBoxContainer/Control")]
+metadata/_edit_use_anchors_ = true
+
+[node name="DeckPanel" type="PanelContainer" parent="MainContainer/LeftPanel" unique_id=572263944]
+z_index = 3
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_albar")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/DeckPanel" unique_id=1323637419]
+layout_mode = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer" unique_id=2046888899]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Control" unique_id=1110333930]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="Control4" type="Control" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Control/VBoxContainer" unique_id=428955482]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Control/VBoxContainer" unique_id=1821996216]
+layout_mode = 2
+text = "没写..."
+
+[node name="Button" type="Button" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer" unique_id=553977427]
+custom_minimum_size = Vector2(38.725, 0)
+layout_mode = 2
+flat = true
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Button" unique_id=401401322]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "卡组"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsPanel" type="PanelContainer" parent="MainContainer/LeftPanel" unique_id=743646529]
+z_index = 2
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_albar")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel" unique_id=382257173]
+layout_mode = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer" unique_id=1284293694]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Control" unique_id=1467200469]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="Control4" type="Control" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Control/VBoxContainer" unique_id=911291254]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Control/VBoxContainer" unique_id=2068549398]
+layout_mode = 2
+text = "没写..."
+
+[node name="Button" type="Button" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer" unique_id=1912663419]
+custom_minimum_size = Vector2(38.725, 0)
+layout_mode = 2
+flat = true
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Button" unique_id=1071637018]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "设置"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="JoinPanel" type="PanelContainer" parent="MainContainer/LeftPanel" unique_id=486507947]
+z_index = 1
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_albar")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/JoinPanel" unique_id=1012718408]
+propagate_maximum_size = false
+clip_contents = true
+layout_mode = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer" unique_id=1268727492]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control" unique_id=606322667]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=1749204942]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=54054179]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "从IP加入"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=1909302524]
+layout_mode = 2
+
+[node name="RoomCode" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer/VBoxContainer" unique_id=1308272350 instance=ExtResource("3_alfva")]
+layout_mode = 2
+size_flags_horizontal = 3
+label_text = "IP"
+
+[node name="LineEdit" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer/VBoxContainer" unique_id=2083342564 instance=ExtResource("3_alfva")]
+layout_mode = 2
+text = "13637"
+max_length = 5
+label_text = "端口"
+
+[node name="Button" type="Button" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=35231487]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "连接"
+
+[node name="Control2" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=1993738512]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=188300210]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "房间列表"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
+
+[node name="ItemList" type="ItemList" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=556584730]
+layout_mode = 2
+size_flags_vertical = 3
+max_text_lines = 2
+item_count = 2
+item_0/text = "22222"
+item_1/text = "22222"
+
+[node name="Button2" type="Button" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=48940496]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "加入房间"
+
+[node name="Control4" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=468959470]
+custom_minimum_size = Vector2(0, 4.932)
+layout_mode = 2
+
+[node name="Button" type="Button" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer" unique_id=13346278]
+custom_minimum_size = Vector2(38.725, 0)
+layout_mode = 2
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_font_sizes/font_size = 25
+flat = true
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Button" unique_id=1011467032]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "加入"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="StartPanel" type="PanelContainer" parent="MainContainer/LeftPanel" unique_id=1297296894]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_albar")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/StartPanel" unique_id=1319311625]
+propagate_maximum_size = false
+clip_contents = true
+layout_mode = 2
+alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer" unique_id=1422218244]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control" unique_id=639061165]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
+metadata/_edit_use_anchors_ = true
+
+[node name="Control4" type="Control" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer" unique_id=1148817679]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer" unique_id=1894436783]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+text = "选择对局方式"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PanelContainer" type="Button" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer" unique_id=1575060602]
+custom_minimum_size = Vector2(0, 112.454)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer" unique_id=1976880059]
+layout_mode = 0
+offset_left = 7.619995
+offset_top = 7.0
+offset_right = 39.23999
+offset_bottom = 38.619995
+texture = ExtResource("4_2652g")
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer" unique_id=424105346]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 47.619995
+offset_top = 11.0
+offset_right = 328.62
+offset_bottom = 43.0
+text = "随机匹配"
+label_settings = SubResource("LabelSettings_ankyg")
+
+[node name="Label2" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer" unique_id=1739230420]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.119995
+offset_top = -67.0
+offset_right = -13.880005
+grow_horizontal = 2
+grow_vertical = 0
+text = "随机找寻公开房间加入，如果没有匹配则创建一个新房间"
+label_settings = SubResource("LabelSettings_bjyn3")
+autowrap_mode = 1
+
+[node name="PanelContainer2" type="Button" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer" unique_id=1333004260]
+custom_minimum_size = Vector2(0, 112.454)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer2" unique_id=379409612]
+layout_mode = 0
+offset_left = 7.619995
+offset_top = 7.0
+offset_right = 39.23999
+offset_bottom = 38.619995
+texture = ExtResource("4_2652g")
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer2" unique_id=2106331015]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 47.619995
+offset_top = 11.0
+offset_right = 328.62
+offset_bottom = 43.0
+text = "创建公开房间"
+label_settings = SubResource("LabelSettings_ankyg")
+
+[node name="Label2" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer2" unique_id=1543194221]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.119995
+offset_top = -66.0
+offset_right = -13.880005
+grow_horizontal = 2
+grow_vertical = 0
+text = "创建一个新房间，其他玩家可以同时通过房间列表和房间码加入"
+label_settings = SubResource("LabelSettings_bjyn3")
+autowrap_mode = 1
+
+[node name="PanelContainer3" type="Button" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer" unique_id=1330619692]
+custom_minimum_size = Vector2(0, 112.454)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer3" unique_id=912133734]
+layout_mode = 0
+offset_left = 7.619995
+offset_top = 7.0
+offset_right = 39.23999
+offset_bottom = 38.619995
+texture = ExtResource("4_2652g")
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer3" unique_id=1205134364]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 0
+offset_left = 47.619995
+offset_top = 11.0
+offset_right = 328.62
+offset_bottom = 43.0
+text = "创建私密房间"
+label_settings = SubResource("LabelSettings_ankyg")
+
+[node name="Label2" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer/PanelContainer3" unique_id=509141911]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.119995
+offset_top = -64.0
+offset_right = -13.880005
+grow_horizontal = 2
+grow_vertical = 0
+text = "创建一个新房间，其他玩家可以只能通过特定房间码加入"
+label_settings = SubResource("LabelSettings_bjyn3")
+autowrap_mode = 1
+
+[node name="Control2" type="Control" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer" unique_id=1634434079]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ValueEdit" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Control/VBoxContainer" unique_id=1114485161 instance=ExtResource("5_6n0ph")]
+layout_mode = 2
+min_value = 2.0
+max_value = 4.0
+step = 1.0
+value = 4.0
+rounded = true
+label_text = "限制人数"
+
+[node name="Button" type="Button" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer" unique_id=630801578]
+custom_minimum_size = Vector2(38.725, 0)
+layout_mode = 2
+theme_override_constants/align_to_largest_stylebox = 0
+theme_override_font_sizes/font_size = 25
+flat = true
+
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/StartPanel/VBoxContainer/Button" unique_id=922069183]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "开始"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TitleRect" type="VBoxContainer" parent="MainContainer" unique_id=942808553]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 22
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MainContainer/TitleRect" unique_id=856596313]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MainTitle" type="VBoxContainer" parent="MainContainer/TitleRect/HBoxContainer3" unique_id=502802274]
+layout_mode = 2
+theme_override_constants/separation = -6
+alignment = 1
+
+[node name="Label" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/MainTitle" unique_id=2047836151]
+layout_mode = 2
+text = "五"
+label_settings = SubResource("LabelSettings_albar")
+
+[node name="Label2" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/MainTitle" unique_id=1918793008]
+layout_mode = 2
+text = "扎"
+label_settings = SubResource("LabelSettings_albar")
+
+[node name="Label3" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/MainTitle" unique_id=497809228]
+layout_mode = 2
+text = "戏"
+label_settings = SubResource("LabelSettings_albar")
+
+[node name="SubBG" type="PanelContainer" parent="MainContainer/TitleRect/HBoxContainer3" unique_id=456209134]
+custom_minimum_size = Vector2(36, 120)
+layout_mode = 2
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -20)
+theme_override_styles/panel = SubResource("StyleBoxFlat_hcl06")
+
+[node name="SubTitle" type="VBoxContainer" parent="MainContainer/TitleRect/HBoxContainer3/SubBG" unique_id=2092407358]
+layout_mode = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/SubBG/SubTitle" unique_id=1922207325]
+layout_mode = 2
+text = "东"
+label_settings = SubResource("LabelSettings_y1vyt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/SubBG/SubTitle" unique_id=162414962]
+layout_mode = 2
+text = "方"
+label_settings = SubResource("LabelSettings_y1vyt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/SubBG/SubTitle" unique_id=1581373023]
+layout_mode = 2
+text = "夜"
+label_settings = SubResource("LabelSettings_y1vyt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/SubBG/SubTitle" unique_id=2009331320]
+layout_mode = 2
+text = "雀"
+label_settings = SubResource("LabelSettings_y1vyt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TitleHint" type="RichTextLabel" parent="MainContainer/TitleRect" unique_id=1242346148]
+clip_contents = false
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/default_color = Color(1, 1, 1, 0.4392157)
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[wave_breath]点击任意处开始[/wave_breath]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+custom_effects = [ExtResource("6_j0sst")]
+
+[node name="RightPanel" type="Control" parent="MainContainer" unique_id=209257079]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.2
+offset_transform_enabled = true
+offset_transform_position = Vector2(50, 0)
+offset_transform_visual_only = false
+
+[node name="EditorButton" type="Button" parent="MainContainer/RightPanel" unique_id=1249388492]
+custom_minimum_size = Vector2(48, 118)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 48.0
+offset_bottom = 166.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(1, 0.80784315, 0.84313726, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_tj7y3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bjyn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bjyn3")
+text = "编
+辑
+器"
+alignment = 0
+script = ExtResource("7_5gwhe")
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/RightPanel/EditorButton" unique_id=566417278]
+modulate = Color(0, 0, 0, 0.38431373)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -64.0
+offset_right = 175.99997
+offset_bottom = 64.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+texture = ExtResource("8_xqe6w")
+
+[node name="Button4" type="Button" parent="MainContainer/RightPanel" unique_id=189760683]
+custom_minimum_size = Vector2(48, 118)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -48.0
+offset_top = 184.0
+offset_bottom = 302.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(1, 0.80784315, 0.84313726, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_tj7y3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bjyn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bjyn3")
+text = "教
+程"
+alignment = 0
+script = ExtResource("7_5gwhe")
+
+[node name="TextureRect" type="Label" parent="MainContainer/RightPanel/Button4" unique_id=130416791]
+modulate = Color(0, 0, 0, 0.38431373)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -64.0
+offset_right = 175.99997
+offset_bottom = 64.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+text = "⑨"
+label_settings = SubResource("LabelSettings_cierw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button5" type="Button" parent="MainContainer/RightPanel" unique_id=1611475338]
+custom_minimum_size = Vector2(48, 118)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -148.0
+offset_bottom = -30.0
+grow_horizontal = 0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(1, 0)
+size_flags_horizontal = 8
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(1, 0.80784315, 0.84313726, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_tj7y3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bjyn3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_bjyn3")
+text = "退
+出"
+alignment = 0
+script = ExtResource("7_5gwhe")
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/RightPanel/Button5" unique_id=368677833]
+modulate = Color(0, 0, 0, 0.38431373)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -64.0
+offset_right = 175.99997
+offset_bottom = 64.0
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset_ratio = Vector2(0, 0.5)
+texture = ExtResource("10_4c1yj")

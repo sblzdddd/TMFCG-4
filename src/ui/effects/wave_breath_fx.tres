@@ -1,0 +1,6 @@
+[gd_resource type="RichTextEffect" script_class="WaveBreathFx" format=3 uid="uid://b7sb6658c8bpp"]
+
+[ext_resource type="Script" uid="uid://dd1uegtg7ptt8" path="res://src/ui/effects/wave_breath_fx.gd" id="1_wave"]
+
+[resource]
+script = ExtResource("1_wave")

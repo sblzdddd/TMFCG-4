@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://cybyv3trgi3ia"
+path="res://.godot/imported/Exit.svg-abd5d4c59687e3254ae621c48cbfe1dd.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/icons/editor/Exit.svg"
+dest_files=["res://.godot/imported/Exit.svg-abd5d4c59687e3254ae621c48cbfe1dd.dpitex"]
+
+[params]
+
+base_scale=1.0
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=false
