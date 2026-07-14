@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cruf4r2hiqeyi"]
 
 [ext_resource type="Theme" uid="uid://cmkxu7qxcs7w" path="res://definitions/ui/ui_theme.tres" id="1_ecf3d"]
-[ext_resource type="Script" uid="uid://c0wetakut8mtj" path="res://src/editor/card/card_editor.gd" id="1_yln7k"]
+[ext_resource type="Script" uid="uid://byy8up0r3006" path="res://src/editor/editor_main.gd" id="1_yln7k"]
 [ext_resource type="Texture2D" uid="uid://bymlbr4o2m3jc" path="res://addons/dialogic/Editor/Images/Toolbar/add-timeline.svg" id="2_ddp17"]
 [ext_resource type="Texture2D" uid="uid://my600mb32ydt" path="res://addons/dialogic/Editor/Images/Toolbar/add-character.svg" id="3_ku0qb"]
 [ext_resource type="Texture2D" uid="uid://cybyv3trgi3ia" path="res://assets/textures/icons/editor/Exit.svg" id="3_mmqb3"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/editor/Remove.svg" id="4_ku0qb"]
 [ext_resource type="Texture2D" uid="uid://btsj6sf15qqm7" path="res://assets/textures/icons/editor/TextEditorPlay.svg" id="4_mmqb3"]
 [ext_resource type="Texture2D" uid="uid://mjo7aexmn1ff" path="res://assets/textures/icons/editor/Debug.svg" id="5_b2adc"]
-[ext_resource type="Script" uid="uid://hkpiu6q3bflg" path="res://src/editor/filetree/editor_file_tree.gd" id="5_g7un2"]
+[ext_resource type="Script" uid="uid://ywcbbxxku8ue" path="res://src/editor/filetree/deck_file_tree.gd" id="5_g7un2"]
 [ext_resource type="Texture2D" uid="uid://ds03fekh734pw" path="res://assets/textures/icons/editor/GuiTabMenuHl.svg" id="5_nut5s"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
 [ext_resource type="Texture2D" uid="uid://cp0qqkttlqmur" path="res://assets/textures/icons/editor/Folder.svg" id="6_1od3q"]
@@ -40,6 +40,9 @@
 [ext_resource type="Script" uid="uid://da8hw1cd873ag" path="res://src/editor/filetree/filetree_more_options.gd" id="20_mopts"]
 [ext_resource type="LabelSettings" uid="uid://ufpu6ss5nwf0" path="res://definitions/fonts/field_label.tres" id="25_jmc66"]
 [ext_resource type="Script" uid="uid://b8kpm3yanwr5i" path="res://src/editor/filetree/image_picker_dialog.gd" id="26_ipick"]
+[ext_resource type="Script" uid="uid://4xdgqq2lu545" path="res://src/editor/filetree/files_panel_controller.gd" id="27_files"]
+[ext_resource type="Script" uid="uid://dhtsf0wog2byc" path="res://src/editor/filetree/character_file_tree.gd" id="28_chartree"]
+[ext_resource type="Script" uid="uid://820o3vpaj770" path="res://src/editor/card/card_session.gd" id="29_session"]
 [ext_resource type="Texture2D" uid="uid://ynsuhoqu7375" path="res://assets/textures/characters/铃仙二号 微笑.png" id="35_k2lmi"]
 [ext_resource type="Texture2D" uid="uid://bty61w22yj03d" path="res://assets/textures/characters/慧音 白泽_微笑.png" id="36_ll0wj"]
 [ext_resource type="Texture2D" uid="uid://ccms1mmjhdc7l" path="res://assets/textures/characters/早苗 微笑.png" id="37_gpoeo"]
@@ -153,7 +156,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2adc"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iwjrs"]
 shader = ExtResource("6_vch8h")
 shader_parameter/cardTex = ExtResource("9_13gcn")
 shader_parameter/cardMasks = ExtResource("8_37gsh")
@@ -163,8 +166,8 @@ shader_parameter/JQKTex = ExtResource("7_dv6ku")
 shader_parameter/characterTransform = Vector3(0, 0, 1)
 shader_parameter/charOutlineWidth = 0.8
 shader_parameter/charOutlineColor = Color(0.9, 0.9, 0.9, 1)
-shader_parameter/suit = 0
-shader_parameter/value = 0
+shader_parameter/suit = 1
+shader_parameter/value = 10
 shader_parameter/cardRadius = 0.08
 shader_parameter/outlineWidth = 0.015
 shader_parameter/outlineColor = Color(1, 0.694, 0.045, 1)
@@ -174,7 +177,7 @@ shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_imtk4"]
+[sub_resource type="LabelSettings" id="LabelSettings_fr4jb"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -182,7 +185,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_1m5da"]
+[sub_resource type="LabelSettings" id="LabelSettings_00scm"]
 line_spacing = 0.0
 font = ExtResource("13_gc6aj")
 font_size = 42
@@ -202,10 +205,10 @@ content_margin_top = 24.0
 content_margin_right = 16.0
 content_margin_bottom = 16.0
 bg_color = Color(0.16078432, 0.16078432, 0.16078432, 1)
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_w2akv"]
 font_size = 15
@@ -221,7 +224,7 @@ events = [SubResource("InputEventKey_ecf3d")]
 [sub_resource type="LabelSettings" id="LabelSettings_rr0j0"]
 font_size = 25
 
-[node name="CardEditorView" type="MarginContainer" unique_id=1670632272 node_paths=PackedStringArray("_inspector", "_file_tree", "_skill_graph", "_add_deck_button", "_add_character_button", "_delete_button", "_create_deck_dialog", "_create_character_dialog", "_add_card_dialog", "_delete_confirm_dialog")]
+[node name="EditorMain" type="MarginContainer" unique_id=1670632272 node_paths=PackedStringArray("_files_panel", "_card_session", "_exit_button", "_exit_confirm_dialog")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -236,17 +239,16 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 script = ExtResource("1_yln7k")
-_inspector = NodePath("EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector")
-_file_tree = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/EditorFileTree")
-_skill_graph = NodePath("EditorLayout/EditorSplits/SkillGraph")
-_add_deck_button = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer/AddDeckButton")
-_add_character_button = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer/AddCharacterButton")
-_delete_button = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer/DeleteButton")
-_create_deck_dialog = NodePath("CreateDeckDialog")
-_create_character_dialog = NodePath("CreateCharacterDialog")
-_add_card_dialog = NodePath("AddCardDialog")
-_delete_confirm_dialog = NodePath("DeleteConfirmDialog")
+_files_panel = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files")
+_card_session = NodePath("CardSession")
+_exit_button = NodePath("EditorLayout/HBoxContainer/ExitButton")
+_exit_confirm_dialog = NodePath("ExitConfirmDialog")
 metadata/_edit_use_anchors_ = true
+
+[node name="CardSession" type="Node" parent="." unique_id=1670632273 node_paths=PackedStringArray("_inspector", "_skill_graph")]
+script = ExtResource("29_session")
+_inspector = NodePath("../EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector")
+_skill_graph = NodePath("../EditorLayout/EditorSplits/SkillGraph")
 
 [node name="EditorLayout" type="VBoxContainer" parent="." unique_id=211226850]
 layout_mode = 2
@@ -364,7 +366,7 @@ flat = true
 [node name="EditorSplits" type="HSplitContainer" parent="EditorLayout" unique_id=762217452]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 12
+theme_override_constants/separation = 0
 split_offsets = PackedInt32Array(0, 0)
 metadata/_edit_use_anchors_ = true
 
@@ -387,11 +389,21 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="Files" type="VBoxContainer" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer" unique_id=980845409]
+[node name="Files" type="VBoxContainer" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer" unique_id=980845409 node_paths=PackedStringArray("_deck_tree", "_character_tree", "_add_deck_button", "_add_character_button", "_delete_button", "_create_deck_dialog", "_create_character_dialog", "_add_card_dialog", "_delete_confirm_dialog")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 theme_override_constants/separation = 8
+script = ExtResource("27_files")
+_deck_tree = NodePath("TreeScroll/TreeColumn/DeckFileTree")
+_character_tree = NodePath("TreeScroll/TreeColumn/CharacterFileTree")
+_add_deck_button = NodePath("HBoxContainer/AddDeckButton")
+_add_character_button = NodePath("HBoxContainer/AddCharacterButton")
+_delete_button = NodePath("HBoxContainer/DeleteButton")
+_create_deck_dialog = NodePath("../../../../../CreateDeckDialog")
+_create_character_dialog = NodePath("../../../../../CreateCharacterDialog")
+_add_card_dialog = NodePath("../../../../../AddCardDialog")
+_delete_confirm_dialog = NodePath("../../../../../DeleteConfirmDialog")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files" unique_id=1113897241]
@@ -415,7 +427,7 @@ layout_mode = 2
 icon = ExtResource("4_ku0qb")
 icon_alignment = 1
 
-[node name="MoreOptions" type="MenuButton" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=432605624 node_paths=PackedStringArray("_file_tree")]
+[node name="MoreOptions" type="MenuButton" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/HBoxContainer" unique_id=432605624 node_paths=PackedStringArray("_files_panel")]
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 icon = ExtResource("5_nut5s")
@@ -430,21 +442,45 @@ popup/item_1/text = "显示内置角色"
 popup/item_1/checkable = 1
 popup/item_1/id = 1
 script = ExtResource("20_mopts")
-_file_tree = NodePath("../../EditorFileTree")
+_files_panel = NodePath("../..")
 
-[node name="EditorFileTree" type="Tree" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files" unique_id=913368672]
+[node name="TreeScroll" type="ScrollContainer" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files" unique_id=913368670]
 layout_mode = 2
 size_flags_vertical = 3
-hide_root = true
+horizontal_scroll_mode = 0
+
+[node name="TreeColumn" type="VBoxContainer" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/TreeScroll" unique_id=913368671]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="DeckFileTree" type="Tree" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/TreeScroll/TreeColumn" unique_id=913368672]
+custom_minimum_size = Vector2(0, 1643)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
 script = ExtResource("5_g7un2")
 folder_icon = ExtResource("6_1od3q")
 deck_icon = ExtResource("7_mb6sx")
-character_icon = ExtResource("8_nut5s")
 add_card_icon = ExtResource("2_ddp17")
 club_icon = ExtResource("65_ajpjh")
 diamond_icon = ExtResource("66_4cosb")
 heart_icon = ExtResource("66_4edsy")
 spade_icon = ExtResource("68_0pi1g")
+
+[node name="CharacterFileTree" type="Tree" parent="EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files/TreeScroll/TreeColumn" unique_id=913368673]
+custom_minimum_size = Vector2(0, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+scroll_horizontal_enabled = false
+scroll_vertical_enabled = false
+script = ExtResource("28_chartree")
+folder_icon = ExtResource("6_1od3q")
+character_icon = ExtResource("8_nut5s")
 
 [node name="SkillGraph" type="GraphEdit" parent="EditorLayout/EditorSplits" unique_id=1829042089]
 layout_mode = 2
@@ -500,7 +536,7 @@ script = ExtResource("6_vfit")
 layout_mode = 2
 
 [node name="CardVisual" type="ColorRect" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_b2adc")
+material = SubResource("ShaderMaterial_iwjrs")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
@@ -520,7 +556,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_imtk4")
+label_settings = SubResource("LabelSettings_fr4jb")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -545,7 +581,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_1m5da")
+label_settings = SubResource("LabelSettings_00scm")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -716,17 +752,22 @@ custom_minimum_size = Vector2(78, 0)
 layout_mode = 2
 text = "选择..."
 
-[node name="CharacterPicker" type="Window" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=946364589 node_paths=PackedStringArray("_search", "_character_list")]
+[node name="CharacterPicker" type="Window" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview" unique_id=946364589 node_paths=PackedStringArray("_search", "_item_list")]
 oversampling_override = 1.0
+mode = 4
 title = "选择角色"
 initial_position = 1
-size = Vector2i(720, 560)
+size = Vector2i(990, 550)
 visible = false
 exclusive = true
+always_on_top = true
+popup_window = true
+minimize_disabled = true
+maximize_disabled = true
 min_size = Vector2i(480, 400)
 script = ExtResource("16_cpick")
 _search = NodePath("MarginContainer/VBoxContainer/SearchEdit")
-_character_list = NodePath("MarginContainer/VBoxContainer/CharacterList")
+_item_list = NodePath("MarginContainer/VBoxContainer/CharacterList")
 
 [node name="MarginContainer" type="MarginContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker" unique_id=1847293051]
 anchors_preset = 15
@@ -754,14 +795,17 @@ placeholder_text = "搜索角色..."
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8343171, 0.8343171, 0.8343171, 1)
+theme_override_colors/scroll_hint_color = Color(0, 0, 0, 1)
 allow_reselect = true
 max_text_lines = 2
+scroll_hint_mode = 1
 item_count = 85
-max_columns = 7
+max_columns = 80
 same_column_width = true
-fixed_column_width = 96
+fixed_column_width = 81
 icon_mode = 0
-fixed_icon_size = Vector2i(72, 72)
+fixed_icon_size = Vector2i(72, 108)
 item_0/text = "Reisen"
 item_0/icon = ExtResource("35_k2lmi")
 item_1/text = "上白泽慧音"

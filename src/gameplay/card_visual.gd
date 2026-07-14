@@ -30,9 +30,9 @@ func _update_character(data: CardVisualData) -> void:
 		_set_character_transform(Vector3(0, 0, 1))
 		return
 
-	_name_label.text = CharacterUtils.get_english_display_name(data.character)
+	_name_label.text = data.character.get_translated_name("en")
 	_set_character_texture(
-		CharacterUtils.load_portrait_texture(data.character, data.portrait)
+		data.character.load_portrait_texture(data.portrait)
 	)
 	_set_character_transform(data.transform)
 
@@ -42,7 +42,7 @@ func _update_card_face() -> void:
 	var rank_value := 0
 	if _card_data != null:
 		rank_text = CardUtils.rank_display(_card_data.rank)
-		suit_value = CardUtils.suit_to_shader_value(_card_data.suit)
+		suit_value = _card_data.suit
 		rank_value = CardUtils.rank_to_shader_value(_card_data.rank)
 
 	for label in valueLabels:

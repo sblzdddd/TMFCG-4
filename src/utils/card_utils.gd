@@ -90,15 +90,6 @@ static func rank_to_shader_value(rank: Rank) -> int:
 		_: return 0
 
 
-static func suit_to_shader_value(suit: Suit) -> int:
-	match suit:
-		Suit.CLUBS: return 0
-		Suit.DIAMONDS: return 1
-		Suit.HEARTS: return 2
-		Suit.SPADES: return 3
-		_: return 0
-
-
 static func is_joker_suit(suit: Suit) -> bool:
 	return suit == Suit.JOKERS
 
@@ -117,7 +108,7 @@ static func card_tree_label(card: CardData) -> String:
 	var rank_text := rank_display(card.rank)
 	if card.visual == null or card.visual.character == null:
 		return rank_text
-	var character_name := CharacterUtils.get_english_display_name(card.visual.character)
+	var character_name := card.visual.character.get_translated_name("en")
 	if character_name.is_empty():
 		return rank_text
 	return "%s (%s)" % [rank_text, character_name]

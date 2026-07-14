@@ -19,7 +19,7 @@ run/main_scene="uid://priy5ry3rwha"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 boot_splash/bg_color=Color(0.078431375, 0.078431375, 0.078431375, 1)
 boot_splash/show_image=false
-boot_splash/stretch_mode=4
+boot_splash/stretch_mode=3
 config/icon="res://assets/textures/icon.svg"
 
 [autoload]
@@ -27,6 +27,9 @@ config/icon="res://assets/textures/icon.svg"
 Dialogic="*uid://ds2q0uclmolvu"
 LoadingOverlay="*res://definitions/ui/loading_overlay.tscn"
 LevelLoader="*res://src/gameplay/level_loader.gd"
+PlayerDataStore="*res://src/data_store/player_data_store.gd"
+DeckDataStore="*res://src/data_store/deck_data_store.gd"
+CharacterDataStore="*res://src/data_store/character_data_store.gd"
 
 [dialogic]
 
@@ -185,7 +188,7 @@ project/assembly_name="TMFCG-4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/tmfcg_editor/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gdUnit4/plugin.cfg")
 
 [file_customization]
 

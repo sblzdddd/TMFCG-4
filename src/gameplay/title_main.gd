@@ -14,6 +14,8 @@ var _reveal_tween: Tween
 
 
 func _ready() -> void:
+	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
+	get_window().content_scale_factor = 1.0
 	if editor_button:
 		editor_button.pressed.connect(_on_editor_pressed)
 	if LevelLoader.has_transitioned:
@@ -74,4 +76,5 @@ func _reveal_panels() -> void:
 
 func _on_editor_pressed() -> void:
 	if not _revealed: return
+	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	LevelLoader.load_level(editor_scene.resource_path)

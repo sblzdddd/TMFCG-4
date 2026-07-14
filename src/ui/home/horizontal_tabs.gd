@@ -4,7 +4,7 @@ class_name HomeHorizontalTabs
 @export var tab_buttons: Array[Button] = []
 @export var tabs: Array[Control] = []
 @export var gap: int = 45
-@export_range(0.0, 1.0) var expansion: float = 0.36
+@export var expansion: int = 450
 @export var tween_duration: float = 0.5
 
 var _active := -1
@@ -23,7 +23,7 @@ func _ready() -> void:
 func set_open(should_open: bool) -> void:
 	var panel_w := (split_offsets.size() + 1) * gap
 	if should_open:
-		panel_w += int(expansion * get_viewport().size.x)
+		panel_w += expansion
 	if _tween == null:
 		_begin_tween()
 	_tween.tween_property(self, "custom_minimum_size", Vector2(panel_w, 0), tween_duration)
@@ -55,7 +55,7 @@ func _on_tab_selection(index: int) -> void:
 
 func _offsets_for(index: int) -> PackedInt32Array:
 	var splits_cnt := split_offsets.size()
-	var exp_px := int(expansion * get_viewport().size.x)
+	var exp_px := expansion
 	var offsets := PackedInt32Array()
 	offsets.resize(splits_cnt)
 	for i in range(splits_cnt):

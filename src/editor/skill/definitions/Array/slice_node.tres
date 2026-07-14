@@ -17,7 +17,6 @@ type = 0
 
 [sub_resource type="Resource" id="Resource_gpoeo"]
 script = ExtResource("2_x230v")
-value = 0.0
 metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
 
 [sub_resource type="Resource" id="input_2"]
@@ -29,6 +28,7 @@ label = "起始"
 [sub_resource type="Resource" id="Resource_6p3r3"]
 script = ExtResource("2_x230v")
 min_value = 1.0
+value = 3.0
 metadata/_custom_type_script = "uid://bkp1kvpvpi3bd"
 
 [sub_resource type="Resource" id="input_3"]

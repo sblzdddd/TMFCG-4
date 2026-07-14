@@ -16,6 +16,7 @@ label = "玩家"
 
 [sub_resource type="Resource" id="Resource_vfn58"]
 script = ExtResource("2_ii15d")
+pressed = true
 metadata/_custom_type_script = "uid://bhdul5lf04xll"
 
 [sub_resource type="Resource" id="input_2"]

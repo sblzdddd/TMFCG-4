@@ -1,3 +1,4 @@
+@tool
 extends Button
 
 const TITLE_SCENE := "res://definitions/levels/title.tscn"

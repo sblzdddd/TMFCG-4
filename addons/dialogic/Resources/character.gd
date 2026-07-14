@@ -196,10 +196,43 @@ func add_portrait(name:String, image:String, scene:= "") -> void:
 			"image": image}
 		}
 
-
-## Returns a thumbnail texture for editor resource previews.
-func generate_editor_preview() -> Texture2D:
-	var image_path := get_portrait_image_path()
-	if image_path.is_empty() or not ResourceLoader.exists(image_path):
-		return null
+func load_portrait_texture(portrait_name: String = "") -> Texture2D:
+	var image_path := get_portrait_image_path(portrait_name)
+	if image_path.is_empty() or not ResourceLoader.exists(image_path): return null
 	return ResourceLoader.load(image_path) as Texture2D
+
+@export var extra_config: Dictionary[String, String]: get = _get_extra_config
+
+func _get_extra_config() -> Dictionary[String, String]:
+	var result := {
+		"en_name": get_translated_name("en"),
+		"ja_name": get_translated_name("ja"),
+		"description": "", "origin": ""
+	}
+	if description.is_empty():
+		return result
+
+	var regex := RegEx.new()
+	regex.compile("(?m)^(\\w+)=([\\s\\S]*?)(?=(?:\\r?\\n\\w+=)|$)")
+
+	for m in regex.search_all(description):
+		var key := m.get_string(1)
+		var value := m.get_string(2).strip_edges()
+		result[key] = value
+
+	return result
+
+func get_translated_name(locale: String) -> String:
+	if ProjectSettings.get_setting("dialogic/translation/enabled", false):
+		var translation_key := get_property_translation_key(
+			DialogicCharacter.TranslatedProperties.NAME
+		)
+		var en_translation := TranslationServer.get_translation_object(locale)
+		if en_translation:
+			var english_name := en_translation.get_message(translation_key)
+			if not english_name.is_empty() and english_name != translation_key:
+				return english_name
+
+	if not display_name.is_empty():
+		return display_name
+	return get_character_name()

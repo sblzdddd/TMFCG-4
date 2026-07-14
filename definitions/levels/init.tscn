@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cba61hvdwdeu8"]
+
+[ext_resource type="Texture2D" uid="uid://ckcaswne12uq5" path="res://assets/textures/splash.png" id="1_d57rs"]
+
+[sub_resource type="Curve2D" id="Curve2D_d57rs"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 497, 403, 0, 0, 0, 0, 468, 385, 0, 0, 0, 0, 489, 217, 0, 0, 0, 0, 489, 168, 0, 0, 0, 0, 657, 159, 0, 0, 0, 0, 657, 205, 0, 0, 0, 0, 684, 390, 0, 0, 0, 0, 516, 413, 0, 0, 0, 0, 503, 217, 0, 0, 0, 0, 642, 206)
+}
+point_count = 10
+
+[node name="Init" type="Control" unique_id=1440545744]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1795313935]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("1_d57rs")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Path2D" type="Path2D" parent="TextureRect" unique_id=361833084]
+curve = SubResource("Curve2D_d57rs")
+
+[node name="Line2D" type="Line2D" parent="TextureRect" unique_id=726118699]

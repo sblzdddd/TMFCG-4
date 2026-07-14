@@ -49,7 +49,7 @@ func _set_normal() -> void:
 	_animate(sizes.x, 0.0)
 
 
-func _set_hovered(from_touch: bool) -> void:
+func _set_hovered(_from_touch: bool) -> void:
 	_state = _State.HOVERED
 	_animate(sizes.y, 0.0)
 

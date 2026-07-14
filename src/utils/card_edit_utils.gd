@@ -69,11 +69,3 @@ static func select_rank(button: OptionButton, rank: Rank) -> void:
 		if button.get_item_id(i) == int(rank):
 			button.select(i)
 			return
-
-
-static func get_selected_suit(button: OptionButton) -> Suit:
-	return button.get_selected_id() as Suit
-
-
-static func get_selected_rank(button: OptionButton) -> Rank:
-	return button.get_selected_id() as Rank

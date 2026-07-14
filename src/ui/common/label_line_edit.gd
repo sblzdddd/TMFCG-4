@@ -1,5 +1,6 @@
 @tool
 extends Control
+class_name LabelLineEdit
 
 const _LABEL_SCALE_IDLE := Vector2.ONE
 const _LABEL_SCALE_ACTIVE := Vector2(0.6, 0.6)
@@ -51,6 +52,11 @@ func _ready() -> void:
 
 func _edit_text() -> String:
 	return str(get("text"))
+
+
+func set_text_content(value: String) -> void:
+	set("text", value)
+	_sync_label_scale(false)
 
 
 func _has_content() -> bool:

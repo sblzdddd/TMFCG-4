@@ -35,6 +35,7 @@ label = "标记隐藏"
 
 [sub_resource type="Resource" id="Resource_6p3r3"]
 script = ExtResource("2_0opo1")
+pressed = true
 metadata/_custom_type_script = "uid://bhdul5lf04xll"
 
 [sub_resource type="Resource" id="input_5"]

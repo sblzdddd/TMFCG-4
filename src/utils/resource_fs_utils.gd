@@ -7,13 +7,29 @@ enum ImagePickMode {
 	CHOOSE,
 }
 
-class ImagePickerConfig:
-	var title: String
-	var access: FileDialog.Access
-	var root_subfolder: String = ""
-
 static var IMAGE_FILTERS := PackedStringArray(["*.png, *.jpg, *.jpeg, *.webp ; Images"])
 
+
+static func import_image_file(source_path: String, dest_dir: String, dest_basename: String) -> String:
+	if source_path.is_empty():
+		return ""
+
+	var source_global := _to_global_path(source_path)
+	if not FileAccess.file_exists(source_global):
+		push_error("Image source does not exist: %s" % source_path)
+		return ""
+
+	var ext := source_path.get_extension().to_lower()
+	if ext.is_empty():
+		ext = "png"
+
+	var dest_path := make_unique_path(dest_dir, sanitize_filename(dest_basename), ext)
+	var err := DirAccess.copy_absolute(source_global, ProjectSettings.globalize_path(dest_path))
+	if err != OK:
+		push_error("Failed to copy image to %s: %s" % [dest_path, error_string(err)])
+		return ""
+
+	return dest_path
 
 static func can_write_presets() -> bool:
 	return OS.has_feature("editor")
@@ -42,82 +58,25 @@ static func sanitize_filename(name: String) -> String:
 static func make_unique_path(dir: String, base_name: String, extension: String) -> String:
 	ensure_directories()
 	var ext := extension.trim_prefix(".")
-	var candidate := dir.path_join("%s.%s" % [base_name, ext])
+	var candidate := dir.path_join("%s.%s" % [sanitize_filename(base_name), ext])
 	if not FileAccess.file_exists(candidate):
 		return candidate
 
 	var index := 1
 	while index < 10000:
-		candidate = dir.path_join("%s_%d.%s" % [base_name, index, ext])
+		candidate = dir.path_join("%s_%d.%s" % [sanitize_filename(base_name), index, ext])
 		if not FileAccess.file_exists(candidate):
 			return candidate
 		index += 1
 	return candidate
 
 
-static func import_image_file(source_path: String, dest_dir: String, dest_basename: String) -> String:
-	if source_path.is_empty():
-		return ""
-
-	var source_global := _to_global_path(source_path)
-	if not FileAccess.file_exists(source_global):
-		push_error("Image source does not exist: %s" % source_path)
-		return ""
-
-	var ext := source_path.get_extension().to_lower()
-	if ext.is_empty():
-		ext = "png"
-
-	var dest_path := make_unique_path(dest_dir, sanitize_filename(dest_basename), ext)
-	var err := DirAccess.copy_absolute(source_global, ProjectSettings.globalize_path(dest_path))
-	if err != OK:
-		push_error("Failed to copy image to %s: %s" % [dest_path, error_string(err)])
-		return ""
-
-	return dest_path
-
-
 static func save_resource(resource: Resource, path: String) -> Error:
 	resource.resource_path = path
 	var err := ResourceSaver.save(resource, path)
 	if err == OK:
-		_on_resource_created(path)
+		pass
 	return err
-
-
-static func save_dialogic_character(character: DialogicCharacter, path: String, builtin: bool) -> Error:
-	var err := save_resource(character, path)
-	if err == OK and builtin:
-		DialogicResourceUtil.update_directory("dch")
-	return err
-
-
-static func new_deck_path(deck_name: String, builtin: bool) -> String:
-	return make_unique_path(ResConst.decks_dir(builtin), sanitize_filename(deck_name), "tres")
-
-
-static func new_character_path(display_name: String, builtin: bool) -> String:
-	return make_unique_path(ResConst.characters_dir(builtin), sanitize_filename(display_name), "dch")
-
-
-static func resolve_deck_thumbnail(source_path: String, dest_basename: String, builtin: bool) -> String:
-	if source_path.is_empty():
-		return ""
-	if source_path.begins_with("res://") or source_path.begins_with("user://"):
-		if not builtin and source_path.begins_with("res://"):
-			return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.DECK_THUMBNAIL, false), dest_basename)
-		return source_path
-	return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.DECK_THUMBNAIL, builtin), dest_basename)
-
-
-static func resolve_character_portrait(source_path: String, dest_basename: String, builtin: bool) -> String:
-	if source_path.is_empty():
-		return ""
-	if source_path.begins_with("res://") or source_path.begins_with("user://"):
-		if not builtin and source_path.begins_with("res://"):
-			return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.CHARACTER_PORTRAIT, false), dest_basename)
-		return source_path
-	return import_image_file(source_path, ResConst.textures_dir(ResConst.ImageKind.CHARACTER_PORTRAIT, builtin), dest_basename)
 
 
 static func list_files(dir: String, extension: String) -> Array[String]:
@@ -157,15 +116,10 @@ static func _to_global_path(path: String) -> String:
 	return path
 
 
-
-
 static func can_delete(path: String) -> bool:
-	if path.is_empty():
-		return false
-	if path.begins_with("user://"):
-		return true
-	if path.begins_with("res://"):
-		return can_write_presets()
+	if path.is_empty(): return false
+	if path.begins_with("user://"): return true
+	if path.begins_with("res://"): return can_write_presets()
 	return false
 
 
@@ -180,7 +134,3 @@ static func delete_resource(path: String) -> Error:
 
 static func is_builtin_path(path: String) -> bool:
 	return path.begins_with(ResConst.PRESET_ROOT)
-
-
-static func _on_resource_created(_path: String) -> void:
-	pass

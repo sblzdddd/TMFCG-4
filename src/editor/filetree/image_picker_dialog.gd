@@ -82,11 +82,10 @@ func _on_web_file_read(array_buffer: JavaScriptObject, file_name: String) -> voi
 		return
 
 	ResourceFsUtils.ensure_directories()
-	var base_name := ResourceFsUtils.sanitize_filename(file_name.get_basename())
 	var ext := file_name.get_extension().to_lower()
 	if ext.is_empty():
 		ext = "png"
-	var dest_path := ResourceFsUtils.make_unique_path(_pending_upload_dir, base_name, ext)
+	var dest_path := ResourceFsUtils.make_unique_path(_pending_upload_dir, file_name.get_basename(), ext)
 
 	var file := FileAccess.open(dest_path, FileAccess.WRITE)
 	if file == null:

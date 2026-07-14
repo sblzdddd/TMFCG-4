@@ -21,6 +21,7 @@ const PRESET_CHARACTERS_DIR := "res://definitions/database/characters/"
 const PRESET_DECKS_DIR := "res://definitions/database/decks/"
 const PRESET_CHARACTER_TEXTURES_DIR := "res://assets/textures/characters/"
 const PRESET_DECK_TEXTURES_DIR := "res://assets/textures/decks/"
+const AVATARS_DIR := "res://assets/textures/avatars/"
 const PRESET_DIRS := [PRESET_CHARACTERS_DIR, PRESET_DECKS_DIR, PRESET_CHARACTER_TEXTURES_DIR, PRESET_DECK_TEXTURES_DIR]
 
 

@@ -4,13 +4,112 @@
 [ext_resource type="Script" uid="uid://dy7lffwjdfn3d" path="res://src/ui/home/horizontal_tabs.gd" id="2_mfmb0"]
 [ext_resource type="PackedScene" uid="uid://b436pl2hgau5e" path="res://definitions/prefabs/pre_line_edit.tscn" id="3_alfva"]
 [ext_resource type="Texture2D" uid="uid://vqtdi6wg4s74" path="res://assets/textures/icons/skills/port_array.svg" id="4_2652g"]
+[ext_resource type="Texture2D" uid="uid://cra5sdaqnsjkf" path="res://assets/textures/avatars/00000.png" id="4_alfva"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="5_6n0ph"]
+[ext_resource type="Script" uid="uid://c6p0e57ixjvim" path="res://src/ui/home/avatar_edit_button.gd" id="5_60dyn"]
 [ext_resource type="RichTextEffect" uid="uid://b7sb6658c8bpp" path="res://src/ui/effects/wave_breath_fx.tres" id="6_j0sst"]
+[ext_resource type="Texture2D" uid="uid://crv3skt1qeevp" path="res://assets/textures/icons/home/CanvasLayer.svg" id="6_seciw"]
 [ext_resource type="Script" uid="uid://i7iqi42bxaf5" path="res://src/ui/home/side_button.gd" id="7_5gwhe"]
+[ext_resource type="Texture2D" uid="uid://q5pt208fk80t" path="res://assets/textures/avatars/00069.png" id="8_5q64e"]
 [ext_resource type="Texture2D" uid="uid://dpmr81ptqw32i" path="res://assets/textures/icons/home/EditorIcon@2x.svg" id="8_xqe6w"]
-[ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="9_k1jdg"]
+[ext_resource type="Texture2D" uid="uid://uqlgh1c5gwss" path="res://assets/textures/avatars/00068.png" id="9_seciw"]
+[ext_resource type="Texture2D" uid="uid://bof4aytsu3gon" path="res://assets/textures/icons/home/RandomNumberGenerator.svg" id="9_uu081"]
 [ext_resource type="Texture2D" uid="uid://cmcbqqj8dc4sh" path="res://assets/textures/icons/home/Exit@2x.svg" id="10_4c1yj"]
+[ext_resource type="Texture2D" uid="uid://4mt30vtkshkx" path="res://assets/textures/avatars/00067.png" id="10_60dyn"]
+[ext_resource type="FontFile" uid="uid://gpjc63stsulg" path="res://assets/fonts/Itim-Regular.ttf" id="10_mfmb0"]
 [ext_resource type="PackedScene" uid="uid://cruf4r2hiqeyi" path="res://definitions/levels/tmfcg_editor.tscn" id="11_editor"]
+[ext_resource type="Texture2D" uid="uid://bf3w6hl7117hn" path="res://assets/textures/avatars/00066.png" id="11_uu081"]
+[ext_resource type="Texture2D" uid="uid://dl38bhqh2vfvi" path="res://assets/textures/avatars/00065.png" id="12_63j5s"]
+[ext_resource type="Script" uid="uid://dinseui6fqjrc" path="res://src/ui/home/user_profile_editor.gd" id="12_profile"]
+[ext_resource type="Texture2D" uid="uid://d1rc1qpsbdb5r" path="res://assets/textures/avatars/00064.png" id="13_524ax"]
+[ext_resource type="Script" uid="uid://ba70keabkuapd" path="res://src/ui/home/avatar_picker_dialog.gd" id="13_apick"]
+[ext_resource type="Texture2D" uid="uid://c0t487a4vmtgd" path="res://assets/textures/avatars/00063.png" id="14_wxmef"]
+[ext_resource type="Texture2D" uid="uid://hd5ce1gechhb" path="res://assets/textures/avatars/00062.png" id="15_2vvcu"]
+[ext_resource type="Texture2D" uid="uid://d2y8o54rbfg83" path="res://assets/textures/avatars/00061.png" id="16_5qtgj"]
+[ext_resource type="Texture2D" uid="uid://c2gox6xpfvlwo" path="res://assets/textures/avatars/00060.png" id="17_i82gg"]
+[ext_resource type="Texture2D" uid="uid://cskfdwyu6ittl" path="res://assets/textures/avatars/00059.png" id="18_1hrbv"]
+[ext_resource type="Texture2D" uid="uid://mqciekih0bdn" path="res://assets/textures/avatars/00058.png" id="19_nqbwa"]
+[ext_resource type="Texture2D" uid="uid://6h13xckmwcym" path="res://assets/textures/avatars/00057.png" id="20_ai4vk"]
+[ext_resource type="Texture2D" uid="uid://b5hafc3dvouad" path="res://assets/textures/avatars/00056.png" id="21_fpejq"]
+[ext_resource type="Texture2D" uid="uid://dm1q0k62jr43i" path="res://assets/textures/avatars/00055.png" id="22_xf08x"]
+[ext_resource type="Texture2D" uid="uid://bg1uo00px3dul" path="res://assets/textures/avatars/00054.png" id="23_k03pq"]
+[ext_resource type="Texture2D" uid="uid://dditdjwnybl47" path="res://assets/textures/avatars/00053.png" id="24_7o7jv"]
+[ext_resource type="Texture2D" uid="uid://cyvi63daw3pd8" path="res://assets/textures/avatars/00052.png" id="25_hlmgk"]
+[ext_resource type="Texture2D" uid="uid://8ju3ijrhqydp" path="res://assets/textures/avatars/00051.png" id="26_3kk77"]
+[ext_resource type="Texture2D" uid="uid://ce74p3euqt54k" path="res://assets/textures/avatars/00050.png" id="27_fevqp"]
+[ext_resource type="Texture2D" uid="uid://ctftccev6w4ms" path="res://assets/textures/avatars/00049.png" id="28_wrrad"]
+[ext_resource type="Texture2D" uid="uid://dt1suk23ornqh" path="res://assets/textures/avatars/00048.png" id="29_r8yhg"]
+[ext_resource type="Texture2D" uid="uid://dbnybnb6ui7dy" path="res://assets/textures/avatars/00047.png" id="30_b4bol"]
+[ext_resource type="Texture2D" uid="uid://d2lhja1ujngyp" path="res://assets/textures/avatars/00093.png" id="31_tn7bv"]
+[ext_resource type="Texture2D" uid="uid://ds8xni3ru36ve" path="res://assets/textures/avatars/00092.png" id="32_rtbpm"]
+[ext_resource type="Texture2D" uid="uid://clb7lct13c8p" path="res://assets/textures/avatars/00091.png" id="33_6xx76"]
+[ext_resource type="Texture2D" uid="uid://l2b6n5dav2xj" path="res://assets/textures/avatars/00090.png" id="34_8rkl2"]
+[ext_resource type="Texture2D" uid="uid://yia16v0xppsr" path="res://assets/textures/avatars/00089.png" id="35_qeog8"]
+[ext_resource type="Texture2D" uid="uid://v7jxhbg7ax8o" path="res://assets/textures/avatars/00088.png" id="36_j0cq2"]
+[ext_resource type="Texture2D" uid="uid://bwn253fdqs2lq" path="res://assets/textures/avatars/00087.png" id="37_n46gq"]
+[ext_resource type="Texture2D" uid="uid://cofjw4j2hyxi2" path="res://assets/textures/avatars/00086.png" id="38_7w5pk"]
+[ext_resource type="Texture2D" uid="uid://d3bhdbymkh07v" path="res://assets/textures/avatars/00085.png" id="39_nv22g"]
+[ext_resource type="Texture2D" uid="uid://d313cymgnkjcc" path="res://assets/textures/avatars/00084.png" id="40_g2fef"]
+[ext_resource type="Texture2D" uid="uid://ckvnosg1bulbg" path="res://assets/textures/avatars/00083.png" id="41_1odai"]
+[ext_resource type="Texture2D" uid="uid://bneqw62wa6jnt" path="res://assets/textures/avatars/00082.png" id="42_esfuy"]
+[ext_resource type="Texture2D" uid="uid://dluiui0xphyvn" path="res://assets/textures/avatars/00081.png" id="43_t4sth"]
+[ext_resource type="Texture2D" uid="uid://chgtun42k60et" path="res://assets/textures/avatars/00080.png" id="44_kgxei"]
+[ext_resource type="Texture2D" uid="uid://dyt81ypqk3xfj" path="res://assets/textures/avatars/00079.png" id="45_uxb33"]
+[ext_resource type="Texture2D" uid="uid://civv75hoh3eeg" path="res://assets/textures/avatars/00078.png" id="46_6ati0"]
+[ext_resource type="Texture2D" uid="uid://b52aws2dwpwi4" path="res://assets/textures/avatars/00077.png" id="47_cvwbl"]
+[ext_resource type="Texture2D" uid="uid://7fw6xswx3qdg" path="res://assets/textures/avatars/00076.png" id="48_2xird"]
+[ext_resource type="Texture2D" uid="uid://d1pp86tjg4pd8" path="res://assets/textures/avatars/00075.png" id="49_k5uvp"]
+[ext_resource type="Texture2D" uid="uid://cmpor604phcef" path="res://assets/textures/avatars/00074.png" id="50_sjbqc"]
+[ext_resource type="Texture2D" uid="uid://2hr11c2cpj00" path="res://assets/textures/avatars/00073.png" id="51_r2r4h"]
+[ext_resource type="Texture2D" uid="uid://by2d0ha6yd0wj" path="res://assets/textures/avatars/00072.png" id="52_56144"]
+[ext_resource type="Texture2D" uid="uid://cimmmsgclrxa" path="res://assets/textures/avatars/00071.png" id="53_nslmi"]
+[ext_resource type="Texture2D" uid="uid://bj8r5p2pp2osq" path="res://assets/textures/avatars/00070.png" id="54_fxkxo"]
+[ext_resource type="Texture2D" uid="uid://k16phy3vjhkq" path="res://assets/textures/avatars/00022.png" id="55_m15ke"]
+[ext_resource type="Texture2D" uid="uid://cde4nvw6voyov" path="res://assets/textures/avatars/00021.png" id="56_8y8p3"]
+[ext_resource type="Texture2D" uid="uid://b2bry55lxe8fo" path="res://assets/textures/avatars/00020.png" id="57_v5lne"]
+[ext_resource type="Texture2D" uid="uid://hjbbn0bxc20f" path="res://assets/textures/avatars/00019.png" id="58_dg1xx"]
+[ext_resource type="Texture2D" uid="uid://by4ktetw5wf88" path="res://assets/textures/avatars/00018.png" id="59_aedl0"]
+[ext_resource type="Texture2D" uid="uid://b3co1qukajvpc" path="res://assets/textures/avatars/00017.png" id="60_idoih"]
+[ext_resource type="Texture2D" uid="uid://ev87orixpuaw" path="res://assets/textures/avatars/00016.png" id="61_dol2y"]
+[ext_resource type="Texture2D" uid="uid://cq6bca5wv67ya" path="res://assets/textures/avatars/00015.png" id="62_3kuqg"]
+[ext_resource type="Texture2D" uid="uid://cyjoanhade52g" path="res://assets/textures/avatars/00014.png" id="63_k7vcq"]
+[ext_resource type="Texture2D" uid="uid://bjuofvylr47vg" path="res://assets/textures/avatars/00013.png" id="64_c33se"]
+[ext_resource type="Texture2D" uid="uid://b168feat47jpv" path="res://assets/textures/avatars/00012.png" id="65_n67x8"]
+[ext_resource type="Texture2D" uid="uid://bbjnbyti7go12" path="res://assets/textures/avatars/00011.png" id="66_ghw7k"]
+[ext_resource type="Texture2D" uid="uid://bss44y1kuo1da" path="res://assets/textures/avatars/00010.png" id="67_cqkdv"]
+[ext_resource type="Texture2D" uid="uid://c6klikinpuari" path="res://assets/textures/avatars/00009.png" id="68_2k4su"]
+[ext_resource type="Texture2D" uid="uid://4t0squ5jjolt" path="res://assets/textures/avatars/00008.png" id="69_48uqh"]
+[ext_resource type="Texture2D" uid="uid://nxyysg6i2uvi" path="res://assets/textures/avatars/00007.png" id="70_drxl3"]
+[ext_resource type="Texture2D" uid="uid://chatejg3qqff2" path="res://assets/textures/avatars/00006.png" id="71_r2sei"]
+[ext_resource type="Texture2D" uid="uid://cotlnkwpxx4pw" path="res://assets/textures/avatars/00005.png" id="72_qx0r5"]
+[ext_resource type="Texture2D" uid="uid://dfdc4m40yb7j6" path="res://assets/textures/avatars/00004.png" id="73_1x2px"]
+[ext_resource type="Texture2D" uid="uid://1oggaixr46lb" path="res://assets/textures/avatars/00003.png" id="74_ibe5w"]
+[ext_resource type="Texture2D" uid="uid://xkwdhrhf5khs" path="res://assets/textures/avatars/00002.png" id="75_ydhx1"]
+[ext_resource type="Texture2D" uid="uid://2to4lpouf2wv" path="res://assets/textures/avatars/00001.png" id="76_tfde2"]
+[ext_resource type="Texture2D" uid="uid://wse75sxaxr20" path="res://assets/textures/avatars/00046.png" id="77_fswas"]
+[ext_resource type="Texture2D" uid="uid://d011fg1lj7uy2" path="res://assets/textures/avatars/00045.png" id="78_l1tek"]
+[ext_resource type="Texture2D" uid="uid://dduhhmi1is04k" path="res://assets/textures/avatars/00044.png" id="79_np2vi"]
+[ext_resource type="Texture2D" uid="uid://cjwtg3ljeg476" path="res://assets/textures/avatars/00043.png" id="80_8384t"]
+[ext_resource type="Texture2D" uid="uid://bdwm0ivdr6bqq" path="res://assets/textures/avatars/00042.png" id="81_qpqkl"]
+[ext_resource type="Texture2D" uid="uid://dnvf2tmoyt3sp" path="res://assets/textures/avatars/00041.png" id="82_xlofu"]
+[ext_resource type="Texture2D" uid="uid://ykbxgrx0klty" path="res://assets/textures/avatars/00040.png" id="83_nbh8c"]
+[ext_resource type="Texture2D" uid="uid://c2s4njwnal7ya" path="res://assets/textures/avatars/00039.png" id="84_s3qly"]
+[ext_resource type="Texture2D" uid="uid://wxo04bsb6p3s" path="res://assets/textures/avatars/00038.png" id="85_g3uss"]
+[ext_resource type="Texture2D" uid="uid://b7gqv1qnquvje" path="res://assets/textures/avatars/00037.png" id="86_rjeji"]
+[ext_resource type="Texture2D" uid="uid://btglagqx1ahw6" path="res://assets/textures/avatars/00036.png" id="87_gssus"]
+[ext_resource type="Texture2D" uid="uid://dg2nt82ecwr5d" path="res://assets/textures/avatars/00035.png" id="88_3anlx"]
+[ext_resource type="Texture2D" uid="uid://bfnldgr0arjvd" path="res://assets/textures/avatars/00034.png" id="89_0k3ki"]
+[ext_resource type="Texture2D" uid="uid://bnui07mefrj73" path="res://assets/textures/avatars/00033.png" id="90_c6yu1"]
+[ext_resource type="Texture2D" uid="uid://bf4f1g4llh7aa" path="res://assets/textures/avatars/00032.png" id="91_j77r3"]
+[ext_resource type="Texture2D" uid="uid://qa6mblfeftgn" path="res://assets/textures/avatars/00031.png" id="92_yrfr5"]
+[ext_resource type="Texture2D" uid="uid://gwlmx1un7u5" path="res://assets/textures/avatars/00030.png" id="93_joykq"]
+[ext_resource type="Texture2D" uid="uid://bi6iphcbm22cq" path="res://assets/textures/avatars/00029.png" id="94_sbdws"]
+[ext_resource type="Texture2D" uid="uid://bqkp136dqu5jr" path="res://assets/textures/avatars/00028.png" id="95_j84rq"]
+[ext_resource type="Texture2D" uid="uid://dx5p10cbelk5q" path="res://assets/textures/avatars/00027.png" id="96_ypn4i"]
+[ext_resource type="Texture2D" uid="uid://cjm2oal5i228g" path="res://assets/textures/avatars/00026.png" id="97_qeniu"]
+[ext_resource type="Texture2D" uid="uid://d20e524jl76h0" path="res://assets/textures/avatars/00025.png" id="98_vnv2s"]
+[ext_resource type="Texture2D" uid="uid://b0v54tbk4tyby" path="res://assets/textures/avatars/00024.png" id="99_sm1oa"]
+[ext_resource type="Texture2D" uid="uid://bsr7gl2otnnet" path="res://assets/textures/avatars/00023.png" id="100_7qpvc"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_hcl06"]
 
@@ -33,6 +132,29 @@ shadow_size = 17
 [sub_resource type="LabelSettings" id="LabelSettings_tj7y3"]
 font_size = 26
 font_color = Color(1, 0.8091763, 0.8438715, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mfmb0"]
+bg_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.30500805, 0.30500805, 0.30500805, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_alfva"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_ankyg"]
 font_size = 24
@@ -94,7 +216,7 @@ shadow_color = Color(1, 1, 1, 0.13333334)
 shadow_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_cierw"]
-font = ExtResource("9_k1jdg")
+font = ExtResource("10_mfmb0")
 font_size = 100
 outline_size = 31
 
@@ -132,12 +254,12 @@ theme_override_constants/separation = 0
 theme_override_icons/grabber = SubResource("ImageTexture_hcl06")
 theme_override_icons/h_grabber = SubResource("ImageTexture_bjyn3")
 theme_override_icons/v_grabber = SubResource("ImageTexture_cierw")
-split_offsets = PackedInt32Array(0, 0, 0)
+split_offsets = PackedInt32Array(0, 414, 735)
 dragging_enabled = false
 dragger_visibility = 1
 script = ExtResource("2_mfmb0")
-tab_buttons = [NodePath("DeckPanel/VBoxContainer/Button"), NodePath("SettingsPanel/VBoxContainer/Button"), NodePath("JoinPanel/VBoxContainer/Button"), NodePath("StartPanel/VBoxContainer/Button")]
-tabs = [NodePath("DeckPanel/VBoxContainer/Control"), NodePath("SettingsPanel/VBoxContainer/Control"), NodePath("JoinPanel/VBoxContainer/Control"), NodePath("StartPanel/VBoxContainer/Control")]
+tab_buttons = [NodePath("DeckPanel/DeckPage/DeckTab"), NodePath("SettingsPanel/SettingsPage/SettingsTab"), NodePath("JoinPanel/JoinPage/JoinTab"), NodePath("StartPanel/VBoxContainer/Button")]
+tabs = [NodePath("DeckPanel/DeckPage/DeckRoot"), NodePath("SettingsPanel/SettingsPage/SettingsRoot"), NodePath("JoinPanel/JoinPage/JoinRoot"), NodePath("StartPanel/VBoxContainer/Control")]
 metadata/_edit_use_anchors_ = true
 
 [node name="DeckPanel" type="PanelContainer" parent="MainContainer/LeftPanel" unique_id=572263944]
@@ -146,17 +268,17 @@ custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_albar")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/DeckPanel" unique_id=1323637419]
+[node name="DeckPage" type="HBoxContainer" parent="MainContainer/LeftPanel/DeckPanel" unique_id=1323637419]
 layout_mode = 2
 alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer" unique_id=2046888899]
+[node name="DeckRoot" type="Control" parent="MainContainer/LeftPanel/DeckPanel/DeckPage" unique_id=2046888899]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Control" unique_id=1110333930]
+[node name="DeckLayout" type="VBoxContainer" parent="MainContainer/LeftPanel/DeckPanel/DeckPage/DeckRoot" unique_id=1110333930]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -168,20 +290,20 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 16
 metadata/_edit_use_anchors_ = true
 
-[node name="Control4" type="Control" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Control/VBoxContainer" unique_id=428955482]
+[node name="Control4" type="Control" parent="MainContainer/LeftPanel/DeckPanel/DeckPage/DeckRoot/DeckLayout" unique_id=428955482]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Control/VBoxContainer" unique_id=1821996216]
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/DeckPanel/DeckPage/DeckRoot/DeckLayout" unique_id=1821996216]
 layout_mode = 2
 text = "没写..."
 
-[node name="Button" type="Button" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer" unique_id=553977427]
+[node name="DeckTab" type="Button" parent="MainContainer/LeftPanel/DeckPanel/DeckPage" unique_id=553977427]
 custom_minimum_size = Vector2(38.725, 0)
 layout_mode = 2
 flat = true
 
-[node name="Label" type="Label" parent="MainContainer/LeftPanel/DeckPanel/VBoxContainer/Button" unique_id=401401322]
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/DeckPanel/DeckPage/DeckTab" unique_id=401401322]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -201,17 +323,17 @@ custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_albar")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel" unique_id=382257173]
+[node name="SettingsPage" type="HBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel" unique_id=382257173]
 layout_mode = 2
 alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer" unique_id=1284293694]
+[node name="SettingsRoot" type="Control" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage" unique_id=1284293694]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Control" unique_id=1467200469]
+[node name="SettingsLayout" type="VBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot" unique_id=1467200469]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -223,20 +345,231 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 16
 metadata/_edit_use_anchors_ = true
 
-[node name="Control4" type="Control" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Control/VBoxContainer" unique_id=911291254]
+[node name="Control4" type="Control" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout" unique_id=911291254]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Control/VBoxContainer" unique_id=2068549398]
+[node name="Label2" type="Label" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout" unique_id=834033845]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-text = "没写..."
+text = "用户"
+label_settings = SubResource("LabelSettings_tj7y3")
+horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer" unique_id=1912663419]
+[node name="UserInfoEdit" type="HBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout" unique_id=1649655222 node_paths=PackedStringArray("_avatar_button", "_random_name_button", "_avatar_rect", "_name_edit", "_avatar_picker")]
+layout_mode = 2
+script = ExtResource("12_profile")
+_avatar_button = NodePath("AvatarEditButton")
+_random_name_button = NodePath("PlayerNameEdit/RandomName")
+_avatar_rect = NodePath("AvatarEditButton/AvatarContainer/Avatar")
+_name_edit = NodePath("PlayerNameEdit")
+_avatar_picker = NodePath("AvatarPicker")
+
+[node name="AvatarEditButton" type="Button" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit" unique_id=863559542 node_paths=PackedStringArray("RootPanel", "Avatar", "EditIcon")]
+texture_filter = 1
+custom_minimum_size = Vector2(39, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mfmb0")
+script = ExtResource("5_60dyn")
+RootPanel = NodePath("AvatarContainer")
+Avatar = NodePath("AvatarContainer/Avatar")
+EditIcon = NodePath("AvatarContainer/EditIcon")
+
+[node name="AvatarContainer" type="PanelContainer" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit/AvatarEditButton" unique_id=385953984]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_alfva")
+metadata/_edit_use_anchors_ = true
+
+[node name="Avatar" type="TextureRect" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit/AvatarEditButton/AvatarContainer" unique_id=1656507617]
+layout_mode = 2
+texture = ExtResource("4_alfva")
+expand_mode = 3
+
+[node name="EditIcon" type="TextureRect" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit/AvatarEditButton/AvatarContainer" unique_id=2025622399]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
+texture = ExtResource("6_seciw")
+expand_mode = 3
+
+[node name="PlayerNameEdit" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit" unique_id=1308272350 instance=ExtResource("3_alfva")]
+layout_mode = 2
+size_flags_horizontal = 3
+label_text = "用户名"
+
+[node name="RandomName" type="Button" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit/PlayerNameEdit" unique_id=1274585690]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("9_uu081")
+flat = true
+
+[node name="AvatarPicker" type="Window" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit" unique_id=1847294001 node_paths=PackedStringArray("_item_list")]
+oversampling_override = 1.0
+mode = 4
+title = "选择头像"
+initial_position = 1
+size = Vector2i(990, 550)
+visible = false
+exclusive = true
+always_on_top = true
+popup_window = true
+minimize_disabled = true
+maximize_disabled = true
+min_size = Vector2i(480, 400)
+script = ExtResource("13_apick")
+_item_list = NodePath("MarginContainer/VBoxContainer/AvatarList")
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit/AvatarPicker" unique_id=1847294002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit/AvatarPicker/MarginContainer" unique_id=1847294003]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="AvatarList" type="ItemList" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/SettingsLayout/UserInfoEdit/AvatarPicker/MarginContainer/VBoxContainer" unique_id=1847294005]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8343171, 0.8343171, 0.8343171, 1)
+theme_override_colors/scroll_hint_color = Color(0, 0, 0, 1)
+allow_reselect = true
+max_text_lines = 2
+scroll_hint_mode = 1
+item_count = 94
+max_columns = 80
+same_column_width = true
+fixed_column_width = 72
+icon_mode = 0
+fixed_icon_size = Vector2i(72, 72)
+item_0/icon = ExtResource("8_5q64e")
+item_1/icon = ExtResource("9_seciw")
+item_2/icon = ExtResource("10_60dyn")
+item_3/icon = ExtResource("11_uu081")
+item_4/icon = ExtResource("12_63j5s")
+item_5/icon = ExtResource("13_524ax")
+item_6/icon = ExtResource("14_wxmef")
+item_7/icon = ExtResource("15_2vvcu")
+item_8/icon = ExtResource("16_5qtgj")
+item_9/icon = ExtResource("17_i82gg")
+item_10/icon = ExtResource("18_1hrbv")
+item_11/icon = ExtResource("19_nqbwa")
+item_12/icon = ExtResource("20_ai4vk")
+item_13/icon = ExtResource("21_fpejq")
+item_14/icon = ExtResource("22_xf08x")
+item_15/icon = ExtResource("23_k03pq")
+item_16/icon = ExtResource("24_7o7jv")
+item_17/icon = ExtResource("25_hlmgk")
+item_18/icon = ExtResource("26_3kk77")
+item_19/icon = ExtResource("27_fevqp")
+item_20/icon = ExtResource("28_wrrad")
+item_21/icon = ExtResource("29_r8yhg")
+item_22/icon = ExtResource("30_b4bol")
+item_23/icon = ExtResource("31_tn7bv")
+item_24/icon = ExtResource("32_rtbpm")
+item_25/icon = ExtResource("33_6xx76")
+item_26/icon = ExtResource("34_8rkl2")
+item_27/icon = ExtResource("35_qeog8")
+item_28/icon = ExtResource("36_j0cq2")
+item_29/icon = ExtResource("37_n46gq")
+item_30/icon = ExtResource("38_7w5pk")
+item_31/icon = ExtResource("39_nv22g")
+item_32/icon = ExtResource("40_g2fef")
+item_33/icon = ExtResource("41_1odai")
+item_34/icon = ExtResource("42_esfuy")
+item_35/icon = ExtResource("43_t4sth")
+item_36/icon = ExtResource("44_kgxei")
+item_37/icon = ExtResource("45_uxb33")
+item_38/icon = ExtResource("46_6ati0")
+item_39/icon = ExtResource("47_cvwbl")
+item_40/icon = ExtResource("48_2xird")
+item_41/icon = ExtResource("49_k5uvp")
+item_42/icon = ExtResource("50_sjbqc")
+item_43/icon = ExtResource("51_r2r4h")
+item_44/icon = ExtResource("52_56144")
+item_45/icon = ExtResource("53_nslmi")
+item_46/icon = ExtResource("54_fxkxo")
+item_47/icon = ExtResource("55_m15ke")
+item_48/icon = ExtResource("56_8y8p3")
+item_49/icon = ExtResource("57_v5lne")
+item_50/icon = ExtResource("58_dg1xx")
+item_51/icon = ExtResource("59_aedl0")
+item_52/icon = ExtResource("60_idoih")
+item_53/icon = ExtResource("61_dol2y")
+item_54/icon = ExtResource("62_3kuqg")
+item_55/icon = ExtResource("63_k7vcq")
+item_56/icon = ExtResource("64_c33se")
+item_57/icon = ExtResource("65_n67x8")
+item_58/icon = ExtResource("66_ghw7k")
+item_59/icon = ExtResource("67_cqkdv")
+item_60/icon = ExtResource("68_2k4su")
+item_61/icon = ExtResource("69_48uqh")
+item_62/icon = ExtResource("70_drxl3")
+item_63/icon = ExtResource("71_r2sei")
+item_64/icon = ExtResource("72_qx0r5")
+item_65/icon = ExtResource("73_1x2px")
+item_66/icon = ExtResource("74_ibe5w")
+item_67/icon = ExtResource("75_ydhx1")
+item_68/icon = ExtResource("76_tfde2")
+item_69/icon = ExtResource("4_alfva")
+item_70/icon = ExtResource("77_fswas")
+item_71/icon = ExtResource("78_l1tek")
+item_72/icon = ExtResource("79_np2vi")
+item_73/icon = ExtResource("80_8384t")
+item_74/icon = ExtResource("81_qpqkl")
+item_75/icon = ExtResource("82_xlofu")
+item_76/icon = ExtResource("83_nbh8c")
+item_77/icon = ExtResource("84_s3qly")
+item_78/icon = ExtResource("85_g3uss")
+item_79/icon = ExtResource("86_rjeji")
+item_80/icon = ExtResource("87_gssus")
+item_81/icon = ExtResource("88_3anlx")
+item_82/icon = ExtResource("89_0k3ki")
+item_83/icon = ExtResource("90_c6yu1")
+item_84/icon = ExtResource("91_j77r3")
+item_85/icon = ExtResource("92_yrfr5")
+item_86/icon = ExtResource("93_joykq")
+item_87/icon = ExtResource("94_sbdws")
+item_88/icon = ExtResource("95_j84rq")
+item_89/icon = ExtResource("96_ypn4i")
+item_90/icon = ExtResource("97_qeniu")
+item_91/icon = ExtResource("98_vnv2s")
+item_92/icon = ExtResource("99_sm1oa")
+item_93/icon = ExtResource("100_7qpvc")
+
+[node name="SettingsTab" type="Button" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage" unique_id=1912663419]
 custom_minimum_size = Vector2(38.725, 0)
 layout_mode = 2
 flat = true
 
-[node name="Label" type="Label" parent="MainContainer/LeftPanel/SettingsPanel/VBoxContainer/Button" unique_id=1071637018]
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsTab" unique_id=1071637018]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -256,19 +589,19 @@ custom_minimum_size = Vector2(45, 0)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_albar")
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/JoinPanel" unique_id=1012718408]
+[node name="JoinPage" type="HBoxContainer" parent="MainContainer/LeftPanel/JoinPanel" unique_id=1012718408]
 propagate_maximum_size = false
 clip_contents = true
 layout_mode = 2
 alignment = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer" unique_id=1268727492]
+[node name="JoinRoot" type="Control" parent="MainContainer/LeftPanel/JoinPanel/JoinPage" unique_id=1268727492]
 clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control" unique_id=606322667]
+[node name="JoinLayout" type="VBoxContainer" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot" unique_id=606322667]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.03
@@ -280,72 +613,69 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 8
 metadata/_edit_use_anchors_ = true
 
-[node name="Control" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=1749204942]
+[node name="Control" type="Control" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=1749204942]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=54054179]
+[node name="Label2" type="Label" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=54054179]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "从IP加入"
 label_settings = SubResource("LabelSettings_tj7y3")
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=1909302524]
+[node name="JoinByIP" type="HBoxContainer" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=1909302524]
 layout_mode = 2
 
-[node name="RoomCode" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer/VBoxContainer" unique_id=1308272350 instance=ExtResource("3_alfva")]
+[node name="AddressEdit" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout/JoinByIP" unique_id=1717156900 instance=ExtResource("3_alfva")]
 layout_mode = 2
 size_flags_horizontal = 3
 label_text = "IP"
 
-[node name="LineEdit" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer/VBoxContainer" unique_id=2083342564 instance=ExtResource("3_alfva")]
+[node name="PortEdit" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout/JoinByIP" unique_id=2083342564 instance=ExtResource("3_alfva")]
 layout_mode = 2
 text = "13637"
 max_length = 5
 label_text = "端口"
 
-[node name="Button" type="Button" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=35231487]
+[node name="ConnectIp" type="Button" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=35231487]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "连接"
 
-[node name="Control2" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=1993738512]
+[node name="Control2" type="Control" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=1993738512]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=188300210]
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=188300210]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "房间列表"
 label_settings = SubResource("LabelSettings_tj7y3")
 horizontal_alignment = 1
 
-[node name="ItemList" type="ItemList" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=556584730]
+[node name="PublicRoomsList" type="ItemList" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=556584730]
 layout_mode = 2
 size_flags_vertical = 3
 max_text_lines = 2
+scroll_hint_mode = 1
 item_count = 2
 item_0/text = "22222"
 item_1/text = "22222"
 
-[node name="Button2" type="Button" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=48940496]
+[node name="JoinRoom" type="Button" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=48940496]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "加入房间"
 
-[node name="Control4" type="Control" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Control/VBoxContainer" unique_id=468959470]
-custom_minimum_size = Vector2(0, 4.932)
-layout_mode = 2
-
-[node name="Button" type="Button" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer" unique_id=13346278]
+[node name="JoinTab" type="Button" parent="MainContainer/LeftPanel/JoinPanel/JoinPage" unique_id=13346278]
 custom_minimum_size = Vector2(38.725, 0)
 layout_mode = 2
 theme_override_constants/align_to_largest_stylebox = 0
 theme_override_font_sizes/font_size = 25
 flat = true
 
-[node name="Label" type="Label" parent="MainContainer/LeftPanel/JoinPanel/VBoxContainer/Button" unique_id=1011467032]
+[node name="Label" type="Label" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinTab" unique_id=1011467032]
 custom_minimum_size = Vector2(2, 0)
 layout_mode = 1
 anchors_preset = 15
@@ -553,7 +883,6 @@ metadata/_edit_use_anchors_ = true
 [node name="TitleRect" type="VBoxContainer" parent="MainContainer" unique_id=942808553]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 theme_override_constants/separation = 22
 alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -689,7 +1018,7 @@ scale = Vector2(0.5, 0.5)
 pivot_offset_ratio = Vector2(0, 0.5)
 texture = ExtResource("8_xqe6w")
 
-[node name="Button4" type="Button" parent="MainContainer/RightPanel" unique_id=189760683]
+[node name="TutorialButton" type="Button" parent="MainContainer/RightPanel" unique_id=189760683]
 custom_minimum_size = Vector2(48, 118)
 layout_mode = 1
 anchors_preset = 1
@@ -697,7 +1026,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -48.0
 offset_top = 184.0
-offset_bottom = 302.0
+offset_bottom = 302.0001
 grow_horizontal = 0
 size_flags_horizontal = 8
 offset_transform_enabled = true
@@ -714,7 +1043,7 @@ text = "教
 alignment = 0
 script = ExtResource("7_5gwhe")
 
-[node name="TextureRect" type="Label" parent="MainContainer/RightPanel/Button4" unique_id=130416791]
+[node name="TextureRect" type="Label" parent="MainContainer/RightPanel/TutorialButton" unique_id=130416791]
 modulate = Color(0, 0, 0, 0.38431373)
 layout_mode = 1
 anchors_preset = 4

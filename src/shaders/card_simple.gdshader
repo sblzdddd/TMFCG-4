@@ -39,7 +39,7 @@ uniform vec3 bgTileParams = vec3(0.5, 0.5, 0.3);
 vec4 SuitTint(float matCol) {
 	return vec4(
 		mix(
-			mix(tint1, tint2, smoothstep(0.25, 0.6, matCol)),
+			mix(tint1, tint2, smoothstep(0.25, 0.5, matCol)),
 			tint3, smoothstep(0.62, 1.0, matCol)
 		),
 		smoothstep(0.0, 0.25, matCol)

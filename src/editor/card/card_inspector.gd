@@ -60,7 +60,7 @@ func clear() -> void:
 func _on_suit_selected(_index: int) -> void:
 	if _loading or _card == null:
 		return
-	var suit := CardEditUtils.get_selected_suit(_suit_edit)
+	var suit := _suit_edit.get_selected_id() as CardEnums.Suit
 	_card.suit = suit
 	_card.rank = CardEditUtils.update_value_availability(_value_edit, suit, _card.rank)
 	_apply_preview()
@@ -70,7 +70,7 @@ func _on_suit_selected(_index: int) -> void:
 func _on_value_selected(_index: int) -> void:
 	if _loading or _card == null:
 		return
-	_card.rank = CardEditUtils.get_selected_rank(_value_edit)
+	_card.rank = _value_edit.get_selected_id() as CardEnums.Rank
 	_apply_preview()
 	_emit_changed()
 

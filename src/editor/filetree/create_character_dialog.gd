@@ -2,7 +2,6 @@
 extends ConfirmationDialog
 class_name CreateCharacterDialog
 
-
 signal character_created(character: DialogicCharacter, path: String)
 
 @export var _name_edit: LineEdit
@@ -73,30 +72,17 @@ func _on_confirmed() -> void:
 		return
 
 	var builtin := _builtin_checkbox.button_pressed if _builtin_checkbox else false
-	if builtin and not ResourceFsUtils.can_write_presets():
-		push_warning("Builtin characters can only be created from the Godot editor.")
+	var result := CharacterDataStore.create_character(
+		display_name,
+		_build_description(),
+		_portrait_path,
+		builtin,
+	)
+	if result.is_empty():
 		call_deferred("popup_centered")
 		return
 
-	var character := DialogicCharacter.new()
-	character.display_name = display_name
-	character.description = _build_description()
-
-	var filename := ResourceFsUtils.sanitize_filename(display_name)
-	var character_path := ResourceFsUtils.new_character_path(display_name, builtin)
-
-	if not _portrait_path.is_empty():
-		var image_path := ResourceFsUtils.resolve_character_portrait(_portrait_path, filename, builtin)
-		if not image_path.is_empty():
-			character.add_portrait("default", image_path)
-			character.default_portrait = "default"
-
-	var err := ResourceFsUtils.save_dialogic_character(character, character_path, builtin)
-	if err != OK:
-		push_error("Failed to save character: %s" % error_string(err))
-		return
-
-	character_created.emit(character, character_path)
+	character_created.emit(result["character"], result["path"])
 	_reset_form()
 
 

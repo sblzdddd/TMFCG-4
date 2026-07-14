@@ -2,7 +2,6 @@
 extends ConfirmationDialog
 class_name CreateDeckDialog
 
-
 signal deck_created(deck: DeckData, path: String)
 
 @export var _name_edit: LineEdit
@@ -73,32 +72,16 @@ func _on_confirmed() -> void:
 		return
 
 	var builtin := _builtin_checkbox.button_pressed if _builtin_checkbox else false
-	if builtin and not ResourceFsUtils.can_write_presets():
-		push_warning("Builtin decks can only be created from the Godot editor.")
+	var result := DeckDataStore.create_deck(
+		deck_name,
+		_author_edit.text,
+		_description_edit.text,
+		_thumbnail_path,
+		builtin,
+	)
+	if result.is_empty():
 		call_deferred("popup_centered")
 		return
 
-	var filename := ResourceFsUtils.sanitize_filename(deck_name)
-	var deck_path := ResourceFsUtils.new_deck_path(deck_name, builtin)
-
-	var deck := DeckData.new()
-	deck.name = deck_name
-	deck.author = _author_edit.text.strip_edges()
-	deck.description = _description_edit.text.strip_edges()
-	deck.id = "deck-%d" % Time.get_unix_time_from_system()
-	deck.date_created = Time.get_unix_time_from_system()
-	deck.date_modified = deck.date_created
-	deck.cards = CardUtils.create_default_deck_cards()
-
-	if not _thumbnail_path.is_empty():
-		var image_path := ResourceFsUtils.resolve_deck_thumbnail(_thumbnail_path, filename, builtin)
-		if not image_path.is_empty():
-			deck.thumbnail = ResourceFsUtils.load_texture(image_path)
-
-	var err := ResourceFsUtils.save_resource(deck, deck_path)
-	if err != OK:
-		push_error("Failed to save deck: %s" % error_string(err))
-		return
-
-	deck_created.emit(deck, deck_path)
+	deck_created.emit(result["deck"], result["path"])
 	_reset_form()

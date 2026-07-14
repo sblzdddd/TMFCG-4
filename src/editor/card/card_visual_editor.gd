@@ -102,7 +102,7 @@ func _apply_character(character: DialogicCharacter) -> void:
 		display_name = character.get_character_name()
 
 	_name_info.text = display_name
-	var card_description := CharacterUtils.get_card_description(character)
+	var card_description := character.extra_config["description"]
 	_description_label.text = (
 		card_description if not card_description.is_empty() else "【无角色描述】"
 	)
@@ -226,17 +226,10 @@ func _on_set_default_button_pressed() -> void:
 		push_warning("Cannot save default transform: character has no resource path.")
 		return
 
-	var builtin := ResourceFsUtils.is_builtin_path(path)
-	if builtin and not ResourceFsUtils.can_write_presets():
-		push_warning("Cannot save default transform to built-in character outside the editor.")
-		return
-
 	character.offset = Vector2(_x_edit.value, _y_edit.value)
 	character.scale = _scale_edit.value
 
-	var err := ResourceFsUtils.save_dialogic_character(character, path, builtin)
-	if err != OK:
-		push_warning("Failed to save character default transform: %s" % error_string(err))
+	if CharacterDataStore.save_character(character, path) != OK:
 		return
 	_update_set_default_button_text()
 

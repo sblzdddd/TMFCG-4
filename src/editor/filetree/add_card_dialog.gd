@@ -34,16 +34,16 @@ func popup_for_deck(deck_path: String) -> void:
 
 
 func _on_suit_selected(_index: int) -> void:
-	var suit := CardEditUtils.get_selected_suit(_suit_edit)
-	var rank := CardEditUtils.get_selected_rank(_value_edit)
+	var suit := _suit_edit.get_selected_id() as CardEnums.Suit
+	var rank := _value_edit.get_selected_id() as CardEnums.Rank
 	CardEditUtils.update_value_availability(_value_edit, suit, rank)
 
 
 func _on_confirmed() -> void:
 	if _pending_deck_path.is_empty():
 		return
-	var suit := CardEditUtils.get_selected_suit(_suit_edit)
-	var rank := CardEditUtils.get_selected_rank(_value_edit)
+	var suit := _suit_edit.get_selected_id() as CardEnums.Suit
+	var rank := _value_edit.get_selected_id() as CardEnums.Rank
 	if not CardUtils.is_rank_valid_for_suit(suit, rank):
 		push_warning("Invalid rank for selected suit.")
 		call_deferred("popup_centered")

@@ -288,7 +288,7 @@ func _grab_end() -> void:
 
 func _restore_mouse_pos() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	await get_tree().create_timer(0.01).timeout
+	await get_tree().create_timer(2).timeout
 	Input.warp_mouse(_grab_mouse_pos * get_window().content_scale_factor)
 
 func _apply_drag(relative_x: float, shift_pressed: bool, round_to_int: bool) -> void:

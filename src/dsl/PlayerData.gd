@@ -5,12 +5,13 @@ extends Resource
 @export var name: String = "Player"
 @export var description: String = "A player of the game"
 @export var avatar: Texture2D = null
-@export var avatar_id: int = -1
+## Filename stem under res://assets/textures/avatars/ (e.g. "00000").
+@export var avatar_id: String = ""
 @export var date_joined: float = Time.get_unix_time_from_system()
 
 
 func to_profile() -> PlayerProfile:
-	var profile_avatar_id: Variant = avatar_id if avatar_id >= 0 else null
+	var profile_avatar_id: Variant = avatar_id
 	return PlayerProfile.new(name, profile_avatar_id)
 
 
@@ -19,6 +20,6 @@ static func from_profile(player_id: PlayerId, profile: PlayerProfile) -> PlayerD
 	data.uid = player_id.value
 	data.name = profile.nickname
 	if profile.avatar_id != null:
-		data.avatar_id = int(profile.avatar_id)
+		data.avatar_id = str(profile.avatar_id)
+		data.avatar = AvatarUtils.load_texture(data.avatar_id)
 	return data
-
