@@ -205,7 +205,8 @@ folder_colors={
 
 [gdunit4]
 
-settings/test/test_lookup_folder="src/tests"
+settings/test/test_lookup_folder="/tests"
+settings/test/test_discovery=true
 
 [gui]
 
