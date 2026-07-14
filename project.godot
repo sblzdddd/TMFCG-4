@@ -199,7 +199,8 @@ folder_colors={
 "res://definitions/database/translations/": "gray",
 "res://definitions/levels/": "blue",
 "res://scripts/": "gray",
-"res://src/": "purple"
+"res://src/": "purple",
+"res://tests/": "gray"
 }
 
 [gdunit4]
