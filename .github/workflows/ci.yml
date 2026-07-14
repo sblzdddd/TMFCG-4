@@ -10,6 +10,9 @@ concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  GODOT_IMPORT_CACHE_KEY: godot-import
+
 jobs:
   unit-test:
     name: Unit Tests
@@ -27,6 +30,15 @@ jobs:
         with:
           lfs: true
 
+      # Single fixed-key import cache (restore → refresh → save).
+      # Actions cache keys are immutable, so we delete then re-save each run.
+      - name: Restore Godot import cache
+        id: godot-import-cache
+        uses: actions/cache/restore@v4
+        with:
+          path: .godot
+          key: ${{ env.GODOT_IMPORT_CACHE_KEY }}
+
       - uses: godot-gdunit-labs/gdUnit4-action@v1
         with:
           godot-version: '4.7'
@@ -34,3 +46,27 @@ jobs:
           paths: 'res://tests/'
           timeout: 5
           report-name: test_report.xml
+
+      - name: Delete previous Godot import cache
+        if: always() && steps.godot-import-cache.outputs.cache-hit == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh cache delete "${{ env.GODOT_IMPORT_CACHE_KEY }}" --confirm
+
+      - name: Check Godot import cache directory
+        id: godot-import-dir
+        if: always()
+        run: |
+          if [ -d .godot ]; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Save Godot import cache
+        if: always() && steps.godot-import-dir.outputs.exists == 'true'
+        uses: actions/cache/save@v4
+        with:
+          path: .godot
+          key: ${{ env.GODOT_IMPORT_CACHE_KEY }}
