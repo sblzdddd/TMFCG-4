@@ -16,7 +16,7 @@ description=招来口舌之祸的女神",
 &"display_name": "稀神探女",
 &"mirror": false,
 &"nicknames": [],
-&"offset": Vector2(0.04, 0),
+&"offset": Vector2(0, 0),
 &"portraits": {
 "无表情": {
 "export_overrides": {
