@@ -194,7 +194,6 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gdUn
 
 folder_colors={
 "res://assets/": "yellow",
-"res://assets/textures/": "orange",
 "res://definitions/": "teal",
 "res://definitions/database/": "green",
 "res://definitions/database/translations/": "gray",
