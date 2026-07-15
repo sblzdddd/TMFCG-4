@@ -1,9 +1,9 @@
-class_name RoomLobbyController
-extends Control
+class_name RoomStatusController
+extends Container
 ## Combat lobby orchestrator: leave button + room_changed refresh.
 
-@export var leave_button: Button
-@export var status_label: Label
+@onready var leave_button := %LeaveButton
+@onready var status_label := %StatusLabel
 
 
 func _ready() -> void:
@@ -16,7 +16,6 @@ func _ready() -> void:
 func _on_room_changed(room: RoomData) -> void:
 	if leave_button:
 		leave_button.disabled = room == null
-		leave_button.text = "解散房间" if RoomManager.is_local_host() else "离开房间"
 	if status_label:
 		if room == null:
 			status_label.text = "未在房间中"

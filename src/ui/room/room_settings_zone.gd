@@ -1,26 +1,35 @@
 class_name RoomSettingsZone
-extends VBoxContainer
+extends Container
 ## Host-editable room options (name, public, max players).
 
-@export var name_edit: LineEdit
-@export var public_toggle: CheckButton
-@export var max_players_spin: SpinBox
-@export var code_label: Label
+@onready var name_edit := %NameEdit
+@onready var public_toggle := %PublicToggle
+@onready var max_players_spin := %MaxPlayers
+@onready var code_label := %CodeLabel
+@onready var game_settings_toggle := %GameSettingsToggle
+@onready var game_settings_root := %GameSettingsRoot
+@onready var game_settings_layout := %GameSettingsLayout
 
 var _loading := false
-
+var _tween: Tween
 
 func _ready() -> void:
-	if name_edit:
-		name_edit.text_submitted.connect(_on_name_submitted)
-		name_edit.focus_exited.connect(_on_name_focus_exited)
-	if public_toggle:
-		public_toggle.toggled.connect(_on_public_toggled)
-	if max_players_spin:
-		max_players_spin.value_changed.connect(_on_max_changed)
+	name_edit.text_submitted.connect(_on_name_submitted)
+	name_edit.focus_exited.connect(_on_name_focus_exited)
+	public_toggle.toggled.connect(_on_public_toggled)
+	max_players_spin.value_changed.connect(_on_max_changed)
+	game_settings_toggle.toggled.connect(_toggle_game_settings)
+
 	RoomManager.room_changed.connect(_on_room_changed)
 	_on_room_changed(RoomManager.current_room)
 
+func _toggle_game_settings(on: bool) -> void:
+	if _tween != null:
+		_tween.kill()
+	_tween = create_tween().set_parallel(true)
+	_tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
+	_tween.tween_property(game_settings_layout, "modulate", Color.WHITE if on else Color(1,1,1,0), 0.5)
+	_tween.tween_property(game_settings_root, "anchor_right", 1 if on else 0, 0.5)
 
 func _on_room_changed(room: RoomData) -> void:
 	_loading = true
@@ -31,7 +40,7 @@ func _on_room_changed(room: RoomData) -> void:
 	if code_label:
 		code_label.text = "房间码: %s" % room.code
 	if name_edit:
-		name_edit.text = room.name
+		name_edit.set_text_content(room.name)
 		name_edit.editable = is_host
 	if public_toggle:
 		public_toggle.button_pressed = room.is_public

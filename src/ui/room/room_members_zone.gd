@@ -2,7 +2,7 @@ class_name RoomMembersZone
 extends VBoxContainer
 ## Room member cards with per-row kick (host only).
 
-@export var members_list: CardList
+@onready var members_list := %MembersList
 
 
 func _ready() -> void:

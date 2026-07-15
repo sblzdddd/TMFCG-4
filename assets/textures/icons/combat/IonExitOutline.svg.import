@@ -1,0 +1,22 @@
+[remap]
+
+importer="svg"
+type="DPITexture"
+uid="uid://wwkkx5mbvwmc"
+path="res://.godot/imported/IonExitOutline.svg-8086303a8a9d4642105ef60bac7d49ab.dpitex"
+
+[deps]
+
+source_file="res://assets/textures/icons/combat/IonExitOutline.svg"
+dest_files=["res://.godot/imported/IonExitOutline.svg-8086303a8a9d4642105ef60bac7d49ab.dpitex"]
+
+[params]
+
+base_scale=0.75
+saturation=1.0
+color_map={
+Color(0, 0, 0, 1): Color(1, 1, 1, 1)
+}
+fix_alpha_border=false
+premult_alpha=false
+compress=true

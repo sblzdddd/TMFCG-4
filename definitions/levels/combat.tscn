@@ -1,10 +1,16 @@
 [gd_scene format=3 uid="uid://bpx84627ap3x6"]
 
-[ext_resource type="Script" uid="uid://cpqpasp8ss2km" path="res://src/ui/room/room_lobby_controller.gd" id="1_ctrl"]
+[ext_resource type="Script" uid="uid://cpqpasp8ss2km" path="res://src/ui/room/room_status_controller.gd" id="1_ctrl"]
 [ext_resource type="Script" uid="uid://dl8itxljoyjrp" path="res://src/ui/room/room_members_zone.gd" id="2_members"]
+[ext_resource type="Texture2D" uid="uid://wwkkx5mbvwmc" path="res://assets/textures/icons/combat/IonExitOutline.svg" id="3_cxrys"]
+[ext_resource type="LabelSettings" uid="uid://dxndkfbiccaor" path="res://definitions/fonts/page_title.tres" id="3_r84uw"]
 [ext_resource type="Script" uid="uid://bmp5ghp4irww7" path="res://src/ui/room/room_settings_zone.gd" id="3_settings"]
+[ext_resource type="Texture2D" uid="uid://cjq55njlqlui5" path="res://assets/textures/icons/combat/MaterialSymbolsLightFileCopyOutlineRounded.svg" id="4_mxwog"]
 [ext_resource type="PackedScene" uid="uid://c8v7kmxo0yxxo" path="res://definitions/ui/settings_panel.tscn" id="4_profile"]
 [ext_resource type="PackedScene" uid="uid://dehu63ckqecwu" path="res://definitions/prefabs/pre_card_list.tscn" id="5_cards"]
+[ext_resource type="PackedScene" uid="uid://b436pl2hgau5e" path="res://definitions/prefabs/pre_line_edit.tscn" id="5_fw8w0"]
+[ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="6_xtaj5"]
+[ext_resource type="Texture2D" uid="uid://clov0oueu2l4h" path="res://assets/textures/icons/skills/boolean.svg" id="8_jre66"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 bg_color = Color(0.078431375, 0.078431375, 0.078431375, 0.21960784)
@@ -14,16 +20,40 @@ corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ehy"]
-content_margin_left = 16.0
-content_margin_top = 16.0
-content_margin_right = 16.0
-content_margin_bottom = 16.0
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
 bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
 corner_radius_top_left = 3
 corner_radius_top_right = 3
 corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxrys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxwog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jre66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_naygy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qaqvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxwog"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16226816, 0.15122372, 0.14889032, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_jre66"]
+font_size = 24
 
 [node name="Combat" type="Control" unique_id=180388218]
 layout_mode = 3
@@ -36,96 +66,228 @@ grow_vertical = 2
 [node name="LobbyLayer" type="CanvasLayer" parent="." unique_id=1260910676]
 layer = 10
 
-[node name="RoomLobby" type="PanelContainer" parent="LobbyLayer" unique_id=399852436 node_paths=PackedStringArray("leave_button", "status_label")]
+[node name="RoomLobby" type="PanelContainer" parent="LobbyLayer" unique_id=399852436]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
-script = ExtResource("1_ctrl")
-leave_button = NodePath("Columns/PanelContainer/LeftColumn/LeaveButton")
-status_label = NodePath("Columns/PanelContainer/LeftColumn/StatusLabel")
 
 [node name="Columns" type="HBoxContainer" parent="LobbyLayer/RoomLobby" unique_id=1212210021]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns" unique_id=1120609068]
+[node name="LeftPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns" unique_id=32649808]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_k7ehy")
+script = ExtResource("1_ctrl")
+
+[node name="LeftCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel" unique_id=92130812]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="RoomStatusRow" type="HBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=1822071928]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LeaveButton" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomStatusRow" unique_id=1688876151]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_rotation = 3.1415927
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cxrys")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxwog")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jre66")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_naygy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
+icon = ExtResource("3_cxrys")
+flat = true
+
+[node name="StatusLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomStatusRow" unique_id=171995394]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "房间"
+
+[node name="RoomCodeRow" type="HBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=1890709041]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="CodeLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomCodeRow" unique_id=862168040]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "房间码: ————"
+
+[node name="CodeCopyButton" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomCodeRow" unique_id=1298540799]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_rotation = 3.1415927
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cxrys")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxwog")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_jre66")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_naygy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
+icon = ExtResource("4_mxwog")
+flat = true
+
+[node name="SettingsPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=218671218]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
+script = ExtResource("3_settings")
+
+[node name="SettingsCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel" unique_id=1637153846]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SettingsTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1531130580]
+layout_mode = 2
+text = "设置"
+label_settings = ExtResource("3_r84uw")
+horizontal_alignment = 1
+
+[node name="PublicToggle" type="CheckButton" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1811130355]
+unique_name_in_owner = true
+layout_mode = 2
+text = "公开房间"
+
+[node name="NameEdit" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1308272350 instance=ExtResource("5_fw8w0")]
+unique_name_in_owner = true
+layout_mode = 2
+label_text = "房间名称"
+
+[node name="MaxPlayers" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1267618321 instance=ExtResource("6_xtaj5")]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 2.0
+max_value = 4.0
+step = 1.0
+value = 4.0
+label_text = "最大玩家数量"
+
+[node name="GameSettingsToggle" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=380057275]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/icon_max_width = 16
+theme_override_font_sizes/font_size = 14
+toggle_mode = true
+text = "游戏设置..."
+icon = ExtResource("8_jre66")
+icon_alignment = 2
+
+[node name="DeckPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=828855550]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
+
+[node name="DeckCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/DeckPanel" unique_id=1547282776]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SettingsTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/DeckPanel/DeckCol" unique_id=1693257522]
+layout_mode = 2
+text = "牌堆"
+label_settings = ExtResource("3_r84uw")
+horizontal_alignment = 1
+
+[node name="SecondPane" type="Control" parent="LobbyLayer/RoomLobby/Columns" unique_id=516220932]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GameSettingsRoot" type="Control" parent="LobbyLayer/RoomLobby/Columns/SecondPane" unique_id=1201721362]
+unique_name_in_owner = true
+clip_contents = true
+layout_mode = 1
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="GameSettingsMargin" type="MarginContainer" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot" unique_id=1972564310]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot/GameSettingsMargin" unique_id=1461907780]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
+metadata/_edit_use_anchors_ = true
+
+[node name="GameSettingsLayout" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer" unique_id=1979413871]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout" unique_id=60469182]
+custom_minimum_size = Vector2(0, 42)
+layout_mode = 2
+text = "游戏设置"
+label_settings = SubResource("LabelSettings_jre66")
+vertical_alignment = 1
+
+[node name="SettingsPanel" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout" unique_id=1661542302 instance=ExtResource("4_profile")]
+layout_mode = 2
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="Control2" type="Control" parent="LobbyLayer/RoomLobby/Columns" unique_id=1146554634]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightPanels" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns" unique_id=1120609068]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_k7ehy")
 
-[node name="LeftColumn" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/PanelContainer" unique_id=1171085018]
+[node name="RightCol" type="VSplitContainer" parent="LobbyLayer/RoomLobby/Columns/RightPanels" unique_id=392910506]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="StatusLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/PanelContainer/LeftColumn" unique_id=171995394]
+[node name="MambersPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol" unique_id=602969168]
 layout_mode = 2
-text = "房间"
+theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
 
-[node name="MembersZone" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/PanelContainer/LeftColumn" unique_id=1721454552 node_paths=PackedStringArray("members_list")]
+[node name="MembersZone" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/MambersPanel" unique_id=1721454552]
 layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_members")
-members_list = NodePath("MembersList")
 
-[node name="MembersTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/PanelContainer/LeftColumn/MembersZone" unique_id=1670257657]
+[node name="MembersTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/MambersPanel/MembersZone" unique_id=1670257657]
 layout_mode = 2
 text = "成员"
+label_settings = ExtResource("3_r84uw")
+horizontal_alignment = 1
 
-[node name="MembersList" parent="LobbyLayer/RoomLobby/Columns/PanelContainer/LeftColumn/MembersZone" unique_id=2648947 instance=ExtResource("5_cards")]
+[node name="MembersList" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/MambersPanel/MembersZone" unique_id=2648947 instance=ExtResource("5_cards")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 
-[node name="LeaveButton" type="Button" parent="LobbyLayer/RoomLobby/Columns/PanelContainer/LeftColumn" unique_id=1016353091]
-layout_mode = 2
-text = "离开房间"
-
-[node name="Control" type="Control" parent="LobbyLayer/RoomLobby/Columns" unique_id=1713567348]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="PanelContainer2" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns" unique_id=32649808]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_k7ehy")
-
-[node name="SettingsZone" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/PanelContainer2" unique_id=117573498 node_paths=PackedStringArray("name_edit", "public_toggle", "max_players_spin", "code_label")]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 10
-script = ExtResource("3_settings")
-name_edit = NodePath("NameEdit")
-public_toggle = NodePath("PublicToggle")
-max_players_spin = NodePath("MaxPlayers")
-code_label = NodePath("CodeLabel")
-
-[node name="SettingsTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/PanelContainer2/SettingsZone" unique_id=1531130580]
-layout_mode = 2
-text = "房间设置"
-
-[node name="CodeLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/PanelContainer2/SettingsZone" unique_id=862168040]
-layout_mode = 2
-text = "房间码: ————"
-
-[node name="NameEdit" type="LineEdit" parent="LobbyLayer/RoomLobby/Columns/PanelContainer2/SettingsZone" unique_id=1396117626]
-layout_mode = 2
-placeholder_text = "房间名称"
-
-[node name="PublicToggle" type="CheckButton" parent="LobbyLayer/RoomLobby/Columns/PanelContainer2/SettingsZone" unique_id=1811130355]
-layout_mode = 2
-text = "公开房间"
-
-[node name="MaxPlayers" type="SpinBox" parent="LobbyLayer/RoomLobby/Columns/PanelContainer2/SettingsZone" unique_id=314041824]
-layout_mode = 2
-min_value = 2.0
-max_value = 4.0
-value = 4.0
-rounded = true
-prefix = "人数上限 "
-
-[node name="SettingsPanel" parent="LobbyLayer/RoomLobby/Columns/PanelContainer2/SettingsZone" unique_id=1661542302 instance=ExtResource("4_profile")]
+[node name="ChatPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol" unique_id=1583816526]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
+
+[node name="ChatCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/ChatPanel" unique_id=1642563650]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MembersTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/ChatPanel/ChatCol" unique_id=100224325]
+layout_mode = 2
+text = "聊天"
+label_settings = ExtResource("3_r84uw")
+horizontal_alignment = 1

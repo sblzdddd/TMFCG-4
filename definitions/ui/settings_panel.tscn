@@ -101,6 +101,9 @@
 [ext_resource type="Texture2D" uid="uid://d20e524jl76h0" path="res://assets/textures/avatars/00025.png" id="98_oy06r"]
 [ext_resource type="Texture2D" uid="uid://b0v54tbk4tyby" path="res://assets/textures/avatars/00024.png" id="99_uwvdf"]
 [ext_resource type="Texture2D" uid="uid://bsr7gl2otnnet" path="res://assets/textures/avatars/00023.png" id="100_gkwgh"]
+[ext_resource type="Texture2D" uid="uid://du68wvy8t77kp" path="res://assets/textures/icons/editor/Remove.svg" id="102_rbgjr"]
+[ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="103_l8bdu"]
+[ext_resource type="LabelSettings" uid="uid://ufpu6ss5nwf0" path="res://definitions/fonts/field_label.tres" id="103_tjv8h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
 bg_color = Color(0.12, 0.12, 0.12, 1)
@@ -124,12 +127,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="Spacer" type="Control" parent="." unique_id=1504027356]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
 [node name="Title" type="Label" parent="." unique_id=1481148420]
-custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 text = "用户"
 label_settings = ExtResource("1_2mlqi")
@@ -137,6 +135,7 @@ horizontal_alignment = 1
 
 [node name="UserInfoEdit" type="HBoxContainer" parent="." unique_id=1865746595 node_paths=PackedStringArray("_avatar_button", "_random_name_button", "_avatar_rect", "_name_edit", "_avatar_picker")]
 layout_mode = 2
+theme_override_constants/separation = 10
 script = ExtResource("6_profile")
 _avatar_button = NodePath("AvatarEditButton")
 _random_name_button = NodePath("PlayerNameEdit/RandomName")
@@ -332,3 +331,66 @@ item_90/icon = ExtResource("97_4jodx")
 item_91/icon = ExtResource("98_oy06r")
 item_92/icon = ExtResource("99_uwvdf")
 item_93/icon = ExtResource("100_gkwgh")
+
+[node name="DeleteDataButton" type="Button" parent="." unique_id=1147444925]
+layout_mode = 2
+theme_override_constants/icon_max_width = 16
+text = "删除数据..."
+icon = ExtResource("102_rbgjr")
+
+[node name="Title2" type="Label" parent="." unique_id=178266633]
+layout_mode = 2
+text = "图像"
+label_settings = ExtResource("1_2mlqi")
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1397291138]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer" unique_id=448819100]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "显示模式"
+label_settings = ExtResource("103_tjv8h")
+
+[node name="OptionButton" type="OptionButton" parent="GridContainer" unique_id=1689831558]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 3
+popup/item_0/text = "窗口"
+popup/item_0/id = 0
+popup/item_1/text = "无边框全屏"
+popup/item_1/id = 1
+popup/item_2/text = "独占全屏"
+popup/item_2/id = 2
+
+[node name="Label3" type="Label" parent="GridContainer" unique_id=1609603119]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "分辨率"
+label_settings = ExtResource("103_tjv8h")
+
+[node name="OptionButton2" type="OptionButton" parent="GridContainer" unique_id=622994796]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 1
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+
+[node name="Label2" type="Label" parent="GridContainer" unique_id=228397112]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "最大帧率"
+label_settings = ExtResource("103_tjv8h")
+
+[node name="ValueEdit" parent="GridContainer" unique_id=1267618321 instance=ExtResource("103_l8bdu")]
+layout_mode = 2
+min_value = 30.0
+max_value = 240.0
+step = 30.0
+value = 240.0
+alignment = 1
+label_text = "fps"
