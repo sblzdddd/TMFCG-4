@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bq8toaststack01"]
+
+[ext_resource type="Script" uid="uid://duqoh38cpkcta" path="res://src/ui/toast.gd" id="1_toast"]
+
+[node name="Toast" type="CanvasLayer"]
+layer = 120
+script = ExtResource("1_toast")

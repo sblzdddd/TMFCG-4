@@ -1,0 +1,334 @@
+[gd_scene format=3 uid="uid://c8v7kmxo0yxxo"]
+
+[ext_resource type="LabelSettings" uid="uid://dxndkfbiccaor" path="res://definitions/fonts/page_title.tres" id="1_2mlqi"]
+[ext_resource type="PackedScene" uid="uid://b436pl2hgau5e" path="res://definitions/prefabs/pre_line_edit.tscn" id="1_line"]
+[ext_resource type="Texture2D" uid="uid://cra5sdaqnsjkf" path="res://assets/textures/avatars/00000.png" id="2_avatar"]
+[ext_resource type="Script" uid="uid://c6p0e57ixjvim" path="res://src/ui/home/avatar_edit_button.gd" id="3_aeb"]
+[ext_resource type="Texture2D" uid="uid://crv3skt1qeevp" path="res://assets/textures/icons/home/CanvasLayer.svg" id="4_edit"]
+[ext_resource type="Texture2D" uid="uid://bof4aytsu3gon" path="res://assets/textures/icons/home/RandomNumberGenerator.svg" id="5_rand"]
+[ext_resource type="Script" uid="uid://dinseui6fqjrc" path="res://src/ui/home/user_profile_editor.gd" id="6_profile"]
+[ext_resource type="Script" uid="uid://ba70keabkuapd" path="res://src/ui/home/avatar_picker_dialog.gd" id="7_picker"]
+[ext_resource type="Texture2D" uid="uid://q5pt208fk80t" path="res://assets/textures/avatars/00069.png" id="8_njoky"]
+[ext_resource type="Texture2D" uid="uid://uqlgh1c5gwss" path="res://assets/textures/avatars/00068.png" id="9_2mlqi"]
+[ext_resource type="Texture2D" uid="uid://4mt30vtkshkx" path="res://assets/textures/avatars/00067.png" id="10_rbgjr"]
+[ext_resource type="Texture2D" uid="uid://bf3w6hl7117hn" path="res://assets/textures/avatars/00066.png" id="11_l8bdu"]
+[ext_resource type="Texture2D" uid="uid://dl38bhqh2vfvi" path="res://assets/textures/avatars/00065.png" id="12_tjv8h"]
+[ext_resource type="Texture2D" uid="uid://d1rc1qpsbdb5r" path="res://assets/textures/avatars/00064.png" id="13_3v3cs"]
+[ext_resource type="Texture2D" uid="uid://c0t487a4vmtgd" path="res://assets/textures/avatars/00063.png" id="14_fdpdt"]
+[ext_resource type="Texture2D" uid="uid://hd5ce1gechhb" path="res://assets/textures/avatars/00062.png" id="15_7uc4a"]
+[ext_resource type="Texture2D" uid="uid://d2y8o54rbfg83" path="res://assets/textures/avatars/00061.png" id="16_q0aht"]
+[ext_resource type="Texture2D" uid="uid://c2gox6xpfvlwo" path="res://assets/textures/avatars/00060.png" id="17_s3fr3"]
+[ext_resource type="Texture2D" uid="uid://cskfdwyu6ittl" path="res://assets/textures/avatars/00059.png" id="18_1h2nb"]
+[ext_resource type="Texture2D" uid="uid://mqciekih0bdn" path="res://assets/textures/avatars/00058.png" id="19_q2418"]
+[ext_resource type="Texture2D" uid="uid://6h13xckmwcym" path="res://assets/textures/avatars/00057.png" id="20_rumhb"]
+[ext_resource type="Texture2D" uid="uid://b5hafc3dvouad" path="res://assets/textures/avatars/00056.png" id="21_wfrut"]
+[ext_resource type="Texture2D" uid="uid://dm1q0k62jr43i" path="res://assets/textures/avatars/00055.png" id="22_2ojy1"]
+[ext_resource type="Texture2D" uid="uid://bg1uo00px3dul" path="res://assets/textures/avatars/00054.png" id="23_kqam2"]
+[ext_resource type="Texture2D" uid="uid://dditdjwnybl47" path="res://assets/textures/avatars/00053.png" id="24_jejdl"]
+[ext_resource type="Texture2D" uid="uid://cyvi63daw3pd8" path="res://assets/textures/avatars/00052.png" id="25_51eey"]
+[ext_resource type="Texture2D" uid="uid://8ju3ijrhqydp" path="res://assets/textures/avatars/00051.png" id="26_hag23"]
+[ext_resource type="Texture2D" uid="uid://ce74p3euqt54k" path="res://assets/textures/avatars/00050.png" id="27_elnh8"]
+[ext_resource type="Texture2D" uid="uid://ctftccev6w4ms" path="res://assets/textures/avatars/00049.png" id="28_xwfst"]
+[ext_resource type="Texture2D" uid="uid://dt1suk23ornqh" path="res://assets/textures/avatars/00048.png" id="29_c45vy"]
+[ext_resource type="Texture2D" uid="uid://dbnybnb6ui7dy" path="res://assets/textures/avatars/00047.png" id="30_ik3rb"]
+[ext_resource type="Texture2D" uid="uid://d2lhja1ujngyp" path="res://assets/textures/avatars/00093.png" id="31_u8r7i"]
+[ext_resource type="Texture2D" uid="uid://ds8xni3ru36ve" path="res://assets/textures/avatars/00092.png" id="32_s0135"]
+[ext_resource type="Texture2D" uid="uid://clb7lct13c8p" path="res://assets/textures/avatars/00091.png" id="33_y57k1"]
+[ext_resource type="Texture2D" uid="uid://l2b6n5dav2xj" path="res://assets/textures/avatars/00090.png" id="34_o3j8g"]
+[ext_resource type="Texture2D" uid="uid://yia16v0xppsr" path="res://assets/textures/avatars/00089.png" id="35_iwuw5"]
+[ext_resource type="Texture2D" uid="uid://v7jxhbg7ax8o" path="res://assets/textures/avatars/00088.png" id="36_3t6sx"]
+[ext_resource type="Texture2D" uid="uid://bwn253fdqs2lq" path="res://assets/textures/avatars/00087.png" id="37_ke7nw"]
+[ext_resource type="Texture2D" uid="uid://cofjw4j2hyxi2" path="res://assets/textures/avatars/00086.png" id="38_mbvhx"]
+[ext_resource type="Texture2D" uid="uid://d3bhdbymkh07v" path="res://assets/textures/avatars/00085.png" id="39_00ktd"]
+[ext_resource type="Texture2D" uid="uid://d313cymgnkjcc" path="res://assets/textures/avatars/00084.png" id="40_b4fg2"]
+[ext_resource type="Texture2D" uid="uid://ckvnosg1bulbg" path="res://assets/textures/avatars/00083.png" id="41_pyoed"]
+[ext_resource type="Texture2D" uid="uid://bneqw62wa6jnt" path="res://assets/textures/avatars/00082.png" id="42_xowrc"]
+[ext_resource type="Texture2D" uid="uid://dluiui0xphyvn" path="res://assets/textures/avatars/00081.png" id="43_7ntpf"]
+[ext_resource type="Texture2D" uid="uid://chgtun42k60et" path="res://assets/textures/avatars/00080.png" id="44_y1h4p"]
+[ext_resource type="Texture2D" uid="uid://dyt81ypqk3xfj" path="res://assets/textures/avatars/00079.png" id="45_3mstm"]
+[ext_resource type="Texture2D" uid="uid://civv75hoh3eeg" path="res://assets/textures/avatars/00078.png" id="46_hl7b6"]
+[ext_resource type="Texture2D" uid="uid://b52aws2dwpwi4" path="res://assets/textures/avatars/00077.png" id="47_s8gf8"]
+[ext_resource type="Texture2D" uid="uid://7fw6xswx3qdg" path="res://assets/textures/avatars/00076.png" id="48_huqos"]
+[ext_resource type="Texture2D" uid="uid://d1pp86tjg4pd8" path="res://assets/textures/avatars/00075.png" id="49_p3ymh"]
+[ext_resource type="Texture2D" uid="uid://cmpor604phcef" path="res://assets/textures/avatars/00074.png" id="50_wdqbd"]
+[ext_resource type="Texture2D" uid="uid://2hr11c2cpj00" path="res://assets/textures/avatars/00073.png" id="51_poqvj"]
+[ext_resource type="Texture2D" uid="uid://by2d0ha6yd0wj" path="res://assets/textures/avatars/00072.png" id="52_rk4ta"]
+[ext_resource type="Texture2D" uid="uid://cimmmsgclrxa" path="res://assets/textures/avatars/00071.png" id="53_y0jht"]
+[ext_resource type="Texture2D" uid="uid://bj8r5p2pp2osq" path="res://assets/textures/avatars/00070.png" id="54_gqbgt"]
+[ext_resource type="Texture2D" uid="uid://k16phy3vjhkq" path="res://assets/textures/avatars/00022.png" id="55_xvh03"]
+[ext_resource type="Texture2D" uid="uid://cde4nvw6voyov" path="res://assets/textures/avatars/00021.png" id="56_l5vyp"]
+[ext_resource type="Texture2D" uid="uid://b2bry55lxe8fo" path="res://assets/textures/avatars/00020.png" id="57_wjylg"]
+[ext_resource type="Texture2D" uid="uid://hjbbn0bxc20f" path="res://assets/textures/avatars/00019.png" id="58_3heqk"]
+[ext_resource type="Texture2D" uid="uid://by4ktetw5wf88" path="res://assets/textures/avatars/00018.png" id="59_2crmg"]
+[ext_resource type="Texture2D" uid="uid://b3co1qukajvpc" path="res://assets/textures/avatars/00017.png" id="60_87dx4"]
+[ext_resource type="Texture2D" uid="uid://ev87orixpuaw" path="res://assets/textures/avatars/00016.png" id="61_hrcxn"]
+[ext_resource type="Texture2D" uid="uid://cq6bca5wv67ya" path="res://assets/textures/avatars/00015.png" id="62_d1wur"]
+[ext_resource type="Texture2D" uid="uid://cyjoanhade52g" path="res://assets/textures/avatars/00014.png" id="63_7k8or"]
+[ext_resource type="Texture2D" uid="uid://bjuofvylr47vg" path="res://assets/textures/avatars/00013.png" id="64_ss6ij"]
+[ext_resource type="Texture2D" uid="uid://b168feat47jpv" path="res://assets/textures/avatars/00012.png" id="65_6bfhk"]
+[ext_resource type="Texture2D" uid="uid://bbjnbyti7go12" path="res://assets/textures/avatars/00011.png" id="66_tbrkm"]
+[ext_resource type="Texture2D" uid="uid://bss44y1kuo1da" path="res://assets/textures/avatars/00010.png" id="67_3krnu"]
+[ext_resource type="Texture2D" uid="uid://c6klikinpuari" path="res://assets/textures/avatars/00009.png" id="68_ljmkk"]
+[ext_resource type="Texture2D" uid="uid://4t0squ5jjolt" path="res://assets/textures/avatars/00008.png" id="69_0vaug"]
+[ext_resource type="Texture2D" uid="uid://nxyysg6i2uvi" path="res://assets/textures/avatars/00007.png" id="70_beomh"]
+[ext_resource type="Texture2D" uid="uid://chatejg3qqff2" path="res://assets/textures/avatars/00006.png" id="71_rktfe"]
+[ext_resource type="Texture2D" uid="uid://cotlnkwpxx4pw" path="res://assets/textures/avatars/00005.png" id="72_drqq8"]
+[ext_resource type="Texture2D" uid="uid://dfdc4m40yb7j6" path="res://assets/textures/avatars/00004.png" id="73_rrb6p"]
+[ext_resource type="Texture2D" uid="uid://1oggaixr46lb" path="res://assets/textures/avatars/00003.png" id="74_vnymo"]
+[ext_resource type="Texture2D" uid="uid://xkwdhrhf5khs" path="res://assets/textures/avatars/00002.png" id="75_bqm6d"]
+[ext_resource type="Texture2D" uid="uid://2to4lpouf2wv" path="res://assets/textures/avatars/00001.png" id="76_7wqui"]
+[ext_resource type="Texture2D" uid="uid://wse75sxaxr20" path="res://assets/textures/avatars/00046.png" id="77_qwv2l"]
+[ext_resource type="Texture2D" uid="uid://d011fg1lj7uy2" path="res://assets/textures/avatars/00045.png" id="78_bmcx4"]
+[ext_resource type="Texture2D" uid="uid://dduhhmi1is04k" path="res://assets/textures/avatars/00044.png" id="79_015at"]
+[ext_resource type="Texture2D" uid="uid://cjwtg3ljeg476" path="res://assets/textures/avatars/00043.png" id="80_e4dpb"]
+[ext_resource type="Texture2D" uid="uid://bdwm0ivdr6bqq" path="res://assets/textures/avatars/00042.png" id="81_x4gp8"]
+[ext_resource type="Texture2D" uid="uid://dnvf2tmoyt3sp" path="res://assets/textures/avatars/00041.png" id="82_vxmam"]
+[ext_resource type="Texture2D" uid="uid://ykbxgrx0klty" path="res://assets/textures/avatars/00040.png" id="83_71x3v"]
+[ext_resource type="Texture2D" uid="uid://c2s4njwnal7ya" path="res://assets/textures/avatars/00039.png" id="84_d53tp"]
+[ext_resource type="Texture2D" uid="uid://wxo04bsb6p3s" path="res://assets/textures/avatars/00038.png" id="85_c6w55"]
+[ext_resource type="Texture2D" uid="uid://b7gqv1qnquvje" path="res://assets/textures/avatars/00037.png" id="86_e11ne"]
+[ext_resource type="Texture2D" uid="uid://btglagqx1ahw6" path="res://assets/textures/avatars/00036.png" id="87_n150y"]
+[ext_resource type="Texture2D" uid="uid://dg2nt82ecwr5d" path="res://assets/textures/avatars/00035.png" id="88_xyu2j"]
+[ext_resource type="Texture2D" uid="uid://bfnldgr0arjvd" path="res://assets/textures/avatars/00034.png" id="89_1ub6x"]
+[ext_resource type="Texture2D" uid="uid://bnui07mefrj73" path="res://assets/textures/avatars/00033.png" id="90_3670j"]
+[ext_resource type="Texture2D" uid="uid://bf4f1g4llh7aa" path="res://assets/textures/avatars/00032.png" id="91_aun7y"]
+[ext_resource type="Texture2D" uid="uid://qa6mblfeftgn" path="res://assets/textures/avatars/00031.png" id="92_2axkj"]
+[ext_resource type="Texture2D" uid="uid://gwlmx1un7u5" path="res://assets/textures/avatars/00030.png" id="93_3s5uc"]
+[ext_resource type="Texture2D" uid="uid://bi6iphcbm22cq" path="res://assets/textures/avatars/00029.png" id="94_sy2lv"]
+[ext_resource type="Texture2D" uid="uid://bqkp136dqu5jr" path="res://assets/textures/avatars/00028.png" id="95_664kq"]
+[ext_resource type="Texture2D" uid="uid://dx5p10cbelk5q" path="res://assets/textures/avatars/00027.png" id="96_ljroq"]
+[ext_resource type="Texture2D" uid="uid://cjm2oal5i228g" path="res://assets/textures/avatars/00026.png" id="97_4jodx"]
+[ext_resource type="Texture2D" uid="uid://d20e524jl76h0" path="res://assets/textures/avatars/00025.png" id="98_oy06r"]
+[ext_resource type="Texture2D" uid="uid://b0v54tbk4tyby" path="res://assets/textures/avatars/00024.png" id="99_uwvdf"]
+[ext_resource type="Texture2D" uid="uid://bsr7gl2otnnet" path="res://assets/textures/avatars/00023.png" id="100_gkwgh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn"]
+bg_color = Color(0.12, 0.12, 0.12, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avatar"]
+bg_color = Color(0.18, 0.18, 0.18, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="SettingsPanelContent" type="VBoxContainer" unique_id=921320626]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="Spacer" type="Control" parent="." unique_id=1504027356]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Title" type="Label" parent="." unique_id=1481148420]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "用户"
+label_settings = ExtResource("1_2mlqi")
+horizontal_alignment = 1
+
+[node name="UserInfoEdit" type="HBoxContainer" parent="." unique_id=1865746595 node_paths=PackedStringArray("_avatar_button", "_random_name_button", "_avatar_rect", "_name_edit", "_avatar_picker")]
+layout_mode = 2
+script = ExtResource("6_profile")
+_avatar_button = NodePath("AvatarEditButton")
+_random_name_button = NodePath("PlayerNameEdit/RandomName")
+_avatar_rect = NodePath("AvatarEditButton/AvatarContainer/Avatar")
+_name_edit = NodePath("PlayerNameEdit")
+_avatar_picker = NodePath("AvatarPicker")
+
+[node name="AvatarEditButton" type="Button" parent="UserInfoEdit" unique_id=691396376 node_paths=PackedStringArray("RootPanel", "Avatar", "EditIcon")]
+texture_filter = 1
+custom_minimum_size = Vector2(39, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn")
+script = ExtResource("3_aeb")
+RootPanel = NodePath("AvatarContainer")
+Avatar = NodePath("AvatarContainer/Avatar")
+EditIcon = NodePath("AvatarContainer/EditIcon")
+
+[node name="AvatarContainer" type="PanelContainer" parent="UserInfoEdit/AvatarEditButton" unique_id=1027896653]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_avatar")
+
+[node name="Avatar" type="TextureRect" parent="UserInfoEdit/AvatarEditButton/AvatarContainer" unique_id=539549929]
+layout_mode = 2
+offset_transform_enabled = true
+texture = ExtResource("2_avatar")
+expand_mode = 3
+
+[node name="EditIcon" type="TextureRect" parent="UserInfoEdit/AvatarEditButton/AvatarContainer" unique_id=1271500479]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 0)
+texture = ExtResource("4_edit")
+expand_mode = 3
+
+[node name="PlayerNameEdit" parent="UserInfoEdit" unique_id=1982421828 instance=ExtResource("1_line")]
+layout_mode = 2
+size_flags_horizontal = 3
+label_text = "用户名"
+
+[node name="RandomName" type="Button" parent="UserInfoEdit/PlayerNameEdit" unique_id=713784033]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+grow_vertical = 2
+icon = ExtResource("5_rand")
+flat = true
+
+[node name="AvatarPicker" type="Window" parent="UserInfoEdit" unique_id=742428241 node_paths=PackedStringArray("_item_list")]
+mode = 4
+title = "选择头像"
+initial_position = 1
+size = Vector2i(990, 550)
+visible = false
+exclusive = true
+popup_window = true
+min_size = Vector2i(480, 400)
+script = ExtResource("7_picker")
+_item_list = NodePath("MarginContainer/VBoxContainer/AvatarList")
+
+[node name="MarginContainer" type="MarginContainer" parent="UserInfoEdit/AvatarPicker" unique_id=757183452]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UserInfoEdit/AvatarPicker/MarginContainer" unique_id=690976944]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AvatarList" type="ItemList" parent="UserInfoEdit/AvatarPicker/MarginContainer/VBoxContainer" unique_id=1584838275]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+max_text_lines = 2
+item_count = 94
+max_columns = 80
+same_column_width = true
+fixed_column_width = 72
+icon_mode = 0
+fixed_icon_size = Vector2i(72, 72)
+item_0/icon = ExtResource("8_njoky")
+item_1/icon = ExtResource("9_2mlqi")
+item_2/icon = ExtResource("10_rbgjr")
+item_3/icon = ExtResource("11_l8bdu")
+item_4/icon = ExtResource("12_tjv8h")
+item_5/icon = ExtResource("13_3v3cs")
+item_6/icon = ExtResource("14_fdpdt")
+item_7/icon = ExtResource("15_7uc4a")
+item_8/icon = ExtResource("16_q0aht")
+item_9/icon = ExtResource("17_s3fr3")
+item_10/icon = ExtResource("18_1h2nb")
+item_11/icon = ExtResource("19_q2418")
+item_12/icon = ExtResource("20_rumhb")
+item_13/icon = ExtResource("21_wfrut")
+item_14/icon = ExtResource("22_2ojy1")
+item_15/icon = ExtResource("23_kqam2")
+item_16/icon = ExtResource("24_jejdl")
+item_17/icon = ExtResource("25_51eey")
+item_18/icon = ExtResource("26_hag23")
+item_19/icon = ExtResource("27_elnh8")
+item_20/icon = ExtResource("28_xwfst")
+item_21/icon = ExtResource("29_c45vy")
+item_22/icon = ExtResource("30_ik3rb")
+item_23/icon = ExtResource("31_u8r7i")
+item_24/icon = ExtResource("32_s0135")
+item_25/icon = ExtResource("33_y57k1")
+item_26/icon = ExtResource("34_o3j8g")
+item_27/icon = ExtResource("35_iwuw5")
+item_28/icon = ExtResource("36_3t6sx")
+item_29/icon = ExtResource("37_ke7nw")
+item_30/icon = ExtResource("38_mbvhx")
+item_31/icon = ExtResource("39_00ktd")
+item_32/icon = ExtResource("40_b4fg2")
+item_33/icon = ExtResource("41_pyoed")
+item_34/icon = ExtResource("42_xowrc")
+item_35/icon = ExtResource("43_7ntpf")
+item_36/icon = ExtResource("44_y1h4p")
+item_37/icon = ExtResource("45_3mstm")
+item_38/icon = ExtResource("46_hl7b6")
+item_39/icon = ExtResource("47_s8gf8")
+item_40/icon = ExtResource("48_huqos")
+item_41/icon = ExtResource("49_p3ymh")
+item_42/icon = ExtResource("50_wdqbd")
+item_43/icon = ExtResource("51_poqvj")
+item_44/icon = ExtResource("52_rk4ta")
+item_45/icon = ExtResource("53_y0jht")
+item_46/icon = ExtResource("54_gqbgt")
+item_47/icon = ExtResource("55_xvh03")
+item_48/icon = ExtResource("56_l5vyp")
+item_49/icon = ExtResource("57_wjylg")
+item_50/icon = ExtResource("58_3heqk")
+item_51/icon = ExtResource("59_2crmg")
+item_52/icon = ExtResource("60_87dx4")
+item_53/icon = ExtResource("61_hrcxn")
+item_54/icon = ExtResource("62_d1wur")
+item_55/icon = ExtResource("63_7k8or")
+item_56/icon = ExtResource("64_ss6ij")
+item_57/icon = ExtResource("65_6bfhk")
+item_58/icon = ExtResource("66_tbrkm")
+item_59/icon = ExtResource("67_3krnu")
+item_60/icon = ExtResource("68_ljmkk")
+item_61/icon = ExtResource("69_0vaug")
+item_62/icon = ExtResource("70_beomh")
+item_63/icon = ExtResource("71_rktfe")
+item_64/icon = ExtResource("72_drqq8")
+item_65/icon = ExtResource("73_rrb6p")
+item_66/icon = ExtResource("74_vnymo")
+item_67/icon = ExtResource("75_bqm6d")
+item_68/icon = ExtResource("76_7wqui")
+item_69/icon = ExtResource("2_avatar")
+item_70/icon = ExtResource("77_qwv2l")
+item_71/icon = ExtResource("78_bmcx4")
+item_72/icon = ExtResource("79_015at")
+item_73/icon = ExtResource("80_e4dpb")
+item_74/icon = ExtResource("81_x4gp8")
+item_75/icon = ExtResource("82_vxmam")
+item_76/icon = ExtResource("83_71x3v")
+item_77/icon = ExtResource("84_d53tp")
+item_78/icon = ExtResource("85_c6w55")
+item_79/icon = ExtResource("86_e11ne")
+item_80/icon = ExtResource("87_n150y")
+item_81/icon = ExtResource("88_xyu2j")
+item_82/icon = ExtResource("89_1ub6x")
+item_83/icon = ExtResource("90_3670j")
+item_84/icon = ExtResource("91_aun7y")
+item_85/icon = ExtResource("92_2axkj")
+item_86/icon = ExtResource("93_3s5uc")
+item_87/icon = ExtResource("94_sy2lv")
+item_88/icon = ExtResource("95_664kq")
+item_89/icon = ExtResource("96_ljroq")
+item_90/icon = ExtResource("97_4jodx")
+item_91/icon = ExtResource("98_oy06r")
+item_92/icon = ExtResource("99_uwvdf")
+item_93/icon = ExtResource("100_gkwgh")

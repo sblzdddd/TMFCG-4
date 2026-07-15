@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bq8busyblock01"]
+
+[ext_resource type="Script" uid="uid://dfxev8gyk08kw" path="res://src/ui/busy_blocker.gd" id="1_busy"]
+
+[node name="BusyBlocker" type="CanvasLayer"]
+layer = 90
+script = ExtResource("1_busy")

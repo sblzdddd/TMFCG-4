@@ -30,6 +30,10 @@ LevelLoader="*res://src/gameplay/level_loader.gd"
 PlayerDataStore="*res://src/data_store/player_data_store.gd"
 DeckDataStore="*res://src/data_store/deck_data_store.gd"
 CharacterDataStore="*res://src/data_store/character_data_store.gd"
+ConnectionManager="*res://src/networking/connection_manager.gd"
+RoomManager="*res://src/networking/room_manager.gd"
+Toast="*res://definitions/ui/toast.tscn"
+BusyBlocker="*res://definitions/ui/busy_blocker.tscn"
 
 [dialogic]
 
