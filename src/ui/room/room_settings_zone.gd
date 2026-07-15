@@ -27,9 +27,10 @@ func _toggle_game_settings(on: bool) -> void:
 	if _tween != null:
 		_tween.kill()
 	_tween = create_tween().set_parallel(true)
-	_tween.set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN_OUT)
+	_tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(game_settings_layout, "modulate", Color.WHITE if on else Color(1,1,1,0), 0.5)
-	_tween.tween_property(game_settings_root, "anchor_right", 1 if on else 0, 0.5)
+	_tween.tween_property(game_settings_root, "anchor_right", 1.0 if on else -0.2, 0.5)
+	_tween.tween_property(game_settings_root, "anchor_left", 0.0 if on else -0.2, 0.5)
 
 func _on_room_changed(room: RoomData) -> void:
 	_loading = true

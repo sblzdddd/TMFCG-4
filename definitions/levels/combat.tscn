@@ -78,22 +78,23 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="LeftPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns" unique_id=32649808]
+[node name="LeftPanels" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns" unique_id=32649808]
+z_index = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_k7ehy")
 script = ExtResource("1_ctrl")
 
-[node name="LeftCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel" unique_id=92130812]
+[node name="LeftCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanels" unique_id=92130812]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 10
 
-[node name="RoomStatusRow" type="HBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=1822071928]
+[node name="RoomStatusRow" type="HBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol" unique_id=1822071928]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="LeaveButton" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomStatusRow" unique_id=1688876151]
+[node name="LeaveButton" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/RoomStatusRow" unique_id=1688876151]
 unique_name_in_owner = true
 layout_mode = 2
 offset_transform_enabled = true
@@ -106,23 +107,23 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
 icon = ExtResource("3_cxrys")
 flat = true
 
-[node name="StatusLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomStatusRow" unique_id=171995394]
+[node name="StatusLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/RoomStatusRow" unique_id=171995394]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "房间"
 
-[node name="RoomCodeRow" type="HBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=1890709041]
+[node name="RoomCodeRow" type="HBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol" unique_id=1890709041]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="CodeLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomCodeRow" unique_id=862168040]
+[node name="CodeLabel" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/RoomCodeRow" unique_id=862168040]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "房间码: ————"
 
-[node name="CodeCopyButton" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/RoomCodeRow" unique_id=1298540799]
+[node name="CodeCopyButton" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/RoomCodeRow" unique_id=1298540799]
 unique_name_in_owner = true
 layout_mode = 2
 offset_transform_rotation = 3.1415927
@@ -134,32 +135,32 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
 icon = ExtResource("4_mxwog")
 flat = true
 
-[node name="SettingsPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=218671218]
+[node name="SettingsPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol" unique_id=218671218]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
 script = ExtResource("3_settings")
 
-[node name="SettingsCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel" unique_id=1637153846]
+[node name="SettingsCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/SettingsPanel" unique_id=1637153846]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="SettingsTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1531130580]
+[node name="SettingsTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1531130580]
 layout_mode = 2
 text = "设置"
 label_settings = ExtResource("3_r84uw")
 horizontal_alignment = 1
 
-[node name="PublicToggle" type="CheckButton" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1811130355]
+[node name="PublicToggle" type="CheckButton" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1811130355]
 unique_name_in_owner = true
 layout_mode = 2
 text = "公开房间"
 
-[node name="NameEdit" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1308272350 instance=ExtResource("5_fw8w0")]
+[node name="NameEdit" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1308272350 instance=ExtResource("5_fw8w0")]
 unique_name_in_owner = true
 layout_mode = 2
 label_text = "房间名称"
 
-[node name="MaxPlayers" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=1267618321 instance=ExtResource("6_xtaj5")]
+[node name="MaxPlayers" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1267618321 instance=ExtResource("6_xtaj5")]
 unique_name_in_owner = true
 layout_mode = 2
 min_value = 2.0
@@ -168,7 +169,7 @@ step = 1.0
 value = 4.0
 label_text = "最大玩家数量"
 
-[node name="GameSettingsToggle" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/SettingsPanel/SettingsCol" unique_id=380057275]
+[node name="GameSettingsToggle" type="Button" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=380057275]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/icon_max_width = 16
@@ -178,16 +179,16 @@ text = "游戏设置..."
 icon = ExtResource("8_jre66")
 icon_alignment = 2
 
-[node name="DeckPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol" unique_id=828855550]
+[node name="DeckPanel" type="PanelContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol" unique_id=828855550]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
 
-[node name="DeckCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/DeckPanel" unique_id=1547282776]
+[node name="DeckCol" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/DeckPanel" unique_id=1547282776]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="SettingsTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanel/LeftCol/DeckPanel/DeckCol" unique_id=1693257522]
+[node name="SettingsTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/LeftPanels/LeftCol/DeckPanel/DeckCol" unique_id=1693257522]
 layout_mode = 2
 text = "牌堆"
 label_settings = ExtResource("3_r84uw")
@@ -205,6 +206,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
+offset_transform_enabled = true
 metadata/_edit_use_anchors_ = true
 
 [node name="GameSettingsMargin" type="MarginContainer" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot" unique_id=1972564310]
@@ -223,6 +225,7 @@ metadata/_edit_use_anchors_ = true
 [node name="ScrollContainer" type="ScrollContainer" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot/GameSettingsMargin" unique_id=1461907780]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
+horizontal_scroll_mode = 0
 metadata/_edit_use_anchors_ = true
 
 [node name="GameSettingsLayout" type="VBoxContainer" parent="LobbyLayer/RoomLobby/Columns/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer" unique_id=1979413871]
@@ -286,8 +289,11 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MembersTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/ChatPanel/ChatCol" unique_id=100224325]
+[node name="ChatTitle" type="Label" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/ChatPanel/ChatCol" unique_id=100224325]
 layout_mode = 2
 text = "聊天"
 label_settings = ExtResource("3_r84uw")
 horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="LobbyLayer/RoomLobby/Columns/RightPanels/RightCol/ChatPanel/ChatCol" unique_id=1918933975]
+layout_mode = 2

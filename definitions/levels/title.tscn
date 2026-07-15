@@ -35,6 +35,9 @@ expand_margin_left = 20.0
 shadow_color = Color(0, 0, 0, 0.15294118)
 shadow_size = 17
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5gwhe"]
+content_margin_top = 20.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_ankyg"]
 font_size = 24
 font_color = Color(0.8578549, 0.8578549, 0.8578549, 1)
@@ -218,10 +221,20 @@ clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="SettingsLayout" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot" unique_id=1182894704 instance=ExtResource("settings_prefab")]
+[node name="VBoxContainer" type="ScrollContainer" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot" unique_id=826230689]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.03
+anchor_left = 0.04276316
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_5gwhe")
+horizontal_scroll_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="SettingsLayout" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage/SettingsRoot/VBoxContainer" unique_id=1182894704 instance=ExtResource("settings_prefab")]
+layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SettingsTab" type="Button" parent="MainContainer/LeftPanel/SettingsPanel/SettingsPage" unique_id=1912663419]
