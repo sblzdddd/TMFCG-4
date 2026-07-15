@@ -8,6 +8,10 @@ extends Resource
 ## Filename stem under res://assets/textures/avatars/ (e.g. "00000").
 @export var avatar_id: String = ""
 @export var date_joined: float = Time.get_unix_time_from_system()
+## Last joined room (for unexpected-disconnect rejoin). Cleared on voluntary leave.
+@export var last_room_code: String = ""
+@export var last_host_address: String = ""
+@export var last_host_port: int = 13637
 
 
 func to_profile() -> PlayerProfile:

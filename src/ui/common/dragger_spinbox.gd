@@ -47,6 +47,7 @@ var _grab_mouse_pos := Vector2.ZERO
 var _grab_dist_cache := 0.0
 var _grab_input := _GrabInput.NONE
 var _grab_touch_index := -1
+var _ignore_warp_motion := false
 
 
 func _enter_tree() -> void:
@@ -283,13 +284,19 @@ func _grab_end() -> void:
 	_grab_attempt = false
 	_grab_input = _GrabInput.NONE
 	_grab_touch_index = -1
+	_ignore_warp_motion = false
 	set_process_input(false)
 
 
-func _restore_mouse_pos() -> void:
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	await get_tree().create_timer(2).timeout
+func _warp_mouse_to_grab() -> void:
+	_ignore_warp_motion = true
 	Input.warp_mouse(_grab_mouse_pos * get_window().content_scale_factor)
+
+
+func _restore_mouse_pos() -> void:
+	_warp_mouse_to_grab()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 
 func _apply_drag(relative_x: float, shift_pressed: bool, round_to_int: bool) -> void:
 	var speed := _drag_speed()
@@ -301,7 +308,8 @@ func _apply_drag(relative_x: float, shift_pressed: bool, round_to_int: bool) -> 
 	var threshold := _DRAG_THRESHOLD_SCALE * speed
 	if not _grabbing and absf(_grab_dist_cache) > threshold:
 		if _grab_input == _GrabInput.MOUSE:
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+			_warp_mouse_to_grab()
 		_grabbing = true
 		_set_progress_state(_ProgressState.DRAG)
 
@@ -354,11 +362,17 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion:
 		var motion := event as InputEventMouseMotion
+		if _ignore_warp_motion:
+			_ignore_warp_motion = false
+			get_viewport().set_input_as_handled()
+			return
 		_apply_drag(
 			motion.relative.x,
 			motion.shift_pressed,
 			motion.ctrl_pressed or motion.meta_pressed
 		)
+		if _grabbing:
+			_warp_mouse_to_grab()
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseButton:
 		var mouse_button := event as InputEventMouseButton

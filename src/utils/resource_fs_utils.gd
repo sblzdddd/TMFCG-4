@@ -2,11 +2,6 @@
 extends RefCounted
 class_name ResourceFsUtils
 
-enum ImagePickMode {
-	UPLOAD,
-	CHOOSE,
-}
-
 static var IMAGE_FILTERS := PackedStringArray(["*.png, *.jpg, *.jpeg, *.webp ; Images"])
 
 

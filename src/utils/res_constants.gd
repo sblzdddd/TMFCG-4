@@ -11,9 +11,9 @@ enum ImagePickMode {
 	CHOOSE,
 }
 
-const USER_TEXTURES_DIR := "user://textures/"
-const USER_CHARACTERS_DIR := "user://characters/"
-const USER_DECKS_DIR := "user://decks/"
+const USER_TEXTURES_DIR := "user://tmfcg/textures/"
+const USER_CHARACTERS_DIR := "user://tmfcg/characters/"
+const USER_DECKS_DIR := "user://tmfcg/decks/"
 const USER_DIRS := [USER_TEXTURES_DIR, USER_CHARACTERS_DIR, USER_DECKS_DIR]
 
 const PRESET_ROOT := "res://definitions/database/"

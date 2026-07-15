@@ -2,7 +2,7 @@ extends Node
 
 ## Loads / creates local player data under user:// and exposes it for UI + networking.
 
-const SAVE_PATH := "user://player_data.tres"
+var _save_path := "user://tmfcg/player_data.tres"
 
 signal data_changed(data: PlayerData)
 
@@ -10,12 +10,15 @@ var data: PlayerData
 
 
 func _ready() -> void:
+	for argument in OS.get_cmdline_args():
+		if argument.begins_with("--instance-id="):
+			_save_path = "user://tmfcg/player_data_%s.tres" % argument.split("=")[1]
 	load_or_create()
 
 
 func load_or_create() -> PlayerData:
-	if FileAccess.file_exists(SAVE_PATH):
-		var loaded := ResourceLoader.load(SAVE_PATH, "", ResourceLoader.CACHE_MODE_IGNORE) as PlayerData
+	if FileAccess.file_exists(_save_path):
+		var loaded := ResourceLoader.load(_save_path, "", ResourceLoader.CACHE_MODE_IGNORE) as PlayerData
 		if loaded != null:
 			data = loaded
 			_normalize_loaded_data()
@@ -28,7 +31,7 @@ func load_or_create() -> PlayerData:
 func save() -> Error:
 	if data == null:
 		return ERR_INVALID_DATA
-	return ResourceFsUtils.save_resource(data, SAVE_PATH)
+	return ResourceFsUtils.save_resource(data, _save_path)
 
 
 func get_profile() -> PlayerProfile:
@@ -56,6 +59,26 @@ func set_avatar_id(avatar_id: String) -> void:
 	data.avatar = AvatarUtils.load_texture(resolved)
 	save()
 	data_changed.emit(data)
+
+
+func set_last_room(code: String, address: String, port: int) -> void:
+	if data == null:
+		return
+	data.last_room_code = code
+	data.last_host_address = address
+	data.last_host_port = port
+	save()
+
+
+func clear_last_room() -> void:
+	if data == null:
+		return
+	if data.last_room_code.is_empty() and data.last_host_address.is_empty():
+		return
+	data.last_room_code = ""
+	data.last_host_address = ""
+	data.last_host_port = NetConst.GAME_PORT
+	save()
 
 
 func _normalize_loaded_data() -> void:
