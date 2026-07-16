@@ -25,9 +25,11 @@ func _migrate_legacy_rank() -> void:
 
 func to_card() -> Card:
 	_migrate_legacy_rank()
-	return Card.new(rank, suit, CardInstanceId.new())
+	return Card.from_data(duplicate(true) as CardData)
 
 
 func apply_from_card(card: Card) -> void:
 	suit = card.suit
 	rank = card.rank
+	if card.data != null and not card.data.cardId.is_empty():
+		cardId = card.data.cardId

@@ -25,3 +25,11 @@ func test_card_comparison_ignores_suit() -> void:
 func test_card_pretty_print() -> void:
 	var three_hearts := Card.new(Rank.THREE, Suit.HEARTS)
 	assert_str(str(three_hearts)).is_equal("♥️3")
+
+
+func test_card_holds_data_and_hidden() -> void:
+	var card := Card.new(Rank.QUEEN, Suit.DIAMONDS, null, true)
+	assert_that(card.data).is_not_null()
+	assert_that(card.data.rank).is_equal(Rank.QUEEN)
+	assert_that(card.rank).is_equal(Rank.QUEEN)
+	assert_bool(card.hidden).is_true()

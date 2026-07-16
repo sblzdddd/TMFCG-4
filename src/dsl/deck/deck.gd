@@ -1,41 +1,42 @@
 class_name Deck
-extends RefCounted
+extends CardHolder
 
-var _cards: Array[Card] = []
+const HOLDER_ID := "deck"
+
 var wild_rank: CardEnums.Rank
 
 
-func _init(cards: Array[Card] = [], p_wild_rank: CardEnums.Rank = CardEnums.Rank.THREE) -> void:
-	_cards = cards.duplicate()
+func _init(
+	cards: Array[Card] = [],
+	p_wild_rank: CardEnums.Rank = CardEnums.Rank.THREE,
+) -> void:
+	super._init(Kind.DECK, HOLDER_ID, cards)
 	wild_rank = p_wild_rank
 
 
-func get_size() -> int:
-	return _cards.size()
+func draw(count: int = 1) -> Array[Card]:
+	if count <= 0 or _cards.is_empty():
+		return []
+	var n := mini(count, _cards.size())
+	var selected: Array[Card] = []
+	for i in n:
+		selected.append(_cards[i])
+	remove_cards(selected)
+	return selected
 
 
-func draw(count: int = 1) -> Array:
-	var selected := _cards.slice(0, count) as Array[Card]
-	var remaining := _cards.slice(count, _cards.size()) as Array[Card]
-	return [selected, Deck.new(remaining, wild_rank)]
+func to_dict() -> Dictionary:
+	var dict := super.to_dict()
+	dict["wildRank"] = CardEnums.Rank.find_key(wild_rank)
+	return dict
 
 
-func get_card(index: int):
-	if index < 0 or index >= _cards.size():
-		return null
-	return _cards[index]
-
-
-func get_cards(range_start: int, range_end: int):
-	if range_start < 0 or range_end > _cards.size() - 1 or range_start > range_end:
-		return null
-	return _cards.slice(range_start, range_end + 1) as Array[Card]
-
-
-func insert_card(card: Card, index: int) -> Deck:
-	var updated := _cards.duplicate()
-	updated.insert(index, card)
-	return Deck.new(updated, wild_rank)
+static func from_dict(dict: Dictionary) -> Deck:
+	var deck := Deck.new(
+		CardHolder.cards_from_dict(dict),
+		CardEnums.rank_from_name(str(dict.get("wildRank", "THREE"))),
+	)
+	return deck
 
 
 static func empty(p_wild_rank: CardEnums.Rank = _random_elevatable_rank()) -> Deck:
@@ -64,8 +65,8 @@ static func create_new(p_wild_rank: CardEnums.Rank = _random_elevatable_rank()) 
 
 	if not wild_cards.is_empty():
 		var wild_card := wild_cards[randi() % wild_cards.size()]
-		all_cards.erase(wild_card)
-		all_cards.append(wild_card)
+		shuffled.erase(wild_card)
+		shuffled.append(wild_card)
 
 	return Deck.new(shuffled, p_wild_rank)
 
