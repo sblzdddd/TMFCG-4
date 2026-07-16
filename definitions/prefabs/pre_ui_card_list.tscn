@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dehu63ckqecwu"]
+
+[ext_resource type="Script" uid="uid://cxrpiuywtp6dx" path="res://src/ui/common/ui_card_list.gd" id="1_list"]
+
+[node name="UiCardList" type="ScrollContainer" unique_id=1615781818]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("1_list")
+
+[node name="Items" type="VBoxContainer" parent="." unique_id=1405663714]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

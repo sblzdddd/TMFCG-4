@@ -12,8 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cmcbqqj8dc4sh" path="res://assets/textures/icons/home/Exit@2x.svg" id="10_4c1yj"]
 [ext_resource type="FontFile" uid="uid://gpjc63stsulg" path="res://assets/fonts/Itim-Regular.ttf" id="10_mfmb0"]
 [ext_resource type="PackedScene" uid="uid://cruf4r2hiqeyi" path="res://definitions/levels/tmfcg_editor.tscn" id="11_editor"]
-[ext_resource type="PackedScene" uid="uid://dehu63ckqecwu" path="res://definitions/prefabs/pre_card_list.tscn" id="card_list"]
-[ext_resource type="PackedScene" uid="uid://c8v7kmxo0yxxo" path="res://definitions/ui/settings_panel.tscn" id="settings_prefab"]
+[ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="17_xqe6w"]
+[ext_resource type="PackedScene" uid="uid://dehu63ckqecwu" path="res://definitions/prefabs/pre_ui_card_list.tscn" id="ui_card_list"]
+[ext_resource type="PackedScene" uid="uid://c8v7kmxo0yxxo" path="res://definitions/prefabs/settings_panel.tscn" id="settings_prefab"]
 [ext_resource type="Script" uid="uid://b1kuk80u5m5yf" path="res://src/ui/home/title_room_create.gd" id="title_create"]
 [ext_resource type="Script" uid="uid://dhljo8jd7oq75" path="res://src/ui/home/title_room_join.gd" id="title_join"]
 
@@ -80,6 +81,8 @@ border_color = Color(0.30500805, 0.30500805, 0.30500805, 1)
 corner_radius_top_left = 8
 corner_radius_bottom_left = 8
 expand_margin_right = 200.0
+shadow_color = Color(0, 0, 0, 0.15294118)
+shadow_size = 17
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjyn3"]
 content_margin_left = 12.0
@@ -110,6 +113,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="BG" type="TextureRect" parent="." unique_id=1599855442]
+modulate = Color(0.5647059, 0.5647059, 0.5647059, 0.19215687)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -252.0
+offset_bottom = 252.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_xqe6w")
+expand_mode = 5
+metadata/_edit_use_anchors_ = true
+
 [node name="MainContainer" type="HBoxContainer" parent="." unique_id=1796817533 node_paths=PackedStringArray("left_panel", "right_panel", "title_hint", "editor_button")]
 layout_mode = 1
 anchors_preset = 15
@@ -136,7 +153,7 @@ script = ExtResource("title_join")
 [node name="LeftPanel" type="HSplitContainer" parent="MainContainer" unique_id=831431225 node_paths=PackedStringArray("tab_buttons", "tabs")]
 layout_mode = 2
 offset_transform_enabled = true
-offset_transform_position = Vector2(-180, 0)
+offset_transform_position = Vector2(-200, 0)
 offset_transform_visual_only = false
 theme_override_constants/separation = 0
 theme_override_icons/grabber = SubResource("ImageTexture_hcl06")
@@ -330,7 +347,7 @@ text = "房间列表"
 label_settings = ExtResource("5_j0sst")
 horizontal_alignment = 1
 
-[node name="PublicRoomsList" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=556584730 instance=ExtResource("card_list")]
+[node name="PublicRoomsList" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=556584730 instance=ExtResource("ui_card_list")]
 unique_name_in_owner = true
 layout_mode = 2
 
@@ -650,7 +667,7 @@ custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_stretch_ratio = 0.2
 offset_transform_enabled = true
-offset_transform_position = Vector2(50, 0)
+offset_transform_position = Vector2(60, 0)
 offset_transform_visual_only = false
 
 [node name="EditorButton" type="Button" parent="MainContainer/RightPanel" unique_id=1249388492]

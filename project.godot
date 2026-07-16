@@ -30,10 +30,12 @@ LevelLoader="*res://src/gameplay/level_loader.gd"
 PlayerDataStore="*res://src/data_store/player_data_store.gd"
 DeckDataStore="*res://src/data_store/deck_data_store.gd"
 CharacterDataStore="*res://src/data_store/character_data_store.gd"
+EmojiDataStore="*res://src/data_store/emoji_data_store.gd"
 ConnectionManager="*res://src/networking/connection_manager.gd"
 RoomManager="*res://src/networking/room_manager.gd"
 Toast="*res://definitions/ui/toast.tscn"
 BusyBlocker="*res://definitions/ui/busy_blocker.tscn"
+UiScale="*uid://dhhgqoc7dbfmg"
 
 [dialogic]
 
@@ -183,8 +185,8 @@ translation/intern/translation_folder="res://definitions/database/translations"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=1280
+window/size/viewport_height=720
 
 [dotnet]
 

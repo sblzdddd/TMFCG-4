@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://dehu63ch1x4wu"]
 
-[ext_resource type="Script" uid="uid://bwm0y6q1ulq6y" path="res://src/ui/common/card_item.gd" id="1_card"]
+[ext_resource type="Script" uid="uid://bwm0y6q1ulq6y" path="res://src/ui/common/ui_card_item.gd" id="1_card"]
 [ext_resource type="Texture2D" uid="uid://cra5sdaqnsjkf" path="res://assets/textures/avatars/00000.png" id="2_25df1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_card"]
-content_margin_left = 12.0
-content_margin_top = 10.0
-content_margin_right = 12.0
-content_margin_bottom = 10.0
+content_margin_left = 8.0
+content_margin_top = 6.0
+content_margin_right = 8.0
+content_margin_bottom = 6.0
 bg_color = Color(0.14, 0.14, 0.14, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -21,8 +21,9 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="CardItem" type="PanelContainer" unique_id=1565165977]
-custom_minimum_size = Vector2(0, 64)
+[node name="UiCardItem" type="PanelContainer" unique_id=1565165977]
+offset_right = 57.0
+offset_bottom = 57.0
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_card")
 script = ExtResource("1_card")

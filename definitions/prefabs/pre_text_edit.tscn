@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bnw5ly6if2k6n"]
+
+[ext_resource type="Script" uid="uid://bbawdpax2c1cx" path="res://src/ui/common/label_line_edit.gd" id="1_axnny"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ync5s"]
+content_margin_left = 10.0
+content_margin_top = 18.0
+content_margin_right = 8.0
+content_margin_bottom = 4.0
+bg_color = Color(0.105882354, 0.105882354, 0.105882354, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_hww8r"]
+font_color = Color(0.8226375, 0.8226375, 0.8226375, 1)
+
+[node name="LineEdit" type="TextEdit" unique_id=1844647639]
+custom_minimum_size = Vector2(0, 33)
+offset_right = 290.0
+offset_bottom = 39.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_ync5s")
+script = ExtResource("1_axnny")
+label_text = "Text Edit"
+
+[node name="LabelMargin" type="MarginContainer" parent="." unique_id=214814958]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 39.0
+grow_horizontal = 2
+offset_transform_enabled = true
+theme_override_constants/margin_left = 10
+
+[node name="Label" type="Label" parent="LabelMargin" unique_id=98489648]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 1
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0, 0)
+text = "Text Edit"
+label_settings = SubResource("LabelSettings_hww8r")
+vertical_alignment = 1

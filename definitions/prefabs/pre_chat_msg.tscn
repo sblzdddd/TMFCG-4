@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://b83jbltkmll81"]
+
+[ext_resource type="Texture2D" uid="uid://cra5sdaqnsjkf" path="res://assets/textures/avatars/00000.png" id="1_nnbli"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w32d"]
+bg_color = Color(0.19476646, 0.19476646, 0.19476646, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_u7wsu"]
+font_size = 12
+font_color = Color(0.87393427, 0.87393427, 0.87393427, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_15xq7"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.11601871, 0.11601871, 0.11601871, 1)
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ChatMsg" type="HBoxContainer" unique_id=1049936602]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 6
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatUserAvatarPanel" type="PanelContainer" parent="." unique_id=5123882]
+clip_children = 2
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_4w32d")
+
+[node name="ChatUserAvatar" type="TextureRect" parent="ChatUserAvatarPanel" unique_id=1766030835]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(36, 36)
+layout_mode = 2
+texture = ExtResource("1_nnbli")
+expand_mode = 1
+
+[node name="ChatContent" type="VBoxContainer" parent="." unique_id=2077825124]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="ChatUserName" type="Label" parent="ChatContent" unique_id=1788149936]
+unique_name_in_owner = true
+layout_mode = 2
+text = "LC_067 (我)"
+label_settings = SubResource("LabelSettings_u7wsu")
+
+[node name="ChatMsgBox" type="PanelContainer" parent="ChatContent" unique_id=941334747]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_15xq7")
+
+[node name="ChatMsg" type="RichTextLabel" parent="ChatContent/ChatMsgBox" unique_id=1447704824]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "[font_size=14]给心心 [img width=32 height=32 valign=bottom]uid://ci0koog7u6vtk[/img][img width=32 height=32 valign=bottom]uid://ci0koog7u6vtk[/img][img width=32 height=32 valign=bottom]uid://ci0koog7u6vtk[/img]"
+fit_content = true
+autowrap_mode = 2
+context_menu_enabled = true
+selection_enabled = true
