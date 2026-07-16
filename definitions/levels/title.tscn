@@ -13,10 +13,10 @@
 [ext_resource type="FontFile" uid="uid://gpjc63stsulg" path="res://assets/fonts/Itim-Regular.ttf" id="10_mfmb0"]
 [ext_resource type="PackedScene" uid="uid://cruf4r2hiqeyi" path="res://definitions/levels/tmfcg_editor.tscn" id="11_editor"]
 [ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="17_xqe6w"]
-[ext_resource type="PackedScene" uid="uid://dehu63ckqecwu" path="res://definitions/prefabs/pre_ui_card_list.tscn" id="ui_card_list"]
 [ext_resource type="PackedScene" uid="uid://c8v7kmxo0yxxo" path="res://definitions/prefabs/settings_panel.tscn" id="settings_prefab"]
 [ext_resource type="Script" uid="uid://b1kuk80u5m5yf" path="res://src/ui/home/title_room_create.gd" id="title_create"]
 [ext_resource type="Script" uid="uid://dhljo8jd7oq75" path="res://src/ui/home/title_room_join.gd" id="title_join"]
+[ext_resource type="PackedScene" uid="uid://dehu63ckqecwu" path="res://definitions/prefabs/pre_ui_card_list.tscn" id="ui_card_list"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_hcl06"]
 

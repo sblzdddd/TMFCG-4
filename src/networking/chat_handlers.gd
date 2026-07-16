@@ -4,17 +4,17 @@ extends Node
 
 const MAX_CHAT_LENGTH := 120
 
-var _mgr: RoomManagerNode
+var _service: ChatServiceNode
 
 
-func setup(manager: RoomManagerNode) -> void:
-	_mgr = manager
+func setup(service: ChatServiceNode) -> void:
+	_service = service
 
 
 func on_chat_submitted(peer_id: int, content: String) -> void:
 	if not ConnectionManager.is_server():
 		return
-	var room: RoomData = _mgr.current_room
+	var room: RoomData = RoomSession.current_room
 	if room == null:
 		return
 	var trimmed := content.strip_edges()
@@ -30,10 +30,10 @@ func on_chat_submitted(peer_id: int, content: String) -> void:
 		"avatar_id": str(entry.get("avatar_id", "")),
 		"content": trimmed,
 	}
-	_mgr.chat_rpc.broadcast_chat(payload)
+	_service.chat_rpc.broadcast_chat(payload)
 
 
 func on_chat_delivered(payload: Dictionary) -> void:
-	if _mgr.current_room == null:
+	if RoomSession.current_room == null:
 		return
-	_mgr.chat_received.emit(payload)
+	_service.chat_received.emit(payload)

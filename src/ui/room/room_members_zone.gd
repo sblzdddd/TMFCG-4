@@ -8,13 +8,13 @@ extends VBoxContainer
 func _ready() -> void:
 	if members_list:
 		members_list.action_pressed.connect(_on_action)
-	RoomManager.room_changed.connect(_on_room_changed)
-	RoomManager.member_kicked.connect(_on_member_kicked)
-	RoomManager.kicked_from_room.connect(_on_kicked_from_room)
-	RoomManager.member_left.connect(_on_member_left)
-	RoomManager.left_room.connect(_on_left_room)
-	RoomManager.room_dissolved.connect(_on_room_dissolved)
-	_on_room_changed(RoomManager.current_room)
+	RoomSession.room_changed.connect(_on_room_changed)
+	RoomSession.member_kicked.connect(_on_member_kicked)
+	RoomSession.kicked_from_room.connect(_on_kicked_from_room)
+	RoomSession.member_left.connect(_on_member_left)
+	RoomSession.left_room.connect(_on_left_room)
+	RoomSession.room_dissolved.connect(_on_room_dissolved)
+	_on_room_changed(RoomSession.current_room)
 
 
 func _on_room_changed(room: RoomData) -> void:
@@ -23,7 +23,7 @@ func _on_room_changed(room: RoomData) -> void:
 		members_title.text = "成员"
 		return
 	members_title.text = "成员（%d/%d）" % [room.member_count(), room.max_players]
-	var is_host := RoomManager.is_local_host()
+	var is_host := RoomSession.is_local_host()
 	var items: Array[UiCardEntry] = []
 	for member: RoomMember in room.get_members():
 		var status := "在线" if member.is_online else "离线"
@@ -45,7 +45,7 @@ func _on_room_changed(room: RoomData) -> void:
 
 func _on_action(uid: String, action_id: String) -> void:
 	if action_id == "kick":
-		RoomManager.kick_member(uid)
+		RoomSession.kick_member(uid)
 
 
 func _on_member_kicked(nickname: String) -> void:

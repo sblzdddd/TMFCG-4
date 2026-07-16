@@ -1,6 +1,6 @@
 class_name RoomUtils
 extends RefCounted
-## Shared room teardown / advertise helpers for RoomManager.
+## Shared room helpers for RoomSession / RoomDiscovery.
 
 static func local_lan_address() -> String:
 	for a in IP.get_local_addresses():

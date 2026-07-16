@@ -1,84 +1,63 @@
 class_name RoomBootstrap
 extends RefCounted
-## Spawns RoomManager children and wires connection/RPC signals.
+## Spawns RoomSession children and wires connection/RPC signals.
 
 
-static func setup(mgr: RoomManagerNode) -> void:
-	var discovery := LanDiscovery.new()
-	discovery.name = "LanDiscovery"
-	mgr.add_child(discovery)
-	mgr.discovery = discovery
-
+static func setup(session: RoomSessionNode) -> void:
 	var rpc_node := RoomRpc.new()
 	rpc_node.name = "RoomRpc"
-	mgr.add_child(rpc_node)
-	mgr.rpc_node = rpc_node
+	session.add_child(rpc_node)
+	session.rpc_node = rpc_node
 
 	var presence := RoomPresence.new()
 	presence.name = "RoomPresence"
-	mgr.add_child(presence)
-	mgr.presence = presence
+	session.add_child(presence)
+	session.presence = presence
 
 	var handlers := RoomHandlers.new()
 	handlers.name = "RoomHandlers"
-	mgr.add_child(handlers)
-	mgr.handlers = handlers
-	handlers.setup(mgr)
+	session.add_child(handlers)
+	session.handlers = handlers
+	handlers.setup(session, rpc_node, presence)
 
 	var rejoin := RoomRejoin.new()
 	rejoin.name = "RoomRejoin"
-	mgr.add_child(rejoin)
-	mgr.rejoin = rejoin
-	rejoin.setup(mgr)
+	session.add_child(rejoin)
+	session.rejoin = rejoin
+	rejoin.setup(session)
 
-	var chat_rpc := ChatRpc.new()
-	chat_rpc.name = "ChatRpc"
-	mgr.add_child(chat_rpc)
-	mgr.chat_rpc = chat_rpc
-
-	var chat_handlers := ChatHandlers.new()
-	chat_handlers.name = "ChatHandlers"
-	mgr.add_child(chat_handlers)
-	mgr.chat_handlers = chat_handlers
-	chat_handlers.setup(mgr)
-
-	_wire(mgr)
+	_wire(session)
 
 
-static func _wire(mgr: RoomManagerNode) -> void:
-	ConnectionManager.connected_to_host.connect(mgr._on_connected_to_host)
-	ConnectionManager.peer_disconnected.connect(mgr.handlers.on_peer_disconnected)
-	ConnectionManager.server_disconnected.connect(mgr.rejoin.on_server_disconnected)
-	ConnectionManager.connection_failed.connect(mgr.rejoin.on_connection_failed)
-	mgr.discovery.rooms_updated.connect(
-		func(r: Array[Dictionary]) -> void: mgr.rooms_discovered.emit(r)
+static func _wire(session: RoomSessionNode) -> void:
+	ConnectionManager.connected_to_host.connect(session._on_connected_to_host)
+	ConnectionManager.peer_disconnected.connect(session.handlers.on_peer_disconnected)
+	ConnectionManager.server_disconnected.connect(session.rejoin.on_server_disconnected)
+	ConnectionManager.connection_failed.connect(session.rejoin.on_connection_failed)
+	session.rpc_node.handshake_received.connect(session.handlers.on_handshake)
+	session.rpc_node.leave_requested.connect(session.handlers.on_leave_requested)
+	session.rpc_node.room_snapshot_received.connect(session.handlers.on_snapshot)
+	session.rpc_node.room_closed_received.connect(_on_room_closed.bind(session))
+	session.rpc_node.options_patch_received.connect(session._on_options_from_peer)
+	session.rpc_node.profile_update_received.connect(session.handlers.apply_profile_update)
+	session.rpc_node.kick_received.connect(_on_kick_received.bind(session))
+	session.rpc_node.leave_acked.connect(func() -> void: session.teardown_local(true))
+	session.rpc_node.member_left_received.connect(
+		func(nickname: String) -> void: session.member_left.emit(nickname)
 	)
-	mgr.rpc_node.handshake_received.connect(mgr.handlers.on_handshake)
-	mgr.rpc_node.leave_requested.connect(mgr.handlers.on_leave_requested)
-	mgr.rpc_node.room_snapshot_received.connect(mgr.handlers.on_snapshot)
-	mgr.rpc_node.room_closed_received.connect(_on_room_closed.bind(mgr))
-	mgr.rpc_node.options_patch_received.connect(mgr._on_options_from_peer)
-	mgr.rpc_node.profile_update_received.connect(mgr.handlers.apply_profile_update)
-	mgr.rpc_node.kick_received.connect(_on_kick_received.bind(mgr))
-	mgr.rpc_node.leave_acked.connect(func() -> void: mgr.teardown_local(true))
-	mgr.rpc_node.member_left_received.connect(
-		func(nickname: String) -> void: mgr.member_left.emit(nickname)
-	)
-	mgr.presence.member_grace_expired.connect(mgr.handlers.on_grace_expired)
+	session.presence.member_grace_expired.connect(session.handlers.on_grace_expired)
 	PlayerDataStore.data_changed.connect(
-		func(_d: PlayerData) -> void: mgr.handlers.sync_local_profile()
+		func(_d: PlayerData) -> void: session.handlers.sync_local_profile()
 	)
-	mgr.chat_rpc.chat_submitted.connect(mgr.chat_handlers.on_chat_submitted)
-	mgr.chat_rpc.chat_delivered.connect(mgr.chat_handlers.on_chat_delivered)
 
 
-static func _on_room_closed(mgr: RoomManagerNode) -> void:
-	var room_name := mgr.current_room.name if mgr.current_room else ""
-	mgr.room_dissolved.emit(room_name)
-	mgr.teardown_local(true)
+static func _on_room_closed(session: RoomSessionNode) -> void:
+	var room_name := session.current_room.name if session.current_room else ""
+	session.room_dissolved.emit(room_name)
+	session.teardown_local(true)
 
 
-static func _on_kick_received(mgr: RoomManagerNode) -> void:
-	var room_name := mgr.current_room.name if mgr.current_room else ""
-	mgr.kicked_from_room.emit(room_name)
-	mgr.teardown_local(true)
+static func _on_kick_received(session: RoomSessionNode) -> void:
+	var room_name := session.current_room.name if session.current_room else ""
+	session.kicked_from_room.emit(room_name)
+	session.teardown_local(true)

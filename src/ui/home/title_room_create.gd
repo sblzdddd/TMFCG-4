@@ -37,7 +37,7 @@ func _set_actions_enabled(enabled: bool) -> void:
 func _on_random_match() -> void:
 	if not BusyBlocker.begin("正在搜索公开房间…"):
 		return
-	RoomManager.start_discovery_listen()
+	RoomDiscovery.start_listening()
 	var wait := NetConst.RANDOM_MATCH_WAIT_SEC
 	var elapsed := 0.0
 	while elapsed < wait:
@@ -50,13 +50,13 @@ func _on_random_match() -> void:
 		if not BusyBlocker.is_busy():
 			return
 
-	for entry: Dictionary in RoomManager.get_discovered_rooms():
+	for entry: Dictionary in RoomDiscovery.get_rooms():
 		if (
 			int(entry.get("players", 0)) < int(entry.get("max", 4))
 			and int(entry.get("max", 4)) == _max_players()
 		):
 			BusyBlocker.show_hint("正在加入房间 %s…" % str(entry.get("code", "")))
-			var join_err := RoomManager.join_room(
+			var join_err := RoomSession.join_room(
 				str(entry.get("address", "")),
 				int(entry.get("port", NetConst.GAME_PORT)),
 			)
@@ -65,7 +65,7 @@ func _on_random_match() -> void:
 			return
 
 	BusyBlocker.show_hint("未找到房间，正在创建新房间…")
-	var create_err := RoomManager.create_room(true, _max_players())
+	var create_err := RoomSession.create_room(true, _max_players())
 	if create_err != OK:
 		BusyBlocker.end("创建失败: %s" % error_string(create_err))
 		return
@@ -83,7 +83,7 @@ func _on_random_match() -> void:
 func _on_create_public() -> void:
 	if not BusyBlocker.begin("正在创建公开房间…"):
 		return
-	var err := RoomManager.create_room(true, _max_players())
+	var err := RoomSession.create_room(true, _max_players())
 	if err != OK:
 		BusyBlocker.end("创建失败: %s" % error_string(err))
 
@@ -91,6 +91,6 @@ func _on_create_public() -> void:
 func _on_create_private() -> void:
 	if not BusyBlocker.begin("正在创建私密房间…"):
 		return
-	var err := RoomManager.create_room(false, _max_players())
+	var err := RoomSession.create_room(false, _max_players())
 	if err != OK:
 		BusyBlocker.end("创建失败: %s" % error_string(err))

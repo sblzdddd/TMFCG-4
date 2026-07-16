@@ -36,6 +36,9 @@ RoomManager="*res://src/networking/room_manager.gd"
 Toast="*res://definitions/ui/toast.tscn"
 BusyBlocker="*res://definitions/ui/busy_blocker.tscn"
 UiScale="*uid://dhhgqoc7dbfmg"
+RoomDiscovery="*res://src/networking/room_discovery.gd"
+RoomSession="*res://src/networking/room_session.gd"
+ChatService="*res://src/networking/chat_service.gd"
 
 [dialogic]
 

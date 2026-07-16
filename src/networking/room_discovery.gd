@@ -1,6 +1,6 @@
-class_name LanDiscovery
+class_name RoomDiscoveryNode
 extends Node
-## UDP LAN advertise (host) + listen (clients) for public rooms.
+## Autoload: UDP LAN advertise (host) + listen (clients) for public rooms.
 
 signal rooms_updated(rooms: Array[Dictionary])
 

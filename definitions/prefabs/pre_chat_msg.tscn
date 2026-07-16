@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b83jbltkmll81"]
 
+[ext_resource type="Script" uid="uid://xl0gk6g1odu7" path="res://src/ui/room/chat_msg.gd" id="1_chat"]
 [ext_resource type="Texture2D" uid="uid://cra5sdaqnsjkf" path="res://assets/textures/avatars/00000.png" id="1_nnbli"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w32d"]
@@ -33,6 +34,7 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 6
+script = ExtResource("1_chat")
 metadata/_edit_use_anchors_ = true
 
 [node name="ChatUserAvatarPanel" type="PanelContainer" parent="." unique_id=5123882]

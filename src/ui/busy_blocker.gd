@@ -26,8 +26,9 @@ func _ready() -> void:
 	_blocker.visible = false
 	root.add_child(_blocker)
 
-	RoomManager.join_failed.connect(_on_join_failed)
-	RoomManager.room_changed.connect(_on_room_changed)
+	RoomSession.join_failed.connect(_on_join_failed)
+	RoomSession.room_changed.connect(_on_room_changed)
+
 	end()
 
 

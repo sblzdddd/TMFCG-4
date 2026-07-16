@@ -19,8 +19,8 @@ func _ready() -> void:
 	max_players_spin.value_changed.connect(_on_max_changed)
 	game_settings_toggle.toggled.connect(_toggle_game_settings)
 
-	RoomManager.room_changed.connect(_on_room_changed)
-	_on_room_changed(RoomManager.current_room)
+	RoomSession.room_changed.connect(_on_room_changed)
+	_on_room_changed(RoomSession.current_room)
 
 func _toggle_game_settings(on: bool) -> void:
 	if _tween != null:
@@ -33,7 +33,7 @@ func _toggle_game_settings(on: bool) -> void:
 
 func _on_room_changed(room: RoomData) -> void:
 	_loading = true
-	var is_host := RoomManager.is_local_host()
+	var is_host := RoomSession.is_local_host()
 	if room == null:
 		_loading = false
 		return
@@ -56,21 +56,21 @@ func _on_name_focus_exited() -> void:
 
 
 func _commit_name(text: String) -> void:
-	if _loading or not RoomManager.is_local_host():
+	if _loading or not RoomSession.is_local_host():
 		return
 	var trimmed := text.strip_edges()
 	if trimmed.is_empty():
 		return
-	RoomManager.update_options({"name": trimmed})
+	RoomSession.update_options({"name": trimmed})
 
 
 func _on_public_toggled(pressed: bool) -> void:
-	if _loading or not RoomManager.is_local_host():
+	if _loading or not RoomSession.is_local_host():
 		return
-	RoomManager.update_options({"is_public": pressed})
+	RoomSession.update_options({"is_public": pressed})
 
 
 func _on_max_changed(value: float) -> void:
-	if _loading or not RoomManager.is_local_host():
+	if _loading or not RoomSession.is_local_host():
 		return
-	RoomManager.update_options({"max_players": int(value)})
+	RoomSession.update_options({"max_players": int(value)})

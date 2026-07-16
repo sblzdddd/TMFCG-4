@@ -21,12 +21,12 @@ func _ready() -> void:
 		public_rooms_list.item_activated.connect(_on_room_activated)
 	BusyBlocker.actions_enabled_changed.connect(_set_actions_enabled)
 	_set_actions_enabled(not BusyBlocker.is_busy())
-	RoomManager.rooms_discovered.connect(_on_rooms_discovered)
-	RoomManager.start_discovery_listen()
+	RoomDiscovery.rooms_updated.connect(_on_rooms_discovered)
+	RoomDiscovery.start_listening()
 
 
 func _exit_tree() -> void:
-	RoomManager.stop_discovery_listen()
+	RoomDiscovery.stop_listening()
 
 
 func _set_actions_enabled(enabled: bool) -> void:
@@ -58,7 +58,7 @@ func _on_connect_ip() -> void:
 		return
 	if not BusyBlocker.begin("正在连接 %s:%d…" % [address, port]):
 		return
-	var err := RoomManager.join_room(address, port)
+	var err := RoomSession.join_room(address, port)
 	if err != OK:
 		BusyBlocker.end("连接失败: %s" % error_string(err))
 
@@ -84,7 +84,7 @@ func _join_code(code: String) -> void:
 	var port := int(entry.get("port", NetConst.GAME_PORT))
 	if not BusyBlocker.begin("正在加入房间 %s…" % code):
 		return
-	var err := RoomManager.join_room(address, port)
+	var err := RoomSession.join_room(address, port)
 	if err != OK:
 		BusyBlocker.end("加入失败: %s" % error_string(err))
 
