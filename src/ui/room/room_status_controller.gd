@@ -4,6 +4,7 @@ extends Container
 
 @onready var leave_button := %LeaveButton
 @onready var status_label := %StatusLabel
+@onready var code_label := %CodeLabel
 
 
 func _ready() -> void:
@@ -14,13 +15,11 @@ func _ready() -> void:
 
 
 func _on_room_changed(room: RoomData) -> void:
-	if leave_button:
-		leave_button.disabled = room == null
-	if status_label:
-		if room == null:
-			status_label.text = "未在房间中"
-		else:
-			status_label.text = "%s · %d/%d" % [room.name, room.member_count(), room.max_players]
+	leave_button.disabled = room == null
+	code_label.text = "房间码: %s" % room.code\
+		if room != null else "未在房间中"
+	status_label.text = "%s" % [room.name]\
+		if room != null else "未在房间中"
 
 
 func _on_leave() -> void:

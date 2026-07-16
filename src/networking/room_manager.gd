@@ -15,6 +15,8 @@ signal member_left(nickname: String)
 signal left_room(room_name: String, was_host: bool)
 ## Host dissolved the room (clients only).
 signal room_dissolved(room_name: String)
+## Ephemeral chat message (no history / no join restore).
+signal chat_received(payload: Dictionary)
 
 var current_room: RoomData
 var discovery: LanDiscovery
@@ -22,6 +24,8 @@ var rpc_node: RoomRpc
 var presence: RoomPresence
 var handlers: RoomHandlers
 var rejoin: RoomRejoin
+var chat_rpc: ChatRpc
+var chat_handlers: ChatHandlers
 
 var join_address: String = ""
 var join_port: int = NetConst.GAME_PORT
@@ -87,6 +91,11 @@ func update_options(patch: Dictionary) -> void:
 
 func kick_member(uid: String) -> void:
 	handlers.kick_member(uid)
+
+func send_chat(content: String) -> void:
+	if current_room == null or chat_rpc == null:
+		return
+	chat_rpc.send_chat(content)
 
 func start_discovery_listen() -> void:
 	discovery.start_listening()

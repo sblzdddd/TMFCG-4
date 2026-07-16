@@ -6,13 +6,10 @@ extends Node
 @onready var address_edit: LabelLineEdit = %AddressEdit
 @onready var port_edit: LabelLineEdit = %PortEdit
 @onready var connect_ip_button: Button = %ConnectIp
-@onready var public_rooms_list: CardList = %PublicRoomsList
+@onready var public_rooms_list: UiCardList = %PublicRoomsList
 @onready var join_room_button: Button = %JoinRoom
 
 var _rooms_by_code: Dictionary[String, Dictionary] = {}
-var _discover_toast_id := -1
-var _discover_elapsed := 0.0
-var _announced_rooms := false
 
 
 func _ready() -> void:
@@ -26,31 +23,10 @@ func _ready() -> void:
 	_set_actions_enabled(not BusyBlocker.is_busy())
 	RoomManager.rooms_discovered.connect(_on_rooms_discovered)
 	RoomManager.start_discovery_listen()
-	_discover_toast_id = Toast.push(
-		"正在搜索局域网房间… %.1fs" % NetConst.RANDOM_MATCH_WAIT_SEC,
-		0.0,
-	)
-	set_process(true)
 
 
 func _exit_tree() -> void:
 	RoomManager.stop_discovery_listen()
-	if _discover_toast_id >= 0:
-		Toast.dismiss(_discover_toast_id)
-		_discover_toast_id = -1
-
-
-func _process(delta: float) -> void:
-	if _discover_toast_id < 0:
-		return
-	_discover_elapsed += delta
-	var left := NetConst.RANDOM_MATCH_WAIT_SEC - _discover_elapsed
-	if left > 0.0:
-		Toast.update(_discover_toast_id, "正在搜索局域网房间… %.1fs" % left)
-	else:
-		Toast.dismiss(_discover_toast_id)
-		_discover_toast_id = -1
-		set_process(false)
 
 
 func _set_actions_enabled(enabled: bool) -> void:
@@ -117,31 +93,21 @@ func _on_rooms_discovered(rooms: Array[Dictionary]) -> void:
 	if public_rooms_list == null:
 		return
 	_rooms_by_code.clear()
-	var items: Array[Dictionary] = []
+	var items: Array[UiCardEntry] = []
 	for entry: Dictionary in rooms:
 		var code := str(entry.get("code", ""))
 		if code.is_empty():
 			continue
 		_rooms_by_code[code] = entry
-		items.append({
-			"id": code,
-			"title": str(entry.get("name", "Room")),
-			"subtitle": "%s · %d/%d · %s:%d" % [
+		items.append(UiCardEntry.new(
+			code,
+			str(entry.get("name", "Room")),
+			"%s · %d/%d · %s:%d" % [
 				code,
 				int(entry.get("players", 0)),
 				int(entry.get("max", 4)),
 				str(entry.get("address", "")),
 				int(entry.get("port", NetConst.GAME_PORT)),
 			],
-		})
+		))
 	public_rooms_list.set_items(items)
-	if items.is_empty() or _announced_rooms:
-		return
-	_announced_rooms = true
-	var msg := "已发现 %d 个公开房间" % items.size()
-	if _discover_toast_id >= 0:
-		Toast.update(_discover_toast_id, msg, Toast.DEFAULT_DURATION)
-		_discover_toast_id = -1
-		set_process(false)
-	else:
-		Toast.push(msg)

@@ -5,7 +5,6 @@ extends Container
 @onready var name_edit := %NameEdit
 @onready var public_toggle := %PublicToggle
 @onready var max_players_spin := %MaxPlayers
-@onready var code_label := %CodeLabel
 @onready var game_settings_toggle := %GameSettingsToggle
 @onready var game_settings_root := %GameSettingsRoot
 @onready var game_settings_layout := %GameSettingsLayout
@@ -38,17 +37,12 @@ func _on_room_changed(room: RoomData) -> void:
 	if room == null:
 		_loading = false
 		return
-	if code_label:
-		code_label.text = "房间码: %s" % room.code
-	if name_edit:
-		name_edit.set_text_content(room.name)
-		name_edit.editable = is_host
-	if public_toggle:
-		public_toggle.button_pressed = room.is_public
-		public_toggle.disabled = not is_host
-	if max_players_spin:
-		max_players_spin.value = room.max_players
-		max_players_spin.editable = is_host
+	name_edit.set_text_content(room.name)
+	name_edit.visible = is_host
+	public_toggle.button_pressed = room.is_public
+	public_toggle.visible = is_host
+	max_players_spin.value = room.max_players
+	max_players_spin.visible = is_host
 	_loading = false
 
 

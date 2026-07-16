@@ -1,8 +1,5 @@
 extends CanvasLayer
 
-## Full-screen wipe that always slides right → left. Panel size tracks the viewport;
-## corner radii adapt to the free edge while the sheet is mid-transition.
-
 @export var tween_duration: float = 0.55
 @export var max_corner_radius: float = 48.0
 @export var panel_color: Color = Color(0.12156863, 0.12156863, 0.12156863, 1)
@@ -22,7 +19,9 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_style = StyleBoxFlat.new()
 	_style.bg_color = panel_color
-	_style.set_corner_radius_all(0)
+	_style.set_corner_radius_all(16)
+	_style.shadow_color = Color(0.0, 0.0, 0.0, 0.15)
+	_style.shadow_size = 16
 	_panel.add_theme_stylebox_override("panel", _style)
 	_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -78,7 +77,7 @@ func _slide(covering: bool) -> void:
 	_tween = create_tween()
 	_tween.set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
 	_tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
-	_tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	_tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN_OUT)
 	_tween.set_parallel(true)
 	_tween.tween_property(_panel, "offset_transform_position:x", end_x, tween_duration)
 	_tween.tween_method(_adapt_radius, start_x, end_x, tween_duration)
@@ -118,8 +117,6 @@ func _viewport_size() -> Vector2:
 	return get_viewport().get_visible_rect().size
 
 
-## Panel is oversized by [member size_padding]; travel past the viewport by half that
-## overhang so rounded trailing edges never rest on-screen at tween end.
 func _offscreen_right_x() -> float:
 	return _viewport_size().x + size_padding.x * 0.5
 

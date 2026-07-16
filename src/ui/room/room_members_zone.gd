@@ -1,9 +1,9 @@
 class_name RoomMembersZone
 extends VBoxContainer
-## Room member cards with per-row kick (host only).
+## Room member UI cards with per-row kick (host only).
 
-@onready var members_list := %MembersList
-
+@onready var members_list: UiCardList = %MembersList
+@onready var members_title := %MembersTitle
 
 func _ready() -> void:
 	if members_list:
@@ -18,13 +18,13 @@ func _ready() -> void:
 
 
 func _on_room_changed(room: RoomData) -> void:
-	if members_list == null:
-		return
 	if room == null:
 		members_list.clear_items()
+		members_title.text = "成员"
 		return
+	members_title.text = "成员（%d/%d）" % [room.member_count(), room.max_players]
 	var is_host := RoomManager.is_local_host()
-	var items: Array[Dictionary] = []
+	var items: Array[UiCardEntry] = []
 	for member: RoomMember in room.get_members():
 		var status := "在线" if member.is_online else "离线"
 		var host_tag := " · 房主" if member.uid == room.host_uid else ""
@@ -32,14 +32,14 @@ func _on_room_changed(room: RoomData) -> void:
 		var icon: Texture2D = null
 		if not member.avatar_id.is_empty():
 			icon = AvatarUtils.load_texture(member.avatar_id)
-		items.append({
-			"id": member.uid,
-			"title": member.nickname,
-			"subtitle": "%s%s" % [status, host_tag],
-			"action_text": "踢出" if can_kick else "",
-			"action_id": "kick" if can_kick else "",
-			"icon": icon,
-		})
+		items.append(UiCardEntry.new(
+			member.uid,
+			member.nickname,
+			"%s%s" % [status, host_tag],
+			"踢出" if can_kick else "",
+			"kick" if can_kick else "",
+			icon,
+		))
 	members_list.set_items(items)
 
 
@@ -53,8 +53,7 @@ func _on_member_kicked(nickname: String) -> void:
 
 
 func _on_kicked_from_room(room_name: String) -> void:
-	var name := room_name if not room_name.is_empty() else "房间"
-	Toast.push("你已被踢出 %s" % name)
+	Toast.push("你已被踢出 %s" % room_name if not room_name.is_empty() else "房间")
 
 
 func _on_member_left(nickname: String) -> void:
@@ -62,13 +61,11 @@ func _on_member_left(nickname: String) -> void:
 
 
 func _on_left_room(room_name: String, was_host: bool) -> void:
-	var name := room_name if not room_name.is_empty() else "房间"
 	if was_host:
-		Toast.push("已解散房间 %s" % name)
+		Toast.push("已解散房间 %s" % room_name)
 	else:
-		Toast.push("已离开房间 %s" % name)
+		Toast.push("已离开房间 %s" % room_name)
 
 
 func _on_room_dissolved(room_name: String) -> void:
-	var name := room_name if not room_name.is_empty() else "房间"
-	Toast.push("房间 %s 已解散" % name)
+	Toast.push("房间 %s 已解散" % room_name)

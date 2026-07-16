@@ -76,22 +76,29 @@ static func save_resource(resource: Resource, path: String) -> Error:
 
 static func list_files(dir: String, extension: String) -> Array[String]:
 	var results: Array[String] = []
-	var global_dir := ProjectSettings.globalize_path(dir)
-	if not DirAccess.dir_exists_absolute(global_dir):
-		return results
-
 	var ext := extension.trim_prefix(".").to_lower()
-	var dir_access := DirAccess.open(dir)
-	if dir_access == null:
-		return results
 
-	dir_access.list_dir_begin()
-	var entry_name := dir_access.get_next()
-	while not entry_name.is_empty():
-		if not dir_access.current_is_dir() and entry_name.get_extension().to_lower() == ext:
-			results.append(dir.path_join(entry_name))
-		entry_name = dir_access.get_next()
-	dir_access.list_dir_end()
+	if dir.begins_with("res://"):
+		# ResourceLoader works on web / exported packs; DirAccess does not for res://.
+		for entry_name in ResourceLoader.list_directory(dir):
+			if entry_name.ends_with("/"):
+				continue
+			if entry_name.get_extension().to_lower() == ext:
+				results.append(dir.path_join(entry_name))
+	elif dir.begins_with("user://"):
+		var global_dir := ProjectSettings.globalize_path(dir)
+		if not DirAccess.dir_exists_absolute(global_dir):
+			return results
+		var dir_access := DirAccess.open(dir)
+		if dir_access == null:
+			return results
+		dir_access.list_dir_begin()
+		var entry_name := dir_access.get_next()
+		while not entry_name.is_empty():
+			if not dir_access.current_is_dir() and entry_name.get_extension().to_lower() == ext:
+				results.append(dir.path_join(entry_name))
+			entry_name = dir_access.get_next()
+		dir_access.list_dir_end()
 
 	results.sort()
 	return results

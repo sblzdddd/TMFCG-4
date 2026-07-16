@@ -31,6 +31,17 @@ static func setup(mgr: RoomManagerNode) -> void:
 	mgr.rejoin = rejoin
 	rejoin.setup(mgr)
 
+	var chat_rpc := ChatRpc.new()
+	chat_rpc.name = "ChatRpc"
+	mgr.add_child(chat_rpc)
+	mgr.chat_rpc = chat_rpc
+
+	var chat_handlers := ChatHandlers.new()
+	chat_handlers.name = "ChatHandlers"
+	mgr.add_child(chat_handlers)
+	mgr.chat_handlers = chat_handlers
+	chat_handlers.setup(mgr)
+
 	_wire(mgr)
 
 
@@ -57,6 +68,8 @@ static func _wire(mgr: RoomManagerNode) -> void:
 	PlayerDataStore.data_changed.connect(
 		func(_d: PlayerData) -> void: mgr.handlers.sync_local_profile()
 	)
+	mgr.chat_rpc.chat_submitted.connect(mgr.chat_handlers.on_chat_submitted)
+	mgr.chat_rpc.chat_delivered.connect(mgr.chat_handlers.on_chat_delivered)
 
 
 static func _on_room_closed(mgr: RoomManagerNode) -> void:

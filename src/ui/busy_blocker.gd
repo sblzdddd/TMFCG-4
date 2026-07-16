@@ -49,7 +49,7 @@ func begin(hint: String = "") -> bool:
 func end(hint: String = "") -> void:
 	_busy = false
 	_set_blocker_visible(false)
-	# Morph the busy toast into the result hint so it does not flash away / leave a stack gap.
+	# Morph the busy toast into the result hint, or hold the last busy text briefly.
 	if not hint.is_empty():
 		if _toast_id >= 0:
 			Toast.update(_toast_id, hint, Toast.END_HINT_DURATION)
@@ -57,7 +57,7 @@ func end(hint: String = "") -> void:
 		else:
 			Toast.push(hint, Toast.END_HINT_DURATION)
 	elif _toast_id >= 0:
-		Toast.dismiss(_toast_id)
+		Toast.hold(_toast_id, Toast.END_HINT_DURATION)
 		_toast_id = -1
 	actions_enabled_changed.emit(true)
 
@@ -90,5 +90,6 @@ func _on_join_failed(reason: String) -> void:
 
 
 func _on_room_changed(room: RoomData) -> void:
+	# Lifecycle only: room ready means this busy gate is done.
 	if room != null and _busy:
 		end()

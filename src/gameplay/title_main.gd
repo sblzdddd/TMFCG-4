@@ -14,10 +14,24 @@ var _reveal_tween: Tween
 
 
 func _ready() -> void:
-	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
-	get_window().content_scale_factor = 1.0
+	var screen_size := DisplayServer.screen_get_size()
+	var instance_id := 0
+	for argument in OS.get_cmdline_args():
+		if argument.begins_with("--instance-id="):
+			instance_id = int(argument.split("=")[1])
+	
+	get_window().title = "TMFCG - Instance %d (%s)" % [instance_id, PlayerDataStore.data.name]
+	if instance_id == 2:
+		get_window().position = Vector2(screen_size.x / 2, 0)
+	elif instance_id == 3:
+		get_window().position = Vector2(0, screen_size.y / 2)
+	elif instance_id == 4:
+		get_window().position = Vector2(screen_size.x / 2, screen_size.y / 2)
+	else:
+		get_window().position = Vector2(0, 0)
 	if editor_button:
 		editor_button.pressed.connect(_on_editor_pressed)
+	_begin_auto_reveal()
 	if LevelLoader.has_transitioned:
 		_begin_auto_reveal()
 
@@ -76,5 +90,4 @@ func _reveal_panels() -> void:
 
 func _on_editor_pressed() -> void:
 	if not _revealed: return
-	get_window().content_scale_mode = Window.CONTENT_SCALE_MODE_CANVAS_ITEMS
 	LevelLoader.load_level(editor_scene.resource_path)

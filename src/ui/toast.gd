@@ -2,7 +2,7 @@ extends CanvasLayer
 ## Global stacking toasts. Persist across scenes; content can be updated live.
 
 const DEFAULT_DURATION := 3.0
-const END_HINT_DURATION := 4.5
+const END_HINT_DURATION := 1.5
 const ANIM_IN := 0.4
 const ANIM_OUT := 0.28
 const TOP_MARGIN := 20.0
@@ -69,6 +69,11 @@ func update(id: int, text: String, refresh_duration: float = -1.0) -> void:
 	_fit_label(label)
 	if refresh_duration >= 0.0:
 		_arm_timer(id, refresh_duration)
+
+
+## Keep current text; start (or restart) the auto-dismiss timer.
+func hold(id: int, duration: float) -> void:
+	_arm_timer(id, duration)
 
 
 func dismiss(id: int) -> void:

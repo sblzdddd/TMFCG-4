@@ -1,6 +1,6 @@
-class_name CardItem
+class_name UiCardItem
 extends PanelContainer
-## Single selectable card: title + subtitle + optional trailing action.
+## Single selectable UI list row: title + subtitle + optional trailing action.
 
 signal selected(id: String)
 signal activated(id: String)
@@ -30,27 +30,22 @@ func _ready() -> void:
 	_apply_selected_visual()
 
 
-func configure(
-	p_id: String,
-	title: String,
-	subtitle: String = "",
-	p_action_text: String = "",
-	p_action_id: String = "",
-	icon: Texture2D = null,
-) -> void:
-	id = p_id
-	action_id = p_action_id
+func configure(entry: UiCardEntry) -> void:
+	if entry == null:
+		return
+	id = entry.id
+	action_id = entry.action_id
 	if _title_label:
-		_title_label.text = title
+		_title_label.text = entry.title
 	if _subtitle_label:
-		_subtitle_label.text = subtitle
-		_subtitle_label.visible = not subtitle.is_empty()
+		_subtitle_label.text = entry.subtitle
+		_subtitle_label.visible = not entry.subtitle.is_empty()
 	if _icon:
-		_icon.texture = icon
-		_icon_container.visible = icon != null
+		_icon.texture = entry.icon
+		_icon_container.visible = entry.icon != null
 	if _action_button:
-		_action_button.text = p_action_text
-		_action_button.visible = not p_action_text.is_empty()
+		_action_button.text = entry.action_text
+		_action_button.visible = not entry.action_text.is_empty()
 
 
 func _on_select_pressed() -> void:
