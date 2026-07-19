@@ -166,8 +166,8 @@ shader_parameter/JQKTex = ExtResource("7_dv6ku")
 shader_parameter/characterTransform = Vector3(0, 0, 1)
 shader_parameter/charOutlineWidth = 0.8
 shader_parameter/charOutlineColor = Color(0.9, 0.9, 0.9, 1)
-shader_parameter/suit = 1
-shader_parameter/value = 10
+shader_parameter/suit = 0
+shader_parameter/value = 0
 shader_parameter/cardRadius = 0.08
 shader_parameter/outlineWidth = 0.015
 shader_parameter/outlineColor = Color(1, 0.694, 0.045, 1)
@@ -224,7 +224,7 @@ events = [SubResource("InputEventKey_ecf3d")]
 [sub_resource type="LabelSettings" id="LabelSettings_rr0j0"]
 font_size = 25
 
-[node name="EditorMain" type="MarginContainer" unique_id=1670632272 node_paths=PackedStringArray("_files_panel", "_card_session", "_exit_button", "_exit_confirm_dialog")]
+[node name="EditorMain" type="MarginContainer" unique_id=1670632272 node_paths=PackedStringArray("_files_panel", "_card_session")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -241,8 +241,6 @@ theme_override_constants/margin_bottom = 8
 script = ExtResource("1_yln7k")
 _files_panel = NodePath("EditorLayout/EditorSplits/FilesPanel/MarginContainer/Files")
 _card_session = NodePath("CardSession")
-_exit_button = NodePath("EditorLayout/HBoxContainer/ExitButton")
-_exit_confirm_dialog = NodePath("ExitConfirmDialog")
 metadata/_edit_use_anchors_ = true
 
 [node name="CardSession" type="Node" parent="." unique_id=1670632273 node_paths=PackedStringArray("_inspector", "_skill_graph")]
@@ -532,10 +530,10 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("6_vfit")
 
-[node name="Card" type="Control" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview" unique_id=1572695618]
+[node name="Card" type="Control" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview" unique_id=1571709233]
 layout_mode = 2
 
-[node name="CardVisual" type="ColorRect" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card" unique_id=2071212288 node_paths=PackedStringArray("valueLabels", "_name_label")]
+[node name="CardVisual" type="ColorRect" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card" unique_id=1961978759 node_paths=PackedStringArray("valueLabels", "_name_label")]
 material = SubResource("ShaderMaterial_iwjrs")
 layout_mode = 0
 offset_right = 450.0
@@ -545,7 +543,7 @@ script = ExtResource("7_6v3qa")
 valueLabels = [NodePath("ValueLabel"), NodePath("ValueLabel2")]
 _name_label = NodePath("CharacterNameLabel")
 
-[node name="ValueLabel" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=90094314]
+[node name="ValueLabel" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=1060562335]
 layout_mode = 1
 offset_left = 35.96754
 offset_top = 19.101124
@@ -562,7 +560,7 @@ vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="ValueLabel2" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=1658481521]
+[node name="ValueLabel2" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=2092473642]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -587,7 +585,7 @@ vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
-[node name="CharacterNameLabel" type="Path2D" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=895058224]
+[node name="CharacterNameLabel" type="Path2D" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=1493272731]
 position = Vector2(-1.1111112, -15.969998)
 scale = Vector2(0.49999994, 0.49999994)
 curve = SubResource("Curve2D_76muk")
@@ -601,7 +599,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.66
 theme_override_styles/panel = SubResource("StyleBoxFlat_jixuk")
 script = ExtResource("14_cinsp")
-_preview = NodePath("../CardPreview/Card/CardVisual")
+_preview = NodePath("")
 _character_configurator = NodePath("CardEditLayout/CharacterInfoPreview")
 _suit_edit = NodePath("CardEditLayout/CardBasicInfoEdit/SuitEdit")
 _value_edit = NodePath("CardEditLayout/CardBasicInfoEdit/ValueEdit")
