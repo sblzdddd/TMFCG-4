@@ -54,8 +54,9 @@ func _on_connect_ip() -> void:
 	if port_edit and not str(port_edit.get("text")).strip_edges().is_empty():
 		port = int(str(port_edit.get("text")).strip_edges())
 	if address.is_empty():
-		Toast.push("请输入主机地址")
-		return
+		# Toast.push("请输入主机地址")
+		# return
+		address = "127.0.0.1"
 	if not BusyBlocker.begin("正在连接 %s:%d…" % [address, port]):
 		return
 	var err := RoomSession.join_room(address, port)

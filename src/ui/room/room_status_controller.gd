@@ -8,8 +8,7 @@ extends Container
 
 
 func _ready() -> void:
-	if leave_button:
-		leave_button.pressed.connect(_on_leave)
+	leave_button.pressed.connect(_on_leave)
 	RoomSession.room_changed.connect(_on_room_changed)
 	_on_room_changed(RoomSession.current_room)
 

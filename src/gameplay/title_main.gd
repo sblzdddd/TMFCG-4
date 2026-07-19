@@ -3,7 +3,7 @@ extends HBoxContainer
 @export var reveal_duration: float = 0.55
 @export var editor_scene: PackedScene
 
-@export var left_panel: HomeHorizontalTabs
+@export var left_panel: HorizontalTabs
 @export var right_panel: Control
 @export var title_hint: RichTextLabel
 @export var editor_button: Button

@@ -17,19 +17,16 @@ func _ready() -> void:
 	name_edit.focus_exited.connect(_on_name_focus_exited)
 	public_toggle.toggled.connect(_on_public_toggled)
 	max_players_spin.value_changed.connect(_on_max_changed)
-	game_settings_toggle.toggled.connect(_toggle_game_settings)
+	game_settings_toggle.toggled.connect(toggle_game_settings)
 
 	RoomSession.room_changed.connect(_on_room_changed)
 	_on_room_changed(RoomSession.current_room)
 
-func _toggle_game_settings(on: bool) -> void:
-	if _tween != null:
-		_tween.kill()
-	_tween = create_tween().set_parallel(true)
-	_tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
-	_tween.tween_property(game_settings_layout, "modulate", Color.WHITE if on else Color(1,1,1,0), 0.5)
-	_tween.tween_property(game_settings_root, "anchor_right", 1.0 if on else -0.2, 0.5)
-	_tween.tween_property(game_settings_root, "anchor_left", 0.0 if on else -0.2, 0.5)
+func toggle_game_settings(on: bool) -> void:
+	_tween = TweenUtils.init_tween(self, _tween)
+	_tween.tween_property(game_settings_layout, "modulate:a", 1 if on else 0, 0.5)
+	_tween.parallel().tween_property(game_settings_root, "anchor_right", 1.0 if on else -0.2, 0.5)
+	_tween.parallel().tween_property(game_settings_root, "anchor_left", 0.0 if on else -0.2, 0.5)
 
 func _on_room_changed(room: RoomData) -> void:
 	_loading = true

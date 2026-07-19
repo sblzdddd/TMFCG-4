@@ -12,8 +12,6 @@ uniform int suit: hint_enum("Club", "Diamond", "Heart", "Spade") = 0;
 uniform int value: hint_enum("-", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K") = 1;
 
 uniform float cardRadius : hint_range(0.0, 0.2) = 0.08;
-uniform float outlineWidth : hint_range(0.0, 0.02) = 0.015;
-uniform vec4 outlineColor : source_color = vec4(1., 0.694, 0.045, 1.);
 
 const ivec2 PARTS_SIZE = ivec2(1024);
 const float CARD_RATIO = 3./4.;

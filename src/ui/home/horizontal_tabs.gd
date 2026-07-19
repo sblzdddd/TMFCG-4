@@ -1,5 +1,5 @@
 extends HSplitContainer
-class_name HomeHorizontalTabs
+class_name HorizontalTabs
 
 @export var tab_buttons: Array[Button] = []
 @export var tabs: Array[Control] = []
@@ -25,30 +25,25 @@ func set_open(should_open: bool) -> void:
 	if should_open:
 		panel_w += expansion
 	if _tween == null:
-		_begin_tween()
+		_tween = TweenUtils.init_tween(self, _tween)
 	_tween.tween_property(self, "custom_minimum_size", Vector2(panel_w, 0), tween_duration)
-	_tween.tween_property(tabs[_active], "modulate", Color(1, 1, 1, 1 if should_open else 0), tween_duration)
+	_tween.parallel().tween_property(tabs[_active], "modulate", Color(1, 1, 1, 1 if should_open else 0), tween_duration)
 	open = should_open
 
 
-func _begin_tween() -> void:
-	if _tween != null:
-		_tween.kill()
-	_tween = create_tween().set_parallel(true)
-	_tween.set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
 
 
 func _on_tab_selection(index: int) -> void:
-	_begin_tween()
+	_tween = TweenUtils.init_tween(self, _tween)
 	if index == _active:
 		set_open(not open)
 		return
 	var new_offsets := _offsets_for(index)
 	_tween.tween_property(tabs[_active], "modulate", Color(1, 1, 1, 0), tween_duration)
-	_tween.tween_property(tabs[index], "modulate", Color(1, 1, 1, 1), tween_duration)
+	_tween.parallel().tween_property(tabs[index], "modulate", Color(1, 1, 1, 1), tween_duration)
 	_active = index
 	if open:
-		_tween.tween_property(self, "split_offsets", new_offsets, tween_duration)
+		_tween.parallel().tween_property(self, "split_offsets", new_offsets, tween_duration)
 	else:
 		set_open(true)
 		split_offsets = new_offsets

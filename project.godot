@@ -32,7 +32,6 @@ DeckDataStore="*res://src/data_store/deck_data_store.gd"
 CharacterDataStore="*res://src/data_store/character_data_store.gd"
 EmojiDataStore="*res://src/data_store/emoji_data_store.gd"
 ConnectionManager="*res://src/networking/connection_manager.gd"
-RoomManager="*res://src/networking/room_manager.gd"
 Toast="*res://definitions/ui/toast.tscn"
 BusyBlocker="*res://definitions/ui/busy_blocker.tscn"
 UiScale="*uid://dhhgqoc7dbfmg"
@@ -197,7 +196,7 @@ project/assembly_name="TMFCG-4"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gdUnit4/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/gdUnit4/plugin.cfg", "res://addons/rider-plugin/plugin.cfg")
 
 [file_customization]
 
