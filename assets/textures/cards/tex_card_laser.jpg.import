@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://2s5te20umgel"
-path="res://.godot/imported/tex_card_base.png-bfc5c20586b0439b952e340201294845.ctex"
+uid="uid://clu4d4g22af07"
+path="res://.godot/imported/tex_card_laser.jpg-019eb579ad094660db13f2b99b7fc12f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/cards/tex_card_base.png"
-dest_files=["res://.godot/imported/tex_card_base.png-bfc5c20586b0439b952e340201294845.ctex"]
+source_file="res://assets/textures/cards/tex_card_laser.jpg"
+dest_files=["res://.godot/imported/tex_card_laser.jpg-019eb579ad094660db13f2b99b7fc12f.ctex"]
 
 [params]
 
@@ -31,10 +31,10 @@ process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2
 process/channel_remap/alpha=3
-process/fix_alpha_border=true
+process/fix_alpha_border=false
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
-process/size_limit=0
+process/size_limit=128
 detect_3d/compress_to=1

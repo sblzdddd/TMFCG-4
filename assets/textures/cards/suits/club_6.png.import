@@ -2,28 +2,28 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tine0msp3p1o"
-path="res://.godot/imported/tex_card_parts.png-d639716c94c987d2c91e5a5d54dff544.ctex"
+uid="uid://drlcslwad3b5e"
+path="res://.godot/imported/club_6.png-d6c7b3a3ee21b84f8633068b19b4f26e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/cards/tex_card_parts.png"
-dest_files=["res://.godot/imported/tex_card_parts.png-d639716c94c987d2c91e5a5d54dff544.ctex"]
+source_file="res://assets/textures/cards/suits/club_6.png"
+dest_files=["res://.godot/imported/club_6.png-d6c7b3a3ee21b84f8633068b19b4f26e.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
-compress/lossy_quality=0.89
+compress/lossy_quality=0.9
 compress/uastc_level=0
 compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
-compress/channel_pack=1
-mipmaps/generate=true
+compress/channel_pack=0
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
