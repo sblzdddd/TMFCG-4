@@ -26,6 +26,12 @@ static func setup(session: RoomSessionNode) -> void:
 	session.rejoin = rejoin
 	rejoin.setup(session)
 
+	var deck_sync := RoomDeckSync.new()
+	deck_sync.name = "RoomDeckSync"
+	session.add_child(deck_sync)
+	session.deck_sync = deck_sync
+	deck_sync.setup(session)
+
 	_wire(session)
 
 

@@ -8,6 +8,7 @@ extends Resource
 @export var host_uid: String = ""
 ## Array of Dictionary snapshots (uid, nickname, avatar_id, peer_id, is_online).
 @export var members: Array = []
+@export var deck: RoomDeckProfile = null
 
 
 func member_count() -> int:
@@ -71,6 +72,12 @@ func set_member_online(uid: String, online: bool, new_peer_id: int = -1) -> bool
 	return true
 
 
+func ensure_deck() -> RoomDeckProfile:
+	if deck == null:
+		deck = RoomDeckProfile.new()
+	return deck
+
+
 func to_snapshot() -> Dictionary:
 	return {
 		"code": code,
@@ -79,6 +86,7 @@ func to_snapshot() -> Dictionary:
 		"max_players": max_players,
 		"host_uid": host_uid,
 		"members": members.duplicate(true),
+		"deck": deck.to_dict() if deck != null else {},
 	}
 
 
@@ -92,6 +100,11 @@ static func from_snapshot(data: Dictionary) -> RoomData:
 	var raw_members: Variant = data.get("members", [])
 	if raw_members is Array:
 		room.members = (raw_members as Array).duplicate(true)
+	var raw_deck: Variant = data.get("deck", {})
+	if raw_deck is Dictionary:
+		room.deck = RoomDeckProfile.from_dict(raw_deck as Dictionary)
+	else:
+		room.deck = RoomDeckProfile.new()
 	return room
 
 
@@ -108,4 +121,5 @@ static func create_hosted(
 	room.max_players = clampi(max_players_value, 2, 4)
 	room.host_uid = host_member.uid
 	room.members = [host_member.to_dict()]
+	room.deck = RoomDeckProfile.create_default_builtin()
 	return room

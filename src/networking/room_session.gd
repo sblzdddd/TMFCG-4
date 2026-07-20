@@ -20,6 +20,7 @@ var rpc_node: RoomRpc
 var presence: RoomPresence
 var handlers: RoomHandlers
 var rejoin: RoomRejoin
+var deck_sync: RoomDeckSync
 
 var join_address: String = ""
 var join_port: int = NetConst.GAME_PORT
@@ -40,6 +41,7 @@ func create_room(is_public: bool, max_players: int = 4, room_name: String = "") 
 	if room_name.strip_edges().is_empty():
 		room_name = "%s 的房间" % host_member.nickname
 	current_room = RoomData.create_hosted(host_member, room_name, is_public, max_players)
+	deck_sync.bind_host_default_source()
 	persist_last_room(RoomUtils.local_lan_address(), NetConst.GAME_PORT)
 	sync_advertise()
 	room_changed.emit(current_room)
@@ -84,6 +86,14 @@ func update_options(patch: Dictionary) -> void:
 		handlers.apply_options_patch(patch)
 	else:
 		rpc_node.send_options_patch(patch)
+
+
+func set_room_deck(path: String) -> void:
+	deck_sync.set_deck_from_path(path)
+
+
+func get_resolved_deck() -> DeckData:
+	return deck_sync.get_resolved_deck() if deck_sync else null
 
 
 func kick_member(uid: String) -> void:
@@ -136,6 +146,8 @@ func teardown_local(go_title: bool) -> void:
 	presence.clear_all()
 	RoomDiscovery.stop_advertising()
 	current_room = null
+	if deck_sync:
+		deck_sync.clear()
 	ConnectionManager.leave()
 	PlayerDataStore.clear_last_room()
 	room_changed.emit(null)
