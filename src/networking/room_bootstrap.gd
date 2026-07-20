@@ -32,6 +32,12 @@ static func setup(session: RoomSessionNode) -> void:
 	session.deck_sync = deck_sync
 	deck_sync.setup(session)
 
+	var match_controller := MatchController.new()
+	match_controller.name = "MatchController"
+	session.add_child(match_controller)
+	session.match_controller = match_controller
+	match_controller.setup(session)
+
 	_wire(session)
 
 

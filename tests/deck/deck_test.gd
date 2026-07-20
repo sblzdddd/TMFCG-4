@@ -52,3 +52,28 @@ func test_deck_serialization_round_trip() -> void:
 	assert_that(restored.get_size()).is_equal(deck.get_size())
 	assert_that(restored.wild_rank).is_equal(Rank.FIVE)
 	assert_that(drawn.size()).is_equal(3)
+
+
+func test_from_deck_data_duplicates_cards_and_assigns_unique_instances() -> void:
+	var first := CardData.new()
+	first.cardId = "first"
+	first.rank = Rank.THREE
+	first.suit = Suit.HEARTS
+	var second := CardData.new()
+	second.cardId = "second"
+	second.rank = Rank.ACE
+	second.suit = Suit.SPADES
+	var source := DeckData.new()
+	source.cards = [first, second]
+
+	var deck := Deck.from_deck_data(source)
+	assert_that(deck.get_size()).is_equal(2)
+	var instance_ids: Dictionary = {}
+	for card in deck.get_all_cards():
+		instance_ids[card.instance_id.value] = true
+		if card.data.cardId == "first":
+			card.data.cardId = "runtime-only"
+	assert_that(instance_ids.size()).is_equal(2)
+	assert_str(first.cardId).is_equal("first")
+	assert_str(second.cardId).is_equal("second")
+	assert_that(source.cards.size()).is_equal(2)

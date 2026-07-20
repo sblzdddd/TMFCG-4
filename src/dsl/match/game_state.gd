@@ -1,6 +1,10 @@
 class_name GameState
 extends RefCounted
 
+const TemporaryGraveyardType := preload(
+	"res://src/dsl/card_holder/temporary_graveyard.gd"
+)
+
 signal cards_transferred(
 	from: CardHolder,
 	to: CardHolder,
@@ -13,36 +17,37 @@ var deck: Deck
 var graveyard: Graveyard
 var players: Array[PlayerState] = []
 var current_player_index: int = 0
-var direction: PlayDirection.Direction = PlayDirection.Direction.CLOCKWISE
 var current_phase: MatchPhase.Phase = MatchPhase.Phase.INITIALIZATION
 var current_trick_combo: CardCombination = null
 var trick_winner_id: PlayerId = null
 var passes_count: int = 0
 var placements: Array[PlayerId] = []
+## Card instance IDs in exact global play order for the current round.
+var play_history_instance_ids: Array[String] = []
 
 
 func _init(
 	p_deck: Deck = null,
 	p_players: Array[PlayerState] = [],
 	p_current_player_index: int = 0,
-	p_direction: PlayDirection.Direction = PlayDirection.Direction.CLOCKWISE,
 	p_current_phase: MatchPhase.Phase = MatchPhase.Phase.INITIALIZATION,
 	p_current_trick_combo: CardCombination = null,
 	p_trick_winner_id: PlayerId = null,
 	p_passes_count: int = 0,
 	p_placements: Array[PlayerId] = [],
 	p_graveyard: Graveyard = null,
+	p_play_history_instance_ids: Array[String] = [],
 ) -> void:
 	deck = p_deck if p_deck != null else Deck.empty()
 	graveyard = p_graveyard if p_graveyard != null else Graveyard.new()
 	players = p_players.duplicate()
 	current_player_index = p_current_player_index
-	direction = p_direction
 	current_phase = p_current_phase
 	current_trick_combo = p_current_trick_combo
 	trick_winner_id = p_trick_winner_id
 	passes_count = p_passes_count
 	placements = p_placements.duplicate()
+	play_history_instance_ids = p_play_history_instance_ids.duplicate()
 
 
 func get_current_player_id() -> PlayerId:
@@ -62,11 +67,61 @@ func get_player_hand(player_id: PlayerId) -> PlayerHand:
 	return players[index].hand
 
 
+func get_player_temporary_graveyard(player_id: PlayerId) -> TemporaryGraveyardType:
+	var index := player_index(player_id)
+	if index < 0:
+		return null
+	return players[index].temporary_graveyard
+
+
 func all_player_hands() -> Array[PlayerHand]:
 	var hands: Array[PlayerHand] = []
 	for player in players:
 		hands.append(player.hand)
 	return hands
+
+
+func all_card_holders() -> Array[CardHolder]:
+	var holders: Array[CardHolder] = []
+	if deck != null:
+		holders.append(deck)
+	if graveyard != null:
+		holders.append(graveyard)
+	for player in players:
+		if player.hand != null:
+			holders.append(player.hand)
+		if player.temporary_graveyard != null:
+			holders.append(player.temporary_graveyard)
+	return holders
+
+
+func get_holder(holder_id: String) -> CardHolder:
+	for holder in all_card_holders():
+		if holder.holder_id == holder_id:
+			return holder
+	return null
+
+
+func get_holder_by_id(holder_id: String) -> CardHolder:
+	return get_holder(holder_id)
+
+
+func get_holder_containing_card(instance_id: String) -> CardHolder:
+	for holder in all_card_holders():
+		for card in holder.get_all_cards():
+			if card.instance_id.value == instance_id:
+				return holder
+	return null
+
+
+func get_card_by_instance_id(instance_id: String) -> Card:
+	var holder := get_holder_containing_card(instance_id)
+	if holder == null:
+		return null
+	for card in holder.get_all_cards():
+		if card.instance_id.value == instance_id:
+			return card
+	return null
 
 
 func get_active_players() -> Array[PlayerState]:
@@ -86,10 +141,10 @@ func player_index(player_id: PlayerId) -> int:
 			return i
 	return -1
 
-
-func get_next_player_index(from_index: int) -> int:
-	var step := 1 if direction == PlayDirection.Direction.CLOCKWISE else -1
-	return (from_index + step + players.size()) % players.size()
+# idk how to represent
+# func get_next_player_index(from_index: int) -> int:
+# 	var step := 1
+# 	return (from_index + step + players.size()) % players.size()
 
 
 func transfer_cards(
@@ -105,6 +160,43 @@ func transfer_cards(
 	if not moved.is_empty():
 		cards_transferred.emit(from, to, moved, mark_hidden, ignore_passives)
 	return moved
+
+
+func record_play(player_id: PlayerId, cards: Array[Card]) -> Array[Card]:
+	var hand := get_player_hand(player_id)
+	var temporary_graveyard := get_player_temporary_graveyard(player_id)
+	if hand == null or temporary_graveyard == null or cards.is_empty():
+		return []
+	var playable_cards: Array[Card] = []
+	var hand_cards := hand.get_all_cards()
+	for card in cards:
+		if hand_cards.has(card) and not playable_cards.has(card):
+			card.make_public()
+			playable_cards.append(card)
+	var moved := transfer_cards(hand, temporary_graveyard, playable_cards)
+	for card in moved:
+		play_history_instance_ids.append(card.instance_id.value)
+	return moved
+
+
+func end_round() -> Array[Card]:
+	var flushed: Array[Card] = []
+	for instance_id in play_history_instance_ids:
+		var holder := get_holder_containing_card(instance_id)
+		if holder == null or holder.kind != CardHolder.Kind.TEMPORARY_GRAVEYARD:
+			continue
+		var card: Card = null
+		for candidate in holder.get_all_cards():
+			if candidate.instance_id.value == instance_id:
+				card = candidate
+				break
+		if card == null:
+			continue
+		var moved := transfer_cards(holder, graveyard, [card])
+		if not moved.is_empty():
+			flushed.append(moved[0])
+	play_history_instance_ids.clear()
+	return flushed
 
 
 func update_player(player_id: PlayerId, transform: Callable) -> void:
@@ -126,11 +218,35 @@ func to_dict() -> Dictionary:
 		"graveyard": graveyard.to_dict() if graveyard != null else {},
 		"players": player_dicts,
 		"currentPlayerIndex": current_player_index,
-		"direction": PlayDirection.Direction.find_key(direction),
 		"currentPhase": MatchPhase.Phase.find_key(current_phase),
 		"trickWinnerId": trick_winner_id.value if trick_winner_id != null else "",
 		"passesCount": passes_count,
 		"placements": placement_values,
+		"playHistoryInstanceIds": play_history_instance_ids.duplicate(),
+	}
+
+
+func to_dict_for_viewer(viewer_uid: String) -> Dictionary:
+	var player_dicts: Array = []
+	for player in players:
+		player_dicts.append(player.to_dict_for_viewer(viewer_uid))
+	var placement_values: Array = []
+	for placement in placements:
+		placement_values.append(placement.value)
+	return {
+		"deck": deck.to_dict_for_viewer(viewer_uid) if deck != null else {},
+		"graveyard": (
+			graveyard.to_dict_for_viewer(viewer_uid)
+			if graveyard != null
+			else {}
+		),
+		"players": player_dicts,
+		"currentPlayerIndex": current_player_index,
+		"currentPhase": MatchPhase.Phase.find_key(current_phase),
+		"trickWinnerId": trick_winner_id.value if trick_winner_id != null else "",
+		"passesCount": passes_count,
+		"placements": placement_values,
+		"playHistoryInstanceIds": play_history_instance_ids.duplicate(),
 	}
 
 
@@ -153,44 +269,43 @@ static func from_dict(dict: Dictionary) -> GameState:
 	if not trick_winner_raw.is_empty():
 		trick_winner = PlayerId.from_string(trick_winner_raw)
 
+	var play_history_ids: Array[String] = []
+	var raw_play_history: Variant = dict.get("playHistoryInstanceIds", [])
+	if raw_play_history is Array:
+		for item in raw_play_history:
+			play_history_ids.append(str(item))
+
 	var deck_dict: Variant = dict.get("deck", {})
 	var graveyard_dict: Variant = dict.get("graveyard", {})
 	return GameState.new(
 		Deck.from_dict(deck_dict if deck_dict is Dictionary else {}),
 		player_states,
 		int(dict.get("currentPlayerIndex", 0)),
-		_direction_from_name(str(dict.get("direction", "CLOCKWISE"))),
 		_phase_from_name(str(dict.get("currentPhase", "INITIALIZATION"))),
 		null,
 		trick_winner,
 		int(dict.get("passesCount", 0)),
 		placement_ids,
 		Graveyard.from_dict(graveyard_dict if graveyard_dict is Dictionary else {}),
+		play_history_ids,
 	)
 
 
 func _to_string() -> String:
-	return "phase: %s\ndeck size: %d\ngraveyard size: %d\nplayers: %s\ncurrent player: %d\ndir: %s\npasses: %d" % [
+	return "phase: %s\ndeck size: %d\ngraveyard size: %d\nplayers: %s\ncurrent player: %d\npasses: %d" % [
 		MatchPhase.Phase.find_key(current_phase),
 		deck.get_size() if deck != null else 0,
 		graveyard.get_size() if graveyard != null else 0,
 		", ".join(players.map(func(p: PlayerState) -> String: return str(p.player_id))),
 		current_player_index,
-		PlayDirection.Direction.find_key(direction),
 		passes_count,
 	]
 
 
-static func _direction_from_name(name: String) -> PlayDirection.Direction:
-	match name.to_upper():
-		"COUNTER_CLOCKWISE":
-			return PlayDirection.Direction.COUNTER_CLOCKWISE
-		_:
-			return PlayDirection.Direction.CLOCKWISE
-
-
 static func _phase_from_name(name: String) -> MatchPhase.Phase:
 	match name.to_upper():
+		"INITIALIZATION":
+			return MatchPhase.Phase.INITIALIZATION
 		"TURN_PLAY":
 			return MatchPhase.Phase.TURN_PLAY
 		"ROUND_RESOLUTION":

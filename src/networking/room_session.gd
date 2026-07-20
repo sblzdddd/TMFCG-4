@@ -3,6 +3,9 @@ extends Node
 ## Autoload: room lifecycle (create / join / leave) + combat navigation.
 
 signal room_changed(room: RoomData)
+signal match_changed(state: MatchRuntimeState)
+signal card_state_changed(state: GameState)
+signal cards_drawn(card_ids: Array[String])
 signal join_failed(reason: String)
 ## Host kicked someone (local host only).
 signal member_kicked(nickname: String)
@@ -21,6 +24,7 @@ var presence: RoomPresence
 var handlers: RoomHandlers
 var rejoin: RoomRejoin
 var deck_sync: RoomDeckSync
+var match_controller: MatchController
 
 var join_address: String = ""
 var join_port: int = NetConst.GAME_PORT
@@ -42,6 +46,8 @@ func create_room(is_public: bool, max_players: int = 4, room_name: String = "") 
 		room_name = "%s 的房间" % host_member.nickname
 	current_room = RoomData.create_hosted(host_member, room_name, is_public, max_players)
 	deck_sync.bind_host_default_source()
+	if match_controller:
+		match_controller.clear()
 	persist_last_room(RoomUtils.local_lan_address(), NetConst.GAME_PORT)
 	sync_advertise()
 	room_changed.emit(current_room)
@@ -148,6 +154,8 @@ func teardown_local(go_title: bool) -> void:
 	current_room = null
 	if deck_sync:
 		deck_sync.clear()
+	if match_controller:
+		match_controller.clear()
 	ConnectionManager.leave()
 	PlayerDataStore.clear_last_room()
 	room_changed.emit(null)

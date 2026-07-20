@@ -23,6 +23,10 @@ func on_handshake(peer_id: int, payload: Dictionary) -> void:
 		_presence.cancel(uid)
 		room.set_member_online(uid, true, peer_id)
 	else:
+		var match_ctrl: MatchController = _session.match_controller
+		if match_ctrl != null and not match_ctrl.accepts_new_joins():
+			_rpc.send_kick(peer_id)
+			return
 		if room.is_full():
 			_rpc.send_kick(peer_id)
 			return
@@ -34,6 +38,11 @@ func on_handshake(peer_id: int, payload: Dictionary) -> void:
 			"is_online": true,
 		}))
 	_session.broadcast_and_advertise()
+	# New peers need the current match snapshot (room snapshot alone has no order/phase).
+	if ConnectionManager.is_server() and _session.match_controller != null:
+		_session.match_controller.broadcast_state()
+	if ConnectionManager.is_server() and _session.match_card_controller != null:
+		_session.match_card_controller.send_state_to(peer_id, uid)
 
 
 func on_leave_requested(peer_id: int) -> void:

@@ -1,7 +1,12 @@
 class_name CardHolder
 extends RefCounted
 
-enum Kind { PLAYER_HAND, DECK, GRAVEYARD }
+enum Kind {
+	PLAYER_HAND = 0,
+	DECK = 1,
+	GRAVEYARD = 2,
+	TEMPORARY_GRAVEYARD = 3,
+}
 
 signal cards_changed()
 signal cards_transferred(
@@ -98,7 +103,10 @@ func transfer_to(
 		return []
 	if mark_hidden:
 		for card in moved:
-			card.hidden = true
+			if dest.kind == Kind.PLAYER_HAND:
+				card.restrict_visibility_to([dest.holder_id])
+			else:
+				card.restrict_visibility_to([])
 	dest.add_cards(moved, false)
 	cards_changed.emit()
 	dest.cards_changed.emit()
@@ -111,6 +119,17 @@ func to_dict() -> Dictionary:
 	var card_dicts: Array = []
 	for card in _cards:
 		card_dicts.append(card.to_dict())
+	return {
+		"kind": Kind.find_key(kind),
+		"holderId": holder_id,
+		"cards": card_dicts,
+	}
+
+
+func to_dict_for_viewer(viewer_uid: String) -> Dictionary:
+	var card_dicts: Array = []
+	for card in _cards:
+		card_dicts.append(card.to_dict_for_viewer(viewer_uid))
 	return {
 		"kind": Kind.find_key(kind),
 		"holderId": holder_id,
@@ -134,5 +153,7 @@ static func kind_from_name(name: String) -> Kind:
 			return Kind.PLAYER_HAND
 		"GRAVEYARD":
 			return Kind.GRAVEYARD
+		"TEMPORARY_GRAVEYARD":
+			return Kind.TEMPORARY_GRAVEYARD
 		_:
 			return Kind.DECK

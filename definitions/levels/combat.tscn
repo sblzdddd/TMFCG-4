@@ -28,6 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://2ebit0ki7h1x" path="res://definitions/prefabs/card_back.tscn" id="24_ist74"]
 [ext_resource type="RichTextEffect" uid="uid://b7sb6658c8bpp" path="res://src/ui/effects/wave_breath_fx.tres" id="26_phel0"]
 [ext_resource type="PackedScene" uid="uid://c85txtd78b2ma" path="res://definitions/prefabs/card_base.tscn" id="34_f6cli"]
+[ext_resource type="Script" uid="uid://b7cxin36hpl3l" path="res://src/ui/match/match_seat_binder.gd" id="40_seat"]
+[ext_resource type="Script" uid="uid://ci55enetmveu5" path="res://src/ui/match/active_indicator_controller.gd" id="41_ind"]
+[ext_resource type="Script" uid="uid://d0bxscuiytloj" path="res://src/ui/match/match_debug_panel.gd" id="42_dbg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ehy"]
 content_margin_left = 8.0
@@ -687,6 +690,7 @@ theme_override_constants/margin_left = 90
 theme_override_constants/margin_top = 60
 theme_override_constants/margin_right = 90
 theme_override_constants/margin_bottom = 50
+script = ExtResource("40_seat")
 metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MatchOverlay/WidgetsRoot" unique_id=417989347]
@@ -696,6 +700,7 @@ alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="LeftPlayer" type="VBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer" unique_id=586345070]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_vertical = 8
@@ -798,6 +803,7 @@ custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
 
 [node name="RightPlayer" type="VBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer" unique_id=439948726]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_constants/separation = 6
@@ -837,6 +843,48 @@ offset_right = 16.0
 offset_bottom = 16.0
 icon = ExtResource("22_feylg")
 flat = true
+
+[node name="MatchDebugPanel" type="VBoxContainer" parent="MatchOverlay" unique_id=2121380303]
+unique_name_in_owner = true
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -220.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 6
+alignment = 2
+script = ExtResource("42_dbg")
+
+[node name="DebugNextPlayer" type="Button" parent="MatchOverlay/MatchDebugPanel" unique_id=2121380304]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Next Player"
+
+[node name="DebugOffsetPlayer" type="Button" parent="MatchOverlay/MatchDebugPanel" unique_id=2121380305]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Offset Player"
+
+[node name="DebugReverseOrder" type="Button" parent="MatchOverlay/MatchDebugPanel" unique_id=2121380306]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reverse Order"
+
+[node name="DebugEndRound" type="Button" parent="MatchOverlay/MatchDebugPanel" unique_id=2121380307]
+unique_name_in_owner = true
+layout_mode = 2
+text = "End Round"
+
+[node name="DebugEndGamePlay" type="Button" parent="MatchOverlay/MatchDebugPanel" unique_id=2121380308]
+unique_name_in_owner = true
+layout_mode = 2
+text = "All Decks Drawn"
 
 [node name="CardPreviewOverlay" type="PanelContainer" parent="MatchOverlay" unique_id=61122084]
 visible = false
@@ -1275,4 +1323,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ra6t3")
+script = ExtResource("41_ind")
 metadata/_edit_use_anchors_ = true

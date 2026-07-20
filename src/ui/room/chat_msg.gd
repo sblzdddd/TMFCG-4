@@ -23,8 +23,8 @@ func set_content(payload: Dictionary) -> void:
 	_name_label.text = "%s (我)" % nickname if uid == local_uid and not uid.is_empty() else nickname
 	var content := str(payload.get("content", ""))
 	var solo := _is_solo_emoji(content)
-	var size := EMOJI_SIZE_SOLO if solo else EMOJI_SIZE_INLINE
-	_msg_label.text = _content_to_bbcode(content, size)
+	var emoji_size := EMOJI_SIZE_SOLO if solo else EMOJI_SIZE_INLINE
+	_msg_label.text = _content_to_bbcode(content, int(emoji_size))
 	if solo:
 		_apply_solo_emoji_box()
 
