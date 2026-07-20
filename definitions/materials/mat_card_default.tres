@@ -1,29 +1,24 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://db74r6pn7xdhh"]
 
 [ext_resource type="Shader" uid="uid://dnd6tkba6tv0y" path="res://src/shaders/card_simple.gdshader" id="1_wapsm"]
-[ext_resource type="Texture2D" uid="uid://dy71fyoy027lb" path="res://assets/textures/cards/tex_card_jqk.png" id="2_ei1ww"]
 [ext_resource type="Texture2D" uid="uid://c3uo848dypwja" path="res://assets/textures/cards/tex_card_masks.png" id="3_5rqcn"]
-[ext_resource type="Texture2D" uid="uid://bhesbg4yvm2pg" path="res://assets/textures/cards/tex_card_base.png" id="4_kbjfl"]
+[ext_resource type="Texture2D" uid="uid://2s5te20umgel" path="res://assets/textures/cards/tex_card_base.png" id="4_kbjfl"]
 [ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="5_wapsm"]
-[ext_resource type="Texture2D" uid="uid://tine0msp3p1o" path="res://assets/textures/cards/tex_card_parts.png" id="6_6haas"]
+[ext_resource type="Texture2D" uid="uid://clu4d4g22af07" path="res://assets/textures/cards/tex_card_laser.jpg" id="7_laser"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mq3sf"]
+load_path = "res://.godot/imported/tex_card_bg.png-37161637bb3e5219bdbf010c2f877403.ctex"
 
 [resource]
 shader = ExtResource("1_wapsm")
 shader_parameter/cardTex = ExtResource("4_kbjfl")
 shader_parameter/cardMasks = ExtResource("3_5rqcn")
-shader_parameter/partsTex = ExtResource("6_6haas")
+shader_parameter/bgTileTex = SubResource("CompressedTexture2D_mq3sf")
+shader_parameter/laserTex = ExtResource("7_laser")
 shader_parameter/characterTex = ExtResource("5_wapsm")
-shader_parameter/JQKTex = ExtResource("2_ei1ww")
 shader_parameter/characterTransform = Vector3(0, 0, 1)
 shader_parameter/charOutlineWidth = 0.8
 shader_parameter/charOutlineColor = Color(0.9, 0.9, 0.9, 1)
-shader_parameter/suit = 0
-shader_parameter/value = 1
 shader_parameter/cardRadius = 0.08
-shader_parameter/outlineWidth = 0.015
-shader_parameter/outlineColor = Color(1, 0.694, 0.045, 1)
-shader_parameter/tint1 = Color(0.5921569, 0.2705882, 0.2, 1)
-shader_parameter/tint2 = Color(0.7176471, 0.345098, 0.2196078, 1)
-shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
-shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
+shader_parameter/bgTileParams = Vector3(0, 0, 0.3)

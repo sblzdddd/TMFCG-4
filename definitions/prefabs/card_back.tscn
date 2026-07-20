@@ -2,25 +2,12 @@
 
 [ext_resource type="Shader" uid="uid://csr2ykb35lpd4" path="res://src/shaders/card_back.gdshader" id="1_ure52"]
 [ext_resource type="Texture2D" uid="uid://bayhyxnx3ldbo" path="res://assets/textures/cards/tex_card_back.png" id="2_ure52"]
+[ext_resource type="StyleBox" uid="uid://jn76bfgxskje" path="res://definitions/ui/card/card_border_normal.tres" id="3_ure52"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kuk8p"]
 shader = ExtResource("1_ure52")
 shader_parameter/cardTex = ExtResource("2_ure52")
 shader_parameter/cardRadius = 0.08
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esexi"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
-draw_center = false
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.3372549)
-shadow_size = 10
 
 [node name="CardBack" type="Control" unique_id=1596249455]
 layout_mode = 3
@@ -50,12 +37,12 @@ offset_transform_enabled = true
 offset_transform_pivot_ratio = Vector2(0.5, 1)
 offset_transform_visual_only = false
 
-[node name="Shadow" type="Panel" parent="CardVisual" unique_id=984106962]
+[node name="Border" type="Panel" parent="CardVisual" unique_id=984106962]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_esexi")
+theme_override_styles/panel = ExtResource("3_ure52")
 metadata/_edit_use_anchors_ = true

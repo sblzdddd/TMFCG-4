@@ -69,6 +69,18 @@ RatioUVResult RatioCorrectUV(vec3 uvr, vec3 transform, ivec2 texSize, ivec4 crop
 	return RatioUVResult(sample_uv, grad_uv, r);
 }
 
+vec2 TransformUV(vec3 uvr, vec3 transform, ivec2 texSize) {
+	vec2 uv = uvr.xy;
+	float ratio = uvr.z;
+	vec2 scaled = uv - (0.5 + transform.xy);
+	float tex_ratio = float(texSize.x) / float(texSize.y);
+	vec2 aspect = tex_ratio > ratio
+		? vec2(1.0, tex_ratio / ratio)
+		: vec2(ratio / tex_ratio, 1.0);
+	scaled *= aspect / max(transform.z, 0.0001);
+	return scaled + 0.5;
+}
+
 vec4 sampleSuitTex(sampler2D tex, RatioUVResult uvm) {
 	vec4 col = textureGrad(tex, uvm.uv, dFdx(uvm.grad_uv), dFdy(uvm.grad_uv));
 	return col * uvm.mask;
@@ -90,4 +102,44 @@ vec3 color_burn(vec3 base, vec3 blend) {
         blend.g == 0.0 ? 0.0 : max(1.0 - (1.0 - base.g) / blend.g, 0.0),
         blend.b == 0.0 ? 0.0 : max(1.0 - (1.0 - base.b) / blend.b, 0.0)
     );
+}
+
+// Fake 3D Y-axis rotation through the card center (UV 0.5).
+// Card lies in XY facing +Z; camera looks along -Z.
+// Returns card-space UV in [0,1]. Call after checking facing > 0 and valid.
+struct PerspectiveYResult {
+	vec2 uv;
+	float facing;
+	bool valid;
+};
+
+PerspectiveYResult PerspectiveYRotate(vec2 screen_uv, float angle, float perspective) {
+	float c = cos(angle);
+	float s = sin(angle);
+	PerspectiveYResult r;
+	r.facing = c;
+	r.uv = screen_uv;
+	r.valid = false;
+
+	// Backface: normal.z = cos(angle); cull when facing away from camera.
+	if (c <= 0.0) {
+		return r;
+	}
+
+	vec2 p = screen_uv * 2.0 - 1.0;
+	float denom = c - p.x * s * perspective;
+	if (abs(denom) < 1e-5) {
+		return r;
+	}
+
+	// Inverse of: (u,v,0) --Ry--> (u*c, v, -u*s) --persp--> xy/(1 - z*perspective)
+	float u = p.x / denom;
+	float v = p.y * (1.0 + u * s * perspective);
+	if (abs(u) > 1.0 || abs(v) > 1.0) {
+		return r;
+	}
+
+	r.uv = vec2(u, v) * 0.5 + 0.5;
+	r.valid = true;
+	return r;
 }

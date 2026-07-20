@@ -1,36 +1,43 @@
 [gd_scene format=3 uid="uid://c85txtd78b2ma"]
 
-[ext_resource type="Shader" uid="uid://dnd6tkba6tv0y" path="res://src/shaders/card_simple.gdshader" id="1_qk5bj"]
-[ext_resource type="Texture2D" uid="uid://dy71fyoy027lb" path="res://assets/textures/cards/tex_card_jqk.png" id="2_v5txo"]
+[ext_resource type="Script" uid="uid://bo68y1k830xlc" path="res://src/gameplay/card_base.gd" id="2_cardbase"]
+[ext_resource type="Shader" uid="uid://dnd6tkba6tv0y" path="res://src/shaders/card_simple.gdshader" id="2_v5txo"]
 [ext_resource type="Texture2D" uid="uid://c3uo848dypwja" path="res://assets/textures/cards/tex_card_masks.png" id="3_icx5x"]
-[ext_resource type="Texture2D" uid="uid://bhesbg4yvm2pg" path="res://assets/textures/cards/tex_card_base.png" id="4_5r27w"]
+[ext_resource type="Texture2D" uid="uid://2s5te20umgel" path="res://assets/textures/cards/tex_card_base.png" id="4_5r27w"]
 [ext_resource type="Texture2D" uid="uid://dd6b21qf8cco2" path="res://assets/textures/characters/Fallback.png" id="5_2kdio"]
-[ext_resource type="Texture2D" uid="uid://tine0msp3p1o" path="res://assets/textures/cards/tex_card_parts.png" id="6_6mrim"]
+[ext_resource type="Texture2D" uid="uid://clu4d4g22af07" path="res://assets/textures/cards/tex_card_laser.jpg" id="6_6mrim"]
 [ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/gameplay/card_visual.gd" id="7_53otc"]
 [ext_resource type="FontFile" uid="uid://dy3x2wp2dbgwx" path="res://assets/fonts/Gloock-Regular.ttf" id="8_83scf"]
 [ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/effects/curved_text.gd" id="9_80wh4"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="10_ulqgn"]
+[ext_resource type="StyleBox" uid="uid://jn76bfgxskje" path="res://definitions/ui/card/card_border_normal.tres" id="11_v5txo"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qk5bj"]
-shader = ExtResource("1_qk5bj")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mq3sf"]
+load_path = "res://.godot/imported/tex_card_bg.png-37161637bb3e5219bdbf010c2f877403.ctex"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v5txo"]
+shader = ExtResource("2_v5txo")
 shader_parameter/cardTex = ExtResource("4_5r27w")
 shader_parameter/cardMasks = ExtResource("3_icx5x")
-shader_parameter/partsTex = ExtResource("6_6mrim")
+shader_parameter/bgTileTex = SubResource("CompressedTexture2D_mq3sf")
+shader_parameter/laserTex = ExtResource("6_6mrim")
 shader_parameter/characterTex = ExtResource("5_2kdio")
-shader_parameter/JQKTex = ExtResource("2_v5txo")
 shader_parameter/characterTransform = Vector3(0, 0, 1)
 shader_parameter/charOutlineWidth = 0.8
 shader_parameter/charOutlineColor = Color(0.9, 0.9, 0.9, 1)
-shader_parameter/suit = 0
-shader_parameter/value = 0
 shader_parameter/cardRadius = 0.08
-shader_parameter/tint1 = Color(0.5921569, 0.2705882, 0.2, 1)
-shader_parameter/tint2 = Color(0.7176471, 0.345098, 0.2196078, 1)
-shader_parameter/tint3 = Color(1, 1, 1, 1)
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
-shader_parameter/bgTileParams = Vector3(0.5, 0.5, 0.3)
+shader_parameter/bgTileParams = Vector3(0, 0, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_v5txo"]
+[sub_resource type="LabelSettings" id="LabelSettings_icx5x"]
+line_spacing = 0.0
+font = ExtResource("8_83scf")
+font_size = 28
+font_color = Color(0, 0, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5r27w"]
 line_spacing = 0.0
 font = ExtResource("8_83scf")
 font_size = 28
@@ -44,30 +51,18 @@ _data = {
 }
 point_count = 3
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_esexi"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0, 0, 0, 0.019607844)
-draw_center = false
-corner_radius_top_left = 16
-corner_radius_top_right = 16
-corner_radius_bottom_right = 16
-corner_radius_bottom_left = 16
-shadow_color = Color(0, 0, 0, 0.3372549)
-shadow_size = 10
-
 [node name="CardBase" type="Control" unique_id=1596249455]
+custom_minimum_size = Vector2(300, 400)
 layout_mode = 3
 anchors_preset = 0
 size_flags_vertical = 8
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.65, 0.65)
 layout_direction = 2
+script = ExtResource("2_cardbase")
 
-[node name="CardVisual" type="ColorRect" parent="." unique_id=1218079599 node_paths=PackedStringArray("valueLabels", "_name_label")]
-material = SubResource("ShaderMaterial_qk5bj")
+[node name="CardVisual" type="ColorRect" parent="." unique_id=1218079599 node_paths=PackedStringArray("valueLabels", "_name_label", "_border")]
+material = SubResource("ShaderMaterial_v5txo")
 custom_minimum_size = Vector2(300, 400)
 custom_maximum_size = Vector2(300, 400)
 layout_mode = 1
@@ -89,6 +84,7 @@ offset_transform_visual_only = false
 script = ExtResource("7_53otc")
 valueLabels = [NodePath("ValueLabel"), NodePath("ValueLabel2")]
 _name_label = NodePath("CharacterNameLabel")
+_border = NodePath("Border")
 
 [node name="ValueLabel" type="Label" parent="CardVisual" unique_id=2008622047]
 layout_mode = 1
@@ -109,7 +105,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_v5txo")
+label_settings = SubResource("LabelSettings_icx5x")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -135,7 +131,7 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_v5txo")
+label_settings = SubResource("LabelSettings_5r27w")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
@@ -149,17 +145,18 @@ script = ExtResource("9_80wh4")
 text = "-"
 label_settings = ExtResource("10_ulqgn")
 autosize_base_size = 42
-autosize_multiplier = 1.2810000000000001
+autosize_multiplier = 1.281
 autosize_threshold_length = 11
 autosize_base_y = -2.925
 autosize_y_ratio = -0.198
 
-[node name="Shadow" type="Panel" parent="CardVisual" unique_id=984106962]
+[node name="Border" type="Panel" parent="CardVisual" unique_id=984106962]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_esexi")
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("11_v5txo")
 metadata/_edit_use_anchors_ = true

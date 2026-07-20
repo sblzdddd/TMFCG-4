@@ -1,0 +1,2502 @@
+[gd_resource type="Resource" script_class="DeckData" format=3]
+
+[ext_resource type="Script" path="res://src/dsl/CardData.gd" id="1_6d0uk"]
+[ext_resource type="Script" path="res://src/dsl/CardVisualData.gd" id="2_avput"]
+[ext_resource type="Script" path="res://src/dsl/DeckData.gd" id="2_jxhfp"]
+[ext_resource type="Resource" path="res://definitions/database/characters/丰聪耳神子.dch" id="2_w2plg"]
+[ext_resource type="Resource" path="res://definitions/database/characters/雾雨魔理沙.dch" id="3_avput"]
+[ext_resource type="Resource" path="res://definitions/database/characters/琪斯美.dch" id="4_wk4lx"]
+[ext_resource type="Resource" path="res://definitions/database/characters/宫古芳香.dch" id="5_xlvae"]
+[ext_resource type="Resource" path="res://definitions/database/characters/今泉影狼.dch" id="6_lak7r"]
+[ext_resource type="Resource" path="res://definitions/database/characters/哆来咪·苏伊特.dch" id="7_jaosh"]
+[ext_resource type="Resource" path="res://definitions/database/characters/河城荷取.dch" id="8_17gv1"]
+[ext_resource type="Resource" path="res://definitions/database/characters/高丽野阿吽.dch" id="9_7eh51"]
+[ext_resource type="Resource" path="res://definitions/database/characters/绵月丰姬.dch" id="10_4no60"]
+[ext_resource type="Resource" path="res://definitions/database/characters/稀神探女.dch" id="10_xvry6"]
+[ext_resource type="Resource" path="res://definitions/database/characters/魂魄妖梦.dch" id="11_kv3xq"]
+[ext_resource type="Resource" path="res://definitions/database/characters/米斯蒂娅·萝蕾拉.dch" id="13_or1q5"]
+[ext_resource type="Resource" path="res://definitions/database/characters/芙兰朵露·斯卡蕾特.dch" id="13_vfwjp"]
+[ext_resource type="Resource" path="res://definitions/database/characters/萨拉.dch" id="14_0fibi"]
+[ext_resource type="Resource" path="res://definitions/database/characters/水桥帕露西.dch" id="15_of12r"]
+[ext_resource type="Resource" path="res://definitions/database/characters/多多良小伞.dch" id="16_a8t17"]
+[ext_resource type="Resource" path="res://definitions/database/characters/少名针妙丸.dch" id="17_4j1ph"]
+[ext_resource type="Resource" path="res://definitions/database/characters/伊吹萃香.dch" id="18_p41ll"]
+[ext_resource type="Resource" path="res://definitions/database/characters/博丽灵梦.dch" id="19_qwtxv"]
+[ext_resource type="Resource" path="res://definitions/database/characters/蕾米莉亚·斯卡蕾特.dch" id="20_pisqa"]
+[ext_resource type="Resource" path="res://definitions/database/characters/宫出口瑞灵.dch" id="21_xelhs"]
+[ext_resource type="Resource" path="res://definitions/database/characters/若鹭姬.dch" id="22_ruplr"]
+[ext_resource type="Resource" path="res://definitions/database/characters/爱塔妮缇拉尔瓦.dch" id="23_ean5y"]
+[ext_resource type="Resource" path="res://definitions/database/characters/露易兹.dch" id="24_cxbmt"]
+[ext_resource type="Resource" path="res://definitions/database/characters/云居一轮.dch" id="25_ceuoh"]
+[ext_resource type="Resource" path="res://definitions/database/characters/红美铃.dch" id="25_g8sdn"]
+[ext_resource type="Resource" path="res://definitions/database/characters/犬走椛.dch" id="26_0nf38"]
+[ext_resource type="Resource" path="res://definitions/database/characters/键山雏.dch" id="27_kc81a"]
+[ext_resource type="Resource" path="res://definitions/database/characters/茨木华扇.dch" id="28_2t026"]
+[ext_resource type="Resource" path="res://definitions/database/characters/比那名居天子.dch" id="29_nwew5"]
+[ext_resource type="Resource" path="res://definitions/database/characters/爱丽丝.dch" id="30_ceuoh"]
+[ext_resource type="Resource" path="res://definitions/database/characters/风见幽香.dch" id="30_qfby3"]
+[ext_resource type="Resource" path="res://definitions/database/characters/饕餮尤魔.dch" id="31_4nqvu"]
+[ext_resource type="Resource" path="res://definitions/database/characters/森近霖之助.dch" id="32_w0rjb"]
+[ext_resource type="Resource" path="res://definitions/database/characters/物部布都.dch" id="33_gr01v"]
+[ext_resource type="Resource" path="res://definitions/database/characters/封兽鵺.dch" id="34_d8i1d"]
+[ext_resource type="Resource" path="res://definitions/database/characters/灵乌路空.dch" id="35_d0eav"]
+[ext_resource type="Resource" path="res://definitions/database/characters/神绮.dch" id="36_e8res"]
+[ext_resource type="Resource" path="res://definitions/database/characters/藤原妹红.dch" id="37_g71ph"]
+[ext_resource type="Resource" path="res://definitions/database/characters/小野塚小町.dch" id="38_ri1bv"]
+[ext_resource type="Resource" path="res://definitions/database/characters/四季映姬·夜摩仙那度.dch" id="40_m5u1w"]
+[ext_resource type="Resource" path="res://definitions/database/characters/幽谷响子.dch" id="44_8d2w3"]
+
+[sub_resource type="Resource" id="Resource_uigu4"]
+script = ExtResource("2_avput")
+character = ExtResource("2_w2plg")
+portrait = "微笑"
+transform = Vector3(-0.13, -0.34, 0.88)
+
+[sub_resource type="Resource" id="Resource_avput"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-21"
+visual = SubResource("Resource_uigu4")
+rank = 21
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_wsdmc"]
+script = ExtResource("2_avput")
+character = ExtResource("4_wk4lx")
+portrait = "微笑"
+transform = Vector3(-0.13, -0.27, 0.86)
+
+[sub_resource type="Resource" id="Resource_w2plg"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-22"
+visual = SubResource("Resource_wsdmc")
+rank = 22
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_uqhy2"]
+script = ExtResource("2_avput")
+character = ExtResource("5_xlvae")
+portrait = "吐舌"
+transform = Vector3(0.07, 0, 1)
+
+[sub_resource type="Resource" id="Resource_wk4lx"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-3"
+visual = SubResource("Resource_uqhy2")
+rank = 3
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_p5gtk"]
+script = ExtResource("2_avput")
+character = ExtResource("6_lak7r")
+portrait = "微笑"
+
+[sub_resource type="Resource" id="Resource_xlvae"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-4"
+visual = SubResource("Resource_p5gtk")
+rank = 4
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_mguo4"]
+script = ExtResource("2_avput")
+character = ExtResource("7_jaosh")
+portrait = "微笑张嘴"
+
+[sub_resource type="Resource" id="Resource_lak7r"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-5"
+visual = SubResource("Resource_mguo4")
+rank = 5
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_euvbw"]
+script = ExtResource("2_avput")
+character = ExtResource("8_17gv1")
+portrait = "微笑"
+transform = Vector3(0, -0.1, 0.9)
+
+[sub_resource type="Resource" id="Resource_jaosh"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-6"
+visual = SubResource("Resource_euvbw")
+rank = 6
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_qued3"]
+script = ExtResource("2_avput")
+character = ExtResource("9_7eh51")
+portrait = "张嘴"
+transform = Vector3(-0.05, -0.27, 0.9)
+
+[sub_resource type="Resource" id="Resource_17gv1"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-7"
+visual = SubResource("Resource_qued3")
+rank = 7
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_qumyf"]
+script = ExtResource("2_avput")
+character = ExtResource("10_4no60")
+portrait = "微笑"
+transform = Vector3(-0.09, 0, 1.1)
+
+[sub_resource type="Resource" id="Resource_7eh51"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-8"
+visual = SubResource("Resource_qumyf")
+rank = 8
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_2ldwn"]
+script = ExtResource("2_avput")
+character = ExtResource("11_kv3xq")
+portrait = "微笑"
+transform = Vector3(-0.16, -0.04, 0.94)
+
+[sub_resource type="Resource" id="Resource_xvry6"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-9"
+visual = SubResource("Resource_2ldwn")
+rank = 9
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_f1pi5"]
+script = ExtResource("2_avput")
+character = ExtResource("10_xvry6")
+portrait = "无表情"
+
+[sub_resource type="Resource" id="Resource_4no60"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-10"
+visual = SubResource("Resource_f1pi5")
+rank = 10
+type = 1
+skill_graph = {
+"connections": [{
+"from": "array_reverse_8",
+"from_port": 0,
+"to": "modifier_set_order_7",
+"to_port": 1
+}, {
+"from": "event_on_played_1",
+"from_port": 0,
+"to": "modifier_set_order_7",
+"to_port": 0
+}, {
+"from": "card_holder_all_players_6",
+"from_port": 0,
+"to": "array_reverse_8",
+"to_port": 0
+}, {
+"from": "event_on_effect_received_1",
+"from_port": 0,
+"to": "effect_play_1",
+"to_port": 0
+}, {
+"from": "event_on_effect_received_1",
+"from_port": 1,
+"to": "effect_get_effect_info_1",
+"to_port": 0
+}, {
+"from": "event_on_effect_received_1",
+"from_port": 1,
+"to": "effect_play_1",
+"to_port": 1
+}, {
+"from": "effect_get_effect_info_1",
+"from_port": 1,
+"to": "effect_play_1",
+"to_port": 3
+}, {
+"from": "effect_get_effect_info_1",
+"from_port": 2,
+"to": "effect_play_1",
+"to_port": 2
+}, {
+"from": "effect_play_1",
+"from_port": 0,
+"to": "card_transfer_2",
+"to_port": 0
+}, {
+"from": "effect_get_effect_info_1",
+"from_port": 0,
+"to": "card_transfer_2",
+"to_port": 2
+}, {
+"from": "card_holder_graveyard_3",
+"from_port": 0,
+"to": "card_transfer_2",
+"to_port": 1
+}],
+"nodes": [{
+"id": "card_holder_all_players_6",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-400.0, 600.0],
+"type": "card_holder.all_players"
+}, {
+"id": "array_reverse_8",
+"inline_values": {},
+"polymorphic_types": {
+&"default": -5
+},
+"position": [-100.0, 600.0],
+"type": "array.reverse"
+}, {
+"id": "event_on_effect_received_1",
+"inline_values": {
+0: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-400.0, 800.0],
+"type": "event.on_effect_received"
+}, {
+"id": "effect_play_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [200.0, 800.0],
+"type": "effect.play"
+}, {
+"id": "event_on_played_1",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-400.0, 420.0],
+"type": "event.on_played"
+}, {
+"id": "modifier_set_order_7",
+"inline_values": {
+2: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [200.0, 420.0],
+"type": "modifier.set_order"
+}, {
+"id": "effect_get_effect_info_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-120.0, 940.0],
+"type": "effect.get_effect_info"
+}, {
+"id": "card_holder_graveyard_3",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [200.0, 1020.0],
+"type": "card_holder.graveyard"
+}, {
+"id": "card_transfer_2",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [500.0, 800.0],
+"type": "card.transfer"
+}],
+"version": 1
+}
+skills = Array[String](["玉符「乌合的逆咒」
+出牌阶段使用。逆转出牌的方向顺序。", "玉符「秽身探知型水雷」
+可无视出牌顺序，点数顺序使用。仅在功能牌的技能生效时使用。弃置该牌，并逆转功能牌所发动技能的【对象】
+*也就是说，打出功能牌者成为了技能的生效对象，原本的生效对象成为了技能的使用者
+**这代表着，如果在打出功能牌者指定自己为技能生效对象时使用此技能，并不会产生任何效果"])
+
+[sub_resource type="Resource" id="Resource_qxf2i"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "睡衣"
+transform = Vector3(0.11, -0.19, 0.9)
+
+[sub_resource type="Resource" id="Resource_kv3xq"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-11"
+visual = SubResource("Resource_qxf2i")
+rank = 11
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_y7pt5"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "海盗"
+transform = Vector3(0.01, -0.19, 0.9)
+
+[sub_resource type="Resource" id="Resource_vfwjp"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-12"
+visual = SubResource("Resource_y7pt5")
+rank = 12
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_rn5yf"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "水手服·冬"
+transform = Vector3(0.05, -0.06, 0.97)
+
+[sub_resource type="Resource" id="Resource_0fibi"]
+script = ExtResource("1_6d0uk")
+cardId = "card-0-13"
+visual = SubResource("Resource_rn5yf")
+rank = 13
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_s2be6"]
+script = ExtResource("2_avput")
+character = ExtResource("21_xelhs")
+portrait = "无表情"
+transform = Vector3(0, -0.43, 0.8)
+
+[sub_resource type="Resource" id="Resource_of12r"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-21"
+visual = SubResource("Resource_s2be6")
+suit = 1
+rank = 21
+type = 1
+skill_graph = {
+"connections": [{
+"from": "event_on_played_2",
+"from_port": 0,
+"to": "effect_get_history_1",
+"to_port": 0
+}, {
+"from": "effect_get_history_1",
+"from_port": 0,
+"to": "effect_play_1",
+"to_port": 0
+}, {
+"from": "effect_get_history_1",
+"from_port": 1,
+"to": "effect_play_1",
+"to_port": 1
+}, {
+"from": "card_holder_current_player_2",
+"from_port": 0,
+"to": "effect_play_1",
+"to_port": 2
+}, {
+"from": "effect_get_history_1",
+"from_port": 1,
+"to": "effect_get_effect_info_3",
+"to_port": 0
+}, {
+"from": "effect_get_effect_info_3",
+"from_port": 1,
+"to": "effect_play_1",
+"to_port": 3
+}],
+"nodes": [{
+"id": "event_on_played_2",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": true
+},
+2: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [500.0, 800.0],
+"type": "event.on_played"
+}, {
+"id": "effect_get_history_1",
+"inline_values": {
+2: {
+"kind": "number",
+"value": 0.0
+},
+3: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [800.0, 800.0],
+"type": "effect.get_history"
+}, {
+"id": "effect_play_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [1400.0, 760.0],
+"type": "effect.play"
+}, {
+"id": "effect_get_effect_info_3",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [1100.0, 1000.0],
+"type": "effect.get_effect_info"
+}, {
+"id": "card_holder_current_player_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [1100.0, 900.0],
+"type": "card_holder.current_player"
+}],
+"version": 1
+}
+skills = Array[String](["灵符「凭依」
+上回合或本回合内有其他功能牌的技能生效时使用，发动该功能牌的效果。
+*技能生效对象等可以重新指定
+**点数，花色不变"])
+
+[sub_resource type="Resource" id="Resource_kskdp"]
+script = ExtResource("2_avput")
+character = ExtResource("22_ruplr")
+portrait = "微笑"
+transform = Vector3(0.09, -0.22, 0.86)
+
+[sub_resource type="Resource" id="Resource_a8t17"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-22"
+visual = SubResource("Resource_kskdp")
+suit = 1
+rank = 22
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_6y06m"]
+script = ExtResource("2_avput")
+character = ExtResource("23_ean5y")
+portrait = "微笑"
+transform = Vector3(-0.04, -0.41, 0.76)
+
+[sub_resource type="Resource" id="Resource_4j1ph"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-3"
+visual = SubResource("Resource_6y06m")
+suit = 1
+rank = 3
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_faklb"]
+script = ExtResource("2_avput")
+character = ExtResource("24_cxbmt")
+portrait = "微笑"
+transform = Vector3(-0.01, -0.31, 0.9)
+
+[sub_resource type="Resource" id="Resource_p41ll"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-4"
+visual = SubResource("Resource_faklb")
+suit = 1
+rank = 4
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_mmb78"]
+script = ExtResource("2_avput")
+character = ExtResource("25_g8sdn")
+portrait = "微笑"
+transform = Vector3(0, -0.1, 0.99)
+
+[sub_resource type="Resource" id="Resource_qwtxv"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-5"
+visual = SubResource("Resource_mmb78")
+suit = 1
+rank = 5
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_upjd4"]
+script = ExtResource("2_avput")
+character = ExtResource("26_0nf38")
+portrait = "微笑"
+transform = Vector3(-0.03, -0.18, 0.93)
+
+[sub_resource type="Resource" id="Resource_pisqa"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-6"
+visual = SubResource("Resource_upjd4")
+suit = 1
+rank = 6
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_jxmpd"]
+script = ExtResource("2_avput")
+character = ExtResource("27_kc81a")
+portrait = "微笑"
+transform = Vector3(0, -0.18, 0.89)
+
+[sub_resource type="Resource" id="Resource_xelhs"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-7"
+visual = SubResource("Resource_jxmpd")
+suit = 1
+rank = 7
+type = 1
+skill_graph = {
+"connections": [{
+"from": "card_holder_all_players_5",
+"from_port": 0,
+"to": "array_length_1",
+"to_port": 0
+}, {
+"from": "array_length_1",
+"from_port": 0,
+"to": "number_algebra_2",
+"to_port": 1
+}, {
+"from": "number_algebra_2",
+"from_port": 0,
+"to": "array_slice_7",
+"to_port": 2
+}, {
+"from": "card_holder_all_players_5",
+"from_port": 0,
+"to": "array_slice_7",
+"to_port": 0
+}, {
+"from": "array_slice_7",
+"from_port": 1,
+"to": "array_join_1",
+"to_port": 0
+}, {
+"from": "array_slice_7",
+"from_port": 0,
+"to": "array_join_1",
+"to_port": 1
+}, {
+"from": "array_join_1",
+"from_port": 0,
+"to": "card_transfer_6",
+"to_port": 1
+}, {
+"from": "array_length_1",
+"from_port": 0,
+"to": "card_get_random_4",
+"to_port": 1
+}, {
+"from": "event_on_played_3",
+"from_port": 0,
+"to": "card_transfer_6",
+"to_port": 0
+}, {
+"from": "card_get_random_4",
+"from_port": 0,
+"to": "card_transfer_6",
+"to_port": 2
+}],
+"nodes": [{
+"id": "card_transfer_6",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [1000.0, 600.0],
+"type": "card.transfer"
+}, {
+"id": "event_on_played_3",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [0.0, 600.0],
+"type": "event.on_played"
+}, {
+"id": "card_holder_all_players_5",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-300.0, 800.0],
+"type": "card_holder.all_players"
+}, {
+"id": "number_algebra_2",
+"inline_values": {
+1: {
+"kind": "enum",
+"value": 1
+},
+2: {
+"kind": "number",
+"value": 1.0
+},
+3: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [220.0, 940.0],
+"type": "number.algebra"
+}, {
+"id": "array_length_1",
+"inline_values": {},
+"polymorphic_types": {
+&"default": -5
+},
+"position": [0.0, 860.0],
+"type": "array.length"
+}, {
+"id": "array_slice_7",
+"inline_values": {
+2: {
+"kind": "number",
+"value": 1.0
+},
+3: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {
+&"default": -5
+},
+"position": [480.0, 800.0],
+"type": "array.slice"
+}, {
+"id": "array_join_1",
+"inline_values": {},
+"polymorphic_types": {
+&"default": -5
+},
+"position": [740.0, 800.0],
+"type": "array.join"
+}, {
+"id": "card_get_random_4",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {},
+"position": [600.0, 600.0],
+"type": "card.get_random"
+}],
+"version": 1
+}
+skills = Array[String](["厄厄符「手机回收」
+出牌阶段使用。所有玩家给出牌顺序的下一名玩家一张手牌。
+*已经出完手牌的玩家不计入玩家内！"])
+
+[sub_resource type="Resource" id="Resource_xxaas"]
+script = ExtResource("2_avput")
+character = ExtResource("28_2t026")
+portrait = "微笑"
+transform = Vector3(-0.02, 0, 1)
+
+[sub_resource type="Resource" id="Resource_ruplr"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-8"
+visual = SubResource("Resource_xxaas")
+suit = 1
+rank = 8
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_4h1y3"]
+script = ExtResource("2_avput")
+character = ExtResource("29_nwew5")
+portrait = "微笑"
+transform = Vector3(0.08, -0.17, 0.91)
+
+[sub_resource type="Resource" id="Resource_ean5y"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-9"
+visual = SubResource("Resource_4h1y3")
+suit = 1
+rank = 9
+type = 1
+skill_graph = {
+"connections": [{
+"from": "event_on_played_4",
+"from_port": 0,
+"to": "card_transfer_1",
+"to_port": 0
+}, {
+"from": "card_holder_deck_2",
+"from_port": 0,
+"to": "card_transfer_1",
+"to_port": 1
+}, {
+"from": "card_get_current_1",
+"from_port": 0,
+"to": "card_transfer_1",
+"to_port": 2
+}, {
+"from": "card,get_info_1",
+"from_port": 0,
+"to": "boolean_branch_event_1",
+"to_port": 0
+}, {
+"from": "card,get_info_1",
+"from_port": 3,
+"to": "boolean_branch_event_1",
+"to_port": 1
+}, {
+"from": "event_on_card_draw_2",
+"from_port": 0,
+"to": "card,get_info_1",
+"to_port": 0
+}, {
+"from": "card_holder_current_player_4",
+"from_port": 0,
+"to": "boolean_compare_3",
+"to_port": 2
+}, {
+"from": "card_holder_current_player_4",
+"from_port": 0,
+"to": "card_query_selection_1",
+"to_port": 1
+}, {
+"from": "card_holder_current_player_4",
+"from_port": 0,
+"to": "card_get_offset_2",
+"to_port": 1
+}, {
+"from": "card_get_offset_2",
+"from_port": 0,
+"to": "card_query_selection_1",
+"to_port": 2
+}, {
+"from": "boolean_branch_event_1",
+"from_port": 0,
+"to": "_GraphNode_732",
+"to_port": 0
+}, {
+"from": "_GraphNode_732",
+"from_port": 0,
+"to": "card_query_selection_1",
+"to_port": 0
+}, {
+"from": "boolean_compare_3",
+"from_port": 0,
+"to": "_GraphNode_732",
+"to_port": 1
+}, {
+"from": "card_holder_graveyard_2",
+"from_port": 0,
+"to": "card_transfer_3",
+"to_port": 1
+}, {
+"from": "card_query_selection_1",
+"from_port": 0,
+"to": "_GraphNode_1741",
+"to_port": 0
+}, {
+"from": "_GraphNode_732",
+"from_port": 1,
+"to": "card_transfer_3",
+"to_port": 0
+}, {
+"from": "event_on_card_draw_2",
+"from_port": 1,
+"to": "card_get_random_4",
+"to_port": 0
+}, {
+"from": "_GraphNode_1741",
+"from_port": 0,
+"to": "card_discard_self_1",
+"to_port": 0
+}, {
+"from": "card_transfer_3",
+"from_port": 0,
+"to": "card_discard_self_2",
+"to_port": 0
+}, {
+"from": "event_on_card_draw_2",
+"from_port": 1,
+"to": "boolean_compare_3",
+"to_port": 1
+}, {
+"from": "card_holder_graveyard_2",
+"from_port": 0,
+"to": "_GraphNode_1741",
+"to_port": 1
+}],
+"nodes": [{
+"id": "card,get_info_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [140.0, 1000.0],
+"type": "card,get_info"
+}, {
+"id": "boolean_branch_event_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [400.0, 1000.0],
+"type": "boolean.branch_event"
+}, {
+"id": "card_query_selection_1",
+"inline_values": {
+3: {
+"kind": "number",
+"value": 3.0
+},
+4: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {},
+"position": [700.0, 1000.0],
+"type": "card.query_selection"
+}, {
+"id": "card_get_offset_2",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 0.0
+},
+2: {
+"kind": "number",
+"value": 0.0
+}
+},
+"polymorphic_types": {},
+"position": [400.0, 1340.0],
+"type": "card.get_offset"
+}, {
+"id": "card_holder_graveyard_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [700.0, 1260.0],
+"type": "card_holder.graveyard"
+}, {
+"id": "_GraphNode_1741",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [1000.0, 1000.0],
+"type": "card.transfer"
+}, {
+"id": "card_transfer_3",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [1000.0, 1320.0],
+"type": "card.transfer"
+}, {
+"id": "card_get_random_4",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {},
+"position": [700.0, 1380.0],
+"type": "card.get_random"
+}, {
+"id": "_GraphNode_732",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [400.0, 1180.0],
+"type": "boolean.branch_event"
+}, {
+"id": "card_discard_self_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [1280.0, 1000.0],
+"type": "card.discard_self"
+}, {
+"id": "card_discard_self_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [1280.0, 1320.0],
+"type": "card.discard_self"
+}, {
+"id": "card_holder_current_player_4",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-140.0, 1200.0],
+"type": "card_holder.current_player"
+}, {
+"id": "event_on_card_draw_2",
+"inline_values": {
+0: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-140.0, 1000.0],
+"type": "event.on_card_draw"
+}, {
+"id": "card_get_current_1",
+"inline_values": {
+0: {
+"kind": "enum",
+"value": 0
+}
+},
+"polymorphic_types": {},
+"position": [-140.0, 880.0],
+"type": "card.get_current"
+}, {
+"id": "card_holder_deck_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-140.0, 780.0],
+"type": "card_holder.deck"
+}, {
+"id": "boolean_compare_3",
+"inline_values": {
+1: {
+"kind": "enum",
+"value": 0
+}
+},
+"polymorphic_types": {
+&"default": -5
+},
+"position": [140.0, 1240.0],
+"type": "boolean.compare"
+}, {
+"id": "card_transfer_1",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [400.0, 600.0],
+"type": "card.transfer"
+}, {
+"id": "event_on_played_4",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-140.0, 600.0],
+"type": "event.on_played"
+}],
+"version": 1
+}
+skills = Array[String](["灵想「镇守大地之石」
+出牌阶段前使用。将此牌牌面朝上，作为【要石】横向插入牌堆中随机位置。此后若任意玩家获得此牌，自动弃置该牌并弃置其任意两张手牌。"])
+
+[sub_resource type="Resource" id="Resource_7kd5g"]
+script = ExtResource("2_avput")
+character = ExtResource("30_qfby3")
+portrait = "微笑"
+transform = Vector3(0, -0.19, 0.88)
+
+[sub_resource type="Resource" id="Resource_cxbmt"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-10"
+visual = SubResource("Resource_7kd5g")
+suit = 1
+rank = 10
+type = 1
+skill_graph = {
+"connections": [{
+"from": "boolean_compare_4",
+"from_port": 0,
+"to": "boolean_branch_event_5",
+"to_port": 1
+}, {
+"from": "boolean_branch_event_5",
+"from_port": 0,
+"to": "event_repeat_end_2",
+"to_port": 0
+}, {
+"from": "event_repeat_start_1",
+"from_port": 0,
+"to": "boolean_branch_event_5",
+"to_port": 0
+}, {
+"from": "event_on_played_5",
+"from_port": 1,
+"to": "card_get_random_7",
+"to_port": 0
+}, {
+"from": "event_repeat_end_2",
+"from_port": 0,
+"to": "card_transfer_1",
+"to_port": 0
+}, {
+"from": "card_get_random_7",
+"from_port": 0,
+"to": "card_transfer_1",
+"to_port": 2
+}, {
+"from": "card_holder_graveyard_1",
+"from_port": 0,
+"to": "card_transfer_1",
+"to_port": 1
+}, {
+"from": "card_get_offset_1",
+"from_port": 0,
+"to": "card,get_info_3",
+"to_port": 0
+}, {
+"from": "event_on_played_5",
+"from_port": 1,
+"to": "card_get_offset_1",
+"to_port": 0
+}, {
+"from": "event_on_played_5",
+"from_port": 0,
+"to": "suit_query_suit_2",
+"to_port": 0
+}, {
+"from": "suit_query_suit_2",
+"from_port": 0,
+"to": "event_repeat_start_1",
+"to_port": 0
+}, {
+"from": "card_holder_current_player_3",
+"from_port": 0,
+"to": "suit_query_suit_2",
+"to_port": 1
+}, {
+"from": "card,get_info_3",
+"from_port": 0,
+"to": "boolean_compare_4",
+"to_port": 1
+}, {
+"from": "suit_query_suit_2",
+"from_port": 1,
+"to": "boolean_compare_4",
+"to_port": 2
+}],
+"nodes": [{
+"id": "boolean_branch_event_5",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [860.0, 600.0],
+"type": "boolean.branch_event"
+}, {
+"id": "event_repeat_start_1",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 1.0
+},
+2: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [80.0, 600.0],
+"type": "event.repeat_start"
+}, {
+"id": "event_repeat_end_2",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [1200.0, 600.0],
+"type": "event.repeat_end"
+}, {
+"id": "card_transfer_1",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [860.0, 920.0],
+"type": "card.transfer"
+}, {
+"id": "card_get_random_7",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {},
+"position": [80.0, 1000.0],
+"type": "card.get_random"
+}, {
+"id": "card_holder_graveyard_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [504.3654, 932.6419],
+"type": "card_holder.graveyard"
+}, {
+"id": "card_get_offset_1",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 0.0
+},
+2: {
+"kind": "number",
+"value": 10.0
+}
+},
+"polymorphic_types": {},
+"position": [80.0, 800.0],
+"type": "card.get_offset"
+}, {
+"id": "event_on_played_5",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [-600.0, 600.0],
+"type": "event.on_played"
+}, {
+"id": "suit_query_suit_2",
+"inline_values": {
+2: {
+"kind": "number",
+"value": 1.0
+},
+3: {
+"kind": "number",
+"value": 1.0
+},
+4: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-260.0, 600.0],
+"type": "suit.query_suit"
+}, {
+"id": "card_holder_current_player_3",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-600.0, 800.0],
+"type": "card_holder.current_player"
+}, {
+"id": "card,get_info_3",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [340.0, 720.0],
+"type": "card,get_info"
+}, {
+"id": "boolean_compare_4",
+"inline_values": {
+1: {
+"kind": "enum",
+"value": 5
+}
+},
+"polymorphic_types": {
+&"default": -8
+},
+"position": [600.0, 680.0],
+"type": "boolean.compare"
+}],
+"version": 1
+}
+skills = Array[String](["花符「幻想乡的开花」
+出牌阶段使用。声明一种【花色】，所有其他玩家必须展示一张该花色的手牌。若无法展示，则弃置其任意一张手牌。"])
+
+[sub_resource type="Resource" id="Resource_n2tye"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "访问服饰"
+transform = Vector3(0.01, -0.12, 0.96)
+
+[sub_resource type="Resource" id="Resource_g8sdn"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-11"
+visual = SubResource("Resource_n2tye")
+suit = 1
+rank = 11
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_pr3ne"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "乐队"
+transform = Vector3(0.03, -0.15, 0.95)
+
+[sub_resource type="Resource" id="Resource_0nf38"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-12"
+visual = SubResource("Resource_pr3ne")
+suit = 1
+rank = 12
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_u85w4"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "仙女"
+transform = Vector3(0.02, -0.19, 0.9)
+
+[sub_resource type="Resource" id="Resource_kc81a"]
+script = ExtResource("1_6d0uk")
+cardId = "card-1-13"
+visual = SubResource("Resource_u85w4")
+suit = 1
+rank = 13
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_v0dvn"]
+script = ExtResource("2_avput")
+character = ExtResource("13_vfwjp")
+portrait = "微笑"
+transform = Vector3(0.08, -0.35, 0.88)
+
+[sub_resource type="Resource" id="Resource_2t026"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-21"
+visual = SubResource("Resource_v0dvn")
+suit = 2
+rank = 21
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_x2pdh"]
+script = ExtResource("2_avput")
+character = ExtResource("25_ceuoh")
+portrait = "微笑"
+transform = Vector3(-0.02, -0.17, 0.96)
+
+[sub_resource type="Resource" id="Resource_nwew5"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-22"
+visual = SubResource("Resource_x2pdh")
+suit = 2
+rank = 22
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_w6fbh"]
+script = ExtResource("2_avput")
+character = ExtResource("14_0fibi")
+portrait = "微笑"
+transform = Vector3(0.16, 0.03, 1)
+
+[sub_resource type="Resource" id="Resource_qfby3"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-3"
+visual = SubResource("Resource_w6fbh")
+suit = 2
+rank = 3
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_36mkt"]
+script = ExtResource("2_avput")
+character = ExtResource("15_of12r")
+portrait = "微笑"
+transform = Vector3(0.01, -0.32, 0.83)
+
+[sub_resource type="Resource" id="Resource_4nqvu"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-4"
+visual = SubResource("Resource_36mkt")
+suit = 2
+rank = 4
+type = 1
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+skills = Array[String](["嫉妒「看不见的绿眼怪兽」
+出牌阶段使用。声明一个面值范围并指定一名玩家，展示其任意一张手牌。若符合判定条件，则将其加入手牌。"])
+
+[sub_resource type="Resource" id="Resource_n3ddu"]
+script = ExtResource("2_avput")
+character = ExtResource("16_a8t17")
+portrait = "微笑吐舌"
+transform = Vector3(-0.02, -0.1, 0.96)
+
+[sub_resource type="Resource" id="Resource_w0rjb"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-5"
+visual = SubResource("Resource_n3ddu")
+suit = 2
+rank = 5
+type = 1
+skill_graph = {
+"connections": [],
+"nodes": [{
+"id": "event_on_played_6",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [-180.0, 540.0],
+"type": "event.on_played"
+}],
+"version": 1
+}
+skills = Array[String](["*吓你一跳*
+"])
+
+[sub_resource type="Resource" id="Resource_eyu8i"]
+script = ExtResource("2_avput")
+character = ExtResource("17_4j1ph")
+portrait = "微笑"
+transform = Vector3(0.24, -0.21, 0.86)
+
+[sub_resource type="Resource" id="Resource_gr01v"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-6"
+visual = SubResource("Resource_eyu8i")
+suit = 2
+rank = 6
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_20rof"]
+script = ExtResource("2_avput")
+character = ExtResource("30_ceuoh")
+portrait = "微笑"
+transform = Vector3(0, -0.33, 0.83)
+
+[sub_resource type="Resource" id="Resource_d8i1d"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-7"
+visual = SubResource("Resource_20rof")
+suit = 2
+rank = 7
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_6q63x"]
+script = ExtResource("2_avput")
+character = ExtResource("18_p41ll")
+portrait = "无表情"
+transform = Vector3(0.04, -0.26, 0.86)
+
+[sub_resource type="Resource" id="Resource_d0eav"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-8"
+visual = SubResource("Resource_6q63x")
+suit = 2
+rank = 8
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_jp4vv"]
+script = ExtResource("2_avput")
+character = ExtResource("19_qwtxv")
+portrait = "微笑"
+
+[sub_resource type="Resource" id="Resource_e8res"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-9"
+visual = SubResource("Resource_jp4vv")
+suit = 2
+rank = 9
+type = 1
+skill_graph = {
+"connections": [{
+"from": "event_on_effect_received_1",
+"from_port": 0,
+"to": "card_discard_self_2",
+"to_port": 0
+}, {
+"from": "card_discard_self_2",
+"from_port": 0,
+"to": "card_transfer_3",
+"to_port": 0
+}, {
+"from": "card_holder_graveyard_4",
+"from_port": 0,
+"to": "card_transfer_3",
+"to_port": 1
+}, {
+"from": "event_on_effect_received_1",
+"from_port": 1,
+"to": "effect_get_effect_info_5",
+"to_port": 0
+}, {
+"from": "effect_get_effect_info_5",
+"from_port": 0,
+"to": "card_transfer_3",
+"to_port": 2
+}],
+"nodes": [{
+"id": "card_discard_self_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [200.0, 300.0],
+"type": "card.discard_self"
+}, {
+"id": "card_transfer_3",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [500.0, 300.0],
+"type": "card.transfer"
+}, {
+"id": "event_on_effect_received_1",
+"inline_values": {
+0: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [-120.0, 300.0],
+"type": "event.on_effect_received"
+}, {
+"id": "card_holder_graveyard_4",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [200.0, 400.0],
+"type": "card_holder.graveyard"
+}, {
+"id": "effect_get_effect_info_5",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [200.0, 500.0],
+"type": "effect.get_effect_info"
+}],
+"version": 1
+}
+skills = Array[String](["梦境「二重大结界」
+可无视出牌顺序，点数顺序使用，仅在功能牌的技能对自身生效时使用。弃置该牌，并无效该功能牌对自身的效果。"])
+
+[sub_resource type="Resource" id="Resource_38ixh"]
+script = ExtResource("2_avput")
+character = ExtResource("20_pisqa")
+portrait = "无表情"
+transform = Vector3(0.07, -0.09, 0.92)
+
+[sub_resource type="Resource" id="Resource_g71ph"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-10"
+visual = SubResource("Resource_38ixh")
+suit = 2
+rank = 10
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_287mf"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "生日礼服"
+transform = Vector3(-0.17, -0.19, 0.9)
+
+[sub_resource type="Resource" id="Resource_ri1bv"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-11"
+visual = SubResource("Resource_287mf")
+suit = 2
+rank = 11
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_bye2i"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "承太郎装"
+transform = Vector3(-0.06, -0.21, 0.85)
+
+[sub_resource type="Resource" id="Resource_m5u1w"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-12"
+visual = SubResource("Resource_bye2i")
+suit = 2
+rank = 12
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_w6reg"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "新年服装"
+transform = Vector3(0, -0.18, 0.92)
+
+[sub_resource type="Resource" id="Resource_or1q5"]
+script = ExtResource("1_6d0uk")
+cardId = "card-2-13"
+visual = SubResource("Resource_w6reg")
+suit = 2
+rank = 13
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_2mqos"]
+script = ExtResource("2_avput")
+character = ExtResource("31_4nqvu")
+portrait = "微笑"
+transform = Vector3(0, -0.3, 0.87)
+
+[sub_resource type="Resource" id="Resource_oxa0y"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-21"
+visual = SubResource("Resource_2mqos")
+suit = 3
+rank = 21
+type = 1
+skill_graph = {
+"connections": [{
+"from": "event_on_played_7",
+"from_port": 0,
+"to": "event_repeat_start_1",
+"to_port": 0
+}, {
+"from": "card_get_offset_1",
+"from_port": 0,
+"to": "card,get_info_2",
+"to_port": 0
+}, {
+"from": "card_holder_deck_1",
+"from_port": 0,
+"to": "card_get_offset_1",
+"to_port": 0
+}, {
+"from": "event_repeat_start_1",
+"from_port": 0,
+"to": "card_transfer_5",
+"to_port": 0
+}, {
+"from": "card,get_info_2",
+"from_port": 0,
+"to": "suit_is_black_2",
+"to_port": 0
+}, {
+"from": "card_transfer_5",
+"from_port": 0,
+"to": "event_repeat_end_2",
+"to_port": 0
+}, {
+"from": "suit_is_black_2",
+"from_port": 0,
+"to": "event_repeat_end_2",
+"to_port": 1
+}, {
+"from": "event_on_played_7",
+"from_port": 1,
+"to": "card_transfer_5",
+"to_port": 1
+}],
+"nodes": [{
+"id": "event_repeat_start_1",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 1.0
+},
+2: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [140.0, 540.0],
+"type": "event.repeat_start"
+}, {
+"id": "event_on_played_7",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [-180.0, 540.0],
+"type": "event.on_played"
+}, {
+"id": "card_holder_deck_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [140.0, 740.0],
+"type": "card_holder.deck"
+}, {
+"id": "card_transfer_5",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [1000.0, 540.0],
+"type": "card.transfer"
+}, {
+"id": "event_repeat_end_2",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [1400.0, 540.0],
+"type": "event.repeat_end"
+}, {
+"id": "card_get_offset_1",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 0.0
+},
+2: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [400.0, 660.0],
+"type": "card.get_offset"
+}, {
+"id": "suit_is_black_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [1000.0, 840.0],
+"type": "suit.is_black"
+}, {
+"id": "card,get_info_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [700.0, 660.0],
+"type": "card,get_info"
+}],
+"version": 1
+}
+skills = Array[String](["刚欲「不应存在于此世的暴食」
+出牌阶段使用。从牌堆摸牌并展示：若颜色为黑，则继续摸牌，重复该流程。"])
+
+[sub_resource type="Resource" id="Resource_p241s"]
+script = ExtResource("2_avput")
+character = ExtResource("32_w0rjb")
+portrait = "微笑"
+transform = Vector3(0, 0.29, 1.12)
+
+[sub_resource type="Resource" id="Resource_ceuoh"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-22"
+visual = SubResource("Resource_p241s")
+suit = 3
+rank = 22
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_aeiue"]
+script = ExtResource("2_avput")
+character = ExtResource("38_ri1bv")
+portrait = "微笑"
+transform = Vector3(0, -0.33, 0.87)
+
+[sub_resource type="Resource" id="Resource_8d2w3"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-3"
+visual = SubResource("Resource_aeiue")
+suit = 3
+rank = 3
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_lkh56"]
+script = ExtResource("2_avput")
+character = ExtResource("33_gr01v")
+portrait = "微笑"
+transform = Vector3(0.02, -0.23, 0.88)
+
+[sub_resource type="Resource" id="Resource_2p7d8"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-4"
+visual = SubResource("Resource_lkh56")
+suit = 3
+rank = 4
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_uhm8o"]
+script = ExtResource("2_avput")
+character = ExtResource("34_d8i1d")
+portrait = "微笑"
+transform = Vector3(-0.32, -0.25, 0.87)
+
+[sub_resource type="Resource" id="Resource_0s8ht"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-5"
+visual = SubResource("Resource_uhm8o")
+suit = 3
+rank = 5
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_wnabb"]
+script = ExtResource("2_avput")
+character = ExtResource("35_d0eav")
+portrait = "微笑"
+transform = Vector3(0, -0.47, 0.82)
+
+[sub_resource type="Resource" id="Resource_mxloy"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-6"
+visual = SubResource("Resource_wnabb")
+suit = 3
+rank = 6
+type = 1
+skill_graph = {
+"connections": [{
+"from": "event_on_played_8",
+"from_port": 1,
+"to": "card_get_random_5",
+"to_port": 0
+}, {
+"from": "card_holder_graveyard_8",
+"from_port": 0,
+"to": "card_transfer_7",
+"to_port": 1
+}, {
+"from": "card_get_random_5",
+"from_port": 0,
+"to": "card_transfer_7",
+"to_port": 2
+}, {
+"from": "event_on_played_8",
+"from_port": 0,
+"to": "card_transfer_7",
+"to_port": 0
+}],
+"nodes": [{
+"id": "event_on_played_8",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [-136.43826, 558.1328],
+"type": "event.on_played"
+}, {
+"id": "card_get_random_5",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [200.0, 660.0],
+"type": "card.get_random"
+}, {
+"id": "card_holder_graveyard_8",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [200.0, 820.0],
+"type": "card_holder.graveyard"
+}, {
+"id": "card_transfer_7",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [600.0, 560.0],
+"type": "card.transfer"
+}],
+"version": 1
+}
+skills = Array[String](["核热「核反应失控」
+出牌阶段使用。指定一名玩家，弃置（毁灭）其任意一张手牌。
+"])
+
+[sub_resource type="Resource" id="Resource_0vgvg"]
+script = ExtResource("2_avput")
+character = ExtResource("36_e8res")
+portrait = "微笑"
+transform = Vector3(0, -0.13, 1)
+
+[sub_resource type="Resource" id="Resource_nsh76"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-7"
+visual = SubResource("Resource_0vgvg")
+suit = 3
+rank = 7
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_i08t1"]
+script = ExtResource("2_avput")
+character = ExtResource("37_g71ph")
+portrait = "无表情"
+transform = Vector3(-0.03, -0.19, 0.91)
+
+[sub_resource type="Resource" id="Resource_iqy66"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-8"
+visual = SubResource("Resource_i08t1")
+suit = 3
+rank = 8
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_3oxs7"]
+script = ExtResource("2_avput")
+character = ExtResource("3_avput")
+portrait = "无表情"
+
+[sub_resource type="Resource" id="Resource_8s21v"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-9"
+visual = SubResource("Resource_3oxs7")
+suit = 3
+rank = 9
+type = 1
+skill_graph = {
+"connections": [{
+"from": "event_on_played_9",
+"from_port": 0,
+"to": "card_query_selection_10",
+"to_port": 0
+}, {
+"from": "card_query_selection_10",
+"from_port": 0,
+"to": "card_transfer_2",
+"to_port": 0
+}, {
+"from": "card_query_selection_10",
+"from_port": 1,
+"to": "card_transfer_2",
+"to_port": 2
+}, {
+"from": "card_holder_current_player_11",
+"from_port": 0,
+"to": "card_query_selection_10",
+"to_port": 1
+}, {
+"from": "card_holder_current_player_11",
+"from_port": 0,
+"to": "card_transfer_2",
+"to_port": 1
+}, {
+"from": "card_get_offset_13",
+"from_port": 0,
+"to": "card_query_selection_10",
+"to_port": 2
+}, {
+"from": "card_holder_graveyard_3",
+"from_port": 0,
+"to": "card_get_offset_13",
+"to_port": 0
+}],
+"nodes": [{
+"id": "event_on_played_9",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": true
+},
+2: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-400.0, 200.0],
+"type": "event.on_played"
+}, {
+"id": "card_query_selection_10",
+"inline_values": {
+3: {
+"kind": "number",
+"value": 1.0
+},
+4: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [-60.0, 200.0],
+"type": "card.query_selection"
+}, {
+"id": "card_transfer_2",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [280.0, 200.0],
+"type": "card.transfer"
+}, {
+"id": "card_holder_current_player_11",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-400.0, 440.0],
+"type": "card_holder.current_player"
+}, {
+"id": "card_get_offset_13",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 0.0
+},
+2: {
+"kind": "number",
+"value": 10.0
+}
+},
+"polymorphic_types": {},
+"position": [-400.0, 600.0],
+"type": "card.get_offset"
+}, {
+"id": "card_holder_graveyard_3",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-660.0, 600.0],
+"type": "card_holder.graveyard"
+}],
+"version": 1
+}
+skills = Array[String](["偷符「Master Steal」
+可无视出牌顺序，点数限制使用。弃置该牌，并选择被弃置/被打出的【上一手】牌的一张加（偷）入手牌。"])
+
+[sub_resource type="Resource" id="Resource_e120g"]
+script = ExtResource("2_avput")
+character = ExtResource("40_m5u1w")
+portrait = "认真"
+
+[sub_resource type="Resource" id="Resource_mo30m"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-10"
+visual = SubResource("Resource_e120g")
+suit = 3
+rank = 10
+type = 1
+skill_graph = {
+"connections": [{
+"from": "event_on_played_10",
+"from_port": 0,
+"to": "suit_query_suit_2",
+"to_port": 0
+}, {
+"from": "suit_query_suit_2",
+"from_port": 1,
+"to": "suit_is_black_3",
+"to_port": 0
+}, {
+"from": "card_holder_deck_5",
+"from_port": 0,
+"to": "card_get_offset_6",
+"to_port": 0
+}, {
+"from": "card_get_offset_6",
+"from_port": 0,
+"to": "card,get_info_7",
+"to_port": 0
+}, {
+"from": "card,get_info_7",
+"from_port": 0,
+"to": "suit_is_black_8",
+"to_port": 0
+}, {
+"from": "suit_query_suit_2",
+"from_port": 0,
+"to": "boolean_branch_event_9",
+"to_port": 0
+}, {
+"from": "boolean_branch_event_9",
+"from_port": 0,
+"to": "card_holder_query_holder_1",
+"to_port": 0
+}, {
+"from": "suit_is_black_3",
+"from_port": 0,
+"to": "boolean_compare_1",
+"to_port": 1
+}, {
+"from": "suit_is_black_8",
+"from_port": 0,
+"to": "boolean_compare_1",
+"to_port": 2
+}, {
+"from": "boolean_compare_1",
+"from_port": 0,
+"to": "boolean_branch_event_9",
+"to_port": 1
+}, {
+"from": "card_get_offset_6",
+"from_port": 0,
+"to": "card_transfer_2",
+"to_port": 2
+}, {
+"from": "card_holder_query_holder_1",
+"from_port": 0,
+"to": "card_transfer_2",
+"to_port": 0
+}, {
+"from": "card_holder_query_holder_1",
+"from_port": 1,
+"to": "card_transfer_2",
+"to_port": 1
+}],
+"nodes": [{
+"id": "event_on_played_10",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-600.0, 600.0],
+"type": "event.on_played"
+}, {
+"id": "suit_query_suit_2",
+"inline_values": {
+2: {
+"kind": "number",
+"value": 1.0
+},
+3: {
+"kind": "number",
+"value": 1.0
+},
+4: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [-200.0, 600.0],
+"type": "suit.query_suit"
+}, {
+"id": "suit_is_black_3",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [60.0, 640.0],
+"type": "suit.is_black"
+}, {
+"id": "card,get_info_7",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-200.0, 880.0],
+"type": "card,get_info"
+}, {
+"id": "suit_is_black_8",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [60.0, 880.0],
+"type": "suit.is_black"
+}, {
+"id": "boolean_branch_event_9",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [580.0, 600.0],
+"type": "boolean.branch_event"
+}, {
+"id": "card_holder_query_holder_1",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 1.0
+},
+2: {
+"kind": "number",
+"value": 1.0
+},
+3: {
+"kind": "bool",
+"pressed": true
+},
+4: {
+"kind": "bool",
+"pressed": true
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [580.0, 760.0],
+"type": "card_holder.query_holder"
+}, {
+"id": "boolean_compare_1",
+"inline_values": {
+1: {
+"kind": "enum",
+"value": 0
+}
+},
+"polymorphic_types": {
+&"default": -3
+},
+"position": [320.0, 640.0],
+"type": "boolean.compare"
+}, {
+"id": "card_transfer_2",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [840.0, 760.0],
+"type": "card.transfer"
+}, {
+"id": "card_get_offset_6",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 0.0
+},
+2: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [-440.0, 840.0],
+"type": "card.get_offset"
+}, {
+"id": "card_holder_deck_5",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-680.0, 840.0],
+"type": "card_holder.deck"
+}],
+"version": 1
+}
+skills = Array[String](["审判「十王审判」
+出牌阶段使用。声明一种【颜色】（黑/红）并展示牌堆顶的一张牌。若其颜色与声明颜色相符，则将该牌加入任意玩家的手牌。"])
+
+[sub_resource type="Resource" id="Resource_ylvg2"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "魔女"
+transform = Vector3(0.01, -0.11, 0.95)
+
+[sub_resource type="Resource" id="Resource_kc2bj"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-11"
+visual = SubResource("Resource_ylvg2")
+suit = 3
+rank = 11
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_kl6b1"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "仪仗队"
+transform = Vector3(-0.05, -0.11, 0.95)
+
+[sub_resource type="Resource" id="Resource_0aodc"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-12"
+visual = SubResource("Resource_kl6b1")
+suit = 3
+rank = 12
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_hjvjx"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "万圣节服装"
+transform = Vector3(-0.02, -0.11, 0.95)
+
+[sub_resource type="Resource" id="Resource_o1hq2"]
+script = ExtResource("1_6d0uk")
+cardId = "card-3-13"
+visual = SubResource("Resource_hjvjx")
+suit = 3
+rank = 13
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_ayqq1"]
+script = ExtResource("2_avput")
+character = ExtResource("44_8d2w3")
+portrait = "无表情"
+transform = Vector3(0, 0.06, 1)
+
+[sub_resource type="Resource" id="Resource_7k33n"]
+script = ExtResource("1_6d0uk")
+cardId = "card-4-30"
+visual = SubResource("Resource_ayqq1")
+suit = 4
+rank = 30
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[sub_resource type="Resource" id="Resource_ukml3"]
+script = ExtResource("2_avput")
+character = ExtResource("13_or1q5")
+portrait = "普通（微笑）"
+transform = Vector3(-0.06, -0.09, 0.95)
+
+[sub_resource type="Resource" id="Resource_kg7f0"]
+script = ExtResource("1_6d0uk")
+cardId = "card-4-40"
+visual = SubResource("Resource_ukml3")
+suit = 4
+rank = 40
+skill_graph = {
+"connections": [],
+"nodes": [],
+"version": 1
+}
+
+[resource]
+script = ExtResource("2_jxhfp")
+id = "deck-1783532911"
+name = "Deck A"
+author = "Room0733"
+date_created = 1783532911.57745
+date_modified = 1784547945.413159
+description = "733巨献Deck A玩法"
+cards = Array[ExtResource("1_6d0uk")]([SubResource("Resource_avput"), SubResource("Resource_w2plg"), SubResource("Resource_wk4lx"), SubResource("Resource_xlvae"), SubResource("Resource_lak7r"), SubResource("Resource_jaosh"), SubResource("Resource_17gv1"), SubResource("Resource_7eh51"), SubResource("Resource_xvry6"), SubResource("Resource_4no60"), SubResource("Resource_kv3xq"), SubResource("Resource_vfwjp"), SubResource("Resource_0fibi"), SubResource("Resource_of12r"), SubResource("Resource_a8t17"), SubResource("Resource_4j1ph"), SubResource("Resource_p41ll"), SubResource("Resource_qwtxv"), SubResource("Resource_pisqa"), SubResource("Resource_xelhs"), SubResource("Resource_ruplr"), SubResource("Resource_ean5y"), SubResource("Resource_cxbmt"), SubResource("Resource_g8sdn"), SubResource("Resource_0nf38"), SubResource("Resource_kc81a"), SubResource("Resource_2t026"), SubResource("Resource_nwew5"), SubResource("Resource_qfby3"), SubResource("Resource_4nqvu"), SubResource("Resource_w0rjb"), SubResource("Resource_gr01v"), SubResource("Resource_d8i1d"), SubResource("Resource_d0eav"), SubResource("Resource_e8res"), SubResource("Resource_g71ph"), SubResource("Resource_ri1bv"), SubResource("Resource_m5u1w"), SubResource("Resource_or1q5"), SubResource("Resource_oxa0y"), SubResource("Resource_ceuoh"), SubResource("Resource_8d2w3"), SubResource("Resource_2p7d8"), SubResource("Resource_0s8ht"), SubResource("Resource_mxloy"), SubResource("Resource_nsh76"), SubResource("Resource_iqy66"), SubResource("Resource_8s21v"), SubResource("Resource_mo30m"), SubResource("Resource_kc2bj"), SubResource("Resource_0aodc"), SubResource("Resource_o1hq2"), SubResource("Resource_7k33n"), SubResource("Resource_kg7f0")])
