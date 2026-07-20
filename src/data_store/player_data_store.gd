@@ -106,7 +106,7 @@ func random_display_name() -> String:
 	var prefixes: Array[String] = []
 	var suffixes: Array[String] = []
 
-	for path in CharacterDataStore.list_paths(true):
+	for path in CharacterDataStore.list_paths():
 		var character := CharacterDataStore.load_character(path)
 		if character == null:
 			continue

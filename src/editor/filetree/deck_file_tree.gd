@@ -9,7 +9,6 @@ signal add_card_requested(deck_path: String)
 
 const ADD_CARD_BUTTON_ID := 0
 
-@export var folder_icon: Texture2D
 @export var deck_icon: Texture2D
 @export var add_card_icon: Texture2D
 @export var club_icon: Texture2D
@@ -18,12 +17,13 @@ const ADD_CARD_BUTTON_ID := 0
 @export var spade_icon: Texture2D
 
 var show_builtin := true
-var _section_root: TreeItem = null
+var _tree_root: TreeItem = null
 var _card_items_by_key: Dictionary = {}
 
 
 func _ready() -> void:
 	FileTreeLayout.prepare(self)
+	hide_root = true
 	if not item_selected.is_connected(_on_item_selected):
 		item_selected.connect(_on_item_selected)
 	if not button_clicked.is_connected(_on_button_clicked):
@@ -36,11 +36,7 @@ func _ready() -> void:
 func refresh() -> void:
 	clear()
 	_card_items_by_key.clear()
-	_section_root = create_item()
-	_section_root.set_text(0, "牌组")
-	_section_root.set_selectable(0, false)
-	if folder_icon:
-		_section_root.set_icon(0, folder_icon)
+	_tree_root = create_item()
 	for path in DeckDataStore.list_paths(show_builtin):
 		_add_deck_item(DeckDataStore.load_deck(path), path)
 	call_deferred("_fit_content_height")
@@ -93,7 +89,7 @@ func _add_deck_item(deck: DeckData, path: String) -> void:
 	if deck == null:
 		return
 	var builtin := ResourceFsUtils.is_builtin_path(path)
-	var item := create_item(_section_root)
+	var item := create_item(_tree_root)
 	item.set_text(0, deck.name if not deck.name.is_empty() else path.get_file().get_basename())
 	item.set_metadata(0, {"type": "deck", "path": path, "builtin": builtin})
 	item.set_icon(0, deck_icon)
@@ -112,6 +108,7 @@ func _add_card_item(parent: TreeItem, card: CardData, index: int, deck_path: Str
 func _apply_card_item(item: TreeItem, card: CardData, index: int, deck_path: String) -> void:
 	item.set_text(0, CardUtils.card_tree_label(card))
 	item.set_icon(0, _suit_icon(card.suit))
+	FileTreeLayout.apply_card_item_style(item, card)
 	item.set_metadata(0, {
 		"type": "card", "path": deck_path, "card_index": index,
 		"builtin": ResourceFsUtils.is_builtin_path(deck_path),
@@ -133,7 +130,7 @@ func _card_key(deck_path: String, card_index: int) -> String:
 
 
 func _find_deck_item(deck_path: String) -> TreeItem:
-	var child := _section_root.get_first_child() if _section_root else null
+	var child := _tree_root.get_first_child() if _tree_root else null
 	while child:
 		var meta: Dictionary = child.get_metadata(0)
 		if meta.get("type") == "deck" and meta.get("path") == deck_path:

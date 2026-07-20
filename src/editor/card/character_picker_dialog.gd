@@ -16,7 +16,7 @@ func _emit_selection(payload: Variant) -> void:
 
 func _collect_entries() -> Array[Dictionary]:
 	var entries: Array[Dictionary] = []
-	for path in CharacterDataStore.list_paths(true):
+	for path in CharacterDataStore.list_paths():
 		var character := CharacterDataStore.load_character(path)
 		if character == null:
 			continue

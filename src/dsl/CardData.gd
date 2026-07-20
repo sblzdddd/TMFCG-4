@@ -12,6 +12,15 @@ const Type := CardEnums.Type
 @export var type: Type = Type.NORMAL
 @export var skill_graph: Dictionary = {}
 @export var skill_priority: int = 0
+## Each entry is "name\\ndescription" (split on the first line break).
+@export var skills: Array[String] = []
+
+var skill_info: Array[SkillInfo]:
+	get:
+		var result: Array[SkillInfo] = []
+		for entry in skills:
+			result.append(SkillInfo.from_stored(entry))
+		return result
 
 
 func _init() -> void:

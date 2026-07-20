@@ -8,5 +8,4 @@ extends Resource
 @export var date_created: float = Time.get_unix_time_from_system()
 @export var date_modified: float = Time.get_unix_time_from_system()
 @export var description: String = "A deck of cards"
-@export var thumbnail: Texture2D = null
 @export var cards: Array[CardData] = []

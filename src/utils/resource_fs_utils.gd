@@ -2,29 +2,6 @@
 extends RefCounted
 class_name ResourceFsUtils
 
-static var IMAGE_FILTERS := PackedStringArray(["*.png, *.jpg, *.jpeg, *.webp ; Images"])
-
-
-static func import_image_file(source_path: String, dest_dir: String, dest_basename: String) -> String:
-	if source_path.is_empty():
-		return ""
-
-	var source_global := _to_global_path(source_path)
-	if not FileAccess.file_exists(source_global):
-		push_error("Image source does not exist: %s" % source_path)
-		return ""
-
-	var ext := source_path.get_extension().to_lower()
-	if ext.is_empty():
-		ext = "png"
-
-	var dest_path := make_unique_path(dest_dir, sanitize_filename(dest_basename), ext)
-	var err := DirAccess.copy_absolute(source_global, ProjectSettings.globalize_path(dest_path))
-	if err != OK:
-		push_error("Failed to copy image to %s: %s" % [dest_path, error_string(err)])
-		return ""
-
-	return dest_path
 
 static func can_write_presets() -> bool:
 	return OS.has_feature("editor")

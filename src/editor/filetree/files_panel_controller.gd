@@ -8,32 +8,25 @@ signal selection_cleared
 signal resource_deleted(metadata: Dictionary)
 
 @export var _deck_tree: DeckFileTree
-@export var _character_tree: CharacterFileTree
 @export var _add_deck_button: Button
-@export var _add_character_button: Button
 @export var _delete_button: Button
 @export var _create_deck_dialog: CreateDeckDialog
-@export var _create_character_dialog: CreateCharacterDialog
 @export var _add_card_dialog: AddCardDialog
 @export var _delete_confirm_dialog: ConfirmationDialog
 
 var _pending_delete: Dictionary = {}
 var _pending_add_deck_path: String = ""
-var _active_tree: Tree = null
 
 
 func _ready() -> void:
 	_add_deck_button.pressed.connect(_create_deck_dialog.popup_dialog)
-	_add_character_button.pressed.connect(_create_character_dialog.popup_dialog)
 	_delete_button.pressed.connect(_on_delete_pressed)
 	_deck_tree.resource_selected.connect(_on_deck_tree_selected)
 	_deck_tree.add_card_requested.connect(_on_add_card_requested)
-	_character_tree.resource_selected.connect(_on_character_tree_selected)
 	_add_card_dialog.card_created.connect(_on_card_created)
 	if _delete_confirm_dialog:
 		_delete_confirm_dialog.confirmed.connect(_on_delete_confirmed)
 	DeckDataStore.decks_changed.connect(_deck_tree.refresh)
-	CharacterDataStore.characters_changed.connect(_character_tree.refresh)
 
 
 func set_show_builtin_decks(value: bool) -> void:
@@ -41,28 +34,11 @@ func set_show_builtin_decks(value: bool) -> void:
 	_deck_tree.refresh()
 
 
-func set_show_builtin_characters(value: bool) -> void:
-	_character_tree.show_builtin = value
-	_character_tree.refresh()
-
-
 func get_selected_metadata() -> Dictionary:
-	if _active_tree == _deck_tree:
-		return _deck_tree.get_selected_metadata()
-	if _active_tree == _character_tree:
-		return _character_tree.get_selected_metadata()
-	return {}
+	return _deck_tree.get_selected_metadata()
 
 
 func _on_deck_tree_selected(metadata: Dictionary) -> void:
-	_active_tree = _deck_tree
-	_character_tree.deselect_all()
-	_emit_selection(metadata)
-
-
-func _on_character_tree_selected(metadata: Dictionary) -> void:
-	_active_tree = _character_tree
-	_deck_tree.deselect_all()
 	_emit_selection(metadata)
 
 
@@ -103,12 +79,7 @@ func _on_delete_pressed() -> void:
 		push_warning("Nothing selected to delete.")
 		return
 	var path: String = metadata.get("path", "")
-	var ok := (
-		DeckDataStore.can_modify(path)
-		if metadata.get("type") in ["deck", "card"]
-		else CharacterDataStore.can_modify(path)
-	)
-	if not ok:
+	if not DeckDataStore.can_modify(path):
 		push_warning("Cannot delete built-in resources outside the editor.")
 		return
 	_pending_delete = metadata
@@ -123,7 +94,6 @@ func _delete_message(metadata: Dictionary) -> String:
 	match metadata.get("type"):
 		"deck": return "确定删除牌组？此操作无法撤销。"
 		"card": return "确定删除该卡牌？"
-		"character": return "确定删除该角色？"
 		_: return "确定删除所选资源？"
 
 
@@ -139,7 +109,4 @@ func _on_delete_confirmed() -> void:
 			var idx: int = int(metadata.get("card_index", -1))
 			if DeckDataStore.remove_card(path, idx) == OK:
 				_deck_tree.refresh_deck_cards(path)
-			resource_deleted.emit(metadata)
-		"character":
-			CharacterDataStore.delete_character(metadata.get("path", ""))
 			resource_deleted.emit(metadata)

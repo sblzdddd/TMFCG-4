@@ -90,6 +90,26 @@ static func rank_to_shader_value(rank: Rank) -> int:
 		_: return 0
 
 
+const BAKED_SUIT_DIR := "res://assets/textures/cards/suits/"
+const BAKED_SUIT_NAMES := ["club", "diamond", "heart", "spade"]
+const BAKED_VALUE_NAMES := ["", "a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"]
+
+
+static func baked_suit_texture_path(suit: Suit, rank: Rank) -> String:
+	var suit_idx := int(suit)
+	var value := rank_to_shader_value(rank)
+	if suit_idx < 0 or suit_idx >= BAKED_SUIT_NAMES.size() or value < 1 or value > 13:
+		return ""
+	return BAKED_SUIT_DIR + "%s_%s.png" % [BAKED_SUIT_NAMES[suit_idx], BAKED_VALUE_NAMES[value]]
+
+
+static func load_baked_suit_texture(suit: Suit, rank: Rank) -> Texture2D:
+	var path := baked_suit_texture_path(suit, rank)
+	if path.is_empty() or not ResourceLoader.exists(path):
+		return null
+	return load(path) as Texture2D
+
+
 static func is_joker_suit(suit: Suit) -> bool:
 	return suit == Suit.JOKERS
 

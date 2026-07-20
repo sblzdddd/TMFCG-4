@@ -16,7 +16,6 @@ signal character_data_changed(data: CardVisualData)
 @export var _scale_edit: DraggerSpinBox
 @export var _reset_button: Button
 @export var _set_default_button: Button
-@export var _character_editor_button: Button   # TODO
 
 var selected_character: CardVisualData = null
 var _portrait_keys: Array[String] = []
@@ -68,8 +67,10 @@ func _ready() -> void:
 	_y_edit.value_changed.connect(_on_transform_changed)
 	_scale_edit.value_changed.connect(_on_transform_changed)
 	_reset_button.pressed.connect(_apply_default_transform)
-	_set_default_button.pressed.connect(_on_set_default_button_pressed)
-	_set_default_button.text = _SET_DEFAULT_BUTTON_TEXT
+	if _set_default_button:
+		_set_default_button.visible = ResourceFsUtils.can_write_presets()
+		_set_default_button.pressed.connect(_on_set_default_button_pressed)
+		_set_default_button.text = _SET_DEFAULT_BUTTON_TEXT
 	_refresh_variant_list()
 
 
