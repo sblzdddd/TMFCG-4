@@ -25,6 +25,7 @@ var handlers: RoomHandlers
 var rejoin: RoomRejoin
 var deck_sync: RoomDeckSync
 var match_controller: MatchController
+var match_card_controller: MatchCardController
 
 var join_address: String = ""
 var join_port: int = NetConst.GAME_PORT
@@ -48,10 +49,12 @@ func create_room(is_public: bool, max_players: int = 4, room_name: String = "") 
 	deck_sync.bind_host_default_source()
 	if match_controller:
 		match_controller.clear()
+	if match_card_controller:
+		match_card_controller.clear()
 	persist_last_room(RoomUtils.local_lan_address(), NetConst.GAME_PORT)
 	sync_advertise()
 	room_changed.emit(current_room)
-	LevelLoader.load_level(NetConst.COMBAT_SCENE)
+	ensure_combat_scene()
 	return OK
 
 
@@ -156,6 +159,8 @@ func teardown_local(go_title: bool) -> void:
 		deck_sync.clear()
 	if match_controller:
 		match_controller.clear()
+	if match_card_controller:
+		match_card_controller.clear()
 	ConnectionManager.leave()
 	PlayerDataStore.clear_last_room()
 	room_changed.emit(null)

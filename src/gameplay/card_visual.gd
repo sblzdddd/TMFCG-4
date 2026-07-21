@@ -1,4 +1,3 @@
-@tool
 extends ColorRect
 class_name CardVisual
 
@@ -9,9 +8,10 @@ const BORDER_NORMAL := preload("res://definitions/ui/card/card_border_normal.tre
 const BORDER_HOVER := preload("res://definitions/ui/card/card_border_hover.tres")
 const BORDER_ACTIVE := preload("res://definitions/ui/card/card_border_active.tres")
 
-@export var valueLabels: Array[Label] = []
-@export var _name_label: CurvedText
-@export var _border: Panel
+@onready var _value_label_a: Label = %ValueLabel
+@onready var _value_label_b: Label = %ValueLabel2
+@onready var _name_label: CurvedText = %CharacterNameLabel
+@onready var _border: Panel = %Border
 
 var _character_data: CardVisualData = null
 var _card_data: CardData = null
@@ -61,8 +61,8 @@ func _update_card_face() -> void:
 		suit_value = _card_data.suit
 		rank_value = _card_data.rank
 
-	for label in valueLabels:
-		label.text = rank_text
+	_value_label_a.text = rank_text
+	_value_label_b.text = rank_text
 
 	_set_suit_layer_texture(CardUtils.load_baked_suit_texture(suit_value, rank_value))
 
@@ -117,10 +117,6 @@ func _set_character_transform(transform: Vector3) -> void:
 
 func _ready() -> void:
 	material = material.duplicate()
-	for label in valueLabels:
-		label.label_settings = valueLabels[0].label_settings.duplicate()
-	if _border == null:
-		_border = get_node_or_null("Border") as Panel
 	_update_card_face()
 	_update_character(_character_data)
 	_apply_border_style()

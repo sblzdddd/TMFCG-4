@@ -1,4 +1,3 @@
-@tool
 extends Window
 class_name ThumbnailPickerDialog
 

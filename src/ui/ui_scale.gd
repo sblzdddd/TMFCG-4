@@ -7,7 +7,7 @@ extends Node
 const BASE_DPI := 96.0
 const DEFAULT_BASE_SIZE := Vector2(1152.0, 648.0)
 const MIN_SCALE := 0.5
-const MAX_SCALE := 3.0
+const MAX_SCALE := 4.0
 ## Extra physical-scale factor on Web (browser DPI / devicePixelRatio quirks).
 const WEB_PHYSICAL_MULT := 1.25
 

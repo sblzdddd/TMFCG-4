@@ -22,6 +22,7 @@ uniform vec3 bgTileParams = vec3(0.5, 0.5, 0.0);
 #include "res://src/shaders/card_utils.gdshaderinc"
 
 void fragment() {
+	vec4 modulate = COLOR;
 	vec3 albedo = texture(cardTex, UV).xyz;
 	vec3 masks = texture(cardMasks, UV).rgb;
 	vec3 uvr = vec3(UV, CARD_RATIO);
@@ -45,6 +46,5 @@ void fragment() {
 	albedo = mix(albedo, characterCol.rgb, characterCol.a * charMask);
 	albedo = mix(albedo, charOutlineColor.rgb, charOutlineMask * charMask);
 
-	COLOR.a = RoundedMask(uvr, cardRadius, 1.);
-	COLOR.xyz = vec3(albedo);
+	COLOR = vec4(albedo, RoundedMask(uvr, cardRadius, 1.)) * modulate;
 }

@@ -196,6 +196,9 @@ func end_round() -> Array[Card]:
 		if not moved.is_empty():
 			flushed.append(moved[0])
 	play_history_instance_ids.clear()
+	passes_count = 0
+	trick_winner_id = null
+	current_trick_combo = null
 	return flushed
 
 

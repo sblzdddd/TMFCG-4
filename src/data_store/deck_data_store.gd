@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 ## CRUD for DeckData (.tres) under preset + user deck dirs.

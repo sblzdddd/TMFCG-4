@@ -1,4 +1,3 @@
-@tool
 extends ThumbnailPickerDialog
 class_name AvatarPickerDialog
 

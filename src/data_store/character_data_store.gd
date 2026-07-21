@@ -1,4 +1,3 @@
-@tool
 extends Node
 
 ## Read-only access to DialogicCharacter (.dch) under the preset characters dir.

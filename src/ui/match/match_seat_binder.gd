@@ -13,9 +13,20 @@ extends MarginContainer
 
 
 func _ready() -> void:
+	# MatchOverlay sits above CardsLayer; layout chrome must not eat card clicks.
+	_passthrough_mouse(self)
 	RoomSession.room_changed.connect(_on_changed)
 	RoomSession.match_changed.connect(_on_match_changed)
 	_refresh()
+
+
+func _passthrough_mouse(node: Node) -> void:
+	if node is BaseButton or node is UiCardItem:
+		return
+	if node is Control:
+		(node as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
+	for child in node.get_children():
+		_passthrough_mouse(child)
 
 
 func _on_changed(_room: RoomData) -> void:

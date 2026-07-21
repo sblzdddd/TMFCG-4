@@ -1,69 +1,132 @@
 class_name CardBase
 extends Control
-## Interactive card root: hover/click over CardVisual bounds; border via CardVisual.
+## Interactive card root for [code]card_base.tscn[/code].
+## Face/back flip is driven by [member rotation_factor] (-1 back … +1 face).
 
 signal hovered(card: CardBase)
 signal unhovered(card: CardBase)
 signal pressed(card: CardBase)
 
-@onready var visual: CardVisual = $CardVisual
+const FLIP_DURATION := 0.35
+const CARD_SIZE := Vector2(300, 400)
 
-@export var interactable: bool = true
+@export var visual: CardVisual
+@export var back: ColorRect
+
+@export var interactable: bool = true:
+	set(value):
+		interactable = value
+		if is_node_ready():
+			visual.mouse_filter = (
+				Control.MOUSE_FILTER_STOP if value else Control.MOUSE_FILTER_IGNORE
+			)
+
 @export var selected: bool = false:
 	set(value):
 		if selected == value:
 			return
 		selected = value
-		_refresh_border()
+		if is_node_ready():
+			_refresh_border()
+
+@export_range(-1.0, 1.0) var rotation_factor: float = 1.0:
+	set(value):
+		if rotation_factor == value:
+			return
+		rotation_factor = value
+		if is_node_ready():
+			_apply_rotation_factor()
 
 var _hovering := false
 var _pending_card: CardData = null
 var _has_pending_card := false
-var _picking_wired := false
+var _flip_tween: Tween
 
 
 func _ready() -> void:
-	visual = get_node_or_null("CardVisual") as CardVisual
-	_sync_size_from_visual()
-	_wire_picking()
+	visual.mouse_filter = (
+		Control.MOUSE_FILTER_STOP if interactable else Control.MOUSE_FILTER_IGNORE
+	)
+	visual.mouse_entered.connect(_on_visual_mouse_entered)
+	visual.mouse_exited.connect(_on_visual_mouse_exited)
+	visual.gui_input.connect(_on_visual_gui_input)
 	if _has_pending_card:
 		_apply_card_data(_pending_card)
 		_has_pending_card = false
+	_apply_rotation_factor()
 	_refresh_border()
 
 
-func _wire_picking() -> void:
-	if _picking_wired:
+func set_face_up(face_up: bool, animate: bool = true) -> void:
+	var target := 1.0 if face_up else -1.0
+	if not animate:
+		rotation_factor = target
 		return
-	var vis := _visual()
-	if vis == null:
-		return
-	# Root ignores picks; CardVisual owns the hit target. Descendants must not steal input.
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
-	vis.mouse_filter = Control.MOUSE_FILTER_STOP
-	for child in vis.get_children():
-		if child is Control:
-			(child as Control).mouse_filter = Control.MOUSE_FILTER_IGNORE
-	if not vis.mouse_entered.is_connected(_on_visual_mouse_entered):
-		vis.mouse_entered.connect(_on_visual_mouse_entered)
-	if not vis.mouse_exited.is_connected(_on_visual_mouse_exited):
-		vis.mouse_exited.connect(_on_visual_mouse_exited)
-	if not vis.gui_input.is_connected(_on_visual_gui_input):
-		vis.gui_input.connect(_on_visual_gui_input)
-	_picking_wired = true
+	_flip_tween = TweenUtils.init_tween(self, _flip_tween)
+	_flip_tween.tween_property(self, "rotation_factor", target, FLIP_DURATION)
+
+
+func flip_to_face(delay: float = 0.0) -> void:
+	if delay > 0.0:
+		get_tree().create_timer(delay).timeout.connect(
+			func() -> void: set_face_up(true, true),
+			CONNECT_ONE_SHOT,
+		)
+	else:
+		set_face_up(true, true)
+
+
+func is_face_up() -> bool:
+	return rotation_factor > 0.0
+
+
+func set_card_data(card_data: CardData) -> void:
+	if is_node_ready():
+		_apply_card_data(card_data)
+	else:
+		_pending_card = card_data
+		_has_pending_card = true
+
+
+## Sizes CardBase to CardVisual and applies Control.scale for UI grids.
+## Returns a slot Control whose minimum size matches the scaled footprint.
+func create_scaled_slot(display_scale: float) -> Control:
+	var s := maxf(display_scale, 0.01)
+	offset_transform_enabled = false
+	offset_transform_scale = Vector2.ONE
+	scale = Vector2(s, s)
+	pivot_offset = Vector2.ZERO
+
+	var slot := Control.new()
+	slot.custom_minimum_size = CARD_SIZE * s
+	slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	slot.add_child(self)
+	position = Vector2.ZERO
+	return slot
+
+
+func get_card_data() -> CardData:
+	return visual.card
+
+
+func _apply_rotation_factor() -> void:
+	if rotation_factor <= 0.0:
+		back.visible = true
+		back.scale = Vector2(absf(rotation_factor), 1.0)
+		visual.scale = Vector2(0.0, 1.0)
+	else:
+		back.visible = false
+		visual.scale = Vector2(rotation_factor, 1.0)
+		back.scale = Vector2(0.0, 1.0)
 
 
 func _on_visual_mouse_entered() -> void:
-	if not interactable:
-		return
 	_hovering = true
 	_refresh_border()
 	hovered.emit(self)
 
 
 func _on_visual_mouse_exited() -> void:
-	if not _hovering:
-		return
 	_hovering = false
 	_refresh_border()
 	unhovered.emit(self)
@@ -79,79 +142,18 @@ func _on_visual_gui_input(event: InputEvent) -> void:
 			accept_event()
 
 
-func set_card_data(card_data: CardData) -> void:
-	if is_node_ready():
-		_apply_card_data(card_data)
-	else:
-		_pending_card = card_data
-		_has_pending_card = true
-
-
-## Sizes CardBase to CardVisual and applies Control.scale for UI grids.
-## Returns a slot Control whose minimum size matches the scaled footprint.
-func create_scaled_slot(display_scale: float) -> Control:
-	var s := maxf(display_scale, 0.01)
-	var base := _visual_base_size()
-	custom_minimum_size = base
-	size = base
-	offset_transform_enabled = false
-	offset_transform_scale = Vector2.ONE
-	scale = Vector2(s, s)
-	pivot_offset = Vector2.ZERO
-
-	var slot := Control.new()
-	slot.custom_minimum_size = base * s
-	slot.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	slot.add_child(self)
-	position = Vector2.ZERO
-	return slot
-
-
-func get_card_data() -> CardData:
-	var vis := _visual()
-	return vis.card if vis else null
-
-
 func _apply_card_data(card_data: CardData) -> void:
-	var vis := _visual()
-	if vis == null:
-		return
-	vis.card = card_data
+	visual.card = card_data
 	if card_data != null and card_data.visual != null:
-		vis.character = card_data.visual
+		visual.character = card_data.visual
 	else:
-		vis.character = null
-
-
-func _visual() -> CardVisual:
-	if visual != null:
-		return visual
-	return get_node_or_null("CardVisual") as CardVisual
-
-
-func _sync_size_from_visual() -> void:
-	var base := _visual_base_size()
-	custom_minimum_size = base
-	size = base
-
-
-func _visual_base_size() -> Vector2:
-	var vis := _visual()
-	if vis != null:
-		if vis.custom_minimum_size != Vector2.ZERO:
-			return vis.custom_minimum_size
-		if vis.size != Vector2.ZERO:
-			return vis.size
-	return Vector2(300, 400)
+		visual.character = null
 
 
 func _refresh_border() -> void:
-	var vis := _visual()
-	if vis == null:
-		return
 	if selected:
-		vis.set_border_state(CardVisual.BorderState.ACTIVE)
+		visual.set_border_state(CardVisual.BorderState.ACTIVE)
 	elif _hovering and interactable:
-		vis.set_border_state(CardVisual.BorderState.HOVER)
+		visual.set_border_state(CardVisual.BorderState.HOVER)
 	else:
-		vis.set_border_state(CardVisual.BorderState.NORMAL)
+		visual.set_border_state(CardVisual.BorderState.NORMAL)

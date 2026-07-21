@@ -38,6 +38,12 @@ static func setup(session: RoomSessionNode) -> void:
 	session.match_controller = match_controller
 	match_controller.setup(session)
 
+	var match_card_controller := MatchCardController.new()
+	match_card_controller.name = "MatchCardController"
+	session.add_child(match_card_controller)
+	session.match_card_controller = match_card_controller
+	match_card_controller.setup(session)
+
 	_wire(session)
 
 

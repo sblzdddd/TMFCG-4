@@ -9,9 +9,9 @@ const float CARD_RATIO = 3./4.;
 #include "res://src/shaders/card_utils.gdshaderinc"
 
 void fragment() {
+	vec4 modulate = COLOR;
 	vec3 albedo = texture(cardTex, UV).xyz;
 	vec3 uvr = vec3(UV, CARD_RATIO);
 
-    COLOR.a = RoundedMask(uvr, cardRadius, 1.);
-	COLOR.xyz = vec3(albedo);
+	COLOR = vec4(albedo, RoundedMask(uvr, cardRadius, 1.)) * modulate;
 }
