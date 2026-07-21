@@ -1,2 +1,1 @@
-@tool
 class_name GetOffsetPlayerNode extends BaseSkillNode

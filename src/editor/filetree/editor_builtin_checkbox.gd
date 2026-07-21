@@ -1,4 +1,3 @@
-@tool
 extends CheckBox
 class_name EditorBuiltinCheckbox
 

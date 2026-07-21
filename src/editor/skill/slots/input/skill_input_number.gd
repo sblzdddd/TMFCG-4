@@ -1,4 +1,3 @@
-@tool
 class_name SkillInputNumber
 extends SkillInputWidget
 

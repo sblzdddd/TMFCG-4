@@ -1,4 +1,3 @@
-@tool
 extends VBoxContainer
 class_name FilesPanelController
 

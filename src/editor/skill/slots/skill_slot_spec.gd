@@ -1,4 +1,3 @@
-@tool
 class_name SkillSlotSpec
 extends Resource
 

@@ -1,4 +1,3 @@
-@tool
 extends Tree
 class_name SkillNodePalette
 

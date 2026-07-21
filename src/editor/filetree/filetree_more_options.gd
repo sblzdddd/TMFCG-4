@@ -1,4 +1,3 @@
-@tool
 extends MenuButton
 class_name EditorMoreOptions
 

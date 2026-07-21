@@ -1,2 +1,0 @@
-@tool
-class_name MarkAsIneffectiveNode extends BaseSkillNode

@@ -1,4 +1,3 @@
-@tool
 extends ConfirmationDialog
 class_name AddCardDialog
 
