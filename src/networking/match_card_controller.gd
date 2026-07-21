@@ -61,7 +61,7 @@ func handle_play_request(peer_id: int, card_ids: Array) -> void:
 	state.trick_winner_id = PlayerId.from_string(uid)
 	_broadcast()
 	if _session.match_controller != null:
-		_session.match_controller.advance_turn()
+		_session.match_controller.advance_turn(MatchController.TURN_GAP_SEC)
 
 
 func handle_pass_request(peer_id: int) -> void:
@@ -87,7 +87,7 @@ func handle_pass_request(peer_id: int) -> void:
 	):
 		_session.match_controller.end_round()
 	elif _session.match_controller != null:
-		_session.match_controller.advance_turn()
+		_session.match_controller.advance_turn(MatchController.TURN_GAP_SEC)
 
 
 func clear() -> void:

@@ -8,6 +8,8 @@ signal unhovered(card: CardBase)
 signal pressed(card: CardBase)
 
 const FLIP_DURATION := 0.35
+const SELECT_DURATION := 0.2
+const SELECT_OFFSET_Y := -48.0
 const CARD_SIZE := Vector2(300, 400)
 
 @export var visual: CardVisual
@@ -28,6 +30,7 @@ const CARD_SIZE := Vector2(300, 400)
 		selected = value
 		if is_node_ready():
 			_refresh_border()
+			_animate_select_offset()
 
 @export_range(-1.0, 1.0) var rotation_factor: float = 1.0:
 	set(value):
@@ -41,6 +44,7 @@ var _hovering := false
 var _pending_card: CardData = null
 var _has_pending_card := false
 var _flip_tween: Tween
+var _select_tween: Tween
 
 
 func _ready() -> void:
@@ -55,6 +59,7 @@ func _ready() -> void:
 		_has_pending_card = false
 	_apply_rotation_factor()
 	_refresh_border()
+	_apply_select_offset(false)
 
 
 func set_face_up(face_up: bool, animate: bool = true) -> void:
@@ -157,3 +162,21 @@ func _refresh_border() -> void:
 		visual.set_border_state(CardVisual.BorderState.HOVER)
 	else:
 		visual.set_border_state(CardVisual.BorderState.NORMAL)
+
+
+func _animate_select_offset() -> void:
+	_apply_select_offset(true)
+
+
+func _apply_select_offset(animate: bool) -> void:
+	if not offset_transform_enabled:
+		offset_transform_enabled = true
+	var target_y := SELECT_OFFSET_Y if selected else 0.0
+	if not animate or not is_inside_tree() or Engine.is_editor_hint():
+		if _select_tween != null:
+			_select_tween.kill()
+			_select_tween = null
+		offset_transform_position.y = target_y
+		return
+	_select_tween = TweenUtils.init_tween(self, _select_tween)
+	_select_tween.tween_property(self, "offset_transform_position:y", target_y, SELECT_DURATION)

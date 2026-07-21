@@ -12,9 +12,10 @@ shader_parameter/cardRadius = 0.08
 [node name="CardBack" type="Control" unique_id=1596249455]
 layout_mode = 3
 anchors_preset = 0
-size_flags_vertical = 8
+size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.65, 0.65)
+metadata/_edit_use_anchors_ = true
 
 [node name="CardVisual" type="ColorRect" parent="." unique_id=1218079599]
 material = SubResource("ShaderMaterial_kuk8p")

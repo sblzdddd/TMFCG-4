@@ -14,6 +14,7 @@
 &"description": "origin=东方风神录
 description=奇迹的现人神",
 &"display_name": "东风谷早苗",
+&"extra_config": Dictionary[String, String]({}),
 &"mirror": false,
 &"nicknames": ["苗爷"],
 &"offset": Vector2(0, 0),

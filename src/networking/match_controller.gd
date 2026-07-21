@@ -2,9 +2,12 @@ class_name MatchController
 extends Node
 ## Host-authoritative match phase + play order. Clients only apply snapshots.
 
+const TURN_GAP_SEC := 1.0
+
 var _session: RoomSessionNode
 var _rpc: MatchRpc
 var state: MatchRuntimeState = MatchRuntimeState.new()
+var _gap_token := 0
 
 
 func setup(session: RoomSessionNode) -> void:
@@ -17,6 +20,7 @@ func setup(session: RoomSessionNode) -> void:
 
 
 func clear() -> void:
+	_gap_token += 1
 	state.clear()
 	_emit_changed()
 
@@ -60,7 +64,9 @@ func on_member_removed(uid: String) -> void:
 	_broadcast()
 
 
-func advance_turn() -> void:
+## Advance turn. [param delay] > 0 clears active first so players can see the
+## last play before the next seat lights up (debug Next Player uses 0).
+func advance_turn(delay: float = 0.0) -> void:
 	if not _is_host():
 		return
 	if state.order.is_empty():
@@ -70,8 +76,25 @@ func advance_turn() -> void:
 	if state.phase == MatchPhase.Phase.INITIALIZATION:
 		state.phase = MatchPhase.Phase.TURN_PLAY
 		state.active_uid = state.order.random_uid()
-	elif state.phase == MatchPhase.Phase.TURN_PLAY:
-		state.active_uid = state.order.next_after(state.active_uid)
+		_broadcast()
+		return
+	if state.phase != MatchPhase.Phase.TURN_PLAY:
+		return
+	var next_uid := state.order.next_after(state.active_uid)
+	if delay > 0.0:
+		_gap_token += 1
+		var token := _gap_token
+		state.active_uid = ""
+		_broadcast()
+		await get_tree().create_timer(delay).timeout
+		if token != _gap_token or not _is_host() or _session.current_room == null:
+			return
+		if state.phase != MatchPhase.Phase.TURN_PLAY:
+			return
+		state.active_uid = next_uid
+		_broadcast()
+		return
+	state.active_uid = next_uid
 	_broadcast()
 
 
@@ -94,19 +117,23 @@ func end_round() -> void:
 		return
 	if state.order.is_empty():
 		return
+	_gap_token += 1
+	var token := _gap_token
+	var lead_uid := state.active_uid
 	state.phase = MatchPhase.Phase.ROUND_RESOLUTION
+	state.active_uid = ""
 	if _session != null and _session.match_card_controller != null:
 		_session.match_card_controller.end_round()
+		_session.match_card_controller.draw_for_all_soft()
 	_broadcast()
-	# Mock resolution beat, then next turn.
-	await get_tree().create_timer(0.35).timeout
-	if not _is_host() or _session.current_room == null:
+	await get_tree().create_timer(TURN_GAP_SEC).timeout
+	if token != _gap_token or not _is_host() or _session.current_room == null:
 		return
 	if state.phase != MatchPhase.Phase.ROUND_RESOLUTION:
 		return
 	state.phase = MatchPhase.Phase.TURN_PLAY
-	if not state.active_uid.is_empty():
-		state.active_uid = state.order.next_after(state.active_uid)
+	if not lead_uid.is_empty():
+		state.active_uid = state.order.next_after(lead_uid)
 	elif not state.order.is_empty():
 		state.active_uid = state.order.uids[0]
 	_broadcast()
@@ -115,6 +142,7 @@ func end_round() -> void:
 func end_game_play() -> void:
 	if not _is_host():
 		return
+	_gap_token += 1
 	state.phase = MatchPhase.Phase.END_GAME_PLAY
 	_broadcast()
 

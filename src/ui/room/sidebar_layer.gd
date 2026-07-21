@@ -15,6 +15,7 @@ func _ready() -> void:
 	show_button.pressed.connect(show_sidebar)
 	left_panels.offset_transform_enabled = true
 	right_panels.offset_transform_enabled = true
+	hide_sidebar()
 
 func hide_sidebar() -> void:
 	sidebar_bg.mouse_filter = Control.MOUSE_FILTER_IGNORE

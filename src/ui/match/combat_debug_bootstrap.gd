@@ -100,13 +100,13 @@ func _apply_instance_window_layout() -> void:
 		player_name = PlayerDataStore.data.name
 	get_window().title = "TMFCG Combat - Instance %d (%s)" % [instance_id, player_name]
 	if instance_id == 2:
-		get_window().position = Vector2i(screen_size.x / 2, 0)
+		get_window().position = Vector2i(screen_size.x / 2, 40)
 	elif instance_id == 3:
-		get_window().position = Vector2i(0, screen_size.y / 2)
+		get_window().position = Vector2i(0, screen_size.y / 2 + 80)
 	elif instance_id == 4:
-		get_window().position = Vector2i(screen_size.x / 2, screen_size.y / 2)
+		get_window().position = Vector2i(screen_size.x / 2, screen_size.y / 2 + 80)
 	elif instance_id > 0:
-		get_window().position = Vector2i(0, 0)
+		get_window().position = Vector2i(0, 40)
 
 
 func _parse_instance_id() -> int:

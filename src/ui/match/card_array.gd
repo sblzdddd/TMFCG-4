@@ -94,19 +94,22 @@ func remove_card(instance_id: String, to_nowhere: bool = false, delay: float = 0
 func _fade_free(view: Control, duration: float) -> void:
 	if not is_instance_valid(view):
 		return
-	# Lift out of parent modulate (e.g. hidden bottom GY) and fade with a
-	# readable curve — default EXPO ease looks like an instant pop.
+	# Pin screen pose first, then reparent onto the CanvasLayer (not a Container —
+	# VBox/HBox sort would snap the card to top-left for a frame).
 	var gp := view.global_position
 	var fly_scale := CardPose.visual_scale(view)
-	var host := get_parent()
-	if view.get_parent() != null:
-		view.get_parent().remove_child(view)
-	if host != null:
-		host.add_child(view)
 	view.top_level = true
 	view.global_position = gp
 	view.scale = fly_scale
 	view.modulate = Color(1, 1, 1, 1)
+	var host := _fade_host()
+	if host != null and view.get_parent() != host:
+		if view.get_parent() != null:
+			view.get_parent().remove_child(view)
+		host.add_child(view)
+		view.top_level = true
+		view.global_position = gp
+		view.scale = fly_scale
 	var tw := view.create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	tw.tween_property(view, "modulate:a", 0.0, duration)
 	tw.tween_callback(
@@ -114,6 +117,15 @@ func _fade_free(view: Control, duration: float) -> void:
 			if is_instance_valid(view):
 				view.queue_free()
 	)
+
+
+func _fade_host() -> Node:
+	var n: Node = self
+	while n != null:
+		if n is CanvasLayer:
+			return n
+		n = n.get_parent()
+	return get_parent()
 
 
 func add_card(

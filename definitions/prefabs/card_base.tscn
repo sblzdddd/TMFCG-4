@@ -11,11 +11,13 @@
 [ext_resource type="Script" uid="uid://qmb2r1a2sd5m" path="res://src/ui/effects/curved_text.gd" id="9_80wh4"]
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="10_ulqgn"]
 [ext_resource type="StyleBox" uid="uid://jn76bfgxskje" path="res://definitions/ui/card/card_border_normal.tres" id="11_v5txo"]
+[ext_resource type="Shader" uid="uid://csr2ykb35lpd4" path="res://src/shaders/card_back.gdshader" id="12_5r27w"]
+[ext_resource type="Texture2D" uid="uid://bayhyxnx3ldbo" path="res://assets/textures/cards/tex_card_back.png" id="13_2kdio"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_mq3sf"]
 load_path = "res://.godot/imported/tex_card_bg.png-37161637bb3e5219bdbf010c2f877403.ctex"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v5txo"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6mrim"]
 shader = ExtResource("2_v5txo")
 shader_parameter/cardTex = ExtResource("4_5r27w")
 shader_parameter/cardMasks = ExtResource("3_icx5x")
@@ -29,7 +31,7 @@ shader_parameter/cardRadius = 0.08
 shader_parameter/laserParams = Vector4(0, 0, 1, 0)
 shader_parameter/bgTileParams = Vector3(0, 0, 0.3)
 
-[sub_resource type="LabelSettings" id="LabelSettings_icx5x"]
+[sub_resource type="LabelSettings" id="LabelSettings_53otc"]
 line_spacing = 0.0
 font = ExtResource("8_83scf")
 font_size = 28
@@ -37,7 +39,7 @@ font_color = Color(0, 0, 0, 1)
 outline_size = 3
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5r27w"]
+[sub_resource type="LabelSettings" id="LabelSettings_83scf"]
 line_spacing = 0.0
 font = ExtResource("8_83scf")
 font_size = 28
@@ -51,18 +53,26 @@ _data = {
 }
 point_count = 3
 
-[node name="CardBase" type="Control" unique_id=1596249455]
-custom_minimum_size = Vector2(300, 400)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_80wh4"]
+shader = ExtResource("12_5r27w")
+shader_parameter/cardTex = ExtResource("13_2kdio")
+shader_parameter/cardRadius = 0.08
+
+[node name="CardBase" type="Control" unique_id=1596249455 node_paths=PackedStringArray("visual", "back")]
 layout_mode = 3
 anchors_preset = 0
-size_flags_vertical = 8
+size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.65, 0.65)
 layout_direction = 2
+mouse_filter = 2
 script = ExtResource("2_cardbase")
+visual = NodePath("CardVisual")
+back = NodePath("CardBackVisual")
 
-[node name="CardVisual" type="ColorRect" parent="." unique_id=1218079599 node_paths=PackedStringArray("valueLabels", "_name_label", "_border")]
-material = SubResource("ShaderMaterial_v5txo")
+[node name="CardVisual" type="ColorRect" parent="." unique_id=1218079599]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_6mrim")
 custom_minimum_size = Vector2(300, 400)
 custom_maximum_size = Vector2(300, 400)
 layout_mode = 1
@@ -78,15 +88,12 @@ offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset_ratio = Vector2(0.5, 0.5)
-offset_transform_enabled = true
 offset_transform_pivot_ratio = Vector2(0.5, 1)
 offset_transform_visual_only = false
 script = ExtResource("7_53otc")
-valueLabels = [NodePath("ValueLabel"), NodePath("ValueLabel2")]
-_name_label = NodePath("CharacterNameLabel")
-_border = NodePath("Border")
 
 [node name="ValueLabel" type="Label" parent="CardVisual" unique_id=2008622047]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -105,13 +112,14 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_icx5x")
+label_settings = SubResource("LabelSettings_53otc")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
 [node name="ValueLabel2" type="Label" parent="CardVisual" unique_id=989738406]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -131,13 +139,14 @@ size_flags_stretch_ratio = 20.0
 theme_override_constants/outline_size = 0
 theme_override_font_sizes/font_size = 1
 text = "-"
-label_settings = SubResource("LabelSettings_5r27w")
+label_settings = SubResource("LabelSettings_83scf")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 0
 clip_text = true
 
 [node name="CharacterNameLabel" type="Path2D" parent="CardVisual" unique_id=1202687566]
+unique_name_in_owner = true
 position = Vector2(-1.666, -8.324)
 scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_m5vuq")
@@ -151,6 +160,7 @@ autosize_base_y = -2.925
 autosize_y_ratio = -0.198
 
 [node name="Border" type="Panel" parent="CardVisual" unique_id=984106962]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,3 +170,27 @@ grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = ExtResource("11_v5txo")
 metadata/_edit_use_anchors_ = true
+
+[node name="CardBackVisual" type="ColorRect" parent="." unique_id=448191931]
+unique_name_in_owner = true
+visible = false
+material = SubResource("ShaderMaterial_80wh4")
+custom_minimum_size = Vector2(300, 400)
+custom_maximum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+offset_transform_enabled = true
+offset_transform_pivot_ratio = Vector2(0.5, 1)
+offset_transform_visual_only = false
+mouse_filter = 2
