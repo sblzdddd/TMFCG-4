@@ -64,6 +64,8 @@ static func fly_to(
 	if duration < 0.0:
 		duration = CardAnim.move_duration()
 	view.top_level = true
+	# top_level skips parent modulate — copy seat dim onto the card for the flight.
+	_copy_parent_dim(view)
 	var tween := CardAnim.init_tween(view)
 	tween.set_parallel(true)
 	tween.tween_property(view, "global_position", dest_global_pos, duration)
@@ -78,6 +80,7 @@ static func settle(
 	view: Control, parent: Control, local_pos: Vector2, slot_size: Vector2 = Vector2.INF
 ) -> void:
 	view.top_level = false
+	_clear_copied_dim(view)
 	if view.get_parent() != parent:
 		if view.get_parent() != null:
 			view.get_parent().remove_child(view)
@@ -109,6 +112,7 @@ static func _offset_transform_of(view: Control) -> Transform2D:
 
 static func apply_start(view: Control, pose: Dictionary) -> void:
 	view.top_level = true
+	_copy_parent_dim(view)
 	# Size before position: center-anchored visuals depend on size.
 	if pose.has("size"):
 		var s: Vector2 = pose["size"]
@@ -116,6 +120,20 @@ static func apply_start(view: Control, pose: Dictionary) -> void:
 		view.size = s
 	view.global_position = pose.get("global_position", view.global_position)
 	view.scale = pose.get("fly_scale", Vector2.ONE)
+
+
+## top_level breaks parent modulate inheritance; mirror RGB from the seat array.
+static func _copy_parent_dim(view: Control) -> void:
+	var parent := view.get_parent() as CanvasItem
+	if parent == null:
+		return
+	var a := view.modulate.a
+	view.modulate = Color(parent.modulate.r, parent.modulate.g, parent.modulate.b, a)
+
+
+static func _clear_copied_dim(view: Control) -> void:
+	var a := view.modulate.a
+	view.modulate = Color(1.0, 1.0, 1.0, a)
 
 
 static func _parent_visual_scale(view: Control) -> Vector2:

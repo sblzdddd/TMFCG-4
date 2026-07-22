@@ -93,10 +93,12 @@ func _fade_free(view: Control, duration: float) -> void:
 	# VBox/HBox sort would snap the card to top-left for a frame).
 	var gp := view.global_position
 	var fly_scale := CardPose.visual_scale(view)
+	# Snapshot seat dim before leaving the array (top_level / reparent drop it).
+	var dim := Color(modulate.r, modulate.g, modulate.b, 1.0)
 	view.top_level = true
 	view.global_position = gp
 	view.scale = fly_scale
-	view.modulate = Color(1, 1, 1, 1)
+	view.modulate = dim
 	var host := _fade_host()
 	if host != null and view.get_parent() != host:
 		if view.get_parent() != null:
@@ -105,6 +107,7 @@ func _fade_free(view: Control, duration: float) -> void:
 		view.top_level = true
 		view.global_position = gp
 		view.scale = fly_scale
+		view.modulate = dim
 	var tw := CardAnim.init_fade_out_tween(view)
 	tw.tween_property(view, "modulate:a", 0.0, duration)
 	tw.tween_callback(
