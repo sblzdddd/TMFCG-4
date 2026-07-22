@@ -4,15 +4,25 @@ extends Node
 
 
 signal room_changed(room: RoomData)
+@warning_ignore("unused_signal")
 signal match_changed(state: MatchRuntimeState)
+@warning_ignore("unused_signal")
 signal card_state_changed(state: GameState)
+@warning_ignore("unused_signal")
 signal cards_drawn(card_ids: Array[String])
+@warning_ignore("unused_signal")
 signal join_failed(reason: String)
+@warning_ignore("unused_signal")
 signal member_kicked(nickname: String)
+@warning_ignore("unused_signal")
 signal kicked_from_room(room_name: String)
+@warning_ignore("unused_signal")
 signal member_left(nickname: String)
+@warning_ignore("unused_signal")
 signal left_room(room_name: String, was_host: bool)
+@warning_ignore("unused_signal")
 signal room_dissolved(room_name: String)
+@warning_ignore("unused_signal")
 signal online_rooms_received(rooms: Array)
 
 var current_room: RoomData

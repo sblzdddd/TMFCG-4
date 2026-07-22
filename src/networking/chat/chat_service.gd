@@ -2,6 +2,7 @@ class_name ChatServiceNode
 extends Node
 ## Autoload: ephemeral room chat (no history / no join restore).
 
+@warning_ignore("unused_signal")
 signal chat_received(payload: Dictionary)
 
 var chat_rpc: ChatRpc

@@ -53,26 +53,26 @@ func to_dict_for_viewer(viewer_uid: String) -> Dictionary:
 
 
 static func from_dict(dict: Dictionary) -> PlayerState:
-	var player_id := PlayerId.from_string(str(dict.get("playerId", "")))
+	var p_player_id := PlayerId.from_string(str(dict.get("playerId", "")))
 	var hand_dict: Variant = dict.get("hand", {})
-	var hand: PlayerHand
+	var p_hand: PlayerHand
 	if hand_dict is Dictionary and not (hand_dict as Dictionary).is_empty():
-		hand = PlayerHand.from_dict(hand_dict)
+		p_hand = PlayerHand.from_dict(hand_dict)
 	else:
-		hand = PlayerHand.new(player_id)
+		p_hand = PlayerHand.new(p_player_id)
 	var temporary_dict: Variant = dict.get("temporaryGraveyard", {})
-	var temporary_graveyard: TemporaryGraveyardType
+	var p_temporary_graveyard: TemporaryGraveyardType
 	if temporary_dict is Dictionary and not (temporary_dict as Dictionary).is_empty():
 		var temporary_holder_id := str(temporary_dict.get("holderId", ""))
 		var temporary_player_uid := temporary_holder_id.trim_prefix(
 			TemporaryGraveyardType.HOLDER_ID_PREFIX
 		)
 		if temporary_player_uid.is_empty():
-			temporary_player_uid = player_id.value
-		temporary_graveyard = TemporaryGraveyardType.new(
+			temporary_player_uid = p_player_id.value
+		p_temporary_graveyard = TemporaryGraveyardType.new(
 			PlayerId.from_string(temporary_player_uid),
 			CardHolder.cards_from_dict(temporary_dict),
 		)
 	else:
-		temporary_graveyard = TemporaryGraveyardType.new(player_id)
-	return PlayerState.new(player_id, hand, temporary_graveyard)
+		p_temporary_graveyard = TemporaryGraveyardType.new(p_player_id)
+	return PlayerState.new(p_player_id, p_hand, p_temporary_graveyard)

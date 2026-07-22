@@ -32,7 +32,7 @@ func _ready() -> void:
 	_vbox.name = "Stack"
 	_vbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_vbox.alignment = BoxContainer.ALIGNMENT_BEGIN
-	_vbox.add_theme_constant_override("separation", ITEM_SEP)
+	_vbox.add_theme_constant_override("separation", int(ITEM_SEP))
 	# Full-width strip so SIZE_SHRINK_CENTER children can measure naturally and center.
 	_vbox.set_anchors_and_offsets_preset(Control.PRESET_TOP_WIDE)
 	_vbox.offset_top = TOP_MARGIN

@@ -75,10 +75,10 @@ func show_hint(text: String) -> void:
 		Toast.push(text)
 
 
-func _set_blocker_visible(visible: bool) -> void:
-	_blocker.visible = visible
+func _set_blocker_visible(blocker_visible: bool) -> void:
+	_blocker.visible = blocker_visible
 	_blocker.mouse_filter = (
-		Control.MOUSE_FILTER_STOP if visible else Control.MOUSE_FILTER_IGNORE
+		Control.MOUSE_FILTER_STOP if blocker_visible else Control.MOUSE_FILTER_IGNORE
 	)
 
 

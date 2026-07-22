@@ -1135,3 +1135,12 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ra6t3")
 script = ExtResource("41_ind")
 metadata/_edit_use_anchors_ = true
+
+[node name="LeaveConfirmDialog" type="ConfirmationDialog" parent="." unique_id=1098231326]
+unique_name_in_owner = true
+oversampling_override = 1.0
+title = "离开房间"
+initial_position = 2
+size = Vector2i(360, 100)
+ok_button_text = "离开"
+dialog_text = "确定要离开当前房间吗？"

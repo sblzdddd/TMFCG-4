@@ -3,10 +3,15 @@ extends Node
 ## One room's authoritative state on the dedicated server (session-like façade).
 
 signal room_changed(room: RoomData)
+@warning_ignore("unused_signal")
 signal match_changed(state: MatchRuntimeState)
+@warning_ignore("unused_signal")
 signal card_state_changed(state: GameState)
+@warning_ignore("unused_signal")
 signal cards_drawn(card_ids: Array[String])
+@warning_ignore("unused_signal")
 signal member_left(nickname: String)
+@warning_ignore("unused_signal")
 signal member_kicked(nickname: String)
 
 var current_room: RoomData

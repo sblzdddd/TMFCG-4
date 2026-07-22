@@ -19,10 +19,13 @@ static func apply(window: Window, title_prefix: String) -> void:
 	window.title = "%s - Instance %d (%s)" % [title_prefix, instance_id, player_name]
 	match instance_id:
 		2:
+			@warning_ignore("integer_division")
 			window.position = Vector2i(screen_size.x / 2, 0)
 		3:
+			@warning_ignore("integer_division")
 			window.position = Vector2i(0, screen_size.y / 2)
 		4:
+			@warning_ignore("integer_division")
 			window.position = Vector2i(screen_size.x / 2, screen_size.y / 2)
 		_:
 			window.position = Vector2i(0, 0)
