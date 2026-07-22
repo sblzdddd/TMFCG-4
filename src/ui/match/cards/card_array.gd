@@ -13,6 +13,7 @@ var _ids: Array[String] = []
 var _views: Dictionary = {} # String -> Control
 var _anim_index := 0
 var _flying: Dictionary = {} # String -> true
+var _layout_tweens: Dictionary = {} # String -> Tween
 
 
 func _ready() -> void:
@@ -22,6 +23,7 @@ func _ready() -> void:
 		child.queue_free()
 	_ids.clear()
 	_views.clear()
+	_layout_tweens.clear()
 
 
 func _notification(what: int) -> void:
@@ -70,6 +72,7 @@ func remove_card(instance_id: String, to_nowhere: bool = false, delay: float = 0
 	_ids.erase(instance_id)
 	_views.erase(instance_id)
 	_flying.erase(instance_id)
+	_kill_layout_tween(instance_id)
 	# Bulk discards (round-end GY flush) must not serialize long fades.
 	if to_nowhere:
 		_fade_free(view, CardAnim.fade_out_duration())
@@ -89,25 +92,11 @@ func remove_card(instance_id: String, to_nowhere: bool = false, delay: float = 0
 func _fade_free(view: Control, duration: float) -> void:
 	if not is_instance_valid(view):
 		return
-	# Pin screen pose first, then reparent onto the CanvasLayer (not a Container —
-	# VBox/HBox sort would snap the card to top-left for a frame).
-	var gp := view.global_position
-	var fly_scale := CardPose.visual_scale(view)
-	# Snapshot seat dim before leaving the array (top_level / reparent drop it).
-	var dim := Color(modulate.r, modulate.g, modulate.b, 1.0)
-	view.top_level = true
-	view.global_position = gp
-	view.scale = fly_scale
+	# Fade in place. Avoid top_level: leftover position tweens + parent
+	# offset_transform rebase local slot coords into viewport space (fly left).
+	var dim := Color(modulate.r, modulate.g, modulate.b, view.modulate.a)
+	view.z_index = CardPose.FLY_Z_INDEX
 	view.modulate = dim
-	var host := _fade_host()
-	if host != null and view.get_parent() != host:
-		if view.get_parent() != null:
-			view.get_parent().remove_child(view)
-		host.add_child(view)
-		view.top_level = true
-		view.global_position = gp
-		view.scale = fly_scale
-		view.modulate = dim
 	var tw := CardAnim.init_fade_out_tween(view)
 	tw.tween_property(view, "modulate:a", 0.0, duration)
 	tw.tween_callback(
@@ -117,13 +106,13 @@ func _fade_free(view: Control, duration: float) -> void:
 	)
 
 
-func _fade_host() -> Node:
-	var n: Node = self
-	while n != null:
-		if n is CanvasLayer:
-			return n
-		n = n.get_parent()
-	return get_parent()
+func _kill_layout_tween(instance_id: String) -> void:
+	if not _layout_tweens.has(instance_id):
+		return
+	var tw: Tween = _layout_tweens[instance_id]
+	_layout_tweens.erase(instance_id)
+	if tw != null and is_instance_valid(tw):
+		tw.kill()
 
 
 func add_card(
@@ -206,7 +195,7 @@ func _animate_in(id: String, view: Control, from_pose: Dictionary) -> void:
 	view.custom_minimum_size = saved
 	view.size = saved
 	view.global_position = from_pose.get("global_position", view.global_position)
-	await CardPose.fly_to(view, dest, CardPose.settle_fly_scale(self), slot_size)
+	await CardPose.fly_to(view, dest, CardPose.settle_fly_scale(self), slot_size, -1.0, from_pose)
 	if is_instance_valid(view) and _views.has(id):
 		_flying.erase(id)
 		CardPose.settle(view, self, local, slot_size)
@@ -226,15 +215,17 @@ func _layout(animate: bool) -> void:
 func _apply_positions(animate: bool) -> void:
 	var targets := _targets()
 	for i in _ids.size():
-		var view := _views[_ids[i]] as Control
-		if _flying.has(_ids[i]) or not is_instance_valid(view) or view.top_level:
+		var id := _ids[i]
+		var view := _views[id] as Control
+		if _flying.has(id) or not is_instance_valid(view) or view.top_level:
 			continue
 		view.size = slot_size
 		if animate:
-			CardAnim.init_tween(view).tween_property(
-				view, "position", targets[i], CardAnim.move_duration()
-			)
+			var tw := CardAnim.init_tween(view, _layout_tweens.get(id) as Tween)
+			_layout_tweens[id] = tw
+			tw.tween_property(view, "position", targets[i], CardAnim.move_duration())
 		else:
+			_kill_layout_tween(id)
 			view.position = targets[i]
 
 

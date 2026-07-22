@@ -1,16 +1,12 @@
 class_name PlayDecisionController
 extends HBoxContainer
-## Shows play/skip while local player is active; fades bottom GY for space.
-
-const FADE_DUR := 0.25
+## Shows play/skip while local player is active.
 
 @onready var _play_btn: Button = $PlayCardButton
 @onready var _skip_btn: Button = $SkipButton
-@onready var _bottom_gy: CardArray = %BottomGraveyard
 @onready var _active_hand: CardArray = %BottomActiveHand
 
 var _selection := CardHandSelection.new()
-var _gy_tween: Tween
 var _active := false
 var _hand_sig := ""
 
@@ -44,7 +40,7 @@ func _on_match_changed(_state: MatchRuntimeState) -> void:
 
 func _on_card_state_changed(_state: GameState) -> void:
 	_hand_sig = "" # force rebind after sync
-	_refresh_play_enabled()
+	_refresh()
 
 
 func _refresh() -> void:
@@ -54,7 +50,6 @@ func _refresh() -> void:
 		_hand_sig = ""
 		if not _active:
 			_selection.clear()
-		_fade_gy(not _active)
 	visible = _active
 	_refresh_play_enabled()
 
@@ -70,8 +65,17 @@ func _should_be_active() -> bool:
 	)
 
 
+func _must_lead() -> bool:
+	if PlayerDataStore.data == null or RoomSession.match_card_controller == null:
+		return false
+	var card_state := RoomSession.match_card_controller.get_state()
+	return card_state != null and card_state.must_lead(PlayerDataStore.data.uid)
+
+
 func _refresh_play_enabled() -> void:
 	_play_btn.disabled = not _active or _selection.get_selected_ids().is_empty()
+	# Trick winner must play a card to lead unless they have no cards.
+	_skip_btn.disabled = not _active or _must_lead()
 
 
 func _on_play() -> void:
@@ -83,18 +87,7 @@ func _on_play() -> void:
 
 
 func _on_skip() -> void:
-	if RoomSession.match_card_controller == null:
+	if RoomSession.match_card_controller == null or _must_lead():
 		return
 	RoomSession.match_card_controller.send_pass_request()
 	_selection.clear()
-
-
-func _fade_gy(show_gy: bool) -> void:
-	if _bottom_gy == null:
-		return
-	var target := 1.0 if show_gy else 0.0
-	_gy_tween = TweenUtils.init_tween(_bottom_gy, _gy_tween)
-	_gy_tween.tween_property(_bottom_gy, "modulate:a", target, FADE_DUR)
-	_bottom_gy.mouse_filter = (
-		Control.MOUSE_FILTER_IGNORE if not show_gy else Control.MOUSE_FILTER_STOP
-	)

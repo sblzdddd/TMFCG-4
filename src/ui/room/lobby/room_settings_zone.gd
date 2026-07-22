@@ -5,6 +5,7 @@ extends Container
 @onready var name_edit := %NameEdit
 @onready var public_toggle := %PublicToggle
 @onready var max_players_spin := %MaxPlayers
+@onready var turn_countdown_spin := %TurnCountdown
 @onready var game_settings_toggle := %GameSettingsToggle
 @onready var game_settings_root := %GameSettingsRoot
 @onready var game_settings_layout := %GameSettingsLayout
@@ -17,6 +18,8 @@ func _ready() -> void:
 	name_edit.focus_exited.connect(_on_name_focus_exited)
 	public_toggle.toggled.connect(_on_public_toggled)
 	max_players_spin.value_changed.connect(_on_max_changed)
+	if turn_countdown_spin:
+		turn_countdown_spin.value_changed.connect(_on_turn_countdown_changed)
 	game_settings_toggle.toggled.connect(toggle_game_settings)
 
 	RoomSession.room_changed.connect(_on_room_changed)
@@ -40,6 +43,9 @@ func _on_room_changed(room: RoomData) -> void:
 	public_toggle.visible = is_host
 	max_players_spin.value = room.max_players
 	max_players_spin.visible = is_host
+	if turn_countdown_spin:
+		turn_countdown_spin.value = room.turn_countdown_sec
+		turn_countdown_spin.visible = is_host
 	_loading = false
 
 
@@ -71,3 +77,9 @@ func _on_max_changed(value: float) -> void:
 	if _loading or not RoomSession.is_local_host():
 		return
 	RoomSession.update_options({"max_players": int(value)})
+
+
+func _on_turn_countdown_changed(value: float) -> void:
+	if _loading or not RoomSession.is_local_host():
+		return
+	RoomSession.update_options({"turn_countdown_sec": int(value)})

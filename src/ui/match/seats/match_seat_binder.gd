@@ -1,15 +1,14 @@
 class_name MatchSeatBinder
 extends MarginContainer
 ## Binds Left/Top/Right player columns to match order relative to the local player.
-## TopPlayer also hosts local decision UI, so only its seat widgets are toggled.
+## Top uses a fixed-width frame inside an expanding center column.
 
 @onready var _left_seat: Control = %LeftPlayer
 @onready var _right_seat: Control = %RightPlayer
 @onready var _left_card: UiCardItem = %LeftPlayerCard
 @onready var _top_card: UiCardItem = %TopPlayerCard
 @onready var _right_card: UiCardItem = %RightPlayerCard
-@onready var _top_countdown: Control = %TopPlayerCountdown
-@onready var _top_buff: Control = %TopPlayerBuff
+@onready var _top_frame: Control = %TopPlayerFrame
 
 
 func _ready() -> void:
@@ -89,12 +88,8 @@ func _bind_side_column(
 
 func _bind_top_seat(uid: String, members_by_uid: Dictionary) -> void:
 	var occupied := not uid.is_empty() and members_by_uid.has(uid)
-	if _top_card:
-		_top_card.visible = occupied
-	if _top_countdown:
-		_top_countdown.visible = occupied
-	if _top_buff:
-		_top_buff.visible = occupied
+	if _top_frame:
+		_top_frame.visible = occupied
 	if occupied:
 		_apply_card(_top_card, uid, members_by_uid)
 
@@ -106,7 +101,7 @@ func _apply_card(card: UiCardItem, uid: String, members_by_uid: Dictionary) -> v
 	var icon: Texture2D = null
 	if not member.avatar_id.is_empty():
 		icon = AvatarUtils.load_texture(member.avatar_id)
-	var status := "在线" if member.is_online else "离线"
+	var status := "" # [PlayerStatusController] owns turn / online subtitle.
 	card.configure(UiCardEntry.new(
 		member.uid,
 		member.nickname,

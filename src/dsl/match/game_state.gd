@@ -179,6 +179,17 @@ func record_play(player_id: PlayerId, cards: Array[Card]) -> Array[Card]:
 	return moved
 
 
+## Move one player's temp-GY cards into the main graveyard (turn-start clear).
+func flush_player_temporary_graveyard(player_id: PlayerId) -> Array[Card]:
+	var temporary_graveyard := get_player_temporary_graveyard(player_id)
+	if temporary_graveyard == null or graveyard == null:
+		return []
+	var cards := temporary_graveyard.get_all_cards()
+	if cards.is_empty():
+		return []
+	return transfer_cards(temporary_graveyard, graveyard, cards)
+
+
 func end_round() -> Array[Card]:
 	var flushed: Array[Card] = []
 	for instance_id in play_history_instance_ids:
@@ -197,9 +208,29 @@ func end_round() -> Array[Card]:
 			flushed.append(moved[0])
 	play_history_instance_ids.clear()
 	passes_count = 0
-	trick_winner_id = null
+	# Keep trick_winner_id so the winner leads the next round (must-play + UI).
 	current_trick_combo = null
 	return flushed
+
+
+## True when [param uid] won the last trick and has not yet led this round,
+## and still has cards (empty-hand winners may pass).
+func must_lead(uid: String) -> bool:
+	if uid.is_empty() or trick_winner_id == null or trick_winner_id.value != uid:
+		return false
+	if not play_history_instance_ids.is_empty():
+		return false
+	var hand := get_player_hand(PlayerId.from_string(uid))
+	return hand != null and hand.get_size() > 0
+
+
+## True while the last trick winner still needs to lead (history empty).
+func is_awaiting_lead() -> bool:
+	return (
+		trick_winner_id != null
+		and not trick_winner_id.value.is_empty()
+		and play_history_instance_ids.is_empty()
+	)
 
 
 func update_player(player_id: PlayerId, transform: Callable) -> void:

@@ -167,4 +167,6 @@ func apply_options_patch(patch: Dictionary) -> void:
 		room.is_public = bool(patch["is_public"])
 	if patch.has("max_players"):
 		room.max_players = clampi(int(patch["max_players"]), 2, 4)
+	if patch.has("turn_countdown_sec"):
+		room.turn_countdown_sec = clampi(int(patch["turn_countdown_sec"]), 5, 300)
 	_session.broadcast_and_advertise()

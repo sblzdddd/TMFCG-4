@@ -2,6 +2,23 @@ class_name CardPose
 extends RefCounted
 ## Capture / fly / settle helpers for cross-array card motion.
 
+## CardsLayer stack: WidgetsRoot=1, BottomPlayRoot=2, CardPreviewOverlay=3.
+## top_level rebases z to the CanvasLayer — default stays under the preview dimmer.
+const FLY_Z_INDEX := 2
+## Entering / leaving the draw preview (must clear the overlay panel).
+const PREVIEW_FLY_Z_INDEX := 4
+
+static func fly_z_for(parent: Node, pose: Dictionary = {}) -> int:
+	if pose.has("fly_z"):
+		return int(pose["fly_z"])
+	var n := parent
+	while n != null:
+		if n is CardDrawPreviewController:
+			return PREVIEW_FLY_Z_INDEX
+		n = n.get_parent()
+	return FLY_Z_INDEX
+
+
 static func capture(view: Control) -> Dictionary:
 	return {
 		"global_position": view.global_position,
@@ -60,10 +77,12 @@ static func fly_to(
 	dest_fly_scale: Vector2,
 	dest_size: Vector2 = Vector2.INF,
 	duration: float = -1.0,
+	pose: Dictionary = {},
 ) -> void:
 	if duration < 0.0:
 		duration = CardAnim.move_duration()
 	view.top_level = true
+	view.z_index = fly_z_for(view.get_parent(), pose)
 	# top_level skips parent modulate — copy seat dim onto the card for the flight.
 	_copy_parent_dim(view)
 	var tween := CardAnim.init_tween(view)
@@ -80,6 +99,7 @@ static func settle(
 	view: Control, parent: Control, local_pos: Vector2, slot_size: Vector2 = Vector2.INF
 ) -> void:
 	view.top_level = false
+	view.z_index = 0
 	_clear_copied_dim(view)
 	if view.get_parent() != parent:
 		if view.get_parent() != null:
@@ -112,6 +132,7 @@ static func _offset_transform_of(view: Control) -> Transform2D:
 
 static func apply_start(view: Control, pose: Dictionary) -> void:
 	view.top_level = true
+	view.z_index = fly_z_for(view.get_parent(), pose)
 	_copy_parent_dim(view)
 	# Size before position: center-anchored visuals depend on size.
 	if pose.has("size"):

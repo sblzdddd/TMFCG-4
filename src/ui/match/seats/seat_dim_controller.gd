@@ -63,7 +63,7 @@ func _dim_seat(seat: SeatLayout.Seat, active: SeatLayout.Seat, nodes: Array) -> 
 
 
 func _tween_brightness(control: Control, brightness: float) -> void:
-	# Only RGB — bottom GY hide uses modulate.a.
+	# Only RGB — leave alpha alone (card fades / other UI may own it).
 	if (
 		is_equal_approx(control.modulate.r, brightness)
 		and is_equal_approx(control.modulate.g, brightness)

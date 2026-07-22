@@ -5,6 +5,8 @@ extends Resource
 @export var name: String = "Room"
 @export var is_public: bool = false
 @export var max_players: int = 4
+## Seconds a player has to act each turn (UI + client timeout). Host grace adds +10s.
+@export var turn_countdown_sec: int = 15
 @export var host_uid: String = ""
 ## Array of Dictionary snapshots (uid, nickname, avatar_id, peer_id, is_online).
 @export var members: Array = []
@@ -84,6 +86,7 @@ func to_snapshot() -> Dictionary:
 		"name": name,
 		"is_public": is_public,
 		"max_players": max_players,
+		"turn_countdown_sec": turn_countdown_sec,
 		"host_uid": host_uid,
 		"members": members.duplicate(true),
 		"deck": deck.to_dict() if deck != null else {},
@@ -96,6 +99,7 @@ static func from_snapshot(data: Dictionary) -> RoomData:
 	room.name = str(data.get("name", "Room"))
 	room.is_public = bool(data.get("is_public", false))
 	room.max_players = int(data.get("max_players", 4))
+	room.turn_countdown_sec = clampi(int(data.get("turn_countdown_sec", 15)), 5, 300)
 	room.host_uid = str(data.get("host_uid", ""))
 	var raw_members: Variant = data.get("members", [])
 	if raw_members is Array:
@@ -119,6 +123,7 @@ static func create_hosted(
 	room.name = room_name
 	room.is_public = public
 	room.max_players = clampi(max_players_value, 2, 4)
+	room.turn_countdown_sec = 15
 	room.host_uid = host_member.uid
 	room.members = [host_member.to_dict()]
 	room.deck = RoomDeckProfile.create_default_builtin()

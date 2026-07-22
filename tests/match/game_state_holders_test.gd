@@ -113,7 +113,8 @@ func test_record_play_serializes_temporary_graveyards_and_flushes_global_order()
 	var first := state.deck.get_card(0)
 	var second := state.deck.get_card(1)
 	var third := state.deck.get_card(2)
-	state.transfer_cards(state.deck, p1_hand, [first, third], true)
+	var leftover := state.deck.get_card(3)
+	state.transfer_cards(state.deck, p1_hand, [first, third, leftover], true)
 	state.transfer_cards(state.deck, p2_hand, [second], true)
 
 	state.record_play(p1, [first])
@@ -138,6 +139,7 @@ func test_record_play_serializes_temporary_graveyards_and_flushes_global_order()
 		third.instance_id.value,
 	])
 
+	restored.trick_winner_id = p1
 	var flushed := restored.end_round()
 	assert_that(flushed.size()).is_equal(3)
 	assert_array(restored.graveyard.get_all_cards().map(
@@ -150,6 +152,36 @@ func test_record_play_serializes_temporary_graveyards_and_flushes_global_order()
 	assert_that(restored.players[0].temporary_graveyard.get_size()).is_equal(0)
 	assert_that(restored.players[1].temporary_graveyard.get_size()).is_equal(0)
 	assert_bool(restored.play_history_instance_ids.is_empty()).is_true()
+	# Winner is kept so they must lead the next round.
+	assert_str(restored.trick_winner_id.value).is_equal("p1")
+	assert_bool(restored.is_awaiting_lead()).is_true()
+	assert_bool(restored.must_lead("p1")).is_true()
+	assert_bool(restored.must_lead("p2")).is_false()
+
+
+func test_flush_player_temporary_graveyard_keeps_others() -> void:
+	var state := _make_state()
+	var p1 := PlayerId.from_string("p1")
+	var p2 := PlayerId.from_string("p2")
+	var p1_hand := state.get_player_hand(p1)
+	var p2_hand := state.get_player_hand(p2)
+	var first := state.deck.get_card(0)
+	var second := state.deck.get_card(1)
+	state.transfer_cards(state.deck, p1_hand, [first], true)
+	state.transfer_cards(state.deck, p2_hand, [second], true)
+	state.record_play(p1, [first])
+	state.record_play(p2, [second])
+
+	var flushed := state.flush_player_temporary_graveyard(p1)
+	assert_that(flushed.size()).is_equal(1)
+	assert_str(flushed[0].instance_id.value).is_equal(first.instance_id.value)
+	assert_that(state.players[0].temporary_graveyard.get_size()).is_equal(0)
+	assert_that(state.players[1].temporary_graveyard.get_size()).is_equal(1)
+	assert_that(state.graveyard.get_size()).is_equal(1)
+	assert_array(state.play_history_instance_ids).contains_exactly([
+		first.instance_id.value,
+		second.instance_id.value,
+	])
 
 
 func test_player_state_deserializes_without_temporary_graveyard() -> void:

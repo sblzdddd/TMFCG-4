@@ -33,6 +33,9 @@ var selected_state := false:
 
 
 func _ready() -> void:
+	clip_contents = true
+	_configure_text_ellipsis(_resolve_title_label())
+	_configure_text_ellipsis(_resolve_subtitle_label())
 	if not Engine.is_editor_hint():
 		var select_button := _resolve_select_button()
 		var action_button := _resolve_action_button()
@@ -49,6 +52,15 @@ func _ready() -> void:
 	_connect_entry()
 	_apply_entry()
 	_apply_selected_visual()
+
+
+func _configure_text_ellipsis(label: Label) -> void:
+	if label == null:
+		return
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	label.clip_text = true
+	label.autowrap_mode = TextServer.AUTOWRAP_OFF
+	label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 
 
 func configure(p_entry: UiCardEntry) -> void:

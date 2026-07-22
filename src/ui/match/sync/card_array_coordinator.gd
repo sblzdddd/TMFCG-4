@@ -130,10 +130,15 @@ func _apply_state(state: GameState) -> void:
 		arr.remove_card(id, to_nowhere, 0.0)
 	if gen != _sync_gen:
 		return
-	# 3) Add into targets; fly from captured poses (stagger only starts the flight).
+	# 3) Add into targets; deck draws use a global stagger ordered by play position
+	#    starting from the trick winner (local animation only).
 	for arr in _seats.play_arrays():
 		arr.reset_stagger()
-	for holder_id in _seats.holder_sync_order():
+	var draw_stagger := 0
+	var old_by_id: Dictionary = {}
+	for m in movers:
+		old_by_id[str(m["id"])] = str(m["old"])
+	for holder_id in _holder_sync_order(state):
 		if gen != _sync_gen:
 			return
 		var arr := _seats.array_for(holder_id)
@@ -141,18 +146,32 @@ func _apply_state(state: GameState) -> void:
 		if arr == null or holder == null:
 			continue
 		var is_local := holder_id == _seats.local_uid()
+		var is_hand := _seats.is_player_hand(holder_id)
 		for card in holder.get_all_cards():
 			var id := card.instance_id.value
+			if not desired.has(id):
+				continue
+			var from_deck := str(old_by_id.get(id, "")) == Deck.HOLDER_ID
 			if is_local and _deferred_hand_ids.has(id):
+				# Reserve stagger slots so later seats wait for the local preview.
+				if from_deck or is_hand:
+					draw_stagger += 1
 				continue
 			if arr.has_card(id):
 				_ui_locations[id] = holder_id
 				continue
 			var pose: Dictionary = poses.get(id, {})
-			if pose.is_empty() and _seats.is_player_hand(holder_id):
+			if pose.is_empty() and is_hand:
 				pose = _deck_stack.draw_pose()
+				from_deck = true
+			var delay: float
+			if from_deck:
+				delay = float(draw_stagger) * CardAnim.stagger_delay()
+				draw_stagger += 1
+			else:
+				delay = arr.next_stagger_delay()
 			arr.add_card(
-				card, pose, arr.next_stagger_delay(), -1, card.can_be_viewed_by(_seats.local_uid())
+				card, pose, delay, -1, card.can_be_viewed_by(_seats.local_uid())
 			)
 			_ui_locations[id] = holder_id
 	for arr in _seats.play_arrays():
@@ -166,6 +185,56 @@ func _apply_state(state: GameState) -> void:
 				_ui_locations.erase(id)
 	if gen == _sync_gen:
 		await _deck_stack.sync_size(state.deck.get_size())
+
+
+## Hands first in play order from trick winner, then each seat's temp GY.
+func _holder_sync_order(state: GameState) -> Array[String]:
+	var uids := _hand_draw_uids(state)
+	if uids.is_empty():
+		return _seats.holder_sync_order()
+	var order: Array[String] = []
+	for uid in uids:
+		order.append(uid)
+	for uid in uids:
+		order.append(TemporaryGraveyard.holder_id_for_player_uid(uid))
+	return order
+
+
+func _hand_draw_uids(state: GameState) -> Array[String]:
+	var result: Array[String] = []
+	var match_state: MatchRuntimeState = null
+	if RoomSession.match_controller != null:
+		match_state = RoomSession.match_controller.get_state()
+	var play_order: PlayerOrder = match_state.order if match_state != null else null
+	var winner := (
+		state.trick_winner_id.value
+		if state != null and state.trick_winner_id != null
+		else ""
+	)
+	if play_order != null and not play_order.is_empty():
+		var start := winner if play_order.has(winner) else play_order.uids[0]
+		var cursor := start
+		for _i in play_order.size():
+			result.append(cursor)
+			cursor = play_order.next_after(cursor)
+		return result
+	if state == null:
+		return result
+	# Fallback: GameState player list, optionally rotated to winner.
+	var uids: Array[String] = []
+	for player in state.players:
+		if player != null and player.player_id != null:
+			uids.append(player.player_id.value)
+	if uids.is_empty():
+		return result
+	var start_idx := 0
+	if not winner.is_empty():
+		var found := uids.find(winner)
+		if found >= 0:
+			start_idx = found
+	for i in uids.size():
+		result.append(uids[(start_idx + i) % uids.size()])
+	return result
 
 
 func _clear_all_ui() -> void:

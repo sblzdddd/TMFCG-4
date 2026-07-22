@@ -7,6 +7,8 @@ const SOFT_HAND_TARGET := 5
 var _session: RoomSessionNode
 var _rpc: MatchCardRpc
 var state: GameState = null
+## Active uid whose temp GY was already flushed this turn (avoid re-flush).
+var _flushed_turn_uid := ""
 
 
 func setup(session: RoomSessionNode) -> void:
@@ -34,7 +36,13 @@ func send_pass_request() -> void:
 func handle_play_request(peer_id: int, card_ids: Array) -> void:
 	if not _is_host():
 		return
-	var uid := _uid_for_peer(peer_id)
+	handle_play_for_uid(_uid_for_peer(peer_id), card_ids)
+
+
+## Host-side play (player request or turn-timeout auto-lead).
+func handle_play_for_uid(uid: String, card_ids: Array) -> void:
+	if not _is_host():
+		return
 	var match_state := _match_state()
 	if uid.is_empty() or not _is_active_turn(uid, match_state):
 		return
@@ -67,12 +75,21 @@ func handle_play_request(peer_id: int, card_ids: Array) -> void:
 func handle_pass_request(peer_id: int) -> void:
 	if not _is_host():
 		return
-	var uid := _uid_for_peer(peer_id)
+	handle_pass_for_uid(_uid_for_peer(peer_id))
+
+
+## Host-side pass (player request or empty-hand autoskip).
+func handle_pass_for_uid(uid: String) -> void:
+	if not _is_host():
+		return
 	var match_state := _match_state()
 	if uid.is_empty() or not _is_active_turn(uid, match_state):
 		return
 	_ensure_initialized()
 	if state == null:
+		return
+	# Trick winner must lead the new round unless they have no cards.
+	if state.must_lead(uid):
 		return
 	state.passes_count += 1
 	_broadcast()
@@ -90,8 +107,55 @@ func handle_pass_request(peer_id: int) -> void:
 		_session.match_controller.advance_turn(MatchController.TURN_GAP_SEC)
 
 
+## Host: client missed their turn countdown (+ grace). Pass, or auto-lead if required.
+func handle_timeout_for_uid(uid: String) -> void:
+	if not _is_host():
+		return
+	var match_state := _match_state()
+	if uid.is_empty() or not _is_active_turn(uid, match_state):
+		return
+	_ensure_initialized()
+	if state == null:
+		return
+	if state.must_lead(uid):
+		var hand := state.get_player_hand(PlayerId.from_string(uid))
+		if hand == null or hand.get_size() <= 0:
+			return
+		var card := hand.get_card(0)
+		if card == null:
+			return
+		handle_play_for_uid(uid, [card.instance_id.value])
+		return
+	handle_pass_for_uid(uid)
+
+
+func is_hand_empty(uid: String) -> bool:
+	if state == null or uid.is_empty():
+		return true
+	var hand := state.get_player_hand(PlayerId.from_string(uid))
+	return hand == null or hand.get_size() <= 0
+
+
+func all_hands_empty() -> bool:
+	if state == null or state.players.is_empty():
+		return true
+	for player in state.players:
+		if player == null or player.hand == null:
+			continue
+		if player.hand.get_size() > 0:
+			return false
+	return true
+
+
+func deck_size() -> int:
+	if state == null or state.deck == null:
+		return 0
+	return state.deck.get_size()
+
+
 func clear() -> void:
 	state = null
+	_flushed_turn_uid = ""
 	_emit_changed()
 
 
@@ -112,6 +176,17 @@ func sync_match_runtime(active_uid: String, phase: MatchPhase.Phase) -> void:
 		var idx := state.player_index(PlayerId.from_string(active_uid))
 		if idx >= 0:
 			state.current_player_index = idx
+	# Clear the active seat's prior plays into the main graveyard once per turn.
+	if phase == MatchPhase.Phase.TURN_PLAY and not active_uid.is_empty():
+		if active_uid != _flushed_turn_uid:
+			_flushed_turn_uid = active_uid
+			var moved := state.flush_player_temporary_graveyard(
+				PlayerId.from_string(active_uid)
+			)
+			if not moved.is_empty():
+				_broadcast()
+	else:
+		_flushed_turn_uid = ""
 
 
 func send_state_to(peer_id: int, uid: String) -> void:
@@ -154,12 +229,14 @@ func draw_to_player(uid: String, count: int = 1) -> Array[Card]:
 
 
 ## Soft-fill each hand toward SOFT_HAND_TARGET.
-func draw_for_all_soft(target: int = SOFT_HAND_TARGET) -> void:
+## Notifies every member (empty list when they drew nothing) so all clients show
+## the round-end preview. Returns true when the soft-fill ran (preview should hold).
+func draw_for_all_soft(target: int = SOFT_HAND_TARGET) -> bool:
 	if not _is_host():
-		return
+		return false
 	_ensure_initialized()
 	if state == null or state.deck == null:
-		return
+		return false
 	var drawn_by_uid: Dictionary = {}
 	for player in state.players:
 		if player == null or player.hand == null or player.player_id == null:
@@ -176,17 +253,24 @@ func draw_for_all_soft(target: int = SOFT_HAND_TARGET) -> void:
 		var moved := state.transfer_cards(state.deck, player.hand, selected, true)
 		if not moved.is_empty():
 			drawn_by_uid[player.player_id.value] = moved
-	if drawn_by_uid.is_empty():
+	if not drawn_by_uid.is_empty():
+		_broadcast()
+	_notify_round_draws(drawn_by_uid)
+	return true
+
+
+## Tell each seat what they drew this soft-fill (may be empty).
+func _notify_round_draws(drawn_by_uid: Dictionary) -> void:
+	if _session == null or _session.current_room == null:
 		return
-	for uid in drawn_by_uid.keys():
-		var moved_variant: Variant = drawn_by_uid[uid]
+	for member in _session.current_room.get_members():
 		var moved: Array[Card] = []
-		if moved_variant is Array:
-			for item in moved_variant:
+		var raw: Variant = drawn_by_uid.get(member.uid, null)
+		if raw is Array:
+			for item in raw:
 				if item is Card:
 					moved.append(item)
-		_notify_drawn(str(uid), moved)
-	_broadcast()
+		_notify_drawn(member.uid, moved)
 
 
 func transfer(
@@ -270,7 +354,7 @@ func _sync_players_with_order() -> void:
 
 
 func _notify_drawn(uid: String, moved: Array[Card]) -> void:
-	if moved.is_empty() or _session == null:
+	if _session == null or uid.is_empty():
 		return
 	var ids: Array[String] = []
 	for card in moved:
