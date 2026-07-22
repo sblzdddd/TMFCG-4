@@ -108,11 +108,17 @@ func transfer_to(
 			else:
 				card.restrict_visibility_to([])
 	dest.add_cards(moved, false)
+	if dest.kind != Kind.DECK:
+		dest.sort_by_rank()
 	cards_changed.emit()
 	dest.cards_changed.emit()
 	cards_transferred.emit(self, dest, moved, mark_hidden, ignore_passives)
 	dest.cards_transferred.emit(self, dest, moved, mark_hidden, ignore_passives)
 	return moved
+
+
+func sort_by_rank(wild_rank: CardEnums.Rank = CardEnums.Rank.NONE) -> void:
+	CardRankSort.sort_cards(_cards, wild_rank)
 
 
 func to_dict() -> Dictionary:

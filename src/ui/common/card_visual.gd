@@ -1,12 +1,15 @@
 extends ColorRect
 class_name CardVisual
 
-enum BorderState { NORMAL, HOVER, ACTIVE }
+enum BorderState { NORMAL, HOVER, ACTIVE, INVALID }
 
 const FALLBACK_PORTRAIT := preload("res://assets/textures/characters/Fallback.png")
 const BORDER_NORMAL := preload("res://definitions/ui/card/card_border_normal.tres")
 const BORDER_HOVER := preload("res://definitions/ui/card/card_border_hover.tres")
 const BORDER_ACTIVE := preload("res://definitions/ui/card/card_border_active.tres")
+const BORDER_INVALID := preload("res://definitions/ui/card/card_border_invalid.tres")
+const LABEL_COLOR_NORMAL := Color(0, 0, 0, 1)
+const LABEL_COLOR_WILD := Color(1.0, 0.45, 0.05, 1)
 
 @onready var _value_label_a: Label = $ValueLabel
 @onready var _value_label_b: Label = $ValueLabel2
@@ -56,15 +59,47 @@ func _update_card_face() -> void:
 	var rank_text := "-"
 	var suit_value := CardEnums.Suit.CLUBS
 	var rank_value := CardEnums.Rank.NONE
+	var is_wild := false
 	if _card_data != null:
-		rank_text = CardUtils.rank_display(_card_data.rank)
+		is_wild = _card_data.rank == CardEnums.Rank.WILD
 		suit_value = _card_data.suit
-		rank_value = _card_data.rank
+		if is_wild:
+			rank_value = _printed_wild_rank()
+			rank_text = (
+				CardUtils.rank_display(rank_value)
+				if rank_value != CardEnums.Rank.NONE
+				else CardUtils.rank_display(CardEnums.Rank.WILD)
+			)
+		else:
+			rank_value = _card_data.rank
+			rank_text = CardUtils.rank_display(rank_value)
 
 	_value_label_a.text = rank_text
 	_value_label_b.text = rank_text
+	_set_value_label_color(LABEL_COLOR_WILD if is_wild else LABEL_COLOR_NORMAL)
 
 	_set_suit_layer_texture(CardUtils.load_baked_suit_texture(suit_value, rank_value))
+
+
+func _printed_wild_rank() -> CardEnums.Rank:
+	if RoomSession.match_card_controller == null:
+		return CardEnums.Rank.NONE
+	var gs := RoomSession.match_card_controller.get_state()
+	if gs == null or gs.deck == null:
+		return CardEnums.Rank.NONE
+	return gs.deck.wild_rank
+
+
+func _set_value_label_color(color: Color) -> void:
+	for label in [_value_label_a, _value_label_b]:
+		if label == null or label.label_settings == null:
+			continue
+		var settings := label.label_settings.duplicate() as LabelSettings
+		if settings == null:
+			continue
+		settings.font_color = color
+		settings.outline_color = color
+		label.label_settings = settings
 
 func set_border_state(state: BorderState) -> void:
 	_border_state = state
@@ -84,6 +119,8 @@ func _apply_border_style() -> void:
 			style = BORDER_HOVER
 		BorderState.ACTIVE:
 			style = BORDER_ACTIVE
+		BorderState.INVALID:
+			style = BORDER_INVALID
 		_:
 			style = BORDER_NORMAL
 	border.add_theme_stylebox_override("panel", style)

@@ -37,23 +37,55 @@ func defer_hand_cards(instance_ids: Array[String]) -> void:
 
 
 func release_deferred_hand_cards(poses_by_id: Dictionary = {}) -> void:
-	var ids: Array[String] = []
+	var releasing: Dictionary = {}
 	for id in _deferred_hand_ids.keys():
-		ids.append(str(id))
+		releasing[str(id)] = true
 	_deferred_hand_ids.clear()
-	if last_state == null or ids.is_empty():
+	if last_state == null or releasing.is_empty():
 		return
 	var hand := last_state.get_player_hand(PlayerId.from_string(_seats.local_uid()))
 	var target := _seats.array_for(_seats.local_uid())
 	if target == null:
 		target = _bottom_hand
+	if hand == null or target == null:
+		return
+	var hand_ids: Array[String] = []
+	for card in hand.get_all_cards():
+		hand_ids.append(card.instance_id.value)
+	# Keep already-visible cards in sorted relative order before inserts.
+	var present: Array[String] = []
+	for id in hand_ids:
+		if target.has_card(id):
+			present.append(id)
+	target.reorder_to(present)
 	target.reset_stagger()
-	for id in ids:
+	# Insert each drawn card at its final sorted index so fly targets stay stable.
+	for id in hand_ids:
+		if not releasing.has(id):
+			continue
 		var card := _find_card(hand, id)
 		if card == null:
 			continue
-		target.add_card(card, poses_by_id.get(id, {}), target.next_stagger_delay(), -1, true)
+		var at := _hand_insert_index(target, hand_ids, id)
+		target.add_card(
+			card,
+			poses_by_id.get(id, {}),
+			target.next_stagger_delay(),
+			at,
+			true,
+		)
 		_ui_locations[id] = hand.holder_id
+
+
+## Index among current views for [param id] in [param hand_ids] order.
+func _hand_insert_index(arr: CardArray, hand_ids: Array[String], id: String) -> int:
+	var at := 0
+	for hid in hand_ids:
+		if hid == id:
+			return at
+		if arr.has_card(hid):
+			at += 1
+	return at
 
 
 func get_deck_draw_pose() -> Dictionary:
@@ -174,6 +206,15 @@ func _apply_state(state: GameState) -> void:
 				card, pose, delay, -1, card.can_be_viewed_by(_seats.local_uid())
 			)
 			_ui_locations[id] = holder_id
+		if is_hand:
+			var order_ids: Array[String] = []
+			for card in holder.get_all_cards():
+				var cid := card.instance_id.value
+				if desired.has(cid) and not (is_local and _deferred_hand_ids.has(cid)):
+					order_ids.append(cid)
+			# Flying cards re-resolve their destination slot when they settle, so
+			# keep logical order authoritative even during animations.
+			arr.reorder_to(order_ids)
 	for arr in _seats.play_arrays():
 		for id in arr.get_ordered_ids():
 			if gen != _sync_gen:
@@ -184,7 +225,8 @@ func _apply_state(state: GameState) -> void:
 				arr.remove_card(id, true, 0.0)
 				_ui_locations.erase(id)
 	if gen == _sync_gen:
-		await _deck_stack.sync_size(state.deck.get_size())
+		await _deck_stack.sync_size(state.deck.get_size(), state, _seats.local_uid())
+
 
 
 ## Hands first in play order from trick winner, then each seat's temp GY.

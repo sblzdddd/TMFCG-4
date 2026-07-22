@@ -95,13 +95,65 @@ func test_mark_hidden_hand_transfer_restricts_visibility_to_owner() -> void:
 
 func test_deck_projection_respects_card_policy() -> void:
 	var state := _make_state()
+	state.deck.wild_rank = Rank.SEVEN
 	state.deck.get_card(0).restrict_visibility_to([])
 	state.deck.get_card(1).restrict_visibility_to(["p1"])
 	var p1_deck: Dictionary = state.to_dict_for_viewer("p1")["deck"]
 	var outsider_deck: Dictionary = state.to_dict_for_viewer("p2")["deck"]
+	assert_str(str(p1_deck["wildRank"])).is_equal("SEVEN")
+	assert_str(str(outsider_deck["wildRank"])).is_equal("SEVEN")
 	assert_bool((p1_deck["cards"][0] as Dictionary).has("rank")).is_false()
 	assert_bool((p1_deck["cards"][1] as Dictionary).has("rank")).is_true()
 	assert_bool((outsider_deck["cards"][1] as Dictionary).has("rank")).is_false()
+
+	var restored := GameState.from_dict(state.to_dict_for_viewer("p1"))
+	assert_that(restored.deck.wild_rank).is_equal(Rank.SEVEN)
+
+
+func test_deck_projection_includes_public_bottom_wild() -> void:
+	var deck := DeckWildBuilder.build(
+		_deck_data_with_ranks([Rank.THREE, Rank.FOUR]),
+		Rank.THREE,
+	)
+	var state := GameState.new(deck, [
+		PlayerState.new(PlayerId.from_string("p1")),
+		PlayerState.new(PlayerId.from_string("p2")),
+	])
+	var projected: Dictionary = state.to_dict_for_viewer("p1")["deck"]
+	assert_str(str(projected["wildRank"])).is_equal("THREE")
+	var cards: Array = projected["cards"] as Array
+	assert_that(cards.size()).is_equal(deck.get_size())
+	var bottom: Dictionary = cards[cards.size() - 1] as Dictionary
+	assert_bool(bottom.has("rank")).is_true()
+	assert_str(str(bottom["rank"])).is_equal("WILD")
+	assert_bool(bottom.has("suit")).is_true()
+	assert_bool(bottom.has("cardId")).is_true()
+	assert_bool(bool(bottom["hidden"])).is_false()
+	for i in cards.size() - 1:
+		var entry: Dictionary = cards[i] as Dictionary
+		assert_bool(entry.has("rank")).is_false()
+		assert_bool(bool(entry["hidden"])).is_true()
+
+	var restored := GameState.from_dict(state.to_dict_for_viewer("p2"))
+	assert_that(restored.deck.wild_rank).is_equal(Rank.THREE)
+	var last := restored.deck.get_card(restored.deck.get_size() - 1)
+	assert_that(last).is_not_null()
+	assert_that(last.rank).is_equal(Rank.WILD)
+	assert_bool(last.is_public).is_true()
+
+
+func _deck_data_with_ranks(ranks: Array) -> DeckData:
+	var data := DeckData.new()
+	var cards: Array[CardData] = []
+	for rank in ranks:
+		for suit in [Suit.HEARTS, Suit.SPADES]:
+			var cd := CardData.new()
+			cd.rank = rank
+			cd.suit = suit
+			cd.cardId = "%s-%s" % [CardEnums.Rank.find_key(rank), CardEnums.Suit.find_key(suit)]
+			cards.append(cd)
+	data.cards = cards
+	return data
 
 
 func test_record_play_serializes_temporary_graveyards_and_flushes_global_order() -> void:

@@ -56,3 +56,26 @@ func test_bomb_compares_by_power_against_another_bomb() -> void:
 
 	assert_that(higher.compare_to(lower)).is_equal(9)
 	assert_that(lower.compare_to(higher)).is_equal(-9)
+
+
+func test_shorter_straight_cannot_beat_longer_straight() -> void:
+	var card := Card.new(Rank.THREE, Suit.HEARTS)
+	var three_len := StraightCombination.new(
+		[card, card, card], CardEnums.rank_weight(Rank.THREE), 3
+	)
+	var two_len := StraightCombination.new(
+		[card, card], CardEnums.rank_weight(Rank.JACK), 2
+	)
+
+	assert_that(two_len.compare_to(three_len)).is_equal(-1)
+	assert_that(three_len.compare_to(two_len)).is_equal(1)
+
+
+func test_same_length_straights_compare_by_power() -> void:
+	var card := Card.new(Rank.THREE, Suit.HEARTS)
+	var lower := StraightCombination.new([card, card], CardEnums.rank_weight(Rank.SEVEN), 2)
+	var higher := StraightCombination.new([card, card], CardEnums.rank_weight(Rank.JACK), 2)
+
+	assert_that(higher.compare_to(lower)).is_equal(
+		CardEnums.rank_weight(Rank.JACK) - CardEnums.rank_weight(Rank.SEVEN)
+	)

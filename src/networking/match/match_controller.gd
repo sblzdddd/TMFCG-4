@@ -93,6 +93,54 @@ func on_member_removed(uid: String) -> void:
 	_broadcast()
 
 
+## Host: start or restart a match (announce → deal → TURN_PLAY).
+func start_game() -> void:
+	if _forward_host_command("start_game"):
+		return
+	if not _is_host():
+		return
+	if _session == null or _session.match_card_controller == null:
+		return
+	var cards := _session.match_card_controller as MatchCardController
+	if cards == null:
+		return
+	if not MatchStartFlow.begin(self, cards):
+		return
+	_gap_token += 1
+	var token := _gap_token
+	await get_tree().create_timer(MatchStartFlow.BROADCAST_SEC).timeout
+	if token != _gap_token or not _is_host() or _session == null or _session.current_room == null:
+		return
+	MatchStartFlow.finish(self, cards)
+
+
+## After a successful play: placements / end-game / game-over checks.
+## Returns false when the match entered GAME_OVER (caller should not advance).
+func on_play_committed(uid: String) -> bool:
+	if not _is_host() or _session == null or _session.match_card_controller == null:
+		return true
+	var cards := _session.match_card_controller as MatchCardController
+	if cards == null or cards.state == null:
+		return true
+	var deck_empty := cards.deck_size() <= 0
+	if deck_empty and state.phase == MatchPhase.Phase.TURN_PLAY:
+		state.phase = MatchPhase.Phase.END_GAME_PLAY
+		cards.state.current_phase = MatchPhase.Phase.END_GAME_PLAY
+	if PlacementTracker.place_if_needed(cards.state, uid, deck_empty):
+		_broadcast()
+	if PlacementTracker.finalize_if_done(cards.state, state.order):
+		_enter_game_over()
+		return false
+	return true
+
+
+func _enter_game_over() -> void:
+	_gap_token += 1
+	state.phase = MatchPhase.Phase.GAME_OVER
+	state.active_uid = ""
+	_broadcast()
+
+
 ## Advance turn. [param delay] > 0 clears active first so players can see the
 ## last play before the next seat lights up (debug Next Player uses 0).
 func advance_turn(delay: float = 0.0) -> void:
@@ -109,18 +157,27 @@ func advance_turn(delay: float = 0.0) -> void:
 		state.active_uid = state.order.random_uid()
 		_broadcast()
 		return
-	if state.phase != MatchPhase.Phase.TURN_PLAY:
+	if (
+		state.phase != MatchPhase.Phase.TURN_PLAY
+		and state.phase != MatchPhase.Phase.END_GAME_PLAY
+	):
 		return
-	var next_uid := state.order.next_after(state.active_uid)
+	var card_state: GameState = null
+	if _session != null and _session.match_card_controller != null:
+		card_state = _session.match_card_controller.get_state()
+	var next_uid := PlacementTracker.next_active_after(
+		card_state, state.order, state.active_uid
+	)
 	if delay > 0.0:
 		_gap_token += 1
 		var token := _gap_token
+		var phase_at_gap := state.phase
 		state.active_uid = ""
 		_broadcast()
 		await get_tree().create_timer(delay).timeout
 		if token != _gap_token or not _is_host() or _session.current_room == null:
 			return
-		if state.phase != MatchPhase.Phase.TURN_PLAY:
+		if state.phase != phase_at_gap:
 			return
 		state.active_uid = next_uid
 		_broadcast()
@@ -156,30 +213,84 @@ func end_round() -> void:
 		return
 	_gap_token += 1
 	var token := _gap_token
-	# Prefer the trick winner as next lead; fall back to next after last passer.
 	var lead_uid := _trick_winner_uid()
 	if lead_uid.is_empty() or not state.order.has(lead_uid):
 		lead_uid = (
 			state.order.next_after(state.active_uid) if not state.active_uid.is_empty() else ""
 		)
+	var from_end_game := state.phase == MatchPhase.Phase.END_GAME_PLAY
 	state.phase = MatchPhase.Phase.ROUND_RESOLUTION
 	state.active_uid = ""
-	if _session != null and _session.match_card_controller != null:
-		_session.match_card_controller.end_round()
-		_session.match_card_controller.draw_for_all_soft()
 	_broadcast()
-	# Always hold for draw preview (including empty "no cards drawn" overlay).
+	await get_tree().create_timer(MatchStartFlow.BROADCAST_SEC).timeout
+	if token != _gap_token or not _is_host() or _session.current_room == null:
+		return
+	if state.phase != MatchPhase.Phase.ROUND_RESOLUTION:
+		return
+	var cards: MatchCardController = null
+	if _session != null and _session.match_card_controller != null:
+		cards = _session.match_card_controller as MatchCardController
+	if cards != null:
+		cards.end_round()
+	var deck_empty := cards == null or cards.deck_size() <= 0
+	if not from_end_game and not deck_empty and cards != null:
+		cards.draw_for_all_soft()
+		deck_empty = cards.deck_size() <= 0
+	_broadcast()
 	await get_tree().create_timer(DRAW_PREVIEW_SEC).timeout
 	if token != _gap_token or not _is_host() or _session.current_room == null:
 		return
 	if state.phase != MatchPhase.Phase.ROUND_RESOLUTION:
 		return
-	state.phase = MatchPhase.Phase.TURN_PLAY
-	if not lead_uid.is_empty() and state.order.has(lead_uid):
+	if from_end_game or deck_empty:
+		state.phase = MatchPhase.Phase.END_GAME_PLAY
+	else:
+		state.phase = MatchPhase.Phase.TURN_PLAY
+	var card_state: GameState = cards.get_state() if cards != null else null
+	if not lead_uid.is_empty() and not PlacementTracker.is_placed(card_state, lead_uid):
 		state.active_uid = lead_uid
-	elif not state.order.is_empty():
-		state.active_uid = state.order.uids[0]
+	else:
+		state.active_uid = PlacementTracker.next_active_after(
+			card_state, state.order, lead_uid
+		)
 	_broadcast()
+	if card_state != null and PlacementTracker.finalize_if_done(card_state, state.order):
+		_enter_game_over()
+
+
+## Empty-hand players auto-pass; placements when deck empty; end round if all out.
+func _try_autoskip_active() -> void:
+	if not _is_host():
+		return
+	if (
+		state.phase != MatchPhase.Phase.TURN_PLAY
+		and state.phase != MatchPhase.Phase.END_GAME_PLAY
+	):
+		return
+	if state.active_uid.is_empty():
+		return
+	if _session == null or _session.match_card_controller == null:
+		return
+	var cards := _session.match_card_controller as MatchCardController
+	if cards == null:
+		return
+	if PlacementTracker.is_placed(cards.state, state.active_uid):
+		advance_turn()
+		return
+	if not cards.is_hand_empty(state.active_uid):
+		return
+	var deck_empty := cards.deck_size() <= 0
+	if deck_empty or state.phase == MatchPhase.Phase.END_GAME_PLAY:
+		PlacementTracker.place_if_needed(cards.state, state.active_uid, true)
+		if PlacementTracker.finalize_if_done(cards.state, state.order):
+			_enter_game_over()
+			return
+		advance_turn()
+		return
+	if cards.all_hands_empty():
+		end_round()
+		return
+	cards.handle_pass_for_uid(state.active_uid)
 
 
 func _trick_winner_uid() -> String:
@@ -189,29 +300,6 @@ func _trick_winner_uid() -> String:
 	if card_state == null or card_state.trick_winner_id == null:
 		return ""
 	return card_state.trick_winner_id.value
-
-
-## Empty-hand players auto-pass; if everyone is out, end the round (or game if
-## the deck cannot refill).
-func _try_autoskip_active() -> void:
-	if not _is_host():
-		return
-	if state.phase != MatchPhase.Phase.TURN_PLAY or state.active_uid.is_empty():
-		return
-	if _session == null or _session.match_card_controller == null:
-		return
-	var cards := _session.match_card_controller as MatchCardController
-	if cards == null:
-		return
-	if not cards.is_hand_empty(state.active_uid):
-		return
-	if cards.all_hands_empty():
-		if cards.deck_size() <= 0:
-			end_game_play()
-			return
-		end_round()
-		return
-	cards.handle_pass_for_uid(state.active_uid)
 
 
 func end_game_play() -> void:
@@ -230,6 +318,9 @@ func broadcast_state() -> void:
 
 func execute_host_command(command: String, args: Dictionary = {}) -> void:
 	match command:
+		"start_game":
+			# Keep coroutine on this Node (do not await static helpers).
+			start_game()
 		"advance_turn":
 			advance_turn(float(args.get("delay", 0.0)))
 		"offset_active":
@@ -256,7 +347,8 @@ func _forward_host_command(command: String, args: Dictionary = {}) -> bool:
 		return false
 	if _session != null and _session.is_local_host() and _rpc != null:
 		_rpc.send_host_command(command, args)
-	return true
+		return true
+	return false
 
 
 func _on_room_changed(room: RoomData) -> void:
@@ -309,7 +401,10 @@ func _broadcast() -> void:
 		_rpc.broadcast(state.to_dict(), peers)
 	if not _is_host():
 		return
-	if state.phase != MatchPhase.Phase.TURN_PLAY or state.active_uid.is_empty():
+	if (
+		state.phase != MatchPhase.Phase.TURN_PLAY
+		and state.phase != MatchPhase.Phase.END_GAME_PLAY
+	) or state.active_uid.is_empty():
 		_autoskip_armed_uid = ""
 		_timeout_token += 1
 		_armed_countdown_sec = -1.0
@@ -334,7 +429,13 @@ func _arm_turn_timeout(uid: String, remaining_override: float = -1.0) -> void:
 	await get_tree().create_timer(limit).timeout
 	if token != _timeout_token or not _is_host() or _session == null:
 		return
-	if state.phase != MatchPhase.Phase.TURN_PLAY or state.active_uid != uid:
+	if (
+		(
+			state.phase != MatchPhase.Phase.TURN_PLAY
+			and state.phase != MatchPhase.Phase.END_GAME_PLAY
+		)
+		or state.active_uid != uid
+	):
 		return
 	if _session.match_card_controller == null:
 		return
@@ -344,7 +445,10 @@ func _arm_turn_timeout(uid: String, remaining_override: float = -1.0) -> void:
 ## When host edits turn_countdown_sec mid-turn, keep elapsed wall time and re-arm.
 func _rearm_timeout_for_countdown_change() -> void:
 	if (
-		state.phase != MatchPhase.Phase.TURN_PLAY
+		(
+			state.phase != MatchPhase.Phase.TURN_PLAY
+			and state.phase != MatchPhase.Phase.END_GAME_PLAY
+		)
 		or state.active_uid.is_empty()
 		or _armed_countdown_sec < 0.0
 	):

@@ -9,6 +9,7 @@ extends HBoxContainer
 var _selection := CardHandSelection.new()
 var _active := false
 var _hand_sig := ""
+var _selection_valid := false
 
 
 func _ready() -> void:
@@ -58,10 +59,11 @@ func _should_be_active() -> bool:
 	if PlayerDataStore.data == null or RoomSession.match_controller == null:
 		return false
 	var match_state := RoomSession.match_controller.get_state()
+	if match_state == null or match_state.active_uid != PlayerDataStore.data.uid:
+		return false
 	return (
-		match_state != null
-		and match_state.phase == MatchPhase.Phase.TURN_PLAY
-		and match_state.active_uid == PlayerDataStore.data.uid
+		match_state.phase == MatchPhase.Phase.TURN_PLAY
+		or match_state.phase == MatchPhase.Phase.END_GAME_PLAY
 	)
 
 
@@ -72,15 +74,45 @@ func _must_lead() -> bool:
 	return card_state != null and card_state.must_lead(PlayerDataStore.data.uid)
 
 
+func _selected_cards() -> Array[Card]:
+	var cards: Array[Card] = []
+	if _active_hand == null or RoomSession.match_card_controller == null:
+		return cards
+	var state := RoomSession.match_card_controller.get_state()
+	if state == null:
+		return cards
+	for id in _selection.get_selected_ids():
+		var card := state.get_card_by_instance_id(id)
+		if card != null:
+			cards.append(card)
+	return cards
+
+
+func _selected_bases() -> Array:
+	var bases: Array = []
+	if _active_hand == null:
+		return bases
+	for id in _selection.get_selected_ids():
+		var view := _active_hand.get_card_view(id)
+		if view is CardBase:
+			bases.append(view)
+	return bases
+
+
 func _refresh_play_enabled() -> void:
-	_play_btn.disabled = not _active or _selection.get_selected_ids().is_empty()
-	# Trick winner must play a card to lead unless they have no cards.
+	var cards := _selected_cards()
+	var state: GameState = null
+	if RoomSession.match_card_controller != null:
+		state = RoomSession.match_card_controller.get_state()
+	_selection_valid = SelectionPlayLegality.is_valid_selection(cards, state)
+	SelectionPlayLegality.apply_borders(_selected_bases(), _selection_valid)
+	_play_btn.disabled = not _active or cards.is_empty() or not _selection_valid
 	_skip_btn.disabled = not _active or _must_lead()
 
 
 func _on_play() -> void:
 	var ids := _selection.get_selected_ids()
-	if ids.is_empty() or RoomSession.match_card_controller == null:
+	if ids.is_empty() or not _selection_valid or RoomSession.match_card_controller == null:
 		return
 	RoomSession.match_card_controller.send_play_request(ids)
 	_selection.clear()

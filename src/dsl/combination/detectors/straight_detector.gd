@@ -15,6 +15,15 @@ static func detect(cards: Array[Card]):
 static func _detect_two_cards(cards: Array[Card]):
 	var c1: Card = cards[0]
 	var c2: Card = cards[1]
+	# Sorted by rank weight: wilds (25) always last.
+	if c1.rank == CardEnums.Rank.WILD and c2.rank == CardEnums.Rank.WILD:
+		# Strongest natural 2-straight is K-A.
+		return StraightCombination.new(cards, CardEnums.rank_weight(CardEnums.Rank.KING))
+	if c2.rank == CardEnums.Rank.WILD and c1.rank != CardEnums.Rank.WILD:
+		var power := _two_card_start_power(c1.rank)
+		if power < 0:
+			return null
+		return StraightCombination.new(cards, power)
 	if not _is_consecutive(c1, c2):
 		return null
 
@@ -27,6 +36,19 @@ static func _detect_two_cards(cards: Array[Card]):
 		straight_power = CardEnums.rank_weight(c1.rank)
 
 	return StraightCombination.new(cards, straight_power)
+
+
+## Best 2-straight power for [rank]+wild. -1 if impossible.
+## Prefer the stronger adjacency: Ace+wild is K-A (not A-2); other ranks start at [rank].
+static func _two_card_start_power(rank: CardEnums.Rank) -> int:
+	match rank:
+		CardEnums.Rank.TWO:
+			return -1
+		CardEnums.Rank.ACE:
+			# Wild fills as King → K-A (strongest 2-straight). A-2 would be power 1 and never useful.
+			return CardEnums.rank_weight(CardEnums.Rank.KING)
+		_:
+			return CardEnums.rank_weight(rank)
 
 
 static func _is_consecutive(c1: Card, c2: Card) -> bool:

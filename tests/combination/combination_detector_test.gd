@@ -59,6 +59,34 @@ func test_two_straight() -> void:
 	assert_that(combination.power).is_equal(CardEnums.rank_weight(Rank.THREE))
 
 
+func test_rank_plus_wild_prefers_pair_in_detector() -> void:
+	var combination: Variant = CombinationDetector.calculate_combination(
+		_cards([[Rank.EIGHT, Suit.HEARTS], [Rank.WILD, Suit.SPADES]])
+	)
+	assert_that(combination).is_instanceof(PairCombination)
+	assert_that(combination.power).is_equal(CardEnums.rank_weight(Rank.EIGHT))
+
+
+func test_straight_detector_two_card_with_wild() -> void:
+	var cards := _cards([[Rank.EIGHT, Suit.HEARTS], [Rank.WILD, Suit.SPADES]])
+	cards.sort_custom(func(a: Card, b: Card) -> bool:
+		return CardEnums.rank_weight(a.rank) < CardEnums.rank_weight(b.rank)
+	)
+	var combination: Variant = StraightDetector.detect(cards)
+	assert_that(combination).is_instanceof(StraightCombination)
+	assert_that(combination.power).is_equal(CardEnums.rank_weight(Rank.EIGHT))
+
+
+func test_straight_detector_ace_plus_wild_is_ka() -> void:
+	var cards := _cards([[Rank.ACE, Suit.HEARTS], [Rank.WILD, Suit.SPADES]])
+	cards.sort_custom(func(a: Card, b: Card) -> bool:
+		return CardEnums.rank_weight(a.rank) < CardEnums.rank_weight(b.rank)
+	)
+	var combination: Variant = StraightDetector.detect(cards)
+	assert_that(combination).is_instanceof(StraightCombination)
+	assert_that(combination.power).is_equal(CardEnums.rank_weight(Rank.KING))
+
+
 func test_two_straight_circular() -> void:
 	var combination: Variant = CombinationDetector.calculate_combination(
 		_cards([[Rank.KING, Suit.HEARTS], [Rank.ACE, Suit.SPADES]])

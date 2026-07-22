@@ -15,6 +15,9 @@ func _ready() -> void:
 	var err := ConnectionManager.host(port)
 	if err != OK:
 		push_error("Dedicated server failed to listen on %d: %s" % [port, error_string(err)])
+		# Multiple editor clients may race to spawn the local fallback. Only the
+		# process that binds successfully may remain alive and publish its PID.
+		get_tree().quit(err)
 		return
 	_write_pid_file(OS.get_process_id())
 	registry = ServerRoomRegistry.new()
@@ -48,5 +51,8 @@ func _write_pid_file(pid: int) -> void:
 	var f := FileAccess.open(PID_FILE, FileAccess.WRITE)
 	if f == null:
 		return
-	f.store_string(str(pid))
+	f.store_string(JSON.stringify({
+		"pid": pid,
+		"fingerprint": LocalDedicatedLauncher.server_fingerprint(),
+	}))
 	f.close()

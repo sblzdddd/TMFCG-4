@@ -82,9 +82,17 @@ func _try_connect_preferred() -> void:
 		return
 	if _connecting_central:
 		return
+	var address := data.server_address.strip_edges()
+	if address.to_lower() in ["127.0.0.1", "localhost", "::1"]:
+		var refresh_error := _launcher.refresh_if_managed(data.server_port)
+		if refresh_error != OK:
+			_on_preferred_failed(
+				"failed to refresh local server: %s" % error_string(refresh_error)
+			)
+			return
 	_connecting_central = true
 	_central_connected = false
-	var err := ConnectionManager.join(data.server_address, data.server_port)
+	var err := ConnectionManager.join(address, data.server_port)
 	if err != OK:
 		_on_preferred_failed("join failed: %s" % error_string(err))
 

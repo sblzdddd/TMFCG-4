@@ -24,6 +24,7 @@ func _ready() -> void:
 	_refresh_deck_options()
 	if sync_room:
 		RoomSession.room_changed.connect(_on_room_changed)
+		RoomSession.match_changed.connect(func(_s) -> void: _on_room_changed(RoomSession.current_room))
 		RoomSession.deck_sync.deck_ready.connect(_on_deck_ready)
 		_on_room_changed(RoomSession.current_room)
 		_on_deck_ready(RoomSession.get_resolved_deck())
@@ -38,6 +39,7 @@ func _on_room_changed(room: RoomData) -> void:
 		return
 	_loading = true
 	var is_host := RoomSession.is_local_host()
+	var locked := RoomMatchLock.is_match_locked()
 	if room == null:
 		deck_select.visible = false
 		deck_name_label.visible = true
@@ -50,14 +52,14 @@ func _on_room_changed(room: RoomData) -> void:
 		return
 
 	var profile := room.deck
-	deck_select.visible = is_host
-	deck_name_label.visible = not is_host
+	deck_select.visible = is_host and not locked
+	deck_name_label.visible = not is_host or locked
 	deck_name_label.text = profile.name if profile != null and not profile.name.is_empty() else "—"
 	var author := profile.author if profile != null else ""
 	deck_author_label.text = "作者: %s" % (author if not author.is_empty() else "—")
 	deck_desc_label.text = profile.description if profile != null else ""
 
-	if is_host:
+	if is_host and not locked:
 		_select_path_in_dropdown(_host_selected_path(room))
 
 	_loading = false
@@ -116,7 +118,7 @@ func _on_deck_selected(index: int) -> void:
 	if path.is_empty():
 		return
 	if sync_room:
-		if not RoomSession.is_local_host():
+		if not RoomSession.is_local_host() or RoomMatchLock.is_match_locked():
 			return
 		RoomSession.set_room_deck(path)
 		return

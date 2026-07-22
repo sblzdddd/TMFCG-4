@@ -25,6 +25,7 @@ func _ready() -> void:
 	game_settings_toggle.toggled.connect(toggle_game_settings)
 
 	RoomSession.room_changed.connect(_on_room_changed)
+	RoomSession.match_changed.connect(func(_s) -> void: _on_room_changed(RoomSession.current_room))
 	_on_room_changed(RoomSession.current_room)
 
 func toggle_game_settings(on: bool) -> void:
@@ -36,6 +37,7 @@ func toggle_game_settings(on: bool) -> void:
 func _on_room_changed(room: RoomData) -> void:
 	_loading = true
 	var is_host := RoomSession.is_local_host()
+	var locked := RoomMatchLock.is_match_locked()
 	if room == null:
 		if turn_countdown_label:
 			turn_countdown_label.visible = false
@@ -43,13 +45,17 @@ func _on_room_changed(room: RoomData) -> void:
 		return
 	name_edit.set_text_content(room.name)
 	name_edit.visible = is_host
+	name_edit.editable = is_host and not locked
 	public_toggle.button_pressed = room.is_public
 	public_toggle.visible = is_host
+	public_toggle.disabled = locked
 	max_players_spin.value = room.max_players
 	max_players_spin.visible = is_host
+	max_players_spin.editable = not locked
 	if turn_countdown_spin:
 		turn_countdown_spin.value = room.turn_countdown_sec
 		turn_countdown_spin.visible = is_host
+		turn_countdown_spin.editable = not locked
 	if turn_countdown_label:
 		turn_countdown_label.text = "回合倒计时: %d 秒" % room.turn_countdown_sec
 		turn_countdown_label.visible = not is_host
@@ -66,7 +72,7 @@ func _on_name_focus_exited() -> void:
 
 
 func _commit_name(text: String) -> void:
-	if _loading or not RoomSession.is_local_host():
+	if _loading or not RoomSession.is_local_host() or RoomMatchLock.is_match_locked():
 		return
 	var trimmed := text.strip_edges()
 	if trimmed.is_empty():
@@ -75,18 +81,18 @@ func _commit_name(text: String) -> void:
 
 
 func _on_public_toggled(pressed: bool) -> void:
-	if _loading or not RoomSession.is_local_host():
+	if _loading or not RoomSession.is_local_host() or RoomMatchLock.is_match_locked():
 		return
 	RoomSession.update_options({"is_public": pressed})
 
 
 func _on_max_changed(value: float) -> void:
-	if _loading or not RoomSession.is_local_host():
+	if _loading or not RoomSession.is_local_host() or RoomMatchLock.is_match_locked():
 		return
 	RoomSession.update_options({"max_players": int(value)})
 
 
 func _on_turn_countdown_changed(value: float) -> void:
-	if _loading or not RoomSession.is_local_host():
+	if _loading or not RoomSession.is_local_host() or RoomMatchLock.is_match_locked():
 		return
 	RoomSession.update_options({"turn_countdown_sec": int(value)})

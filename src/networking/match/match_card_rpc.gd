@@ -50,10 +50,30 @@ func send_cards_drawn_to(peer_id: int, card_ids: Array) -> void:
 
 func send_play(card_ids: Array) -> void:
 	if not multiplayer.has_multiplayer_peer():
+		print(
+			"[MatchPlayTrace][transport.send_failed][%.3f] reason=no_multiplayer_peer ids=%s"
+			% [Time.get_unix_time_from_system(), JSON.stringify(card_ids)]
+		)
 		return
 	if multiplayer.is_server():
+		print(
+			"[MatchPlayTrace][transport.local_dispatch][%.3f] peer=%d ids=%s"
+			% [
+				Time.get_unix_time_from_system(),
+				multiplayer.get_unique_id(),
+				JSON.stringify(card_ids),
+			]
+		)
 		play_requested.emit(multiplayer.get_unique_id(), card_ids)
 	else:
+		print(
+			"[MatchPlayTrace][transport.rpc_sent][%.3f] peer=%d target=1 ids=%s"
+			% [
+				Time.get_unix_time_from_system(),
+				multiplayer.get_unique_id(),
+				JSON.stringify(card_ids),
+			]
+		)
 		request_play.rpc_id(1, card_ids)
 
 

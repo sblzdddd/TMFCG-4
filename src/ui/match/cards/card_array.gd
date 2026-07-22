@@ -45,6 +45,26 @@ func get_ordered_ids() -> Array[String]:
 	return _ids.duplicate()
 
 
+## Reorder existing views to match [param ordered_ids] (unknown ids ignored).
+func reorder_to(ordered_ids: Array[String]) -> void:
+	if ordered_ids.is_empty() or _ids.is_empty():
+		return
+	var next: Array[String] = []
+	var seen: Dictionary = {}
+	for id in ordered_ids:
+		if _views.has(id) and not seen.has(id):
+			next.append(id)
+			seen[id] = true
+	for id in _ids:
+		if not seen.has(id):
+			next.append(id)
+	if next == _ids:
+		return
+	_ids = next
+	_sync_child_order()
+	_layout(true)
+
+
 func capture_pose(instance_id: String) -> Dictionary:
 	var view := get_card_view(instance_id)
 	return {} if view == null else CardPose.capture(view)
@@ -118,18 +138,18 @@ func _kill_layout_tween(instance_id: String) -> void:
 
 
 func add_card(
-	card: Card, from_pose: Dictionary = {}, delay: float = 0.0, _i: int = -1, face_up: bool = true
+	card: Card, from_pose: Dictionary = {}, delay: float = 0.0, at_index: int = -1, face_up: bool = true
 ) -> Control:
 	var id := card.instance_id.value
 	if _views.has(id):
 		return _refresh(id, card, face_up)
 	var view := CardViewFactory.make_base(card, true) if face_up else CardViewFactory.make_back(id)
-	_insert(id, view, from_pose, delay)
+	_insert(id, view, from_pose, delay, at_index)
 	return view
 
 
 func add_flippable_card(
-	card: Card, from_pose: Dictionary = {}, delay: float = 0.0, _i: int = -1
+	card: Card, from_pose: Dictionary = {}, delay: float = 0.0, at_index: int = -1
 ) -> CardBase:
 	var id := card.instance_id.value
 	if _views.has(id):
@@ -138,12 +158,19 @@ func add_flippable_card(
 		existing.set_face_up(false, false)
 		return existing
 	var base := CardViewFactory.make_base(card, false)
-	_insert(id, base, from_pose, delay)
+	_insert(id, base, from_pose, delay, at_index)
 	return base
 
 
-func _insert(id: String, view: Control, from_pose: Dictionary, delay: float) -> void:
-	_ids.append(id)
+func has_flying() -> bool:
+	return not _flying.is_empty()
+
+
+func _insert(id: String, view: Control, from_pose: Dictionary, delay: float, at_index: int = -1) -> void:
+	if at_index < 0 or at_index >= _ids.size():
+		_ids.append(id)
+	else:
+		_ids.insert(at_index, id)
 	_views[id] = view
 	view.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	view.custom_minimum_size = slot_size
@@ -152,8 +179,12 @@ func _insert(id: String, view: Control, from_pose: Dictionary, delay: float) -> 
 	if will_fly or delay > 0.0:
 		_flying[id] = true
 	add_child(view)
+	_sync_child_order()
 	# Defer fly so Container sort + transforms settle (fixes single-card teleport).
 	_start_enter(id, view, from_pose, delay, will_fly)
+	# Shift settled siblings when inserting into the middle of a hand.
+	if will_fly and at_index >= 0 and at_index < _ids.size() - 1:
+		_layout(false)
 
 
 func _start_enter(
@@ -200,8 +231,10 @@ func _animate_in(id: String, view: Control, from_pose: Dictionary) -> void:
 	await CardPose.fly_to(view, dest, CardPose.settle_fly_scale(self), slot_size, -1.0, from_pose)
 	if is_instance_valid(view) and _views.has(id):
 		_flying.erase(id)
-		CardPose.settle(view, self, local, slot_size)
-		queue_sort()
+		# Re-resolve slot after sibling inserts/reorders during the flight.
+		CardPose.settle(view, self, _slot_pos(id), slot_size)
+		_sync_child_order()
+		_layout(false)
 
 
 func _targets() -> Array[Vector2]:
@@ -254,4 +287,17 @@ func _refresh(id: String, card: Card, face_up: bool) -> Control:
 	add_child(neu)
 	move_child(neu, idx)
 	neu.position = pos
+	_sync_child_order()
 	return neu
+
+
+## Keep scene child indices aligned with logical card order. Containers position
+## from _ids, while drawing and hit-testing use child order.
+func _sync_child_order() -> void:
+	var child_index := 0
+	for id in _ids:
+		var view := _views.get(id) as Control
+		if not is_instance_valid(view) or view.get_parent() != self:
+			continue
+		move_child(view, child_index)
+		child_index += 1

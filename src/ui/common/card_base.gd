@@ -41,9 +41,20 @@ const ACTIVE_HAND_INFO_HOVER_DELAY := CardInfoInteraction.ACTIVE_HAND_HOVER_DELA
 		if selected == value:
 			return
 		selected = value
+		if not selected:
+			selection_invalid = false
 		if is_node_ready():
 			_refresh_border()
 			_apply_select_offset(true)
+
+## When selected but the current selection is not a legal play.
+var selection_invalid: bool = false:
+	set(value):
+		if selection_invalid == value:
+			return
+		selection_invalid = value
+		if is_node_ready():
+			_refresh_border()
 
 @export_range(-1.0, 1.0) var rotation_factor: float = 1.0:
 	set(value):
@@ -205,7 +216,9 @@ func _apply_card_data(card_data: CardData) -> void:
 
 
 func _refresh_border() -> void:
-	if selected:
+	if selected and selection_invalid:
+		visual.set_border_state(CardVisual.BorderState.INVALID)
+	elif selected:
 		visual.set_border_state(CardVisual.BorderState.ACTIVE)
 	elif _hovering and interactable:
 		visual.set_border_state(CardVisual.BorderState.HOVER)

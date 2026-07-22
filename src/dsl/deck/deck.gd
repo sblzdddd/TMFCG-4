@@ -31,6 +31,13 @@ func to_dict() -> Dictionary:
 	return dict
 
 
+func to_dict_for_viewer(viewer_uid: String) -> Dictionary:
+	var dict := super.to_dict_for_viewer(viewer_uid)
+	# Wild rank is public match metadata even while deck cards are hidden.
+	dict["wildRank"] = CardEnums.Rank.find_key(wild_rank)
+	return dict
+
+
 static func from_dict(dict: Dictionary) -> Deck:
 	var deck := Deck.new(
 		CardHolder.cards_from_dict(dict),
@@ -44,7 +51,7 @@ static func empty(p_wild_rank: CardEnums.Rank = _random_elevatable_rank()) -> De
 
 
 ## Creates runtime cards without retaining or mutating the editor resources.
-## This is intended to be called once by the authoritative host.
+## Match init should prefer [method DeckWildBuilder.build] for wild elevation.
 static func from_deck_data(deck_data: DeckData) -> Deck:
 	if deck_data == null:
 		return Deck.empty()
@@ -86,6 +93,7 @@ static func create_new(p_wild_rank: CardEnums.Rank = _random_elevatable_rank()) 
 		var wild_card := wild_cards[randi() % wild_cards.size()]
 		shuffled.erase(wild_card)
 		shuffled.append(wild_card)
+		wild_card.make_public()
 
 	return Deck.new(shuffled, p_wild_rank)
 

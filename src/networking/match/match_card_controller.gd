@@ -33,8 +33,25 @@ func setup(session: Node, shared_rpc: MatchCardRpc = null, connect_receive: bool
 
 
 func send_play_request(card_ids: Array) -> void:
-	if _rpc != null:
-		_rpc.send_play(card_ids)
+	var uid := (
+		PlayerDataStore.data.uid
+		if PlayerDataStore.data != null
+		else ""
+	)
+	_trace_play(
+		"client.request",
+		"uid=%s peer=%d ids=%s cards=%s %s" % [
+			uid,
+			multiplayer.get_unique_id(),
+			JSON.stringify(card_ids),
+			_describe_card_ids(card_ids),
+			_match_context(),
+		],
+	)
+	if _rpc == null:
+		_trace_play("client.send_failed", "reason=rpc_missing ids=%s" % JSON.stringify(card_ids))
+		return
+	_rpc.send_play(card_ids)
 
 
 func send_pass_request() -> void:
@@ -44,23 +61,52 @@ func send_pass_request() -> void:
 
 func handle_play_request(peer_id: int, card_ids: Array) -> void:
 	if not _is_host():
+		_trace_play(
+			"server.reject",
+			"reason=not_authority peer=%d ids=%s" % [peer_id, JSON.stringify(card_ids)],
+		)
 		return
-	handle_play_for_uid(_uid_for_peer(peer_id), card_ids)
+	var uid := _uid_for_peer(peer_id)
+	_trace_play(
+		"server.received",
+		"peer=%d uid=%s ids=%s %s" % [
+			peer_id, uid, JSON.stringify(card_ids), _match_context(),
+		],
+	)
+	handle_play_for_uid(uid, card_ids, "peer=%d" % peer_id)
 
 
 ## Host-side play (player request or turn-timeout auto-lead).
-func handle_play_for_uid(uid: String, card_ids: Array) -> void:
+func handle_play_for_uid(uid: String, card_ids: Array, source: String = "internal") -> void:
 	if not _is_host():
+		_trace_play("server.reject", "reason=not_authority source=%s uid=%s" % [source, uid])
 		return
 	var match_state := _match_state()
-	if uid.is_empty() or not _is_active_turn(uid, match_state):
+	if uid.is_empty():
+		_trace_play(
+			"server.reject",
+			"reason=unresolved_uid source=%s ids=%s %s" % [
+				source, JSON.stringify(card_ids), _match_context(),
+			],
+		)
+		return
+	if not _is_active_turn(uid, match_state):
+		_trace_play(
+			"server.reject",
+			"reason=inactive_turn source=%s uid=%s ids=%s %s" % [
+				source, uid, JSON.stringify(card_ids), _match_context(),
+			],
+		)
 		return
 	_ensure_initialized()
 	if state == null:
+		_trace_play("server.reject", "reason=card_state_missing source=%s uid=%s" % [source, uid])
 		return
 	var hand := state.get_player_hand(PlayerId.from_string(uid))
 	if hand == null:
+		_trace_play("server.reject", "reason=hand_missing source=%s uid=%s" % [source, uid])
 		return
+	var hand_before := _card_ids(hand.get_all_cards())
 	var by_id: Dictionary = {}
 	for card in hand.get_all_cards():
 		by_id[card.instance_id.value] = card
@@ -70,15 +116,48 @@ func handle_play_for_uid(uid: String, card_ids: Array) -> void:
 		if by_id.has(id) and not selected.has(by_id[id]):
 			selected.append(by_id[id])
 	if selected.is_empty():
+		_trace_play(
+			"server.reject",
+			"reason=no_requested_cards_in_hand source=%s uid=%s requested=%s hand=%s" % [
+				source, uid, JSON.stringify(card_ids), JSON.stringify(hand_before),
+			],
+		)
 		return
-	var moved := state.record_play(PlayerId.from_string(uid), selected)
-	if moved.is_empty():
+	if not PlayCommit.apply(state, uid, selected):
+		var validation := PlayValidator.evaluate(selected, state.current_trick_combo)
+		_trace_play(
+			"server.reject",
+			"reason=play_commit_failed source=%s uid=%s requested=%s selected=%s combo=%s current_combo=%s validator_ok=%s" % [
+				source,
+				uid,
+				JSON.stringify(card_ids),
+				_describe_cards(selected),
+				str(validation.get("combo")),
+				str(state.current_trick_combo),
+				str(validation.get("ok", false)),
+			],
+		)
 		return
-	state.passes_count = 0
-	state.trick_winner_id = PlayerId.from_string(uid)
+	_trace_play(
+		"server.accept",
+		"source=%s uid=%s requested=%s cards=%s hand_before=%s hand_after=%s combo=%s" % [
+			source,
+			uid,
+			JSON.stringify(card_ids),
+			_describe_cards(selected),
+			JSON.stringify(hand_before),
+			JSON.stringify(_card_ids(hand.get_all_cards())),
+			str(state.current_trick_combo),
+		],
+	)
 	_broadcast()
+	_trace_play(
+		"server.responded",
+		"uid=%s result=accepted snapshot_broadcast=true %s" % [uid, _match_context()],
+	)
 	if _session.match_controller != null:
-		_session.match_controller.advance_turn(MatchController.TURN_GAP_SEC)
+		if _session.match_controller.on_play_committed(uid):
+			_session.match_controller.advance_turn(MatchController.TURN_GAP_SEC)
 
 
 func handle_pass_request(peer_id: int) -> void:
@@ -103,12 +182,13 @@ func handle_pass_for_uid(uid: String) -> void:
 	state.passes_count += 1
 	_broadcast()
 	var order := match_state.order
-	var next_uid := order.next_after(uid)
+	var next_uid := PlacementTracker.next_active_after(state, order, uid)
 	var winner := state.trick_winner_id.value if state.trick_winner_id != null else ""
+	var active_n := PlacementTracker.active_uids(state, order).size()
 	if (
 		not winner.is_empty()
 		and next_uid == winner
-		and state.passes_count >= order.size() - 1
+		and state.passes_count >= maxi(active_n - 1, 1)
 		and _session.match_controller != null
 	):
 		_session.match_controller.end_round()
@@ -133,7 +213,7 @@ func handle_timeout_for_uid(uid: String) -> void:
 		var card := hand.get_card(0)
 		if card == null:
 			return
-		handle_play_for_uid(uid, [card.instance_id.value])
+		handle_play_for_uid(uid, [card.instance_id.value], "turn_timeout")
 		return
 	handle_pass_for_uid(uid)
 
@@ -186,7 +266,10 @@ func sync_match_runtime(active_uid: String, phase: MatchPhase.Phase) -> void:
 		if idx >= 0:
 			state.current_player_index = idx
 	# Clear the active seat's prior plays into the main graveyard once per turn.
-	if phase == MatchPhase.Phase.TURN_PLAY and not active_uid.is_empty():
+	if (
+		(phase == MatchPhase.Phase.TURN_PLAY or phase == MatchPhase.Phase.END_GAME_PLAY)
+		and not active_uid.is_empty()
+	):
 		if active_uid != _flushed_turn_uid:
 			_flushed_turn_uid = active_uid
 			var moved := state.flush_player_temporary_graveyard(
@@ -321,6 +404,15 @@ func record_play(player_uid: String, cards: Array[Card]) -> Array[Card]:
 	return moved
 
 
+## Host: wipe and rebuild deck+players from room DeckData with wild elevation.
+func rebuild_match_deck() -> void:
+	if not _is_host():
+		return
+	state = null
+	_flushed_turn_uid = ""
+	_ensure_initialized()
+
+
 func _ensure_initialized() -> void:
 	if not _is_host():
 		return
@@ -333,7 +425,7 @@ func _ensure_initialized() -> void:
 	if match_state == null or match_state.order.is_empty():
 		return
 	var deck_data := _session.get_resolved_deck() as DeckData
-	var deck := Deck.from_deck_data(deck_data)
+	var deck := DeckWildBuilder.build(deck_data)
 	var players: Array[PlayerState] = []
 	for uid in match_state.order.uids:
 		players.append(PlayerState.new(PlayerId.from_string(uid)))
@@ -390,6 +482,9 @@ func _notify_drawn(uid: String, moved: Array[Card]) -> void:
 func _broadcast() -> void:
 	if state == null or _session == null:
 		return
+	# Establish one authoritative card order before the host UI and snapshots
+	# consume it. Clients must preserve this order, especially for hidden hands.
+	state.sort_non_deck_holders()
 	_emit_changed()
 	if not _is_host() or _rpc == null or _session.current_room == null:
 		return
@@ -415,8 +510,31 @@ func _emit_changed() -> void:
 func _on_card_snapshot(snapshot: Dictionary) -> void:
 	if _session != null and _session.is_leaving_voluntarily():
 		return
+	_trace_play(
+		"client.snapshot_received",
+		"players=%d phase=%s" % [
+			(snapshot.get("players", []) as Array).size(),
+			str(snapshot.get("currentPhase", "")),
+		],
+	)
 	state = GameState.from_dict(snapshot)
 	_hydrate_card_data_from_deck(state)
+	var uid := (
+		PlayerDataStore.data.uid
+		if PlayerDataStore.data != null
+		else ""
+	)
+	var hand: CardHolder = null
+	if state != null and not uid.is_empty():
+		hand = state.get_player_hand(PlayerId.from_string(uid))
+	_trace_play(
+		"client.snapshot_applied",
+		"uid=%s hand=%s %s" % [
+			uid,
+			JSON.stringify(_card_ids(hand.get_all_cards()) if hand != null else []),
+			_match_context(),
+		],
+	)
 	_emit_changed()
 
 
@@ -450,7 +568,12 @@ func _hydrate_card_data_from_deck(game_state: GameState) -> void:
 			var hydrated := template.duplicate(true) as CardData
 			if hydrated == null:
 				continue
+			var was_wild := card.data.rank == CardEnums.Rank.WILD
 			card.data = hydrated
+			# Snapshot rank is authoritative. DeckData contains the printed
+			# source rank, so only restore WILD when the server sent WILD.
+			if was_wild:
+				card.data.rank = CardEnums.Rank.WILD
 
 
 func _on_cards_drawn_rpc(card_ids: Array) -> void:
@@ -477,10 +600,11 @@ func _match_state() -> MatchRuntimeState:
 
 
 func _is_active_turn(uid: String, match_state: MatchRuntimeState) -> bool:
+	if match_state == null or match_state.active_uid != uid:
+		return false
 	return (
-		match_state != null
-		and match_state.phase == MatchPhase.Phase.TURN_PLAY
-		and match_state.active_uid == uid
+		match_state.phase == MatchPhase.Phase.TURN_PLAY
+		or match_state.phase == MatchPhase.Phase.END_GAME_PLAY
 	)
 
 
@@ -497,3 +621,67 @@ func _uid_for_peer(peer_id: int) -> String:
 	if idx >= members.size():
 		return ""
 	return members[idx].uid
+
+
+func _trace_play(stage: String, details: String) -> void:
+	print(
+		"[MatchPlayTrace][%s][%.3f] %s" % [
+			stage,
+			Time.get_unix_time_from_system(),
+			details,
+		]
+	)
+
+
+func _match_context() -> String:
+	var match_state := _match_state()
+	var wild_name := (
+		str(CardEnums.Rank.find_key(state.deck.wild_rank))
+		if state != null and state.deck != null
+		else "NONE"
+	)
+	if match_state == null:
+		return "active_uid= phase=NO_MATCH_STATE wild_rank=%s" % wild_name
+	return "active_uid=%s phase=%s wild_rank=%s" % [
+		match_state.active_uid,
+		MatchPhase.Phase.find_key(match_state.phase),
+		wild_name,
+	]
+
+
+func _card_ids(cards: Array[Card]) -> Array[String]:
+	var ids: Array[String] = []
+	for card in cards:
+		if card != null and card.instance_id != null:
+			ids.append(card.instance_id.value)
+	return ids
+
+
+func _describe_card_ids(card_ids: Array) -> String:
+	var cards: Array[Card] = []
+	var unknown: Array[String] = []
+	for raw_id in card_ids:
+		var id := str(raw_id)
+		var card := state.get_card_by_instance_id(id) if state != null else null
+		if card != null:
+			cards.append(card)
+		else:
+			unknown.append(id)
+	return "%s unknown=%s" % [
+		_describe_cards(cards),
+		JSON.stringify(unknown),
+	]
+
+
+func _describe_cards(cards: Array[Card]) -> String:
+	var descriptions: Array[Dictionary] = []
+	for card in cards:
+		if card == null:
+			continue
+		descriptions.append({
+			"id": card.instance_id.value if card.instance_id != null else "",
+			"card_id": card.data.cardId if card.data != null else "",
+			"rank": CardEnums.Rank.find_key(card.rank),
+			"suit": CardEnums.Suit.find_key(card.suit),
+		})
+	return JSON.stringify(descriptions)

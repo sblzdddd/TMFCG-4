@@ -32,10 +32,13 @@
 [ext_resource type="Script" uid="uid://ba3x5y6plieyc" path="res://src/ui/match/sync/card_array_coordinator.gd" id="44_coord"]
 [ext_resource type="Script" uid="uid://c8de1gcf305m1" path="res://src/ui/match/interaction/card_draw_preview_controller.gd" id="45_prev"]
 [ext_resource type="Script" uid="uid://dv55yk8swonv2" path="res://src/ui/match/debug/room_debug_bootstrap.gd" id="46_dbgboot"]
+[ext_resource type="Script" uid="uid://chstu5tkfs1aq" path="res://src/ui/match/sync/deck_visible_list_popup.gd" id="47_decklist"]
 [ext_resource type="Script" uid="uid://bpqdu1rt2i7o8" path="res://src/ui/match/sync/deck_visual_stack.gd" id="47_deckstack"]
 [ext_resource type="Script" uid="uid://d1ydpgpncaauo" path="res://src/ui/match/interaction/play_decision_controller.gd" id="48_playdec"]
 [ext_resource type="Script" uid="uid://bcfuphgjdhb8x" path="res://src/ui/match/seats/seat_dim_controller.gd" id="49_seatdim"]
 [ext_resource type="Script" uid="uid://bjkot3dx418gc" path="res://src/ui/match/interaction/turn_countdown_controller.gd" id="50_turncd"]
+[ext_resource type="Script" uid="uid://dqgkldcnlcqem" path="res://src/ui/room/lobby/room_start_button.gd" id="51_start"]
+[ext_resource type="Script" uid="uid://l4opkmb4hix" path="res://src/ui/match/broadcast/match_broadcast_controller.gd" id="52_bcast"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ehy"]
 content_margin_left = 8.0
@@ -141,6 +144,132 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu04v"]
+content_margin_left = 349.0
+content_margin_top = 312.0
+content_margin_right = 295.0
+content_margin_bottom = 235.0
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+shadow_color = Color(0, 0, 0, 0.21568628)
+shadow_size = 10
+shadow_offset = Vector2(0, 4.16)
+
+[sub_resource type="Animation" id="Animation_pydsn"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BroadcastLayout:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BroadcastLayout:offset_transform_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BroadcastLayout:offset_transform_position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_8j08v"]
+resource_name = "broadcast_in"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(1, 0, 0.8102177, 0, -0.7584388, 0, -0.2, 0.007853119, 0, 0),
+"times": PackedFloat32Array(0, 0.4)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:anchor_right")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.432, 0, 0, -0.368, 0, 0.433, 0),
+"times": PackedFloat32Array(0.5, 0.70000005, 1.2)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BroadcastLayout:modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 3, 0, 3),
+"points": PackedFloat32Array(0, -0.25, 0, 0, 0.4982419, 1, -0.26666665, -0.00457108, 0.26666665, 0.00457108, 1, -0.26666665, -0.00457108, 0.23333329, -0.022669137, 0, 0, 0.46583438, 0, -0.46583438),
+"times": PackedFloat32Array(0, 0.5, 0.70000005, 1)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BroadcastLayout:offset_transform_position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(3, 3),
+"points": PackedFloat32Array(101.20805, -0.6, 3.0642471, 0.6, -3.0642471, -114.697044, -0.4333334, 6.6253967, 0.4333334, -6.6253967),
+"times": PackedFloat32Array(0, 1.2)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pydsn"]
+_data = {
+&"RESET": SubResource("Animation_pydsn"),
+&"broadcast_in": SubResource("Animation_8j08v")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_8j08v"]
+font_size = 39
+font_color = Color(1, 0.8091763, 0.8438715, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_status_idle"]
 bg_color = Color(0.08, 0.08, 0.08, 0.82)
 border_width_left = 2
@@ -177,7 +306,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j08v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgjwb"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -225,7 +354,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pydsn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jq8a"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -237,7 +366,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om3g"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmiy"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -523,6 +652,13 @@ layout_mode = 2
 size_flags_vertical = 3
 script = ExtResource("2_members")
 
+[node name="StartGameButton" type="Button" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/MambersPanel/MembersZone" unique_id=1081213752]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+text = "开始游戏"
+script = ExtResource("51_start")
+
 [node name="MembersTitle" type="Label" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/MambersPanel/MembersZone" unique_id=1670257657]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 30)
@@ -706,6 +842,47 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Draw Right"
 
+[node name="BroadcastPanel" type="Panel" parent="MatchOverlay" unique_id=235814532]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pu04v")
+script = ExtResource("52_bcast")
+
+[node name="BroadcastAnimation" type="AnimationPlayer" parent="MatchOverlay/BroadcastPanel" unique_id=534328829]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_pydsn")
+
+[node name="BroadcastLayout" type="VBoxContainer" parent="MatchOverlay/BroadcastPanel" unique_id=370648762]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BroadcastTitle" type="Label" parent="MatchOverlay/BroadcastPanel/BroadcastLayout" unique_id=1394360661]
+unique_name_in_owner = true
+layout_mode = 2
+label_settings = SubResource("LabelSettings_8j08v")
+horizontal_alignment = 1
+
+[node name="BroadcastSubtitle" type="Label" parent="MatchOverlay/BroadcastPanel/BroadcastLayout" unique_id=656508202]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
 [node name="CardsLayer" type="CanvasLayer" parent="." unique_id=487420485]
 
 [node name="CardArrayCoordinator" type="Node" parent="CardsLayer" unique_id=487420486]
@@ -784,16 +961,69 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(-50, 0)
 alignment = 2
 
-[node name="Deck" type="Container" parent="CardsLayer/CardsRoot/Center/DeckRoot" unique_id=910640760]
-unique_name_in_owner = true
+[node name="DeckPile" type="Control" parent="CardsLayer/CardsRoot/Center/DeckRoot" unique_id=910640759]
+custom_minimum_size = Vector2(180, 140)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
 offset_transform_enabled = true
+offset_transform_position = Vector2(146.25, 0)
+mouse_filter = 2
+
+[node name="Deck" type="Container" parent="CardsLayer/CardsRoot/Center/DeckRoot/DeckPile" unique_id=910640760]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
 offset_transform_position = Vector2(0, 8.645)
 offset_transform_scale = Vector2(0.7, 0.7)
+mouse_filter = 2
 script = ExtResource("43_carr")
 stack = true
+
+[node name="DeckHoverHit" type="Control" parent="CardsLayer/CardsRoot/Center/DeckRoot/DeckPile" unique_id=910640761]
+unique_name_in_owner = true
+z_index = 5
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DeckVisibleList" type="PanelContainer" parent="CardsLayer/CardsRoot/Center/DeckRoot/DeckPile" unique_id=910640762]
+unique_name_in_owner = true
+visible = false
+z_index = 20
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 12.0
+offset_right = 252.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k7ehy")
+script = ExtResource("47_decklist")
+
+[node name="Margin" type="MarginContainer" parent="CardsLayer/CardsRoot/Center/DeckRoot/DeckPile/DeckVisibleList" unique_id=910640763]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 6
+
+[node name="ListText" type="RichTextLabel" parent="CardsLayer/CardsRoot/Center/DeckRoot/DeckPile/DeckVisibleList/Margin" unique_id=910640764]
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
 
 [node name="BottomGraveyard" type="Container" parent="CardsLayer/CardsRoot/Center" unique_id=2227470]
 unique_name_in_owner = true
@@ -879,10 +1109,9 @@ theme_override_constants/separation = 6
 
 [node name="LeftPlayerCard" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/LeftPlayer/LeftPlayerLayout" unique_id=1565165977 instance=ExtResource("18_gc8rq")]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_8j08v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_sgjwb")
 entry = SubResource("Resource_h0fvn")
 
 [node name="LeftPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/LeftPlayer/LeftPlayerLayout" unique_id=1609797680]
@@ -931,10 +1160,9 @@ theme_override_constants/separation = 6
 
 [node name="TopPlayerCard" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/TopPlayer/TopPlayerFrame/TopPlayerLayout" unique_id=1787927921 instance=ExtResource("18_gc8rq")]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pydsn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jq8a")
 entry = SubResource("Resource_h0fvn")
 
 [node name="TopPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/TopPlayer/TopPlayerFrame/TopPlayerLayout" unique_id=1196626928]
@@ -977,10 +1205,9 @@ theme_override_constants/separation = 6
 
 [node name="RightPlayerCard" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/RightPlayer/RightPlayerLayout" unique_id=62401481 instance=ExtResource("18_gc8rq")]
 unique_name_in_owner = true
-clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_7om3g")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkmiy")
 entry = SubResource("Resource_h0fvn")
 
 [node name="RightPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/RightPlayer/RightPlayerLayout" unique_id=161492888]

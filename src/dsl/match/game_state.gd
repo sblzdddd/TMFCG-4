@@ -95,6 +95,13 @@ func all_card_holders() -> Array[CardHolder]:
 	return holders
 
 
+func sort_non_deck_holders() -> void:
+	var wild_rank := deck.wild_rank if deck != null else CardEnums.Rank.NONE
+	for holder in all_card_holders():
+		if holder != null and holder.kind != CardHolder.Kind.DECK:
+			holder.sort_by_rank(wild_rank)
+
+
 func get_holder(holder_id: String) -> CardHolder:
 	for holder in all_card_holders():
 		if holder.holder_id == holder_id:
@@ -253,6 +260,7 @@ func to_dict() -> Dictionary:
 		"players": player_dicts,
 		"currentPlayerIndex": current_player_index,
 		"currentPhase": MatchPhase.Phase.find_key(current_phase),
+		"currentTrickCombo": CardCombinationSerde.to_dict(current_trick_combo),
 		"trickWinnerId": trick_winner_id.value if trick_winner_id != null else "",
 		"passesCount": passes_count,
 		"placements": placement_values,
@@ -277,6 +285,7 @@ func to_dict_for_viewer(viewer_uid: String) -> Dictionary:
 		"players": player_dicts,
 		"currentPlayerIndex": current_player_index,
 		"currentPhase": MatchPhase.Phase.find_key(current_phase),
+		"currentTrickCombo": CardCombinationSerde.to_dict(current_trick_combo),
 		"trickWinnerId": trick_winner_id.value if trick_winner_id != null else "",
 		"passesCount": passes_count,
 		"placements": placement_values,
@@ -311,18 +320,25 @@ static func from_dict(dict: Dictionary) -> GameState:
 
 	var deck_dict: Variant = dict.get("deck", {})
 	var graveyard_dict: Variant = dict.get("graveyard", {})
-	return GameState.new(
+	var combo_raw: Variant = dict.get("currentTrickCombo", {})
+	var combo: CardCombination = null
+	if combo_raw is Dictionary:
+		combo = CardCombinationSerde.from_dict(combo_raw as Dictionary)
+	var state := GameState.new(
 		Deck.from_dict(deck_dict if deck_dict is Dictionary else {}),
 		player_states,
 		int(dict.get("currentPlayerIndex", 0)),
 		_phase_from_name(str(dict.get("currentPhase", "INITIALIZATION"))),
-		null,
+		combo,
 		trick_winner,
 		int(dict.get("passesCount", 0)),
 		placement_ids,
 		Graveyard.from_dict(graveyard_dict if graveyard_dict is Dictionary else {}),
 		play_history_ids,
 	)
+	# Preserve the authoritative order in the snapshot. Hidden cards have no
+	# rank/suit on clients, so sorting them here would scramble visual indices.
+	return state
 
 
 func _to_string() -> String:

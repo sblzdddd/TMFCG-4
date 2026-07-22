@@ -229,6 +229,15 @@ func _on_play_requested(peer_id: int, card_ids: Array) -> void:
 	var runtime := runtime_for_peer(peer_id)
 	if runtime and runtime.match_card_controller:
 		runtime.match_card_controller.handle_play_request(peer_id, card_ids)
+		return
+	print(
+		"[MatchPlayTrace][server.route_failed][%.3f] reason=room_runtime_missing peer=%d ids=%s"
+		% [
+			Time.get_unix_time_from_system(),
+			peer_id,
+			JSON.stringify(card_ids),
+		]
+	)
 
 
 func _on_pass_requested(peer_id: int) -> void:
