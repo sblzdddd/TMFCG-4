@@ -1,6 +1,6 @@
 class_name TitleRoomCreate
 extends Node
-## Start panel: random match / create public / create private.
+## Start panel: random match / create public / create private (lobby only).
 
 
 @onready var random_match_button: Button = %RandomMatch
@@ -34,54 +34,48 @@ func _set_actions_enabled(enabled: bool) -> void:
 		max_players_edit.mouse_filter = mouse
 
 
+func _ensure_central() -> bool:
+	if NetworkModeService.is_central_connected():
+		return true
+	BusyBlocker.show_hint("正在连接服务器…")
+	return await NetworkModeService.ensure_central_async()
+
+
 func _on_random_match() -> void:
 	if not BusyBlocker.begin("正在搜索公开房间…"):
 		return
-	RoomDiscovery.start_listening()
-	var wait := NetConst.RANDOM_MATCH_WAIT_SEC
-	var elapsed := 0.0
-	while elapsed < wait:
-		var left := wait - elapsed
-		BusyBlocker.show_hint("正在搜索公开房间… %.1fs" % left)
-		await get_tree().create_timer(0.1).timeout
-		if not is_inside_tree():
-			return
-		elapsed += 0.1
-		if not BusyBlocker.is_busy():
-			return
+	if not await _ensure_central():
+		BusyBlocker.end("无法连接服务器")
+		return
+	await _random_match_online()
 
-	for entry: Dictionary in RoomDiscovery.get_rooms():
+
+func _random_match_online() -> void:
+	RoomSession.online_client.request_public_rooms()
+	var rooms: Array = await RoomSession.online_rooms_received
+	for entry in rooms:
+		if not entry is Dictionary:
+			continue
 		if (
 			int(entry.get("players", 0)) < int(entry.get("max", 4))
 			and int(entry.get("max", 4)) == _max_players()
 		):
 			BusyBlocker.show_hint("正在加入房间 %s…" % str(entry.get("code", "")))
-			var join_err := RoomSession.join_room(
-				str(entry.get("address", "")),
-				int(entry.get("port", NetConst.GAME_PORT)),
-			)
+			var join_err := RoomSession.join_room_code(str(entry.get("code", "")))
 			if join_err != OK:
 				BusyBlocker.end("加入失败: %s" % error_string(join_err))
 			return
-
 	BusyBlocker.show_hint("未找到房间，正在创建新房间…")
 	var create_err := RoomSession.create_room(true, _max_players())
 	if create_err != OK:
 		BusyBlocker.end("创建失败: %s" % error_string(create_err))
-		return
-	await get_tree().create_timer(0.2).timeout
-	if not is_inside_tree():
-		return
-	if (
-		BusyBlocker.is_busy()
-		and not LevelLoader.is_loading()
-		and RoomUtils.scene_path(get_tree()) == NetConst.TITLE_SCENE
-	):
-		BusyBlocker.end("未进入房间，请重试")
 
 
 func _on_create_public() -> void:
 	if not BusyBlocker.begin("正在创建公开房间…"):
+		return
+	if not await _ensure_central():
+		BusyBlocker.end("无法连接服务器")
 		return
 	var err := RoomSession.create_room(true, _max_players())
 	if err != OK:
@@ -90,6 +84,9 @@ func _on_create_public() -> void:
 
 func _on_create_private() -> void:
 	if not BusyBlocker.begin("正在创建私密房间…"):
+		return
+	if not await _ensure_central():
+		BusyBlocker.end("无法连接服务器")
 		return
 	var err := RoomSession.create_room(false, _max_players())
 	if err != OK:

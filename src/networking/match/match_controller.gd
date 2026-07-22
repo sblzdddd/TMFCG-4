@@ -11,7 +11,7 @@ const DEFAULT_TURN_COUNTDOWN_SEC := 15.0
 ## Extra host wait after client turn countdown before force-passing.
 const TURN_TIMEOUT_GRACE_SEC := 10.0
 
-var _session: RoomSessionNode
+var _session: Node
 var _rpc: MatchRpc
 var state: MatchRuntimeState = MatchRuntimeState.new()
 var _gap_token := 0
@@ -20,13 +20,18 @@ var _timeout_token := 0
 var _autoskip_armed_uid := ""
 
 
-func setup(session: RoomSessionNode) -> void:
+func setup(session: Node, shared_rpc: MatchRpc = null, connect_receive: bool = true) -> void:
 	_session = session
-	_rpc = MatchRpc.new()
-	_rpc.name = "MatchRpc"
-	add_child(_rpc)
-	_rpc.match_snapshot_received.connect(_on_match_snapshot)
-	session.room_changed.connect(_on_room_changed)
+	if shared_rpc != null:
+		_rpc = shared_rpc
+	else:
+		_rpc = MatchRpc.new()
+		_rpc.name = "MatchRpc"
+		add_child(_rpc)
+	if connect_receive and not _rpc.match_snapshot_received.is_connected(_on_match_snapshot):
+		_rpc.match_snapshot_received.connect(_on_match_snapshot)
+	if not session.room_changed.is_connected(_on_room_changed):
+		session.room_changed.connect(_on_room_changed)
 
 
 func clear() -> void:
@@ -86,6 +91,8 @@ func on_member_removed(uid: String) -> void:
 ## Advance turn. [param delay] > 0 clears active first so players can see the
 ## last play before the next seat lights up (debug Next Player uses 0).
 func advance_turn(delay: float = 0.0) -> void:
+	if _forward_host_command("advance_turn", {"delay": delay}):
+		return
 	if not _is_host():
 		return
 	if state.order.is_empty():
@@ -118,6 +125,8 @@ func advance_turn(delay: float = 0.0) -> void:
 
 
 func offset_active(offset: int = 1) -> void:
+	if _forward_host_command("offset_active", {"offset": offset}):
+		return
 	if not _is_host() or state.active_uid.is_empty():
 		return
 	state.order.move_player(state.active_uid, offset)
@@ -125,6 +134,8 @@ func offset_active(offset: int = 1) -> void:
 
 
 func reverse_order() -> void:
+	if _forward_host_command("reverse_order"):
+		return
 	if not _is_host():
 		return
 	state.order.reverse()
@@ -132,6 +143,8 @@ func reverse_order() -> void:
 
 
 func end_round() -> void:
+	if _forward_host_command("end_round"):
+		return
 	if not _is_host():
 		return
 	if state.order.is_empty():
@@ -167,7 +180,7 @@ func end_round() -> void:
 func _trick_winner_uid() -> String:
 	if _session == null or _session.match_card_controller == null:
 		return ""
-	var card_state := _session.match_card_controller.get_state()
+	var card_state := _session.match_card_controller.get_state() as GameState
 	if card_state == null or card_state.trick_winner_id == null:
 		return ""
 	return card_state.trick_winner_id.value
@@ -182,7 +195,9 @@ func _try_autoskip_active() -> void:
 		return
 	if _session == null or _session.match_card_controller == null:
 		return
-	var cards := _session.match_card_controller
+	var cards := _session.match_card_controller as MatchCardController
+	if cards == null:
+		return
 	if not cards.is_hand_empty(state.active_uid):
 		return
 	if cards.all_hands_empty():
@@ -195,6 +210,8 @@ func _try_autoskip_active() -> void:
 
 
 func end_game_play() -> void:
+	if _forward_host_command("end_game_play"):
+		return
 	if not _is_host():
 		return
 	_gap_token += 1
@@ -204,6 +221,37 @@ func end_game_play() -> void:
 
 func broadcast_state() -> void:
 	_broadcast()
+
+
+func execute_host_command(command: String, args: Dictionary = {}) -> void:
+	match command:
+		"advance_turn":
+			advance_turn(float(args.get("delay", 0.0)))
+		"offset_active":
+			offset_active(int(args.get("offset", 1)))
+		"reverse_order":
+			reverse_order()
+		"end_round":
+			end_round()
+		"end_game_play":
+			end_game_play()
+		"draw_for_all_soft":
+			if _session != null and _session.match_card_controller != null:
+				_session.match_card_controller.draw_for_all_soft(int(args.get("target", 5)))
+		"draw_to_player":
+			if _session != null and _session.match_card_controller != null:
+				_session.match_card_controller.draw_to_player(
+					str(args.get("uid", "")),
+					int(args.get("count", 1)),
+				)
+
+
+func _forward_host_command(command: String, args: Dictionary = {}) -> bool:
+	if ConnectionManager.is_server():
+		return false
+	if _session != null and _session.is_local_host() and _rpc != null:
+		_rpc.send_host_command(command, args)
+	return true
 
 
 func _on_room_changed(room: RoomData) -> void:
@@ -247,7 +295,10 @@ func _broadcast() -> void:
 		_session.match_card_controller.sync_match_runtime(state.active_uid, state.phase)
 	_emit_changed()
 	if _is_host() and _rpc != null:
-		_rpc.broadcast(state.to_dict())
+		var peers: Array = []
+		if _session != null and _session.has_method("get_member_peer_ids"):
+			peers = _session.get_member_peer_ids()
+		_rpc.broadcast(state.to_dict(), peers)
 	if not _is_host():
 		return
 	if state.phase != MatchPhase.Phase.TURN_PLAY or state.active_uid.is_empty():
@@ -283,4 +334,4 @@ func _emit_changed() -> void:
 
 
 func _is_host() -> bool:
-	return _session != null and _session.is_local_host()
+	return ConnectionManager.is_server()

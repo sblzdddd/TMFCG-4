@@ -4,23 +4,32 @@ extends Node
 
 const SOFT_HAND_TARGET := 5
 
-var _session: RoomSessionNode
+var _session: Node
 var _rpc: MatchCardRpc
 var state: GameState = null
 ## Active uid whose temp GY was already flushed this turn (avoid re-flush).
 var _flushed_turn_uid := ""
 
 
-func setup(session: RoomSessionNode) -> void:
+func setup(session: Node, shared_rpc: MatchCardRpc = null, connect_receive: bool = true) -> void:
 	_session = session
-	_rpc = MatchCardRpc.new()
-	_rpc.name = "MatchCardRpc"
-	add_child(_rpc)
-	_rpc.card_snapshot_received.connect(_on_card_snapshot)
-	_rpc.cards_drawn_received.connect(_on_cards_drawn_rpc)
-	_rpc.play_requested.connect(handle_play_request)
-	_rpc.pass_requested.connect(handle_pass_request)
-	session.room_changed.connect(_on_room_changed)
+	if shared_rpc != null:
+		_rpc = shared_rpc
+	else:
+		_rpc = MatchCardRpc.new()
+		_rpc.name = "MatchCardRpc"
+		add_child(_rpc)
+	if connect_receive:
+		if not _rpc.card_snapshot_received.is_connected(_on_card_snapshot):
+			_rpc.card_snapshot_received.connect(_on_card_snapshot)
+		if not _rpc.cards_drawn_received.is_connected(_on_cards_drawn_rpc):
+			_rpc.cards_drawn_received.connect(_on_cards_drawn_rpc)
+		if not _rpc.play_requested.is_connected(handle_play_request):
+			_rpc.play_requested.connect(handle_play_request)
+		if not _rpc.pass_requested.is_connected(handle_pass_request):
+			_rpc.pass_requested.connect(handle_pass_request)
+	if not session.room_changed.is_connected(_on_room_changed):
+		session.room_changed.connect(_on_room_changed)
 
 
 func send_play_request(card_ids: Array) -> void:
@@ -207,6 +216,10 @@ func end_round() -> void:
 
 ## Draws [param count] cards from deck into [param uid]'s hand (mark_hidden).
 func draw_to_player(uid: String, count: int = 1) -> Array[Card]:
+	if not ConnectionManager.is_server():
+		if _session != null and _session.is_local_host() and RoomSession.match_rpc != null:
+			RoomSession.match_rpc.send_host_command("draw_to_player", {"uid": uid, "count": count})
+		return []
 	if not _is_host() or uid.is_empty() or count <= 0:
 		return []
 	_ensure_initialized()
@@ -232,6 +245,10 @@ func draw_to_player(uid: String, count: int = 1) -> Array[Card]:
 ## Notifies every member (empty list when they drew nothing) so all clients show
 ## the round-end preview. Returns true when the soft-fill ran (preview should hold).
 func draw_for_all_soft(target: int = SOFT_HAND_TARGET) -> bool:
+	if not ConnectionManager.is_server():
+		if _session != null and _session.is_local_host() and RoomSession.match_rpc != null:
+			RoomSession.match_rpc.send_host_command("draw_for_all_soft", {"target": target})
+		return false
 	if not _is_host():
 		return false
 	_ensure_initialized()
@@ -315,7 +332,7 @@ func _ensure_initialized() -> void:
 		match_state = _session.match_controller.get_state()
 	if match_state == null or match_state.order.is_empty():
 		return
-	var deck_data := _session.get_resolved_deck()
+	var deck_data := _session.get_resolved_deck() as DeckData
 	var deck := Deck.from_deck_data(deck_data)
 	var players: Array[PlayerState] = []
 	for uid in match_state.order.uids:
@@ -329,7 +346,7 @@ func _ensure_initialized() -> void:
 func _sync_players_with_order() -> void:
 	if state == null or _session.match_controller == null:
 		return
-	var match_state := _session.match_controller.get_state()
+	var match_state := _session.match_controller.get_state() as MatchRuntimeState
 	if match_state == null:
 		return
 	var existing: Dictionary = {}
@@ -359,15 +376,13 @@ func _notify_drawn(uid: String, moved: Array[Card]) -> void:
 	var ids: Array[String] = []
 	for card in moved:
 		ids.append(card.instance_id.value)
-	# Local host recipient.
-	if PlayerDataStore.data != null and PlayerDataStore.data.uid == uid:
+	if _is_local_viewer(uid):
 		_session.cards_drawn.emit(ids)
 		return
-	# Remote recipient.
 	if _session.current_room == null or _rpc == null:
 		return
 	for member in _session.current_room.get_members():
-		if member.uid == uid and member.peer_id > 1:
+		if member.uid == uid and member.peer_id > 0 and member.peer_id != multiplayer.get_unique_id():
 			_rpc.send_cards_drawn_to(member.peer_id, ids)
 			return
 
@@ -381,13 +396,15 @@ func _broadcast() -> void:
 	for member in _session.current_room.get_members():
 		if member.peer_id <= 0:
 			continue
-		# Host applies local viewer projection via _emit_changed (full local state for host).
-		# Peers get filtered snapshots. Host peer_id is typically 1.
-		if member.uid == (
-			PlayerDataStore.data.uid if PlayerDataStore.data != null else ""
-		):
+		if _is_local_viewer(member.uid):
 			continue
 		_rpc.send_snapshot_to(member.peer_id, state.to_dict_for_viewer(member.uid))
+
+
+func _is_local_viewer(uid: String) -> bool:
+	if NetEnv.is_dedicated_server():
+		return false
+	return PlayerDataStore.data != null and PlayerDataStore.data.uid == uid
 
 
 func _emit_changed() -> void:
@@ -408,7 +425,7 @@ func _on_card_snapshot(snapshot: Dictionary) -> void:
 func _hydrate_card_data_from_deck(game_state: GameState) -> void:
 	if game_state == null or _session == null:
 		return
-	var deck_data := _session.get_resolved_deck()
+	var deck_data := _session.get_resolved_deck() as DeckData
 	if deck_data == null:
 		return
 	var by_id: Dictionary = {}
@@ -450,7 +467,7 @@ func _on_room_changed(room: RoomData) -> void:
 
 
 func _is_host() -> bool:
-	return _session != null and _session.is_local_host()
+	return ConnectionManager.is_server()
 
 
 func _match_state() -> MatchRuntimeState:
@@ -470,10 +487,13 @@ func _is_active_turn(uid: String, match_state: MatchRuntimeState) -> bool:
 func _uid_for_peer(peer_id: int) -> String:
 	if _session == null or _session.current_room == null:
 		return ""
-	var idx := _session.current_room.find_member_peer(peer_id)
+	var room := _session.current_room as RoomData
+	if room == null:
+		return ""
+	var idx := room.find_member_peer(peer_id)
 	if idx < 0:
 		return ""
-	var members := _session.current_room.get_members()
+	var members := room.get_members()
 	if idx >= members.size():
 		return ""
 	return members[idx].uid

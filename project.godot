@@ -38,6 +38,9 @@ UiScale="*uid://dhhgqoc7dbfmg"
 RoomDiscovery="*res://src/networking/room/room_discovery.gd"
 RoomSession="*res://src/networking/room/room_session.gd"
 ChatService="*res://src/networking/chat/chat_service.gd"
+SettingsDataStore="*res://src/data_store/settings_data_store.gd"
+NetworkModeService="*res://src/networking/core/network_mode_service.gd"
+DedicatedServerBootstrap="*res://src/networking/server/dedicated_server_bootstrap.gd"
 
 [dialogic]
 

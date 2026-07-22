@@ -310,7 +310,7 @@ layout_mode = 2
 [node name="Label2" type="Label" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=54054179]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-text = "从IP加入"
+text = "从房间代码加入"
 label_settings = ExtResource("5_j0sst")
 horizontal_alignment = 1
 
@@ -321,20 +321,13 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-label_text = "IP"
-
-[node name="PortEdit" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout/JoinByIP" unique_id=2083342564 instance=ExtResource("3_alfva")]
-unique_name_in_owner = true
-layout_mode = 2
-text = "13637"
-max_length = 5
-label_text = "端口"
+label_text = "房间代码"
 
 [node name="ConnectIp" type="Button" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=35231487]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-text = "连接"
+text = "加入"
 
 [node name="Control2" type="Control" parent="MainContainer/LeftPanel/JoinPanel/JoinPage/JoinRoot/JoinLayout" unique_id=1993738512]
 custom_minimum_size = Vector2(0, 20)

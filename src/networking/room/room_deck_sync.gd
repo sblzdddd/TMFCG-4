@@ -6,7 +6,7 @@ signal deck_ready(deck: DeckData)
 
 const MAX_DECK_RESEND := 2
 
-var _session: RoomSessionNode
+var _session: Node
 var _rpc: RoomDeckRpc
 
 ## Host-local path used to serve non-builtin .tres bytes.
@@ -18,14 +18,21 @@ var _resend_attempts := 0
 var _resolve_token := 0
 
 
-func setup(session: RoomSessionNode) -> void:
+func setup(session: Node, shared_rpc: RoomDeckRpc = null, connect_receive: bool = true) -> void:
 	_session = session
-	_rpc = RoomDeckRpc.new()
-	_rpc.name = "RoomDeckRpc"
-	add_child(_rpc)
-	_rpc.deck_tres_requested.connect(_on_deck_tres_requested)
-	_rpc.deck_tres_delivered.connect(_on_deck_tres_delivered)
-	session.room_changed.connect(_on_room_changed)
+	if shared_rpc != null:
+		_rpc = shared_rpc
+	else:
+		_rpc = RoomDeckRpc.new()
+		_rpc.name = "RoomDeckRpc"
+		add_child(_rpc)
+	if connect_receive:
+		if not _rpc.deck_tres_requested.is_connected(_on_deck_tres_requested):
+			_rpc.deck_tres_requested.connect(_on_deck_tres_requested)
+		if not _rpc.deck_tres_delivered.is_connected(_on_deck_tres_delivered):
+			_rpc.deck_tres_delivered.connect(_on_deck_tres_delivered)
+	if not session.room_changed.is_connected(_on_room_changed):
+		session.room_changed.connect(_on_room_changed)
 
 
 func clear() -> void:
@@ -38,7 +45,9 @@ func get_resolved_deck() -> DeckData:
 
 
 func set_deck_from_path(path: String) -> void:
-	if _session.current_room == null or not _session.is_local_host():
+	if _session.current_room == null:
+		return
+	if not _session.is_local_host():
 		return
 	if path.is_empty():
 		return
@@ -46,13 +55,37 @@ func set_deck_from_path(path: String) -> void:
 	if profile.id.is_empty() and profile.name.is_empty() and profile.path.is_empty():
 		push_warning("Cannot apply room deck: failed to load %s" % path)
 		return
+	if ConnectionManager.is_server():
+		_apply_deck_profile(profile, path)
+		return
+	# Online logical host: push profile to dedicated server (builtin paths only for now).
+	_rpc.send_set_deck(profile.to_dict())
+
+
+func apply_deck_profile_from_peer(peer_id: int, profile_dict: Dictionary) -> void:
+	if not ConnectionManager.is_server() or _session.current_room == null:
+		return
+	if _session.has_method("_is_host_peer"):
+		pass
+	var room: RoomData = _session.current_room
+	var idx := room.find_member_peer(peer_id)
+	if idx < 0:
+		return
+	var uid := str((room.members[idx] as Dictionary).get("uid", ""))
+	if uid != room.host_uid:
+		return
+	var profile := RoomDeckProfile.from_dict(profile_dict)
+	_apply_deck_profile(profile, profile.path if profile.builtin else "")
+
+
+func _apply_deck_profile(profile: RoomDeckProfile, source_path: String) -> void:
 	_session.current_room.deck = profile
-	host_source_path = path
+	host_source_path = source_path
 	_session.broadcast_and_advertise()
 
 
 func bind_host_default_source() -> void:
-	var room := _session.current_room
+	var room: RoomData = _session.current_room
 	if room == null or room.deck == null:
 		return
 	if room.deck.builtin and not room.deck.path.is_empty():
@@ -67,12 +100,12 @@ func _on_room_changed(room: RoomData) -> void:
 
 
 func resolve() -> void:
-	var room := _session.current_room
+	var room: RoomData = _session.current_room
 	if room == null or room.deck == null:
 		_clear_resolved()
 		return
 
-	var profile := room.deck
+	var profile: RoomDeckProfile = room.deck
 	_resolve_token += 1
 	var token := _resolve_token
 
@@ -106,9 +139,13 @@ func resolve() -> void:
 
 
 func _on_deck_tres_requested(peer_id: int) -> void:
+	handle_deck_tres_request(peer_id)
+
+
+func handle_deck_tres_request(peer_id: int) -> void:
 	if not ConnectionManager.is_server() or _session.current_room == null:
 		return
-	var profile := _session.current_room.deck
+	var profile: RoomDeckProfile = _session.current_room.deck
 	if profile == null or profile.builtin:
 		return
 	if host_source_path.is_empty():
@@ -125,10 +162,10 @@ func _on_deck_tres_requested(peer_id: int) -> void:
 
 
 func _on_deck_tres_delivered(bytes: PackedByteArray, checksum: String) -> void:
-	var room := _session.current_room
+	var room: RoomData = _session.current_room
 	if room == null or room.deck == null or room.deck.builtin:
 		return
-	var profile := room.deck
+	var profile: RoomDeckProfile = room.deck
 	if not checksum.is_empty() and not profile.checksum.is_empty() and checksum != profile.checksum:
 		_request_resend("checksum mismatch")
 		return

@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bof4aytsu3gon" path="res://assets/textures/icons/home/RandomNumberGenerator.svg" id="5_rand"]
 [ext_resource type="Script" uid="uid://dinseui6fqjrc" path="res://src/ui/home/user_profile_editor.gd" id="6_profile"]
 [ext_resource type="Script" uid="uid://ba70keabkuapd" path="res://src/ui/home/avatar_picker_dialog.gd" id="7_picker"]
+[ext_resource type="Script" path="res://src/ui/home/network_settings_editor.gd" id="7_net"]
 [ext_resource type="Texture2D" uid="uid://q5pt208fk80t" path="res://assets/textures/avatars/00069.png" id="8_njoky"]
 [ext_resource type="Texture2D" uid="uid://uqlgh1c5gwss" path="res://assets/textures/avatars/00068.png" id="9_2mlqi"]
 [ext_resource type="Texture2D" uid="uid://4mt30vtkshkx" path="res://assets/textures/avatars/00067.png" id="10_rbgjr"]
@@ -337,6 +338,40 @@ layout_mode = 2
 theme_override_constants/icon_max_width = 16
 text = "删除数据..."
 icon = ExtResource("102_rbgjr")
+
+[node name="NetworkTitle" type="Label" parent="."]
+layout_mode = 2
+text = "网络"
+label_settings = ExtResource("1_2mlqi")
+horizontal_alignment = 1
+
+[node name="NetworkSettings" type="GridContainer" parent="." node_paths=PackedStringArray("_address_edit", "_port_edit")]
+layout_mode = 2
+columns = 2
+script = ExtResource("7_net")
+_address_edit = NodePath("AddressEdit")
+_port_edit = NodePath("PortEdit")
+
+[node name="AddressLabel" type="Label" parent="NetworkSettings"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "服务器"
+label_settings = ExtResource("103_tjv8h")
+[node name="AddressEdit" parent="NetworkSettings" instance=ExtResource("1_line")]
+layout_mode = 2
+size_flags_horizontal = 3
+label_text = "地址"
+
+[node name="PortLabel" type="Label" parent="NetworkSettings"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "端口"
+label_settings = ExtResource("103_tjv8h")
+
+[node name="PortEdit" parent="NetworkSettings" instance=ExtResource("1_line")]
+layout_mode = 2
+size_flags_horizontal = 3
+label_text = "端口"
 
 [node name="Title2" type="Label" parent="." unique_id=178266633]
 layout_mode = 2

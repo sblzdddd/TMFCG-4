@@ -1,14 +1,6 @@
 class_name RoomUtils
 extends RefCounted
-## Shared room helpers for RoomSession / RoomDiscovery.
-
-static func local_lan_address() -> String:
-	for a in IP.get_local_addresses():
-		var s := str(a)
-		if s.begins_with("127.") or s.contains(":"):
-			continue
-		return s
-	return "127.0.0.1"
+## Shared room helpers for RoomSession.
 
 
 static func scene_path(tree: SceneTree) -> String:

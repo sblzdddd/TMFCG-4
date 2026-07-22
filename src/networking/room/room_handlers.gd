@@ -1,15 +1,15 @@
 class_name RoomHandlers
 extends Node
-## Host/client room event handlers used by RoomSession.
+## Host/client room event handlers used by RoomSession / ServerRoomRuntime.
 
-var _session: RoomSessionNode
+var _session: Node
 var _rpc: RoomRpc
 var _presence: RoomPresence
 
 
-func setup(session: RoomSessionNode, rpc: RoomRpc, presence: RoomPresence) -> void:
+func setup(session: Node, room_rpc: RoomRpc, presence: RoomPresence) -> void:
 	_session = session
-	_rpc = rpc
+	_rpc = room_rpc
 	_presence = presence
 
 
@@ -60,9 +60,28 @@ func on_leave_requested(peer_id: int) -> void:
 	_presence.mark_voluntary_leave(uid)
 	room.remove_member_uid(uid)
 	_rpc.send_leave_ack(peer_id)
-	_rpc.broadcast_member_left(nickname, peer_id)
+	var peers: Array = []
+	if _session.has_method("get_member_peer_ids"):
+		peers = _session.get_member_peer_ids()
+	if peers.is_empty():
+		_rpc.broadcast_member_left(nickname, peer_id)
+	else:
+		_rpc.broadcast_member_left_to(nickname, peers, peer_id)
 	_session.member_left.emit(nickname)
-	_session.broadcast_and_advertise()
+	if _session.has_method("on_member_fully_removed"):
+		_session.on_member_fully_removed(uid)
+	else:
+		_session.broadcast_and_advertise()
+
+
+func on_grace_expired(uid: String) -> void:
+	if _session.current_room == null:
+		return
+	_session.current_room.remove_member_uid(uid)
+	if _session.has_method("on_member_fully_removed"):
+		_session.on_member_fully_removed(uid)
+	else:
+		_session.broadcast_and_advertise()
 
 
 func on_peer_disconnected(peer_id: int) -> void:
@@ -80,18 +99,15 @@ func on_peer_disconnected(peer_id: int) -> void:
 	_session.broadcast_and_advertise()
 
 
-func on_grace_expired(uid: String) -> void:
-	if _session.current_room == null:
-		return
-	_session.current_room.remove_member_uid(uid)
-	_session.broadcast_and_advertise()
-
-
 func on_snapshot(snapshot: Dictionary) -> void:
 	if _session.is_leaving_voluntarily():
 		return
 	_session.current_room = RoomData.from_snapshot(snapshot)
-	_session.persist_last_room(_session.join_address, _session.join_port)
+	if SettingsDataStore.data != null:
+		_session.persist_last_room(
+			SettingsDataStore.data.server_address,
+			SettingsDataStore.data.server_port,
+		)
 	_session.room_changed.emit(_session.current_room)
 	_session.ensure_room_scene()
 
@@ -131,11 +147,18 @@ func sync_local_profile() -> void:
 		_rpc.send_profile_update(payload)
 
 
-func leave_client_after_flush() -> void:
-	# Deliver request_leave before closing the WebSocket peer.
+func leave_online_after_flush() -> void:
 	await get_tree().create_timer(0.12).timeout
-	if _session.current_room != null or ConnectionManager.is_connected_peer():
-		_session.teardown_local(true)
+	if _session.current_room != null:
+		_session.teardown_room_keep_connection(true)
+
+
+func on_kick_requested(peer_id: int, target_uid: String) -> void:
+	if not ConnectionManager.is_server() or _session.current_room == null:
+		return
+	if not _is_host_peer(peer_id):
+		return
+	kick_member(target_uid)
 
 
 func kick_member(uid: String) -> void:
@@ -151,10 +174,16 @@ func kick_member(uid: String) -> void:
 	var nickname := str(entry.get("nickname", "Player"))
 	_presence.cancel(uid)
 	_session.current_room.remove_member_uid(uid)
-	if peer_id > 1:
+	if peer_id > 0 and peer_id != multiplayer.get_unique_id():
 		_rpc.send_kick(peer_id)
 	_session.member_kicked.emit(nickname)
 	_session.broadcast_and_advertise()
+
+
+func apply_options_patch_from_peer(peer_id: int, patch: Dictionary) -> void:
+	if not _is_host_peer(peer_id):
+		return
+	apply_options_patch(patch)
 
 
 func apply_options_patch(patch: Dictionary) -> void:
@@ -170,3 +199,21 @@ func apply_options_patch(patch: Dictionary) -> void:
 	if patch.has("turn_countdown_sec"):
 		room.turn_countdown_sec = clampi(int(patch["turn_countdown_sec"]), 5, 300)
 	_session.broadcast_and_advertise()
+
+
+func is_host_peer(peer_id: int) -> bool:
+	return _is_host_peer(peer_id)
+
+
+func _is_host_peer(peer_id: int) -> bool:
+	var room: RoomData = _session.current_room
+	if room == null:
+		return false
+	# Local listen-server host is peer 1 and host_uid.
+	if peer_id == multiplayer.get_unique_id() and _session.is_local_host():
+		return true
+	var idx := room.find_member_peer(peer_id)
+	if idx < 0:
+		return false
+	return str((room.members[idx] as Dictionary).get("uid", "")) == room.host_uid
+

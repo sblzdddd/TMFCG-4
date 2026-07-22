@@ -4,6 +4,7 @@ extends Node
 
 signal deck_tres_requested(peer_id: int)
 signal deck_tres_delivered(bytes: PackedByteArray, checksum: String)
+signal deck_set_requested(peer_id: int, profile: Dictionary)
 
 
 @rpc("any_peer", "reliable")
@@ -11,6 +12,13 @@ func request_deck_tres() -> void:
 	if not multiplayer.is_server():
 		return
 	deck_tres_requested.emit(multiplayer.get_remote_sender_id())
+
+
+@rpc("any_peer", "reliable")
+func submit_set_deck(profile: Dictionary) -> void:
+	if not multiplayer.is_server():
+		return
+	deck_set_requested.emit(multiplayer.get_remote_sender_id(), profile)
 
 
 @rpc("authority", "reliable", "call_remote")
@@ -23,6 +31,13 @@ func send_request_deck_tres() -> void:
 		deck_tres_requested.emit(1)
 	else:
 		request_deck_tres.rpc_id(1)
+
+
+func send_set_deck(profile: Dictionary) -> void:
+	if multiplayer.is_server():
+		deck_set_requested.emit(multiplayer.get_unique_id(), profile)
+	else:
+		submit_set_deck.rpc_id(1, profile)
 
 
 func send_deck_tres_to(peer_id: int, bytes: PackedByteArray, checksum: String) -> void:

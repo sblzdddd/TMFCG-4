@@ -33,17 +33,19 @@ func request_pass() -> void:
 
 
 func send_snapshot_to(peer_id: int, snapshot: Dictionary) -> void:
-	if not multiplayer.has_multiplayer_peer():
+	if not multiplayer.has_multiplayer_peer() or not multiplayer.is_server():
 		return
-	if multiplayer.is_server():
-		apply_card_snapshot.rpc_id(peer_id, snapshot)
+	if not _peer_connected(peer_id):
+		return
+	apply_card_snapshot.rpc_id(peer_id, snapshot)
 
 
 func send_cards_drawn_to(peer_id: int, card_ids: Array) -> void:
-	if not multiplayer.has_multiplayer_peer():
+	if not multiplayer.has_multiplayer_peer() or not multiplayer.is_server():
 		return
-	if multiplayer.is_server():
-		notify_cards_drawn.rpc_id(peer_id, card_ids)
+	if not _peer_connected(peer_id):
+		return
+	notify_cards_drawn.rpc_id(peer_id, card_ids)
 
 
 func send_play(card_ids: Array) -> void:
@@ -62,3 +64,12 @@ func send_pass() -> void:
 		pass_requested.emit(multiplayer.get_unique_id())
 	else:
 		request_pass.rpc_id(1)
+
+
+func _peer_connected(peer_id: int) -> bool:
+	if peer_id <= 0:
+		return false
+	for id in multiplayer.get_peers():
+		if int(id) == peer_id:
+			return true
+	return false

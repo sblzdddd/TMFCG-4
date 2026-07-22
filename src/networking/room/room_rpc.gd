@@ -6,7 +6,8 @@ signal handshake_received(peer_id: int, payload: Dictionary)
 signal leave_requested(peer_id: int)
 signal room_snapshot_received(snapshot: Dictionary)
 signal room_closed_received()
-signal options_patch_received(patch: Dictionary)
+signal options_patch_received(peer_id: int, patch: Dictionary)
+signal kick_requested(peer_id: int, target_uid: String)
 signal profile_update_received(payload: Dictionary)
 signal kick_received()
 signal leave_acked()
@@ -41,7 +42,14 @@ func notify_room_closed() -> void:
 func submit_options_patch(patch: Dictionary) -> void:
 	if not multiplayer.is_server():
 		return
-	options_patch_received.emit(patch)
+	options_patch_received.emit(multiplayer.get_remote_sender_id(), patch)
+
+
+@rpc("any_peer", "reliable")
+func request_kick(target_uid: String) -> void:
+	if not multiplayer.is_server():
+		return
+	kick_requested.emit(multiplayer.get_remote_sender_id(), target_uid)
 
 
 @rpc("authority", "reliable", "call_remote")
@@ -81,11 +89,19 @@ func send_profile_update(payload: Dictionary) -> void:
 		submit_profile_update.rpc_id(1, payload)
 
 
-func broadcast_snapshot(snapshot: Dictionary) -> void:
-	apply_room_snapshot.rpc(snapshot)
+func broadcast_snapshot(snapshot: Dictionary, peer_ids: Array = []) -> void:
+	if peer_ids.is_empty():
+		if NetEnv.is_dedicated_server():
+			return
+		apply_room_snapshot.rpc(snapshot)
+		return
+	for peer_id in peer_ids:
+		apply_room_snapshot.rpc_id(int(peer_id), snapshot)
 
 
 func send_snapshot_to(peer_id: int, snapshot: Dictionary) -> void:
+	if not _can_send_to(peer_id):
+		return
 	apply_room_snapshot.rpc_id(peer_id, snapshot)
 
 
@@ -94,22 +110,61 @@ func broadcast_room_closed() -> void:
 
 
 func send_kick(peer_id: int) -> void:
+	if not _can_send_to(peer_id):
+		return
 	notify_kicked.rpc_id(peer_id)
 
 
 func send_leave_ack(peer_id: int) -> void:
+	if not _can_send_to(peer_id):
+		return
 	ack_leave.rpc_id(peer_id)
 
 
 func broadcast_member_left(nickname: String, except_peer_id: int = 0) -> void:
+	## Broadcast to all multiplayer peers (local listen-server). Prefer
+	## [method broadcast_member_left_to] when scoping to one room.
+	if NetEnv.is_dedicated_server():
+		return
 	for peer_id in multiplayer.get_peers():
-		if peer_id == except_peer_id:
+		if int(peer_id) == except_peer_id:
 			continue
-		notify_member_left.rpc_id(peer_id, nickname)
+		notify_member_left.rpc_id(int(peer_id), nickname)
+
+
+func broadcast_member_left_to(
+	nickname: String,
+	peer_ids: Array,
+	except_peer_id: int = 0,
+) -> void:
+	for peer_id in peer_ids:
+		if int(peer_id) == except_peer_id:
+			continue
+		if not _can_send_to(int(peer_id)):
+			continue
+		notify_member_left.rpc_id(int(peer_id), nickname)
 
 
 func send_options_patch(patch: Dictionary) -> void:
 	if multiplayer.is_server():
-		options_patch_received.emit(patch)
+		options_patch_received.emit(multiplayer.get_unique_id(), patch)
 	else:
 		submit_options_patch.rpc_id(1, patch)
+
+
+func send_kick_request(target_uid: String) -> void:
+	if multiplayer.is_server():
+		kick_requested.emit(multiplayer.get_unique_id(), target_uid)
+	else:
+		request_kick.rpc_id(1, target_uid)
+
+
+func _can_send_to(peer_id: int) -> bool:
+	if peer_id <= 0 or not multiplayer.has_multiplayer_peer():
+		return false
+	if peer_id == multiplayer.get_unique_id():
+		return false
+	for id in multiplayer.get_peers():
+		if int(id) == peer_id:
+			return true
+	return false
