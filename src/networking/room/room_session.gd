@@ -54,7 +54,7 @@ func create_room(is_public: bool, max_players: int = 4, room_name: String = "") 
 	persist_last_room(RoomUtils.local_lan_address(), NetConst.GAME_PORT)
 	sync_advertise()
 	room_changed.emit(current_room)
-	ensure_combat_scene()
+	ensure_room_scene()
 	return OK
 
 
@@ -134,9 +134,9 @@ func persist_last_room(address: String, port: int) -> void:
 		PlayerDataStore.set_last_room(current_room.code, address, port)
 
 
-func ensure_combat_scene() -> void:
-	if RoomUtils.scene_path(get_tree()) != NetConst.COMBAT_SCENE:
-		LevelLoader.load_level(NetConst.COMBAT_SCENE)
+func ensure_room_scene() -> void:
+	if RoomUtils.scene_path(get_tree()) != NetConst.ROOM_SCENE:
+		LevelLoader.load_level(NetConst.ROOM_SCENE)
 
 
 func dissolve_room() -> void:

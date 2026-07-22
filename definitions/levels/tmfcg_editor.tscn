@@ -14,7 +14,7 @@
 [ext_resource type="LabelSettings" uid="uid://bbatydw07l4n3" path="res://definitions/fonts/font_card_character_name.tres" id="5_w2akv"]
 [ext_resource type="Script" uid="uid://djpjn5eoounqt" path="res://src/ui/common/viewport_fit_container.gd" id="6_vfit"]
 [ext_resource type="FontFile" uid="uid://dirgna8a4nfot" path="res://assets/fonts/jxzk.ttf" id="7_6nsyj"]
-[ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/gameplay/card_visual.gd" id="7_6v3qa"]
+[ext_resource type="Script" uid="uid://rkl6y4hq4rpb" path="res://src/ui/common/card_visual.gd" id="7_6v3qa"]
 [ext_resource type="Texture2D" uid="uid://j7ym07anlusi" path="res://addons/dialogic/Editor/Images/Resources/timeline.svg" id="7_mb6sx"]
 [ext_resource type="Texture2D" uid="uid://bff65e82555qr" path="res://addons/dialogic/Editor/Images/Pieces/close-icon.svg" id="9_0aqhm"]
 [ext_resource type="Texture2D" uid="uid://dx3o2ild56i76" path="res://addons/dialogic/Editor/Images/Pieces/closed-icon.svg" id="10_naion"]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ckcl3p16d80eq"]
 
-[ext_resource type="Script" uid="uid://c2678ou5mvgp5" path="res://src/ui/room/emoji_picker.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://c2678ou5mvgp5" path="res://src/ui/room/chat/emoji_picker.gd" id="1_script"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
 content_margin_left = 8.0

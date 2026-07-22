@@ -50,9 +50,9 @@ func _show_preview() -> void:
 		# Flip starts with the fly (same stagger), not after it.
 		_schedule_flip(view, delay)
 
-	var last_delay := maxf(0.0, float(cards.size() - 1) * CardArray.DEFAULT_STAGGER)
+	var last_delay := maxf(0.0, float(cards.size() - 1) * CardAnim.stagger_delay())
 	await get_tree().create_timer(
-		last_delay + CardArray.DEFAULT_ANIM + CardBase.FLIP_DURATION
+		last_delay + CardAnim.move_duration() + CardAnim.flip_duration()
 	).timeout
 	_awaiting_click = true
 
@@ -81,7 +81,7 @@ func _pending_cards() -> Array[Card]:
 	if RoomSession.match_card_controller != null:
 		state = RoomSession.match_card_controller.get_state()
 	if state == null:
-		state = _coordinator.get_last_state()
+		state = _coordinator.last_state
 	var cards: Array[Card] = []
 	if state == null or PlayerDataStore.data == null:
 		return cards
@@ -123,8 +123,8 @@ func _dismiss() -> void:
 			_preview_array.remove_card(id, false, 0.0)
 	_coordinator.release_deferred_hand_cards(poses)
 	_pending_ids.clear()
-	var tw := TweenUtils.init_tween(self, null)
-	tw.tween_property(self, "modulate:a", 0.0, CardArray.FADE_OUT_DUR)
+	var tw := CardAnim.init_fade_out_tween(self)
+	tw.tween_property(self, "modulate:a", 0.0, CardAnim.fade_out_duration())
 	await tw.finished
 	if not is_instance_valid(self):
 		return

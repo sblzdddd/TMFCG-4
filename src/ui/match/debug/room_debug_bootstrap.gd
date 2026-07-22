@@ -1,5 +1,5 @@
 extends Control
-## Editor-only: when combat.tscn is the entry scene (Run Current Scene / multi-instance),
+## Editor-only: when room.tscn is the entry scene (Run Current Scene / multi-instance),
 ## instance ≤1 hosts a private room; other instances join 127.0.0.1.
 
 const HOST_ADDR := "127.0.0.1"
@@ -22,7 +22,7 @@ func _ready() -> void:
 func _should_auto_bootstrap() -> bool:
 	if not OS.has_feature("editor"):
 		return false
-	# Only when combat is the launch scene, not after title → create/join.
+	# Only when room is the launch scene, not after title → create/join.
 	if LevelLoader.has_transitioned:
 		return false
 	if RoomSession.current_room != null or ConnectionManager.is_connected_peer():
@@ -44,7 +44,7 @@ func _bootstrap() -> void:
 		if err == OK:
 			return
 		push_warning(
-			"CombatDebugBootstrap: create_room failed (%s); joining localhost"
+			"RoomDebugBootstrap: create_room failed (%s); joining localhost"
 			% error_string(err)
 		)
 		if BusyBlocker.is_busy():
@@ -87,7 +87,7 @@ func _join_localhost() -> void:
 		await get_tree().create_timer(JOIN_RETRY_DELAY_SEC).timeout
 	if BusyBlocker.is_busy():
 		BusyBlocker.end("Debug: 加入 localhost 失败")
-	push_warning("CombatDebugBootstrap: failed to join localhost after retries")
+	push_warning("RoomDebugBootstrap: failed to join localhost after retries")
 
 
 func _apply_instance_window_layout() -> void:
@@ -98,7 +98,7 @@ func _apply_instance_window_layout() -> void:
 	var player_name := ""
 	if PlayerDataStore.data != null:
 		player_name = PlayerDataStore.data.name
-	get_window().title = "TMFCG Combat - Instance %d (%s)" % [instance_id, player_name]
+	get_window().title = "TMFCG Room - Instance %d (%s)" % [instance_id, player_name]
 	if instance_id == 2:
 		get_window().position = Vector2i(screen_size.x / 2, 40)
 	elif instance_id == 3:

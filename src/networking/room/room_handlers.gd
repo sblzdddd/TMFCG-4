@@ -93,7 +93,7 @@ func on_snapshot(snapshot: Dictionary) -> void:
 	_session.current_room = RoomData.from_snapshot(snapshot)
 	_session.persist_last_room(_session.join_address, _session.join_port)
 	_session.room_changed.emit(_session.current_room)
-	_session.ensure_combat_scene()
+	_session.ensure_room_scene()
 
 
 func apply_profile_update(payload: Dictionary) -> void:

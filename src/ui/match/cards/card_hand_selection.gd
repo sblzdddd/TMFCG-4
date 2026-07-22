@@ -94,7 +94,8 @@ func _unbind(id: String) -> void:
 
 func _enable(base: CardBase) -> void:
 	base.interactable = true
-	base.mouse_filter = Control.MOUSE_FILTER_STOP
+	# Hits go through CardVisual only (sized to the offset-transform visual).
+	base.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	if base.visual != null:
 		base.visual.mouse_filter = Control.MOUSE_FILTER_STOP
 

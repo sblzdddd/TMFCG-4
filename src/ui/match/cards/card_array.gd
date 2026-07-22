@@ -2,11 +2,6 @@ class_name CardArray
 extends Container
 ## Procedural H/V card list using CardArranger + CardPose.
 
-const DEFAULT_ANIM := 0.6
-const DEFAULT_STAGGER := 0.05
-const FADE_OUT_DUR := 0.45
-
-
 @export var horizontal: bool = true
 ## Step between card origins (gap only — not the visual card size).
 @export var slot_size: Vector2 = Vector2(54.0, 54.0)
@@ -52,7 +47,7 @@ func capture_pose(instance_id: String) -> Dictionary:
 
 
 func next_stagger_delay() -> float:
-	var d := float(_anim_index) * DEFAULT_STAGGER
+	var d := float(_anim_index) * CardAnim.stagger_delay()
 	_anim_index += 1
 	return d
 
@@ -77,7 +72,7 @@ func remove_card(instance_id: String, to_nowhere: bool = false, delay: float = 0
 	_flying.erase(instance_id)
 	# Bulk discards (round-end GY flush) must not serialize long fades.
 	if to_nowhere:
-		_fade_free(view, FADE_OUT_DUR)
+		_fade_free(view, CardAnim.fade_out_duration())
 		_layout(true)
 		return pose
 	if delay > 0.0:
@@ -110,7 +105,7 @@ func _fade_free(view: Control, duration: float) -> void:
 		view.top_level = true
 		view.global_position = gp
 		view.scale = fly_scale
-	var tw := view.create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+	var tw := CardAnim.init_fade_out_tween(view)
 	tw.tween_property(view, "modulate:a", 0.0, duration)
 	tw.tween_callback(
 		func() -> void:
@@ -199,11 +194,19 @@ func _animate_in(id: String, view: Control, from_pose: Dictionary) -> void:
 	await get_tree().process_frame
 	if not is_instance_valid(view) or not _views.has(id):
 		return
-	var dest := get_global_transform() * _slot_pos(id)
-	await CardPose.fly_to(view, dest, CardPose.settle_fly_scale(self))
+	var local := _slot_pos(id)
+	# Dest size for settled origin; start still uses captured source size from apply_start.
+	var saved := view.size
+	view.custom_minimum_size = slot_size
+	view.size = slot_size
+	var dest := CardPose.settled_global_position(self, view, local)
+	view.custom_minimum_size = saved
+	view.size = saved
+	view.global_position = from_pose.get("global_position", view.global_position)
+	await CardPose.fly_to(view, dest, CardPose.settle_fly_scale(self), slot_size)
 	if is_instance_valid(view) and _views.has(id):
 		_flying.erase(id)
-		CardPose.settle(view, self, _slot_pos(id))
+		CardPose.settle(view, self, local, slot_size)
 		queue_sort()
 
 
@@ -225,7 +228,9 @@ func _apply_positions(animate: bool) -> void:
 			continue
 		view.size = slot_size
 		if animate:
-			TweenUtils.init_tween(view, null).tween_property(view, "position", targets[i], DEFAULT_ANIM)
+			CardAnim.init_tween(view).tween_property(
+				view, "position", targets[i], CardAnim.move_duration()
+			)
 		else:
 			view.position = targets[i]
 

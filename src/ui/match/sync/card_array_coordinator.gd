@@ -15,7 +15,7 @@ extends Node
 
 var _seats := CardSeatMap.new()
 var _deferred_hand_ids: Dictionary = {} # String -> true
-var _last_state: GameState = null
+var last_state: GameState = null
 var _ui_locations: Dictionary = {} # instance_id -> holder_id
 var _sync_gen := 0
 var _apply_queued := false
@@ -41,9 +41,9 @@ func release_deferred_hand_cards(poses_by_id: Dictionary = {}) -> void:
 	for id in _deferred_hand_ids.keys():
 		ids.append(str(id))
 	_deferred_hand_ids.clear()
-	if _last_state == null or ids.is_empty():
+	if last_state == null or ids.is_empty():
 		return
-	var hand := _last_state.get_player_hand(PlayerId.from_string(_seats.local_uid()))
+	var hand := last_state.get_player_hand(PlayerId.from_string(_seats.local_uid()))
 	var target := _seats.array_for(_seats.local_uid())
 	if target == null:
 		target = _bottom_hand
@@ -56,18 +56,6 @@ func release_deferred_hand_cards(poses_by_id: Dictionary = {}) -> void:
 		_ui_locations[id] = hand.holder_id
 
 
-func get_bottom_hand() -> CardArray:
-	return _bottom_hand
-
-
-func get_bottom_active_hand() -> CardArray:
-	return _bottom_active_hand
-
-
-func get_last_state() -> GameState:
-	return _last_state
-
-
 func get_deck_draw_pose() -> Dictionary:
 	return _deck_stack.draw_pose()
 
@@ -77,29 +65,28 @@ func _on_card_state_changed(state: GameState) -> void:
 		_apply_queued = false
 		_clear_all_ui()
 		return
-	_last_state = state
+	last_state = state
 	_queue_apply()
 
 
 func _reapply() -> void:
-	if _last_state != null:
+	if last_state != null:
 		_queue_apply()
 
 
 func _queue_apply() -> void:
-	if _apply_queued:
-		return
+	if _apply_queued: return
 	_apply_queued = true
 	call_deferred("_flush_apply")
 
 
 func _flush_apply() -> void:
 	_apply_queued = false
-	if _last_state != null:
-		_apply_state(_last_state)
+	if last_state != null:
+		_apply_state(last_state)
 
 func _apply_state(state: GameState) -> void:
-	_last_state = state
+	last_state = state
 	_sync_gen += 1
 	var gen := _sync_gen
 	var desired := _build_desired(state)
@@ -182,7 +169,7 @@ func _apply_state(state: GameState) -> void:
 
 
 func _clear_all_ui() -> void:
-	_last_state = null
+	last_state = null
 	_ui_locations.clear()
 	_deferred_hand_ids.clear()
 	_deck_stack.clear()

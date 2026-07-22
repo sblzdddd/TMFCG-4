@@ -7,9 +7,7 @@ signal hovered(card: CardBase)
 signal unhovered(card: CardBase)
 signal pressed(card: CardBase)
 
-const FLIP_DURATION := 0.35
-const SELECT_DURATION := 0.2
-const SELECT_OFFSET_Y := -48.0
+const SELECT_OFFSET_Y := -24.0
 const CARD_SIZE := Vector2(300, 400)
 
 @export var visual: CardVisual
@@ -30,7 +28,7 @@ const CARD_SIZE := Vector2(300, 400)
 		selected = value
 		if is_node_ready():
 			_refresh_border()
-			_animate_select_offset()
+			_apply_select_offset(true)
 
 @export_range(-1.0, 1.0) var rotation_factor: float = 1.0:
 	set(value):
@@ -42,21 +40,22 @@ const CARD_SIZE := Vector2(300, 400)
 
 var _hovering := false
 var _pending_card: CardData = null
-var _has_pending_card := false
 var _flip_tween: Tween
 var _select_tween: Tween
 
 
 func _ready() -> void:
+	# Keep mouse hit area matched to the scaled/offset visual, not the full CARD_SIZE rect.
+	offset_transform_visual_only = false
 	visual.mouse_filter = (
 		Control.MOUSE_FILTER_STOP if interactable else Control.MOUSE_FILTER_IGNORE
 	)
 	visual.mouse_entered.connect(_on_visual_mouse_entered)
 	visual.mouse_exited.connect(_on_visual_mouse_exited)
 	visual.gui_input.connect(_on_visual_gui_input)
-	if _has_pending_card:
+	if _pending_card != null:
 		_apply_card_data(_pending_card)
-		_has_pending_card = false
+		_pending_card = null
 	_apply_rotation_factor()
 	_refresh_border()
 	_apply_select_offset(false)
@@ -67,8 +66,8 @@ func set_face_up(face_up: bool, animate: bool = true) -> void:
 	if not animate:
 		rotation_factor = target
 		return
-	_flip_tween = TweenUtils.init_tween(self, _flip_tween)
-	_flip_tween.tween_property(self, "rotation_factor", target, FLIP_DURATION)
+	_flip_tween = CardAnim.init_tween(self, _flip_tween)
+	_flip_tween.tween_property(self, "rotation_factor", target, CardAnim.flip_duration())
 
 
 func flip_to_face(delay: float = 0.0) -> void:
@@ -90,7 +89,6 @@ func set_card_data(card_data: CardData) -> void:
 		_apply_card_data(card_data)
 	else:
 		_pending_card = card_data
-		_has_pending_card = true
 
 
 ## Sizes CardBase to CardVisual and applies Control.scale for UI grids.
@@ -164,13 +162,10 @@ func _refresh_border() -> void:
 		visual.set_border_state(CardVisual.BorderState.NORMAL)
 
 
-func _animate_select_offset() -> void:
-	_apply_select_offset(true)
-
-
 func _apply_select_offset(animate: bool) -> void:
 	if not offset_transform_enabled:
 		offset_transform_enabled = true
+	offset_transform_visual_only = false
 	var target_y := SELECT_OFFSET_Y if selected else 0.0
 	if not animate or not is_inside_tree() or Engine.is_editor_hint():
 		if _select_tween != null:
@@ -178,5 +173,7 @@ func _apply_select_offset(animate: bool) -> void:
 			_select_tween = null
 		offset_transform_position.y = target_y
 		return
-	_select_tween = TweenUtils.init_tween(self, _select_tween)
-	_select_tween.tween_property(self, "offset_transform_position:y", target_y, SELECT_DURATION)
+	_select_tween = CardAnim.init_tween(self, _select_tween)
+	_select_tween.tween_property(
+		self, "offset_transform_position:y", target_y, CardAnim.select_duration()
+	)

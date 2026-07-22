@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://priy5ry3rwha"]
 
-[ext_resource type="Script" uid="uid://gtlluqtfvjkr" path="res://src/gameplay/title_main.gd" id="1_40mti"]
+[ext_resource type="Script" uid="uid://gtlluqtfvjkr" path="res://src/ui/home/title_main.gd" id="1_40mti"]
 [ext_resource type="Script" uid="uid://dy7lffwjdfn3d" path="res://src/ui/home/horizontal_tabs.gd" id="2_mfmb0"]
 [ext_resource type="PackedScene" uid="uid://b436pl2hgau5e" path="res://definitions/prefabs/pre_line_edit.tscn" id="3_alfva"]
 [ext_resource type="Texture2D" uid="uid://vqtdi6wg4s74" path="res://assets/textures/icons/skills/port_array.svg" id="4_2652g"]

@@ -1,22 +1,21 @@
 class_name SeatDimController
 extends Node
-## Dims seat chrome + card arrays by table-ring distance from the active seat.
+## Dims inactive seats' hands/graveyards (and the deck); active seat stays full bright.
 
 const TWEEN_DUR := 0.35
+const DIM_BRIGHTNESS := 0.72
+const FULL_BRIGHTNESS := 1.0
 
 @onready var _left_hand: Control = %LeftHand
 @onready var _left_gy: Control = %LeftGraveyard
-@onready var _left_seat: Control = %LeftPlayer
 @onready var _top_hand: Control = %TopHand
 @onready var _top_gy: Control = %TopGraveyard
-@onready var _top_card: Control = %TopPlayerCard
-@onready var _top_buff: Control = %TopPlayerBuff
+@onready var _deck: Control = %Deck
 @onready var _bottom_hand: Control = %BottomHand
 @onready var _bottom_active: Control = %BottomActiveHand
 @onready var _bottom_gy: Control = %BottomGraveyard
 @onready var _right_hand: Control = %RightHand
 @onready var _right_gy: Control = %RightGraveyard
-@onready var _right_seat: Control = %RightPlayer
 
 var _tweens: Dictionary = {} # Control -> Tween
 
@@ -41,18 +40,23 @@ func _refresh() -> void:
 		active = SeatLayout.seat_of(
 			PlayerDataStore.data.uid, match_state.active_uid, match_state.order
 		)
-	_dim_group(SeatLayout.Seat.LEFT, active, [_left_hand, _left_gy, _left_seat])
-	_dim_group(SeatLayout.Seat.TOP, active, [_top_hand, _top_gy, _top_card, _top_buff])
-	_dim_group(SeatLayout.Seat.RIGHT, active, [_right_hand, _right_gy, _right_seat])
-	_dim_group(
+	_dim_seat(SeatLayout.Seat.LEFT, active, [_left_hand, _left_gy])
+	_dim_seat(SeatLayout.Seat.TOP, active, [_top_hand, _top_gy])
+	_dim_seat(SeatLayout.Seat.RIGHT, active, [_right_hand, _right_gy])
+	_dim_seat(
 		SeatLayout.Seat.BOTTOM, active, [_bottom_hand, _bottom_active, _bottom_gy]
 	)
+	# Shared pile — always dimmed once a turn is underway.
+	var deck_brightness := (
+		DIM_BRIGHTNESS if active != SeatLayout.Seat.NONE else FULL_BRIGHTNESS
+	)
+	_tween_brightness(_deck, deck_brightness)
 
 
-func _dim_group(seat: SeatLayout.Seat, active: SeatLayout.Seat, nodes: Array) -> void:
-	var brightness := 1.0
-	if active != SeatLayout.Seat.NONE:
-		brightness = SeatLayout.dim_brightness(SeatLayout.ring_distance(active, seat))
+func _dim_seat(seat: SeatLayout.Seat, active: SeatLayout.Seat, nodes: Array) -> void:
+	var brightness := FULL_BRIGHTNESS
+	if active != SeatLayout.Seat.NONE and seat != active:
+		brightness = DIM_BRIGHTNESS
 	for node in nodes:
 		if node is Control:
 			_tween_brightness(node as Control, brightness)

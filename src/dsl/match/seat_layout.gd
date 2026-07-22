@@ -55,28 +55,3 @@ static func seat_of(local_uid: String, active_uid: String, order: PlayerOrder) -
 	if seats["right"] == active_uid:
 		return Seat.RIGHT
 	return Seat.NONE
-
-
-## Shortest steps around the table ring BOTTOM → LEFT → TOP → RIGHT.
-static func ring_distance(from_seat: Seat, to_seat: Seat) -> int:
-	if from_seat == Seat.NONE or to_seat == Seat.NONE:
-		return 3
-	var ring: Array[int] = [Seat.BOTTOM, Seat.LEFT, Seat.TOP, Seat.RIGHT]
-	var ia := ring.find(from_seat)
-	var ib := ring.find(to_seat)
-	if ia < 0 or ib < 0:
-		return 3
-	var d := absi(ia - ib)
-	return mini(d, ring.size() - d)
-
-
-static func dim_brightness(distance: int) -> float:
-	match distance:
-		0:
-			return 1.0
-		1:
-			return 0.72
-		2:
-			return 0.48
-		_:
-			return 0.36

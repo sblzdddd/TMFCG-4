@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b83jbltkmll81"]
 
-[ext_resource type="Script" uid="uid://xl0gk6g1odu7" path="res://src/ui/room/chat_msg.gd" id="1_chat"]
+[ext_resource type="Script" uid="uid://xl0gk6g1odu7" path="res://src/ui/room/chat/chat_msg.gd" id="1_chat"]
 [ext_resource type="Texture2D" uid="uid://cra5sdaqnsjkf" path="res://assets/textures/avatars/00000.png" id="1_nnbli"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4w32d"]

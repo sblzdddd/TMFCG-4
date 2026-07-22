@@ -1,14 +1,14 @@
 [gd_scene format=3 uid="uid://bpx84627ap3x6"]
 
-[ext_resource type="Script" uid="uid://cpqpasp8ss2km" path="res://src/ui/room/room_status_controller.gd" id="1_ctrl"]
+[ext_resource type="Script" uid="uid://cpqpasp8ss2km" path="res://src/ui/room/shell/room_status_controller.gd" id="1_ctrl"]
 [ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="1_naygy"]
-[ext_resource type="Script" uid="uid://dj5hqxlggo1x2" path="res://src/ui/room/sidebar_layer.gd" id="2_1j4a0"]
-[ext_resource type="Script" uid="uid://dpl3mhfcph1qd" path="res://src/ui/room/room_chat_zone.gd" id="2_chat"]
-[ext_resource type="Script" uid="uid://dl8itxljoyjrp" path="res://src/ui/room/room_members_zone.gd" id="2_members"]
+[ext_resource type="Script" uid="uid://dj5hqxlggo1x2" path="res://src/ui/room/shell/sidebar_layer.gd" id="2_1j4a0"]
+[ext_resource type="Script" uid="uid://dpl3mhfcph1qd" path="res://src/ui/room/chat/room_chat_zone.gd" id="2_chat"]
+[ext_resource type="Script" uid="uid://dl8itxljoyjrp" path="res://src/ui/room/lobby/room_members_zone.gd" id="2_members"]
 [ext_resource type="Texture2D" uid="uid://wwkkx5mbvwmc" path="res://assets/textures/icons/combat/IonExitOutline.svg" id="3_cxrys"]
-[ext_resource type="Script" uid="uid://bc0w4gcikd3a7" path="res://src/ui/room/deck_panel_zone.gd" id="3_deck"]
+[ext_resource type="Script" uid="uid://bc0w4gcikd3a7" path="res://src/ui/room/lobby/deck_panel_zone.gd" id="3_deck"]
 [ext_resource type="LabelSettings" uid="uid://dxndkfbiccaor" path="res://definitions/fonts/page_title.tres" id="3_r84uw"]
-[ext_resource type="Script" uid="uid://bmp5ghp4irww7" path="res://src/ui/room/room_settings_zone.gd" id="3_settings"]
+[ext_resource type="Script" uid="uid://bmp5ghp4irww7" path="res://src/ui/room/lobby/room_settings_zone.gd" id="3_settings"]
 [ext_resource type="Texture2D" uid="uid://rd3d6mol6q5q" path="res://assets/textures/icons/combat/StreamlineArrowShrinkDiagonal1.svg" id="4_15xq7"]
 [ext_resource type="Texture2D" uid="uid://cjq55njlqlui5" path="res://assets/textures/icons/combat/MaterialSymbolsLightFileCopyOutlineRounded.svg" id="4_mxwog"]
 [ext_resource type="PackedScene" uid="uid://c8v7kmxo0yxxo" path="res://definitions/prefabs/settings_panel.tscn" id="4_profile"]
@@ -26,16 +26,16 @@
 [ext_resource type="Texture2D" uid="uid://dhmuykm134x2d" path="res://assets/textures/icons/skills/array.svg" id="22_feylg"]
 [ext_resource type="Texture2D" uid="uid://u7hyme1dik6j" path="res://assets/textures/icons/skills/effect.svg" id="22_o2qln"]
 [ext_resource type="RichTextEffect" uid="uid://b7sb6658c8bpp" path="res://src/ui/effects/wave_breath_fx.tres" id="26_phel0"]
-[ext_resource type="Script" uid="uid://b7cxin36hpl3l" path="res://src/ui/match/match_seat_binder.gd" id="40_seat"]
-[ext_resource type="Script" uid="uid://ci55enetmveu5" path="res://src/ui/match/active_indicator_controller.gd" id="41_ind"]
-[ext_resource type="Script" uid="uid://d0bxscuiytloj" path="res://src/ui/match/match_debug_panel.gd" id="42_dbg"]
-[ext_resource type="Script" uid="uid://b4epke2ntxihn" path="res://src/ui/match/card_array.gd" id="43_carr"]
-[ext_resource type="Script" uid="uid://ba3x5y6plieyc" path="res://src/ui/match/card_array_coordinator.gd" id="44_coord"]
-[ext_resource type="Script" uid="uid://c8de1gcf305m1" path="res://src/ui/match/card_draw_preview_controller.gd" id="45_prev"]
-[ext_resource type="Script" uid="uid://dv55yk8swonv2" path="res://src/ui/match/combat_debug_bootstrap.gd" id="46_dbgboot"]
-[ext_resource type="Script" uid="uid://bpqdu1rt2i7o8" path="res://src/ui/match/deck_visual_stack.gd" id="47_deckstack"]
-[ext_resource type="Script" uid="uid://d1ydpgpncaauo" path="res://src/ui/match/play_decision_controller.gd" id="48_playdec"]
-[ext_resource type="Script" uid="uid://bcfuphgjdhb8x" path="res://src/ui/match/seat_dim_controller.gd" id="49_seatdim"]
+[ext_resource type="Script" uid="uid://b7cxin36hpl3l" path="res://src/ui/match/seats/match_seat_binder.gd" id="40_seat"]
+[ext_resource type="Script" uid="uid://ci55enetmveu5" path="res://src/ui/match/seats/active_indicator_controller.gd" id="41_ind"]
+[ext_resource type="Script" uid="uid://d0bxscuiytloj" path="res://src/ui/match/debug/match_debug_panel.gd" id="42_dbg"]
+[ext_resource type="Script" uid="uid://b4epke2ntxihn" path="res://src/ui/match/cards/card_array.gd" id="43_carr"]
+[ext_resource type="Script" uid="uid://ba3x5y6plieyc" path="res://src/ui/match/sync/card_array_coordinator.gd" id="44_coord"]
+[ext_resource type="Script" uid="uid://c8de1gcf305m1" path="res://src/ui/match/interaction/card_draw_preview_controller.gd" id="45_prev"]
+[ext_resource type="Script" uid="uid://dv55yk8swonv2" path="res://src/ui/match/debug/room_debug_bootstrap.gd" id="46_dbgboot"]
+[ext_resource type="Script" uid="uid://bpqdu1rt2i7o8" path="res://src/ui/match/sync/deck_visual_stack.gd" id="47_deckstack"]
+[ext_resource type="Script" uid="uid://d1ydpgpncaauo" path="res://src/ui/match/interaction/play_decision_controller.gd" id="48_playdec"]
+[ext_resource type="Script" uid="uid://bcfuphgjdhb8x" path="res://src/ui/match/seats/seat_dim_controller.gd" id="49_seatdim"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ehy"]
 content_margin_left = 8.0
@@ -141,7 +141,7 @@ corner_radius_top_right = 6
 corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0418"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j08v"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -189,7 +189,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bflxf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pydsn"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -201,7 +201,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nader"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om3g"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -235,7 +235,7 @@ border_color = Color(1, 1, 1, 0.14117648)
 border_blend = true
 corner_detail = 1
 
-[node name="Combat" type="Control" unique_id=180388218]
+[node name="Room" type="Control" unique_id=180388218]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -686,173 +686,6 @@ scroll_active = false
 [node name="MatchOverlay" type="CanvasLayer" parent="." unique_id=1921890234]
 layer = 5
 
-[node name="WidgetsRoot" type="MarginContainer" parent="MatchOverlay" unique_id=1111979002]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 90
-theme_override_constants/margin_bottom = 50
-script = ExtResource("40_seat")
-metadata/_edit_use_anchors_ = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MatchOverlay/WidgetsRoot" unique_id=417989347]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 50
-alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="LeftPlayer" type="VBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer" unique_id=586345070]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_vertical = 8
-mouse_filter = 2
-theme_override_constants/separation = 6
-
-[node name="LeftPlayerCard" parent="MatchOverlay/WidgetsRoot/HBoxContainer/LeftPlayer" unique_id=1565165977 instance=ExtResource("18_gc8rq")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_d0418")
-entry = SubResource("Resource_h0fvn")
-
-[node name="LeftPlayerCountdown" type="Panel" parent="MatchOverlay/WidgetsRoot/HBoxContainer/LeftPlayer" unique_id=1609797680]
-unique_name_in_owner = true
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_scale = Vector2(0, 1)
-theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
-
-[node name="LeftPlayerBuff" type="HBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer/LeftPlayer" unique_id=484193714]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer/LeftPlayer/LeftPlayerBuff" unique_id=746304618]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2qln")
-
-[node name="TextureRect" type="TextureRect" parent="MatchOverlay/WidgetsRoot/HBoxContainer/LeftPlayer/LeftPlayerBuff/PanelContainer" unique_id=1073725244]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-texture = ExtResource("22_o2qln")
-expand_mode = 5
-
-[node name="TopPlayer" type="VBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer" unique_id=1293775163]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_constants/separation = 6
-
-[node name="TopPlayerCard" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=1787927921 instance=ExtResource("18_gc8rq")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_bflxf")
-entry = SubResource("Resource_h0fvn")
-
-[node name="TopPlayerCountdown" type="Panel" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=1196626928]
-unique_name_in_owner = true
-custom_maximum_size = Vector2(150, -1)
-layout_mode = 2
-offset_transform_enabled = true
-theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
-
-[node name="TopPlayerBuff" type="HBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=1666798]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer/TopPlayerBuff" unique_id=1594388573]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2qln")
-
-[node name="TextureRect" type="TextureRect" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer/TopPlayerBuff/PanelContainer" unique_id=437395129]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-texture = ExtResource("22_o2qln")
-expand_mode = 5
-
-[node name="BottomPlayerDecision" type="HBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=152322617]
-unique_name_in_owner = true
-visible = false
-z_index = 41
-custom_minimum_size = Vector2(0, 56)
-layout_mode = 2
-size_flags_vertical = 10
-mouse_filter = 2
-theme_override_constants/separation = 50
-alignment = 1
-script = ExtResource("48_playdec")
-
-[node name="PlayCardButton" type="Button" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer/BottomPlayerDecision" unique_id=932102737]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "出牌"
-
-[node name="SkipButton" type="Button" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer/BottomPlayerDecision" unique_id=521607084]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 24
-text = "不要"
-
-[node name="BottomPlayerCountdown" type="Panel" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=358758661]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(0, 4)
-layout_mode = 2
-offset_transform_enabled = true
-theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
-
-[node name="Spacer" type="Control" parent="MatchOverlay/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=751688273]
-custom_minimum_size = Vector2(0, 180)
-layout_mode = 2
-mouse_filter = 2
-
-[node name="RightPlayer" type="VBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer" unique_id=439948726]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 8
-mouse_filter = 2
-theme_override_constants/separation = 6
-
-[node name="RightPlayerCard" parent="MatchOverlay/WidgetsRoot/HBoxContainer/RightPlayer" unique_id=62401481 instance=ExtResource("18_gc8rq")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_nader")
-entry = SubResource("Resource_h0fvn")
-
-[node name="RightPlayerCountdown" type="Panel" parent="MatchOverlay/WidgetsRoot/HBoxContainer/RightPlayer" unique_id=161492888]
-unique_name_in_owner = true
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_scale = Vector2(0, 1)
-theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
-
-[node name="RightPlayerBuff" type="HBoxContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer/RightPlayer" unique_id=81618518]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="MatchOverlay/WidgetsRoot/HBoxContainer/RightPlayer/RightPlayerBuff" unique_id=1542604464]
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_o2qln")
-
-[node name="TextureRect" type="TextureRect" parent="MatchOverlay/WidgetsRoot/HBoxContainer/RightPlayer/RightPlayerBuff/PanelContainer" unique_id=1928357596]
-custom_minimum_size = Vector2(16, 0)
-layout_mode = 2
-texture = ExtResource("22_o2qln")
-expand_mode = 5
-
 [node name="ShowSidebarButton" type="Button" parent="MatchOverlay" unique_id=2121380302]
 unique_name_in_owner = true
 offset_right = 16.0
@@ -971,15 +804,13 @@ slot_size = Vector2(36, 36)
 
 [node name="LeftGraveyard" type="Container" parent="CardsLayer/CardsRoot" unique_id=988661893]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(290, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.8, 0.8)
 script = ExtResource("43_carr")
 horizontal = false
-slot_size = Vector2(72, 72)
+slot_size = Vector2(100, 72)
 
 [node name="Center" type="VBoxContainer" parent="CardsLayer/CardsRoot" unique_id=1453229910]
 layout_mode = 2
@@ -988,38 +819,39 @@ size_flags_stretch_ratio = 3.0
 
 [node name="TopHand" type="Container" parent="CardsLayer/CardsRoot/Center" unique_id=1088538714]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.26
+size_flags_stretch_ratio = 0.5
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, -90.885)
+offset_transform_position = Vector2(0, -110)
 offset_transform_scale = Vector2(0.85, 0.85)
 script = ExtResource("43_carr")
 slot_size = Vector2(36, 36)
 
 [node name="TopGraveyard" type="Container" parent="CardsLayer/CardsRoot/Center" unique_id=1002245076]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
-size_flags_vertical = 3
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.75, 0.75)
 script = ExtResource("43_carr")
 slot_size = Vector2(72, 72)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CardsLayer/CardsRoot/Center" unique_id=490472174]
+[node name="DeckRoot" type="HBoxContainer" parent="CardsLayer/CardsRoot/Center" unique_id=490472174]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
+size_flags_vertical = 3
 offset_transform_enabled = true
 offset_transform_position = Vector2(-50, 0)
 alignment = 2
 
-[node name="Deck" type="Container" parent="CardsLayer/CardsRoot/Center/HBoxContainer" unique_id=910640760]
+[node name="Deck" type="Container" parent="CardsLayer/CardsRoot/Center/DeckRoot" unique_id=910640760]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 3
 offset_transform_enabled = true
-offset_transform_position = Vector2(27.765, 8.645)
+offset_transform_position = Vector2(0, 8.645)
 offset_transform_scale = Vector2(0.7, 0.7)
 script = ExtResource("43_carr")
 stack = true
@@ -1027,59 +859,32 @@ stack = true
 [node name="BottomGraveyard" type="Container" parent="CardsLayer/CardsRoot/Center" unique_id=2227470]
 unique_name_in_owner = true
 z_index = -1
+custom_minimum_size = Vector2(0, 180)
 layout_mode = 2
-size_flags_vertical = 3
 offset_transform_enabled = true
-offset_transform_scale = Vector2(0.85, 0.85)
+offset_transform_scale = Vector2(0.75, 0.75)
 script = ExtResource("43_carr")
 slot_size = Vector2(72, 72)
 
-[node name="BottomHandArea" type="Control" parent="CardsLayer/CardsRoot/Center" unique_id=1531104356]
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.88
-mouse_filter = 2
-
-[node name="BottomHand" type="Container" parent="CardsLayer/CardsRoot/Center/BottomHandArea" unique_id=1531104357]
+[node name="BottomHand" type="Container" parent="CardsLayer/CardsRoot/Center" unique_id=1531104357]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(0, 72.075)
+layout_mode = 2
 offset_transform_enabled = true
 offset_transform_position = Vector2(0, 105.28)
 mouse_filter = 2
 script = ExtResource("43_carr")
 slot_size = Vector2(56, 56)
 
-[node name="BottomActiveHand" type="Container" parent="CardsLayer/CardsRoot/Center/BottomHandArea" unique_id=1531104358]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-offset_transform_enabled = true
-offset_transform_position = Vector2(0, 20)
-offset_transform_scale = Vector2(1.15, 1.15)
-mouse_filter = 2
-script = ExtResource("43_carr")
-slot_size = Vector2(80, 80)
-
 [node name="RightGraveyard" type="Container" parent="CardsLayer/CardsRoot" unique_id=502149259]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(290, 0)
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.8, 0.8)
 script = ExtResource("43_carr")
 horizontal = false
-slot_size = Vector2(72, 72)
+slot_size = Vector2(100, 72)
 
 [node name="RightHand" type="Container" parent="CardsLayer/CardsRoot" unique_id=1879314729]
 unique_name_in_owner = true
@@ -1091,6 +896,193 @@ offset_transform_scale = Vector2(0.85, 0.85)
 script = ExtResource("43_carr")
 horizontal = false
 slot_size = Vector2(36, 36)
+
+[node name="WidgetsRoot" type="MarginContainer" parent="CardsLayer" unique_id=1111979002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 50
+script = ExtResource("40_seat")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CardsLayer/WidgetsRoot" unique_id=417989347]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 50
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftPlayer" type="VBoxContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer" unique_id=586345070]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+custom_maximum_size = Vector2(150, -1)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="LeftPlayerCard" parent="CardsLayer/WidgetsRoot/HBoxContainer/LeftPlayer" unique_id=1565165977 instance=ExtResource("18_gc8rq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_8j08v")
+entry = SubResource("Resource_h0fvn")
+
+[node name="LeftPlayerCountdown" type="Panel" parent="CardsLayer/WidgetsRoot/HBoxContainer/LeftPlayer" unique_id=1609797680]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
+
+[node name="LeftPlayerBuff" type="HBoxContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer/LeftPlayer" unique_id=484193714]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer/LeftPlayer/LeftPlayerBuff" unique_id=746304618]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2qln")
+
+[node name="TextureRect" type="TextureRect" parent="CardsLayer/WidgetsRoot/HBoxContainer/LeftPlayer/LeftPlayerBuff/PanelContainer" unique_id=1073725244]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+texture = ExtResource("22_o2qln")
+expand_mode = 5
+
+[node name="TopPlayer" type="VBoxContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer" unique_id=1293775163]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="TopPlayerCard" parent="CardsLayer/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=1787927921 instance=ExtResource("18_gc8rq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_pydsn")
+entry = SubResource("Resource_h0fvn")
+
+[node name="TopPlayerCountdown" type="Panel" parent="CardsLayer/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=1196626928]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(150, -1)
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
+
+[node name="TopPlayerBuff" type="HBoxContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer/TopPlayer" unique_id=1666798]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer/TopPlayer/TopPlayerBuff" unique_id=1594388573]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2qln")
+
+[node name="TextureRect" type="TextureRect" parent="CardsLayer/WidgetsRoot/HBoxContainer/TopPlayer/TopPlayerBuff/PanelContainer" unique_id=437395129]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+texture = ExtResource("22_o2qln")
+expand_mode = 5
+
+[node name="RightPlayer" type="VBoxContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer" unique_id=439948726]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+custom_maximum_size = Vector2(150, -1)
+layout_mode = 2
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="RightPlayerCard" parent="CardsLayer/WidgetsRoot/HBoxContainer/RightPlayer" unique_id=62401481 instance=ExtResource("18_gc8rq")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_7om3g")
+entry = SubResource("Resource_h0fvn")
+
+[node name="RightPlayerCountdown" type="Panel" parent="CardsLayer/WidgetsRoot/HBoxContainer/RightPlayer" unique_id=161492888]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0, 1)
+theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
+
+[node name="RightPlayerBuff" type="HBoxContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer/RightPlayer" unique_id=81618518]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CardsLayer/WidgetsRoot/HBoxContainer/RightPlayer/RightPlayerBuff" unique_id=1542604464]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o2qln")
+
+[node name="TextureRect" type="TextureRect" parent="CardsLayer/WidgetsRoot/HBoxContainer/RightPlayer/RightPlayerBuff/PanelContainer" unique_id=1928357596]
+custom_minimum_size = Vector2(16, 0)
+layout_mode = 2
+texture = ExtResource("22_o2qln")
+expand_mode = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="CardsLayer" unique_id=884756215]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CardsLayer/MarginContainer" unique_id=2087136860]
+layout_mode = 2
+alignment = 1
+
+[node name="BottomPlayerDecision" type="HBoxContainer" parent="CardsLayer/MarginContainer/VBoxContainer" unique_id=152322617]
+unique_name_in_owner = true
+z_index = 41
+custom_minimum_size = Vector2(0, 56)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 50
+alignment = 1
+script = ExtResource("48_playdec")
+
+[node name="PlayCardButton" type="Button" parent="CardsLayer/MarginContainer/VBoxContainer/BottomPlayerDecision" unique_id=932102737]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "出牌"
+
+[node name="SkipButton" type="Button" parent="CardsLayer/MarginContainer/VBoxContainer/BottomPlayerDecision" unique_id=521607084]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 24
+text = "不要"
+
+[node name="BottomPlayerCountdown" type="Panel" parent="CardsLayer/MarginContainer/VBoxContainer" unique_id=358758661]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(500, 4)
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
+
+[node name="BottomActiveHand" type="Container" parent="CardsLayer/MarginContainer" unique_id=1531104358]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 8
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -32)
+mouse_filter = 2
+script = ExtResource("43_carr")
+slot_size = Vector2(160, 80)
 
 [node name="CardPreviewOverlay" type="PanelContainer" parent="CardsLayer" unique_id=61122084]
 anchors_preset = 15
@@ -1121,7 +1113,7 @@ size_flags_horizontal = 4
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0.9, 0.9)
 script = ExtResource("43_carr")
-slot_size = Vector2(100, 0)
+slot_size = Vector2(200, 0)
 
 [node name="Label2" type="RichTextLabel" parent="CardsLayer/CardPreviewOverlay/CardsPreviewLayout" unique_id=846347787]
 layout_mode = 2

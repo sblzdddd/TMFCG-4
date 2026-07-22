@@ -1,19 +1,20 @@
 extends Node
 
 ## Smart global UI scaler.
-## Small screens: prefer resolution scale so the UI shrinks to fit.
-## Large screens: prefer physical (DPI / OS) scale so the UI does not balloon.
+## Small screens: shrink by resolution so the UI still fits.
+## Large screens: grow by resolution so the UI scales up with the window.
+## HiDPI: physical (DPI / OS) scale is a floor so design-size windows still bump up.
 
 const BASE_DPI := 96.0
 const DEFAULT_BASE_SIZE := Vector2(1152.0, 648.0)
 const MIN_SCALE := 0.5
-const MAX_SCALE := 4.0
+const MAX_SCALE := 3.0
 ## Extra physical-scale factor on Web (browser DPI / devicePixelRatio quirks).
 const WEB_PHYSICAL_MULT := 1.25
 
 ## Last applied content scale factor.
 var scale_factor: float = 1.0
-## Multiplier on physical scale for large screens only. Small screens ignore it.
+## Multiplier on large-screen scale only. Small screens ignore it.
 var physical_scale_multiplier: float = 1.0:
 	get:
 		return _physical_scale_multiplier
@@ -28,10 +29,13 @@ var physical_scale_multiplier: float = 1.0:
 var _physical_scale_multiplier: float = 1.0
 
 func _ready() -> void:
-	var window := get_window()
+	var window := _root_window()
+	if window == null:
+		return
 	window.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 	window.size_changed.connect(apply_scale)
-	apply_scale()
+	# Window size can still be unsettled on the first frame (esp. Windows).
+	apply_scale.call_deferred()
 
 
 func _notification(what: int) -> void:
@@ -41,7 +45,9 @@ func _notification(what: int) -> void:
 
 
 func apply_scale() -> void:
-	var window := get_window()
+	var window := _root_window()
+	if window == null:
+		return
 	var base := _get_base_size()
 	var window_size := Vector2(window.size)
 	if window_size.x <= 0.0 or window_size.y <= 0.0:
@@ -50,15 +56,28 @@ func apply_scale() -> void:
 	var scale_res := minf(window_size.x / base.x, window_size.y / base.y)
 	var scale_phys := _get_physical_scale()
 
-	# Multiplier only affects large screens where physical scale is binding.
-	if scale_res >= scale_phys:
-		scale_phys *= physical_scale_multiplier
+	# Small window: must shrink to fit.
+	# Large / design-size window: grow with resolution, with DPI as a floor so
+	# hiDPI still scales up when the window is only about design-sized.
+	#   2560x1440 @ 125% DPI, base 1280x720 → max(2.0, 1.25) = 2.0
+	#   1280x720  @ 125% DPI                 → max(1.0, 1.25) = 1.25
+	#   640x360   @ 125% DPI                 → 0.5
+	var target: float
+	if scale_res < 1.0:
+		target = scale_res
+	else:
+		target = maxf(scale_res, scale_phys) * physical_scale_multiplier
 
-	# min(): small windows follow resolution (scale down); large windows
-	# stay at physical pixel size (ignore excess resolution scale).
-	scale_factor = clampf(minf(scale_res, scale_phys), MIN_SCALE, MAX_SCALE)
+	scale_factor = clampf(target, MIN_SCALE, MAX_SCALE)
 	window.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 	window.content_scale_factor = scale_factor
+
+
+func _root_window() -> Window:
+	var tree := get_tree()
+	if tree == null:
+		return null
+	return tree.root
 
 
 func _get_base_size() -> Vector2:
