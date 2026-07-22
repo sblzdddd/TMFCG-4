@@ -19,6 +19,8 @@ var _layout_tweens: Dictionary = {} # String -> Tween
 func _ready() -> void:
 	if offset_transform_enabled:
 		offset_transform_visual_only = false
+	# Let card visuals receive hover; this container must not eat picks.
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for child in get_children():
 		child.queue_free()
 	_ids.clear()

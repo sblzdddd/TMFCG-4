@@ -35,12 +35,12 @@ ConnectionManager="*res://src/networking/core/connection_manager.gd"
 Toast="*res://definitions/ui/toast.tscn"
 BusyBlocker="*res://definitions/ui/busy_blocker.tscn"
 UiScale="*uid://dhhgqoc7dbfmg"
-RoomDiscovery="*res://src/networking/room/room_discovery.gd"
 RoomSession="*res://src/networking/room/room_session.gd"
 ChatService="*res://src/networking/chat/chat_service.gd"
 SettingsDataStore="*res://src/data_store/settings_data_store.gd"
 NetworkModeService="*res://src/networking/core/network_mode_service.gd"
 DedicatedServerBootstrap="*res://src/networking/server/dedicated_server_bootstrap.gd"
+CardInfoPanel="*res://definitions/ui/card_info_panel.tscn"
 
 [dialogic]
 

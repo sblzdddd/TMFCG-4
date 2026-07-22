@@ -8,10 +8,10 @@ const BORDER_NORMAL := preload("res://definitions/ui/card/card_border_normal.tre
 const BORDER_HOVER := preload("res://definitions/ui/card/card_border_hover.tres")
 const BORDER_ACTIVE := preload("res://definitions/ui/card/card_border_active.tres")
 
-@onready var _value_label_a: Label = %ValueLabel
-@onready var _value_label_b: Label = %ValueLabel2
-@onready var _name_label: CurvedText = %CharacterNameLabel
-@onready var _border: Panel = %Border
+@onready var _value_label_a: Label = $ValueLabel
+@onready var _value_label_b: Label = $ValueLabel2
+@onready var _name_label: CurvedText = $CharacterNameLabel
+@onready var _border: Panel = get_node_or_null("Border") as Panel
 
 var _character_data: CardVisualData = null
 var _card_data: CardData = null

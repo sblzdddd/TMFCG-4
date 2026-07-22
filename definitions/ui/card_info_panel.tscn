@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dakrj4merjrxn"]
+
+[ext_resource type="Script" path="res://src/ui/card_info_panel.gd" id="1_panel"]
+[ext_resource type="Script" path="res://src/ui/common/card_info_popup.gd" id="2_popup"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16226816, 0.15122372, 0.14889032, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CardInfoPanel" type="CanvasLayer"]
+layer = 110
+script = ExtResource("1_panel")
+
+[node name="Popup" type="PanelContainer" parent="."]
+visible = false
+z_index = 20
+custom_minimum_size = Vector2(220, 0)
+offset_right = 220.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("2_popup")
+
+[node name="CardInfoMargin" type="MarginContainer" parent="Popup"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="CardInfoText" type="RichTextLabel" parent="Popup/CardInfoMargin"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(204, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

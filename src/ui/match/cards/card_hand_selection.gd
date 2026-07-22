@@ -88,16 +88,18 @@ func _unbind(id: String) -> void:
 	if base.hovered.is_connected(_on_hovered):
 		base.hovered.disconnect(_on_hovered)
 	base.interactable = false
+	base.info_hover_delay = 0.0
 	base.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	base.refresh_interaction()
 	base.selected = false
 
 
 func _enable(base: CardBase) -> void:
 	base.interactable = true
+	base.info_hover_delay = CardBase.ACTIVE_HAND_INFO_HOVER_DELAY
 	# Hits go through CardVisual only (sized to the offset-transform visual).
 	base.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	if base.visual != null:
-		base.visual.mouse_filter = Control.MOUSE_FILTER_STOP
+	base.refresh_interaction()
 
 
 func _id_of(base: CardBase) -> String:

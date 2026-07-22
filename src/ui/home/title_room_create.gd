@@ -53,18 +53,24 @@ func _on_random_match() -> void:
 func _random_match_online() -> void:
 	RoomSession.online_client.request_public_rooms()
 	var rooms: Array = await RoomSession.online_rooms_received
+	var best: Dictionary = {}
+	var best_players := 0x7fffffff
 	for entry in rooms:
 		if not entry is Dictionary:
 			continue
-		if (
-			int(entry.get("players", 0)) < int(entry.get("max", 4))
-			and int(entry.get("max", 4)) == _max_players()
-		):
-			BusyBlocker.show_hint("正在加入房间 %s…" % str(entry.get("code", "")))
-			var join_err := RoomSession.join_room_code(str(entry.get("code", "")))
-			if join_err != OK:
-				BusyBlocker.end("加入失败: %s" % error_string(join_err))
-			return
+		var players := int(entry.get("players", 0))
+		var max_players := int(entry.get("max", 4))
+		if players >= max_players or max_players != _max_players():
+			continue
+		if players < best_players:
+			best_players = players
+			best = entry
+	if not best.is_empty():
+		BusyBlocker.show_hint("正在加入房间 %s…" % str(best.get("code", "")))
+		var join_err := RoomSession.join_room_code(str(best.get("code", "")))
+		if join_err != OK:
+			BusyBlocker.end("加入失败: %s" % error_string(join_err))
+		return
 	BusyBlocker.show_hint("未找到房间，正在创建新房间…")
 	var create_err := RoomSession.create_room(true, _max_players())
 	if create_err != OK:

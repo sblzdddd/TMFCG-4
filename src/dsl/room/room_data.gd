@@ -5,7 +5,8 @@ extends Resource
 @export var name: String = "Room"
 @export var is_public: bool = false
 @export var max_players: int = 4
-## Seconds a player has to act each turn (UI + client timeout). Host grace adds +10s.
+## Seconds a player has to act each turn (UI bars + server force-pass timer).
+## Host grace adds +10s on the authoritative MatchController timeout.
 @export var turn_countdown_sec: int = 15
 @export var host_uid: String = ""
 ## Array of Dictionary snapshots (uid, nickname, avatar_id, peer_id, is_online).
@@ -99,7 +100,7 @@ static func from_snapshot(data: Dictionary) -> RoomData:
 	room.name = str(data.get("name", "Room"))
 	room.is_public = bool(data.get("is_public", false))
 	room.max_players = int(data.get("max_players", 4))
-	room.turn_countdown_sec = clampi(int(data.get("turn_countdown_sec", 15)), 5, 300)
+	room.turn_countdown_sec = clampi(int(data.get("turn_countdown_sec", 15)), 5, 45)
 	room.host_uid = str(data.get("host_uid", ""))
 	var raw_members: Variant = data.get("members", [])
 	if raw_members is Array:

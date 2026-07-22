@@ -1,9 +1,11 @@
-class_name DeckPanelZone
+class_name DeckCol
 extends HBoxContainer
-## Room deck profile UI: host picker, meta, foldable card grids, hover card info.
+## Shared deck preview column. Room mode syncs via RoomSession; local mode uses DeckDataStore only.
 
 const CARD_BASE_SCENE := preload("res://definitions/prefabs/card_base.tscn")
 const CARD_DISPLAY_SCALE := 0.45
+
+@export var sync_room: bool = false
 
 @onready var deck_select: OptionButton = %DeckSelect
 @onready var deck_name_label: Label = %DeckNameLabel
@@ -11,7 +13,6 @@ const CARD_DISPLAY_SCALE := 0.45
 @onready var deck_desc_label: Label = %DeckDescLabel
 @onready var skill_grid: GridContainer = %SkillCardGrid
 @onready var standard_grid: GridContainer = %StandardCardGrid
-@onready var card_info_popup: CardInfoPopup = %CardInfoPanel
 
 var _loading := false
 var _deck_paths: Array[String] = []
@@ -19,15 +20,22 @@ var _deck_paths: Array[String] = []
 
 func _ready() -> void:
 	deck_select.item_selected.connect(_on_deck_selected)
-	RoomSession.room_changed.connect(_on_room_changed)
-	RoomSession.deck_sync.deck_ready.connect(_on_deck_ready)
 	DeckDataStore.decks_changed.connect(_refresh_deck_options)
 	_refresh_deck_options()
-	_on_room_changed(RoomSession.current_room)
-	_on_deck_ready(RoomSession.get_resolved_deck())
+	if sync_room:
+		RoomSession.room_changed.connect(_on_room_changed)
+		RoomSession.deck_sync.deck_ready.connect(_on_deck_ready)
+		_on_room_changed(RoomSession.current_room)
+		_on_deck_ready(RoomSession.get_resolved_deck())
+	else:
+		deck_select.visible = true
+		deck_name_label.visible = false
+		_load_local_selection()
 
 
 func _on_room_changed(room: RoomData) -> void:
+	if not sync_room:
+		return
 	_loading = true
 	var is_host := RoomSession.is_local_host()
 	if room == null:
@@ -37,8 +45,7 @@ func _on_room_changed(room: RoomData) -> void:
 		deck_author_label.text = ""
 		deck_desc_label.text = ""
 		_clear_grids()
-		if card_info_popup != null:
-			card_info_popup.hide_popup()
+		CardInfoPanel.hide_popup()
 		_loading = false
 		return
 
@@ -57,9 +64,11 @@ func _on_room_changed(room: RoomData) -> void:
 
 
 func _on_deck_ready(deck: DeckData) -> void:
+	if not sync_room:
+		return
+	_apply_deck_meta(deck)
 	_rebuild_card_grids(deck)
-	if card_info_popup != null:
-		card_info_popup.hide_popup()
+	CardInfoPanel.hide_popup()
 
 
 func _refresh_deck_options() -> void:
@@ -74,8 +83,11 @@ func _refresh_deck_options() -> void:
 			label = "%s (内置)" % label
 		deck_select.add_item(label)
 		deck_select.set_item_metadata(i, path)
-	if RoomSession.current_room != null and RoomSession.is_local_host():
-		_select_path_in_dropdown(_host_selected_path(RoomSession.current_room))
+	if sync_room:
+		if RoomSession.current_room != null and RoomSession.is_local_host():
+			_select_path_in_dropdown(_host_selected_path(RoomSession.current_room))
+	elif deck_select.item_count > 0 and deck_select.selected < 0:
+		deck_select.select(0)
 	_loading = false
 
 
@@ -98,12 +110,45 @@ func _select_path_in_dropdown(path: String) -> void:
 
 
 func _on_deck_selected(index: int) -> void:
-	if _loading or not RoomSession.is_local_host():
+	if _loading:
 		return
 	var path := str(deck_select.get_item_metadata(index))
 	if path.is_empty():
 		return
-	RoomSession.set_room_deck(path)
+	if sync_room:
+		if not RoomSession.is_local_host():
+			return
+		RoomSession.set_room_deck(path)
+		return
+	_load_local_path(path)
+
+
+func _load_local_selection() -> void:
+	if deck_select.item_count <= 0:
+		_clear_grids()
+		deck_author_label.text = ""
+		deck_desc_label.text = ""
+		return
+	if deck_select.selected < 0:
+		deck_select.select(0)
+	_load_local_path(str(deck_select.get_item_metadata(deck_select.selected)))
+
+
+func _load_local_path(path: String) -> void:
+	var deck := DeckDataStore.load_deck(path)
+	_apply_deck_meta(deck)
+	_rebuild_card_grids(deck)
+	CardInfoPanel.hide_popup()
+
+
+func _apply_deck_meta(deck: DeckData) -> void:
+	if deck == null:
+		deck_author_label.text = "作者: —"
+		deck_desc_label.text = ""
+		return
+	var author := deck.author
+	deck_author_label.text = "作者: %s" % (author if not author.is_empty() else "—")
+	deck_desc_label.text = deck.description
 
 
 func _rebuild_card_grids(deck: DeckData) -> void:
@@ -126,17 +171,6 @@ func _clear_grids() -> void:
 
 func _make_card_cell(card_data: CardData) -> Control:
 	var card: CardBase = CARD_BASE_SCENE.instantiate() as CardBase
+	card.info_skills_only = false
 	card.set_card_data(card_data)
-	card.hovered.connect(_on_card_base_hovered)
-	card.unhovered.connect(_on_card_base_unhovered)
 	return card.create_scaled_slot(CARD_DISPLAY_SCALE)
-
-
-func _on_card_base_hovered(card: CardBase) -> void:
-	if card_info_popup != null:
-		card_info_popup.show_card(card.get_card_data())
-
-
-func _on_card_base_unhovered(_card: CardBase) -> void:
-	if card_info_popup != null:
-		card_info_popup.hide_popup()

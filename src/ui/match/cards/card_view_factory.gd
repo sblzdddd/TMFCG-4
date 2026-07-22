@@ -13,6 +13,7 @@ static func make_base(card: Card, face_up: bool) -> CardBase:
 	base.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	apply_data(base, card)
 	base.set_face_up(face_up, false)
+	base.refresh_interaction()
 	return base
 
 
@@ -27,3 +28,4 @@ static func apply_data(base: CardBase, card: Card) -> void:
 	base.set_meta(META_INSTANCE_ID, card.instance_id.value)
 	if card.data != null:
 		base.set_card_data(card.data)
+	base.refresh_interaction()

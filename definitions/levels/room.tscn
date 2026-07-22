@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dpl3mhfcph1qd" path="res://src/ui/room/chat/room_chat_zone.gd" id="2_chat"]
 [ext_resource type="Script" uid="uid://dl8itxljoyjrp" path="res://src/ui/room/lobby/room_members_zone.gd" id="2_members"]
 [ext_resource type="Texture2D" uid="uid://wwkkx5mbvwmc" path="res://assets/textures/icons/combat/IonExitOutline.svg" id="3_cxrys"]
-[ext_resource type="Script" uid="uid://bc0w4gcikd3a7" path="res://src/ui/room/lobby/deck_panel_zone.gd" id="3_deck"]
+[ext_resource type="PackedScene" uid="uid://b0apk4smofk3a" path="res://definitions/prefabs/deck_col.tscn" id="3_deck"]
 [ext_resource type="LabelSettings" uid="uid://dxndkfbiccaor" path="res://definitions/fonts/page_title.tres" id="3_r84uw"]
 [ext_resource type="Script" uid="uid://bmp5ghp4irww7" path="res://src/ui/room/lobby/room_settings_zone.gd" id="3_settings"]
 [ext_resource type="Texture2D" uid="uid://rd3d6mol6q5q" path="res://assets/textures/icons/combat/StreamlineArrowShrinkDiagonal1.svg" id="4_15xq7"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dehu63ckqecwu" path="res://definitions/prefabs/pre_ui_card_list.tscn" id="5_ui_cards"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="6_xtaj5"]
 [ext_resource type="Texture2D" uid="uid://clov0oueu2l4h" path="res://assets/textures/icons/skills/boolean.svg" id="8_jre66"]
-[ext_resource type="Script" uid="uid://b4cx0aghojgqg" path="res://src/ui/common/card_info_popup.gd" id="9_cardinfo"]
 [ext_resource type="PackedScene" uid="uid://b83jbltkmll81" path="res://definitions/prefabs/pre_chat_msg.tscn" id="13_b60so"]
 [ext_resource type="Texture2D" uid="uid://bs5ongrfyefpt" path="res://assets/textures/icons/combat/PrimeSend.svg" id="13_qaqvs"]
 [ext_resource type="Texture2D" uid="uid://bv3qx0hr5y0uo" path="res://assets/textures/icons/combat/RiEmojiStickerFill.svg" id="15_4w32d"]
@@ -178,7 +177,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pydsn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8j08v"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -226,7 +225,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om3g"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pydsn"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -238,7 +237,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu04v"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7om3g"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -414,6 +413,21 @@ step = 1.0
 value = 4.0
 label_text = "最大玩家数量"
 
+[node name="TurnCountdown" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=60469183 instance=ExtResource("6_xtaj5")]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 5.0
+max_value = 45.0
+step = 1.0
+value = 15.0
+label_text = "回合倒计时（秒）"
+
+[node name="TurnCountdownLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=60469184]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "回合倒计时: 15 秒"
+
 [node name="GameSettingsToggle" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=380057275]
 unique_name_in_owner = true
 layout_mode = 2
@@ -424,93 +438,9 @@ text = "游戏设置..."
 icon = ExtResource("8_jre66")
 icon_alignment = 2
 
-[node name="DeckRow" type="HBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=828855549]
+[node name="DeckRow" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=1691381018 instance=ExtResource("3_deck")]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/separation = 8
-script = ExtResource("3_deck")
-
-[node name="DeckPanel" type="PanelContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow" unique_id=828855550]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
-
-[node name="DeckCol" type="VBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel" unique_id=1547282776]
-layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="SettingsTitle" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol" unique_id=1693257522]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-text = "牌堆"
-label_settings = ExtResource("3_r84uw")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="DeckSelect" type="OptionButton" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol" unique_id=1693257523]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-fit_to_longest_item = false
-
-[node name="DeckNameLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol" unique_id=1693257524]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "—"
-horizontal_alignment = 1
-
-[node name="DeckAuthorLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol" unique_id=1693257525]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "作者: —"
-
-[node name="DeckDescLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol" unique_id=1693257526]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 12
-text = "description"
-autowrap_mode = 3
-
-[node name="DeckCardsScroll" type="ScrollContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol" unique_id=1693257527]
-layout_mode = 2
-size_flags_vertical = 3
-horizontal_scroll_mode = 0
-
-[node name="DeckCardsCol" type="VBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol/DeckCardsScroll" unique_id=1693257528]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/separation = 6
-
-[node name="SkillFoldable" type="FoldableContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol/DeckCardsScroll/DeckCardsCol" unique_id=1693257529]
-layout_mode = 2
-size_flags_horizontal = 3
-title = "技能牌"
-
-[node name="SkillCardGrid" type="GridContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol/DeckCardsScroll/DeckCardsCol/SkillFoldable" unique_id=1693257530]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 6
-columns = 2
-
-[node name="StandardFoldable" type="FoldableContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol/DeckCardsScroll/DeckCardsCol" unique_id=1693257531]
-layout_mode = 2
-size_flags_horizontal = 3
-title = "标准牌"
-
-[node name="StandardCardGrid" type="GridContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckRow/DeckPanel/DeckCol/DeckCardsScroll/DeckCardsCol/StandardFoldable" unique_id=1693257532]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/h_separation = 6
-theme_override_constants/v_separation = 6
-columns = 2
+sync_room = true
 
 [node name="SecondPane" type="Control" parent="SidebarLayer/SidebarLayout" unique_id=516220932]
 layout_mode = 2
@@ -563,15 +493,6 @@ layout_mode = 2
 text = "游戏设置"
 label_settings = SubResource("LabelSettings_jre66")
 vertical_alignment = 1
-
-[node name="TurnCountdown" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout" unique_id=60469183 instance=ExtResource("6_xtaj5")]
-unique_name_in_owner = true
-layout_mode = 2
-min_value = 5.0
-max_value = 300.0
-step = 1.0
-value = 15.0
-label_text = "回合倒计时（秒）"
 
 [node name="SettingsPanel" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout" unique_id=1661542302 instance=ExtResource("4_profile")]
 layout_mode = 2
@@ -697,37 +618,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qaqvs")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_u7wsu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_b60so")
 icon = ExtResource("13_qaqvs")
-
-[node name="CardInfoPanel" type="PanelContainer" parent="SidebarLayer" unique_id=1693257533]
-unique_name_in_owner = true
-visible = false
-z_index = 20
-custom_minimum_size = Vector2(220, 0)
-offset_right = 220.0
-grow_horizontal = 0
-grow_vertical = 0
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
-script = ExtResource("9_cardinfo")
-
-[node name="CardInfoMargin" type="MarginContainer" parent="SidebarLayer/CardInfoPanel" unique_id=1693257534]
-layout_mode = 2
-size_flags_vertical = 0
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="CardInfoText" type="RichTextLabel" parent="SidebarLayer/CardInfoPanel/CardInfoMargin" unique_id=1693257536]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(204, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 2
-bbcode_enabled = true
-fit_content = true
-scroll_active = false
 
 [node name="MatchOverlay" type="CanvasLayer" parent="." unique_id=1921890234]
 layer = 5
@@ -992,7 +882,7 @@ unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pydsn")
+theme_override_styles/panel = SubResource("StyleBoxFlat_8j08v")
 entry = SubResource("Resource_h0fvn")
 
 [node name="LeftPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/LeftPlayer/LeftPlayerLayout" unique_id=1609797680]
@@ -1044,7 +934,7 @@ unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_7om3g")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pydsn")
 entry = SubResource("Resource_h0fvn")
 
 [node name="TopPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/TopPlayer/TopPlayerFrame/TopPlayerLayout" unique_id=1196626928]
@@ -1090,7 +980,7 @@ unique_name_in_owner = true
 clip_contents = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pu04v")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7om3g")
 entry = SubResource("Resource_h0fvn")
 
 [node name="RightPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/RightPlayer/RightPlayerLayout" unique_id=161492888]
@@ -1125,13 +1015,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BottomPlayWidgets" type="VBoxContainer" parent="CardsLayer/BottomPlayRoot" unique_id=2087136860]
 layout_mode = 2
+mouse_filter = 2
 alignment = 1
 
 [node name="BottomPlayerDecision" type="HBoxContainer" parent="CardsLayer/BottomPlayRoot/BottomPlayWidgets" unique_id=152322617]
 unique_name_in_owner = true
+visible = false
 z_index = 41
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
@@ -1162,6 +1055,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
 offset_transform_scale = Vector2(0, 1)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
 
 [node name="BottomActiveHand" type="Container" parent="CardsLayer/BottomPlayRoot" unique_id=1531104358]

@@ -1,11 +1,13 @@
 class_name RoomSettingsZone
 extends Container
-## Host-editable room options (name, public, max players).
+## Host-editable room options (name, public, max players, turn countdown).
+## Non-hosts see a read-only turn-countdown label updated from room snapshots.
 
 @onready var name_edit := %NameEdit
 @onready var public_toggle := %PublicToggle
 @onready var max_players_spin := %MaxPlayers
 @onready var turn_countdown_spin := %TurnCountdown
+@onready var turn_countdown_label: Label = %TurnCountdownLabel
 @onready var game_settings_toggle := %GameSettingsToggle
 @onready var game_settings_root := %GameSettingsRoot
 @onready var game_settings_layout := %GameSettingsLayout
@@ -35,6 +37,8 @@ func _on_room_changed(room: RoomData) -> void:
 	_loading = true
 	var is_host := RoomSession.is_local_host()
 	if room == null:
+		if turn_countdown_label:
+			turn_countdown_label.visible = false
 		_loading = false
 		return
 	name_edit.set_text_content(room.name)
@@ -46,6 +50,9 @@ func _on_room_changed(room: RoomData) -> void:
 	if turn_countdown_spin:
 		turn_countdown_spin.value = room.turn_countdown_sec
 		turn_countdown_spin.visible = is_host
+	if turn_countdown_label:
+		turn_countdown_label.text = "回合倒计时: %d 秒" % room.turn_countdown_sec
+		turn_countdown_label.visible = not is_host
 	_loading = false
 
 

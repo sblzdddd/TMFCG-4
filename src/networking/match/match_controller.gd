@@ -18,6 +18,9 @@ var _gap_token := 0
 var _timeout_token := 0
 ## Last active uid we already armed empty-hand autoskip for (avoids double-pass).
 var _autoskip_armed_uid := ""
+## Room turn length used when the current host timeout was armed.
+var _armed_countdown_sec := -1.0
+var _timeout_arm_msec := 0
 
 
 func setup(session: Node, shared_rpc: MatchRpc = null, connect_receive: bool = true) -> void:
@@ -38,11 +41,13 @@ func clear() -> void:
 	_gap_token += 1
 	_timeout_token += 1
 	_autoskip_armed_uid = ""
+	_armed_countdown_sec = -1.0
+	_timeout_arm_msec = 0
 	state.clear()
 	_emit_changed()
 
 
-## Client-facing turn length from room settings (default 30s).
+## Authoritative turn length from room settings (clients + host force-pass timer).
 func turn_countdown_sec() -> float:
 	if _session != null and _session.current_room != null:
 		return float(_session.current_room.turn_countdown_sec)
@@ -256,6 +261,8 @@ func _forward_host_command(command: String, args: Dictionary = {}) -> bool:
 
 func _on_room_changed(room: RoomData) -> void:
 	if room == null:
+		_timeout_token += 1
+		_armed_countdown_sec = -1.0
 		state.clear()
 		_emit_changed()
 		return
@@ -266,6 +273,7 @@ func _on_room_changed(room: RoomData) -> void:
 			# Drop uids that left even mid-match (kick/grace already calls on_member_removed,
 			# but reconcile defensively).
 			_reconcile_removed_members(room)
+		_rearm_timeout_for_countdown_change()
 
 
 func _reconcile_removed_members(room: RoomData) -> void:
@@ -304,6 +312,7 @@ func _broadcast() -> void:
 	if state.phase != MatchPhase.Phase.TURN_PLAY or state.active_uid.is_empty():
 		_autoskip_armed_uid = ""
 		_timeout_token += 1
+		_armed_countdown_sec = -1.0
 		return
 	# Arm once per active seat so pass's own broadcast cannot re-autoskip.
 	if _autoskip_armed_uid == state.active_uid:
@@ -313,11 +322,15 @@ func _broadcast() -> void:
 	_arm_turn_timeout(state.active_uid)
 
 
-## Host: countdown + grace; force-pass if the active seat never acts.
-func _arm_turn_timeout(uid: String) -> void:
+## Host: room turn_countdown_sec + grace; force-pass if the active seat never acts.
+func _arm_turn_timeout(uid: String, remaining_override: float = -1.0) -> void:
 	_timeout_token += 1
 	var token := _timeout_token
-	var limit := turn_countdown_sec() + TURN_TIMEOUT_GRACE_SEC
+	var limit := remaining_override
+	if limit < 0.0:
+		_armed_countdown_sec = turn_countdown_sec()
+		_timeout_arm_msec = Time.get_ticks_msec()
+		limit = _armed_countdown_sec + TURN_TIMEOUT_GRACE_SEC
 	await get_tree().create_timer(limit).timeout
 	if token != _timeout_token or not _is_host() or _session == null:
 		return
@@ -326,6 +339,28 @@ func _arm_turn_timeout(uid: String) -> void:
 	if _session.match_card_controller == null:
 		return
 	_session.match_card_controller.handle_timeout_for_uid(uid)
+
+
+## When host edits turn_countdown_sec mid-turn, keep elapsed wall time and re-arm.
+func _rearm_timeout_for_countdown_change() -> void:
+	if (
+		state.phase != MatchPhase.Phase.TURN_PLAY
+		or state.active_uid.is_empty()
+		or _armed_countdown_sec < 0.0
+	):
+		return
+	var new_sec := turn_countdown_sec()
+	if is_equal_approx(new_sec, _armed_countdown_sec):
+		return
+	var elapsed := (Time.get_ticks_msec() - _timeout_arm_msec) / 1000.0
+	_armed_countdown_sec = new_sec
+	var remaining := new_sec + TURN_TIMEOUT_GRACE_SEC - elapsed
+	if remaining <= 0.0:
+		_timeout_token += 1
+		if _session != null and _session.match_card_controller != null:
+			_session.match_card_controller.handle_timeout_for_uid(state.active_uid)
+		return
+	_arm_turn_timeout(state.active_uid, remaining)
 
 
 func _emit_changed() -> void:

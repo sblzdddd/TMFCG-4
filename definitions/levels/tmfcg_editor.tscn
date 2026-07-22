@@ -472,15 +472,13 @@ script = ExtResource("6_vfit")
 [node name="Card" type="Control" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview" unique_id=1571709233]
 layout_mode = 2
 
-[node name="CardVisual" type="ColorRect" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card" unique_id=1961978759 node_paths=PackedStringArray("valueLabels", "_name_label")]
+[node name="CardVisual" type="ColorRect" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card" unique_id=1961978759]
 material = ExtResource("21_3w788")
 layout_mode = 0
 offset_right = 450.0
 offset_bottom = 600.0
 pivot_offset = Vector2(225, 600)
 script = ExtResource("7_6v3qa")
-valueLabels = [NodePath("ValueLabel"), NodePath("ValueLabel2")]
-_name_label = NodePath("CharacterNameLabel")
 
 [node name="ValueLabel" type="Label" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardPreview/Card/CardVisual" unique_id=1060562335]
 layout_mode = 1

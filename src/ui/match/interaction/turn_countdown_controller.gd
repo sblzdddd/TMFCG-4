@@ -19,7 +19,7 @@ func _ready() -> void:
 	for panel in [_left, _top, _right, _bottom]:
 		_prepare_panel(panel)
 	RoomSession.match_changed.connect(_on_match_changed)
-	RoomSession.room_changed.connect(func(_r) -> void: _sync_from_match())
+	RoomSession.room_changed.connect(_on_room_changed)
 	_sync_from_match()
 
 
@@ -36,6 +36,16 @@ func _process(_delta: float) -> void:
 
 func _on_match_changed(_state: MatchRuntimeState) -> void:
 	_sync_from_match()
+
+
+func _on_room_changed(_room: RoomData) -> void:
+	if _active_uid.is_empty():
+		return
+	var new_dur := _turn_countdown_sec()
+	if is_equal_approx(new_dur, _duration_sec):
+		return
+	_duration_sec = new_dur
+	_timed_out = false
 
 
 func _sync_from_match() -> void:
