@@ -214,7 +214,7 @@ tracks/4/keys = {
 
 [sub_resource type="Animation" id="Animation_8j08v"]
 resource_name = "broadcast_in"
-length = 1.2
+length = 1.5
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -235,7 +235,7 @@ tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.432, 0, 0, -0.368, 0, 0.433, 0),
-"times": PackedFloat32Array(0.5, 0.70000005, 1.2)
+"times": PackedFloat32Array(0.5, 1, 1.5)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -244,9 +244,9 @@ tracks/2/path = NodePath("BroadcastLayout:modulate:a")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 3, 0, 3),
+"handle_modes": PackedInt32Array(0, 3, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0, 0.4982419, 1, -0.26666665, -0.00457108, 0.26666665, 0.00457108, 1, -0.26666665, -0.00457108, 0.23333329, -0.022669137, 0, 0, 0.46583438, 0, -0.46583438),
-"times": PackedFloat32Array(0, 0.5, 0.70000005, 1)
+"times": PackedFloat32Array(0, 0.5, 1, 1.3)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -255,9 +255,9 @@ tracks/3/path = NodePath("BroadcastLayout:offset_transform_position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(3, 3),
-"points": PackedFloat32Array(101.20805, -0.6, 3.0642471, 0.6, -3.0642471, -114.697044, -0.4333334, 6.6253967, 0.4333334, -6.6253967),
-"times": PackedFloat32Array(0, 1.2)
+"handle_modes": PackedInt32Array(3, 0),
+"points": PackedFloat32Array(101.20805, -0.3, 1.2080536, 0.3, -1.2080536, -114.697044, -0.39999998, 4.6970444, 0.4333334, -6.6253967),
+"times": PackedFloat32Array(0, 1.5)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pydsn"]
@@ -412,6 +412,7 @@ script = ExtResource("46_dbgboot")
 [node name="SidebarLayer" type="CanvasLayer" parent="." unique_id=1260910676]
 unique_name_in_owner = true
 layer = 10
+visible = false
 script = ExtResource("2_1j4a0")
 
 [node name="SidebarBG" type="ColorRect" parent="SidebarLayer" unique_id=1134903610]
@@ -844,7 +845,6 @@ text = "Draw Right"
 
 [node name="BroadcastPanel" type="Panel" parent="MatchOverlay" unique_id=235814532]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(0, 100)
 anchors_preset = -1
 anchor_top = 0.5
@@ -875,6 +875,7 @@ metadata/_edit_use_anchors_ = true
 [node name="BroadcastTitle" type="Label" parent="MatchOverlay/BroadcastPanel/BroadcastLayout" unique_id=1394360661]
 unique_name_in_owner = true
 layout_mode = 2
+text = "We are charlie kirk"
 label_settings = SubResource("LabelSettings_8j08v")
 horizontal_alignment = 1
 
@@ -882,6 +883,7 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
+text = "222"
 
 [node name="CardsLayer" type="CanvasLayer" parent="." unique_id=487420485]
 

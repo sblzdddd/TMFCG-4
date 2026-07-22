@@ -14,6 +14,17 @@ const WEB_PHYSICAL_MULT := 1.25
 
 ## Last applied content scale factor.
 var scale_factor: float = 1.0
+## User-facing display scale from settings (1.0 = 100%).
+var base_scale: float = 1.0:
+	get:
+		return _base_scale
+	set(value):
+		var next := clampf(value, MIN_SCALE, MAX_SCALE)
+		if is_equal_approx(_base_scale, next):
+			return
+		_base_scale = next
+		if is_inside_tree():
+			apply_scale()
 ## Multiplier on large-screen scale only. Small screens ignore it.
 var physical_scale_multiplier: float = 1.0:
 	get:
@@ -26,6 +37,7 @@ var physical_scale_multiplier: float = 1.0:
 		if is_inside_tree():
 			apply_scale()
 
+var _base_scale: float = 1.0
 var _physical_scale_multiplier: float = 1.0
 
 func _ready() -> void:
@@ -67,6 +79,7 @@ func apply_scale() -> void:
 		target = scale_res
 	else:
 		target = maxf(scale_res, scale_phys) * physical_scale_multiplier
+	target *= base_scale
 
 	scale_factor = clampf(target, MIN_SCALE, MAX_SCALE)
 	window.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED

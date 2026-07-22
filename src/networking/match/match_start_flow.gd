@@ -2,7 +2,7 @@ class_name MatchStartFlow
 extends RefCounted
 ## Sync helpers for host start / restart. Timers stay on MatchController.
 
-const BROADCAST_SEC := 1.2
+const BROADCAST_SEC := 1.5
 
 
 static func can_start(phase: MatchPhase.Phase) -> bool:

@@ -349,6 +349,30 @@ skill_graph = {
 "polymorphic_types": {},
 "position": [500.0, 800.0],
 "type": "card.transfer"
+}, {
+"id": "card_holder_all_players_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [240.0, 120.0],
+"type": "card_holder.all_players"
+}, {
+"id": "array_length_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [780.0, 100.0],
+"type": "array.length"
+}, {
+"id": "array_join_3",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [560.0, 20.0],
+"type": "array.join"
+}, {
+"id": "boolean_and_4",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [540.0, 200.0],
+"type": "boolean.and"
 }],
 "version": 1
 }
@@ -681,6 +705,14 @@ skill_graph = {
 "position": [1000.0, 600.0],
 "type": "card.transfer"
 }, {
+"id": "array_join_1",
+"inline_values": {},
+"polymorphic_types": {
+&"default": -5
+},
+"position": [740.0, 800.0],
+"type": "array.join"
+}, {
 "id": "event_on_played_3",
 "inline_values": {
 1: {
@@ -696,31 +728,6 @@ skill_graph = {
 "position": [0.0, 600.0],
 "type": "event.on_played"
 }, {
-"id": "card_holder_all_players_5",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [-300.0, 800.0],
-"type": "card_holder.all_players"
-}, {
-"id": "number_algebra_2",
-"inline_values": {
-1: {
-"kind": "enum",
-"value": 1
-},
-2: {
-"kind": "number",
-"value": 1.0
-},
-3: {
-"kind": "number",
-"value": 1.0
-}
-},
-"polymorphic_types": {},
-"position": [220.0, 940.0],
-"type": "number.algebra"
-}, {
 "id": "array_length_1",
 "inline_values": {},
 "polymorphic_types": {
@@ -728,6 +735,23 @@ skill_graph = {
 },
 "position": [0.0, 860.0],
 "type": "array.length"
+}, {
+"id": "card_holder_all_players_5",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [-280.0, 780.0],
+"type": "card_holder.all_players"
+}, {
+"id": "card_get_random_4",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {},
+"position": [600.0, 600.0],
+"type": "card.get_random"
 }, {
 "id": "array_slice_7",
 "inline_values": {
@@ -746,24 +770,24 @@ skill_graph = {
 "position": [480.0, 800.0],
 "type": "array.slice"
 }, {
-"id": "array_join_1",
-"inline_values": {},
-"polymorphic_types": {
-&"default": -5
-},
-"position": [740.0, 800.0],
-"type": "array.join"
-}, {
-"id": "card_get_random_4",
+"id": "number_algebra_2",
 "inline_values": {
 1: {
+"kind": "enum",
+"value": 1
+},
+2: {
 "kind": "number",
-"value": 3.0
+"value": 1.0
+},
+3: {
+"kind": "number",
+"value": 1.0
 }
 },
 "polymorphic_types": {},
-"position": [600.0, 600.0],
-"type": "card.get_random"
+"position": [240.0, 940.0],
+"type": "number.algebra"
 }],
 "version": 1
 }
@@ -818,21 +842,6 @@ skill_graph = {
 "from_port": 0,
 "to": "card_transfer_1",
 "to_port": 2
-}, {
-"from": "card,get_info_1",
-"from_port": 0,
-"to": "boolean_branch_event_1",
-"to_port": 0
-}, {
-"from": "card,get_info_1",
-"from_port": 3,
-"to": "boolean_branch_event_1",
-"to_port": 1
-}, {
-"from": "event_on_card_draw_2",
-"from_port": 0,
-"to": "card,get_info_1",
-"to_port": 0
 }, {
 "from": "card_holder_current_player_4",
 "from_port": 0,
@@ -889,16 +898,6 @@ skill_graph = {
 "to": "card_get_random_4",
 "to_port": 0
 }, {
-"from": "_GraphNode_1741",
-"from_port": 0,
-"to": "card_discard_self_1",
-"to_port": 0
-}, {
-"from": "card_transfer_3",
-"from_port": 0,
-"to": "card_discard_self_2",
-"to_port": 0
-}, {
 "from": "event_on_card_draw_2",
 "from_port": 1,
 "to": "boolean_compare_3",
@@ -908,34 +907,33 @@ skill_graph = {
 "from_port": 0,
 "to": "_GraphNode_1741",
 "to_port": 1
+}, {
+"from": "event_on_card_draw_2",
+"from_port": 0,
+"to": "boolean_branch_event_1",
+"to_port": 0
+}, {
+"from": "card,get_info_1",
+"from_port": 2,
+"to": "boolean_branch_event_1",
+"to_port": 1
+}, {
+"from": "card_get_current_1",
+"from_port": 0,
+"to": "card,get_info_1",
+"to_port": 0
+}, {
+"from": "card_get_random_4",
+"from_port": 0,
+"to": "card_transfer_3",
+"to_port": 2
 }],
 "nodes": [{
-"id": "card,get_info_1",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [140.0, 1000.0],
-"type": "card,get_info"
-}, {
 "id": "boolean_branch_event_1",
 "inline_values": {},
 "polymorphic_types": {},
 "position": [400.0, 1000.0],
 "type": "boolean.branch_event"
-}, {
-"id": "card_query_selection_1",
-"inline_values": {
-3: {
-"kind": "number",
-"value": 3.0
-},
-4: {
-"kind": "number",
-"value": 3.0
-}
-},
-"polymorphic_types": {},
-"position": [700.0, 1000.0],
-"type": "card.query_selection"
 }, {
 "id": "card_get_offset_2",
 "inline_values": {
@@ -952,87 +950,17 @@ skill_graph = {
 "position": [400.0, 1340.0],
 "type": "card.get_offset"
 }, {
-"id": "card_holder_graveyard_2",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [700.0, 1260.0],
-"type": "card_holder.graveyard"
-}, {
-"id": "_GraphNode_1741",
-"inline_values": {
-4: {
-"kind": "bool",
-"pressed": false
-},
-5: {
-"kind": "bool",
-"pressed": true
-}
-},
-"polymorphic_types": {},
-"position": [1000.0, 1000.0],
-"type": "card.transfer"
-}, {
-"id": "card_transfer_3",
-"inline_values": {
-4: {
-"kind": "bool",
-"pressed": false
-},
-5: {
-"kind": "bool",
-"pressed": true
-}
-},
-"polymorphic_types": {},
-"position": [1000.0, 1320.0],
-"type": "card.transfer"
-}, {
-"id": "card_get_random_4",
-"inline_values": {
-1: {
-"kind": "number",
-"value": 3.0
-}
-},
-"polymorphic_types": {},
-"position": [700.0, 1380.0],
-"type": "card.get_random"
-}, {
 "id": "_GraphNode_732",
 "inline_values": {},
 "polymorphic_types": {},
 "position": [400.0, 1180.0],
 "type": "boolean.branch_event"
 }, {
-"id": "card_discard_self_1",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [1280.0, 1000.0],
-"type": "card.discard_self"
-}, {
-"id": "card_discard_self_2",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [1280.0, 1320.0],
-"type": "card.discard_self"
-}, {
 "id": "card_holder_current_player_4",
 "inline_values": {},
 "polymorphic_types": {},
 "position": [-140.0, 1200.0],
 "type": "card_holder.current_player"
-}, {
-"id": "event_on_card_draw_2",
-"inline_values": {
-0: {
-"kind": "bool",
-"pressed": false
-}
-},
-"polymorphic_types": {},
-"position": [-140.0, 1000.0],
-"type": "event.on_card_draw"
 }, {
 "id": "card_get_current_1",
 "inline_values": {
@@ -1064,6 +992,21 @@ skill_graph = {
 "position": [140.0, 1240.0],
 "type": "boolean.compare"
 }, {
+"id": "event_on_played_4",
+"inline_values": {
+1: {
+"kind": "bool",
+"pressed": false
+},
+2: {
+"kind": "bool",
+"pressed": false
+}
+},
+"polymorphic_types": {},
+"position": [-140.0, 600.0],
+"type": "event.on_played"
+}, {
 "id": "card_transfer_1",
 "inline_values": {
 4: {
@@ -1079,20 +1022,84 @@ skill_graph = {
 "position": [400.0, 600.0],
 "type": "card.transfer"
 }, {
-"id": "event_on_played_4",
+"id": "event_on_card_draw_2",
 "inline_values": {
-1: {
-"kind": "bool",
-"pressed": false
-},
-2: {
+0: {
 "kind": "bool",
 "pressed": false
 }
 },
 "polymorphic_types": {},
-"position": [-140.0, 600.0],
-"type": "event.on_played"
+"position": [-140.0, 1000.0],
+"type": "event.on_card_draw"
+}, {
+"id": "card,get_info_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [120.0, 1000.0],
+"type": "card,get_info"
+}, {
+"id": "card_get_random_4",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {},
+"position": [700.0, 1380.0],
+"type": "card.get_random"
+}, {
+"id": "card_transfer_3",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [1000.0, 1320.0],
+"type": "card.transfer"
+}, {
+"id": "card_query_selection_1",
+"inline_values": {
+3: {
+"kind": "number",
+"value": 3.0
+},
+4: {
+"kind": "number",
+"value": 3.0
+}
+},
+"polymorphic_types": {},
+"position": [700.0, 1000.0],
+"type": "card.query_selection"
+}, {
+"id": "_GraphNode_1741",
+"inline_values": {
+4: {
+"kind": "bool",
+"pressed": false
+},
+5: {
+"kind": "bool",
+"pressed": true
+}
+},
+"polymorphic_types": {},
+"position": [1000.0, 1000.0],
+"type": "card.transfer"
+}, {
+"id": "card_holder_graveyard_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [700.0, 1260.0],
+"type": "card_holder.graveyard"
 }],
 "version": 1
 }
@@ -1565,26 +1572,6 @@ skill_graph = {
 "from_port": 0,
 "to": "card_discard_self_2",
 "to_port": 0
-}, {
-"from": "card_discard_self_2",
-"from_port": 0,
-"to": "card_transfer_3",
-"to_port": 0
-}, {
-"from": "card_holder_graveyard_4",
-"from_port": 0,
-"to": "card_transfer_3",
-"to_port": 1
-}, {
-"from": "event_on_effect_received_1",
-"from_port": 1,
-"to": "effect_get_effect_info_5",
-"to_port": 0
-}, {
-"from": "effect_get_effect_info_5",
-"from_port": 0,
-"to": "card_transfer_3",
-"to_port": 2
 }],
 "nodes": [{
 "id": "card_discard_self_2",
@@ -1592,21 +1579,6 @@ skill_graph = {
 "polymorphic_types": {},
 "position": [200.0, 300.0],
 "type": "card.discard_self"
-}, {
-"id": "card_transfer_3",
-"inline_values": {
-4: {
-"kind": "bool",
-"pressed": false
-},
-5: {
-"kind": "bool",
-"pressed": true
-}
-},
-"polymorphic_types": {},
-"position": [500.0, 300.0],
-"type": "card.transfer"
 }, {
 "id": "event_on_effect_received_1",
 "inline_values": {
@@ -1618,18 +1590,6 @@ skill_graph = {
 "polymorphic_types": {},
 "position": [-120.0, 300.0],
 "type": "event.on_effect_received"
-}, {
-"id": "card_holder_graveyard_4",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [200.0, 400.0],
-"type": "card_holder.graveyard"
-}, {
-"id": "effect_get_effect_info_5",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [200.0, 500.0],
-"type": "effect.get_effect_info"
 }],
 "version": 1
 }
@@ -1764,21 +1724,6 @@ skill_graph = {
 "to_port": 1
 }],
 "nodes": [{
-"id": "event_repeat_start_1",
-"inline_values": {
-1: {
-"kind": "number",
-"value": 1.0
-},
-2: {
-"kind": "number",
-"value": 1.0
-}
-},
-"polymorphic_types": {},
-"position": [140.0, 540.0],
-"type": "event.repeat_start"
-}, {
 "id": "event_on_played_7",
 "inline_values": {
 1: {
@@ -1793,12 +1738,6 @@ skill_graph = {
 "polymorphic_types": {},
 "position": [-180.0, 540.0],
 "type": "event.on_played"
-}, {
-"id": "card_holder_deck_1",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [140.0, 740.0],
-"type": "card_holder.deck"
 }, {
 "id": "card_transfer_5",
 "inline_values": {
@@ -1826,6 +1765,33 @@ skill_graph = {
 "position": [1400.0, 540.0],
 "type": "event.repeat_end"
 }, {
+"id": "suit_is_black_2",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [1000.0, 840.0],
+"type": "suit.is_black"
+}, {
+"id": "event_repeat_start_1",
+"inline_values": {
+1: {
+"kind": "number",
+"value": 1.0
+},
+2: {
+"kind": "number",
+"value": 1.0
+}
+},
+"polymorphic_types": {},
+"position": [140.0, 540.0],
+"type": "event.repeat_start"
+}, {
+"id": "card_holder_deck_1",
+"inline_values": {},
+"polymorphic_types": {},
+"position": [140.0, 740.0],
+"type": "card_holder.deck"
+}, {
 "id": "card_get_offset_1",
 "inline_values": {
 1: {
@@ -1840,12 +1806,6 @@ skill_graph = {
 "polymorphic_types": {},
 "position": [400.0, 660.0],
 "type": "card.get_offset"
-}, {
-"id": "suit_is_black_2",
-"inline_values": {},
-"polymorphic_types": {},
-"position": [1000.0, 840.0],
-"type": "suit.is_black"
 }, {
 "id": "card,get_info_2",
 "inline_values": {},
@@ -2497,6 +2457,6 @@ id = "deck-1783532911"
 name = "Deck A"
 author = "Room0733"
 date_created = 1783532911.57745
-date_modified = 1784709935.483
+date_modified = 1784736214.172
 description = "733巨献Deck A玩法"
 cards = Array[ExtResource("1_6d0uk")]([SubResource("Resource_avput"), SubResource("Resource_w2plg"), SubResource("Resource_wk4lx"), SubResource("Resource_xlvae"), SubResource("Resource_lak7r"), SubResource("Resource_jaosh"), SubResource("Resource_17gv1"), SubResource("Resource_7eh51"), SubResource("Resource_xvry6"), SubResource("Resource_4no60"), SubResource("Resource_kv3xq"), SubResource("Resource_vfwjp"), SubResource("Resource_0fibi"), SubResource("Resource_of12r"), SubResource("Resource_a8t17"), SubResource("Resource_4j1ph"), SubResource("Resource_p41ll"), SubResource("Resource_qwtxv"), SubResource("Resource_pisqa"), SubResource("Resource_xelhs"), SubResource("Resource_ruplr"), SubResource("Resource_ean5y"), SubResource("Resource_cxbmt"), SubResource("Resource_g8sdn"), SubResource("Resource_0nf38"), SubResource("Resource_kc81a"), SubResource("Resource_2t026"), SubResource("Resource_nwew5"), SubResource("Resource_qfby3"), SubResource("Resource_4nqvu"), SubResource("Resource_w0rjb"), SubResource("Resource_gr01v"), SubResource("Resource_d8i1d"), SubResource("Resource_d0eav"), SubResource("Resource_e8res"), SubResource("Resource_g71ph"), SubResource("Resource_ri1bv"), SubResource("Resource_m5u1w"), SubResource("Resource_or1q5"), SubResource("Resource_oxa0y"), SubResource("Resource_ceuoh"), SubResource("Resource_8d2w3"), SubResource("Resource_2p7d8"), SubResource("Resource_0s8ht"), SubResource("Resource_mxloy"), SubResource("Resource_nsh76"), SubResource("Resource_iqy66"), SubResource("Resource_8s21v"), SubResource("Resource_mo30m"), SubResource("Resource_kc2bj"), SubResource("Resource_0aodc"), SubResource("Resource_o1hq2"), SubResource("Resource_7k33n"), SubResource("Resource_kg7f0")])

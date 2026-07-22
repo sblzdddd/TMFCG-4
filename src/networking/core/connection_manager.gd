@@ -51,7 +51,8 @@ func host(port: int = NetConst.GAME_PORT) -> Error:
 func join(address: String, port: int = NetConst.GAME_PORT) -> Error:
 	leave()
 	peer = WebSocketMultiplayerPeer.new()
-	var url := "ws://%s:%d" % [address.strip_edges(), port]
+	var host := address.strip_edges()
+	var url := "%s://%s:%d" % [_websocket_scheme(host), host, port]
 	var err := peer.create_client(url)
 	if err != OK:
 		peer = null
@@ -63,6 +64,17 @@ func join(address: String, port: int = NetConst.GAME_PORT) -> Error:
 	_saw_connecting = false
 	_arm_join_timeout()
 	return OK
+
+
+func _websocket_scheme(host: String) -> String:
+	# Local dedicated server speaks plain ws://.
+	var normalized := host.to_lower()
+	if normalized in ["127.0.0.1", "localhost", "::1"]:
+		return "ws"
+	# Remote hosts terminate TLS (nginx/FRP). Desktop used to use ws:// and got
+	# HTTP 302 redirects instead of the WebSocket 101 upgrade; web also needs
+	# wss:// under HTTPS pages (mixed content).
+	return "wss"
 
 
 func leave() -> void:

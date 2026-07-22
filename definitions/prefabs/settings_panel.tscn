@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dinseui6fqjrc" path="res://src/ui/home/user_profile_editor.gd" id="6_profile"]
 [ext_resource type="Script" uid="uid://ba70keabkuapd" path="res://src/ui/home/avatar_picker_dialog.gd" id="7_picker"]
 [ext_resource type="Script" path="res://src/ui/home/network_settings_editor.gd" id="7_net"]
+[ext_resource type="Script" path="res://src/ui/home/display_settings_editor.gd" id="7_display"]
+[ext_resource type="Script" path="res://src/ui/home/settings_reset_button.gd" id="7_reset"]
 [ext_resource type="Texture2D" uid="uid://q5pt208fk80t" path="res://assets/textures/avatars/00069.png" id="8_njoky"]
 [ext_resource type="Texture2D" uid="uid://uqlgh1c5gwss" path="res://assets/textures/avatars/00068.png" id="9_2mlqi"]
 [ext_resource type="Texture2D" uid="uid://4mt30vtkshkx" path="res://assets/textures/avatars/00067.png" id="10_rbgjr"]
@@ -379,9 +381,11 @@ text = "图像"
 label_settings = ExtResource("1_2mlqi")
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1397291138]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1397291138 node_paths=PackedStringArray("_scale_option")]
 layout_mode = 2
 columns = 2
+script = ExtResource("7_display")
+_scale_option = NodePath("ScaleOption")
 
 [node name="Label" type="Label" parent="GridContainer" unique_id=448819100]
 custom_minimum_size = Vector2(84, 0)
@@ -400,6 +404,30 @@ popup/item_1/text = "无边框全屏"
 popup/item_1/id = 1
 popup/item_2/text = "独占全屏"
 popup/item_2/id = 2
+
+[node name="ScaleLabel" type="Label" parent="GridContainer"]
+custom_minimum_size = Vector2(84, 0)
+layout_mode = 2
+text = "显示缩放"
+label_settings = ExtResource("103_tjv8h")
+
+[node name="ScaleOption" type="OptionButton" parent="GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 2
+item_count = 6
+popup/item_0/text = "50%"
+popup/item_0/id = 0
+popup/item_1/text = "75%"
+popup/item_1/id = 1
+popup/item_2/text = "100%"
+popup/item_2/id = 2
+popup/item_3/text = "125%"
+popup/item_3/id = 3
+popup/item_4/text = "150%"
+popup/item_4/id = 4
+popup/item_5/text = "200%"
+popup/item_5/id = 5
 
 [node name="Label3" type="Label" parent="GridContainer" unique_id=1609603119]
 custom_minimum_size = Vector2(84, 0)
@@ -429,3 +457,8 @@ step = 30.0
 value = 240.0
 alignment = 1
 label_text = "fps"
+
+[node name="ResetSettingsButton" type="Button" parent="."]
+layout_mode = 2
+text = "重置设置"
+script = ExtResource("7_reset")
