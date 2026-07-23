@@ -543,6 +543,50 @@ offset_transform_scale = Vector2(1.265, 1.265)
 texture = ExtResource("3_airkh")
 stretch_mode = 5
 
+[node name="TextureRect3" type="TextureRect" parent="TopLayer/SkillPlayAnimationPanel/HBoxContainer/TextureRect" unique_id=1392121628]
+texture_filter = 1
+custom_minimum_size = Vector2(628.43, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -314.215
+offset_top = -736.0
+offset_right = 314.21497
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+offset_transform_position_ratio = Vector2(0, 0.19)
+offset_transform_scale = Vector2(1.265, 1.265)
+texture = ExtResource("3_airkh")
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="TopLayer/SkillPlayAnimationPanel/HBoxContainer/TextureRect" unique_id=648100036]
+texture_filter = 1
+custom_minimum_size = Vector2(628.43, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -314.215
+offset_top = -736.0
+offset_right = 314.21497
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+offset_transform_position_ratio = Vector2(0, 0.19)
+offset_transform_scale = Vector2(1.265, 1.265)
+texture = ExtResource("3_airkh")
+stretch_mode = 5
+
 [node name="Label" type="Label" parent="TopLayer/SkillPlayAnimationPanel/HBoxContainer" unique_id=714372800]
 layout_mode = 2
 size_flags_horizontal = 3
