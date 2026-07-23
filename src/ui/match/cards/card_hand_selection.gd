@@ -108,25 +108,40 @@ func _id_of(base: CardBase) -> String:
 	return str(base.get_meta(CardViewFactory.META_INSTANCE_ID, ""))
 
 
-func _on_pressed(card: CardBase) -> void:
+func _on_pressed(card: CardBase, from_touch: bool = false) -> void:
 	var id := _id_of(card)
 	if id.is_empty():
 		return
+	var select := not _selected.has(id)
+	if from_touch:
+		# Tap after short touch (info hold already filtered out in CardBase).
+		_dragging = false
+		_apply(id, card, select)
+		return
 	_dragging = true
-	_paint_select = not _selected.has(id)
+	_paint_select = select
 	_apply(id, card, _paint_select)
 
 
 func _on_hovered(card: CardBase) -> void:
+	# Drag paint is mouse-only; ignore while any bound card is in a touch hold.
+	if not _dragging or _any_touch_holding():
+		return
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		_dragging = false
-		return
-	if not _dragging:
 		return
 	var id := _id_of(card)
 	if id.is_empty():
 		return
 	_apply(id, card, _paint_select)
+
+
+func _any_touch_holding() -> bool:
+	for id in _bound.keys():
+		var base := _get_bound(str(id))
+		if base != null and base.is_touch_holding():
+			return true
+	return false
 
 
 func _apply(id: String, base: CardBase, select: bool) -> void:

@@ -4,7 +4,9 @@ extends Control
 
 signal hovered(card: CardBase)
 signal unhovered(card: CardBase)
-signal pressed(card: CardBase)
+## [param from_touch] is true when the press came from a short ScreenTouch tap
+## (long-press info hold never emits this).
+signal pressed(card: CardBase, from_touch: bool)
 
 const CARD_SIZE := CardLayoutUtils.CARD_SIZE
 const SELECT_OFFSET_Y := -24.0
@@ -118,6 +120,10 @@ func is_hovering() -> bool:
 	return _hovering
 
 
+func is_touch_holding() -> bool:
+	return _info != null and _info.touch_holding
+
+
 func set_card_data(card_data: CardData) -> void:
 	if is_node_ready():
 		_apply_card_data(card_data)
@@ -189,7 +195,7 @@ func _on_visual_gui_input(event: InputEvent) -> void:
 			_info.begin_touch_hold()
 		else:
 			if _info.end_touch_hold() and interactable:
-				pressed.emit(self)
+				pressed.emit(self, true)
 		accept_event()
 		return
 
@@ -202,7 +208,7 @@ func _on_visual_gui_input(event: InputEvent) -> void:
 			accept_event()
 			return
 		if mb.pressed and interactable:
-			pressed.emit(self)
+			pressed.emit(self, false)
 			accept_event()
 
 
