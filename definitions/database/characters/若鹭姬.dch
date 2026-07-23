@@ -14,6 +14,7 @@
 &"description": "origin=东方辉针城
 description=栖息于淡水的人鱼",
 &"display_name": "若鹭姬",
+&"extra_config": Dictionary[String, String]({}),
 &"mirror": false,
 &"nicknames": ["人鱼"],
 &"offset": Vector2(0.09, -0.22),

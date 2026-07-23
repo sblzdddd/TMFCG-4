@@ -14,6 +14,7 @@
 &"description": "origin=东方永夜抄
 description=吞噬历史的半兽",
 &"display_name": "上白泽慧音",
+&"extra_config": Dictionary[String, String]({}),
 &"mirror": false,
 &"nicknames": ["老师"],
 &"offset": Vector2(0, 0),

@@ -14,6 +14,7 @@
 &"description": "origin=东方智灵奇传
 description=反狱王",
 &"display_name": "宫出口瑞灵",
+&"extra_config": Dictionary[String, String]({}),
 &"mirror": false,
 &"nicknames": ["反狱王"],
 &"offset": Vector2(0, -0.43),
