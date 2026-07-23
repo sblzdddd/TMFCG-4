@@ -72,9 +72,22 @@ func toggle_above(anchor: Control) -> void:
 	popup_above(anchor)
 
 
+func toggle_below(anchor: Control) -> void:
+	if visible:
+		hide()
+		return
+	popup_below(anchor)
+
+
 func popup_above(anchor: Control) -> void:
 	var rect := anchor.get_global_rect()
 	var pos := Vector2(rect.position.x, rect.position.y - POPUP_SIZE.y - 4)
+	popup(Rect2i(Vector2i(pos), Vector2i(POPUP_SIZE)))
+
+
+func popup_below(anchor: Control) -> void:
+	var rect := anchor.get_global_rect()
+	var pos := Vector2(rect.position.x, rect.end.y + 4)
 	popup(Rect2i(Vector2i(pos), Vector2i(POPUP_SIZE)))
 
 
@@ -84,3 +97,4 @@ func _on_emoji_item_clicked(index: int, _at_position: Vector2, mouse_button_inde
 	if index < 0 or index >= _list_ids.size():
 		return
 	emoji_selected.emit(_list_ids[index])
+	hide()

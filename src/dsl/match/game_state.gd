@@ -24,6 +24,8 @@ var passes_count: int = 0
 var placements: Array[PlayerId] = []
 ## Card instance IDs in exact global play order for the current round.
 var play_history_instance_ids: Array[String] = []
+## Seats that passed this cycle; cleared when that seat's next turn starts (like temp GY).
+var passed_uids: Array[String] = []
 
 
 func _init(
@@ -37,6 +39,7 @@ func _init(
 	p_placements: Array[PlayerId] = [],
 	p_graveyard: Graveyard = null,
 	p_play_history_instance_ids: Array[String] = [],
+	p_passed_uids: Array[String] = [],
 ) -> void:
 	deck = p_deck if p_deck != null else Deck.empty()
 	graveyard = p_graveyard if p_graveyard != null else Graveyard.new()
@@ -48,6 +51,7 @@ func _init(
 	passes_count = p_passes_count
 	placements = p_placements.duplicate()
 	play_history_instance_ids = p_play_history_instance_ids.duplicate()
+	passed_uids = p_passed_uids.duplicate()
 
 
 func get_current_player_id() -> PlayerId:
@@ -197,6 +201,25 @@ func flush_player_temporary_graveyard(player_id: PlayerId) -> Array[Card]:
 	return transfer_cards(temporary_graveyard, graveyard, cards)
 
 
+func mark_passed(uid: String) -> void:
+	if uid.is_empty() or passed_uids.has(uid):
+		return
+	passed_uids.append(uid)
+
+
+## Clears a seat's pass marker (turn-start). Returns true if one was removed.
+func clear_passed(uid: String) -> bool:
+	var idx := passed_uids.find(uid)
+	if idx < 0:
+		return false
+	passed_uids.remove_at(idx)
+	return true
+
+
+func has_passed(uid: String) -> bool:
+	return not uid.is_empty() and passed_uids.has(uid)
+
+
 func end_round() -> Array[Card]:
 	var flushed: Array[Card] = []
 	for instance_id in play_history_instance_ids:
@@ -215,6 +238,7 @@ func end_round() -> Array[Card]:
 			flushed.append(moved[0])
 	play_history_instance_ids.clear()
 	passes_count = 0
+	passed_uids.clear()
 	# Keep trick_winner_id so the winner leads the next round (must-play + UI).
 	current_trick_combo = null
 	return flushed
@@ -265,6 +289,7 @@ func to_dict() -> Dictionary:
 		"passesCount": passes_count,
 		"placements": placement_values,
 		"playHistoryInstanceIds": play_history_instance_ids.duplicate(),
+		"passedUids": passed_uids.duplicate(),
 	}
 
 
@@ -290,6 +315,7 @@ func to_dict_for_viewer(viewer_uid: String) -> Dictionary:
 		"passesCount": passes_count,
 		"placements": placement_values,
 		"playHistoryInstanceIds": play_history_instance_ids.duplicate(),
+		"passedUids": passed_uids.duplicate(),
 	}
 
 
@@ -318,6 +344,14 @@ static func from_dict(dict: Dictionary) -> GameState:
 		for item in raw_play_history:
 			play_history_ids.append(str(item))
 
+	var passed: Array[String] = []
+	var raw_passed: Variant = dict.get("passedUids", [])
+	if raw_passed is Array:
+		for item in raw_passed:
+			var uid := str(item)
+			if not uid.is_empty() and not passed.has(uid):
+				passed.append(uid)
+
 	var deck_dict: Variant = dict.get("deck", {})
 	var graveyard_dict: Variant = dict.get("graveyard", {})
 	var combo_raw: Variant = dict.get("currentTrickCombo", {})
@@ -335,6 +369,7 @@ static func from_dict(dict: Dictionary) -> GameState:
 		placement_ids,
 		Graveyard.from_dict(graveyard_dict if graveyard_dict is Dictionary else {}),
 		play_history_ids,
+		passed,
 	)
 	# Preserve the authoritative order in the snapshot. Hidden cards have no
 	# rank/suit on clients, so sorting them here would scramble visual indices.

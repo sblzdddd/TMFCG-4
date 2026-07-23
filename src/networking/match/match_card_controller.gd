@@ -180,6 +180,7 @@ func handle_pass_for_uid(uid: String) -> void:
 	if state.must_lead(uid):
 		return
 	state.passes_count += 1
+	state.mark_passed(uid)
 	_broadcast()
 	var order := match_state.order
 	var next_uid := PlacementTracker.next_active_after(state, order, uid)
@@ -261,14 +262,15 @@ func sync_match_runtime(active_uid: String, phase: MatchPhase.Phase) -> void:
 		var idx := state.player_index(PlayerId.from_string(active_uid))
 		if idx >= 0:
 			state.current_player_index = idx
-	# Clear the active seat's prior plays into the main graveyard once per turn.
+	# Clear the active seat's prior plays / pass marker once per turn.
 	if MatchPhase.is_play_phase(phase) and not active_uid.is_empty():
 		if active_uid != _flushed_turn_uid:
 			_flushed_turn_uid = active_uid
+			var cleared_pass := state.clear_passed(active_uid)
 			var moved := state.flush_player_temporary_graveyard(
 				PlayerId.from_string(active_uid)
 			)
-			if not moved.is_empty():
+			if cleared_pass or not moved.is_empty():
 				_broadcast()
 	else:
 		_flushed_turn_uid = ""

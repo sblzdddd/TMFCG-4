@@ -65,16 +65,19 @@ label_settings = SubResource("LabelSettings_u7wsu")
 [node name="ChatMsgBox" type="PanelContainer" parent="ChatContent" unique_id=941334747]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_15xq7")
 
 [node name="ChatMsg" type="RichTextLabel" parent="ChatContent/ChatMsgBox" unique_id=1447704824]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 2
 bbcode_enabled = true
 text = "[font_size=14]给心心 [img width=32 height=32 valign=bottom]uid://ci0koog7u6vtk[/img][img width=32 height=32 valign=bottom]uid://ci0koog7u6vtk[/img][img width=32 height=32 valign=bottom]uid://ci0koog7u6vtk[/img]"
 fit_content = true
-autowrap_mode = 2
+scroll_active = false
+autowrap_mode = 3
 context_menu_enabled = true
 selection_enabled = true
