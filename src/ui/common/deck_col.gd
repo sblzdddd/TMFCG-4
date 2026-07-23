@@ -1,5 +1,5 @@
 class_name DeckCol
-extends HBoxContainer
+extends VBoxContainer
 ## Shared deck preview column. Room mode syncs via RoomSession; local mode uses DeckDataStore only.
 
 const CARD_BASE_SCENE := preload("res://definitions/prefabs/card_base.tscn")

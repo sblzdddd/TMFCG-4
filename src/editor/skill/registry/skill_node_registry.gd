@@ -6,13 +6,16 @@ static var _by_category: Dictionary = {}
 static var _initialized := false
 
 
-static func initialize() -> void:
-	if _initialized:
+static func initialize(force: bool = false) -> void:
+	if _initialized and not force:
 		return
 	_by_id.clear()
 	_by_category.clear()
 	_scan_dir(SkillNodeDefinition.DEFINITIONS_ROOT)
-	_initialized = true
+	# Only lock if we found definitions, or the root is readable and genuinely empty.
+	# Avoid permanently caching a failed early scan (e.g. @tool _ready before FS is ready).
+	if not _by_id.is_empty() or _directory_readable(SkillNodeDefinition.DEFINITIONS_ROOT):
+		_initialized = true
 
 
 static func get_definition(node_id: String) -> SkillNodeDefinition:
@@ -70,31 +73,55 @@ static func _sort_definitions(definitions: Array) -> Array:
 	return sorted
 
 
+static func _directory_readable(path: String) -> bool:
+	if path.begins_with("res://"):
+		return not ResourceLoader.list_directory(path).is_empty() or DirAccess.dir_exists_absolute(
+			ProjectSettings.globalize_path(path)
+		)
+	return DirAccess.open(path) != null
+
+
 static func _scan_dir(path: String) -> void:
+	# Prefer ResourceLoader for res:// (works in editor + exported packs).
+	if path.begins_with("res://"):
+		_scan_dir_resource_loader(path)
+		return
 	var dir := DirAccess.open(path)
 	if dir == null:
 		return
 	dir.list_dir_begin()
-	while true:
-		var entry_name := dir.get_next()
-		if entry_name.is_empty():
-			break
+	var entry_name := dir.get_next()
+	while not entry_name.is_empty():
 		if dir.current_is_dir() and not entry_name.begins_with("."):
 			_scan_dir(path.path_join(entry_name))
-			continue
-		if not entry_name.ends_with(".tres"):
-			continue
-		var definition_path := path.path_join(entry_name)
-		var definition := load(definition_path) as SkillNodeDefinition
-		if definition == null or definition.node_id.is_empty():
-			continue
-		if not definition.has_node_script():
-			push_warning(
-				"SkillNodeDefinition '%s' is missing node script at %s."
-				% [definition.node_id, definition.get_resolved_node_script_path()]
-			)
-		_by_id[definition.node_id] = definition
-		if not _by_category.has(definition.category):
-			_by_category[definition.category] = []
-		_by_category[definition.category].append(definition)
+		elif entry_name.get_extension().to_lower() == "tres":
+			_register_definition(path.path_join(entry_name))
+		entry_name = dir.get_next()
 	dir.list_dir_end()
+
+
+static func _scan_dir_resource_loader(path: String) -> void:
+	for entry_name in ResourceLoader.list_directory(path):
+		if entry_name.begins_with("."):
+			continue
+		if entry_name.ends_with("/"):
+			_scan_dir_resource_loader(path.path_join(entry_name.trim_suffix("/")))
+			continue
+		if entry_name.get_extension().to_lower() != "tres":
+			continue
+		_register_definition(path.path_join(entry_name))
+
+
+static func _register_definition(definition_path: String) -> void:
+	var definition := load(definition_path) as SkillNodeDefinition
+	if definition == null or definition.node_id.is_empty():
+		return
+	if not definition.has_node_script():
+		push_warning(
+			"SkillNodeDefinition '%s' is missing node script at %s."
+			% [definition.node_id, definition.get_resolved_node_script_path()]
+		)
+	_by_id[definition.node_id] = definition
+	if not _by_category.has(definition.category):
+		_by_category[definition.category] = []
+	_by_category[definition.category].append(definition)

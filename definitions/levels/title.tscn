@@ -196,13 +196,8 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 16
 metadata/_edit_use_anchors_ = true
 
-[node name="Control4" type="Control" parent="MainContainer/LeftPanel/DeckPanel/DeckPage/DeckRoot/DeckLayout" unique_id=428955482]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
 [node name="DeckCol" parent="MainContainer/LeftPanel/DeckPanel/DeckPage/DeckRoot/DeckLayout" unique_id=669203193 instance=ExtResource("deck_col")]
 layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="DeckTab" type="Button" parent="MainContainer/LeftPanel/DeckPanel/DeckPage" unique_id=553977427]
 custom_minimum_size = Vector2(38.725, 0)

@@ -4,8 +4,6 @@ class_name SkillNodePalette
 @export var skill_graph: SkillGraph
 
 func _ready() -> void:
-	if not Engine.is_editor_hint():
-		return
 	SkillNodeRegistry.initialize()
 	SkillNodeRegistry.build_tree(self)
 	if not item_activated.is_connected(_on_item_activated):

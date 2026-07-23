@@ -1,4 +1,3 @@
-@tool
 extends GraphEdit
 class_name SkillGraph
 
@@ -11,10 +10,6 @@ signal graph_changed()
 			if child is GraphNode:
 				child.draggable = not read_only
 				child.selectable = not read_only
-
-@export_tool_button("Print Serialized Graph")
-var print_serialized_graph_button:
-	get: return _print_serialized_graph
 
 var _spawn_counter := 0
 var _keyboard := SkillGraphKeyboard.new()
@@ -85,11 +80,24 @@ func spawn_node(
 	node_position: Vector2,
 	graph_node_name: String = ""
 ) -> BaseSkillNode:
+	if definition == null:
+		push_error("Cannot spawn skill node without a definition")
+		return null
 	var node_script := definition.get_node_script()
 	if node_script == null:
 		push_error("Missing node script for %s" % definition.node_id)
 		return null
-	var node: BaseSkillNode = node_script.new()
+	# Avoid typed assignment on .new() — fails when scripts briefly fail to resolve BaseSkillNode.
+	var instance: Variant = node_script.new()
+	if not (instance is BaseSkillNode):
+		push_error(
+			"Node script for %s did not instantiate as BaseSkillNode (got %s)"
+			% [definition.node_id, instance]
+		)
+		if instance is Node:
+			(instance as Node).free()
+		return null
+	var node := instance as BaseSkillNode
 	node.definition = definition
 	node.name = graph_node_name if not graph_node_name.is_empty() else _unique_node_name(definition.node_id)
 	node.position_offset = node_position
@@ -130,11 +138,6 @@ func _is_click_on_graph_node(local_position: Vector2) -> bool:
 			if node_rect.has_point(graph_position):
 				return true
 	return false
-
-
-func _print_serialized_graph() -> void:
-	var data := SkillGraphSerializer.serialize_graph(self)
-	print(JSON.stringify(data, "\t"))
 
 
 func _register_connection_types() -> void:

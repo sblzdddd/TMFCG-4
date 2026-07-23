@@ -93,7 +93,7 @@ func _create_node_script() -> void:
 		return
 
 	var class_name_str := _class_name_from_script_path(path)
-	var source := "@tool\nclass_name %s extends BaseSkillNode\n" % class_name_str
+	var source := "class_name %s extends BaseSkillNode\n" % class_name_str
 	var file := FileAccess.open(path, FileAccess.WRITE)
 	if file == null:
 		push_error("Failed to write node script at %s." % path)

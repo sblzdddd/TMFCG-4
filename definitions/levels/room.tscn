@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="1_naygy"]
 [ext_resource type="Script" uid="uid://dj5hqxlggo1x2" path="res://src/ui/room/shell/sidebar_layer.gd" id="2_1j4a0"]
 [ext_resource type="Script" uid="uid://dpl3mhfcph1qd" path="res://src/ui/room/chat/room_chat_zone.gd" id="2_chat"]
+[ext_resource type="Texture2D" uid="uid://ya3hon3t31ru" path="res://assets/textures/characters/梅蒂欣 微笑张嘴.png" id="3_airkh"]
 [ext_resource type="Texture2D" uid="uid://wwkkx5mbvwmc" path="res://assets/textures/icons/combat/IonExitOutline.svg" id="3_cxrys"]
 [ext_resource type="PackedScene" uid="uid://b0apk4smofk3a" path="res://definitions/prefabs/deck_col.tscn" id="3_deck"]
 [ext_resource type="LabelSettings" uid="uid://dxndkfbiccaor" path="res://definitions/fonts/page_title.tres" id="3_r84uw"]
@@ -170,6 +171,20 @@ _data = {
 font_size = 39
 font_color = Color(1, 0.8091763, 0.8438715, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a4hsv"]
+bg_color = Color(0, 0, 0, 0.39607844)
+
+[sub_resource type="LabelSettings" id="LabelSettings_qsigl"]
+font_size = 94
+font_color = Color(0.4745098, 0.19215687, 0.16078432, 1)
+stacked_outline_count = 3
+stacked_outline_0/size = 16
+stacked_outline_0/color = Color(1, 0.6901961, 0.68235296, 1)
+stacked_outline_1/size = 16
+stacked_outline_1/color = Color(0.58431375, 0.654902, 0.98039216, 1)
+stacked_outline_2/size = 32
+stacked_outline_2/color = Color(0.9019608, 0.8862745, 0.5764706, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ehy"]
 content_margin_left = 12.0
 content_margin_top = 12.0
@@ -194,6 +209,17 @@ shadow_offset = Vector2(0, 4.367)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_naygy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qaqvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_deckpanel"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16226816, 0.15122372, 0.14889032, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naygy"]
 content_margin_left = 12.0
@@ -314,7 +340,7 @@ corner_radius_bottom_left = 8
 font_size = 38
 font_color = Color(1, 0.8091763, 0.8438715, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmiy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_airkh"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -362,7 +388,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjw3f"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cnrd3"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -374,7 +400,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_airkh"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwggr"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -465,10 +491,71 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "222"
 
+[node name="SkillPlayAnimationPanel" type="Panel" parent="TopLayer" unique_id=1689546750]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a4hsv")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopLayer/SkillPlayAnimationPanel" unique_id=372161101]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.24166666
+anchor_right = 1.0
+anchor_bottom = 1.2416667
+offset_top = 174.0
+offset_bottom = -174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = -208
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="Control" parent="TopLayer/SkillPlayAnimationPanel/HBoxContainer" unique_id=84565680]
+texture_filter = 1
+custom_minimum_size = Vector2(477.55, 0)
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(0, 0.19)
+offset_transform_scale = Vector2(1.265, 1.265)
+
+[node name="TextureRect2" type="TextureRect" parent="TopLayer/SkillPlayAnimationPanel/HBoxContainer/TextureRect" unique_id=268988965]
+texture_filter = 1
+custom_minimum_size = Vector2(628.43, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -314.215
+offset_top = -736.0
+offset_right = 314.21497
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+offset_transform_position_ratio = Vector2(0, 0.19)
+offset_transform_scale = Vector2(1.265, 1.265)
+texture = ExtResource("3_airkh")
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="TopLayer/SkillPlayAnimationPanel/HBoxContainer" unique_id=714372800]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.78
+offset_transform_enabled = true
+offset_transform_rotation = -0.10471976
+text = "花符「幻想乡的开花」"
+label_settings = SubResource("LabelSettings_qsigl")
+horizontal_alignment = 1
+
 [node name="SidebarLayer" type="CanvasLayer" parent="." unique_id=1260910676]
 unique_name_in_owner = true
 layer = 10
-visible = false
 script = ExtResource("2_1j4a0")
 
 [node name="SidebarBG" type="ColorRect" parent="SidebarLayer" unique_id=1134903610]
@@ -480,6 +567,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.5882353)
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="SidebarLayout" type="HBoxContainer" parent="SidebarLayer" unique_id=1212210021]
 anchors_preset = 15
@@ -489,6 +577,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="LeftPanels" type="PanelContainer" parent="SidebarLayer/SidebarLayout" unique_id=32649808]
 unique_name_in_owner = true
@@ -566,7 +655,24 @@ text = "游戏设置..."
 icon = ExtResource("8_jre66")
 expand_icon = true
 
-[node name="DeckRow" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=1691381018 instance=ExtResource("3_deck")]
+[node name="DeckPanel" type="PanelContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=1691381017]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_deckpanel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckPanel" unique_id=126045170]
+layout_mode = 2
+
+[node name="SettingsTitle" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckPanel/VBoxContainer" unique_id=298452690]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "牌堆"
+label_settings = ExtResource("3_r84uw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeckRow" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/DeckPanel/VBoxContainer" unique_id=1691381018 instance=ExtResource("3_deck")]
 layout_mode = 2
 sync_room = true
 
@@ -1198,7 +1304,7 @@ theme_override_constants/separation = 6
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pkmiy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_airkh")
 entry = SubResource("Resource_h0fvn")
 
 [node name="LeftPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/LeftPlayer/LeftPlayerLayout" unique_id=1609797680]
@@ -1249,7 +1355,7 @@ theme_override_constants/separation = 6
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_rjw3f")
+theme_override_styles/panel = SubResource("StyleBoxFlat_cnrd3")
 entry = SubResource("Resource_h0fvn")
 
 [node name="TopPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/TopPlayer/TopPlayerFrame/TopPlayerLayout" unique_id=1196626928]
@@ -1279,14 +1385,12 @@ expand_mode = 5
 
 [node name="TopPassLabel" type="Label" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/TopPlayer" unique_id=1498288920]
 unique_name_in_owner = true
-visible = false
 modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(150, 45)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 offset_transform_enabled = true
-offset_transform_position = Vector2(0, -51.625)
 offset_transform_scale = Vector2(0.55, 0.55)
 text = "不要"
 label_settings = SubResource("LabelSettings_pu04v")
@@ -1310,7 +1414,7 @@ theme_override_constants/separation = 6
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_airkh")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwggr")
 entry = SubResource("Resource_h0fvn")
 
 [node name="RightPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/RightPlayer/RightPlayerLayout" unique_id=161492888]
@@ -1487,6 +1591,7 @@ grow_vertical = 2
 texture = ExtResource("1_naygy")
 expand_mode = 3
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="ActiveIndicator" type="Panel" parent="MatchUnderlay" unique_id=529514416]
 unique_name_in_owner = true
@@ -1499,6 +1604,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ra6t3")
 script = ExtResource("41_ind")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="LeaveConfirmDialog" type="ConfirmationDialog" parent="." unique_id=1098231326]
 unique_name_in_owner = true
