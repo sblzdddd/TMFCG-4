@@ -28,6 +28,9 @@ func is_running() -> bool:
 
 
 func ensure_running(port: int = NetConst.GAME_PORT) -> Error:
+	if not PlatformUtils.supports_local_dedicated_server():
+		push_error("LocalDedicatedLauncher: local dedicated server is unsupported on this platform")
+		return ERR_UNAVAILABLE
 	_port = clampi(port, 1, 65535)
 	if is_running():
 		return OK

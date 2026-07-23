@@ -3,13 +3,14 @@ extends Node
 ## Smart global UI scaler.
 ## Small screens: shrink by resolution so the UI still fits.
 ## Large screens: grow by resolution so the UI scales up with the window.
-## HiDPI: physical (DPI / OS) scale is a floor so design-size windows still bump up.
+## HiDPI (desktop): physical (DPI / OS) scale is a floor so design-size windows still bump up.
+## Mobile: window size is already density-aware — skip the DPI floor to avoid double-counting.
 
 const BASE_DPI := 96.0
 const DEFAULT_BASE_SIZE := Vector2(1152.0, 648.0)
 const MIN_SCALE := 0.5
 const MAX_SCALE := 3.0
-## Extra physical-scale factor on Web (browser DPI / devicePixelRatio quirks).
+## Extra physical-scale factor on desktop Web (browser DPI / devicePixelRatio quirks).
 const WEB_PHYSICAL_MULT := 1.25
 
 ## Last applied content scale factor.
@@ -25,7 +26,7 @@ var base_scale: float = 1.0:
 		_base_scale = next
 		if is_inside_tree():
 			apply_scale()
-## Multiplier on large-screen scale only. Small screens ignore it.
+## Multiplier on large-screen scale only. Small screens and mobile ignore it.
 var physical_scale_multiplier: float = 1.0:
 	get:
 		return _physical_scale_multiplier
@@ -66,24 +67,33 @@ func apply_scale() -> void:
 		return
 
 	var scale_res := minf(window_size.x / base.x, window_size.y / base.y)
-	var scale_phys := _get_physical_scale()
 
 	# Small window: must shrink to fit.
-	# Large / design-size window: grow with resolution, with DPI as a floor so
-	# hiDPI still scales up when the window is only about design-sized.
+	# Mobile: fit by resolution only. Window size is already in density pixels
+	# (or CSS pixels on web); applying DPI as a floor double-counts and forces
+	# users toward ~50–60% in settings.
+	# Desktop large / design-size window: grow with resolution, with DPI as a
+	# floor so hiDPI still scales up when the window is only about design-sized.
 	#   2560x1440 @ 125% DPI, base 1280x720 → max(2.0, 1.25) = 2.0
 	#   1280x720  @ 125% DPI                 → max(1.0, 1.25) = 1.25
 	#   640x360   @ 125% DPI                 → 0.5
 	var target: float
-	if scale_res < 1.0:
+	if scale_res < 1.0 or PlatformUtils.is_mobile():
 		target = scale_res
 	else:
+		var scale_phys := _get_physical_scale()
 		target = maxf(scale_res, scale_phys) * physical_scale_multiplier
 	target *= base_scale
 
 	scale_factor = clampf(target, MIN_SCALE, MAX_SCALE)
 	window.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 	window.content_scale_factor = scale_factor
+
+
+## Recommended settings default for "100%" on this platform.
+## Mobile keeps 1.0 — adaptive resolution scaling handles density.
+func recommended_base_scale() -> float:
+	return 1.0
 
 
 func _root_window() -> Window:
@@ -106,8 +116,8 @@ func _get_physical_scale() -> float:
 	var os_scale := DisplayServer.screen_get_scale(screen)
 	var dpi := float(DisplayServer.screen_get_dpi(screen))
 	var dpi_scale := dpi / BASE_DPI if dpi > 0.0 else 1.0
-	# screen_get_scale is authoritative on macOS / Wayland / mobile; on
-	# Windows / X11 it often returns 1.0, so take the larger of the two.
+	# screen_get_scale is authoritative on macOS / Wayland; on Windows / X11 it
+	# often returns 1.0, so take the larger of the two. Not used on mobile.
 	var scale := maxf(os_scale if os_scale > 0.0 else 1.0, dpi_scale)
 	if OS.has_feature("web"):
 		scale *= WEB_PHYSICAL_MULT

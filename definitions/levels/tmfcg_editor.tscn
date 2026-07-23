@@ -703,7 +703,7 @@ maximize_disabled = true
 min_size = Vector2i(480, 400)
 script = ExtResource("16_cpick")
 _search = NodePath("MarginContainer/VBoxContainer/SearchEdit")
-_item_list = NodePath("MarginContainer/VBoxContainer/CharacterList")
+_item_list = NodePath("MarginContainer/VBoxContainer/ScrollContainer/CharacterList")
 
 [node name="MarginContainer" type="MarginContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker" unique_id=1847293051]
 anchors_preset = 15
@@ -727,13 +727,20 @@ layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "搜索角色..."
 
-[node name="CharacterList" type="ItemList" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293054]
+[node name="ScrollContainer" type="ScrollContainer" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer" unique_id=1847293055]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="CharacterList" type="ItemList" parent="EditorLayout/EditorSplits/Panel/VSplitContainer/CardInspector/CardEditLayout/CharacterInfoPreview/CharacterPicker/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1847293054]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_colors/font_color = Color(0.8343171, 0.8343171, 0.8343171, 1)
 theme_override_colors/scroll_hint_color = Color(0, 0, 0, 1)
 allow_reselect = true
+auto_height = true
 max_text_lines = 2
 scroll_hint_mode = 1
 item_count = 85

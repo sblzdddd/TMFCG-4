@@ -61,10 +61,7 @@ func _should_be_active() -> bool:
 	var match_state := RoomSession.match_controller.get_state()
 	if match_state == null or match_state.active_uid != PlayerDataStore.data.uid:
 		return false
-	return (
-		match_state.phase == MatchPhase.Phase.TURN_PLAY
-		or match_state.phase == MatchPhase.Phase.END_GAME_PLAY
-	)
+	return MatchPhase.is_play_phase(match_state.phase)
 
 
 func _must_lead() -> bool:

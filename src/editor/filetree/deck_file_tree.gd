@@ -88,11 +88,12 @@ func _add_deck_item(deck: DeckData, path: String) -> void:
 	if deck == null:
 		return
 	var builtin := ResourceFsUtils.is_builtin_path(path)
+	var writable := DeckDataStore.can_modify(path)
 	var item := create_item(_tree_root)
 	item.set_text(0, deck.name if not deck.name.is_empty() else path.get_file().get_basename())
 	item.set_metadata(0, {"type": "deck", "path": path, "builtin": builtin})
 	item.set_icon(0, deck_icon)
-	if add_card_icon:
+	if add_card_icon and writable:
 		item.add_button(0, add_card_icon, ADD_CARD_BUTTON_ID, false, "添加卡牌")
 	for i in range(deck.cards.size()):
 		_add_card_item(item, deck.cards[i], i, path)
@@ -147,8 +148,9 @@ func _on_button_clicked(item: TreeItem, _c: int, id: int, _m: int) -> void:
 	if id != ADD_CARD_BUTTON_ID:
 		return
 	var meta: Dictionary = item.get_metadata(0)
-	if meta.get("type") == "deck":
-		add_card_requested.emit(meta.get("path", ""))
+	var path: String = meta.get("path", "")
+	if meta.get("type") == "deck" and DeckDataStore.can_modify(path):
+		add_card_requested.emit(path)
 
 
 func _on_item_collapsed(_item: TreeItem) -> void:

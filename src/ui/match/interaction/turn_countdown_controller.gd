@@ -55,7 +55,7 @@ func _sync_from_match() -> void:
 	var uid := ""
 	if (
 		match_state != null
-		and match_state.phase == MatchPhase.Phase.TURN_PLAY
+		and MatchPhase.is_play_phase(match_state.phase)
 		and not match_state.active_uid.is_empty()
 	):
 		uid = match_state.active_uid

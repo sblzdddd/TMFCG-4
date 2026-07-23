@@ -89,6 +89,19 @@ func next_after(uid: String) -> String:
 	return uids[(idx + 1) % uids.size()]
 
 
+## Full ring starting at [param start_uid] (or first seat if unknown).
+func uids_from(start_uid: String) -> Array[String]:
+	var result: Array[String] = []
+	if uids.is_empty():
+		return result
+	var start := start_uid if has(start_uid) else uids[0]
+	var cursor := start
+	for _i in uids.size():
+		result.append(cursor)
+		cursor = next_after(cursor)
+	return result
+
+
 func random_uid() -> String:
 	if uids.is_empty():
 		return ""

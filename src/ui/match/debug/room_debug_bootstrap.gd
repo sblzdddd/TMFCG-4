@@ -9,9 +9,9 @@ const ROOM_WAIT_SEC := 10.0
 
 
 func _ready() -> void:
-	InstanceWindowLayout.apply(get_window(), "TMFCG Room")
 	if not _should_auto_bootstrap():
 		return
+	InstanceWindowLayout.apply(get_window(), "TMFCG Room")
 	PlayerDataStore.clear_last_room()
 	if RoomSession.rejoin:
 		RoomSession.rejoin.reset()

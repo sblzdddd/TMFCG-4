@@ -60,7 +60,7 @@ func on_server_disconnected() -> void:
 	_waiting_for_central = true
 	BusyBlocker.show_hint("正在连接服务器…")
 	_arm_response_timeout()
-	# NetworkModeService will reconnect (remote or local fallback) and emit mode_applied.
+	# NetworkModeService will reconnect to the preferred host and emit mode_applied.
 
 
 func on_connection_failed(_reason: String) -> void:

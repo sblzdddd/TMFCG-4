@@ -67,23 +67,27 @@ autowrap_mode = 3
 
 [node name="DeckCardsScroll" type="ScrollContainer" parent="DeckPanel/DeckColInner"]
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
 [node name="DeckCardsCol" type="VBoxContainer" parent="DeckPanel/DeckColInner/DeckCardsScroll"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_constants/separation = 6
 
 [node name="SkillFoldable" type="FoldableContainer" parent="DeckPanel/DeckColInner/DeckCardsScroll/DeckCardsCol"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 title = "技能牌"
 
 [node name="SkillCardGrid" type="GridContainer" parent="DeckPanel/DeckColInner/DeckCardsScroll/DeckCardsCol/SkillFoldable"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 2
@@ -91,12 +95,14 @@ columns = 2
 [node name="StandardFoldable" type="FoldableContainer" parent="DeckPanel/DeckColInner/DeckCardsScroll/DeckCardsCol"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 title = "标准牌"
 
 [node name="StandardCardGrid" type="GridContainer" parent="DeckPanel/DeckColInner/DeckCardsScroll/DeckCardsCol/StandardFoldable"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 1
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
 columns = 2

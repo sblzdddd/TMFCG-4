@@ -9,6 +9,10 @@ var _selected: Dictionary = {} # instance_id -> true
 var _dragging := false
 var _paint_select := true
 var _bound: Dictionary = {} # instance_id -> CardBase
+## Touch gesture: armed on touch_started; paints via touch_dragged hit-tests; tap on touch_ended.
+var _touch_armed := false
+var _touch_dragged := false
+var _touch_origin_id := ""
 
 
 func bind(array: CardArray) -> void:
@@ -21,6 +25,7 @@ func clear() -> void:
 		if base != null:
 			base.selected = false
 	_selected.clear()
+	_clear_touch_gesture()
 	selection_changed.emit()
 
 
@@ -76,6 +81,12 @@ func _ensure_bound(id: String, base: CardBase) -> void:
 		base.pressed.connect(_on_pressed)
 	if not base.hovered.is_connected(_on_hovered):
 		base.hovered.connect(_on_hovered)
+	if not base.touch_started.is_connected(_on_touch_started):
+		base.touch_started.connect(_on_touch_started)
+	if not base.touch_dragged.is_connected(_on_touch_dragged):
+		base.touch_dragged.connect(_on_touch_dragged)
+	if not base.touch_ended.is_connected(_on_touch_ended):
+		base.touch_ended.connect(_on_touch_ended)
 
 
 func _unbind(id: String) -> void:
@@ -87,6 +98,12 @@ func _unbind(id: String) -> void:
 		base.pressed.disconnect(_on_pressed)
 	if base.hovered.is_connected(_on_hovered):
 		base.hovered.disconnect(_on_hovered)
+	if base.touch_started.is_connected(_on_touch_started):
+		base.touch_started.disconnect(_on_touch_started)
+	if base.touch_dragged.is_connected(_on_touch_dragged):
+		base.touch_dragged.disconnect(_on_touch_dragged)
+	if base.touch_ended.is_connected(_on_touch_ended):
+		base.touch_ended.disconnect(_on_touch_ended)
 	base.interactable = false
 	base.info_hover_delay = 0.0
 	base.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -108,24 +125,65 @@ func _id_of(base: CardBase) -> String:
 	return str(base.get_meta(CardViewFactory.META_INSTANCE_ID, ""))
 
 
+func _on_touch_started(card: CardBase) -> void:
+	var id := _id_of(card)
+	if id.is_empty():
+		return
+	_touch_armed = true
+	_touch_dragged = false
+	_touch_origin_id = id
+	_dragging = true
+	_paint_select = not _selected.has(id)
+
+
+func _on_touch_dragged(_origin: CardBase, global_pos: Vector2) -> void:
+	if not _touch_armed:
+		return
+	var hit := _topmost_card_at(global_pos)
+	if hit == null:
+		return
+	var id := _id_of(hit)
+	if id.is_empty() or id == _touch_origin_id:
+		return
+	if not _touch_dragged:
+		_touch_dragged = true
+		var origin := _get_bound(_touch_origin_id)
+		if origin != null:
+			origin.mark_touch_moved()
+			_apply(_touch_origin_id, origin, _paint_select)
+	_apply(id, hit, _paint_select)
+
+
+func _on_touch_ended(_card: CardBase, as_tap: bool) -> void:
+	if not _touch_armed:
+		return
+	if _touch_dragged:
+		# Cards already painted while the finger moved across the hand.
+		_clear_touch_gesture()
+		return
+	if as_tap:
+		var origin := _get_bound(_touch_origin_id)
+		if origin != null:
+			_apply(_touch_origin_id, origin, _paint_select)
+	_clear_touch_gesture()
+
+
 func _on_pressed(card: CardBase, from_touch: bool = false) -> void:
+	# Touch taps are committed in _on_touch_ended (avoids double-apply with drag).
+	if from_touch:
+		return
 	var id := _id_of(card)
 	if id.is_empty():
 		return
 	var select := not _selected.has(id)
-	if from_touch:
-		# Tap after short touch (info hold already filtered out in CardBase).
-		_dragging = false
-		_apply(id, card, select)
-		return
 	_dragging = true
 	_paint_select = select
 	_apply(id, card, _paint_select)
 
 
 func _on_hovered(card: CardBase) -> void:
-	# Drag paint is mouse-only; ignore while any bound card is in a touch hold.
-	if not _dragging or _any_touch_holding():
+	# Mouse drag paint only — touch uses touch_dragged hit-tests (emulated mouse is captured).
+	if not _dragging or _touch_armed:
 		return
 	if not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		_dragging = false
@@ -136,12 +194,26 @@ func _on_hovered(card: CardBase) -> void:
 	_apply(id, card, _paint_select)
 
 
-func _any_touch_holding() -> bool:
-	for id in _bound.keys():
-		var base := _get_bound(str(id))
-		if base != null and base.is_touch_holding():
-			return true
-	return false
+## Topmost interactable card under [param global_pos] (later hand order draws above).
+func _topmost_card_at(global_pos: Vector2) -> CardBase:
+	if _array == null:
+		return null
+	var ids := _array.get_ordered_ids()
+	for i in range(ids.size() - 1, -1, -1):
+		var id := str(ids[i])
+		var base := _get_bound(id)
+		if base == null or not base.interactable or base.visual == null:
+			continue
+		if base.visual.get_global_rect().has_point(global_pos):
+			return base
+	return null
+
+
+func _clear_touch_gesture() -> void:
+	_touch_armed = false
+	_touch_dragged = false
+	_touch_origin_id = ""
+	_dragging = false
 
 
 func _apply(id: String, base: CardBase, select: bool) -> void:

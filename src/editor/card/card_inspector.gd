@@ -24,6 +24,7 @@ const _REMOVE_ICON: Texture2D = preload("res://assets/textures/icons/editor/Remo
 
 var _card: CardData = null
 var _loading := false
+var _editable := true
 
 
 func _ready() -> void:
@@ -57,6 +58,18 @@ func bind(card: CardData) -> void:
 	_loading = false
 
 
+func set_editable(value: bool) -> void:
+	_editable = value
+	_suit_edit.disabled = not value
+	_value_edit.disabled = not value
+	_enable_skill.disabled = not value
+	_skill_priority.editable = value
+	_character_configurator.set_editable(value)
+	if _card != null:
+		_rebuild_skill_entries()
+	_update_add_skill_button()
+
+
 func clear() -> void:
 	_loading = true
 	_card = null
@@ -68,7 +81,7 @@ func clear() -> void:
 
 
 func _on_suit_selected(_index: int) -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	var suit := _suit_edit.get_selected_id() as CardEnums.Suit
 	_card.suit = suit
@@ -78,7 +91,7 @@ func _on_suit_selected(_index: int) -> void:
 
 
 func _on_value_selected(_index: int) -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	_card.rank = _value_edit.get_selected_id() as CardEnums.Rank
 	_apply_preview()
@@ -86,7 +99,7 @@ func _on_value_selected(_index: int) -> void:
 
 
 func _on_enable_skill_toggled(enabled: bool) -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	_card.type = CardData.Type.SKILL if enabled else CardData.Type.NORMAL
 	_update_skill_settings_visibility()
@@ -94,14 +107,14 @@ func _on_enable_skill_toggled(enabled: bool) -> void:
 
 
 func _on_skill_priority_changed(_value: float) -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	_card.skill_priority = int(_skill_priority.value)
 	_emit_changed()
 
 
 func _on_character_data_changed(data: CardVisualData) -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	_card.visual = data
 	_apply_preview()
@@ -109,7 +122,7 @@ func _on_character_data_changed(data: CardVisualData) -> void:
 
 
 func _on_add_skill_pressed() -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	if _card.skills.size() >= MAX_SKILLS:
 		return
@@ -158,7 +171,7 @@ func _update_add_skill_button() -> void:
 	if _add_skill_button == null:
 		return
 	var count := 0 if _card == null else _card.skills.size()
-	_add_skill_button.disabled = count >= MAX_SKILLS
+	_add_skill_button.disabled = not _editable or count >= MAX_SKILLS
 
 
 func _make_skill_entry(index: int, info: SkillInfo) -> Control:
@@ -175,12 +188,14 @@ func _make_skill_entry(index: int, info: SkillInfo) -> Control:
 	name_edit.label_text = "名称"
 	header.add_child(name_edit)
 	name_edit.set_text_content(info.name)
+	name_edit.set("editable", _editable)
 
 	var delete_button := Button.new()
 	delete_button.custom_minimum_size = Vector2(32, 0)
 	delete_button.icon = _REMOVE_ICON
 	delete_button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	delete_button.tooltip_text = "删除技能"
+	delete_button.disabled = not _editable
 	header.add_child(delete_button)
 
 	var desc_edit: LabelLineEdit = _TEXT_EDIT_SCENE.instantiate()
@@ -190,6 +205,7 @@ func _make_skill_entry(index: int, info: SkillInfo) -> Control:
 	desc_edit.set("wrap_mode", TextEdit.LINE_WRAPPING_BOUNDARY)
 	entry.add_child(desc_edit)
 	desc_edit.set_text_content(info.description)
+	desc_edit.set("editable", _editable)
 
 	name_edit.text_changed.connect(
 		func(_new_text = null) -> void: _on_skill_field_changed(index, name_edit, desc_edit)
@@ -205,7 +221,7 @@ func _make_skill_entry(index: int, info: SkillInfo) -> Control:
 func _on_skill_field_changed(
 	index: int, name_edit: LabelLineEdit, desc_edit: LabelLineEdit
 ) -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	if index < 0 or index >= _card.skills.size():
 		return
@@ -217,7 +233,7 @@ func _on_skill_field_changed(
 
 
 func _on_delete_skill_pressed(index: int) -> void:
-	if _loading or _card == null:
+	if _loading or not _editable or _card == null:
 		return
 	if index < 0 or index >= _card.skills.size():
 		return

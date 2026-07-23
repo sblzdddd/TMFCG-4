@@ -15,7 +15,7 @@ func _ready() -> void:
 	var err := ConnectionManager.host(port)
 	if err != OK:
 		push_error("Dedicated server failed to listen on %d: %s" % [port, error_string(err)])
-		# Multiple editor clients may race to spawn the local fallback. Only the
+		# Multiple editor clients may race to spawn a local server. Only the
 		# process that binds successfully may remain alive and publish its PID.
 		get_tree().quit(err)
 		return

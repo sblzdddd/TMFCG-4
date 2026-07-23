@@ -19,6 +19,7 @@ signal character_data_changed(data: CardVisualData)
 var selected_character: CardVisualData = null
 var _portrait_keys: Array[String] = []
 var _loading := false
+var _editable := true
 
 const _SET_DEFAULT_BUTTON_TEXT := "设为角色默认变换"
 
@@ -34,6 +35,7 @@ func bind(data: CardVisualData) -> void:
 		_scale_edit.value = 1.0
 		_refresh_variant_list()
 		_update_set_default_button_text()
+		_apply_editable_state()
 		_loading = false
 		return
 
@@ -53,7 +55,13 @@ func bind(data: CardVisualData) -> void:
 		_description_label.text = ""
 	_refresh_variant_list()
 	_update_set_default_button_text()
+	_apply_editable_state()
 	_loading = false
+
+
+func set_editable(value: bool) -> void:
+	_editable = value
+	_apply_editable_state()
 
 
 func _ready() -> void:
@@ -74,6 +82,8 @@ func _ready() -> void:
 
 
 func _on_select_button_pressed() -> void:
+	if not _editable:
+		return
 	_picker_dialog.popup_picker()
 
 
@@ -148,22 +158,36 @@ func _refresh_variant_list() -> void:
 
 
 func _set_variant_buttons_enabled(enabled: bool) -> void:
-	_variant_selection.disabled = not enabled
-	_variant_prev.disabled = not enabled
-	_variant_next.disabled = not enabled
+	var can_edit := _editable and enabled
+	_variant_selection.disabled = not can_edit
+	_variant_prev.disabled = not can_edit
+	_variant_next.disabled = not can_edit
+
+
+func _apply_editable_state() -> void:
+	_select_button.disabled = not _editable
+	_x_edit.editable = _editable
+	_y_edit.editable = _editable
+	_scale_edit.editable = _editable
+	_reset_button.disabled = not _editable
+	if _set_default_button:
+		_set_default_button.disabled = not _editable
+	_set_variant_buttons_enabled(_portrait_keys.size() > 1)
 
 
 func _on_variant_selected(index: int) -> void:
+	if not _editable:
+		return
 	_select_portrait(index)
 
 
 func _on_variant_prev_pressed() -> void:
-	if _portrait_keys.is_empty(): return
+	if not _editable or _portrait_keys.is_empty(): return
 	_select_portrait((_variant_selection.selected - 1 + _portrait_keys.size()) % _portrait_keys.size())
 
 
 func _on_variant_next_pressed() -> void:
-	if _portrait_keys.is_empty(): return
+	if not _editable or _portrait_keys.is_empty(): return
 	_select_portrait((_variant_selection.selected + 1) % _portrait_keys.size())
 
 
@@ -184,7 +208,7 @@ func _select_portrait(index: int) -> void:
 
 
 func _on_transform_changed(_new_value: float = 0.0) -> void:
-	if _loading or selected_character == null:
+	if _loading or not _editable or selected_character == null:
 		return
 	_apply_edit_transform()
 	_update_set_default_button_text()
@@ -217,7 +241,7 @@ func _apply_character_default_transform(character: DialogicCharacter) -> void:
 
 
 func _on_set_default_button_pressed() -> void:
-	if selected_character == null or selected_character.character == null:
+	if not _editable or selected_character == null or selected_character.character == null:
 		return
 
 	var character := selected_character.character

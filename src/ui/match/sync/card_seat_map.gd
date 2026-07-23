@@ -128,6 +128,6 @@ func _local_hand_active() -> bool:
 	if match_state == null:
 		return false
 	return (
-		match_state.phase == MatchPhase.Phase.TURN_PLAY
+		MatchPhase.is_play_phase(match_state.phase)
 		and match_state.active_uid == PlayerDataStore.data.uid
 	)

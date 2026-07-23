@@ -22,8 +22,10 @@ func _on_room_changed(room: RoomData) -> void:
 	code_copy_button.disabled = room == null
 	code_label.text = "房间码: %s" % room.code\
 		if room != null else "未在房间中"
-	status_label.text = "%s" % [room.name]\
-		if room != null else "未在房间中"
+	if room != null:
+		status_label.text = "%s (%d/%d)" % [room.name, room.member_count(), room.max_players]
+	else:
+		status_label.text = "未在房间中"
 
 
 func _on_leave_pressed() -> void:

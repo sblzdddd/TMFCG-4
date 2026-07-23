@@ -59,8 +59,10 @@ func select_card(deck_path: String, card_index: int) -> void:
 
 	_loading = true
 	var card := deck.cards[card_index]
+	var writable := _can_persist()
 	_inspector.bind(card)
-	_skill_graph.read_only = false
+	_inspector.set_editable(writable)
+	_skill_graph.read_only = not writable
 	_skill_graph.set_loading(true)
 	SkillGraphSerializer.deserialize_graph(_skill_graph, card.skill_graph)
 	_skill_graph.set_loading(false)
@@ -73,11 +75,16 @@ func clear() -> void:
 	_active_deck = null
 	if _inspector:
 		_inspector.clear()
+		_inspector.set_editable(false)
 	if _skill_graph:
 		_skill_graph.read_only = true
 		_skill_graph.set_loading(true)
 		SkillGraphSerializer.deserialize_graph(_skill_graph, {})
 		_skill_graph.set_loading(false)
+
+
+func _can_persist() -> bool:
+	return not _active_deck_path.is_empty() and DeckDataStore.can_modify(_active_deck_path)
 
 
 func _flush_active_card() -> void:
@@ -87,7 +94,7 @@ func _flush_active_card() -> void:
 
 
 func _persist_active_card() -> void:
-	if _active_deck == null or _active_card_index < 0:
+	if _active_deck == null or _active_card_index < 0 or not _can_persist():
 		return
 	var card := _active_deck.cards[_active_card_index]
 	card.skill_graph = SkillGraphSerializer.serialize_graph(_skill_graph)

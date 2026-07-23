@@ -17,8 +17,7 @@ func _ready() -> void:
 	InstanceWindowLayout.apply(get_window(), "TMFCG")
 	if editor_button:
 		editor_button.pressed.connect(_on_editor_pressed)
-	_begin_auto_reveal()
-	if LevelLoader.has_transitioned:
+	if OS.has_feature("editor") or LevelLoader.has_transitioned:
 		_begin_auto_reveal()
 
 

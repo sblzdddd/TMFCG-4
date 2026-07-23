@@ -20,12 +20,12 @@ static func apply(window: Window, title_prefix: String) -> void:
 	match instance_id:
 		2:
 			@warning_ignore("integer_division")
-			window.position = Vector2i(screen_size.x / 2, 0)
+			window.position = Vector2i(screen_size.x / 2, 40)
 		3:
 			@warning_ignore("integer_division")
-			window.position = Vector2i(0, screen_size.y / 2)
+			window.position = Vector2i(0, screen_size.y / 2+80)
 		4:
 			@warning_ignore("integer_division")
-			window.position = Vector2i(screen_size.x / 2, screen_size.y / 2)
+			window.position = Vector2i(screen_size.x / 2, screen_size.y / 2+80)
 		_:
-			window.position = Vector2i(0, 0)
+			window.position = Vector2i(0, 40)

@@ -3,7 +3,6 @@ class_name AvatarPickerDialog
 
 signal avatar_selected(avatar_id: String)
 
-
 func _emit_selection(payload: Variant) -> void:
 	super._emit_selection(payload)
 	avatar_selected.emit(str(payload))

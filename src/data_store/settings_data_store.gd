@@ -23,6 +23,7 @@ func load_or_create() -> SettingsData:
 			return data
 	data = SettingsData.new()
 	data.server_address = _default_server_address()
+	data.ui_base_scale = UiScale.recommended_base_scale()
 	_apply_ui_scale()
 	save()
 	return data
@@ -75,6 +76,7 @@ func set_ui_base_scale(scale: float) -> void:
 func reset_to_defaults() -> void:
 	data = SettingsData.new()
 	data.server_address = _default_server_address()
+	data.ui_base_scale = UiScale.recommended_base_scale()
 	_apply_ui_scale()
 	save()
 	data_changed.emit(data)

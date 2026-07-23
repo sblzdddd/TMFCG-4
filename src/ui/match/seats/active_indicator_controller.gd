@@ -66,7 +66,7 @@ func _refresh() -> void:
 			highlight_uid = winner_uid
 			yellow = true
 		elif (
-			match_state.phase == MatchPhase.Phase.TURN_PLAY
+			MatchPhase.is_play_phase(match_state.phase)
 			and not match_state.active_uid.is_empty()
 		):
 			highlight_uid = match_state.active_uid

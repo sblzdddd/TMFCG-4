@@ -1,19 +1,21 @@
 extends Node
-## Always connect to a dedicated server: preferred host first, else spawn local --server.
+## Connect to a dedicated server at the preferred host.
+## Local dedicated servers are started only when the user requests it.
 
 
 signal mode_applied(online: bool)
 signal central_connection_failed(reason: String)
 
-const LOCAL_FALLBACK_ADDR := "127.0.0.1"
+const LOCAL_ADDR := "127.0.0.1"
 const LOCAL_JOIN_ATTEMPTS := 20
 const LOCAL_JOIN_RETRY_SEC := 0.5
 
 var _connecting_central := false
 var _central_connected := false
-var _using_local_fallback := false
-var _fallback_in_progress := false
+var _using_local_server := false
+var _local_join_in_progress := false
 var _local_attempts_left := 0
+var _local_port := NetConst.GAME_PORT
 var _launcher: LocalDedicatedLauncher
 
 
@@ -34,14 +36,14 @@ func is_central_connected() -> bool:
 
 
 func is_connecting_central() -> bool:
-	return _connecting_central or _fallback_in_progress
+	return _connecting_central or _local_join_in_progress
 
 
-func is_using_local_fallback() -> bool:
-	return _using_local_fallback
+func is_using_local_server() -> bool:
+	return _using_local_server
 
 
-## Awaitable: ensure a central link (remote or local fallback). Returns true if connected.
+## Awaitable: ensure a central link. Returns true if connected.
 func ensure_central_async() -> bool:
 	if NetEnv.is_dedicated_server():
 		return false
@@ -65,14 +67,46 @@ func apply_preferred_mode() -> void:
 		and not ConnectionManager.is_server()
 	):
 		return
-	_using_local_fallback = false
-	_fallback_in_progress = false
+	_using_local_server = false
+	_local_join_in_progress = false
 	_local_attempts_left = 0
 	_central_connected = false
 	_connecting_central = false
 	if ConnectionManager.is_connected_peer() and not ConnectionManager.is_server():
 		ConnectionManager.leave()
 	_try_connect_preferred()
+
+
+## Spawn a local dedicated server and connect to it (settings UI).
+func start_local_server() -> void:
+	if NetEnv.is_dedicated_server():
+		return
+	if not PlatformUtils.supports_local_dedicated_server():
+		Toast.push("当前平台不支持本地服务器")
+		return
+	if RoomSession.current_room != null:
+		Toast.push("房间内无法启动本地服务器")
+		return
+	_using_local_server = true
+	_local_join_in_progress = true
+	_central_connected = false
+	_connecting_central = false
+	_local_attempts_left = 0
+	if ConnectionManager.is_connected_peer() and not ConnectionManager.is_server():
+		ConnectionManager.leave()
+
+	var data: SettingsData = SettingsDataStore.data
+	_local_port = NetConst.GAME_PORT if data == null else data.server_port
+	if data != null:
+		SettingsDataStore.set_server_address(LOCAL_ADDR)
+
+	var err := _launcher.ensure_running(_local_port)
+	if err != OK:
+		_fail_completely("无法启动本地服务器: %s" % error_string(err))
+		return
+	Toast.push("正在启动本地服务器…")
+	_local_attempts_left = LOCAL_JOIN_ATTEMPTS
+	_try_join_local()
 
 
 func _try_connect_preferred() -> void:
@@ -86,10 +120,11 @@ func _try_connect_preferred() -> void:
 	if address.to_lower() in ["127.0.0.1", "localhost", "::1"]:
 		var refresh_error := _launcher.refresh_if_managed(data.server_port)
 		if refresh_error != OK:
-			_on_preferred_failed(
+			_fail_completely(
 				"failed to refresh local server: %s" % error_string(refresh_error)
 			)
 			return
+		_using_local_server = true
 	_connecting_central = true
 	_central_connected = false
 	var err := ConnectionManager.join(address, data.server_port)
@@ -99,32 +134,18 @@ func _try_connect_preferred() -> void:
 
 func _on_preferred_failed(reason: String) -> void:
 	_connecting_central = false
-	_start_local_fallback(reason)
-
-
-func _start_local_fallback(remote_reason: String) -> void:
-	_fallback_in_progress = true
-	_using_local_fallback = true
-	var err := _launcher.ensure_running(NetConst.GAME_PORT)
-	if err != OK:
-		_fail_completely(
-			"无法启动本地服务器 (%s); 远程: %s" % [error_string(err), remote_reason]
-		)
-		return
-	Toast.push("无法连接服务器，已启动本地服务器")
-	_local_attempts_left = LOCAL_JOIN_ATTEMPTS
-	_try_join_local()
+	_fail_completely(reason)
 
 
 func _try_join_local() -> void:
-	if not _fallback_in_progress:
+	if not _local_join_in_progress:
 		return
 	if _local_attempts_left <= 0:
 		_fail_completely("无法连接本地服务器")
 		return
 	_local_attempts_left -= 1
 	_connecting_central = true
-	var err := ConnectionManager.join(LOCAL_FALLBACK_ADDR, NetConst.GAME_PORT)
+	var err := ConnectionManager.join(LOCAL_ADDR, _local_port)
 	if err != OK:
 		_connecting_central = false
 		_schedule_local_retry()
@@ -143,8 +164,8 @@ func _schedule_local_retry() -> void:
 func _fail_completely(reason: String) -> void:
 	_connecting_central = false
 	_central_connected = false
-	_fallback_in_progress = false
-	_using_local_fallback = false
+	_local_join_in_progress = false
+	_using_local_server = false
 	_local_attempts_left = 0
 	central_connection_failed.emit(reason)
 	Toast.push("无法连接服务器")
@@ -154,11 +175,11 @@ func _fail_completely(reason: String) -> void:
 func _on_connected() -> void:
 	if ConnectionManager.is_server():
 		return
-	if not _connecting_central and not _fallback_in_progress:
+	if not _connecting_central and not _local_join_in_progress:
 		return
 	_connecting_central = false
 	_central_connected = true
-	_fallback_in_progress = false
+	_local_join_in_progress = false
 	_local_attempts_left = 0
 	mode_applied.emit(true)
 
@@ -166,7 +187,7 @@ func _on_connected() -> void:
 func _on_connection_failed(reason: String) -> void:
 	if ConnectionManager.is_server():
 		return
-	if _fallback_in_progress:
+	if _local_join_in_progress:
 		_connecting_central = false
 		_schedule_local_retry()
 		return
@@ -179,5 +200,5 @@ func _on_server_disconnected() -> void:
 	_connecting_central = false
 	if RoomSession.is_leaving_voluntarily():
 		return
-	# Restore central (remote or local spawn); RoomRejoin waits on mode_applied when in a room.
+	# Restore preferred host; RoomRejoin waits on mode_applied when in a room.
 	apply_preferred_mode()

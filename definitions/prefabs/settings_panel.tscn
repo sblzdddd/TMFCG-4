@@ -211,7 +211,7 @@ exclusive = true
 popup_window = true
 min_size = Vector2i(480, 400)
 script = ExtResource("7_picker")
-_item_list = NodePath("MarginContainer/VBoxContainer/AvatarList")
+_item_list = NodePath("MarginContainer/VBoxContainer/ScrollContainer/AvatarList")
 
 [node name="MarginContainer" type="MarginContainer" parent="UserInfoEdit/AvatarPicker" unique_id=757183452]
 anchors_preset = 15
@@ -229,10 +229,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="AvatarList" type="ItemList" parent="UserInfoEdit/AvatarPicker/MarginContainer/VBoxContainer" unique_id=1584838275]
+[node name="ScrollContainer" type="ScrollContainer" parent="UserInfoEdit/AvatarPicker/MarginContainer/VBoxContainer" unique_id=1584838274]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="AvatarList" type="ItemList" parent="UserInfoEdit/AvatarPicker/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1584838275]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+auto_height = true
 max_text_lines = 2
 item_count = 94
 max_columns = 80
@@ -347,12 +354,13 @@ text = "网络"
 label_settings = ExtResource("1_2mlqi")
 horizontal_alignment = 1
 
-[node name="NetworkSettings" type="GridContainer" parent="." node_paths=PackedStringArray("_address_edit", "_port_edit")]
+[node name="NetworkSettings" type="GridContainer" parent="." node_paths=PackedStringArray("_address_edit", "_port_edit", "_local_server_button")]
 layout_mode = 2
 columns = 2
 script = ExtResource("7_net")
 _address_edit = NodePath("AddressEdit")
 _port_edit = NodePath("PortEdit")
+_local_server_button = NodePath("../CreateLocalServerButton")
 
 [node name="AddressLabel" type="Label" parent="NetworkSettings"]
 custom_minimum_size = Vector2(84, 0)
@@ -374,6 +382,10 @@ label_settings = ExtResource("103_tjv8h")
 layout_mode = 2
 size_flags_horizontal = 3
 label_text = "端口"
+
+[node name="CreateLocalServerButton" type="Button" parent="."]
+layout_mode = 2
+text = "创建本地服务器"
 
 [node name="Title2" type="Label" parent="." unique_id=178266633]
 layout_mode = 2

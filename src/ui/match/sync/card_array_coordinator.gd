@@ -243,7 +243,6 @@ func _holder_sync_order(state: GameState) -> Array[String]:
 
 
 func _hand_draw_uids(state: GameState) -> Array[String]:
-	var result: Array[String] = []
 	var match_state: MatchRuntimeState = null
 	if RoomSession.match_controller != null:
 		match_state = RoomSession.match_controller.get_state()
@@ -253,31 +252,8 @@ func _hand_draw_uids(state: GameState) -> Array[String]:
 		if state != null and state.trick_winner_id != null
 		else ""
 	)
-	if play_order != null and not play_order.is_empty():
-		var start := winner if play_order.has(winner) else play_order.uids[0]
-		var cursor := start
-		for _i in play_order.size():
-			result.append(cursor)
-			cursor = play_order.next_after(cursor)
-		return result
-	if state == null:
-		return result
-	# Fallback: GameState player list, optionally rotated to winner.
-	var uids: Array[String] = []
-	for player in state.players:
-		if player != null and player.player_id != null:
-			uids.append(player.player_id.value)
-	if uids.is_empty():
-		return result
-	var start_idx := 0
-	if not winner.is_empty():
-		var found := uids.find(winner)
-		if found >= 0:
-			start_idx = found
-	for i in uids.size():
-		result.append(uids[(start_idx + i) % uids.size()])
-	return result
-
+	var players: Array[PlayerState] = state.players if state != null else []
+	return SoftDraw.draw_uids(play_order, winner, players)
 
 func _clear_all_ui() -> void:
 	last_state = null

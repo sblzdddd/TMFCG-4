@@ -148,11 +148,11 @@ clip_text = true
 
 [node name="CharacterNameLabel" type="Path2D" parent="CardVisual" unique_id=1202687566]
 unique_name_in_owner = true
-position = Vector2(-1.666, -8.324)
+position = Vector2(-1.666, -8.5)
 scale = Vector2(0.5, 0.5)
 curve = SubResource("Curve2D_m5vuq")
 script = ExtResource("9_80wh4")
-text = "-"
+text = "Mystia Lorelei"
 label_settings = ExtResource("10_ulqgn")
 autosize_base_size = 42
 autosize_multiplier = 1.281

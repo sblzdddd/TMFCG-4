@@ -1,10 +1,11 @@
 extends GridContainer
 class_name NetworkSettingsEditor
-## Settings panel: central dedicated-server address/port.
+## Settings panel: central dedicated-server address/port + local server spawn.
 ## Hidden while in a room so host cannot be hard-switched mid-session.
 
 @export var _address_edit: LabelLineEdit
 @export var _port_edit: LabelLineEdit
+@export var _local_server_button: Button
 
 var _loading := false
 
@@ -19,8 +20,20 @@ func _ready() -> void:
 	if _port_edit:
 		_port_edit.text_submitted.connect(_on_port_submitted)
 		_port_edit.focus_exited.connect(_on_port_focus_exited)
+	_configure_local_server_button()
 	SettingsDataStore.data_changed.connect(_on_store_changed)
 	_apply_data(SettingsDataStore.data)
+
+
+func _configure_local_server_button() -> void:
+	if _local_server_button == null:
+		return
+	if not PlatformUtils.supports_local_dedicated_server():
+		_local_server_button.visible = false
+		return
+	_local_server_button.visible = true
+	if not _local_server_button.pressed.is_connected(_on_local_server_pressed):
+		_local_server_button.pressed.connect(_on_local_server_pressed)
 
 
 func _is_in_room_context() -> bool:
@@ -37,6 +50,8 @@ func _hide_network_zone() -> void:
 	var title := get_parent().get_node_or_null("NetworkTitle") as CanvasItem
 	if title:
 		title.visible = false
+	if _local_server_button:
+		_local_server_button.visible = false
 
 
 func _on_address_submitted(new_text: String) -> void:
@@ -55,6 +70,10 @@ func _on_port_submitted(new_text: String) -> void:
 func _on_port_focus_exited() -> void:
 	if _port_edit:
 		_commit_port(str(_port_edit.get("text")))
+
+
+func _on_local_server_pressed() -> void:
+	NetworkModeService.start_local_server()
 
 
 func _commit_address(new_text: String) -> void:

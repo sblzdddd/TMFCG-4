@@ -2,7 +2,7 @@ class_name MatchCardController
 extends Node
 ## Host-authoritative GameState (deck / hands / graveyards). Clients apply filtered snapshots.
 
-const SOFT_HAND_TARGET := 5
+const SOFT_HAND_TARGET := SoftDraw.TARGET
 
 var _session: Node
 var _rpc: MatchCardRpc
@@ -183,12 +183,8 @@ func handle_pass_for_uid(uid: String) -> void:
 	_broadcast()
 	var order := match_state.order
 	var next_uid := PlacementTracker.next_active_after(state, order, uid)
-	var winner := state.trick_winner_id.value if state.trick_winner_id != null else ""
-	var active_n := PlacementTracker.active_uids(state, order).size()
 	if (
-		not winner.is_empty()
-		and next_uid == winner
-		and state.passes_count >= maxi(active_n - 1, 1)
+		TrickResolution.should_end_by_passes(state, order, next_uid)
 		and _session.match_controller != null
 	):
 		_session.match_controller.end_round()
@@ -266,10 +262,7 @@ func sync_match_runtime(active_uid: String, phase: MatchPhase.Phase) -> void:
 		if idx >= 0:
 			state.current_player_index = idx
 	# Clear the active seat's prior plays into the main graveyard once per turn.
-	if (
-		(phase == MatchPhase.Phase.TURN_PLAY or phase == MatchPhase.Phase.END_GAME_PLAY)
-		and not active_uid.is_empty()
-	):
+	if MatchPhase.is_play_phase(phase) and not active_uid.is_empty():
 		if active_uid != _flushed_turn_uid:
 			_flushed_turn_uid = active_uid
 			var moved := state.flush_player_temporary_graveyard(
@@ -324,10 +317,10 @@ func draw_to_player(uid: String, count: int = 1) -> Array[Card]:
 	return moved
 
 
-## Soft-fill each hand toward SOFT_HAND_TARGET.
+## Soft-fill each hand toward SoftDraw.TARGET, winner-first.
 ## Notifies every member (empty list when they drew nothing) so all clients show
 ## the round-end preview. Returns true when the soft-fill ran (preview should hold).
-func draw_for_all_soft(target: int = SOFT_HAND_TARGET) -> bool:
+func draw_for_all_soft(target: int = SoftDraw.TARGET) -> bool:
 	if not ConnectionManager.is_server():
 		if _session != null and _session.is_local_host() and RoomSession.match_rpc != null:
 			RoomSession.match_rpc.send_host_command("draw_for_all_soft", {"target": target})
@@ -337,22 +330,9 @@ func draw_for_all_soft(target: int = SOFT_HAND_TARGET) -> bool:
 	_ensure_initialized()
 	if state == null or state.deck == null:
 		return false
-	var drawn_by_uid: Dictionary = {}
-	for player in state.players:
-		if player == null or player.hand == null or player.player_id == null:
-			continue
-		var need := maxi(0, target - player.hand.get_size())
-		if need <= 0:
-			continue
-		var n := mini(need, state.deck.get_size())
-		if n <= 0:
-			break
-		var selected: Array[Card] = []
-		for i in n:
-			selected.append(state.deck.get_card(i))
-		var moved := state.transfer_cards(state.deck, player.hand, selected, true)
-		if not moved.is_empty():
-			drawn_by_uid[player.player_id.value] = moved
+	var match_state := _match_state()
+	var order: PlayerOrder = match_state.order if match_state != null else null
+	var drawn_by_uid := SoftDraw.apply(state, order, target)
 	if not drawn_by_uid.is_empty():
 		_broadcast()
 	_notify_round_draws(drawn_by_uid)
@@ -602,10 +582,7 @@ func _match_state() -> MatchRuntimeState:
 func _is_active_turn(uid: String, match_state: MatchRuntimeState) -> bool:
 	if match_state == null or match_state.active_uid != uid:
 		return false
-	return (
-		match_state.phase == MatchPhase.Phase.TURN_PLAY
-		or match_state.phase == MatchPhase.Phase.END_GAME_PLAY
-	)
+	return MatchPhase.is_play_phase(match_state.phase)
 
 
 func _uid_for_peer(peer_id: int) -> String:

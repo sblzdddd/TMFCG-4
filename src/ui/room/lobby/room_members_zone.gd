@@ -3,7 +3,6 @@ extends VBoxContainer
 ## Room member UI cards with per-row kick (host only).
 
 @onready var members_list: UiCardList = %MembersList
-@onready var members_title := %MembersTitle
 
 func _ready() -> void:
 	if members_list:
@@ -20,9 +19,7 @@ func _ready() -> void:
 func _on_room_changed(room: RoomData) -> void:
 	if room == null:
 		members_list.clear_items()
-		members_title.text = "成员"
 		return
-	members_title.text = "成员（%d/%d）" % [room.member_count(), room.max_players]
 	var is_host := RoomSession.is_local_host()
 	var items: Array[UiCardEntry] = []
 	for member: RoomMember in room.get_members():

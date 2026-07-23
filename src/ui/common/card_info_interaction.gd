@@ -4,6 +4,8 @@ extends RefCounted
 
 const HOLD_TIMEOUT := 0.4
 const ACTIVE_HAND_HOVER_DELAY := 1.0
+## Finger travel (px²) before a hold counts as a drag, not a tap.
+const MOVE_THRESHOLD_SQ := 64.0
 
 var skills_only: bool = true
 var hover_delay: float = 0.0
@@ -12,6 +14,8 @@ var _host: CardBase
 var _hold_timer: Timer
 var _hover_timer: Timer
 var _touch_holding := false
+var _touch_moved := false
+var _touch_travel_sq := 0.0
 var _info_shown_by_hold := false
 var _showing_info := false
 
@@ -19,6 +23,11 @@ var _showing_info := false
 var touch_holding: bool:
 	get:
 		return _touch_holding
+
+
+var touch_moved: bool:
+	get:
+		return _touch_moved
 
 
 func setup(host: CardBase) -> void:
@@ -76,6 +85,8 @@ func begin_touch_hold() -> void:
 	if _touch_holding:
 		return
 	_touch_holding = true
+	_touch_moved = false
+	_touch_travel_sq = 0.0
 	_info_shown_by_hold = false
 	if _hover_timer != null:
 		_hover_timer.stop()
@@ -86,19 +97,58 @@ func begin_touch_hold() -> void:
 			_hold_timer.start()
 
 
-## Returns true when the release should count as a press (not an info-hold dismiss).
+## Accumulate finger travel; past threshold, stop the info timer and mark as drag.
+func notify_touch_drag(relative: Vector2) -> void:
+	if not _touch_holding or _touch_moved:
+		return
+	_touch_travel_sq += relative.length_squared()
+	if _touch_travel_sq >= MOVE_THRESHOLD_SQ:
+		mark_touch_moved()
+
+
+## Treat the active hold as a drag (no tap, no info popup).
+func mark_touch_moved() -> void:
+	if not _touch_holding or _touch_moved:
+		return
+	_touch_moved = true
+	if _hold_timer != null:
+		_hold_timer.stop()
+	if _info_shown_by_hold:
+		_info_shown_by_hold = false
+		hide_info()
+
+
+## Returns true when the release should count as a press (not info-hold / drag).
 func end_touch_hold() -> bool:
 	if not _touch_holding:
 		return false
 	if _hold_timer != null:
 		_hold_timer.stop()
 	var was_info_hold := _info_shown_by_hold
+	var moved := _touch_moved
 	_touch_holding = false
+	_touch_moved = false
+	_touch_travel_sq = 0.0
 	_info_shown_by_hold = false
 	if was_info_hold:
 		hide_info()
 		return false
+	if moved:
+		return false
 	return true
+
+
+## Abort an in-progress hold (e.g. parent scroll drag started). Never counts as a press.
+func cancel_touch_hold() -> void:
+	if not _touch_holding:
+		return
+	if _hold_timer != null:
+		_hold_timer.stop()
+	_touch_holding = false
+	_touch_moved = false
+	_touch_travel_sq = 0.0
+	_info_shown_by_hold = false
+	hide_info()
 
 
 func hide_info() -> void:

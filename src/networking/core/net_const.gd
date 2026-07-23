@@ -2,7 +2,7 @@ class_name NetConst
 extends Object
 
 const GAME_PORT := 13637
-const DISCONNECT_GRACE_SEC := 15.0
+const DISCONNECT_GRACE_SEC := 120.0
 const REJOIN_ATTEMPTS := 2
 const JOIN_TIMEOUT_SEC := 5.0
 const ROOM_CODE_LENGTH := 8

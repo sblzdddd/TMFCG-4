@@ -5,13 +5,14 @@ extends CanvasLayer
 @onready var left_panels := %LeftPanels
 @onready var right_panels := %RightPanels
 @onready var sidebar_bg := %SidebarBG
-@onready var settings_panel := %SettingsPanel
+@onready var room_settings_zone := %RoomSettingsZone
 @onready var game_settings_toggle := %GameSettingsToggle
 
 var _tween: Tween
 var _last_phase: MatchPhase.Phase = MatchPhase.Phase.INITIALIZATION
 
 func _ready() -> void:
+	visible = true
 	hide_button.pressed.connect(hide_sidebar)
 	show_button.pressed.connect(show_sidebar)
 	left_panels.offset_transform_enabled = true
@@ -50,7 +51,7 @@ func hide_sidebar() -> void:
 	_tween.parallel().tween_property(sidebar_bg, "modulate:a", 0, 0.45)
 	_tween.tween_callback(func(): visible = false)
 	if game_settings_toggle.button_pressed:
-		settings_panel.toggle_game_settings(false)
+		room_settings_zone.toggle_game_settings(false)
 
 func show_sidebar() -> void:
 	visible = true
@@ -59,4 +60,4 @@ func show_sidebar() -> void:
 	_tween.tween_property(left_panels, "offset_transform_position_ratio:x", 0, 0.45)
 	_tween.parallel().tween_property(right_panels, "offset_transform_position_ratio:x", 0, 0.45)
 	_tween.parallel().tween_property(sidebar_bg, "modulate:a", 1, 0.45)
-	settings_panel.toggle_game_settings(game_settings_toggle.button_pressed)
+	room_settings_zone.toggle_game_settings(game_settings_toggle.button_pressed)

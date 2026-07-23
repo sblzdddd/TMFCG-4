@@ -120,7 +120,7 @@ func _highlight_uid(match_state: MatchRuntimeState) -> String:
 	)
 	if match_state.phase == MatchPhase.Phase.ROUND_RESOLUTION and awaiting_lead:
 		return winner_uid
-	if match_state.phase == MatchPhase.Phase.TURN_PLAY and not match_state.active_uid.is_empty():
+	if MatchPhase.is_play_phase(match_state.phase) and not match_state.active_uid.is_empty():
 		return match_state.active_uid
 	return ""
 

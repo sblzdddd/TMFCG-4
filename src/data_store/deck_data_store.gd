@@ -112,6 +112,9 @@ func create_deck(
 func save_deck(deck: DeckData, path: String, structural: bool = false) -> Error:
 	if deck == null or path.is_empty():
 		return ERR_INVALID_DATA
+	if ResourceFsUtils.is_builtin_path(path) and not ResourceFsUtils.can_write_presets():
+		push_warning("Builtin decks can only be saved from the Godot editor.")
+		return ERR_FILE_CANT_WRITE
 	deck.date_modified = Time.get_unix_time_from_system()
 	var err := ResourceFsUtils.save_resource(deck, path)
 	if err == OK:
@@ -137,6 +140,8 @@ func delete_deck(path: String) -> Error:
 
 func add_card(deck_path: String, suit: CardEnums.Suit, rank: CardEnums.Rank) -> int:
 	## Returns new card index, or -1 on failure.
+	if not can_modify(deck_path):
+		return -1
 	var deck := load_deck(deck_path)
 	if deck == null:
 		return -1

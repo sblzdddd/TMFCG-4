@@ -1,6 +1,6 @@
 class_name RoomMatchLock
 extends RefCounted
-## True while joins are closed (match in progress or finished).
+## True while joins/settings are closed (match in progress). Unlocked in lobby and at GAME_OVER.
 
 
 static func is_match_locked() -> bool:

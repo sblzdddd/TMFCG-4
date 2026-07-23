@@ -3,20 +3,35 @@ class_name ThumbnailPickerDialog
 
 signal item_selected(payload: Variant)
 
+## Finger travel (px²) before a press counts as a scroll drag, not a tap.
+const _TAP_MOVE_THRESHOLD_SQ := 64.0
+
 @export var _search: LineEdit
 @export var _item_list: ItemList
 
 var _all_entries: Array[Dictionary] = []
+var _scroll: ScrollContainer
+var _pending_tap_index := -1
+var _press_global_pos := Vector2.ZERO
+var _press_scroll_offset := Vector2.ZERO
 
 
 func _ready() -> void:
 	close_requested.connect(hide)
+	visibility_changed.connect(_on_visibility_changed)
 	if _search:
 		_search.text_changed.connect(_on_search_changed)
 		_search.gui_input.connect(_on_search_gui_input)
 	_item_list.icon_mode = ItemList.ICON_MODE_TOP
 	_item_list.max_text_lines = 2
+	# Size to content and pass drag to parent ScrollContainer (touch / emulate mouse).
+	_item_list.auto_height = true
+	_item_list.mouse_filter = Control.MOUSE_FILTER_PASS
 	_item_list.item_activated.connect(_on_item_activated)
+	_scroll = _item_list.get_parent() as ScrollContainer
+	if PlatformUtils.is_mobile():
+		# item_clicked fires on press; defer activation until release so scroll can win.
+		_item_list.item_clicked.connect(_on_item_pressed_mobile)
 
 	self.mode = Window.MODE_EXCLUSIVE_FULLSCREEN
 	_on_picker_ready()
@@ -67,6 +82,7 @@ func _refresh_list() -> void:
 
 
 func _apply_filter(query: String) -> void:
+	_cancel_pending_tap()
 	_item_list.clear()
 	var normalized_query := query.to_lower()
 
@@ -115,11 +131,76 @@ func _on_item_activated(index: int) -> void:
 	_select_payload(_item_list.get_item_metadata(index))
 
 
+func _on_item_pressed_mobile(index: int, _at_position: Vector2, mouse_button_index: int) -> void:
+	if mouse_button_index != MOUSE_BUTTON_LEFT:
+		return
+	_pending_tap_index = index
+	_press_global_pos = _item_list.get_global_mouse_position()
+	_press_scroll_offset = _current_scroll_offset()
+	set_process_input(true)
+
+
+func _input(event: InputEvent) -> void:
+	if _pending_tap_index < 0:
+		return
+	if event is InputEventMouseMotion or event is InputEventScreenDrag:
+		if _tap_became_drag():
+			_cancel_pending_tap()
+		return
+	if event is InputEventMouseButton:
+		var mb := event as InputEventMouseButton
+		if mb.button_index != MOUSE_BUTTON_LEFT or mb.pressed:
+			return
+		_finish_pending_tap()
+		return
+	if event is InputEventScreenTouch:
+		var st := event as InputEventScreenTouch
+		# Emulated touch from mouse — MouseButton path owns the gesture.
+		if st.pressed or st.device == InputEvent.DEVICE_ID_EMULATION:
+			return
+		_finish_pending_tap()
+
+
+func _current_scroll_offset() -> Vector2:
+	if _scroll == null:
+		return Vector2.ZERO
+	return Vector2(float(_scroll.scroll_horizontal), float(_scroll.scroll_vertical))
+
+
+func _tap_became_drag() -> bool:
+	if _current_scroll_offset().distance_squared_to(_press_scroll_offset) > 0.25:
+		return true
+	return (
+		_item_list.get_global_mouse_position().distance_squared_to(_press_global_pos)
+		>= _TAP_MOVE_THRESHOLD_SQ
+	)
+
+
+func _cancel_pending_tap() -> void:
+	_pending_tap_index = -1
+	set_process_input(false)
+
+
+func _finish_pending_tap() -> void:
+	var index := _pending_tap_index
+	var dragged := _tap_became_drag()
+	_cancel_pending_tap()
+	if dragged or index < 0 or index >= _item_list.item_count:
+		return
+	_on_item_activated(index)
+
+
+func _on_visibility_changed() -> void:
+	if not visible:
+		_cancel_pending_tap()
+
+
 func _select_payload(payload: Variant) -> void:
 	if payload == null:
 		return
 	if not _is_payload_allowed(payload):
 		return
+	_cancel_pending_tap()
 	_emit_selection(payload)
 	hide()
 

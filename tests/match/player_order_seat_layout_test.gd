@@ -13,6 +13,7 @@ func test_player_order_move_and_reverse() -> void:
 	order.reverse()
 	assert_array(order.uids).contains_exactly(["c", "b", "a"])
 	assert_str(order.next_after("c")).is_equal("b")
+	assert_array(order.uids_from("b")).contains_exactly(["b", "a", "c"])
 
 
 func test_seat_layout_clockwise_successors() -> void:

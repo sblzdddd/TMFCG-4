@@ -174,5 +174,6 @@ func _clear_grids() -> void:
 func _make_card_cell(card_data: CardData) -> Control:
 	var card: CardBase = CARD_BASE_SCENE.instantiate() as CardBase
 	card.info_skills_only = false
+	card.pass_scroll_input = true
 	card.set_card_data(card_data)
 	return card.create_scaled_slot(CARD_DISPLAY_SCALE)

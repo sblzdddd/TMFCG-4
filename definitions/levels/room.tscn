@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://blss7as5fgwtr" path="res://assets/textures/close-up-natural-texture.jpg" id="1_naygy"]
 [ext_resource type="Script" uid="uid://dj5hqxlggo1x2" path="res://src/ui/room/shell/sidebar_layer.gd" id="2_1j4a0"]
 [ext_resource type="Script" uid="uid://dpl3mhfcph1qd" path="res://src/ui/room/chat/room_chat_zone.gd" id="2_chat"]
-[ext_resource type="Script" uid="uid://dl8itxljoyjrp" path="res://src/ui/room/lobby/room_members_zone.gd" id="2_members"]
 [ext_resource type="Texture2D" uid="uid://wwkkx5mbvwmc" path="res://assets/textures/icons/combat/IonExitOutline.svg" id="3_cxrys"]
 [ext_resource type="PackedScene" uid="uid://b0apk4smofk3a" path="res://definitions/prefabs/deck_col.tscn" id="3_deck"]
 [ext_resource type="LabelSettings" uid="uid://dxndkfbiccaor" path="res://definitions/fonts/page_title.tres" id="3_r84uw"]
@@ -16,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dehu63ckqecwu" path="res://definitions/prefabs/pre_ui_card_list.tscn" id="5_ui_cards"]
 [ext_resource type="PackedScene" uid="uid://yaqyiwy870jf" path="res://definitions/prefabs/pre_dragger_spinbox.tscn" id="6_xtaj5"]
 [ext_resource type="Texture2D" uid="uid://clov0oueu2l4h" path="res://assets/textures/icons/skills/boolean.svg" id="8_jre66"]
+[ext_resource type="Texture2D" uid="uid://b1ytuasodifan" path="res://assets/textures/icons/skills/event.svg" id="8_sgjwb"]
 [ext_resource type="PackedScene" uid="uid://b83jbltkmll81" path="res://definitions/prefabs/pre_chat_msg.tscn" id="13_b60so"]
 [ext_resource type="Texture2D" uid="uid://bs5ongrfyefpt" path="res://assets/textures/icons/combat/PrimeSend.svg" id="13_qaqvs"]
 [ext_resource type="Texture2D" uid="uid://bv3qx0hr5y0uo" path="res://assets/textures/icons/combat/RiEmojiStickerFill.svg" id="15_4w32d"]
@@ -39,110 +39,6 @@
 [ext_resource type="Script" uid="uid://bjkot3dx418gc" path="res://src/ui/match/interaction/turn_countdown_controller.gd" id="50_turncd"]
 [ext_resource type="Script" uid="uid://dqgkldcnlcqem" path="res://src/ui/room/lobby/room_start_button.gd" id="51_start"]
 [ext_resource type="Script" uid="uid://l4opkmb4hix" path="res://src/ui/match/broadcast/match_broadcast_controller.gd" id="52_bcast"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ehy"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-shadow_color = Color(0, 0, 0, 0.15294118)
-shadow_size = 8
-shadow_offset = Vector2(0, 4.367)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxrys"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxwog"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jre66"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_naygy"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qaqvs"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxwog"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.16226816, 0.15122372, 0.14889032, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naygy"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-bg_color = Color(0.16078432, 0.15294118, 0.14901961, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-shadow_color = Color(0, 0, 0, 0.15294118)
-shadow_size = 8
-shadow_offset = Vector2(0, 2)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7wsu"]
-content_margin_left = 8.0
-content_margin_top = 8.0
-content_margin_right = 8.0
-content_margin_bottom = 8.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_jre66"]
-font_size = 24
-
-[sub_resource type="CodeHighlighter" id="CodeHighlighter_gc8rq"]
-color_regions = {
-"[ ]": Color(0.7438586, 1, 0.6587954, 1)
-}
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b60so"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaqvs"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.30500805, 0.30500805, 0.30500805, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7wsu"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.14749879, 0.14749879, 0.14749879, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b60so"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.3137255, 0.3137255, 0.3137255, 1)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu04v"]
 content_margin_left = 349.0
@@ -255,8 +151,8 @@ tracks/3/path = NodePath("BroadcastLayout:offset_transform_position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(3, 0),
-"points": PackedFloat32Array(101.20805, -0.3, 1.2080536, 0.3, -1.2080536, -114.697044, -0.39999998, 4.6970444, 0.4333334, -6.6253967),
+"handle_modes": PackedInt32Array(1, 1),
+"points": PackedFloat32Array(54.557198, 0, 0, 0, 0, -45.179882, 0, 0, 0, 0),
 "times": PackedFloat32Array(0, 1.5)
 }
 
@@ -269,6 +165,110 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_8j08v"]
 font_size = 39
 font_color = Color(1, 0.8091763, 0.8438715, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k7ehy"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.12156863, 0.12156863, 0.12156863, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+shadow_color = Color(0, 0, 0, 0.15294118)
+shadow_size = 8
+shadow_offset = Vector2(0, 4.367)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxrys"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mxwog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jre66"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_naygy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qaqvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naygy"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.16078432, 0.15294118, 0.14901961, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.15294118)
+shadow_size = 8
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u7wsu"]
+content_margin_left = 12.0
+content_margin_top = 14.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jre66"]
+font_size = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxwog"]
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+bg_color = Color(0.16226816, 0.15122372, 0.14889032, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="CodeHighlighter" id="CodeHighlighter_gc8rq"]
+color_regions = {
+"[ ]": Color(0.7438586, 1, 0.6587954, 1)
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b60so"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qaqvs"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.25882354, 0.25882354, 0.25882354, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.30500805, 0.30500805, 0.30500805, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7wsu"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.14749879, 0.14749879, 0.14749879, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b60so"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.3137255, 0.3137255, 0.3137255, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_status_idle"]
 bg_color = Color(0.08, 0.08, 0.08, 0.82)
@@ -306,7 +306,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sgjwb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jq8a"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -354,7 +354,7 @@ corner_radius_bottom_right = 6
 corner_radius_bottom_left = 6
 corner_detail = 6
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5jq8a"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmiy"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -366,7 +366,7 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pkmiy"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rjw3f"]
 content_margin_left = 0.0
 content_margin_top = 0.0
 content_margin_right = 0.0
@@ -409,10 +409,57 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("46_dbgboot")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1663515]
+layer = 15
+
+[node name="BroadcastPanel" type="Panel" parent="CanvasLayer" unique_id=235814532]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pu04v")
+script = ExtResource("52_bcast")
+
+[node name="BroadcastAnimation" type="AnimationPlayer" parent="CanvasLayer/BroadcastPanel" unique_id=534328829]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_pydsn")
+
+[node name="BroadcastLayout" type="VBoxContainer" parent="CanvasLayer/BroadcastPanel" unique_id=370648762]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="BroadcastTitle" type="Label" parent="CanvasLayer/BroadcastPanel/BroadcastLayout" unique_id=1394360661]
+unique_name_in_owner = true
+layout_mode = 2
+text = "We are charlie kirk"
+label_settings = SubResource("LabelSettings_8j08v")
+horizontal_alignment = 1
+
+[node name="BroadcastSubtitle" type="Label" parent="CanvasLayer/BroadcastPanel/BroadcastLayout" unique_id=656508202]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "222"
+
 [node name="SidebarLayer" type="CanvasLayer" parent="." unique_id=1260910676]
 unique_name_in_owner = true
 layer = 10
-visible = false
 script = ExtResource("2_1j4a0")
 
 [node name="SidebarBG" type="ColorRect" parent="SidebarLayer" unique_id=1134903610]
@@ -452,49 +499,28 @@ layout_mode = 2
 theme_override_constants/separation = 12
 script = ExtResource("1_ctrl")
 
-[node name="LeaveButton" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow" unique_id=1688876151]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow" unique_id=2043446241]
 layout_mode = 2
-offset_transform_enabled = true
-offset_transform_rotation = 3.1415927
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cxrys")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxwog")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_jre66")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_naygy")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
-icon = ExtResource("3_cxrys")
-flat = true
+size_flags_horizontal = 3
 
-[node name="StatusLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow" unique_id=171995394]
+[node name="StatusLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow/VBoxContainer" unique_id=171995394]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "房间"
+text = "房间 (-/-)"
+label_settings = ExtResource("3_r84uw")
 
-[node name="HideButton" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow" unique_id=2010510019]
-unique_name_in_owner = true
-layout_mode = 2
-offset_transform_enabled = true
-offset_transform_rotation = 3.1415927
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cxrys")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_mxwog")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_jre66")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_naygy")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
-icon = ExtResource("4_15xq7")
-flat = true
-
-[node name="RoomCodeRow" type="HBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=1890709041]
+[node name="RoomCodeRow" type="HBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow/VBoxContainer" unique_id=1890709041]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="CodeLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomCodeRow" unique_id=862168040]
+[node name="CodeLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow/VBoxContainer/RoomCodeRow" unique_id=862168040]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 0
 text = "房间码: ————"
 
-[node name="CodeCopyButton" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomCodeRow" unique_id=1298540799]
+[node name="CodeCopyButton" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow/VBoxContainer/RoomCodeRow" unique_id=1298540799]
 unique_name_in_owner = true
 layout_mode = 2
 offset_transform_rotation = 3.1415927
@@ -506,67 +532,30 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
 icon = ExtResource("4_mxwog")
 flat = true
 
-[node name="SettingsPanel" type="PanelContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=218671218]
+[node name="HideButton" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/RoomStatusRow" unique_id=2010510019]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
-script = ExtResource("3_settings")
+offset_transform_enabled = true
+offset_transform_rotation = 3.1415927
+icon = ExtResource("4_15xq7")
 
-[node name="SettingsCol" type="VBoxContainer" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel" unique_id=1637153846]
+[node name="StartGameButton" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=1081213752]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
-theme_override_constants/separation = 10
+theme_override_constants/icon_max_width = 14
+text = "开始对局"
+icon = ExtResource("8_sgjwb")
+expand_icon = true
+script = ExtResource("51_start")
 
-[node name="SettingsTitle" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1531130580]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-text = "设置"
-label_settings = ExtResource("3_r84uw")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PublicToggle" type="CheckButton" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1811130355]
+[node name="GameSettingsToggle" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=380057275]
 unique_name_in_owner = true
 layout_mode = 2
-text = "公开房间"
-
-[node name="NameEdit" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1308272350 instance=ExtResource("5_fw8w0")]
-unique_name_in_owner = true
-layout_mode = 2
-label_text = "房间名称"
-
-[node name="MaxPlayers" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=1267618321 instance=ExtResource("6_xtaj5")]
-unique_name_in_owner = true
-layout_mode = 2
-min_value = 2.0
-max_value = 4.0
-step = 1.0
-value = 4.0
-label_text = "最大玩家数量"
-
-[node name="TurnCountdown" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=60469183 instance=ExtResource("6_xtaj5")]
-unique_name_in_owner = true
-layout_mode = 2
-min_value = 5.0
-max_value = 45.0
-step = 1.0
-value = 15.0
-label_text = "回合倒计时（秒）"
-
-[node name="TurnCountdownLabel" type="Label" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=60469184]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "回合倒计时: 15 秒"
-
-[node name="GameSettingsToggle" type="Button" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol/SettingsPanel/SettingsCol" unique_id=380057275]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_constants/icon_max_width = 16
-theme_override_font_sizes/font_size = 14
 toggle_mode = true
 text = "游戏设置..."
 icon = ExtResource("8_jre66")
-icon_alignment = 2
+expand_icon = true
 
 [node name="DeckRow" parent="SidebarLayer/SidebarLayout/LeftPanels/LeftCol" unique_id=1691381018 instance=ExtResource("3_deck")]
 layout_mode = 2
@@ -575,6 +564,7 @@ sync_room = true
 [node name="SecondPane" type="Control" parent="SidebarLayer/SidebarLayout" unique_id=516220932]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.33
 
 [node name="GameSettingsRoot" type="Control" parent="SidebarLayer/SidebarLayout/SecondPane" unique_id=1201721362]
 unique_name_in_owner = true
@@ -616,22 +606,79 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 20
 
 [node name="Label" type="Label" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout" unique_id=60469182]
-custom_minimum_size = Vector2(0, 42)
 layout_mode = 2
 text = "游戏设置"
 label_settings = SubResource("LabelSettings_jre66")
 vertical_alignment = 1
 
+[node name="RoomSettingsZone" type="VBoxContainer" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout" unique_id=218671218]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("3_settings")
+
+[node name="SettingsTitle" type="Label" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout/RoomSettingsZone" unique_id=1531130580]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "房间设置"
+label_settings = ExtResource("3_r84uw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PublicToggle" type="CheckButton" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout/RoomSettingsZone" unique_id=1811130355]
+unique_name_in_owner = true
+layout_mode = 2
+text = "公开房间"
+
+[node name="NameEdit" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout/RoomSettingsZone" unique_id=1308272350 instance=ExtResource("5_fw8w0")]
+unique_name_in_owner = true
+layout_mode = 2
+label_text = "房间名称"
+
+[node name="MaxPlayers" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout/RoomSettingsZone" unique_id=1267618321 instance=ExtResource("6_xtaj5")]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 2.0
+max_value = 4.0
+step = 1.0
+value = 4.0
+label_text = "最大玩家数量"
+
+[node name="TurnCountdown" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout/RoomSettingsZone" unique_id=60469183 instance=ExtResource("6_xtaj5")]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = 5.0
+max_value = 45.0
+step = 1.0
+value = 15.0
+label_text = "回合倒计时（秒）"
+
+[node name="TurnCountdownLabel" type="Label" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout/RoomSettingsZone" unique_id=60469184]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "回合倒计时: 15 秒"
+
+[node name="LeaveButton" type="Button" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout/RoomSettingsZone" unique_id=1688876151]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+theme_override_colors/font_color = Color(0.8314563, 0.3151154, 0.3151154, 1)
+theme_override_colors/icon_normal_color = Color(0.8630236, 0.30891696, 0.30891696, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qaqvs")
+text = "退出房间"
+icon = ExtResource("3_cxrys")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
 [node name="SettingsPanel" parent="SidebarLayer/SidebarLayout/SecondPane/GameSettingsRoot/GameSettingsMargin/ScrollContainer/GameSettingsLayout" unique_id=1661542302 instance=ExtResource("4_profile")]
 layout_mode = 2
 size_flags_vertical = 3
 metadata/_edit_use_anchors_ = true
-
-[node name="Spacer" type="Control" parent="SidebarLayer/SidebarLayout" unique_id=1146554634]
-layout_mode = 2
-size_flags_horizontal = 3
 
 [node name="RightPanels" type="PanelContainer" parent="SidebarLayer/SidebarLayout" unique_id=1120609068]
 unique_name_in_owner = true
@@ -648,30 +695,9 @@ theme_override_constants/separation = 12
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_mxwog")
 
-[node name="MembersZone" type="VBoxContainer" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/MambersPanel" unique_id=1721454552]
-layout_mode = 2
-size_flags_vertical = 3
-script = ExtResource("2_members")
-
-[node name="StartGameButton" type="Button" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/MambersPanel/MembersZone" unique_id=1081213752]
+[node name="MembersList" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/MambersPanel" unique_id=2648947 instance=ExtResource("5_ui_cards")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 36)
-layout_mode = 2
-text = "开始游戏"
-script = ExtResource("51_start")
-
-[node name="MembersTitle" type="Label" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/MambersPanel/MembersZone" unique_id=1670257657]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-text = "成员"
-label_settings = ExtResource("3_r84uw")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="MembersList" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/MambersPanel/MembersZone" unique_id=2648947 instance=ExtResource("5_ui_cards")]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 130)
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 
 [node name="ChatPanel" type="PanelContainer" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol" unique_id=1583816526]
@@ -684,14 +710,6 @@ script = ExtResource("2_chat")
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 4
-
-[node name="ChatTitle" type="Label" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/ChatPanel/ChatCol" unique_id=100224325]
-custom_minimum_size = Vector2(0, 30)
-layout_mode = 2
-text = "聊天"
-label_settings = ExtResource("3_r84uw")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ChatMsg" type="ScrollContainer" parent="SidebarLayer/SidebarLayout/RightPanels/RightCol/ChatPanel/ChatCol" unique_id=918938421]
 layout_mode = 2
@@ -768,6 +786,7 @@ flat = true
 
 [node name="MatchDebugPanel" type="VBoxContainer" parent="MatchOverlay" unique_id=2121380303]
 unique_name_in_owner = true
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -842,48 +861,6 @@ text = "Draw Top"
 unique_name_in_owner = true
 layout_mode = 2
 text = "Draw Right"
-
-[node name="BroadcastPanel" type="Panel" parent="MatchOverlay" unique_id=235814532]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-anchors_preset = -1
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_pu04v")
-script = ExtResource("52_bcast")
-
-[node name="BroadcastAnimation" type="AnimationPlayer" parent="MatchOverlay/BroadcastPanel" unique_id=534328829]
-unique_name_in_owner = true
-libraries/ = SubResource("AnimationLibrary_pydsn")
-
-[node name="BroadcastLayout" type="VBoxContainer" parent="MatchOverlay/BroadcastPanel" unique_id=370648762]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-offset_transform_enabled = true
-alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="BroadcastTitle" type="Label" parent="MatchOverlay/BroadcastPanel/BroadcastLayout" unique_id=1394360661]
-unique_name_in_owner = true
-layout_mode = 2
-text = "We are charlie kirk"
-label_settings = SubResource("LabelSettings_8j08v")
-horizontal_alignment = 1
-
-[node name="BroadcastSubtitle" type="Label" parent="MatchOverlay/BroadcastPanel/BroadcastLayout" unique_id=656508202]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-text = "222"
 
 [node name="CardsLayer" type="CanvasLayer" parent="." unique_id=487420485]
 
@@ -1113,7 +1090,7 @@ theme_override_constants/separation = 6
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_sgjwb")
+theme_override_styles/panel = SubResource("StyleBoxFlat_5jq8a")
 entry = SubResource("Resource_h0fvn")
 
 [node name="LeftPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/LeftPlayer/LeftPlayerLayout" unique_id=1609797680]
@@ -1164,7 +1141,7 @@ theme_override_constants/separation = 6
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_5jq8a")
+theme_override_styles/panel = SubResource("StyleBoxFlat_pkmiy")
 entry = SubResource("Resource_h0fvn")
 
 [node name="TopPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/TopPlayer/TopPlayerFrame/TopPlayerLayout" unique_id=1196626928]
@@ -1209,7 +1186,7 @@ theme_override_constants/separation = 6
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_pkmiy")
+theme_override_styles/panel = SubResource("StyleBoxFlat_rjw3f")
 entry = SubResource("Resource_h0fvn")
 
 [node name="RightPlayerCountdown" type="Panel" parent="CardsLayer/PlayersOverlayRoot/HBoxContainer/RightPlayer/RightPlayerLayout" unique_id=161492888]

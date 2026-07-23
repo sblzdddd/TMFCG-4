@@ -54,7 +54,7 @@ func refresh_card_item(deck_path: String, card_index: int) -> void:
 
 
 func _on_add_card_requested(deck_path: String) -> void:
-	if deck_path.is_empty():
+	if deck_path.is_empty() or not DeckDataStore.can_modify(deck_path):
 		return
 	_pending_add_deck_path = deck_path
 	_add_card_dialog.popup_for_deck(deck_path)

@@ -1,6 +1,7 @@
 class_name MatchDebugPanel
 extends VBoxContainer
 ## Host-only mock controls for match order / phase / card draws.
+## Hidden by default; toggle with Ctrl+D while hosting a room.
 
 @onready var _next_btn: Button = %DebugNextPlayer
 @onready var _offset_btn: Button = %DebugOffsetPlayer
@@ -13,6 +14,9 @@ extends VBoxContainer
 @onready var _draw_left_btn: Button = %DebugDrawLeft
 @onready var _draw_top_btn: Button = %DebugDrawTop
 @onready var _draw_right_btn: Button = %DebugDrawRight
+
+## Explicit reveal; panel stays hidden until Ctrl+D.
+var _revealed := false
 
 
 func _ready() -> void:
@@ -31,7 +35,24 @@ func _ready() -> void:
 	_refresh_visibility()
 
 
-func _on_room_changed(_room: RoomData) -> void:
+func _unhandled_key_input(event: InputEvent) -> void:
+	if not event is InputEventKey or not event.pressed or event.echo:
+		return
+	var key := event as InputEventKey
+	if not key.ctrl_pressed:
+		return
+	if key.keycode != KEY_D and key.physical_keycode != KEY_D:
+		return
+	if not _can_show():
+		return
+	_revealed = not _revealed
+	_refresh_visibility()
+	get_viewport().set_input_as_handled()
+
+
+func _on_room_changed(room: RoomData) -> void:
+	if room == null:
+		_revealed = false
 	_refresh_visibility()
 
 
@@ -39,8 +60,12 @@ func _on_match_changed(_state: MatchRuntimeState) -> void:
 	_refresh_visibility()
 
 
+func _can_show() -> bool:
+	return RoomSession.is_local_host() and RoomSession.current_room != null
+
+
 func _refresh_visibility() -> void:
-	visible = RoomSession.is_local_host() and RoomSession.current_room != null
+	visible = _revealed and _can_show()
 
 
 func _ctrl() -> MatchController:
