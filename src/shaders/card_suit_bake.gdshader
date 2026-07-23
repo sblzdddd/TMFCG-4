@@ -3,7 +3,7 @@ render_mode unshaded;
 // Renders only the tinted suit / icon / JQK layer for baking transparent overlays.
 
 uniform sampler2D partsTex : hint_default_black, filter_linear_mipmap, repeat_disable;
-uniform sampler2D JQKTex : hint_default_transparent, filter_linear_mipmap, repeat_disable;
+uniform sampler2D JQKTex : source_color, hint_default_transparent, filter_linear_mipmap, repeat_disable;
 uniform int suit: hint_enum("Club", "Diamond", "Heart", "Spade") = 0;
 uniform int value: hint_enum("-", "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K") = 1;
 

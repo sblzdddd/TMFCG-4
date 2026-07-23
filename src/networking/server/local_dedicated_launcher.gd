@@ -19,7 +19,7 @@ var _port: int = NetConst.GAME_PORT
 func is_running() -> bool:
 	var record := _read_process_record()
 	var file_pid := int(record.get("pid", -1))
-	if file_pid < 0 or not OS.is_process_running(file_pid):
+	if file_pid < 0 or not PlatformUtils.is_pid_alive(file_pid):
 		return false
 	if str(record.get("fingerprint", "")) != server_fingerprint():
 		return false
@@ -36,7 +36,7 @@ func ensure_running(port: int = NetConst.GAME_PORT) -> Error:
 		return OK
 	var stale_record := _read_process_record()
 	var stale_pid := int(stale_record.get("pid", -1))
-	if stale_pid >= 0 and OS.is_process_running(stale_pid):
+	if stale_pid >= 0 and PlatformUtils.is_pid_alive(stale_pid):
 		print(
 			"LocalDedicatedLauncher: replacing stale server pid=%d fingerprint=%s"
 			% [stale_pid, str(stale_record.get("fingerprint", "legacy"))]
@@ -67,7 +67,7 @@ func refresh_if_managed(port: int = NetConst.GAME_PORT) -> Error:
 		return OK
 	var record := _read_process_record()
 	var managed_pid := int(record.get("pid", -1))
-	if managed_pid < 0 or not OS.is_process_running(managed_pid):
+	if managed_pid < 0 or not PlatformUtils.is_pid_alive(managed_pid):
 		return OK
 	if str(record.get("fingerprint", "")) == server_fingerprint():
 		_pid = managed_pid

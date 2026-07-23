@@ -1,10 +1,10 @@
 shader_type canvas_item;
 render_mode unshaded;
-uniform sampler2D cardTex : hint_default_black, filter_linear_mipmap, repeat_disable;
+uniform sampler2D cardTex : source_color, hint_default_black, filter_linear_mipmap, repeat_disable;
 uniform sampler2D cardMasks : hint_default_black, filter_linear_mipmap, repeat_disable;
 uniform sampler2D partsTex : hint_default_black, filter_linear_mipmap, repeat_disable;
-uniform sampler2D characterTex : hint_default_transparent, filter_nearest, repeat_disable;
-uniform sampler2D JQKTex : hint_default_transparent, filter_linear_mipmap, repeat_disable;
+uniform sampler2D characterTex : source_color, hint_default_transparent, filter_nearest, repeat_disable;
+uniform sampler2D JQKTex : source_color, hint_default_transparent, filter_linear_mipmap, repeat_disable;
 uniform vec3 characterTransform = vec3(0, 0, 1);
 uniform float charOutlineWidth : hint_range(0, 1.5) = 0.8;
 uniform vec4 charOutlineColor : source_color = vec4(vec3(.9),1);

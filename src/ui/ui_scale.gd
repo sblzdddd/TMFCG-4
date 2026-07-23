@@ -3,8 +3,10 @@ extends Node
 ## Smart global UI scaler.
 ## Small screens: shrink by resolution so the UI still fits.
 ## Large screens: grow by resolution so the UI scales up with the window.
-## HiDPI (desktop): physical (DPI / OS) scale is a floor so design-size windows still bump up.
-## Mobile: window size is already density-aware — skip the DPI floor to avoid double-counting.
+## HiDPI (Windows / X11): physical (DPI / OS) scale is a floor so design-size
+## windows still bump up.
+## macOS / mobile: window size is already in physical / density pixels —
+## skip the DPI floor to avoid double-counting Retina / device scale.
 
 const BASE_DPI := 96.0
 const DEFAULT_BASE_SIZE := Vector2(1152.0, 648.0)
@@ -26,7 +28,7 @@ var base_scale: float = 1.0:
 		_base_scale = next
 		if is_inside_tree():
 			apply_scale()
-## Multiplier on large-screen scale only. Small screens and mobile ignore it.
+## Multiplier on large-screen scale only. Small screens, macOS, and mobile ignore it.
 var physical_scale_multiplier: float = 1.0:
 	get:
 		return _physical_scale_multiplier
@@ -53,7 +55,8 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	# Re-evaluate when focus returns (e.g. window moved to another monitor).
-	if what == NOTIFICATION_APPLICATION_FOCUS_IN:
+	# macOS often fires this before/while nodes are detached — guard the tree.
+	if what == NOTIFICATION_APPLICATION_FOCUS_IN and is_inside_tree():
 		apply_scale()
 
 
@@ -69,16 +72,17 @@ func apply_scale() -> void:
 	var scale_res := minf(window_size.x / base.x, window_size.y / base.y)
 
 	# Small window: must shrink to fit.
-	# Mobile: fit by resolution only. Window size is already in density pixels
-	# (or CSS pixels on web); applying DPI as a floor double-counts and forces
-	# users toward ~50–60% in settings.
-	# Desktop large / design-size window: grow with resolution, with DPI as a
-	# floor so hiDPI still scales up when the window is only about design-sized.
+	# macOS / mobile: fit by resolution only. Window size is already in
+	# physical / density pixels; applying screen_get_scale / DPI as a floor
+	# double-counts (Retina ~2x) and makes 100% feel twice as large.
+	# Windows / X11 large / design-size window: grow with resolution, with DPI
+	# as a floor so hiDPI still scales up when the window is only about
+	# design-sized.
 	#   2560x1440 @ 125% DPI, base 1280x720 → max(2.0, 1.25) = 2.0
 	#   1280x720  @ 125% DPI                 → max(1.0, 1.25) = 1.25
 	#   640x360   @ 125% DPI                 → 0.5
 	var target: float
-	if scale_res < 1.0 or PlatformUtils.is_mobile():
+	if scale_res < 1.0 or _uses_physical_pixel_window_size():
 		target = scale_res
 	else:
 		var scale_phys := _get_physical_scale()
@@ -91,16 +95,24 @@ func apply_scale() -> void:
 
 
 ## Recommended settings default for "100%" on this platform.
-## Mobile keeps 1.0 — adaptive resolution scaling handles density.
+## Mobile / macOS keep 1.0 — adaptive resolution scaling handles density.
 func recommended_base_scale() -> float:
 	return 1.0
 
 
 func _root_window() -> Window:
+	if not is_inside_tree():
+		return null
 	var tree := get_tree()
 	if tree == null:
 		return null
 	return tree.root
+
+
+func _uses_physical_pixel_window_size() -> bool:
+	# Godot reports window.size in backing pixels on these platforms, so OS /
+	# DPI scale is already baked into the size used for scale_res.
+	return PlatformUtils.is_mobile() or PlatformUtils.is_macos()
 
 
 func _get_base_size() -> Vector2:
@@ -116,8 +128,8 @@ func _get_physical_scale() -> float:
 	var os_scale := DisplayServer.screen_get_scale(screen)
 	var dpi := float(DisplayServer.screen_get_dpi(screen))
 	var dpi_scale := dpi / BASE_DPI if dpi > 0.0 else 1.0
-	# screen_get_scale is authoritative on macOS / Wayland; on Windows / X11 it
-	# often returns 1.0, so take the larger of the two. Not used on mobile.
+	# screen_get_scale is often 1.0 on Windows / X11, so take the larger of the
+	# two. Not used on macOS / mobile (see _uses_physical_pixel_window_size).
 	var scale := maxf(os_scale if os_scale > 0.0 else 1.0, dpi_scale)
 	if OS.has_feature("web"):
 		scale *= WEB_PHYSICAL_MULT

@@ -1,6 +1,6 @@
 shader_type canvas_item;
 render_mode unshaded;
-uniform sampler2D cardTex : hint_default_black, filter_linear_mipmap, repeat_disable;
+uniform sampler2D cardTex : source_color, hint_default_black, filter_linear_mipmap, repeat_disable;
 
 uniform float cardRadius : hint_range(0.0, 0.2) = 0.08;
 
