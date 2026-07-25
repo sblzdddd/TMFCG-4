@@ -62,7 +62,7 @@ func reorder_to(ordered_ids: Array[String]) -> void:
 		return
 	_ids = next
 	_sync_child_order()
-	_layout(true)
+	_apply_positions(true)
 
 
 func capture_pose(instance_id: String) -> Dictionary:
@@ -98,7 +98,7 @@ func remove_card(instance_id: String, to_nowhere: bool = false, delay: float = 0
 	# Bulk discards (round-end GY flush) must not serialize long fades.
 	if to_nowhere:
 		_fade_free(view, CardAnim.fade_out_duration())
-		_layout(true)
+		_apply_positions(true)
 		return pose
 	if delay > 0.0:
 		await get_tree().create_timer(delay).timeout
@@ -107,7 +107,7 @@ func remove_card(instance_id: String, to_nowhere: bool = false, delay: float = 0
 	if view.get_parent() != null:
 		view.get_parent().remove_child(view)
 	view.queue_free()
-	_layout(true)
+	_apply_positions(true)
 	return pose
 
 
@@ -184,7 +184,7 @@ func _insert(id: String, view: Control, from_pose: Dictionary, delay: float, at_
 	_start_enter(id, view, from_pose, delay, will_fly)
 	# Shift settled siblings when inserting into the middle of a hand.
 	if will_fly and at_index >= 0 and at_index < _ids.size() - 1:
-		_layout(false)
+		_apply_positions(false)
 
 
 func _start_enter(
@@ -196,7 +196,7 @@ func _start_enter(
 		CardPose.apply_start(view, from_pose)
 		view.modulate.a = 1.0
 	else:
-		_layout(true)
+		_apply_positions(true)
 	if delay > 0.0:
 		await get_tree().create_timer(delay).timeout
 	else:
@@ -211,14 +211,13 @@ func _animate_in(id: String, view: Control, from_pose: Dictionary) -> void:
 		_flying.erase(id)
 		view.modulate.a = 1.0
 		view.position = _slot_pos(id)
-		_layout(true)
+		_apply_positions(true)
 		return
 	_flying[id] = true
 	CardPose.apply_start(view, from_pose)
 	view.modulate.a = 1.0
 	await get_tree().process_frame
-	if not is_instance_valid(view) or not _views.has(id):
-		return
+	if not is_instance_valid(view) or not _views.has(id): return
 	var local := _slot_pos(id)
 	# Dest size for settled origin; start still uses captured source size from apply_start.
 	var saved := view.size
@@ -234,17 +233,13 @@ func _animate_in(id: String, view: Control, from_pose: Dictionary) -> void:
 		# Re-resolve slot after sibling inserts/reorders during the flight.
 		CardPose.settle(view, self, _slot_pos(id), slot_size)
 		_sync_child_order()
-		_layout(false)
+		_apply_positions(false)
 
 
 func _targets() -> Array[Vector2]:
 	return CardArranger.targets(
 		Rect2(Vector2.ZERO, size), _ids.size(), gap_step(), horizontal, slot_size
 	)
-
-
-func _layout(animate: bool) -> void:
-	_apply_positions(animate)
 
 
 func _apply_positions(animate: bool) -> void:

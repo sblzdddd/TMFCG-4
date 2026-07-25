@@ -588,7 +588,7 @@ label_settings = SubResource("LabelSettings_albar")
 
 [node name="Label2" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/MainTitle" unique_id=1918793008]
 layout_mode = 2
-text = "扎"
+text = "札"
 label_settings = SubResource("LabelSettings_albar")
 
 [node name="Label3" type="Label" parent="MainContainer/TitleRect/HBoxContainer3/MainTitle" unique_id=497809228]

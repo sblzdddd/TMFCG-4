@@ -18,14 +18,18 @@ const SCALE_OPTIONS: Array[Dictionary] = [
 ]
 
 @export var _scale_option: OptionButton
+@export var _resolution_option: OptionButton
+@export var _display_options: OptionButton
 
 var _loading := false
 
 
 func _ready() -> void:
-	if _scale_option:
-		_populate_scale_options()
-		_scale_option.item_selected.connect(_on_scale_selected)
+	_populate_scale_options()
+	_scale_option.item_selected.connect(_on_scale_selected)
+	_display_options.item_selected.connect(_on_display_selected)
+	_resolution_option.item_selected.connect(_on_resolution_selected)
+	
 	SettingsDataStore.data_changed.connect(_on_store_changed)
 	_apply_data(SettingsDataStore.data)
 
@@ -41,6 +45,12 @@ func _on_scale_selected(index: int) -> void:
 	if _loading or index < 0 or index >= SCALE_OPTIONS.size():
 		return
 	SettingsDataStore.set_ui_base_scale(float(SCALE_OPTIONS[index]["value"]))
+
+func _on_display_selected():
+	pass
+
+func _on_resolution_selected():
+	pass
 
 
 func _on_store_changed(data: SettingsData) -> void:

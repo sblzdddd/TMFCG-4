@@ -1,5 +1,5 @@
-join 豪德寺三花 left [animation="Bounce In"]
-豪德寺三花 (微笑): Hello #id:11
+join 蓬莱山辉夜 left [animation="Bounce In" wait="true"]
+蓬莱山辉夜 (嘲笑): 我要操你 #id:11
 Test #id:12
 Test test test #id:13
 - Choice 1 #id:14
