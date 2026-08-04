@@ -1,5 +1,5 @@
 extends Button
-## Resets persisted app settings (server + display scale) to defaults.
+## Resets persisted app settings (server + display) to defaults.
 
 
 func _ready() -> void:

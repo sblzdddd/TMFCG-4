@@ -2,11 +2,11 @@ class_name CardDrawPreviewController
 extends PanelContainer
 ## Local draw: staggered deck→preview fly+flip, then auto-dismiss into hand.
 ## Empty soft-fills still show this overlay (no-draw message + countdown).
-## Hold duration matches [constant MatchController.DRAW_PREVIEW_SEC].
+## Click anywhere to skip; hold duration matches [constant MatchController.DRAW_PREVIEW_SEC].
 
 const TITLE_DRAW := "抽卡结果"
 const TITLE_EMPTY := "上轮出牌结束，本轮未抽牌"
-const HINT_FMT := "%d秒后自动继续"
+const HINT_FMT := "%d秒后自动继续（点击跳过）"
 const PREVIEW_SIZE := Vector2(1100, 320)
 
 @onready var _preview_array: CardArray = %CardsPreview
@@ -16,6 +16,7 @@ const PREVIEW_SIZE := Vector2(1100, 320)
 
 var _pending_ids: Array[String] = []
 var _dismissing := false
+var _skipped := false
 var _preview_gen := 0
 var _hint_secs := -1
 var _empty_draw := false
@@ -24,14 +25,27 @@ var _empty_draw := false
 func _ready() -> void:
 	visible = false
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	# Let clicks fall through to this overlay (containers default to STOP).
+	var layout := get_node_or_null("CardsPreviewLayout") as Control
+	if layout != null:
+		layout.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_preview_array.horizontal = true
 	RoomSession.cards_drawn.connect(_on_cards_drawn)
+
+
+func _gui_input(event: InputEvent) -> void:
+	if not visible or _dismissing or _skipped:
+		return
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		_request_skip()
+		accept_event()
 
 
 func _on_cards_drawn(card_ids: Array[String]) -> void:
 	_preview_gen += 1
 	var gen := _preview_gen
 	_dismissing = false
+	_skipped = false
 	_pending_ids = card_ids.duplicate()
 	_empty_draw = card_ids.is_empty()
 	# Clock starts with cards_drawn — same moment the host begins DRAW_PREVIEW_SEC.
@@ -50,7 +64,7 @@ func _on_cards_drawn(card_ids: Array[String]) -> void:
 
 func _show_preview(gen: int, started_msec: int) -> void:
 	modulate.a = 1.0
-	mouse_filter = Control.MOUSE_FILTER_IGNORE
+	mouse_filter = Control.MOUSE_FILTER_STOP
 	visible = true
 	for id in _preview_array.get_ordered_ids():
 		await _preview_array.remove_card(id, true, 0.0)
@@ -88,8 +102,18 @@ func _show_preview(gen: int, started_msec: int) -> void:
 	await _dismiss()
 
 
+func _request_skip() -> void:
+	if _skipped or _dismissing or not visible:
+		return
+	_skipped = true
+	if RoomSession.match_card_controller != null:
+		RoomSession.match_card_controller.send_draw_preview_skip()
+
+
 func _await_countdown(gen: int, started_msec: int) -> void:
 	while gen == _preview_gen:
+		if _skipped:
+			return
 		var remain := _refresh_hint(started_msec)
 		if remain <= 0.0:
 			return
@@ -122,6 +146,8 @@ func _wait_for_pending_cards(gen: int, started_msec: int, timeout_sec: float = 2
 		return
 	var deadline_msec := Time.get_ticks_msec() + int(timeout_sec * 1000.0)
 	while Time.get_ticks_msec() < deadline_msec and gen == _preview_gen:
+		if _skipped:
+			return
 		_refresh_hint(started_msec)
 		await get_tree().process_frame
 		if _pending_cards().size() >= _pending_ids.size():
@@ -183,6 +209,7 @@ func _dismiss() -> void:
 	modulate.a = 1.0
 	_hint_secs = -1
 	_empty_draw = false
+	_skipped = false
 	_preview_array.visible = true
 	_preview_array.custom_minimum_size = PREVIEW_SIZE
 	_dismissing = false

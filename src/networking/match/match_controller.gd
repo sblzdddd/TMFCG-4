@@ -6,7 +6,7 @@ signal start_countdown_tick(seconds: int)
 
 const TURN_GAP_SEC := 1.0
 ## Hold after soft-fill so local draw previews can finish before the lead acts.
-## Keep in sync with [member CardDrawPreviewController.AUTO_DISMISS_SEC].
+## Early-exits when every player skips via [method MatchCardController.all_draw_previews_skipped].
 const DRAW_PREVIEW_SEC := 5.0
 ## Default / fallback turn length when room settings are unavailable.
 const DEFAULT_TURN_COUNTDOWN_SEC := 15.0
@@ -288,12 +288,30 @@ func end_round() -> void:
 		cards.draw_for_all_soft()
 		deck_empty = cards.deck_size() <= 0
 	_broadcast()
-	await get_tree().create_timer(DRAW_PREVIEW_SEC).timeout
+	await _await_draw_preview(token, cards)
 	if token != _gap_token or not _is_host() or _session.current_room == null:
 		return
 	if state.phase != MatchPhase.Phase.ROUND_RESOLUTION:
 		return
+	if cards != null:
+		cards.end_draw_preview_window()
 	_resume_after_round(cards, lead_uid, deck_empty)
+
+
+## Wait DRAW_PREVIEW_SEC, or until every seat skips the draw preview.
+func _await_draw_preview(token: int, cards: MatchCardController) -> void:
+	var started_msec := Time.get_ticks_msec()
+	while true:
+		if token != _gap_token or not _is_host() or _session.current_room == null:
+			return
+		if state.phase != MatchPhase.Phase.ROUND_RESOLUTION:
+			return
+		if cards != null and cards.all_draw_previews_skipped():
+			return
+		var elapsed := (Time.get_ticks_msec() - started_msec) / 1000.0
+		if elapsed >= DRAW_PREVIEW_SEC:
+			return
+		await get_tree().process_frame
 
 
 func _resume_after_round(

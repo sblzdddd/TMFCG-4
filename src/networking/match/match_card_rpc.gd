@@ -6,6 +6,7 @@ signal card_snapshot_received(snapshot: Dictionary)
 signal cards_drawn_received(card_ids: Array)
 signal play_requested(peer_id: int, card_ids: Array)
 signal pass_requested(peer_id: int)
+signal draw_preview_skip_requested(peer_id: int)
 
 
 @rpc("authority", "reliable", "call_remote")
@@ -30,6 +31,13 @@ func request_pass() -> void:
 	if not multiplayer.is_server():
 		return
 	pass_requested.emit(multiplayer.get_remote_sender_id())
+
+
+@rpc("any_peer", "reliable")
+func request_draw_preview_skip() -> void:
+	if not multiplayer.is_server():
+		return
+	draw_preview_skip_requested.emit(multiplayer.get_remote_sender_id())
 
 
 func send_snapshot_to(peer_id: int, snapshot: Dictionary) -> void:
@@ -84,6 +92,15 @@ func send_pass() -> void:
 		pass_requested.emit(multiplayer.get_unique_id())
 	else:
 		request_pass.rpc_id(1)
+
+
+func send_draw_preview_skip() -> void:
+	if not multiplayer.has_multiplayer_peer():
+		return
+	if multiplayer.is_server():
+		draw_preview_skip_requested.emit(multiplayer.get_unique_id())
+	else:
+		request_draw_preview_skip.rpc_id(1)
 
 
 func _peer_connected(peer_id: int) -> bool:

@@ -394,13 +394,14 @@ text = "图像"
 label_settings = ExtResource("1_2mlqi")
 horizontal_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="." unique_id=1397291138 node_paths=PackedStringArray("_scale_option", "_resolution_option", "_display_options")]
+[node name="GridContainer" type="GridContainer" parent="." unique_id=1397291138 node_paths=PackedStringArray("_scale_option", "_resolution_option", "_display_options", "_fps_edit")]
 layout_mode = 2
 columns = 2
 script = ExtResource("7_display")
 _scale_option = NodePath("ScaleOption")
 _resolution_option = NodePath("ResolutionOption")
 _display_options = NodePath("DispplayOption")
+_fps_edit = NodePath("ValueEdit")
 
 [node name="Label" type="Label" parent="GridContainer" unique_id=448819100]
 custom_minimum_size = Vector2(84, 0)

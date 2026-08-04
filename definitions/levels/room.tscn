@@ -352,9 +352,21 @@ tracks/15/keys = {
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath(".:self_modulate:a")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
 
 [sub_resource type="Animation" id="Animation_airkh"]
 resource_name = "skill_play_in"
+length = 1.3
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -362,9 +374,9 @@ tracks/0/path = NodePath("SkillLayout/PortraitRoot:offset_transform_position_rat
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(0.9, 0, 0, 0, -0.4375738, 0.19, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.33333334)
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(0.9, 0, 0, 0, -0.4375738, 0.19, -0.25, 0, 0.25, 0, 0.19, -0.25, 0, 0.25, 0, 0.9, 0, 0, 0, -0.4375738),
+"times": PackedFloat32Array(0, 0.33333334, 1, 1.3)
 }
 tracks/1/type = "bezier"
 tracks/1/imported = false
@@ -373,9 +385,9 @@ tracks/1/path = NodePath("SkillLayout/PortraitRoot:modulate:a")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"handle_modes": PackedInt32Array(2, 0),
-"points": PackedFloat32Array(0, 0, 0, 0, 0.5805153, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.33333334)
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0, 0.5805153, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, 0, 0, 0, 0.5805153),
+"times": PackedFloat32Array(0, 0.33333334, 1, 1.3)
 }
 tracks/2/type = "bezier"
 tracks/2/imported = false
@@ -386,7 +398,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.23333333, -0.0005090127, 0.5, 0, -0.2, 0, -0.421975, 0, -0.06666666, 0, 0, 0),
-"times": PackedFloat32Array(0, 0.23333333, 0.5333333)
+"times": PackedFloat32Array(0, 0.23333333, 0.7)
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
@@ -397,7 +409,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.23333333, -0.0005090127, 0.5, 0, -0.2, 0, -0.421975, 0, -0.06666666, 0, 0, 0),
-"times": PackedFloat32Array(0.099999994, 0.33333334, 0.6333333)
+"times": PackedFloat32Array(0.099999994, 0.33333334, 0.8)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -408,7 +420,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, 0, 1.3, 0, 1.3, 4, -0.2, 0, 0, 0),
-"times": PackedFloat32Array(0.23333333, 0.53333336)
+"times": PackedFloat32Array(0.23333333, 0.70000005)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -418,8 +430,8 @@ tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(1, 0, 0, 0, 1.3, 4, -0.2, 0, 0, 0),
-"times": PackedFloat32Array(0.23333333, 0.53333336)
+"points": PackedFloat32Array(1, 0, 0, 0, 1.1, 4, -0.2, 0, 0, 0),
+"times": PackedFloat32Array(0.23333333, 0.70000005)
 }
 tracks/6/type = "bezier"
 tracks/6/imported = false
@@ -439,9 +451,9 @@ tracks/7/path = NodePath("SkillLayout/SkillLabel:modulate:a")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.2, 0.37142584, 1, -0.083333336, -0.16666667, 0, 0),
-"times": PackedFloat32Array(0, 0.33333337)
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.2, 0.37142584, 1, -0.083333336, -0.16666667, 0, 0, 1, -0.083333336, -0.16666667, 0, 0, 0, -0.083333336, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0, 0.33333337, 1, 1.3)
 }
 tracks/8/type = "bezier"
 tracks/8/imported = false
@@ -485,7 +497,7 @@ tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, 0, 1.3, 0, 1.3, 4, -0.2, 0, 0, 0),
-"times": PackedFloat32Array(0.099999994, 0.33333334, 0.6333333)
+"times": PackedFloat32Array(0.099999994, 0.33333334, 0.8)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
@@ -495,8 +507,19 @@ tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 1.3, 4, -0.2, 0, 0, 0),
-"times": PackedFloat32Array(0.099999994, 0.33333334, 0.6333333)
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, 0, 0, 0, 1.1, 4, -0.2, 0, 0, 0),
+"times": PackedFloat32Array(0.099999994, 0.33333334, 0.8)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath(".:self_modulate:a")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.03333334, 0.16666667, 1, -0.03333334, 0, 0, 0, 1, -0.03333334, 0, 0, 0, 0, 0, 0, 0, 0.19042477),
+"times": PackedFloat32Array(0, 0.20000002, 1, 1.3)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a4hsv"]
@@ -852,6 +875,7 @@ modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 custom_minimum_size = Vector2(477.55, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(0, 0.19)
 offset_transform_scale = Vector2(1.265, 1.265)
@@ -860,17 +884,11 @@ offset_transform_scale = Vector2(1.265, 1.265)
 texture_filter = 1
 custom_minimum_size = Vector2(628.43, 0)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -314.215
-offset_top = -736.0
-offset_right = 314.21497
-offset_bottom = 146.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 offset_transform_position_ratio = Vector2(0, 0.19)
@@ -883,51 +901,41 @@ modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 custom_minimum_size = Vector2(628.43, 0)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -314.215
-offset_top = -736.0
-offset_right = 314.21497
-offset_bottom = 146.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 offset_transform_enabled = true
 offset_transform_scale = Vector2(1.265, 1.265)
 texture = ExtResource("3_airkh")
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="Eff3" type="TextureRect" parent="TopLayer/SkillPlayAnimationPanel/SkillLayout/PortraitRoot" unique_id=648100036]
 modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 custom_minimum_size = Vector2(628.43, 0)
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -314.215
-offset_top = -736.0
-offset_right = 314.21497
-offset_bottom = 146.0
 grow_horizontal = 2
-grow_vertical = 0
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 offset_transform_enabled = true
 texture = ExtResource("3_airkh")
 stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="SkillLabel" type="Label" parent="TopLayer/SkillPlayAnimationPanel/SkillLayout" unique_id=714372800]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 1.78
+size_flags_stretch_ratio = 1.5
 offset_transform_enabled = true
 offset_transform_rotation = -0.10471976
 text = "花符「幻想乡的开花」"
@@ -1892,14 +1900,13 @@ text = "不要"
 
 [node name="BottomPlayerCountdown" type="Panel" parent="CardsLayer/BottomPlayRoot/BottomPlayWidgets" unique_id=358758661]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(500, 4)
 custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 offset_transform_enabled = true
-offset_transform_scale = Vector2(1.235, 1)
+offset_transform_scale = Vector2(0, 1)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_okixj")
 

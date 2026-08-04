@@ -9,6 +9,9 @@ var _rpc: MatchCardRpc
 var state: GameState = null
 ## Active uid whose temp GY was already flushed this turn (avoid re-flush).
 var _flushed_turn_uid := ""
+## Soft-fill draw preview window: uids that clicked skip (host-only).
+var _draw_preview_active := false
+var _draw_preview_skips: Dictionary = {}
 
 
 func setup(session: Node, shared_rpc: MatchCardRpc = null, connect_receive: bool = true) -> void:
@@ -28,6 +31,8 @@ func setup(session: Node, shared_rpc: MatchCardRpc = null, connect_receive: bool
 			_rpc.play_requested.connect(handle_play_request)
 		if not _rpc.pass_requested.is_connected(handle_pass_request):
 			_rpc.pass_requested.connect(handle_pass_request)
+		if not _rpc.draw_preview_skip_requested.is_connected(handle_draw_preview_skip_request):
+			_rpc.draw_preview_skip_requested.connect(handle_draw_preview_skip_request)
 	if not session.room_changed.is_connected(_on_room_changed):
 		session.room_changed.connect(_on_room_changed)
 
@@ -57,6 +62,56 @@ func send_play_request(card_ids: Array) -> void:
 func send_pass_request() -> void:
 	if _rpc != null:
 		_rpc.send_pass()
+
+
+func send_draw_preview_skip() -> void:
+	if _rpc != null:
+		_rpc.send_draw_preview_skip()
+
+
+func handle_draw_preview_skip_request(peer_id: int) -> void:
+	if not _is_host():
+		return
+	handle_draw_preview_skip_for_uid(_uid_for_peer(peer_id))
+
+
+## Host: mark [param uid] as done with the soft-fill draw preview.
+func handle_draw_preview_skip_for_uid(uid: String) -> void:
+	if not _is_host() or not _draw_preview_active or uid.is_empty():
+		return
+	_draw_preview_skips[uid] = true
+
+
+## Host: open the unanimous-skip window for the current soft-fill preview.
+func begin_draw_preview_window() -> void:
+	if not _is_host():
+		return
+	_draw_preview_active = true
+	_draw_preview_skips.clear()
+
+
+## Host: close the skip window (timer elapsed or everyone skipped).
+func end_draw_preview_window() -> void:
+	_draw_preview_active = false
+	_draw_preview_skips.clear()
+
+
+## Host: true when every current room member has skipped the draw preview.
+func all_draw_previews_skipped() -> bool:
+	if not _draw_preview_active or _session == null or _session.current_room == null:
+		return false
+	var room := _session.current_room as RoomData
+	if room == null:
+		return false
+	var members: Array[RoomMember] = room.get_members()
+	if members.is_empty():
+		return false
+	for member in members:
+		if member == null or member.uid.is_empty():
+			continue
+		if not _draw_preview_skips.get(member.uid, false):
+			return false
+	return true
 
 
 func handle_play_request(peer_id: int, card_ids: Array) -> void:
@@ -242,6 +297,7 @@ func deck_size() -> int:
 func clear() -> void:
 	state = null
 	_flushed_turn_uid = ""
+	end_draw_preview_window()
 	_emit_changed()
 
 
@@ -337,6 +393,7 @@ func draw_for_all_soft(target: int = SoftDraw.TARGET) -> bool:
 	var drawn_by_uid := SoftDraw.apply(state, order, target)
 	if not drawn_by_uid.is_empty():
 		_broadcast()
+	begin_draw_preview_window()
 	_notify_round_draws(drawn_by_uid)
 	return true
 

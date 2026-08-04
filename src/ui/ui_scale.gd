@@ -28,6 +28,7 @@ var base_scale: float = 1.0:
 		_base_scale = next
 		if is_inside_tree():
 			apply_scale()
+
 ## Multiplier on large-screen scale only. Small screens, macOS, and mobile ignore it.
 var physical_scale_multiplier: float = 1.0:
 	get:
@@ -45,8 +46,7 @@ var _physical_scale_multiplier: float = 1.0
 
 func _ready() -> void:
 	var window := _root_window()
-	if window == null:
-		return
+	if window == null: return
 	window.content_scale_mode = Window.CONTENT_SCALE_MODE_DISABLED
 	window.size_changed.connect(apply_scale)
 	# Window size can still be unsettled on the first frame (esp. Windows).

@@ -10,9 +10,9 @@ var data: PlayerData
 
 
 func _ready() -> void:
-	for argument in OS.get_cmdline_args():
-		if argument.begins_with("--instance-id="):
-			_save_path = "user://tmfcg/player_data_%s.tres" % argument.split("=")[1]
+	var instance_id := InstanceWindowLayout.parse_instance_id()
+	if instance_id > 0:
+		_save_path = "user://tmfcg/player_data_%d.tres" % instance_id
 	load_or_create()
 
 
