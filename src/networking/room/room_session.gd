@@ -147,11 +147,6 @@ func persist_last_room(address: String, port: int) -> void:
 		PlayerDataStore.set_last_room(current_room.code, address, port)
 
 
-func ensure_room_scene() -> void:
-	if RoomUtils.scene_path(get_tree()) != NetConst.ROOM_SCENE:
-		LevelLoader.load_level(NetConst.ROOM_SCENE)
-
-
 func teardown_local(go_title: bool) -> void:
 	## Full disconnect (rare); prefer teardown_room_keep_connection for online leave.
 	var had_session := current_room != null or ConnectionManager.is_connected_peer()
@@ -169,8 +164,8 @@ func teardown_local(go_title: bool) -> void:
 	PlayerDataStore.clear_last_room()
 	room_changed.emit(null)
 	_leaving_voluntarily = false
-	if go_title and had_session and RoomUtils.scene_path(get_tree()) != NetConst.TITLE_SCENE:
-		LevelLoader.load_level(NetConst.TITLE_SCENE)
+	if go_title and had_session:
+		LevelLoader.ensure_level(LevelLoader.TITLE_SCENE)
 
 
 func teardown_room_keep_connection(go_title: bool) -> void:
@@ -188,8 +183,8 @@ func teardown_room_keep_connection(go_title: bool) -> void:
 	PlayerDataStore.clear_last_room()
 	room_changed.emit(null)
 	_leaving_voluntarily = false
-	if go_title and had_room and RoomUtils.scene_path(get_tree()) != NetConst.TITLE_SCENE:
-		LevelLoader.load_level(NetConst.TITLE_SCENE)
+	if go_title and had_room:
+		LevelLoader.ensure_level(LevelLoader.TITLE_SCENE)
 
 
 func is_local_host() -> bool:

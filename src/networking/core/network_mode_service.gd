@@ -6,10 +6,6 @@ extends Node
 signal mode_applied(online: bool)
 signal central_connection_failed(reason: String)
 
-const LOCAL_ADDR := "127.0.0.1"
-const LOCAL_JOIN_ATTEMPTS := 20
-const LOCAL_JOIN_RETRY_SEC := 0.5
-
 var _connecting_central := false
 var _central_connected := false
 var _using_local_server := false
@@ -98,14 +94,14 @@ func start_local_server() -> void:
 	var data: SettingsData = SettingsDataStore.data
 	_local_port = NetConst.GAME_PORT if data == null else data.server_port
 	if data != null:
-		SettingsDataStore.set_server_address(LOCAL_ADDR)
+		SettingsDataStore.set_server_address(NetConst.LOCAL_ADDR)
 
 	var err := _launcher.ensure_running(_local_port)
 	if err != OK:
 		_fail_completely("无法启动本地服务器: %s" % error_string(err))
 		return
 	Toast.push("正在启动本地服务器…")
-	_local_attempts_left = LOCAL_JOIN_ATTEMPTS
+	_local_attempts_left = NetConst.LOCAL_JOIN_ATTEMPTS
 	_try_join_local()
 
 
@@ -145,7 +141,7 @@ func _try_join_local() -> void:
 		return
 	_local_attempts_left -= 1
 	_connecting_central = true
-	var err := ConnectionManager.join(LOCAL_ADDR, _local_port)
+	var err := ConnectionManager.join(NetConst.LOCAL_ADDR, _local_port)
 	if err != OK:
 		_connecting_central = false
 		_schedule_local_retry()
@@ -156,7 +152,7 @@ func _schedule_local_retry() -> void:
 	if tree == null:
 		_fail_completely("无法连接本地服务器")
 		return
-	tree.create_timer(LOCAL_JOIN_RETRY_SEC).timeout.connect(
+	tree.create_timer(NetConst.LOCAL_JOIN_RETRY_SEC).timeout.connect(
 		_try_join_local, CONNECT_ONE_SHOT
 	)
 

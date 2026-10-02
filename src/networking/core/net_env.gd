@@ -1,5 +1,5 @@
 class_name NetEnv
-extends Object
+extends RefCounted
 ## Process-role helpers (dedicated vs client).
 
 

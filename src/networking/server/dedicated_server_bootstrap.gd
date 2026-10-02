@@ -33,8 +33,8 @@ func is_running() -> bool:
 
 
 func _enter_server_scene() -> void:
-	if ResourceLoader.exists("res://definitions/levels/dedicated_server.tscn"):
-		LevelLoader.load_level("res://definitions/levels/dedicated_server.tscn")
+	if ResourceLoader.exists(LevelLoader.DEDICATED_SERVER_SCENE):
+		LevelLoader.load_level(LevelLoader.DEDICATED_SERVER_SCENE)
 
 
 func _resolve_port() -> int:

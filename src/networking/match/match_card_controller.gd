@@ -23,39 +23,16 @@ func setup(session: Node, shared_rpc: MatchCardRpc = null, connect_receive: bool
 		_rpc.name = "MatchCardRpc"
 		add_child(_rpc)
 	if connect_receive:
-		if not _rpc.card_snapshot_received.is_connected(_on_card_snapshot):
-			_rpc.card_snapshot_received.connect(_on_card_snapshot)
-		if not _rpc.cards_drawn_received.is_connected(_on_cards_drawn_rpc):
-			_rpc.cards_drawn_received.connect(_on_cards_drawn_rpc)
-		if not _rpc.play_requested.is_connected(handle_play_request):
-			_rpc.play_requested.connect(handle_play_request)
-		if not _rpc.pass_requested.is_connected(handle_pass_request):
-			_rpc.pass_requested.connect(handle_pass_request)
-		if not _rpc.draw_preview_skip_requested.is_connected(handle_draw_preview_skip_request):
-			_rpc.draw_preview_skip_requested.connect(handle_draw_preview_skip_request)
-	if not session.room_changed.is_connected(_on_room_changed):
-		session.room_changed.connect(_on_room_changed)
+		EventUtils.safe_connect(_rpc.card_snapshot_received, _on_card_snapshot)
+		EventUtils.safe_connect(_rpc.cards_drawn_received, _on_cards_drawn_rpc)
+		EventUtils.safe_connect(_rpc.play_requested, handle_play_request)
+		EventUtils.safe_connect(_rpc.pass_requested, handle_pass_request)
+		EventUtils.safe_connect(_rpc.draw_preview_skip_requested, handle_draw_preview_skip_request)
+	EventUtils.safe_connect(session.room_changed, _on_room_changed)
 
 
 func send_play_request(card_ids: Array) -> void:
-	var uid := (
-		PlayerDataStore.data.uid
-		if PlayerDataStore.data != null
-		else ""
-	)
-	_trace_play(
-		"client.request",
-		"uid=%s peer=%d ids=%s cards=%s %s" % [
-			uid,
-			multiplayer.get_unique_id(),
-			JSON.stringify(card_ids),
-			_describe_card_ids(card_ids),
-			_match_context(),
-		],
-	)
-	if _rpc == null:
-		_trace_play("client.send_failed", "reason=rpc_missing ids=%s" % JSON.stringify(card_ids))
-		return
+	if _rpc == null: return
 	_rpc.send_play(card_ids)
 
 
@@ -70,21 +47,21 @@ func send_draw_preview_skip() -> void:
 
 
 func handle_draw_preview_skip_request(peer_id: int) -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	handle_draw_preview_skip_for_uid(_uid_for_peer(peer_id))
 
 
 ## Host: mark [param uid] as done with the soft-fill draw preview.
 func handle_draw_preview_skip_for_uid(uid: String) -> void:
-	if not _is_host() or not _draw_preview_active or uid.is_empty():
+	if not ConnectionManager.is_server() or not _draw_preview_active or uid.is_empty():
 		return
 	_draw_preview_skips[uid] = true
 
 
 ## Host: open the unanimous-skip window for the current soft-fill preview.
 func begin_draw_preview_window() -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	_draw_preview_active = true
 	_draw_preview_skips.clear()
@@ -115,53 +92,20 @@ func all_draw_previews_skipped() -> bool:
 
 
 func handle_play_request(peer_id: int, card_ids: Array) -> void:
-	if not _is_host():
-		_trace_play(
-			"server.reject",
-			"reason=not_authority peer=%d ids=%s" % [peer_id, JSON.stringify(card_ids)],
-		)
-		return
+	if not ConnectionManager.is_server(): return
 	var uid := _uid_for_peer(peer_id)
-	_trace_play(
-		"server.received",
-		"peer=%d uid=%s ids=%s %s" % [
-			peer_id, uid, JSON.stringify(card_ids), _match_context(),
-		],
-	)
-	handle_play_for_uid(uid, card_ids, "peer=%d" % peer_id)
+	handle_play_for_uid(uid, card_ids)
 
 
 ## Host-side play (player request or turn-timeout auto-lead).
-func handle_play_for_uid(uid: String, card_ids: Array, source: String = "internal") -> void:
-	if not _is_host():
-		_trace_play("server.reject", "reason=not_authority source=%s uid=%s" % [source, uid])
-		return
+func handle_play_for_uid(uid: String, card_ids: Array) -> void:
+	if not ConnectionManager.is_server(): return
 	var match_state := _match_state()
-	if uid.is_empty():
-		_trace_play(
-			"server.reject",
-			"reason=unresolved_uid source=%s ids=%s %s" % [
-				source, JSON.stringify(card_ids), _match_context(),
-			],
-		)
-		return
-	if not _is_active_turn(uid, match_state):
-		_trace_play(
-			"server.reject",
-			"reason=inactive_turn source=%s uid=%s ids=%s %s" % [
-				source, uid, JSON.stringify(card_ids), _match_context(),
-			],
-		)
-		return
+	if uid.is_empty() or not _is_active_turn(uid, match_state): return
 	_ensure_initialized()
-	if state == null:
-		_trace_play("server.reject", "reason=card_state_missing source=%s uid=%s" % [source, uid])
-		return
+	if state == null: return
 	var hand := state.get_player_hand(PlayerId.from_string(uid))
-	if hand == null:
-		_trace_play("server.reject", "reason=hand_missing source=%s uid=%s" % [source, uid])
-		return
-	var hand_before := _card_ids(hand.get_all_cards())
+	if hand == null: return
 	var by_id: Dictionary = {}
 	for card in hand.get_all_cards():
 		by_id[card.instance_id.value] = card
@@ -170,60 +114,23 @@ func handle_play_for_uid(uid: String, card_ids: Array, source: String = "interna
 		var id := str(raw)
 		if by_id.has(id) and not selected.has(by_id[id]):
 			selected.append(by_id[id])
-	if selected.is_empty():
-		_trace_play(
-			"server.reject",
-			"reason=no_requested_cards_in_hand source=%s uid=%s requested=%s hand=%s" % [
-				source, uid, JSON.stringify(card_ids), JSON.stringify(hand_before),
-			],
-		)
+	if selected.is_empty() or not PlayCommit.apply(state, uid, selected):
 		return
-	if not PlayCommit.apply(state, uid, selected):
-		var validation := PlayValidator.evaluate(selected, state.current_trick_combo)
-		_trace_play(
-			"server.reject",
-			"reason=play_commit_failed source=%s uid=%s requested=%s selected=%s combo=%s current_combo=%s validator_ok=%s" % [
-				source,
-				uid,
-				JSON.stringify(card_ids),
-				_describe_cards(selected),
-				str(validation.get("combo")),
-				str(state.current_trick_combo),
-				str(validation.get("ok", false)),
-			],
-		)
-		return
-	_trace_play(
-		"server.accept",
-		"source=%s uid=%s requested=%s cards=%s hand_before=%s hand_after=%s combo=%s" % [
-			source,
-			uid,
-			JSON.stringify(card_ids),
-			_describe_cards(selected),
-			JSON.stringify(hand_before),
-			JSON.stringify(_card_ids(hand.get_all_cards())),
-			str(state.current_trick_combo),
-		],
-	)
 	_broadcast()
-	_trace_play(
-		"server.responded",
-		"uid=%s result=accepted snapshot_broadcast=true %s" % [uid, _match_context()],
-	)
 	if _session.match_controller != null:
 		if _session.match_controller.on_play_committed(uid):
 			_session.match_controller.advance_turn(MatchController.TURN_GAP_SEC)
 
 
 func handle_pass_request(peer_id: int) -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	handle_pass_for_uid(_uid_for_peer(peer_id))
 
 
 ## Host-side pass (player request or empty-hand autoskip).
 func handle_pass_for_uid(uid: String) -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	var match_state := _match_state()
 	if uid.is_empty() or not _is_active_turn(uid, match_state):
@@ -250,7 +157,7 @@ func handle_pass_for_uid(uid: String) -> void:
 
 ## Host: client missed their turn countdown (+ grace). Pass, or auto-lead if required.
 func handle_timeout_for_uid(uid: String) -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	var match_state := _match_state()
 	if uid.is_empty() or not _is_active_turn(uid, match_state):
@@ -265,7 +172,7 @@ func handle_timeout_for_uid(uid: String) -> void:
 		var card := hand.get_card(0)
 		if card == null:
 			return
-		handle_play_for_uid(uid, [card.instance_id.value], "turn_timeout")
+		handle_play_for_uid(uid, [card.instance_id.value])
 		return
 	handle_pass_for_uid(uid)
 
@@ -307,7 +214,7 @@ func get_state() -> GameState:
 
 ## Called from MatchController when phase/active changes.
 func sync_match_runtime(active_uid: String, phase: MatchPhase.Phase) -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	if phase != MatchPhase.Phase.INITIALIZATION:
 		_ensure_initialized()
@@ -333,13 +240,13 @@ func sync_match_runtime(active_uid: String, phase: MatchPhase.Phase) -> void:
 
 
 func send_state_to(peer_id: int, uid: String) -> void:
-	if not _is_host() or state == null or _rpc == null:
+	if not ConnectionManager.is_server() or state == null or _rpc == null:
 		return
 	_rpc.send_snapshot_to(peer_id, state.to_dict_for_viewer(uid))
 
 
 func end_round() -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	_ensure_initialized()
 	if state == null:
@@ -354,7 +261,7 @@ func draw_to_player(uid: String, count: int = 1) -> Array[Card]:
 		if _session != null and _session.is_local_host() and RoomSession.match_rpc != null:
 			RoomSession.match_rpc.send_host_command("draw_to_player", {"uid": uid, "count": count})
 		return []
-	if not _is_host() or uid.is_empty() or count <= 0:
+	if not ConnectionManager.is_server() or uid.is_empty() or count <= 0:
 		return []
 	_ensure_initialized()
 	if state == null or state.deck == null:
@@ -383,7 +290,7 @@ func draw_for_all_soft(target: int = SoftDraw.TARGET) -> bool:
 		if _session != null and _session.is_local_host() and RoomSession.match_rpc != null:
 			RoomSession.match_rpc.send_host_command("draw_for_all_soft", {"target": target})
 		return false
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return false
 	_ensure_initialized()
 	if state == null or state.deck == null:
@@ -418,7 +325,7 @@ func transfer(
 	cards: Array[Card],
 	mark_hidden: bool = false,
 ) -> Array[Card]:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return []
 	_ensure_initialized()
 	if state == null:
@@ -432,7 +339,7 @@ func transfer(
 
 
 func record_play(player_uid: String, cards: Array[Card]) -> Array[Card]:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return []
 	_ensure_initialized()
 	if state == null:
@@ -445,7 +352,7 @@ func record_play(player_uid: String, cards: Array[Card]) -> Array[Card]:
 
 ## Host: wipe and rebuild deck+players from room DeckData with wild elevation.
 func rebuild_match_deck() -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	state = null
 	_flushed_turn_uid = ""
@@ -453,7 +360,7 @@ func rebuild_match_deck() -> void:
 
 
 func _ensure_initialized() -> void:
-	if not _is_host():
+	if not ConnectionManager.is_server():
 		return
 	if state != null:
 		_sync_players_with_order()
@@ -525,7 +432,7 @@ func _broadcast() -> void:
 	# consume it. Clients must preserve this order, especially for hidden hands.
 	state.sort_non_deck_holders()
 	_emit_changed()
-	if not _is_host() or _rpc == null or _session.current_room == null:
+	if not ConnectionManager.is_server() or _rpc == null or _session.current_room == null:
 		return
 	for member in _session.current_room.get_members():
 		if member.peer_id <= 0:
@@ -549,31 +456,8 @@ func _emit_changed() -> void:
 func _on_card_snapshot(snapshot: Dictionary) -> void:
 	if _session != null and _session.is_leaving_voluntarily():
 		return
-	_trace_play(
-		"client.snapshot_received",
-		"players=%d phase=%s" % [
-			(snapshot.get("players", []) as Array).size(),
-			str(snapshot.get("currentPhase", "")),
-		],
-	)
 	state = GameState.from_dict(snapshot)
 	_hydrate_card_data_from_deck(state)
-	var uid := (
-		PlayerDataStore.data.uid
-		if PlayerDataStore.data != null
-		else ""
-	)
-	var hand: CardHolder = null
-	if state != null and not uid.is_empty():
-		hand = state.get_player_hand(PlayerId.from_string(uid))
-	_trace_play(
-		"client.snapshot_applied",
-		"uid=%s hand=%s %s" % [
-			uid,
-			JSON.stringify(_card_ids(hand.get_all_cards()) if hand != null else []),
-			_match_context(),
-		],
-	)
 	_emit_changed()
 
 
@@ -628,10 +512,6 @@ func _on_room_changed(room: RoomData) -> void:
 		clear()
 
 
-func _is_host() -> bool:
-	return ConnectionManager.is_server()
-
-
 func _match_state() -> MatchRuntimeState:
 	if _session == null or _session.match_controller == null:
 		return null
@@ -657,67 +537,3 @@ func _uid_for_peer(peer_id: int) -> String:
 	if idx >= members.size():
 		return ""
 	return members[idx].uid
-
-
-func _trace_play(stage: String, details: String) -> void:
-	print(
-		"[MatchPlayTrace][%s][%.3f] %s" % [
-			stage,
-			Time.get_unix_time_from_system(),
-			details,
-		]
-	)
-
-
-func _match_context() -> String:
-	var match_state := _match_state()
-	var wild_name := (
-		str(CardEnums.Rank.find_key(state.deck.wild_rank))
-		if state != null and state.deck != null
-		else "NONE"
-	)
-	if match_state == null:
-		return "active_uid= phase=NO_MATCH_STATE wild_rank=%s" % wild_name
-	return "active_uid=%s phase=%s wild_rank=%s" % [
-		match_state.active_uid,
-		MatchPhase.Phase.find_key(match_state.phase),
-		wild_name,
-	]
-
-
-func _card_ids(cards: Array[Card]) -> Array[String]:
-	var ids: Array[String] = []
-	for card in cards:
-		if card != null and card.instance_id != null:
-			ids.append(card.instance_id.value)
-	return ids
-
-
-func _describe_card_ids(card_ids: Array) -> String:
-	var cards: Array[Card] = []
-	var unknown: Array[String] = []
-	for raw_id in card_ids:
-		var id := str(raw_id)
-		var card := state.get_card_by_instance_id(id) if state != null else null
-		if card != null:
-			cards.append(card)
-		else:
-			unknown.append(id)
-	return "%s unknown=%s" % [
-		_describe_cards(cards),
-		JSON.stringify(unknown),
-	]
-
-
-func _describe_cards(cards: Array[Card]) -> String:
-	var descriptions: Array[Dictionary] = []
-	for card in cards:
-		if card == null:
-			continue
-		descriptions.append({
-			"id": card.instance_id.value if card.instance_id != null else "",
-			"card_id": card.data.cardId if card.data != null else "",
-			"rank": CardEnums.Rank.find_key(card.rank),
-			"suit": CardEnums.Suit.find_key(card.suit),
-		})
-	return JSON.stringify(descriptions)

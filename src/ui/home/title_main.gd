@@ -45,7 +45,7 @@ func _begin_auto_reveal() -> void:
 	set_process_input(false)
 	if title_hint:
 		title_hint.modulate.a = 0.0
-	while LevelLoader.is_loading():
+	while LevelLoader.is_loading:
 		await get_tree().process_frame
 	_reveal_panels()
 

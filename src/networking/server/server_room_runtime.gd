@@ -82,10 +82,6 @@ func persist_last_room(_address: String, _port: int) -> void:
 	pass
 
 
-func ensure_room_scene() -> void:
-	pass
-
-
 func get_resolved_deck() -> DeckData:
 	return deck_sync.get_resolved_deck() if deck_sync else null
 

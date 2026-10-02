@@ -39,10 +39,7 @@ func _configure_local_server_button() -> void:
 func _is_in_room_context() -> bool:
 	if RoomSession.current_room != null:
 		return true
-	var tree := get_tree()
-	if tree == null:
-		return false
-	return RoomUtils.scene_path(tree) == NetConst.ROOM_SCENE
+	return LevelLoader.current_path() == LevelLoader.ROOM_SCENE
 
 
 func _hide_network_zone() -> void:

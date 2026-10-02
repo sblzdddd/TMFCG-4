@@ -14,6 +14,7 @@
 &"description": "origin=东方神灵庙
 description=佐渡之二岩",
 &"display_name": "二岩猯藏",
+&"extra_config": Dictionary[String, String]({}),
 &"mirror": false,
 &"nicknames": ["大狸子"],
 &"offset": Vector2(0, 0),

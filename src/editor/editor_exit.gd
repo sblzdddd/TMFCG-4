@@ -1,7 +1,5 @@
 extends Button
 
-const TITLE_SCENE := "res://definitions/levels/title.tscn"
-
 @export var _exit_confirm_dialog: ConfirmationDialog
 
 
@@ -19,4 +17,4 @@ func _on_exit_pressed() -> void:
 
 
 func _on_exit_confirmed() -> void:
-	LevelLoader.load_level(TITLE_SCENE)
+	LevelLoader.load_level(LevelLoader.TITLE_SCENE)

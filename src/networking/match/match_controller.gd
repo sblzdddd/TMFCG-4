@@ -36,10 +36,9 @@ func setup(session: Node, shared_rpc: MatchRpc = null, connect_receive: bool = t
 		_rpc = MatchRpc.new()
 		_rpc.name = "MatchRpc"
 		add_child(_rpc)
-	if connect_receive and not _rpc.match_snapshot_received.is_connected(_on_match_snapshot):
-		_rpc.match_snapshot_received.connect(_on_match_snapshot)
-	if not session.room_changed.is_connected(_on_room_changed):
-		session.room_changed.connect(_on_room_changed)
+	if connect_receive:
+		EventUtils.safe_connect(_rpc.match_snapshot_received, _on_match_snapshot)
+	EventUtils.safe_connect(session.room_changed, _on_room_changed)
 
 
 func clear() -> void:

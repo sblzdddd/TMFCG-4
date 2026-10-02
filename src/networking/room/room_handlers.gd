@@ -109,7 +109,7 @@ func on_snapshot(snapshot: Dictionary) -> void:
 			SettingsDataStore.data.server_port,
 		)
 	_session.room_changed.emit(_session.current_room)
-	_session.ensure_room_scene()
+	LevelLoader.ensure_level(LevelLoader.ROOM_SCENE)
 
 
 func apply_profile_update(payload: Dictionary) -> void:
